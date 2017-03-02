@@ -1,0 +1,33 @@
+{
+  "name": "bandwidth-shared-components",
+  "version": "1.0.0",
+  "description": "Shared Component Library for Bandwidth React Apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pristine start",
+    "build": "pristine build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inetCatapult/bandwidth-shared-components.git"
+  },
+  "author": "Grant <gaforres@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inetCatapult/bandwidth-shared-components/issues"
+  },
+  "homepage": "https://github.com/inetCatapult/bandwidth-shared-components#readme",
+  "devDependencies": {
+    "pristine-app": "^2.0.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "dependencies": {
+    "animation-timer": "^1.0.12",
+    "color": "^1.0.3",
+    "functional-easing": "^1.0.8",
+    "react-immutable-proptypes": "^2.1.0",
+    "react-router-dom": "^4.0.0-beta.6"
+  }
+}

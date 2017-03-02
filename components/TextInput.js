@@ -1,0 +1,100 @@
+import React from 'react';
+import styled from 'styled-components';
+import Label from './Label';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: ${({ theme }) => theme.textInput.margin};
+
+  &:last-child {
+    margin-right: 0;
+  }
+`;
+
+const Input = styled.input`
+  color: inherit;
+  letter-spacing: 0.02em;
+  line-height: ${({ theme }) => theme.textInput.lineHeight};
+  font-size: ${({ theme }) => theme.textInput.fontSize};
+  transition: all 0.2s ease;
+  outline: none;
+  width: 100%;
+  padding: ${({ theme }) => theme.textInput.padding};
+  display: block;
+  border: ${({ theme }) => theme.textInput.border};
+
+  &:focus {
+    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.textInput.accentValid};
+    border: ${({ theme }) => theme.textInput.focusedBorder};
+  }
+  &:focus + div {
+    opacity: 1;
+  }
+`;
+
+const InputWrapper = styled.div`
+  color: ${({ theme }) => theme.textInput.fg};
+  background: ${({ theme }) => theme.textInput.bg};
+  display: flex;
+  flex-direction: row;
+  margin: ${({ theme }) => theme.textInput.margin};
+  width: 100%;
+
+  &:disabled {
+    color: ${({ theme }) => theme.textInput.disabledFG};
+    background: ${({ theme }) => theme.textInput.disabledBG};
+    border: ${({ theme }) => theme.textInput.disabledBorder};
+  }
+`;
+
+const Units = styled.div`
+  color: ${({ theme }) => theme.textInput.fg};
+  opacity: 0.5;
+  line-height: ${({ theme }) => theme.textInput.lineHeight};
+  font-size: ${({ theme }) => theme.textInput.fontSize};
+  padding: ${({ theme }) => theme.textInput.padding};
+  padding-left: 1em;
+  margin: 0;
+  transition: all 0.2s ease;
+`;
+
+export default class TextInput extends React.Component {
+  static propTypes = {
+    input: React.PropTypes.shape({
+      value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+      onChange: React.PropTypes.func,
+    }).isRequired,
+    disabled: React.PropTypes.bool,
+    label: React.PropTypes.string,
+    id: React.PropTypes.string,
+    units: React.PropTypes.string,
+  };
+
+  static defaultProps = {
+    disabled: false,
+    label: null,
+    id: null,
+    units: null,
+  };
+
+  render() {
+    const { label, id, disabled, units } = this.props;
+    return (
+      <Container>
+        {label ? <Label>{label}</Label> : null}
+        <InputWrapper
+          disabled={disabled}
+          >
+          <Input
+            {...this.props.input}
+            disabled={disabled}
+            id={id}
+          />
+          {units ? <Units>{units}</Units> : null}
+        </InputWrapper>
+      </Container>
+    );
+  }
+}
