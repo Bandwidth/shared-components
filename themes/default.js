@@ -7,6 +7,7 @@ const colors = {
   secondary: '#1f2a44',
   grayLightText: '#c2c2c2',
   gutter: '#f7f7f7',
+  border: '#e1e1e1',
 };
 
 export default {
@@ -58,7 +59,7 @@ export default {
     disabledBG: '#e1e1e1',
     disabledFG: '#c2c2c2',
     disabledBorder: '1px solid #c2c2c2',
-    border: '1px solid #e1e1e1',
+    border: `1px solid ${colors.border}`,
     focusedBorder: '1px solid #c2c2c2',
     fontSize: '16px',
     padding: '1em 1em',
@@ -72,7 +73,7 @@ export default {
     fg: '#666',
     accent: '#00bcec',
     active: '#fff',
-    border: '1px solid #c2c2c2',
+    border: `1px solid ${colors.border}`,
     padding: '1em 1.4em',
   },
 
@@ -86,7 +87,7 @@ export default {
   sidebar: {
     bg: '#e1e1e1',
     fg: '#666',
-    border: '1px solid #c2c2c2',
+    border: `1px solid ${colors.border}`,
     margin: '0',
     padding: '0',
   },
@@ -97,7 +98,7 @@ export default {
     activeFG: '#00bcec',
     padding: '1em',
     margin: '0.25em 1em',
-    border: '1px solid #c2c2c2',
+    border: `1px solid ${colors.border}`,
   },
 
   form: {
@@ -183,14 +184,14 @@ export default {
     bg: '#fff',
     activeFG: '#008db1',
     padding: '0.5em',
-    border: '1px solid #c2c2c2',
+    border: `1px solid ${colors.border}`,
   },
 
   accordion: {
     labelFG: '#00bcec',
     labelFontSize: '1.5em',
     labelFontFamily: 'Raleway, "Open Sans", sans-serif',
-    border: '1px solid #c2c2c2',
+    border: `1px solid ${colors.border}`,
     padding: '30px',
   },
 
@@ -203,10 +204,10 @@ export default {
     selectedFG: colors.primary,
     selectedBG: colors.gutter,
     padding: '1.5em 2em',
-    border: `1px solid ${colors.grayLightText}`,
+    border: `1px solid ${colors.border}`,
   },
 
   list: {
-    border: `1px solid ${colors.grayLightText}`,
+    border: `1px solid ${colors.border}`,
   },
 };
