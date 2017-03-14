@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import childrenWithProps from '../extensions/childrenWithProps';
+import childrenWithProps from '../../extensions/childrenWithProps';
 
 export default class MultiSelectGridItem extends React.Component {
   static propTypes = {
