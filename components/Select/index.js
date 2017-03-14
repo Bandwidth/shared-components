@@ -3,6 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import styled from 'styled-components';
 import SelectItem from './SelectItem';
 import Label from '../Label';
+import Icon from '../Icon';
 
 const Container = styled.div``;
 
@@ -29,6 +30,13 @@ const Dropdown = styled.ul`
   box-shadow: 0 2px 4px ${({ theme }) => theme.shadow.color};
   background: ${({ theme }) => theme.selectItem.bg};
   z-index: 100;
+`;
+
+const Caret = styled(Icon)`
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
 `;
 
 export default class Select extends React.Component {
@@ -125,6 +133,10 @@ export default class Select extends React.Component {
     </Dropdown>);
   };
 
+  renderCaret = () => {
+    return <Caret name='expandArrow' />
+  };
+
   render() {
     const { label } = this.props;
     const { expanded } = this.state;
@@ -134,6 +146,7 @@ export default class Select extends React.Component {
         <OverlayArea>
           {this.renderSelected()}
           {this.renderOptions()}
+          {this.renderCaret()}
         </OverlayArea>
       </Container>
     );
