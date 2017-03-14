@@ -15,6 +15,7 @@ const Selected = styled.div`
   padding: ${({ theme }) => theme.selectItem.padding};
   border: ${({ theme }) => theme.selectItem.border};
   cursor: pointer;
+  background: ${({ theme }) => theme.selectItem.bg};
 `;
 
 const Dropdown = styled.ul`
