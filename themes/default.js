@@ -8,6 +8,7 @@ const colors = {
   grayLightText: '#c2c2c2',
   gutter: '#f7f7f7',
   border: '#e1e1e1',
+  disabled: '#e1e1e1',
 };
 
 export default {
@@ -28,7 +29,10 @@ export default {
     bg: '#00bcec',
     activeFG: '#fff',
     activeBG: color('#00bcec').darken(0.2).string(),
-    border: '1px solid #00bcec',
+    disabledBG: colors.disabled,
+    disabledFG: colors.black,
+    disabledBorder: `1px solid ${colors.disabled}`,
+    border: `1px solid ${colors.primary}`,
     fontSize: '0.9em',
     fontWeight: '700',
     fontFamily: '"Open Sans", Arial, sans-serif',

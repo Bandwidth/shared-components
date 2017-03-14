@@ -39,7 +39,9 @@ const Button = styled.button`
   }
 
   &:disabled {
-    opacity: 0.5;
+    background: ${({ theme }) => theme.button.disabledBG};
+    color: ${({ theme }) => theme.button.disabledFG};
+    border: ${({ theme }) => theme.button.disabledBorder};
     cursor: default;
   }
 
