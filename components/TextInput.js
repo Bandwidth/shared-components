@@ -70,6 +70,7 @@ export default class TextInput extends React.Component {
     label: React.PropTypes.string,
     id: React.PropTypes.string,
     units: React.PropTypes.string,
+    type: React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -80,7 +81,7 @@ export default class TextInput extends React.Component {
   };
 
   render() {
-    const { label, id, disabled, units } = this.props;
+    const { label, id, disabled, units, type } = this.props;
     return (
       <Container>
         {label ? <Label>{label}</Label> : null}
@@ -89,6 +90,7 @@ export default class TextInput extends React.Component {
           >
           <Input
             {...this.props.input}
+            type={type}
             disabled={disabled}
             id={id}
           />
