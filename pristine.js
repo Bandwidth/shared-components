@@ -18,6 +18,8 @@ import Card from './components/Card';
 import FluidGridList from './components/FluidGridList';
 import ScrollBox from './components/ScrollBox';
 import SidebarLayout from './components/SidebarLayout';
+import List from './components/List';
+import ListItem from './components/ListItem';
 
 // navigation
 import TabGroup from './components/TabGroup';
@@ -54,6 +56,8 @@ export const components = {
     FluidGridList,
     ScrollBox,
     SidebarLayout,
+    List,
+    ListItem,
   ],
 
   navigation: [
