@@ -6,6 +6,7 @@ const colors = {
   primary: '#00bcec',
   secondary: '#1f2a44',
   grayLightText: '#c2c2c2',
+  gutter: '#f7f7f7',
 };
 
 export default {
@@ -191,5 +192,21 @@ export default {
     labelFontFamily: 'Raleway, "Open Sans", sans-serif',
     border: '1px solid #c2c2c2',
     padding: '30px',
+  },
+
+  listItem: {
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    fontFamily: 'Raleway, "Open Sans", sans-serif',
+    fg: 'rgb(39, 43, 45)',
+    bg: 'transparent',
+    selectedFG: colors.primary,
+    selectedBG: colors.gutter,
+    padding: '1.5em 2em',
+    border: `1px solid ${colors.grayLightText}`,
+  },
+
+  list: {
+    border: `1px solid ${colors.grayLightText}`,
   },
 };

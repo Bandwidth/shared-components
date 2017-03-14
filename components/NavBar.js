@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import smallTheme from 'themes/small';
+import smallTheme from 'shared/themes/small';
 import Link from './Link';
 import TopNav from './TopNav';
 import LogoHeader from './LogoHeader';

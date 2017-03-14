@@ -12,14 +12,14 @@ export default defaultsDeep({
   },
 
   tab: {
-    bg: '#f7f7f7',
-    fg: '#666',
+    bg: base.colors.white,
+    fg: base.colors.black,
     accent: '#1f2a44',
     activeFG: '#00bcec',
   },
 
   topNav: {
-    bg: '#f7f7f7',
-    fg: '#666',
+    bg: base.colors.white,
+    fg: base.colors.black,
   },
 }, base);

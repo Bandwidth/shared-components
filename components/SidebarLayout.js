@@ -12,6 +12,7 @@ export default styled.div`
   }
 
   & > *:last-child {
-    flex: 7;
+    flex: 6;
+    background: ${({ theme }) => theme.colors.gutter};
   }
 `;
