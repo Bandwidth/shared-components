@@ -11,17 +11,23 @@ const colors = {
   disabled: '#e1e1e1',
 };
 
+const fonts = {
+  brand: 'Raleway, "Open Sans", arial, sans-serif',
+  default: '"Open Sans", arial, sans-serif',
+};
+
 export default {
   name: 'default',
 
   colors,
+  fonts,
 
   text: {
     fg: '#666',
     bg: 'transparent',
     fontSize: '14px',
     fontWeight: 'auto',
-    fontFamily: '"Open Sans", Arial, sans-serif',
+    fontFamily: fonts.default,
   },
 
   button: {
@@ -35,7 +41,7 @@ export default {
     border: `1px solid ${colors.primary}`,
     fontSize: '0.9em',
     fontWeight: '700',
-    fontFamily: '"Open Sans", Arial, sans-serif',
+    fontFamily: fonts.default,
     textTransform: 'uppercase',
     padding: '15px 50px',
     margin: '1em 0.5em',
@@ -120,7 +126,7 @@ export default {
   header: {
     fontSize: '22px',
     fontWeight: '100',
-    fontFamily: '"Raleway", "Open Sans", Arial, sans-serif',
+    fontFamily: fonts.brand,
   },
 
   label: {
@@ -129,7 +135,7 @@ export default {
     fontWeight: 600,
     fontSize: '1em',
     letterSpacing: '0.02em',
-    fontFamily: '"Raleway", Arial, sans-serif',
+    fontFamily: fonts.brand,
     margin: '1em 0 0 0',
     padding: '0 0 0.4em 0',
   },
@@ -150,20 +156,20 @@ export default {
     margin: '0.2em',
     height: '2em',
     width: '3.6em',
-    fontFamily: '"Raleway", "Open Sans", Arial, sans-serif',
+    fontFamily: fonts.brand,
     fontWeight: 600,
   },
 
   hook: {
     fg: '#3a455c',
     fontSize: '2em',
-    fontFamily: '"Raleway", "Open Sans", Arial, sans-serif',
+    fontFamily: fonts.brand,
     fontWeight: 300,
   },
 
   subheader: {
     fontSize: '1.5em',
-    fontFamily: '"Raleway", "Open Sans", Arial, sans-serif',
+    fontFamily: fonts.brand,
     fontWeight: 300,
     fg: '#3a455c',
   },
@@ -194,7 +200,7 @@ export default {
   accordion: {
     labelFG: '#00bcec',
     labelFontSize: '1.5em',
-    labelFontFamily: 'Raleway, "Open Sans", sans-serif',
+    labelFontFamily: fonts.brand,
     border: `1px solid ${colors.border}`,
     padding: '30px',
   },
@@ -202,7 +208,7 @@ export default {
   listItem: {
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    fontFamily: 'Raleway, "Open Sans", sans-serif',
+    fontFamily: fonts.brand,
     fg: 'rgb(39, 43, 45)',
     bg: 'transparent',
     selectedFG: colors.primary,
@@ -213,5 +219,17 @@ export default {
 
   list: {
     border: `1px solid ${colors.border}`,
+  },
+
+  metric: {
+    border: `1px solid ${colors.border}`,
+    bg: colors.white,
+    fg: colors.black,
+    accent: colors.primary,
+    figureFontSize: '4em',
+    figureFontWeight: 200,
+    figureFontFamily: fonts.brand,
+    detailsFontSize: '1em',
+    detailsFontFamily: fonts.default,
   },
 };
