@@ -92,6 +92,7 @@ export default {
     fg: '#fff',
     padding: '0 2em',
     margin: '0',
+    minHeight: '80px',
   },
 
   sidebar: {

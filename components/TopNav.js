@@ -7,5 +7,5 @@ export default styled.header`
   padding: ${({ theme }) => theme.topNav.padding};
   display: flex;
   justify-content: space-between;
-  min-height: 80px;
+  min-height: ${({ theme }) => theme.topNav.minHeight};
 `;

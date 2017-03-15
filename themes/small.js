@@ -19,4 +19,8 @@ export default defaultsDeep({
     accentBarBottom: 'auto',
     marginBottom: '5px',
   },
+
+  topNav: {
+    minHeight: '32px',
+  },
 }, base);

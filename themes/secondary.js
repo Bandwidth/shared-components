@@ -23,5 +23,6 @@ export default defaultsDeep({
   topNav: {
     bg: base.colors.white,
     fg: base.colors.black,
+    minHeight: '60px',
   },
 }, base);
