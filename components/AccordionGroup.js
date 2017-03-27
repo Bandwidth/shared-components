@@ -4,6 +4,9 @@ import styled from 'styled-components';
 const Container = styled.div``;
 
 export default class AccordionGroup extends React.Component {
+  static propTypes = {
+    children: React.PropTypes.node.isRequired,
+  };
 
   constructor(props) {
     super(props);

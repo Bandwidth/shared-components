@@ -8,6 +8,6 @@ const Img = styled.img`
   margin: auto;
 `;
 
-export default function (props) {
-  return <Img src={logo} />
+export default function () {
+  return <Img src={logo} />;
 }

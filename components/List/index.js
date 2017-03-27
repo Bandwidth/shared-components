@@ -30,6 +30,7 @@ const ListContainer = styled.ul`
 export default class List extends React.Component {
   static propTypes = {
     selectedIndex: React.PropTypes.number,
+    children: React.PropTypes.node.isRequired,
   };
 
   static defaultProps = {
@@ -39,9 +40,10 @@ export default class List extends React.Component {
   renderItems = () => {
     const { selectedIndex } = this.props;
 
-    return React.Children.map(this.props.children, (listItem, idx) => {
-      return React.cloneElement(listItem, { key: idx, active: idx === selectedIndex });
-    });
+    return React.Children.map(
+      this.props.children,
+      (listItem, idx) => React.cloneElement(listItem, { key: idx, active: idx === selectedIndex }),
+    );
   };
 
   render() {

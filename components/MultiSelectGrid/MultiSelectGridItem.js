@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import childrenWithProps from '../../extensions/childrenWithProps';
 
 export default class MultiSelectGridItem extends React.Component {
@@ -9,12 +8,16 @@ export default class MultiSelectGridItem extends React.Component {
     innerRef: React.PropTypes.func,
   };
 
+  static defaultProps = {
+    active: false,
+    pendingToggle: false,
+    innerRef: undefined,
+  };
+
   render() {
-    const { children, active, pendingToggle, innerRef, onClick } = this.props;
+    const { active, pendingToggle, innerRef } = this.props;
     return (
-      <div
-        ref={this.props.innerRef}
-        >
+      <div ref={innerRef}>
         {childrenWithProps(this.props, { active, pendingToggle })}
       </div>
     );

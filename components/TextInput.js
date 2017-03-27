@@ -78,6 +78,7 @@ export default class TextInput extends React.Component {
     label: null,
     id: null,
     units: null,
+    type: 'text',
   };
 
   render() {
@@ -87,7 +88,7 @@ export default class TextInput extends React.Component {
         {label ? <Label>{label}</Label> : null}
         <InputWrapper
           disabled={disabled}
-          >
+        >
           <Input
             {...this.props.input}
             type={type}

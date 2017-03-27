@@ -1,7 +1,4 @@
-// TODO: complete and migrate to style guide
-import React from 'react';
 import styled from 'styled-components';
-import Tab from './Tab';
 
 export default styled.div`
   display: flex;

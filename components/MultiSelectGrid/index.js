@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { debounce, xor } from 'lodash';
 import styled from 'styled-components';
 import GridItem from './MultiSelectGridItem';
@@ -17,10 +16,14 @@ const Grid = styled.div`
 `;
 
 const boxContains = (containingBox, candidateBox, percentTolerance = 0) => {
-  const xTolerance = percentTolerance / 100 * candidateBox.width;
-  const yTolerance = percentTolerance / 100 * candidateBox.height;
-  return (candidateBox.left + xTolerance >= containingBox.left && candidateBox.right - xTolerance <= containingBox.right &&
-    candidateBox.top + yTolerance >= containingBox.top && candidateBox.bottom - yTolerance <= containingBox.bottom);
+  const xTolerance = percentTolerance * 0.01 * candidateBox.width;
+  const yTolerance = percentTolerance * 0.01 * candidateBox.height;
+  return (
+    candidateBox.left + xTolerance >= containingBox.left &&
+    candidateBox.right - xTolerance <= containingBox.right &&
+    candidateBox.top + yTolerance >= containingBox.top &&
+    candidateBox.bottom - yTolerance <= containingBox.bottom
+  );
 };
 
 export default class MultiSelectGrid extends React.Component {
@@ -31,7 +34,9 @@ export default class MultiSelectGrid extends React.Component {
   };
 
   static defaultProps = {
+    children: null,
     percentTolerance: 25,
+    onSelectionChanged: () => {}, // no-op
   };
 
   constructor(props) {
@@ -62,10 +67,10 @@ export default class MultiSelectGrid extends React.Component {
     return React.Children.map(children, (child, idx) => (
       <GridItem
         key={idx}
-        innerRef={(el) => this._items[idx] = el}
+        innerRef={(el) => { this._items[idx] = el; }}
         active={selectedIndexes.includes(idx)}
         pendingToggle={pendingSelectedIndexes.includes(idx)}
-        >
+      >
         {child}
       </GridItem>
     ));
@@ -171,8 +176,8 @@ export default class MultiSelectGrid extends React.Component {
     return (
       <Grid
         onMouseDownCapture={this.handleMouseDown}
-        innerRef={(el) => this._grid = el}
-        >
+        innerRef={(el) => { this._grid = el; }}
+      >
         {this.wrappedChildren()}
         {isSelecting ? <SelectBox style={this.boxToCSSPosition(selectBox)} /> : null}
       </Grid>

@@ -45,7 +45,7 @@ const LabelText = styled.span`
 `;
 
 const getComputedPaddingBottomPixels = (el) =>
-  parseInt(window.getComputedStyle(el)['padding-bottom'].replace('px', ''));
+  parseInt(window.getComputedStyle(el)['padding-bottom'].replace('px', ''), 10);
 
 /**
  * Accordion works like a controllable component. Provide the
@@ -61,6 +61,7 @@ export default class Accordion extends React.Component {
 
   static defaultProps = {
     isCollapsed: null,
+    onToggle: () => {}, // no-op
   };
 
   constructor(props) {
@@ -73,7 +74,7 @@ export default class Accordion extends React.Component {
     this.setContentCollapseState(true, false);
     // any time the window resizes, recalculate the natural size
     window.addEventListener('resize',
-      debounce(this.setContentCollapseState.bind(this, true), 300)
+      debounce(this.setContentCollapseState.bind(this, true), 300),
     );
   }
 
@@ -81,23 +82,6 @@ export default class Accordion extends React.Component {
     // only animate if the collapsed state has changed.
     this.setContentCollapseState(false, prevProps.isCollapsed !== this.props.isCollapsed);
   }
-
-  calcIsCollapsed = () => {
-    const { isCollapsed } = this.props;
-    const { internalIsCollapsed } = this.state;
-    if (isCollapsed === null) {
-      return internalIsCollapsed;
-    }
-
-    return isCollapsed;
-  }
-
-  handleToggle = () => {
-    if (this.props.onToggle) {
-      this.props.onToggle(this.calcIsCollapsed());
-    }
-    this.setState({ internalIsCollapsed: !this.state.internalIsCollapsed });
-  };
 
   setContentCollapseState = (recheckHeight = false, animate = true) => {
     const isCollapsed = this.calcIsCollapsed();
@@ -111,7 +95,7 @@ export default class Accordion extends React.Component {
     const naturalPadding = this._contentNaturalPadding;
     if (animate) {
       const easer = new Easer().using('cubic');
-      const animation = new AnimationTimer()
+      new AnimationTimer()
         .duration(200)
         .on('tick', easer((percent) => {
           const directionalPercent = isCollapsed ? 1.0 - percent : percent;
@@ -122,18 +106,33 @@ export default class Accordion extends React.Component {
       content.style.height = isCollapsed ? 0 : naturalHeight;
       content.style.paddingBottom = isCollapsed ? 0 : naturalPadding;
     }
-  }
-
-  renderContent = () => {
-    return (
-      <Content
-        innerRef={(el) => { this._content = el; }}
-        isCollapsed={this.calcIsCollapsed()}
-        >
-        {this.props.children}
-      </Content>
-    );
   };
+
+  handleToggle = () => {
+    if (this.props.onToggle) {
+      this.props.onToggle(this.calcIsCollapsed());
+    }
+    this.setState({ internalIsCollapsed: !this.state.internalIsCollapsed });
+  };
+
+  calcIsCollapsed = () => {
+    const { isCollapsed } = this.props;
+    const { internalIsCollapsed } = this.state;
+    if (isCollapsed === null) {
+      return internalIsCollapsed;
+    }
+
+    return isCollapsed;
+  };
+
+  renderContent = () => (
+    <Content
+      innerRef={(el) => { this._content = el; }}
+      isCollapsed={this.calcIsCollapsed()}
+    >
+      {this.props.children}
+    </Content>
+    );
 
   render() {
     const isCollapsed = this.calcIsCollapsed();

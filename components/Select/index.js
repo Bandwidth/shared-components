@@ -47,7 +47,7 @@ export default class Select extends React.Component {
       value: React.PropTypes.any,
       /** Event handler for change in value */
       onChange: React.PropTypes.func,
-    }),
+    }).isRequired,
     /** All possible values */
     options: React.PropTypes.oneOfType([React.PropTypes.array, ImmutablePropTypes.seq]),
     /** Function to render the display of a value */
@@ -56,6 +56,8 @@ export default class Select extends React.Component {
     allowNone: React.PropTypes.bool,
     /** Text to show if none is selected */
     noneText: React.PropTypes.string,
+    /** Adds a label above the select */
+    label: React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -63,6 +65,7 @@ export default class Select extends React.Component {
     renderOption: (val) => JSON.stringify(val),
     allowNone: true,
     noneText: 'None',
+    label: null,
   };
 
   constructor(props) {
@@ -115,31 +118,26 @@ export default class Select extends React.Component {
               key={-1}
               active={!input.value}
               onMouseDownCapture={this.createOptionClickHandler(null)}
-              >
+            >
                 None
               </SelectItem>) : null
         }
-        {options.map((opt, idx) => {
-          return (
-            <SelectItem
-              key={idx}
-              active={input.value === opt}
-              onMouseDownCapture={this.createOptionClickHandler(opt)}
-              >
-              {renderOption(opt)}
-            </SelectItem>
-          );
-      })}
-    </Dropdown>);
+        {options.map((opt) => (
+          <SelectItem
+            key={opt}
+            active={input.value === opt}
+            onMouseDownCapture={this.createOptionClickHandler(opt)}
+          >
+            {renderOption(opt)}
+          </SelectItem>
+          ))}
+      </Dropdown>);
   };
 
-  renderCaret = () => {
-    return <Caret name='expandArrow' />
-  };
+  renderCaret = () => <Caret name="expandArrow" />;
 
   render() {
     const { label } = this.props;
-    const { expanded } = this.state;
     return (
       <Container>
         {label ? <Label>{label}</Label> : null}

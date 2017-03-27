@@ -20,10 +20,21 @@ export default class RadioGroup extends React.Component {
     }).isRequired,
   };
 
+  static defaultProps = {
+    groupLabel: null,
+  };
+
   choicesToButtons = () => {
     const { choices, input: { value, onChange } } = this.props;
-    return choices.map((choice, idx) => (
-      <RadioButton checked={choice === value} name={name} label={choice} value={choice} key={idx} onChange={() => onChange(choice)}/>
+    return choices.map((choice) => (
+      <RadioButton
+        checked={choice === value}
+        name={name}
+        label={choice}
+        value={choice}
+        key={choice}
+        onChange={() => onChange(choice)}
+      />
     ));
   };
 
@@ -31,7 +42,11 @@ export default class RadioGroup extends React.Component {
     const { groupLabel } = this.props;
     return (
       <div>
-        <Label>{groupLabel}</Label>
+        {
+          groupLabel ?
+            <Label>{groupLabel}</Label> :
+            null
+        }
         <Container>
           {this.choicesToButtons()}
         </Container>
