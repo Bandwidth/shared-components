@@ -23,4 +23,10 @@ export default defaultsDeep({
   topNav: {
     minHeight: '32px',
   },
+
+  accordion: {
+    labelFG: base.colors.black,
+    padding: '20px',
+    labelFontSize: '1.2em',
+  },
 }, base);
