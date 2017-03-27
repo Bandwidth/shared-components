@@ -22,9 +22,12 @@ const Label = styled.div`
 `;
 
 const Content = styled.div`
+  overflow: hidden;
+`;
+
+const ContentPadding = styled.div`
   padding: ${({ theme }) => theme.accordion.padding};
   padding-top: 0;
-  overflow: hidden;
 `;
 
 const ModdedIcon = styled(Icon)`
@@ -71,28 +74,26 @@ export default class Accordion extends React.Component {
 
   componentDidMount() {
     // on first mount, recalculate the natural size and setup without animation
-    this.setContentCollapseState(true, false);
+    this.setContentCollapseState(false);
     // any time the window resizes, recalculate the natural size
     window.addEventListener('resize',
-      debounce(this.setContentCollapseState.bind(this, true), 300),
+      debounce(this.setContentCollapseState.bind(this, false), 300),
     );
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     // only animate if the collapsed state has changed.
-    this.setContentCollapseState(false, prevProps.isCollapsed !== this.props.isCollapsed);
+    this.setContentCollapseState(prevProps.isCollapsed !== this.props.isCollapsed ||
+      prevState.internalIsCollapsed !== this.state.internalIsCollapsed);
   }
 
-  setContentCollapseState = (recheckHeight = false, animate = true) => {
+  setContentCollapseState = (animate = true) => {
     const isCollapsed = this.calcIsCollapsed();
     const content = this._content;
-    if (recheckHeight) {
-      content.style.height = 'auto';
-      this._contentNaturalHeight = content.offsetHeight;
-      this._contentNaturalPadding = getComputedPaddingBottomPixels(content);
+    if (!content) {
+      return;
     }
-    const naturalHeight = this._contentNaturalHeight;
-    const naturalPadding = this._contentNaturalPadding;
+    const naturalHeight = content.scrollHeight;
     if (animate) {
       const easer = new Easer().using('cubic');
       new AnimationTimer()
@@ -100,11 +101,9 @@ export default class Accordion extends React.Component {
         .on('tick', easer((percent) => {
           const directionalPercent = isCollapsed ? 1.0 - percent : percent;
           content.style.height = `${naturalHeight * directionalPercent}px`;
-          content.style.paddingBottom = `${naturalPadding * directionalPercent}px`;
         })).play();
     } else {
       content.style.height = isCollapsed ? 0 : naturalHeight;
-      content.style.paddingBottom = isCollapsed ? 0 : naturalPadding;
     }
   };
 
@@ -130,7 +129,9 @@ export default class Accordion extends React.Component {
       innerRef={(el) => { this._content = el; }}
       isCollapsed={this.calcIsCollapsed()}
     >
-      {this.props.children}
+      <ContentPadding>
+        {this.props.children}
+      </ContentPadding>
     </Content>
     );
 
