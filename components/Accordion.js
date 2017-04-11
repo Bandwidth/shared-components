@@ -47,9 +47,6 @@ const LabelText = styled.span`
   flex: 1;
 `;
 
-const getComputedPaddingBottomPixels = (el) =>
-  parseInt(window.getComputedStyle(el)['padding-bottom'].replace('px', ''), 10);
-
 /**
  * Accordion works like a controllable component. Provide the
  * isCollapsed prop to control it, or don't to let it control itself.
