@@ -5,6 +5,8 @@ const colors = {
   white: '#fff',
   primary: '#00bcec',
   secondary: '#1f2a44',
+  secondaryText: '#3a455c',
+  secondaryFaded: '#3a455c',
   grayLightText: '#c2c2c2',
   gutter: '#f7f7f7',
   border: '#e1e1e1',
@@ -12,7 +14,7 @@ const colors = {
 };
 
 const fonts = {
-  brand: 'Raleway, "Open Sans", arial, sans-serif',
+  brand: '"Overpass", Raleway, "Open Sans", arial, sans-serif',
   default: '"Open Sans", arial, sans-serif',
 };
 
@@ -104,12 +106,17 @@ export default {
   },
 
   card: {
-    bg: '#fff',
-    fg: '#666',
+    bg: colors.white,
+    fg: colors.black,
+    fontSize: '1em',
     activeFG: '#00bcec',
-    padding: '1em',
+    padding: '0.5em',
     margin: '0.25em 1em',
     border: `1px solid ${colors.border}`,
+    listPadding: '0 30px 30px 30px',
+    helpFontFamily: fonts.brand,
+    helpFontSize: '0.9em',
+    helpFontWeight: 100,
   },
 
   form: {
@@ -232,5 +239,35 @@ export default {
     figureFontFamily: fonts.brand,
     detailsFontSize: '1em',
     detailsFontFamily: fonts.default,
+  },
+
+  table: {
+    bg: colors.white,
+    border: '1px solid rgba(0, 0, 0, 0.15)',
+    borderRadius: '5px 5px 0 0',
+    cellBG: 'transparent',
+    cellBorder: '1px solid rgba(0, 0, 0, 0.15)',
+    cellMargin: 0,
+    cellPadding: '10px 15px',
+    headerBG: colors.secondaryFaded,
+    headerFG: colors.white,
+    headerFontWeight: 300,
+    headerFontFamily: fonts.brand,
+    headerPadding: '10px 15px',
+    rowOddBG: 'transparent',
+    rowEvenBG: 'rgba(0, 0, 0, 0.15)',
+    fontSize: '1em',
+    sortArrowFG: 'rgba(255, 255, 255, 0.5)',
+    sortArrowActiveFG: colors.white,
+  },
+
+  pane: {
+    titleMargin: '30px 30px 30px 30px',
+    titleFG: colors.primary,
+    titleFontFamily: fonts.brand,
+    titleFontWeight: 100,
+    titleFontSize: '2.5em',
+    titleLineHeight: '21px',
+    border: `1px solid ${colors.border}`,
   },
 };

@@ -29,4 +29,14 @@ export default defaultsDeep({
     padding: '20px',
     labelFontSize: '1.2em',
   },
+
+  table: {
+    fontSize: '0.9em',
+  },
+
+  card: {
+    fontSize: '0.75em',
+    padding: '0.5em',
+    margin: '0.25em 1em',
+  },
 }, base);
