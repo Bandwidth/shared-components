@@ -33,7 +33,7 @@ export default class PaneSection extends React.Component {
   render() {
     return (
       <Wrap>
-        <Title>{this.props.title}</Title>
+        {this.props.title ? <Title>{this.props.title}</Title> : null}
         <Content>{this.props.children}</Content>
       </Wrap>
     );

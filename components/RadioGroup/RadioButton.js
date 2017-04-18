@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
+  flex: 1 1 auto;
+
   &:first-of-type > label {
     border-radius: 3px 0 0 3px;
   }
@@ -55,23 +57,37 @@ const Label = styled.label`
   }
 `;
 
+const Content = styled.figure`
+  font-size: 2em;
+  font-weight: 100;
+  margin: 0;
+`;
+
 export default class RadioButton extends React.Component {
   static propTypes = {
     checked: React.PropTypes.bool.isRequired,
     onChange: React.PropTypes.func.isRequired,
     label: React.PropTypes.string.isRequired,
+    content: React.PropTypes.node,
     name: React.PropTypes.string.isRequired,
     value: React.PropTypes.string.isRequired,
-  }
+  };
+
+  static defaultProps = {
+    content: null,
+  };
 
   render() {
-    const { checked, label, name, value, onChange } = this.props;
+    const { checked, label, name, value, onChange, content } = this.props;
     const id = `radio-${name}>${value}`;
 
     return (
       <Container>
         <Input type="radio" id={id} value={value} name={name} checked={checked} onChange={onChange} />
-        <Label htmlFor={id} active={checked}>{label}</Label>
+        <Label htmlFor={id} active={checked}>
+          {content !== null ? <Content active={checked}>{content}</Content> : null}
+          {label}
+        </Label>
       </Container>
     );
   }

@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import RadioButton from './RadioButton';
 import Label from '../Label';
 
+const Wrap = styled.div`
+`;
+
 const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -10,7 +13,10 @@ const Container = styled.div`
 
 export default class RadioGroup extends React.Component {
   static propTypes = {
-    choices: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+    choices: React.PropTypes.oneOfType([
+      React.PropTypes.arrayOf(React.PropTypes.string),
+      React.PropTypes.objectOf(React.PropTypes.node),
+    ]).isRequired,
     groupLabel: React.PropTypes.string,
 
     input: React.PropTypes.shape({
@@ -26,22 +32,42 @@ export default class RadioGroup extends React.Component {
 
   choicesToButtons = () => {
     const { choices, input: { value, onChange } } = this.props;
-    return choices.map((choice) => (
-      <RadioButton
-        checked={choice === value}
-        name={name}
-        label={choice}
-        value={choice}
-        key={choice}
-        onChange={() => onChange(choice)}
-      />
-    ));
+    if (choices instanceof Array) {
+      return choices.map((choice) => (
+        <RadioButton
+          checked={choice === value}
+          name={name}
+          label={choice}
+          value={choice}
+          key={choice}
+          onChange={() => onChange(choice)}
+        />
+      ));
+    } else if (typeof choices === 'object') {
+      return Object.keys(choices).map((key) => {
+        const choice = choices[key];
+
+        return (
+          <RadioButton
+            checked={key === value}
+            name={name}
+            value={key}
+            label={key}
+            content={choice}
+            key={key}
+            onChange={() => onChange(key)}
+          />
+        );
+      });
+    } else {
+      return 'invalid choices';
+    }
   };
 
   render() {
     const { groupLabel } = this.props;
     return (
-      <div>
+      <Wrap>
         {
           groupLabel ?
             <Label>{groupLabel}</Label> :
@@ -50,7 +76,7 @@ export default class RadioGroup extends React.Component {
         <Container>
           {this.choicesToButtons()}
         </Container>
-      </div>
+      </Wrap>
     );
   }
 }
