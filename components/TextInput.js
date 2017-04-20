@@ -42,10 +42,12 @@ const InputWrapper = styled.div`
   margin: ${({ theme }) => theme.textInput.margin};
   width: 100%;
 
-  &:disabled {
-    color: ${({ theme }) => theme.textInput.disabledFG};
-    background: ${({ theme }) => theme.textInput.disabledBG};
-    border: ${({ theme }) => theme.textInput.disabledBorder};
+  ${({ disabled, theme }) =>
+    disabled ? `
+        color: ${theme.textInput.disabledFG};
+        background: ${theme.textInput.disabledBG};
+        border: ${theme.textInput.disabledBorder};
+      ` : ''
   }
 `;
 
