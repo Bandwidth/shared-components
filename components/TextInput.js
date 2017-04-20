@@ -51,6 +51,13 @@ const InputWrapper = styled.div`
   }
 `;
 
+const HelpText = styled.div`
+  color: ${({ theme }) => theme.textInput.helpTextFG};
+  font-style: italic;
+  font-weight: ${({ theme }) => theme.textInput.helpTextFontWeight};
+  padding: ${({ theme }) => theme.textInput.helpTextPadding};
+`;
+
 export default class TextInput extends React.Component {
   static propTypes = {
     input: React.PropTypes.shape({
@@ -61,6 +68,7 @@ export default class TextInput extends React.Component {
     label: React.PropTypes.string,
     id: React.PropTypes.string,
     type: React.PropTypes.string,
+    helpText: React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -68,10 +76,11 @@ export default class TextInput extends React.Component {
     label: null,
     id: null,
     type: 'text',
+    helpText: null,
   };
 
   render() {
-    const { label, id, disabled, units, type } = this.props;
+    const { label, id, disabled, helpText, type } = this.props;
     return (
       <Container>
         {label ? <Label>{label}</Label> : null}
@@ -85,6 +94,7 @@ export default class TextInput extends React.Component {
             id={id}
           />
         </InputWrapper>
+        {helpText ? <HelpText>{helpText}</HelpText> : null}
       </Container>
     );
   }

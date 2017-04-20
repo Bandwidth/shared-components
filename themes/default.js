@@ -78,6 +78,9 @@ export default {
     margin: '0 1em 0 0',
     letterSpacing: '0.02em',
     lineHeight: '1.5',
+    helpTextColor: colors.grayLightText,
+    helpTextFontWeight: 300,
+    helpTextPadding: '0.4em 0 0 0',
   },
 
   radioButton: {
