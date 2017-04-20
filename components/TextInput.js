@@ -51,17 +51,6 @@ const InputWrapper = styled.div`
   }
 `;
 
-const Units = styled.div`
-  color: ${({ theme }) => theme.textInput.fg};
-  opacity: 0.5;
-  line-height: ${({ theme }) => theme.textInput.lineHeight};
-  font-size: ${({ theme }) => theme.textInput.fontSize};
-  padding: ${({ theme }) => theme.textInput.padding};
-  padding-left: 1em;
-  margin: 0;
-  transition: all 0.2s ease;
-`;
-
 export default class TextInput extends React.Component {
   static propTypes = {
     input: React.PropTypes.shape({
@@ -71,7 +60,6 @@ export default class TextInput extends React.Component {
     disabled: React.PropTypes.bool,
     label: React.PropTypes.string,
     id: React.PropTypes.string,
-    units: React.PropTypes.string,
     type: React.PropTypes.string,
   };
 
@@ -79,7 +67,6 @@ export default class TextInput extends React.Component {
     disabled: false,
     label: null,
     id: null,
-    units: null,
     type: 'text',
   };
 
@@ -97,7 +84,6 @@ export default class TextInput extends React.Component {
             disabled={disabled}
             id={id}
           />
-          {units ? <Units>{units}</Units> : null}
         </InputWrapper>
       </Container>
     );

@@ -69,7 +69,7 @@ export default {
     fg: '#666',
     accentValid: '#d9f5fc',
     disabledBG: '#e1e1e1',
-    disabledFG: '#c2c2c2',
+    disabledFG: colors.black,
     disabledBorder: '1px solid #c2c2c2',
     border: `1px solid ${colors.border}`,
     focusedBorder: '1px solid #c2c2c2',
