@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import icons from './helpers/icons';
+import icons from '../helpers/icons';
 
 const Button = styled.button`
   font-size: ${({ theme }) => theme.button.fontSize};
@@ -12,7 +12,7 @@ const Button = styled.button`
   border: ${({ theme }) => theme.button.border};
   color: ${({ theme }) => theme.button.fg};
   border-radius: 3em;
-  margin: ${({ theme }) => theme.button.margin};
+  margin: ${({ theme, useMargin }) => useMargin ? theme.button.margin : 0};
   padding: ${({ theme }) => theme.button.padding};
   width: auto;
   height: auto;
@@ -82,6 +82,7 @@ Button.defaultProps = {
   leftIcon: null,
   rightIcon: null,
   iconHelper: icons,
+  useMargin: true,
 };
 
 export default Button;

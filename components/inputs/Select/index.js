@@ -3,7 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import styled from 'styled-components';
 import SelectItem from './SelectItem';
 import Label from '../Label';
-import Icon from '../Icon';
+import Icon from '../../Icon';
 
 const Container = styled.div``;
 
