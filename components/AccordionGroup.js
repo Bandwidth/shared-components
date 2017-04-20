@@ -6,12 +6,17 @@ const Container = styled.div``;
 export default class AccordionGroup extends React.Component {
   static propTypes = {
     children: React.PropTypes.node.isRequired,
+    startExpandedKey: React.PropTypes.string,
+  };
+
+  static defaultProps = {
+    startExpandedKey: null,
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      expandedKey: null,
+      expandedKey: `${props.startExpandedKey}`,
     };
   }
 
