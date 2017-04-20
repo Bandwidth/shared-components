@@ -14,14 +14,14 @@ export default defaultsDeep({
   },
 
   tab: {
-    bg: base.colors.white,
+    bg: base.colors.gutter,
     fg: base.colors.black,
     accent: '#1f2a44',
     activeFG: '#00bcec',
   },
 
   topNav: {
-    bg: base.colors.white,
+    bg: base.colors.gutter,
     fg: base.colors.black,
     minHeight: '60px',
   },
