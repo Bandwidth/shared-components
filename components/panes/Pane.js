@@ -1,19 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import Header from '../Header';
 
 const Layout = styled.article`
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
-`;
-
-const Title = styled.h1`
-  color: ${({ theme }) => theme.pane.titleFG};
-  font-family: ${({ theme }) => theme.pane.titleFontFamily};
-  font-weight: ${({ theme }) => theme.pane.titleFontWeight};
-  font-size: ${({ theme }) => theme.pane.titleFontSize};
-  margin: ${({ theme }) => theme.pane.titleMargin};
-  line-height: ${({ theme }) => theme.pane.titleLineHeight};
 `;
 
 export default class Pane extends React.Component {
@@ -31,7 +23,7 @@ export default class Pane extends React.Component {
 
     return (
       <Layout>
-        {title ? <Title>{title}</Title> : null}
+        {title ? <Header>{title}</Header> : null}
         {children}
       </Layout>
     );

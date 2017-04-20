@@ -9,7 +9,9 @@ export default defaultsDeep({
   },
 
   header: {
-    fontSize: '16px',
+    margin: '12px 12px',
+    fontSize: '1.8em',
+    lineHeight: 'auto',
   },
 
   tab: {

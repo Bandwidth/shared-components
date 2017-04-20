@@ -171,11 +171,13 @@ export default {
     fontWeight: 600,
   },
 
-  hook: {
-    fg: '#3a455c',
-    fontSize: '2em',
+  header: {
+    margin: '30px 30px 30px 30px',
+    fg: colors.primary,
     fontFamily: fonts.brand,
-    fontWeight: 300,
+    fontWeight: 100,
+    fontSize: '2.5em',
+    lineHeight: '21px',
   },
 
   subheader: {
@@ -265,12 +267,6 @@ export default {
   },
 
   pane: {
-    titleMargin: '30px 30px 30px 30px',
-    titleFG: colors.primary,
-    titleFontFamily: fonts.brand,
-    titleFontWeight: 100,
-    titleFontSize: '2.5em',
-    titleLineHeight: '21px',
     border: `1px solid ${colors.border}`,
   },
 };

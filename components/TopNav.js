@@ -8,4 +8,5 @@ export default styled.header`
   display: flex;
   justify-content: space-between;
   min-height: ${({ theme }) => theme.topNav.minHeight};
+  z-index: 1000;
 `;
