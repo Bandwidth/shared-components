@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import generateId from '../extensions/generateId';
+import generateId from '../../extensions/generateId';
 
 const Container = styled.div`
   line-height: 1.5em;
