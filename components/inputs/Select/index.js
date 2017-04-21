@@ -62,7 +62,7 @@ export default class Select extends React.Component {
 
   static defaultProps = {
     options: [],
-    renderOption: (val) => JSON.stringify(val),
+    renderOption: (val) => '' + val,
     allowNone: true,
     noneText: 'None',
     label: null,
