@@ -10,7 +10,7 @@ export default defaultsDeep({
 
   header: {
     margin: '12px 12px',
-    fontSize: '1.8em',
+    fontSize: '22px',
     lineHeight: 'auto',
   },
 

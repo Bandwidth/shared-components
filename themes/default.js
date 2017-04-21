@@ -48,7 +48,7 @@ export default {
     fontFamily: fonts.default,
     textTransform: 'uppercase',
     padding: '13px 40px',
-    margin: '1em 0.5em',
+    margin: 'auto 0.5em',
   },
 
   tab: {
@@ -127,7 +127,7 @@ export default {
   form: {
     bg: colors.white,
     fg: '#666',
-    padding: '1em',
+    padding: '30px 40px',
     margin: 'auto',
     border: `1px solid ${colors.border}`,
   },
