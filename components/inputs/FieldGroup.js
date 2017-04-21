@@ -18,10 +18,15 @@ const FieldGroup = styled.div`
     }
     return `& > * { flex: ${ spacing}; }`;
   }}
+
+  & > * {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 `;
 
 FieldGroup.defaultProps = {
-  spacing: null,
+  spacing: '0 1 auto',
   align: 'space-around',
 };
 

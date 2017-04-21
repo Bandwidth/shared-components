@@ -46,7 +46,7 @@ export default class TextBox extends React.Component {
     const { input, disabled, required, id, type } = this.props;
     return (
       <InputBox disabled={disabled}>
-        <Input {...input} id={id} disabled={disabled} required={required} />
+        <Input {...input} id={id} disabled={disabled} required={required} type={type} />
       </InputBox>
     );
   }

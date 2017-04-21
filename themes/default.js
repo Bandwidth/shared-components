@@ -4,6 +4,8 @@ const colors = {
   black: '#666',
   white: '#fff',
   primary: '#00bcec',
+  primaryText: '#008db1',
+  primaryLight: '#d9f5fc',
   secondary: '#1f2a44',
   secondaryText: '#3a455c',
   secondaryFaded: '#3a455c',
@@ -281,5 +283,12 @@ export default {
 
   pane: {
     border: `1px solid ${colors.border}`,
+  },
+
+  link: {
+    fg: colors.primaryText,
+    activeFG: colors.primary,
+    bubbleBG: colors.primaryLight,
+    bubbleBorderRadius: '2em',
   },
 };

@@ -5,7 +5,8 @@ import icons from '../helpers/icons';
 import BinaryInput from './BinaryInput';
 
 const HiddenInput = styled.input`
-  margin: -9999px;
+  margin-left: -9999px;
+  display: inline;
 
   &:focus + label::after {
     box-shadow: ${({ theme }) => theme.checkbox.focusShadow};
@@ -18,6 +19,7 @@ const Label = styled.label`
   position: relative;
   padding: ${({ theme }) => theme.checkbox.labelPadding};
   user-select: none;
+  float: left;
 
   &::before {
     content: ${({ active }) => active ? `"${icons('checkmark')}"` : '""'};
