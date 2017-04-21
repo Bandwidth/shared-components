@@ -14,8 +14,6 @@ const Button = styled.button`
   border-radius: 3em;
   margin: ${({ theme, useMargin }) => useMargin ? theme.button.margin : 0};
   padding: ${({ theme }) => theme.button.padding};
-  width: auto;
-  height: auto;
   display: inline-block;
   line-height: normal;
   white-space: nowrap;

@@ -42,12 +42,12 @@ export default {
     disabledBG: colors.disabled,
     disabledFG: colors.black,
     disabledBorder: `1px solid ${colors.disabled}`,
-    border: `1px solid ${colors.primary}`,
-    fontSize: '0.9em',
+    border: `none`,
+    fontSize: '0.8em',
     fontWeight: '700',
     fontFamily: fonts.default,
     textTransform: 'uppercase',
-    padding: '15px 50px',
+    padding: '13px 40px',
     margin: '1em 0.5em',
   },
 
@@ -176,6 +176,7 @@ export default {
 
   checkbox: {
     labelPadding: '0.2em 0 0.2em 2.1em',
+    labelFontSize: '1.15em',
     fg: colors.black,
     checkFG: colors.white,
     emptyBG: colors.white,

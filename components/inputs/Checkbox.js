@@ -20,6 +20,7 @@ const Label = styled.label`
   padding: ${({ theme }) => theme.checkbox.labelPadding};
   user-select: none;
   float: left;
+  font-size: ${({ theme }) => theme.checkbox.labelFontSize};
 
   &::before {
     content: ${({ active }) => active ? `"${icons('checkmark')}"` : '""'};
@@ -29,9 +30,8 @@ const Label = styled.label`
     height: ${({ theme }) => theme.checkbox.size};
     display: block;
     position: absolute;
-    top: 50%;
+    top: ${({ theme }) => `calc(${theme.checkbox.size} / 6)`};
     left: ${({ theme }) => `calc(${theme.checkbox.size} / 8)`};
-    transform: translateY(-50%);
     z-index: 1;
   }
 
