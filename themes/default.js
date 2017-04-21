@@ -290,5 +290,6 @@ export default {
     activeFG: colors.primary,
     bubbleBG: colors.primaryLight,
     bubbleBorderRadius: '2em',
+    fontFamily: fonts.brand,
   },
 };

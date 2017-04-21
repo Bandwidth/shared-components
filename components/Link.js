@@ -4,6 +4,7 @@ import { Link, Route } from 'react-router-dom';
 
 const TextLink = styled(Link)`
   color: ${({ theme }) => theme.link.fg};
+  font-family: ${({ theme }) => theme.link.fontFamily};
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2 ease;
