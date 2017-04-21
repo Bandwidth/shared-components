@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: ${({ theme }) => theme.textInput.margin};
+  margin: ${({ theme }) => theme.input.margin};
 
   &:last-child {
     margin-right: 0;

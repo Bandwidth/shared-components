@@ -1,63 +1,63 @@
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import SelectItem from './SelectItem';
-import Label from '../Label';
-import Icon from '../../Icon';
+import InputBox from '../InputBox';
+import InputWrapper from '../InputWrapper';
+import arrowImage from './arrow.png';
 
-const Container = styled.div``;
-
-const OverlayArea = styled.div`
-  position: relative;
-  overflow: visible;
-`;
-
-const Selected = styled.div`
-  padding: ${({ theme }) => theme.selectItem.padding};
-  border: ${({ theme }) => theme.selectItem.border};
+const HTMLSelect = styled.select`
+  padding: ${({ theme }) => theme.input.padding};
+  border: ${({ theme }) => theme.input.border};
+  border-radius: 0;
+  width: 100%;
+  color: ${({ theme }) => theme.input.fg};
+  font-family: ${({ theme }) => theme.input.fontFamily};
+  font-size: ${({ theme }) => theme.input.fontSize};
+  letter-spacing: ${({ theme }) => theme.input.letterSpacing};
+  line-height: ${({ theme }) => theme.input.lineHeight};
   cursor: pointer;
-  background: ${({ theme }) => theme.selectItem.bg};
-`;
+  box-shadow: none;
+  background-color: ${({ theme }) => theme.input.bg};
+  appearance: none;
+  position: relative;
 
-const Dropdown = styled.ul`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 0;
-  margin: 0;
-  border: ${({ theme }) => theme.selectItem.border};
-  box-shadow: 0 2px 4px ${({ theme }) => theme.shadow.color};
-  background: ${({ theme }) => theme.selectItem.bg};
-  z-index: 100;
-`;
+  background-image: url(${arrowImage});
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 35px;
 
-const Caret = styled(Icon)`
-  position: absolute;
-  right: 0px;
-  top: 50%;
-  transform: translateY(-50%);
+  transition: 0.2s ease all;
+
+  &:focus {
+    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.input.accentValid};
+    border-color: ${({ theme }) => theme.input.focusedBorder};
+    outline: none;
+  }
 `;
 
 export default class Select extends React.Component {
   static propTypes = {
     /** Input props, expected to be passed by redux-form */
-    input: React.PropTypes.shape({
+    input: PropTypes.shape({
       /** The currently selected value */
-      value: React.PropTypes.any,
+      value: PropTypes.any,
       /** Event handler for change in value */
-      onChange: React.PropTypes.func,
+      onChange: PropTypes.func,
     }).isRequired,
     /** All possible values */
-    options: React.PropTypes.oneOfType([React.PropTypes.array, ImmutablePropTypes.seq]),
+    options: PropTypes.array,
     /** Function to render the display of a value */
-    renderOption: React.PropTypes.func,
+    renderOption: PropTypes.func,
     /** Can the user select 'none' ? */
-    allowNone: React.PropTypes.bool,
+    allowNone: PropTypes.bool,
     /** Text to show if none is selected */
-    noneText: React.PropTypes.string,
+    noneText: PropTypes.string,
     /** Adds a label above the select */
-    label: React.PropTypes.string,
+    label: PropTypes.string,
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    helpText: PropTypes.string,
   };
 
   static defaultProps = {
@@ -66,87 +66,31 @@ export default class Select extends React.Component {
     allowNone: true,
     noneText: 'None',
     label: null,
-  };
-
-  constructor(props) {
-    super(props);
-    this.state = { expanded: false };
-  }
-
-  handleSelectedClick = () => {
-    const expanded = !this.state.expanded;
-    this.setState({ expanded });
-    if (expanded) {
-      // clicking away from the element will collapse it
-      window.addEventListener('mousedown', this.handleCancel);
-    }
-  };
-
-  handleCancel = (event) => {
-    if (event.button === 0) {
-      this.setState({ expanded: false });
-      window.removeEventListener('mousedown', this.handleCancel);
-    }
-  };
-
-  createOptionClickHandler = (option) => (event) => {
-    event.stopPropagation();
-    if (event.button === 0) {
-      this.setState({ expanded: false });
-      this.props.input.onChange(option);
-      window.removeEventListener('mousedown', this.handleCancel);
-    }
-  };
-
-  renderSelected = () => {
-    const { input, renderOption, noneText } = this.props;
-    return <Selected onClick={this.handleSelectedClick}>{renderOption(input.value) || noneText}</Selected>;
+    disabled: false,
+    required: false,
+    helpText: null,
   };
 
   renderOptions = () => {
-    const { options, renderOption, input, allowNone } = this.props;
-    const { expanded } = this.state;
-    if (!expanded) {
-      return null;
+    const { options, renderOption, allowNone, noneText } = this.props;
+    const opts = options.map((option) => (
+      <SelectItem key={renderOption(option)}>{renderOption(option)}</SelectItem>
+    ));
+    if (allowNone) {
+      opts.unshift(<SelectItem key="None">{noneText}</SelectItem>);
     }
 
-    return (
-      <Dropdown>
-        {
-          allowNone ?
-            (<SelectItem
-              key={-1}
-              active={!input.value}
-              onMouseDownCapture={this.createOptionClickHandler(null)}
-            >
-                None
-              </SelectItem>) : null
-        }
-        {options.map((opt) => (
-          <SelectItem
-            key={opt}
-            active={input.value === opt}
-            onMouseDownCapture={this.createOptionClickHandler(opt)}
-          >
-            {renderOption(opt)}
-          </SelectItem>
-          ))}
-      </Dropdown>);
+    return opts;
   };
 
-  renderCaret = () => <Caret name="expandArrow" />;
-
   render() {
-    const { label } = this.props;
+    const { label, helpText, disabled, required, input } = this.props;
     return (
-      <Container>
-        {label ? <Label>{label}</Label> : null}
-        <OverlayArea>
-          {this.renderSelected()}
+      <InputWrapper label={label} helpText={helpText} disabled={disabled} required={required}>
+        <HTMLSelect {...input} disabled={disabled} required={required}>
           {this.renderOptions()}
-          {this.renderCaret()}
-        </OverlayArea>
-      </Container>
+        </HTMLSelect>
+      </InputWrapper>
     );
   }
 }

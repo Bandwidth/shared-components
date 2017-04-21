@@ -5,18 +5,18 @@
 import styled from 'styled-components';
 
 const InputBox = styled.div`
-  color: ${({ theme }) => theme.textInput.fg};
-  background: ${({ theme }) => theme.textInput.bg};
+  color: ${({ theme }) => theme.input.fg};
+  background: ${({ theme }) => theme.input.bg};
   display: flex;
   flex-direction: row;
-  margin: ${({ theme }) => theme.textInput.margin};
+  margin: ${({ theme }) => theme.input.margin};
   width: 100%;
 
   ${({ disabled, theme }) =>
     disabled ? `
-        color: ${theme.textInput.disabledFG};
-        background: ${theme.textInput.disabledBG};
-        border: ${theme.textInput.disabledBorder};
+        color: ${theme.input.disabledFG};
+        background: ${theme.input.disabledBG};
+        border: ${theme.input.disabledBorder};
       ` : ''
   }
 `;

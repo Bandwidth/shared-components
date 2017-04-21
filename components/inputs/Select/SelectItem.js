@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default styled.li`
+export default styled.option`
   padding: ${({ theme }) => theme.selectItem.padding};
   border-bottom: ${({ theme }) => theme.selectItem.border};
   color: ${({ theme, active }) => active ? theme.selectItem.activeFG : theme.selectItem.fg};

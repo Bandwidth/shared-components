@@ -66,7 +66,7 @@ export default {
     marginBottom: 'auto',
   },
 
-  textInput: {
+  input: {
     bg: '#fff',
     fg: '#666',
     accentValid: '#d9f5fc',
@@ -292,5 +292,16 @@ export default {
     bubbleBG: colors.primaryLight,
     bubbleBorderRadius: '2em',
     fontFamily: fonts.brand,
+  },
+
+  textarea: {
+    bg: colors.white,
+    fg: colors.black,
+    border: `1px solid ${colors.border}`,
+    padding: '15px',
+    fontWeight: 400,
+    fontFamily: fonts.brand,
+    lineHeight: '1.5em',
+    fontSize: '14px',
   },
 };

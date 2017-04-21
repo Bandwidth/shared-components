@@ -5,18 +5,18 @@ import InputBox from './InputBox';
 const Input = styled.input`
   color: inherit;
   letter-spacing: 0.02em;
-  line-height: ${({ theme }) => theme.textInput.lineHeight};
-  font-size: ${({ theme }) => theme.textInput.fontSize};
+  line-height: ${({ theme }) => theme.input.lineHeight};
+  font-size: ${({ theme }) => theme.input.fontSize};
   transition: all 0.2s ease;
   outline: none;
   width: 100%;
-  padding: ${({ theme }) => theme.textInput.padding};
+  padding: ${({ theme }) => theme.input.padding};
   display: block;
-  border: ${({ theme }) => theme.textInput.border};
+  border: ${({ theme }) => theme.input.border};
 
   &:focus {
-    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.textInput.accentValid};
-    border: ${({ theme }) => theme.textInput.focusedBorder};
+    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.input.accentValid};
+    border: ${({ theme }) => theme.input.focusedBorder};
   }
   &:focus + div {
     opacity: 1;
