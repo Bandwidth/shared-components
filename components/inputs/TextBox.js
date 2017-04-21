@@ -30,21 +30,23 @@ export default class TextBox extends React.Component {
       onChange: React.PropTypes.func,
     }).isRequired,
     disabled: React.PropTypes.bool,
+    required: React.PropTypes.bool,
     id: React.PropTypes.string,
     type: React.PropTypes.string,
   };
 
   static defaultProps = {
     disabled: false,
+    required: false,
     id: null,
     type: 'text',
   };
 
   render() {
-    const { input, disabled, id, type } = this.props;
+    const { input, disabled, required, id, type } = this.props;
     return (
       <InputBox disabled={disabled}>
-        <Input {...input} id={id} disabled={disabled} />
+        <Input {...input} id={id} disabled={disabled} required={required} />
       </InputBox>
     );
   }

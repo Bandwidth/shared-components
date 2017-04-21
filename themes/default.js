@@ -123,11 +123,11 @@ export default {
   },
 
   form: {
-    bg: 'transparent',
+    bg: colors.white,
     fg: '#666',
     padding: '1em',
     margin: 'auto',
-    border: 'none',
+    border: `1px solid ${colors.border}`,
   },
 
   shadow: {
@@ -149,6 +149,7 @@ export default {
     fontFamily: fonts.brand,
     margin: '1em 0 0 0',
     padding: '0 0 0.4em 0',
+    requiredMarkFG: '#e8562e',
   },
 
   toggle: {
@@ -169,6 +170,18 @@ export default {
     width: '3.6em',
     fontFamily: fonts.brand,
     fontWeight: 600,
+  },
+
+  checkbox: {
+    labelPadding: '0.2em 0 0.2em 2.1em',
+    fg: colors.black,
+    checkFG: colors.white,
+    emptyBG: colors.white,
+    fullBG: colors.secondary,
+    border: `2px solid ${colors.secondary}`,
+    borderRadius: '0.2em',
+    size: '1.3em',
+    focusShadow: '0 0 0 5px #d9f5fc',
   },
 
   header: {

@@ -17,6 +17,7 @@ const Container = styled.div`
 export default class InputWrapper extends React.Component {
   static propTypes = {
     disabled: React.PropTypes.bool,
+    required: React.PropTypes.bool,
     label: React.PropTypes.string,
     helpText: React.PropTypes.string,
 
@@ -25,6 +26,7 @@ export default class InputWrapper extends React.Component {
 
   static defaultProps = {
     disabled: false,
+    required: false,
     label: null,
     id: null,
     type: 'text',
@@ -32,10 +34,10 @@ export default class InputWrapper extends React.Component {
   };
 
   render() {
-    const { label, disabled, helpText, children } = this.props;
+    const { label, disabled, required, helpText, children } = this.props;
     return (
       <Container>
-        {label ? <Label>{label}</Label> : null}
+        {label ? <Label required={required}>{label}</Label> : null}
         {children}
         {helpText ? <HelpText>{helpText}</HelpText> : null}
       </Container>

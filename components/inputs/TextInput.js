@@ -10,6 +10,7 @@ export default class TextInput extends React.Component {
       onChange: React.PropTypes.func,
     }).isRequired,
     disabled: React.PropTypes.bool,
+    required: React.PropTypes.bool,
     label: React.PropTypes.string,
     id: React.PropTypes.string,
     type: React.PropTypes.string,
@@ -18,6 +19,7 @@ export default class TextInput extends React.Component {
 
   static defaultProps = {
     disabled: false,
+    required: false,
     label: null,
     id: null,
     type: 'text',
@@ -25,10 +27,10 @@ export default class TextInput extends React.Component {
   };
 
   render() {
-    const { input, label, id, disabled, helpText, type } = this.props;
+    const { input, label, id, disabled, required, helpText, type } = this.props;
     return (
-      <InputWrapper label={label} helpText={helpText}>
-        <TextBox input={input} id={id} type={type} disabled={disabled} />
+      <InputWrapper label={label} helpText={helpText} disabled={disabled} required={required}>
+        <TextBox input={input} id={id} type={type} disabled={disabled} required={required} />
       </InputWrapper>
     );
   }

@@ -1,11 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import generateId from '../../extensions/generateId';
-
-const Container = styled.div`
-  line-height: 1.5em;
-  padding-top: 0.4em;
-`;
+import BinaryInput from './BinaryInput';
 
 const HiddenInput = styled.input`
   margin: -9999px;
@@ -74,47 +70,26 @@ const Track = styled.label`
 
 export default class Toggle extends React.Component {
   static propTypes = {
-    input: React.PropTypes.shape({
-      value: React.PropTypes.bool,
-      onChange: React.PropTypes.func,
-      disabled: React.PropTypes.bool,
+    input: PropTypes.shape({
+      value: PropTypes.oneOfType(PropTypes.string, PropTypes.bool),
+      onChange: PropTypes.func,
+      disabled: PropTypes.bool,
     }),
-    label: React.PropTypes.string,
-    id: React.PropTypes.string,
+    label: PropTypes.string,
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     input: {
-      value: false,
+      value: 'false',
     },
     label: null,
     id: null,
   };
 
-  handleClick = () => {
-    this.props.input.onChange(!this.props.input.value);
-  };
-
   render() {
-    const { label, input: { value, disabled } } = this.props;
-    let id = this.props.id;
-
-    if (!id) {
-      /*
-        because this generation happens at render time,
-        the id is not reliable. developers should specify an id through
-        props if they want a reliable id.
-      */
-      id = generateId('toggle');
-    }
-
     return (
-      <Container>
-        <HiddenInput id={id} type="checkbox" value={value} disabled={disabled} onClick={this.handleClick} />
-        <Track htmlFor={id} active={value}>
-          {label}
-        </Track>
-      </Container>
+      <BinaryInput {...this.props} Input={HiddenInput} Label={Track} />
     );
   }
 }
