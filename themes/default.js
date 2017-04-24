@@ -76,6 +76,7 @@ export default {
     border: `1px solid ${colors.border}`,
     focusedBorder: '1px solid #c2c2c2',
     fontSize: '16px',
+    fontFamily: fonts.brand,
     padding: '1em 1em',
     margin: '0 1em 0 0',
     letterSpacing: '0.02em',

@@ -7,6 +7,7 @@ const Input = styled.input`
   letter-spacing: 0.02em;
   line-height: ${({ theme }) => theme.input.lineHeight};
   font-size: ${({ theme }) => theme.input.fontSize};
+  font-family: ${({ theme }) => theme.input.fontFamily};
   transition: all 0.2s ease;
   outline: none;
   width: 100%;
