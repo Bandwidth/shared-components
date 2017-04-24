@@ -23,7 +23,7 @@ const Message = styled.div`
   font-size: 1.2em;
 `;
 
-export default class ErrorScreen extends React.Component {
+class ErrorScreen extends React.Component {
   static propTypes = {
     reason: React.PropTypes.string,
   };
@@ -44,3 +44,15 @@ export default class ErrorScreen extends React.Component {
     );
   }
 }
+
+ErrorScreen.usage`
+# ErrorScreen
+
+This is something I (Grant) wrote while testing out some proof of concept UI. It's not approved by UX. Check with UX to see if they want a different error experience.
+
+\`\`\`
+<ErrorScreen reason="404 not found" />
+\`\`\`
+`;
+
+export default ErrorScreen;

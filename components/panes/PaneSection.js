@@ -20,7 +20,7 @@ const Title = styled.h2`
   text-transform: uppercase;
 `;
 
-export default class PaneSection extends React.Component {
+class PaneSection extends React.Component {
   static propTypes = {
     title: React.PropTypes.string,
     children: React.PropTypes.node.isRequired,
@@ -39,3 +39,24 @@ export default class PaneSection extends React.Component {
     );
   }
 }
+
+PaneSection.usage = `
+# PaneSection
+
+Provides a nice delineated section of content within a Pane. Add a \`title\` to display a little divider with the title inside.
+
+Does no layout on children. Add your own padding to children if needed.
+
+\`\`\`
+<Pane title="parent">
+  <PaneSection title="foo">
+    Content
+  </PaneSection>
+  <PaneSection title="bar">
+    Content
+  </PaneSection>
+</Pane>
+\`\`\`
+`;
+
+export default PaneSection;

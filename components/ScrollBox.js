@@ -12,7 +12,7 @@ const appearAnimation = keyframes`
   }
 `;
 
-const ScrollBox = styled.div`
+const ScrollBox = styled.div.withConfig({ displayName: 'ScrollBox' })`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -44,5 +44,17 @@ const ScrollBox = styled.div`
 ScrollBox.defaultProps = {
   animateIn: true,
 };
+
+ScrollBox.usage = `
+# ScrollBox
+
+ScrollBox lays out content vertically via flexbox, and allows its content to scroll vertically. It also includes a little animation as content appears. You can turn this off with \`animateIn\`.
+
+\`\`\`
+<ScrollBox animateIn={false}>
+  <!-- content -->
+</ScrollBox>
+\`\`\`
+`;
 
 export default ScrollBox;

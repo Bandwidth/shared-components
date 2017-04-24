@@ -59,7 +59,7 @@ const Label = styled.label`
   }
 `;
 
-export default class Checkbox extends React.Component {
+class Checkbox extends React.Component {
   static propTypes = {
     input: PropTypes.shape({
       value: PropTypes.oneOfType(PropTypes.string, PropTypes.bool),
@@ -84,3 +84,15 @@ export default class Checkbox extends React.Component {
     );
   }
 }
+
+Checkbox.usage = `
+# Checkbox
+
+A simple checkbox input. See BinaryInput for prop types.
+
+\`\`\`
+<Checkbox input={{ value: 'true', onChange=this.onChange }} label="Yes?" disabled />
+\`\`\`
+`;
+
+export default Checkbox;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Label from './Label';
 import HelpText from './HelpText';
 
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -14,7 +14,7 @@ const Container = styled.div`
   }
 `;
 
-export default class InputWrapper extends React.Component {
+class InputWrapper extends React.Component {
   static propTypes = {
     disabled: React.PropTypes.bool,
     required: React.PropTypes.bool,
@@ -44,3 +44,17 @@ export default class InputWrapper extends React.Component {
     );
   }
 }
+
+InputWrapper.usage = `
+# InputWrapper
+
+Mainly used by other input classes. It adds the label and help text above and below its children.
+
+\`\`\`
+<InputWrapper label="foo" helpText="bar">
+  <TextBox />
+</InputWrapper>
+\`\`\`
+`;
+
+export default InputWrapper;

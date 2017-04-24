@@ -4,12 +4,11 @@
  */
 import styled from 'styled-components';
 
-const InputBox = styled.div`
+const InputBox = styled.div.withConfig({ displayName: 'InputBox' })`
   color: ${({ theme }) => theme.input.fg};
   background: ${({ theme }) => theme.input.bg};
   display: flex;
   flex-direction: row;
-  margin: ${({ theme }) => theme.input.margin};
   width: 100%;
 
   ${({ disabled, theme }) =>

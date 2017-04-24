@@ -44,7 +44,11 @@ export default class Header extends React.Component {
     columnKey: React.PropTypes.string.isRequired,
     handleClick: React.PropTypes.func.isRequired,
     sortOrder: React.PropTypes.number.isRequired,
-    sorting: React.PropTypes.bool.isRequired,
+    sorting: React.PropTypes.bool,
+  };
+
+  static defaultProps = {
+    sorting: false,
   };
 
   render() {

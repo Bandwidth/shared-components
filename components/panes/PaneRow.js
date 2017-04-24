@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default styled.div`
+const PaneRow = styled.div.withConfig({ displayName: 'PaneRow' })`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -14,3 +14,18 @@ export default styled.div`
     border-right: none;
   }
 `;
+
+PaneRow.usage = `
+# PaneRow
+
+A composeable column. Lays out children horizontally. Applies a divider between children.
+
+\`\`\`
+<PaneRow>
+  <Pane>Content</Pane>
+  <Pane>Content</Pane>
+</PaneRow>
+\`\`\`
+`;
+
+export default PaneRow;

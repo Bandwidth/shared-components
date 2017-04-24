@@ -21,7 +21,7 @@ const Text = styled.span`
   font-family: ${({ theme }) => theme.header.fontFamily};
 `;
 
-export default class LogoHeader extends React.Component {
+class LogoHeader extends React.Component {
   static propTypes = {
     children: React.PropTypes.string,
   };
@@ -39,3 +39,15 @@ export default class LogoHeader extends React.Component {
     );
   }
 }
+
+LogoHeader.usage = `
+# LogoHeader
+
+LogoHeader is mostly used for the top nav. It's just like Header, except it renders a logo before the text you supply.
+
+\`\`\`
+<LogoHeader>Bandwidth</LogoHeader>
+\`\`\`
+`;
+
+export default LogoHeader;

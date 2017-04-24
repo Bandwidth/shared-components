@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const HelpText = styled.div`
+const HelpText = styled.div.withConfig({ displayName: 'HelpText' })`
   color: ${({ theme }) => theme.input.helpTextFG};
   font-style: italic;
   font-weight: ${({ theme }) => theme.input.helpTextFontWeight};

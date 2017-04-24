@@ -18,7 +18,7 @@ const Inline = styled(Base)`
   border: ${({ theme }) => theme.code.inlineBorder};
 `;
 
-export default class Code extends React.Component {
+class Code extends React.Component {
   static propTypes = {
     children: React.PropTypes.string.isRequired,
   };
@@ -35,3 +35,20 @@ export default class Code extends React.Component {
     return <Inline>{this.props.children}</Inline>;
   }
 }
+
+Code.usage = `
+# Code
+
+Applies styling to render code on the page. Supports multiline and single-line code blocks.
+
+\`\`\`
+<Code>
+Some complex
+Code here
+</Code>
+
+<Code>A one-liner</Code>
+\`\`\`
+`;
+
+export default Code;

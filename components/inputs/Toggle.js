@@ -68,7 +68,7 @@ const Track = styled.label`
   }
 `;
 
-export default class Toggle extends React.Component {
+class Toggle extends React.Component {
   static propTypes = {
     input: PropTypes.shape({
       value: PropTypes.oneOfType(PropTypes.string, PropTypes.bool),
@@ -93,3 +93,11 @@ export default class Toggle extends React.Component {
     );
   }
 }
+
+Toggle.usage = `
+# Toggle
+
+See BinaryInput
+`;
+
+export default Toggle;

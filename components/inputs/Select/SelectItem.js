@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default styled.option`
+const SelectItem = styled.option.withConfig({ displayName: 'SelectItem' })`
   padding: ${({ theme }) => theme.selectItem.padding};
   border-bottom: ${({ theme }) => theme.selectItem.border};
   color: ${({ theme, active }) => active ? theme.selectItem.activeFG : theme.selectItem.fg};
@@ -9,3 +9,11 @@ export default styled.option`
   display: block;
   cursor: pointer;
 `;
+
+SelectItem.usage = `
+# SelectItem
+
+Not really meant to be used alone. Used in Select. I don't even know if it does anything.
+`;
+
+export default SelectItem;

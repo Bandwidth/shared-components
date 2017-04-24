@@ -13,6 +13,7 @@ const colors = {
   gutter: '#f7f7f7',
   border: '#e1e1e1',
   disabled: '#e1e1e1',
+  errorText: '#e8562e',
 };
 
 const fonts = {
@@ -59,7 +60,7 @@ export default {
     fontSize: '1em',
     fontWeight: 'auto',
     padding: '2em 0',
-    margin: '0',
+    margin: '0 2em 0 0',
     // controls animations
     accentBarTop: 'auto',
     accentBarBottom: '0',
@@ -78,7 +79,7 @@ export default {
     fontSize: '16px',
     fontFamily: fonts.brand,
     padding: '1em 1em',
-    margin: '0',
+    margin: '1em 1em 0 0',
     letterSpacing: '0.02em',
     lineHeight: '1.5',
     helpTextColor: colors.grayLightText,
@@ -129,7 +130,6 @@ export default {
     bg: colors.white,
     fg: '#666',
     padding: '30px 40px',
-    margin: '0',
     border: `1px solid ${colors.border}`,
   },
 
@@ -150,7 +150,6 @@ export default {
     fontSize: '1em',
     letterSpacing: '0.02em',
     fontFamily: fonts.brand,
-    margin: '0',
     padding: '0 0 0.4em 0',
     requiredMarkFG: '#e8562e',
   },
@@ -168,7 +167,6 @@ export default {
     hoverBG: '#008db1',
     focusShadow: '0 0 0 5px #d9f5fc',
     padding: '0.2em 0 0.2em 4.2em',
-    margin: '0',
     height: '2em',
     width: '3.6em',
     fontFamily: fonts.brand,
@@ -189,7 +187,6 @@ export default {
   },
 
   header: {
-    margin: '0',
     fg: colors.primary,
     fontFamily: fonts.brand,
     fontWeight: 100,

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default styled.div`
+const PaneColumn = styled.div.withConfig({ displayName: 'PaneColumn' })`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -14,3 +14,18 @@ export default styled.div`
     border-bottom: none;
   }
 `;
+
+PaneColumn.usage = `
+# PaneColumn
+
+A composeable column. Lays out children vertically. Applies a divider between children.
+
+\`\`\`
+<PaneColumn>
+  <Pane>Content</Pane>
+  <Pane>Content</Pane>
+</PaneColumn>
+\`\`\`
+`;
+
+export default PaneColumn;

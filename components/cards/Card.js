@@ -23,7 +23,7 @@ const Help = styled.span`
   font-weight: ${({ theme }) => theme.card.helpFontWeight};
 `;
 
-export default class Card extends React.Component {
+class Card extends React.Component {
   static propTypes = {
     children: React.PropTypes.node.isRequired,
     helpText: React.PropTypes.string,
@@ -43,3 +43,15 @@ export default class Card extends React.Component {
     );
   }
 }
+
+Card.usage = `
+# Card
+
+Cards are simple data items. They're not meant to be interactive, just informative. Supports adding a little help text with the \`helpText\` property.
+
+\`\`\`
+<Card helpText="This is usually bar">Foo</Card>
+\`\`\`
+`;
+
+export default Card;

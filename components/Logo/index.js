@@ -8,6 +8,14 @@ const Img = styled.img`
   margin: auto;
 `;
 
-export default function () {
+const Logo = function () {
   return <Img src={logo} />;
 }
+
+Logo.usage = `
+# Logo
+
+Renders the company logo! At a size of about 30px. This isn't the most versatile component yet.
+`;
+
+export default Logo;

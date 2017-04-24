@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default styled.div`
+const Tab = styled.div.withConfig({ displayName: 'Tab' })`
   border: 0;
   padding: ${({ theme }) => theme.tab.padding};
   opacity: 1;
@@ -28,3 +28,5 @@ export default styled.div`
     height: 5px;
   }
 `;
+
+export default Tab;

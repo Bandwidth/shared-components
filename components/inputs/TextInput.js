@@ -3,7 +3,7 @@ import InputBox from './InputBox';
 import TextBox from './TextBox';
 import InputWrapper from './InputWrapper';
 
-export default class TextInput extends React.Component {
+class TextInput extends React.Component {
   static propTypes = {
     input: React.PropTypes.shape({
       value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
@@ -35,3 +35,17 @@ export default class TextInput extends React.Component {
     );
   }
 }
+
+TextInput.usage = `
+# TextInput
+
+Props:
+
+* \`input\`: supplied by Redux Form's Field component, you can also specify this manually. Should contain \`value\` and \`onChange\` at least.
+* \`label\`: a renderable label to go above the component
+* \`helpText\`: some text to be rendered below the component
+* \`disabled\`: disables the component
+* \`required\`: adds a required mark and HTML field validation
+`;
+
+export default TextInput;

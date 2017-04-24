@@ -47,7 +47,7 @@ const WrapLink = styled(Link)`
   text-decoration: none;
 `;
 
-export default class SmartLink extends React.Component {
+class SmartLink extends React.Component {
   static propTypes = {
     to: React.PropTypes.string,
     children: React.PropTypes.node,
@@ -89,3 +89,19 @@ export default class SmartLink extends React.Component {
     );
   }
 }
+
+SmartLink.usage = `
+# Link
+
+Links are meant to be used with React Router v4+. They provide a few features besides styling:
+
+* use the \`to\` prop instead of \`href\`; better syntax.
+* pass the \`exact\` prop to indicate that this link should only be active when the URL matches exactly.
+* any children are passed an \`active\` prop, which indicates whether the link is currently being visited.
+
+\`\`\`
+<Link to="/about" exact>Go to About Page</Link>
+\`\`\`
+`;
+
+export default SmartLink;

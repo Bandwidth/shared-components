@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default styled.header`
+const TopNav = styled.header.withConfig({ displayName: 'TopNav' })`
   background: ${({ theme }) => theme.topNav.bg};
   color: ${({ theme }) => theme.topNav.fg};
   border-bottom: 1px solid ${({ theme }) => theme.shadow.color};
@@ -10,3 +10,20 @@ export default styled.header`
   min-height: ${({ theme }) => theme.topNav.minHeight};
   z-index: 1000;
 `;
+
+TopNav.usage = `
+# TopNav
+
+The header above a page which contains page title and navigation.
+
+\`\`\`
+<TopNav>
+  <LogoHeader>Bandwidth</LogoHeader>
+  <TabGroup>
+    <!-- ... -->
+  </TabGroup>
+</TopNav>
+\`\`\`
+`;
+
+export default TopNav;

@@ -26,7 +26,7 @@ const boxContains = (containingBox, candidateBox, percentTolerance = 0) => {
   );
 };
 
-export default class MultiSelectGrid extends React.Component {
+class MultiSelectGrid extends React.Component {
   static propTypes = {
     children: React.PropTypes.node,
     onSelectionChanged: React.PropTypes.func,
@@ -184,3 +184,21 @@ export default class MultiSelectGrid extends React.Component {
     );
   }
 }
+
+MultiSelectGrid.usage = `
+# MultiSelectGrid
+
+Experimental Grid technology. Allows multiple selections of items and box select. Currently very non-performant.
+
+I don't think this was very well-designed. I'd probably rewrite it if I needed to use it.
+
+\`\`\`
+<MultiSelectGrid onSelectionChanged={this.handleSelectionChanged}>
+  <div>one</div>
+  <div>two</div>
+  <div>three</div>
+</MultiSelectGrid>
+\`\`\`
+`;
+
+export default MultiSelectGrid;

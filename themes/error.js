@@ -11,4 +11,8 @@ export default defaultsDeep({
     activeBG: color('#e9562e').darken(0.2).string(),
     border: '1px solid #e8562e',
   },
+
+  link: {
+    fg: base.colors.errorText,
+  },
 }, base);

@@ -27,7 +27,7 @@ const ListContainer = styled.ul`
   }
 `;
 
-export default class List extends React.Component {
+class List extends React.Component {
   static propTypes = {
     selectedIndex: React.PropTypes.number,
     children: React.PropTypes.node.isRequired,
@@ -54,3 +54,20 @@ export default class List extends React.Component {
     );
   }
 }
+
+List.usage = `
+# List
+
+Lays out items vertically and provides selection context. Does not do scrolling.
+
+If you pass the \`selectedIndex\` prop, the child component which matches that index will receive an \`active=true\` prop when rendering. Use this to show selected state. Before relying on list selection state, though, consider whether your list shouldn't instead be linked to your router, so that each item is a unique route. If you go that direction, you can have the items be \`<Route/>\` components from React Router, and have them utilize RR's built-in route matching logic to determine rendering appearance.
+
+\`\`\`
+<List selectedIndex={1}>
+  <ListItem>One</ListItem>
+  <ListItem>Two</ListItem>
+</List>
+\`\`\`
+`;
+
+export default List;

@@ -24,7 +24,7 @@ const Input = styled.input`
   }
 `;
 
-export default class TextBox extends React.Component {
+class TextBox extends React.Component {
   static propTypes = {
     input: React.PropTypes.shape({
       value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
@@ -52,3 +52,11 @@ export default class TextBox extends React.Component {
     );
   }
 }
+
+TextBox.usage = `
+# TextBox
+
+A TextInput without the label or help text.
+`;
+
+export default TextBox;

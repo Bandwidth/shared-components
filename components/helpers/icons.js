@@ -1,4 +1,4 @@
-const map = {
+export const map = {
   administrator: '\\f149',
   appointmentReminders: '\\f101',
   ascendingSorting: '\\f114',

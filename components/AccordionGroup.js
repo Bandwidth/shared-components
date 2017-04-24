@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.div``;
 
-export default class AccordionGroup extends React.Component {
+class AccordionGroup extends React.Component {
   static propTypes = {
     children: React.PropTypes.node.isRequired,
     startExpandedKey: React.PropTypes.string,
@@ -54,3 +54,20 @@ export default class AccordionGroup extends React.Component {
     );
   }
 }
+
+AccordionGroup.usage = `
+# AccordionGroup
+
+Creates a group of Accordions which expand mutually exclusively of each other (only one can be open).
+
+Every Accordion must have a \`key\` prop, which must be unique. You can provide the \`startExpandedKey\` prop with the key you want to start in the expanded state (defaults to the first one).
+
+\`\`\`
+<AccordionGroup startExpandedKey={1}>
+  <Accordion key={0} />
+  <Accordion key={1} />
+</AccordionGroup>
+\`\`\`
+`;
+
+export default AccordionGroup;

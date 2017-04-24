@@ -63,7 +63,7 @@ const Content = styled.figure`
   margin: 0;
 `;
 
-export default class RadioButton extends React.Component {
+class RadioButton extends React.Component {
   static propTypes = {
     checked: React.PropTypes.bool.isRequired,
     onChange: React.PropTypes.func.isRequired,
@@ -92,3 +92,11 @@ export default class RadioButton extends React.Component {
     );
   }
 }
+
+RadioButton.usage = `
+# RadioButton
+
+Not really meant to be used alone, unless you just want the styling of it. Use RadioGroup to create a group of RadioButtons.
+`;
+
+export default RadioButton;

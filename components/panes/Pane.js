@@ -8,7 +8,7 @@ const Layout = styled.article`
   flex: 1 0 auto;
 `;
 
-export default class Pane extends React.Component {
+class Pane extends React.Component {
   static propTypes = {
     title: React.PropTypes.string,
     children: React.PropTypes.node.isRequired,
@@ -29,3 +29,15 @@ export default class Pane extends React.Component {
     );
   }
 }
+
+Pane.usage = `
+# Pane
+
+A section of display content with a title. Arranges children vertically.
+
+\`\`\`
+<Pane title="Hello">Content</Pane>
+\`\`\`
+`;
+
+export default Pane;

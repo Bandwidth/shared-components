@@ -36,7 +36,7 @@ const ListLabel = styled.h3`
 
 const ListDetails = styled.div``;
 
-export default class ListItem extends React.Component {
+class ListItem extends React.Component {
   static propTypes = {
     label: React.PropTypes.string,
     details: React.PropTypes.node,
@@ -60,3 +60,23 @@ export default class ListItem extends React.Component {
     );
   }
 }
+
+ListItem.usage = `
+# ListItem
+
+Renders a list item component. Use it inside a List for optimal effect.
+
+Props:
+
+* \`label\`: the main content
+* \`details\`: some extra info to render below the label
+* \`active\`: determines whether the item should render as active or not
+
+TODO: refactor this to use Card.
+
+\`\`\`
+<ListItem label="hi" active={true} />
+\`\`\`
+`;
+
+export default ListItem;
