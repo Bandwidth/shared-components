@@ -4,9 +4,7 @@
   "description": "Shared Component Library for Bandwidth React Apps",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "pristine start",
-    "build": "pristine build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,8 +16,8 @@
     "url": "https://github.com/inetCatapult/bandwidth-shared-components/issues"
   },
   "homepage": "https://github.com/inetCatapult/bandwidth-shared-components#readme",
-  "devDependencies": {
-    "pristine-app": "^2.0.2",
+  "peerDependencies": {
+    "babel-plugin-styled-components": "^1.1.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
@@ -29,9 +27,7 @@
     "color": "^1.0.3",
     "functional-easing": "^1.0.8",
     "prop-types": "^15.5.8",
-    "react-immutable-proptypes": "^2.1.0",
     "react-router-dom": "^4.0.0-beta.6",
-    "redux-data-table": "^1.1.0",
-    "styled-components": "^1.4.4"
+    "styled-components": "^2.0.0-15"
   }
 }

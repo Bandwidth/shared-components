@@ -11,4 +11,6 @@ export default styled.form`
   & > div, & > input {
     width: 100%;
   }
-`;
+`.withConfig({
+
+});
