@@ -8,6 +8,10 @@ const Layout = styled.article`
   flex: 1 0 auto;
 `;
 
+const PaddedHeader = styled(Header)`
+  padding: 0 30px;
+`;
+
 class Pane extends React.Component {
   static propTypes = {
     title: React.PropTypes.string,
@@ -23,7 +27,7 @@ class Pane extends React.Component {
 
     return (
       <Layout>
-        {title ? <Header>{title}</Header> : null}
+        {title ? <PaddedHeader>{title}</PaddedHeader> : null}
         {children}
       </Layout>
     );
