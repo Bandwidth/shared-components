@@ -34,6 +34,11 @@ const HTMLSelect = styled.select`
     border-color: ${({ theme }) => theme.input.focusedBorder};
     outline: none;
   }
+
+  &:disabled {
+    background: ${({ theme }) => theme.input.disabledBG};
+    color: ${({ theme }) => theme.input.disabledFG};
+  }
 `;
 
 class Select extends React.Component {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link, Route } from 'react-router-dom';
 
@@ -49,15 +50,17 @@ const WrapLink = styled(Link)`
 
 class SmartLink extends React.Component {
   static propTypes = {
-    to: React.PropTypes.string,
-    children: React.PropTypes.node,
-    exact: React.PropTypes.bool,
+    to: PropTypes.string,
+    children: PropTypes.node,
+    exact: PropTypes.bool,
+    onClick: PropTypes.func,
   };
 
   static defaultProps = {
     to: '#',
     children: 'Link',
     exact: false,
+    onClick: () => null,
   };
 
   // adds all non-children props to children
@@ -75,13 +78,15 @@ class SmartLink extends React.Component {
   };
 
   render() {
-    const { to, exact, children } = this.props;
+    const { to, exact, children, onClick } = this.props;
     const Component = (typeof children === 'string') ? TextLink : WrapLink;
 
     return (
       <Route
-        path={to} exact={exact} children={({ match }) => (
-          <Component to={to}>
+        path={to}
+        exact={exact}
+        children={({ match }) => (
+          <Component to={to} onClick={onClick}>
             {this.childrenWithProps({ active: match })}
           </Component>
         )}
