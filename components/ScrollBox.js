@@ -16,6 +16,7 @@ const ScrollBox = styled.div.withConfig({ displayName: 'ScrollBox' })`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  max-height: 100%;
 
   ${({ animateIn }) => {
     if (animateIn) {

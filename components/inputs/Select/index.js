@@ -58,6 +58,7 @@ class Select extends React.Component {
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     helpText: PropTypes.string,
+    selectOptionKey: PropTypes.func,
   };
 
   static defaultProps = {
@@ -69,12 +70,13 @@ class Select extends React.Component {
     disabled: false,
     required: false,
     helpText: null,
+    selectOptionKey: (option) => option.key || option.id || '' + option,
   };
 
   renderOptions = () => {
-    const { options, renderOption, allowNone, noneText } = this.props;
+    const { options, renderOption, selectOptionKey, allowNone, noneText } = this.props;
     const opts = options.map((option) => (
-      <SelectItem key={renderOption(option)}>{renderOption(option)}</SelectItem>
+      <SelectItem key={selectOptionKey(option)}>{renderOption(option)}</SelectItem>
     ));
     if (allowNone) {
       opts.unshift(<SelectItem key="None">{noneText}</SelectItem>);
@@ -84,7 +86,7 @@ class Select extends React.Component {
   };
 
   render() {
-    const { label, helpText, disabled, required, input, noneText } = this.props;
+    const { label, helpText, disabled, required, input, noneText, renderOption } = this.props;
     return (
       <InputWrapper
         label={label}
@@ -94,7 +96,7 @@ class Select extends React.Component {
       >
         <HTMLSelect
           {...input}
-          value={input.value || noneText}
+          value={input.value ? renderOption(input.value) : noneText}
           disabled={disabled}
           required={required}
         >
@@ -117,6 +119,7 @@ A dropdown input which lets you pick from a list of provided items. Supports def
 * \`required\`: adds a required mark and HTML field validation
 * \`options\`: an array of data
 * \`renderOption\`: a function to transform an option item into some text to show. Defaults to \`val => '' + val\`
+* \`selectOptionKey\`: a function to transform an option into a **unique** key
 
 \`\`\`
 <Select label="Choose:" required helpText="Make a choice!" options={['a', 'b']}>

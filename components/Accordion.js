@@ -7,7 +7,6 @@ import Icon from './Icon';
 
 const Container = styled.div`
   border: ${({ theme }) => theme.accordion.border};
-  overflow: hidden;
 `;
 
 const Label = styled.div`
