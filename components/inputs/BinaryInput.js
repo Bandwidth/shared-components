@@ -7,6 +7,7 @@ const Container = styled.div`
   line-height: 1.5em;
   padding-top: 0.4em;
   margin: auto;
+  height: 100%;
 `;
 
 class BinaryInput extends React.Component {

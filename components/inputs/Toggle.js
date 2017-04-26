@@ -14,8 +14,8 @@ const HiddenInput = styled.input`
 const Track = styled.label`
   cursor: pointer;
   position: relative;
+  top: 50%;
   padding: ${({ theme }) => theme.toggle.padding};
-  margin: ${({ theme }) => theme.toggle.margin};
   float: left;
   user-select: none;
   transition: all 0.2s ease;

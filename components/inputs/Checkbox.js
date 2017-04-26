@@ -17,6 +17,7 @@ const Label = styled.label`
   display: block;
   cursor: pointer;
   position: relative;
+  top: 50%;
   padding: ${({ theme }) => theme.checkbox.labelPadding};
   user-select: none;
   float: left;
