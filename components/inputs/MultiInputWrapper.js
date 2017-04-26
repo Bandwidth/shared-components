@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Link from '../Link';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+import InputWrapper from './InputWrapper';
 
 const List = styled.ul`
   appearance: none;
+  border: 1px solid #e1e1e1;
+  width: 100%;
+  padding: 2px;
 `;
 
 const SubFieldContainer = styled.li`
@@ -39,6 +38,15 @@ class MultiInputWrapper extends React.Component {
     }).isRequired,
 
     renderField: PropTypes.func.isRequired,
+    label: PropTypes.string,
+    helpText: PropTypes.string,
+    required: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    label: null,
+    helpText: null,
+    required: false,
   };
 
   renderSubField = (name, index, fields) => (
@@ -49,13 +57,14 @@ class MultiInputWrapper extends React.Component {
   );
 
   render() {
+    const { label, helpText, required } = this.props;
     return (
-      <Container>
+      <InputWrapper label={label} helpText={helpText} required={required}>
         <List>
           {this.props.fields.map(this.renderSubField)}
         </List>
         <Link onClick={() => this.props.fields.push('')}>add</Link>
-      </Container>
+      </InputWrapper>
     );
   }
 }
