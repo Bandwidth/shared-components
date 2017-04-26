@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Base = styled.code`
@@ -20,7 +21,7 @@ const Inline = styled(Base)`
 
 class Code extends React.Component {
   static propTypes = {
-    children: React.PropTypes.string.isRequired,
+    children: PropTypes.string.isRequired,
   };
 
   isMultiline = () => {

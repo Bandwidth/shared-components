@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Label from './Label';
 import HelpText from './HelpText';
@@ -16,12 +17,12 @@ export const Container = styled.div`
 
 class InputWrapper extends React.Component {
   static propTypes = {
-    disabled: React.PropTypes.bool,
-    required: React.PropTypes.bool,
-    label: React.PropTypes.string,
-    helpText: React.PropTypes.string,
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    label: PropTypes.string,
+    helpText: PropTypes.string,
 
-    children: React.PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
   };
 
   static defaultProps = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const ListContainer = styled.ul`
@@ -29,8 +30,8 @@ const ListContainer = styled.ul`
 
 class List extends React.Component {
   static propTypes = {
-    selectedIndex: React.PropTypes.number,
-    children: React.PropTypes.node.isRequired,
+    selectedIndex: PropTypes.number,
+    children: PropTypes.node.isRequired,
   };
 
   static defaultProps = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { debounce, xor } from 'lodash';
 import styled from 'styled-components';
 import GridItem from './MultiSelectGridItem';
@@ -28,9 +29,9 @@ const boxContains = (containingBox, candidateBox, percentTolerance = 0) => {
 
 class MultiSelectGrid extends React.Component {
   static propTypes = {
-    children: React.PropTypes.node,
-    onSelectionChanged: React.PropTypes.func,
-    percentTolerance: React.PropTypes.number,
+    children: PropTypes.node,
+    onSelectionChanged: PropTypes.func,
+    percentTolerance: PropTypes.number,
   };
 
   static defaultProps = {

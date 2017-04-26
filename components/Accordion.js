@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { debounce } from 'lodash';
 import styled from 'styled-components';
 import { AnimationTimer } from 'animation-timer';
@@ -52,10 +53,10 @@ const LabelText = styled.span`
  */
 class Accordion extends React.Component {
   static propTypes = {
-    label: React.PropTypes.node.isRequired,
-    children: React.PropTypes.node.isRequired,
-    isCollapsed: React.PropTypes.bool,
-    onToggle: React.PropTypes.func,
+    label: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
+    isCollapsed: PropTypes.bool,
+    onToggle: PropTypes.func,
   };
 
   static defaultProps = {

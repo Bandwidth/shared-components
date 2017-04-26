@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import RadioButton from './RadioButton';
 import InputWrapper from '../InputWrapper';
@@ -10,22 +11,22 @@ const Container = styled.div`
 
 class RadioGroup extends React.Component {
   static propTypes = {
-    choices: React.PropTypes.oneOfType([
-      React.PropTypes.arrayOf(React.PropTypes.string),
-      React.PropTypes.objectOf(React.PropTypes.node),
+    choices: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.string),
+      PropTypes.objectOf(PropTypes.node),
     ]).isRequired,
-    groupLabel: React.PropTypes.string,
-    label: React.PropTypes.string,
+    groupLabel: PropTypes.string,
+    label: PropTypes.string,
 
-    input: React.PropTypes.shape({
-      name: React.PropTypes.string.isRequired,
-      value: React.PropTypes.string.isRequired,
-      onChange: React.PropTypes.func.isRequired,
+    input: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      onChange: PropTypes.func.isRequired,
     }).isRequired,
 
-    disabled: React.PropTypes.bool,
-    helpText: React.PropTypes.string,
-    required: React.PropTypes.bool,
+    disabled: PropTypes.bool,
+    helpText: PropTypes.string,
+    required: PropTypes.bool,
   };
 
   static defaultProps = {

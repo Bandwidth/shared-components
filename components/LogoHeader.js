@@ -1,5 +1,5 @@
-// TODO: finish and move to style guide
 import React from 'react';
+import PropTypes from 'prop-types';
 import Logo from './Logo';
 import styled from 'styled-components';
 
@@ -23,7 +23,7 @@ const Text = styled.span`
 
 class LogoHeader extends React.Component {
   static propTypes = {
-    children: React.PropTypes.string,
+    children: PropTypes.string,
   };
 
   static defaultProps = {

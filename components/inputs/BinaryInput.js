@@ -12,7 +12,7 @@ const Container = styled.div`
 class BinaryInput extends React.Component {
   static propTypes = {
     input: PropTypes.shape({
-      value: PropTypes.oneOfType(PropTypes.string, PropTypes.bool),
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
       onChange: PropTypes.func,
       disabled: PropTypes.bool,
     }),

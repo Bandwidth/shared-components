@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -65,12 +66,12 @@ const Content = styled.figure`
 
 class RadioButton extends React.Component {
   static propTypes = {
-    checked: React.PropTypes.bool.isRequired,
-    onChange: React.PropTypes.func.isRequired,
-    label: React.PropTypes.string.isRequired,
-    content: React.PropTypes.node,
-    name: React.PropTypes.string.isRequired,
-    value: React.PropTypes.string.isRequired,
+    checked: PropTypes.bool.isRequired,
+    onChange: PropTypes.func.isRequired,
+    label: PropTypes.string.isRequired,
+    content: PropTypes.node,
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
   };
 
   static defaultProps = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const ListItemContainer = styled.li`
@@ -38,9 +39,9 @@ const ListDetails = styled.div``;
 
 class ListItem extends React.Component {
   static propTypes = {
-    label: React.PropTypes.string,
-    details: React.PropTypes.node,
-    active: React.PropTypes.bool,
+    label: PropTypes.string,
+    details: PropTypes.node,
+    active: PropTypes.bool,
   };
 
   static defaultProps = {

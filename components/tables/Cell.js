@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TD = styled.td`
@@ -18,9 +19,9 @@ const TD = styled.td`
 
 export default class Cell extends React.Component {
   static propTypes = {
-    value: React.PropTypes.any,
-    columnKey: React.PropTypes.string,
-    sorting: React.PropTypes.bool,
+    value: PropTypes.any,
+    columnKey: PropTypes.string,
+    sorting: PropTypes.bool,
   };
 
   static defaultProps = {

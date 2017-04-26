@@ -1,16 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from './Button';
 import InputWrapper from './InputWrapper';
 
 class ButtonInput extends React.Component {
   static propTypes = {
-    children: React.PropTypes.string.isRequired,
-    onClick: React.PropTypes.func.isRequired,
-    disabled: React.PropTypes.bool,
-    label: React.PropTypes.string,
-    id: React.PropTypes.string,
-    type: React.PropTypes.string,
-    helpText: React.PropTypes.string,
+    children: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
+    label: PropTypes.string,
+    id: PropTypes.string,
+    type: PropTypes.string,
+    helpText: PropTypes.string,
   };
 
   static defaultProps = {

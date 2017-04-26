@@ -1,20 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputBox from './InputBox';
 import TextBox from './TextBox';
 import InputWrapper from './InputWrapper';
 
 class TextInput extends React.Component {
   static propTypes = {
-    input: React.PropTypes.shape({
-      value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-      onChange: React.PropTypes.func,
+    input: PropTypes.shape({
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      onChange: PropTypes.func,
     }).isRequired,
-    disabled: React.PropTypes.bool,
-    required: React.PropTypes.bool,
-    label: React.PropTypes.string,
-    id: React.PropTypes.string,
-    type: React.PropTypes.string,
-    helpText: React.PropTypes.string,
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    label: PropTypes.string,
+    id: PropTypes.string,
+    type: PropTypes.string,
+    helpText: PropTypes.string,
   };
 
   static defaultProps = {

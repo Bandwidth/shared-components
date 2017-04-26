@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Header from '../Header';
 
@@ -14,8 +15,8 @@ const PaddedHeader = styled(Header)`
 
 class Pane extends React.Component {
   static propTypes = {
-    title: React.PropTypes.string,
-    children: React.PropTypes.node.isRequired,
+    title: PropTypes.string,
+    children: PropTypes.node.isRequired,
   };
 
   static defaultProps = {

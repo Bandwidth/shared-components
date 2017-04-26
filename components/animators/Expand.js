@@ -11,7 +11,7 @@ class Expand extends React.Component {
   static propTypes = {
     animate: PropTypes.bool,
     direction: PropTypes.oneOf(['vertical', 'horizontal', 'both']),
-    children: React.PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
     duration: PropTypes.number,
   };
 

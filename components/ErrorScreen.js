@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from './Icon';
 import Code from './Code';
@@ -25,7 +26,7 @@ const Message = styled.div`
 
 class ErrorScreen extends React.Component {
   static propTypes = {
-    reason: React.PropTypes.string,
+    reason: PropTypes.string,
   };
 
   static defaultProps = {

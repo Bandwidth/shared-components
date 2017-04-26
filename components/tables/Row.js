@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TR = styled.tr`
@@ -12,9 +13,9 @@ const TR = styled.tr`
 
 export default class Row extends React.Component {
   static propTypes = {
-    index: React.PropTypes.number,
-    children: React.PropTypes.node.isRequired,
-    sorting: React.PropTypes.bool,
+    index: PropTypes.number,
+    children: PropTypes.node.isRequired,
+    sorting: PropTypes.bool,
   };
 
   static defaultProps = {

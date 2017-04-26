@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
@@ -25,10 +26,10 @@ const TBody = styled.tbody`
 
 export default class Table extends React.Component {
   static propTypes = {
-    filter: React.PropTypes.node.isRequired,
-    rows: React.PropTypes.node.isRequired,
-    headers: React.PropTypes.node.isRequired,
-    sorting: React.PropTypes.bool,
+    filter: PropTypes.node.isRequired,
+    rows: PropTypes.node.isRequired,
+    headers: PropTypes.node.isRequired,
+    sorting: PropTypes.bool,
   };
 
   static defaultProps = {

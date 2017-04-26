@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -25,8 +26,8 @@ const Help = styled.span`
 
 class Card extends React.Component {
   static propTypes = {
-    children: React.PropTypes.node.isRequired,
-    helpText: React.PropTypes.string,
+    children: PropTypes.node.isRequired,
+    helpText: PropTypes.string,
   };
 
   static defaultProps = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { sentence } from 'change-case';
 import Icon from '../Icon';
@@ -41,10 +42,10 @@ const SortArrows = styled.span`
 
 export default class Header extends React.Component {
   static propTypes = {
-    columnKey: React.PropTypes.string.isRequired,
-    handleClick: React.PropTypes.func.isRequired,
-    sortOrder: React.PropTypes.number.isRequired,
-    sorting: React.PropTypes.bool,
+    columnKey: PropTypes.string.isRequired,
+    handleClick: PropTypes.func.isRequired,
+    sortOrder: PropTypes.number.isRequired,
+    sorting: PropTypes.bool,
   };
 
   static defaultProps = {

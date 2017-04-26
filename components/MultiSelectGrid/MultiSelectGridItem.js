@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import childrenWithProps from '../../extensions/childrenWithProps';
 
 export default class MultiSelectGridItem extends React.Component {
   static propTypes = {
-    active: React.PropTypes.bool,
-    pendingToggle: React.PropTypes.bool,
-    innerRef: React.PropTypes.func,
+    active: PropTypes.bool,
+    pendingToggle: PropTypes.bool,
+    innerRef: PropTypes.func,
   };
 
   static defaultProps = {
