@@ -11,3 +11,4 @@ export RadioGroup from './RadioGroup';
 export InputWrapper from './InputWrapper';
 export LinkInput from './LinkInput';
 export MultiInputWrapper from './MultiInputWrapper';
+export FileDropInput from './FileDropInput';

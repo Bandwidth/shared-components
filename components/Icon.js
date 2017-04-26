@@ -8,7 +8,6 @@ const Icon = styled.span.withConfig({ displayName: 'Icon' })`
     color: ${({ theme }) => theme.icon.fg};
     content: "${({ name, iconsHelper }) => iconsHelper(name)}";
     display: block;
-    padding: 0.5em;
   }
 `;
 

@@ -27,6 +27,7 @@
     "color": "^1.0.3",
     "functional-easing": "^1.0.8",
     "prop-types": "^15.5.8",
+    "react-dropzone": "^3.13.1",
     "react-router-dom": "^4.0.0-beta.6",
     "styled-components": "^2.0.0-15"
   }
