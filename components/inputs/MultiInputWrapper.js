@@ -4,14 +4,14 @@ import styled from 'styled-components';
 import Link from '../Link';
 import InputWrapper from './InputWrapper';
 
-const List = styled.ul`
+export const List = styled.ul`
   appearance: none;
   border: 1px solid #e1e1e1;
   width: 100%;
   padding: 2px;
 `;
 
-const SubFieldContainer = styled.li`
+export const SubFieldContainer = styled.li`
   display: flex;
   flex-direction: row;
   margin: ${({ theme }) => theme.input.margin};
