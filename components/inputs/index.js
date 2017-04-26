@@ -9,3 +9,4 @@ export TextArea from './TextArea';
 export Select from './Select';
 export RadioGroup from './RadioGroup';
 export InputWrapper from './InputWrapper';
+export LinkInput from './LinkInput';

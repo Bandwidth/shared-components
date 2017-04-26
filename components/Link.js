@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link, Route } from 'react-router-dom';
 
-const TextLink = styled(Link)`
+export const TextLink = styled(Link)`
   color: ${({ theme }) => theme.link.fg};
   font-family: ${({ theme }) => theme.link.fontFamily};
   text-decoration: none;

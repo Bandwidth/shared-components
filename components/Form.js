@@ -13,7 +13,7 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
     width: 100%;
   }
 
-  & ${InputWrapperContainer} {
+  & > ${InputWrapperContainer} {
     margin: ${({ theme }) => theme.input.margin};
   }
 `;

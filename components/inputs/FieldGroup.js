@@ -5,6 +5,7 @@
  */
 
 import styled from 'styled-components';
+import { Container as InputWrapperContainer } from './InputWrapper';
 
 const FieldGroup = styled.div`
   display: flex;
@@ -18,6 +19,10 @@ const FieldGroup = styled.div`
     }
     return `& > * { flex: ${ spacing}; }`;
   }}
+
+  & > ${InputWrapperContainer} {
+    margin: ${({ theme }) => theme.input.margin};
+  }
 `;
 
 FieldGroup.defaultProps = {
