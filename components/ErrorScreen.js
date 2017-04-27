@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from './Icon';
-import Code from './Code';
+import InlineCode from './code/InlineCode';
 
 const Container = styled.div`
   display: flex;
@@ -39,7 +39,7 @@ class ErrorScreen extends React.Component {
         <Center>
           <Icon size={80} name="attention" />
           <Message>We couldn&apos;t load that data</Message>
-          <Code>{this.props.reason}</Code>
+          <InlineCode>{this.props.reason}</InlineCode>
         </Center>
       </Container>
     );

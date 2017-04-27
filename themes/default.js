@@ -19,6 +19,7 @@ const colors = {
 const fonts = {
   brand: '"Overpass", Raleway, "Open Sans", arial, sans-serif',
   default: '"Open Sans", arial, sans-serif',
+  monospace: '"Source Code Pro", monospace',
 };
 
 export default {
@@ -207,13 +208,37 @@ export default {
   },
 
   code: {
-    fontFamily: '"Source Code Pro", monospace',
-    inlineFG: '#666',
-    inlineBG: '#f1f1f1',
-    inlineBorder: '1px solid #e4e4e4',
+    fontFamily: fonts.monospace,
+    fontSize: '1em',
+    bg: '#272b2d',
+    fg: '#fff',
+    padding: '2em',
+  },
+
+  inlineCode: {
+    fontFamily: fonts.monospace,
+    fg: '#666',
+    bg: '#f1f1f1',
+    border: '1px solid #e4e4e4',
     borderRadius: '3px',
     fontSize: '0.85em',
+    borderRadius: '3px',
     padding: '0.3em',
+  },
+
+  // for request methods
+  methodTag: {
+    colors: {
+      get: '#6cbf0d',
+      post: '#00bcec',
+      del: '#e8562e',
+      delete: '#e8562e',
+      put: '#a5639b',
+    },
+    padding: '0.5em 1em',
+    borderRadius: '5px',
+    fg: colors.white,
+    fontSize: '1em',
   },
 
   selectItem: {
@@ -230,6 +255,7 @@ export default {
     labelFontFamily: fonts.brand,
     border: `1px solid ${colors.border}`,
     padding: '30px',
+    textTransform: 'none',
   },
 
   listItem: {

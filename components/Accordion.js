@@ -15,6 +15,7 @@ const Label = styled.div`
   color: ${({ theme }) => theme.accordion.labelFG};
   font-family: ${({ theme }) => theme.accordion.labelFontFamily};
   font-size: ${({ theme }) => theme.accordion.labelFontSize};
+  text-transform: ${({ theme }) => theme.accordion.textTransform};
   cursor: pointer;
   display: flex;
   flex-direction: row;

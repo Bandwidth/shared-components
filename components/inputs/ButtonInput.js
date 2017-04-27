@@ -6,7 +6,7 @@ import InputWrapper from './InputWrapper';
 class ButtonInput extends React.Component {
   static propTypes = {
     children: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
     disabled: PropTypes.bool,
     label: PropTypes.string,
     id: PropTypes.string,
@@ -20,6 +20,7 @@ class ButtonInput extends React.Component {
     id: null,
     type: 'text',
     helpText: null,
+    onClick: () => null,
   };
 
   render() {

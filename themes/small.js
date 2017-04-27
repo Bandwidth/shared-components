@@ -30,6 +30,7 @@ export default defaultsDeep({
     labelFG: base.colors.black,
     padding: '20px',
     labelFontSize: '1.2em',
+    textTransform: 'uppercase',
   },
 
   table: {
@@ -40,5 +41,10 @@ export default defaultsDeep({
     fontSize: '0.75em',
     padding: '0.5em',
     margin: '0.25em 1em',
+  },
+
+  methodTag: {
+    padding: '0.15em 0.4em',
+    fontSize: '0.8em',
   },
 }, base);
