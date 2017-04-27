@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Code from './Code';
+import { CodeWrapper } from './Code';
 
 const Container = styled.div`
   display: flex;
@@ -14,8 +14,8 @@ const Content = styled.div`
   padding: ${({ theme }) => theme.code.padding};
   color: ${({ theme }) => theme.code.fg};
 
-  & > ${Code} {
-    padding: 1em 0;
+  & > ${CodeWrapper} {
+    padding: 0;
   }
 `;
 
