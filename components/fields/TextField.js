@@ -30,7 +30,7 @@ class TextField extends React.Component {
     const { input, label, id, disabled, required, helpText, type } = this.props;
     return (
       <FieldWrapper label={label} helpText={helpText} disabled={disabled} required={required}>
-        <TextInput input={input} id={id} type={type} disabled={disabled} required={required} />
+        <TextInput {...input} id={id} type={type} disabled={disabled} required={required} />
       </FieldWrapper>
     );
   }
