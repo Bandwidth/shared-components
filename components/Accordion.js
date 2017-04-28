@@ -34,7 +34,7 @@ const ContentPadding = styled.div`
 
 const ModdedIcon = styled(Icon)`
   color: #666;
-  margin: auto;
+  margin: auto 1em auto auto;
   transform: ${({ isCollapsed }) => isCollapsed ? 'rotate(0)' : 'rotate(90deg)'};
   transition: 0.2s all ease;
   font-weight: 100;
