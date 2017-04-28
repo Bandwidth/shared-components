@@ -1,12 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import SelectItem from './SelectItem';
-import InputBox from '../InputBox';
-import InputWrapper from '../InputWrapper';
 import arrowImage from './arrow.png';
 
-const HTMLSelect = styled.select`
+const Select = styled.select`
   padding: ${({ theme }) => theme.input.padding};
   border: ${({ theme }) => theme.input.border};
   border-radius: 0;
@@ -40,77 +35,6 @@ const HTMLSelect = styled.select`
     color: ${({ theme }) => theme.input.disabledFG};
   }
 `;
-
-class Select extends React.Component {
-  static propTypes = {
-    /** Input props, expected to be passed by redux-form */
-    input: PropTypes.shape({
-      /** The currently selected value */
-      value: PropTypes.any,
-      /** Event handler for change in value */
-      onChange: PropTypes.func,
-    }).isRequired,
-    /** All possible values */
-    options: PropTypes.array,
-    /** Function to render the display of a value */
-    renderOption: PropTypes.func,
-    /** Can the user select 'none' ? */
-    allowNone: PropTypes.bool,
-    /** Text to show if none is selected */
-    noneText: PropTypes.string,
-    /** Adds a label above the select */
-    label: PropTypes.string,
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
-    helpText: PropTypes.string,
-    selectOptionKey: PropTypes.func,
-  };
-
-  static defaultProps = {
-    options: [],
-    renderOption: (val) => '' + val,
-    allowNone: true,
-    noneText: 'None',
-    label: null,
-    disabled: false,
-    required: false,
-    helpText: null,
-    selectOptionKey: (option) => option.key || option.id || '' + option,
-  };
-
-  renderOptions = () => {
-    const { options, renderOption, selectOptionKey, allowNone, noneText } = this.props;
-    const opts = options.map((option) => (
-      <SelectItem key={selectOptionKey(option)}>{renderOption(option)}</SelectItem>
-    ));
-    if (allowNone) {
-      opts.unshift(<SelectItem key="None">{noneText}</SelectItem>);
-    }
-
-    return opts;
-  };
-
-  render() {
-    const { label, helpText, disabled, required, input, noneText, renderOption } = this.props;
-    return (
-      <InputWrapper
-        label={label}
-        helpText={helpText}
-        disabled={disabled}
-        required={required}
-      >
-        <HTMLSelect
-          {...input}
-          value={input.value ? renderOption(input.value) : noneText}
-          disabled={disabled}
-          required={required}
-        >
-          {this.renderOptions()}
-        </HTMLSelect>
-      </InputWrapper>
-    );
-  }
-}
 
 Select.usage = `
 # Select

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { FieldGroup } from '../inputs';
-import { Container as BinaryInputContainer } from '../inputs/BinaryInput';
-import { Container as InputWrapperContainer } from '../inputs/InputWrapper';
+import { FieldGroup } from '../fields';
+import { Container as BinaryFieldContainer } from '../fields/BinaryField';
+import { Container as FieldWrapperContainer } from '../fields/FieldWrapper';
 
 const Form = styled.form.withConfig({ displayName: 'Form' })`
   padding: ${({ theme }) => theme.form.padding};
@@ -21,18 +21,18 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
   }
 
   /* these are inputs directly within a field group inside a form */
-  & > ${FieldGroup} > ${InputWrapperContainer}:not(:first-child),
-  & > ${FieldGroup} > ${BinaryInputContainer}:not(:first-child) {
+  & > ${FieldGroup} > ${FieldWrapperContainer}:not(:first-child),
+  & > ${FieldGroup} > ${BinaryFieldContainer}:not(:first-child) {
     margin-left: ${({ theme }) => theme.form.elementHorizontalSpacing / 2}px;
   }
-  & > ${FieldGroup} > ${InputWrapperContainer}:not(:last-child),
-  & > ${FieldGroup} > ${BinaryInputContainer}:not(:last-child) {
+  & > ${FieldGroup} > ${FieldWrapperContainer}:not(:last-child),
+  & > ${FieldGroup} > ${BinaryFieldContainer}:not(:last-child) {
     margin-right: ${({ theme }) => theme.form.elementHorizontalSpacing / 2}px;
   }
 
   /* these are 'loose' inputs placed directly inside a form */
-  & > ${InputWrapperContainer},
-  & > ${BinaryInputContainer} {
+  & > ${FieldWrapperContainer},
+  & > ${BinaryFieldContainer} {
     margin: ${({ theme }) => theme.input.margin};
     margin-top: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
     margin-bottom: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;

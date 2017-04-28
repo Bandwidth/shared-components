@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Link from '../Link';
-import InputWrapper from './InputWrapper';
+import FieldWrapper from './FieldWrapper';
 
 export const List = styled.ul`
   appearance: none;
@@ -17,7 +17,7 @@ export const SubFieldContainer = styled.li`
   margin: ${({ theme }) => theme.input.margin};
 `;
 
-class MultiInputWrapper extends React.Component {
+class MultiFieldWrapper extends React.Component {
   static propTypes = {
     fields: PropTypes.shape({
       name: PropTypes.string,
@@ -59,18 +59,18 @@ class MultiInputWrapper extends React.Component {
   render() {
     const { label, helpText, required } = this.props;
     return (
-      <InputWrapper label={label} helpText={helpText} required={required}>
+      <FieldWrapper label={label} helpText={helpText} required={required}>
         <List>
           {this.props.fields.map(this.renderSubField)}
         </List>
         <Link onClick={() => this.props.fields.push('')}>add</Link>
-      </InputWrapper>
+      </FieldWrapper>
     );
   }
 }
 
-MultiInputWrapper.usage = `
-# MultiInputWrapper
+MultiFieldWrapper.usage = `
+# MultiFieldWrapper
 
 Provides a way to wrap a field for usage in a Redux Form FieldArray. Hooks into functions on the provided \`fields\` prop to manipulate its parent array of fields using some rendered controls.
 
@@ -87,7 +87,7 @@ export default class MultiTextInput extends React.Component {
 
   render() {
     return (
-      <MultiInputWrapper
+      <MultiFieldWrapper
         name={this.props.name}
         fields={this.props.fields}
         renderField={this.renderField}
@@ -101,4 +101,4 @@ export default class MultiTextInput extends React.Component {
 \`\`\`
 `;
 
-export default MultiInputWrapper;
+export default MultiFieldWrapper;

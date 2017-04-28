@@ -6,7 +6,7 @@ import generateId from '../../extensions/generateId';
 export const Container = styled.div`
 `;
 
-class BinaryInput extends React.Component {
+class BinaryField extends React.Component {
   static propTypes = {
     input: PropTypes.shape({
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
@@ -56,8 +56,8 @@ class BinaryInput extends React.Component {
   }
 }
 
-BinaryInput.usage = `
-# BinaryInput
+BinaryField.usage = `
+# BinaryField
 
 This is really more of a base class for inputs which switch between two values (see: Toggle and Checkbox).
 
@@ -70,4 +70,4 @@ Props:
 * \`required\`: adds a required mark and HTML field validation
 `;
 
-export default BinaryInput;
+export default BinaryField;

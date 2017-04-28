@@ -1,9 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import BinaryInput from './BinaryInput';
 
-const HiddenInput = styled.input`
+export const HiddenInput = styled.input`
   margin: -9999px;
 
   &:focus + label::before {
@@ -11,7 +8,7 @@ const HiddenInput = styled.input`
   }
 `;
 
-const Track = styled.label`
+const Toggle = styled.label`
   cursor: pointer;
   position: relative;
   top: 50%;
@@ -69,36 +66,19 @@ const Track = styled.label`
   }
 `;
 
-class Toggle extends React.Component {
-  static propTypes = {
-    input: PropTypes.shape({
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-      onChange: PropTypes.func,
-      disabled: PropTypes.bool,
-    }),
-    label: PropTypes.string,
-    id: PropTypes.string,
-  };
-
-  static defaultProps = {
-    input: {
-      value: 'false',
-    },
-    label: null,
-    id: null,
-  };
-
-  render() {
-    return (
-      <BinaryInput {...this.props} Input={HiddenInput} Label={Track} />
-    );
-  }
-}
-
 Toggle.usage = `
 # Toggle
 
-See BinaryInput
+A simple toggle input. The default export is the label to use.
+
+Also exports \`HiddenInput\`, which is the actual <input> element.
+
+It's probably easier to use \`fields/ToggleField\`, which assembles these for you.
+
+\`\`\`
+<HiddenInput value={true} id="a" />
+<Toggle for="a" />
+\`\`\`
 `;
 
 export default Toggle;

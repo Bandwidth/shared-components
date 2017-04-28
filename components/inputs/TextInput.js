@@ -1,38 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import InputBox from './InputBox';
-import TextBox from './TextBox';
-import InputWrapper from './InputWrapper';
+
+const Input = styled.input`
+  color: inherit;
+  letter-spacing: 0.02em;
+  line-height: ${({ theme }) => theme.input.lineHeight};
+  font-size: ${({ theme }) => theme.input.fontSize};
+  font-family: ${({ theme }) => theme.input.fontFamily};
+  transition: all 0.2s ease;
+  outline: none;
+  width: 100%;
+  padding: ${({ theme }) => theme.input.padding};
+  display: block;
+  border: ${({ theme }) => theme.input.border};
+
+  &:focus {
+    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.input.accentValid};
+    border: ${({ theme }) => theme.input.focusedBorder};
+  }
+  &:focus + div {
+    opacity: 1;
+  }
+`;
 
 class TextInput extends React.Component {
   static propTypes = {
-    input: PropTypes.shape({
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      onChange: PropTypes.func,
-    }).isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    onChange: PropTypes.func,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
-    label: PropTypes.string,
     id: PropTypes.string,
     type: PropTypes.string,
-    helpText: PropTypes.string,
   };
 
   static defaultProps = {
     disabled: false,
     required: false,
-    label: null,
     id: null,
     type: 'text',
-    helpText: null,
   };
 
   render() {
-    const { input, label, id, disabled, required, helpText, type } = this.props;
+    const { disabled } = this.props;
     return (
-      <InputWrapper label={label} helpText={helpText} disabled={disabled} required={required}>
-        <TextBox input={input} id={id} type={type} disabled={disabled} required={required} />
-      </InputWrapper>
+      <InputBox disabled={disabled}>
+        <Input {...this.props} />
+      </InputBox>
     );
   }
 }
@@ -40,13 +55,7 @@ class TextInput extends React.Component {
 TextInput.usage = `
 # TextInput
 
-Props:
-
-* \`input\`: supplied by Redux Form's Field component, you can also specify this manually. Should contain \`value\` and \`onChange\` at least.
-* \`label\`: a renderable label to go above the component
-* \`helpText\`: some text to be rendered below the component
-* \`disabled\`: disables the component
-* \`required\`: adds a required mark and HTML field validation
+A TextInput without the label or help text.
 `;
 
 export default TextInput;

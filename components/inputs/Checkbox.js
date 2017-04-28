@@ -1,10 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import icons from '../helpers/icons';
-import BinaryInput from './BinaryInput';
 
-const HiddenInput = styled.input`
+export const HiddenInput = styled.input`
   margin-left: -9999px;
 
   &:focus + label::after {
@@ -12,7 +9,7 @@ const HiddenInput = styled.input`
   }
 `;
 
-const Label = styled.label`
+const Checkbox = styled.label`
   cursor: pointer;
   position: relative;
   top: 50%;
@@ -61,39 +58,18 @@ const Label = styled.label`
   }
 `;
 
-class Checkbox extends React.Component {
-  static propTypes = {
-    input: PropTypes.shape({
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-      onChange: PropTypes.func,
-      disabled: PropTypes.bool,
-    }),
-    label: PropTypes.string,
-    id: PropTypes.string,
-  };
-
-  static defaultProps = {
-    input: {
-      value: 'false',
-    },
-    label: null,
-    id: null,
-  };
-
-  render() {
-    return (
-      <BinaryInput {...this.props} Input={HiddenInput} Label={Label} />
-    );
-  }
-}
-
 Checkbox.usage = `
 # Checkbox
 
-A simple checkbox input. See BinaryInput for prop types.
+A simple checkbox input. The default export is the label to use.
+
+Also exports \`HiddenInput\`, which is the actual <input> element.
+
+It's probably easier to use \`fields/CheckboxField\`, which assembles these for you.
 
 \`\`\`
-<Checkbox input={{ value: 'true', onChange=this.onChange }} label="Yes?" disabled />
+<HiddenInput value={true} id="a" />
+<Checkbox for="a" />
 \`\`\`
 `;
 

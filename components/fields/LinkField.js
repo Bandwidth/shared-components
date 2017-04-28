@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from '../Link';
-import InputWrapper from './InputWrapper';
+import FieldWrapper from './FieldWrapper';
 
-class LinkInput extends React.Component {
+class LinkField extends React.Component {
   static propTypes = {
     disabled: PropTypes.bool,
     label: PropTypes.string,
@@ -29,17 +29,17 @@ class LinkInput extends React.Component {
   render() {
     const { input, label, id, disabled, helpText, to, children, exact, onClick } = this.props;
     return (
-      <InputWrapper label={label} helpText={helpText} disabled={disabled}>
+      <FieldWrapper label={label} helpText={helpText} disabled={disabled}>
         <Link id={id} disabled={disabled} to={to} exact={exact} onClick={onClick}>
           {children}
         </Link>
-      </InputWrapper>
+      </FieldWrapper>
     );
   }
 }
 
-LinkInput.usage = `
-# LinkInput
+LinkField.usage = `
+# LinkField
 
 Wait, a link isn't an input! But using this component in your form will help any links lay out consistently with other form inputs. Plus, you get to add a label and help text.
 
@@ -53,4 +53,4 @@ Props:
 * \`disabled\`: disables the component
 `;
 
-export default LinkInput;
+export default LinkField;

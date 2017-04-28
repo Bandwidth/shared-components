@@ -5,7 +5,6 @@
  */
 
 import styled from 'styled-components';
-import { Container as InputWrapperContainer } from './InputWrapper';
 
 const FieldGroup = styled.div`
   display: flex;
@@ -19,10 +18,6 @@ const FieldGroup = styled.div`
     }
     return `& > * { flex: ${ spacing}; }`;
   }}
-
-  & > ${InputWrapperContainer} {
-    margin: ${({ theme }) => theme.input.margin};
-  }
 `;
 
 FieldGroup.defaultProps = {
@@ -40,8 +35,8 @@ For when you know how you want to lay out fields in a form on one row. For insta
 
 \`\`\`
 <FieldGroup spacing={[2, 1]} align="space-between">
-  <TextInput />
-  <Button />
+  <TextField />
+  <ButtonField />
 </FieldGroup>
 \`\`\`
 `;

@@ -15,7 +15,7 @@ export const Container = styled.div`
   }
 `;
 
-class InputWrapper extends React.Component {
+class FieldWrapper extends React.Component {
   static propTypes = {
     disabled: PropTypes.bool,
     required: PropTypes.bool,
@@ -46,16 +46,16 @@ class InputWrapper extends React.Component {
   }
 }
 
-InputWrapper.usage = `
-# InputWrapper
+FieldWrapper.usage = `
+# FieldWrapper
 
 Mainly used by other input classes. It adds the label and help text above and below its children.
 
 \`\`\`
-<InputWrapper label="foo" helpText="bar">
+<FieldWrapper label="foo" helpText="bar">
   <TextBox />
-</InputWrapper>
+</FieldWrapper>
 \`\`\`
 `;
 
-export default InputWrapper;
+export default FieldWrapper;
