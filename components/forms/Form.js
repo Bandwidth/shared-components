@@ -47,6 +47,20 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
     */
     flex: 0 1 calc(50% - ${({ theme }) => theme.form.elementHorizontalSpacing / 2}px);
   }
+
+  &:invalid button[type="submit"] {
+    background: ${({ theme }) => theme.button.disabledBG};
+    color: ${({ theme }) => theme.button.disabledFG};
+    border: ${({ theme }) => theme.button.disabledBorder};
+    cursor: default;
+    box-shadow: none;
+  }
+  &:invalid button[type="submit"]::after {
+    left: 160%;
+  }
+  &:invalid button[type="submit"]::before {
+    left: -60%;
+  }
 `;
 
 Form.usage = `

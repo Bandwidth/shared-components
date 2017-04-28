@@ -6,7 +6,7 @@ import { CodeWrapper } from './Code';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1.5em 0;
+  padding: 0;
 `;
 
 const Content = styled.div`

@@ -6,7 +6,7 @@ import { AnimationTimer } from 'animation-timer';
 import { Easer } from 'functional-easing';
 import Icon from './Icon';
 
-const Container = styled.div`
+export const Container = styled.div`
   border: ${({ theme }) => theme.accordion.border};
 `;
 
@@ -27,8 +27,8 @@ const Content = styled.div`
   overflow: hidden;
 `;
 
-const ContentPadding = styled.div`
-  padding: ${({ theme }) => theme.accordion.padding};
+const ContentHolder = styled.div`
+  padding: 0;
   padding-top: 0;
 `;
 
@@ -130,9 +130,9 @@ class Accordion extends React.Component {
       innerRef={(el) => { this._content = el; }}
       isCollapsed={this.calcIsCollapsed()}
     >
-      <ContentPadding>
+      <ContentHolder>
         {this.props.children}
-      </ContentPadding>
+      </ContentHolder>
     </Content>
     );
 

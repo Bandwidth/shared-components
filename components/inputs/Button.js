@@ -71,7 +71,7 @@ const Button = styled.button`
   }
 
   &:hover:not(:disabled)::after {
-    left: 80%;
+    left: 85%;
   }
 `;
 
