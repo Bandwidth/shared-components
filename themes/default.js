@@ -133,6 +133,7 @@ export default {
     fg: '#666',
     padding: '30px 40px',
     border: `1px solid ${colors.border}`,
+    fontFamily: fonts.brand,
     // form intelligently applies spacing to its children
     // to acheive this spacing on elements
     // units are pixels

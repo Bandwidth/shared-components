@@ -12,6 +12,8 @@ class ButtonField extends React.Component {
     id: PropTypes.string,
     type: PropTypes.string,
     helpText: PropTypes.string,
+    leftIcon: PropTypes.string,
+    rightIcon: PropTypes.string,
   };
 
   static defaultProps = {
@@ -21,13 +23,24 @@ class ButtonField extends React.Component {
     type: 'text',
     helpText: null,
     onClick: () => null,
+    leftIcon: null,
+    rightIcon: null,
   };
 
   render() {
-    const { children, onClick, label, id, disabled, helpText, type } = this.props;
+    const { children, onClick, label, id, disabled, helpText, type, leftIcon, rightIcon } = this.props;
     return (
       <FieldWrapper label={label} helpText={helpText}>
-        <Button onClick={onClick} id={id} type={type} disabled={disabled}>{children}</Button>
+        <Button
+          onClick={onClick}
+          id={id}
+          type={type}
+          disabled={disabled}
+          leftIcon={leftIcon}
+          rightIcon={rightIcon}
+        >
+          {children}
+        </Button>
       </FieldWrapper>
     );
   }

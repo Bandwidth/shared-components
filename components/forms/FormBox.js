@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const FormBox = styled.div.withConfig({ displayName: 'FormBox' })`
   background: ${({ theme }) => theme.form.bg};
   border: ${({ theme }) => theme.form.border};
-  padding: 0;
+  padding: ${({ theme }) => theme.form.padding};
   max-width: 70vw;
   width: 100%;
 `;

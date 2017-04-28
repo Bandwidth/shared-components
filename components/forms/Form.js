@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { FieldGroup } from '../fields';
 import { Container as BinaryFieldContainer } from '../fields/BinaryField';
 import { Container as FieldWrapperContainer } from '../fields/FieldWrapper';
+import FormText from './FormText';
 
 const Form = styled.form.withConfig({ displayName: 'Form' })`
-  padding: ${({ theme }) => theme.form.padding};
   background: 'transparent';
   color: inherit;
   display: flex;
@@ -14,7 +14,8 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
   align-items: stretch;
 
   /* these are field groups which help layout rows inside a form */
-  & > ${FieldGroup} {
+  & > ${FieldGroup},
+  & > ${FormText} {
     flex: 1 0 100%;
     margin-top: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
     margin-bottom: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
