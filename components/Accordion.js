@@ -16,6 +16,7 @@ const Label = styled.div`
   font-family: ${({ theme }) => theme.accordion.labelFontFamily};
   font-size: ${({ theme }) => theme.accordion.labelFontSize};
   text-transform: ${({ theme }) => theme.accordion.textTransform};
+  font-weight: ${({ theme }) => theme.accordion.labelFontWeight};
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -36,10 +37,12 @@ const ModdedIcon = styled(Icon)`
   margin: auto;
   transform: ${({ isCollapsed }) => isCollapsed ? 'rotate(0)' : 'rotate(90deg)'};
   transition: 0.2s all ease;
+  font-weight: 100;
 
   &:after {
     padding-top: 0;
     padding-bottom: 0;
+    font-size: ${({ theme }) => theme.accordion.labelFontSize};
   }
 `;
 

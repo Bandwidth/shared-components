@@ -8,6 +8,7 @@ const MethodTag = styled.pre`
   padding: ${({ theme }) => theme.methodTag.padding};
   border-radius: ${({ theme }) => theme.methodTag.borderRadius};
   text-transform: uppercase;
+  line-height: ${({ theme }) => theme.methodTag.lineHeight};
   margin: 0;
 `;
 

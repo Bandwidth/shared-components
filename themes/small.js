@@ -29,8 +29,9 @@ export default defaultsDeep({
   accordion: {
     labelFG: base.colors.black,
     padding: '20px',
-    labelFontSize: '1.2em',
+    labelFontSize: '14px',
     textTransform: 'uppercase',
+    labelFontWeight: 700,
   },
 
   table: {
@@ -44,7 +45,8 @@ export default defaultsDeep({
   },
 
   methodTag: {
-    padding: '0.15em 0.4em',
-    fontSize: '0.8em',
+    padding: '0.05em 0.6em',
+    fontSize: '14px',
+    lineHeight: '1.2em',
   },
 }, base);

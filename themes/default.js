@@ -241,6 +241,7 @@ export default {
     borderRadius: '5px',
     fg: colors.white,
     fontSize: '1em',
+    lineHeight: '1em',
   },
 
   selectItem: {
@@ -255,6 +256,7 @@ export default {
     labelFG: '#00bcec',
     labelFontSize: '1.5em',
     labelFontFamily: fonts.brand,
+    labelFontWeight: 100,
     border: `1px solid ${colors.border}`,
     padding: '30px',
     textTransform: 'none',
