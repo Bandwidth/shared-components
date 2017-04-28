@@ -83,9 +83,10 @@ export default {
     margin: '1em 1em 0 0',
     letterSpacing: '0.02em',
     lineHeight: '1.5',
-    helpTextColor: colors.grayLightText,
+    helpTextFG: colors.grayLightText,
     helpTextFontWeight: 300,
     helpTextPadding: '0.4em 0 0 0',
+    helpTextFontFamily: fonts.brand,
   },
 
   radioButton: {
@@ -193,6 +194,7 @@ export default {
     fontWeight: 100,
     fontSize: '2.5em',
     lineHeight: '21px',
+    margin: 0,
   },
 
   subheader: {
