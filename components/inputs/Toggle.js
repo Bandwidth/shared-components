@@ -22,6 +22,7 @@ const Track = styled.label`
   line-height: ${({ theme }) => theme.toggle.height};
   font-family: ${({ theme }) => theme.toggle.fontFamily};
   font-weight: ${({ theme }) => theme.toggle.fontWeight};
+  transform: translateY(-50%);
 
   &::before {
     content: '';

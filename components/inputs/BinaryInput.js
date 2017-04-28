@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import generateId from '../../extensions/generateId';
 
-const Container = styled.div`
-  line-height: 1.5em;
-  padding-top: 0.4em;
-  margin: auto;
-  height: 100%;
+export const Container = styled.div`
 `;
 
 class BinaryInput extends React.Component {

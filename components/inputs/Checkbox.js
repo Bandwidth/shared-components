@@ -6,7 +6,6 @@ import BinaryInput from './BinaryInput';
 
 const HiddenInput = styled.input`
   margin-left: -9999px;
-  display: inline;
 
   &:focus + label::after {
     box-shadow: ${({ theme }) => theme.checkbox.focusShadow};
@@ -14,7 +13,6 @@ const HiddenInput = styled.input`
 `;
 
 const Label = styled.label`
-  display: block;
   cursor: pointer;
   position: relative;
   top: 50%;
@@ -22,7 +20,9 @@ const Label = styled.label`
   user-select: none;
   float: left;
   font-size: ${({ theme }) => theme.checkbox.labelFontSize};
+  transform: translateY(-50%);
 
+  /* the check */
   &::before {
     content: ${({ active }) => active ? `"${icons('checkmark')}"` : '""'};
     color: ${({ theme }) => theme.checkbox.checkFG};
@@ -31,11 +31,12 @@ const Label = styled.label`
     height: ${({ theme }) => theme.checkbox.size};
     display: block;
     position: absolute;
-    top: ${({ theme }) => `calc(${theme.checkbox.size} / 6)`};
+    top: ${({ theme }) => `calc(${theme.checkbox.size} / 5)`};
     left: ${({ theme }) => `calc(${theme.checkbox.size} / 8)`};
     z-index: 1;
   }
 
+  /* the box */
   &::after {
     content: "";
     background: ${({ theme, active }) => active ? theme.checkbox.fullBG : theme.checkbox.emptyBG};

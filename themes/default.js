@@ -80,7 +80,7 @@ export default {
     fontSize: '16px',
     fontFamily: fonts.brand,
     padding: '1em 1em',
-    margin: '1em 1em 0 0',
+    margin: 0,
     letterSpacing: '0.02em',
     lineHeight: '1.5',
     helpTextFG: colors.grayLightText,
@@ -133,6 +133,11 @@ export default {
     fg: '#666',
     padding: '30px 40px',
     border: `1px solid ${colors.border}`,
+    // form intelligently applies spacing to its children
+    // to acheive this spacing on elements
+    // units are pixels
+    elementHorizontalSpacing: 30,
+    elementVerticalSpacing: 28,
   },
 
   shadow: {
