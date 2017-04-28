@@ -9,7 +9,7 @@ const colors = {
   secondary: '#1f2a44',
   secondaryText: '#3a455c',
   secondaryFaded: '#3a455c',
-  grayLightText: '#c2c2c2',
+  grayLightText: '#7f8897',
   gutter: '#f7f7f7',
   border: '#e1e1e1',
   disabled: '#e1e1e1',
@@ -139,12 +139,6 @@ export default {
     color: 'rgba(0, 0, 0, 0.14)',
   },
 
-  header: {
-    fontSize: '22px',
-    fontWeight: '100',
-    fontFamily: fonts.brand,
-  },
-
   label: {
     fg: '#666',
     bg: 'transparent',
@@ -194,7 +188,7 @@ export default {
     fontWeight: 100,
     fontSize: '2.5em',
     lineHeight: '21px',
-    margin: 0,
+    margin: '0.83em 0 0 0',
   },
 
   subheader: {
