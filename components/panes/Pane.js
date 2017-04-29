@@ -10,7 +10,7 @@ const Layout = styled.article`
 `;
 
 const PaddedHeader = styled(Header)`
-  padding: 0 30px;
+  padding: 0 30px 30px 30px;
 `;
 
 class Pane extends React.Component {

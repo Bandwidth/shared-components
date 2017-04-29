@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { FieldGroup } from '../fields';
 import { Container as BinaryFieldContainer } from '../fields/BinaryField';
 import { Container as FieldWrapperContainer } from '../fields/FieldWrapper';
+import { Container as AccordionContainer } from '../Accordion';
 import FormText from './FormText';
 
 const Form = styled.form.withConfig({ displayName: 'Form' })`
@@ -14,26 +15,28 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
   align-items: stretch;
 
   /* these are field groups which help layout rows inside a form */
-  & > ${FieldGroup},
-  & > ${FormText} {
+  & ${FieldGroup},
+  & ${FormText} {
     flex: 1 0 100%;
     margin-top: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
     margin-bottom: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
   }
 
   /* these are inputs directly within a field group inside a form */
-  & > ${FieldGroup} > ${FieldWrapperContainer}:not(:first-child),
-  & > ${FieldGroup} > ${BinaryFieldContainer}:not(:first-child) {
+  & ${FieldGroup} > ${FieldWrapperContainer}:not(:first-child),
+  & ${FieldGroup} > ${BinaryFieldContainer}:not(:first-child) {
     margin-left: ${({ theme }) => theme.form.elementHorizontalSpacing / 2}px;
   }
-  & > ${FieldGroup} > ${FieldWrapperContainer}:not(:last-child),
-  & > ${FieldGroup} > ${BinaryFieldContainer}:not(:last-child) {
+  & ${FieldGroup} > ${FieldWrapperContainer}:not(:last-child),
+  & ${FieldGroup} > ${BinaryFieldContainer}:not(:last-child) {
     margin-right: ${({ theme }) => theme.form.elementHorizontalSpacing / 2}px;
   }
 
   /* these are 'loose' inputs placed directly inside a form */
   & > ${FieldWrapperContainer},
-  & > ${BinaryFieldContainer} {
+  & > ${BinaryFieldContainer},
+  & ${AccordionContainer} ${FieldWrapperContainer},
+  & ${AccordionContainer} ${BinaryFieldContainer} {
     margin: ${({ theme }) => theme.input.margin};
     margin-top: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
     margin-bottom: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;

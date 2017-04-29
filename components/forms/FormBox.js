@@ -6,6 +6,7 @@ const FormBox = styled.div.withConfig({ displayName: 'FormBox' })`
   padding: ${({ theme }) => theme.form.padding};
   max-width: 70vw;
   width: 100%;
+  margin: auto;
 `;
 
 FormBox.usage = `

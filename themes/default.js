@@ -332,4 +332,19 @@ export default {
     lineHeight: '1.5em',
     fontSize: '14px',
   },
+
+  modal: {
+    blockerBG: 'rgba(0, 0, 0, 0.3)',
+    bg: colors.white,
+    maxWidth: '70%',
+    minHeight: 0,
+    maxHeight: '70vh',
+    titleBG: '#e1e1e1',
+    titleFG: colors.black,
+    titleFontFamily: fonts.brand,
+    titleFontSize: '0.9em',
+    titleFontWeight: 600,
+    titleTextTransform: 'uppercase',
+    titlePadding: '0.95em 1.5em 0.95em 1em',
+  },
 };
