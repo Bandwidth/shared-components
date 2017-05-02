@@ -3,7 +3,7 @@ Shared Component Library for Bandwidth React Apps
 
 # How to use this library
 
-Install the library as an NPM module (use this Git repository's URL as your target, so something like `"@bandwidth/shared-components": "v0.4.2"` in your `package.json`).
+Install the library as an NPM module. Something like `"@bandwidth/shared-components": "v0.4.2"` in your `package.json`.
 
 In your project, configure your Webpack to **not** compile this library with Babel. In Catapult UI, it looks something like this:
 
