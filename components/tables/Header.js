@@ -11,6 +11,8 @@ const TH = styled.th`
   font-weight: ${({ theme }) => theme.table.headerFontWeight};
   font-family: ${({ theme }) => theme.table.headerFontFamily};
   padding: ${({ theme }) => theme.table.headerPadding};
+
+  cursor: ${({ sortable }) => sortable ? 'pointer' : 'default' };
 `;
 
 const ColumnName = styled.span`
@@ -46,20 +48,30 @@ export default class Header extends React.Component {
     handleClick: PropTypes.func.isRequired,
     sortOrder: PropTypes.number.isRequired,
     sorting: PropTypes.bool,
+    sortable: PropTypes.bool,
   };
 
   static defaultProps = {
     sorting: false,
+    sortable: true,
   };
 
   render() {
+    const { sortable, sortOrder, columnKey, handleClick } = this.props;
+
     return (
-      <TH onClick={this.props.handleClick}>
-        <ColumnName>{sentence(this.props.columnKey)}</ColumnName>
-        <SortArrows sortOrder={this.props.sortOrder}>
-          <Icon name="up" />
-          <Icon name="down" />
-        </SortArrows>
+      <TH onClick={handleClick} sortable={sortable}>
+        <ColumnName>{sentence(columnKey)}</ColumnName>
+        {
+          sortable ?
+          (
+            <SortArrows sortOrder={sortOrder}>
+              <Icon name="up" />
+              <Icon name="down" />
+            </SortArrows>
+          ) :
+          null
+        }
       </TH>
     );
   }
