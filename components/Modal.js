@@ -23,6 +23,8 @@ const Content = styled.div`
   margin: auto;
   display: flex;
   flex-direction: column;
+  border-radius: ${({ theme }) => theme.modal.borderRadius};
+  box-shadow: ${({ theme }) => theme.modal.shadow};
 `;
 
 const Title = styled.h3`

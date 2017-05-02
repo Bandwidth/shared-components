@@ -313,6 +313,7 @@ export default {
 
   pane: {
     border: `1px solid ${colors.border}`,
+    contentPadding: '20px 30px 30px 30px',
   },
 
   link: {
@@ -337,6 +338,12 @@ export default {
   modal: {
     blockerBG: 'rgba(0, 0, 0, 0.3)',
     bg: colors.white,
+    shadow: `
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0 ,0, 0, 0.2)
+    `,
+    borderRadius: '5px',
     maxWidth: '70%',
     minHeight: 0,
     maxHeight: '70vh',
