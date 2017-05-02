@@ -66,3 +66,9 @@ With this alias, you could just type:
 ```javascript
 import Button from 'shared/components/inputs/Button';
 ```
+
+# License
+
+The source of this library is licensed under the MIT license (see [LICENSE](./LICENSE))
+
+Bandwidth and the BW logo are trademarks of Bandwidth.com, Inc.  Bandwidth reserves all rights to these trademarks, as well as any others that may be included from time to time.
