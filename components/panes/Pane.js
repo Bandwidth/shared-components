@@ -6,7 +6,7 @@ import Header from '../Header';
 const Layout = styled.article`
   display: flex;
   flex-direction: column;
-  flex: 1 0 auto;
+  flex: 1 1;
 `;
 
 const PaddedHeader = styled(Header)`
