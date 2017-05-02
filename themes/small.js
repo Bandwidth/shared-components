@@ -30,6 +30,7 @@ export default defaultsDeep({
     labelFG: base.colors.black,
     padding: '20px',
     labelFontSize: '14px',
+    iconFontSize: '14px',
     textTransform: 'uppercase',
     labelFontWeight: 700,
   },

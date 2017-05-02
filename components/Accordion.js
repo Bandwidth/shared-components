@@ -42,7 +42,7 @@ const ModdedIcon = styled(Icon)`
   &:after {
     padding-top: 0;
     padding-bottom: 0;
-    font-size: ${({ theme }) => theme.accordion.labelFontSize};
+    font-size: ${({ theme }) => theme.accordion.iconFontSize};
   }
 `;
 

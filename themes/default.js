@@ -255,8 +255,9 @@ export default {
   accordion: {
     labelFG: '#00bcec',
     labelFontSize: '1.5em',
+    iconFontSize: '1em',
     labelFontFamily: fonts.brand,
-    labelFontWeight: 100,
+    labelFontWeight: 400,
     border: `1px solid ${colors.border}`,
     padding: '30px',
     textTransform: 'none',
