@@ -46,7 +46,7 @@ class ErrorScreen extends React.Component {
   }
 }
 
-ErrorScreen.usage`
+ErrorScreen.usage = `
 # ErrorScreen
 
 This is something I (Grant) wrote while testing out some proof of concept UI. It's not approved by UX. Check with UX to see if they want a different error experience.
