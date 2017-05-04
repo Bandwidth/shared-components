@@ -4,6 +4,7 @@ const PaneRow = styled.div.withConfig({ displayName: 'PaneRow' })`
   display: flex;
   flex-direction: row;
   width: 100%;
+  align-items: flex-start;
 
   & > * {
     flex: 1;

@@ -4,6 +4,7 @@ const PaneColumn = styled.div.withConfig({ displayName: 'PaneColumn' })`
   display: flex;
   flex-direction: column;
   width: 100%;
+  align-items: flex-start;
 
   & > * {
     flex: 1 0 auto;
