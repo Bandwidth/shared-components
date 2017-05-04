@@ -56,6 +56,8 @@ class FileInput extends React.Component {
   }
 
   render() {
+    const { onChange } = this.props;
+
     return (
       <Dropzone
         {...this.props}
