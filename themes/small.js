@@ -43,6 +43,7 @@ export default defaultsDeep({
     fontSize: '0.75em',
     padding: '0.5em',
     margin: '0.25em 1em',
+    helpFontSize: '1em',
   },
 
   methodTag: {

@@ -83,10 +83,13 @@ export default {
     margin: 0,
     letterSpacing: '0.02em',
     lineHeight: '1.5',
-    helpTextFG: colors.grayLightText,
-    helpTextFontWeight: 300,
     helpTextPadding: '0.4em 0 0 0',
-    helpTextFontFamily: fonts.brand,
+  },
+
+  helpText: {
+    fg: '#7f8897',
+    fontWeight: 300,
+    fontFamily: fonts.brand,
   },
 
   radioButton: {

@@ -22,6 +22,7 @@ const Help = styled.span`
   font-style: italic;
   font-size: ${({ theme }) => theme.card.helpFontSize};
   font-weight: ${({ theme }) => theme.card.helpFontWeight};
+  color: ${({ theme }) => theme.helpText.fg};
 `;
 
 class Card extends React.Component {

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const HelpText = styled.div.withConfig({ displayName: 'HelpText' })`
-  color: ${({ theme }) => theme.input.helpTextFG};
+  color: ${({ theme }) => theme.helpText.fg};
   font-style: italic;
-  font-weight: ${({ theme }) => theme.input.helpTextFontWeight};
+  font-weight: ${({ theme }) => theme.helpText.fontWeight};
   padding: ${({ theme }) => theme.input.helpTextPadding};
-  font-family: ${({ theme }) => theme.input.helpTextFontFamily};
+  font-family: ${({ theme }) => theme.helpText.fontFamily};
 `;
 
 HelpText.usage = `
