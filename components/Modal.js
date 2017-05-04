@@ -10,7 +10,7 @@ const Blocker = styled.div`
   right: 0;
   bottom: 0;
   display: flex;
-  z-index: 10;
+  z-index: 100000;
 `;
 
 const Content = styled.div`
