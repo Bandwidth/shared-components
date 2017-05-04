@@ -9,6 +9,13 @@ const PaneRow = styled.div.withConfig({ displayName: 'PaneRow' })`
   & > * {
     flex: 1;
     border-right: ${({ theme }) => theme.pane.border};
+    border-left: ${({ theme }) => theme.pane.border};
+    margin-left: -1px;
+  }
+
+  & > *:first-child {
+    margin-left: 0;
+    border-left: none;
   }
 
   & > *:last-child {
