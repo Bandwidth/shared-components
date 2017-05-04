@@ -1,6 +1,6 @@
 {
   "name": "@bandwidth/shared-components",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Shared Component Library for Bandwidth React Apps",
   "main": "index.js",
   "scripts": {
