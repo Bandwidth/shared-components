@@ -2,6 +2,7 @@ export FieldWrapper from './FieldWrapper';
 export HelpText from './HelpText';
 export Label from './Label';
 export MultiFieldWrapper from './MultiFieldWrapper';
+export ActionFields from './ActionFields';
 
 export BinaryField from './BinaryField';
 export ButtonField from './ButtonField';
