@@ -3,6 +3,7 @@ import { FieldGroup } from '../fields';
 import { Container as BinaryFieldContainer } from '../fields/BinaryField';
 import { Container as FieldWrapperContainer } from '../fields/FieldWrapper';
 import { Container as AccordionContainer } from '../Accordion';
+import FormColumn from './FormColumn';
 import FormText from './FormText';
 
 const Form = styled.form.withConfig({ displayName: 'Form' })`
@@ -20,6 +21,10 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
     flex: 1 0 100%;
     margin-top: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
     margin-bottom: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
+  }
+
+  & > ${FormColumn} {
+    flex: 1 0 50%;
   }
 
   /* these are inputs directly within a field group inside a form */

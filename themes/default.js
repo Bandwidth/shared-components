@@ -144,6 +144,10 @@ export default {
     elementVerticalSpacing: 28,
   },
 
+  formColumn: {
+    border: `1px solid ${colors.border}`,
+  },
+
   shadow: {
     color: 'rgba(0, 0, 0, 0.14)',
   },
@@ -201,10 +205,10 @@ export default {
   },
 
   subheader: {
-    fontSize: '1.5em',
+    fontSize: '1.17em',
     fontFamily: fonts.brand,
-    fontWeight: 300,
-    fg: '#3a455c',
+    fontWeight: 800,
+    fg: colors.black,
   },
 
   icon: {
