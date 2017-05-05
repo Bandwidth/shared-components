@@ -5,6 +5,7 @@ const Subheader = styled.h2.withConfig({ displayName: 'Subheader' })`
   font-size: ${({ theme }) => theme.subheader.fontSize};
   font-weight: ${({ theme }) => theme.subheader.fontWeight};
   font-family: ${({ theme }) => theme.subheader.fontFamily};
+  text-transform: uppercase;
 `;
 
 Subheader.usage = `
