@@ -351,9 +351,12 @@ export default {
     0 3px 1px -2px rgba(0 ,0, 0, 0.2)
     `,
     borderRadius: '5px',
+    minWidth: '20%',
     maxWidth: '70%',
+    naturalWidth: 'auto',
     minHeight: 0,
     maxHeight: '70vh',
+    naturalHeight: 'auto',
     titleBG: '#e1e1e1',
     titleFG: colors.black,
     titleFontFamily: fonts.brand,

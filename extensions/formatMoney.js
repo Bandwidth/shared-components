@@ -1,7 +1,7 @@
 export default (money) => {
   if (typeof money === 'string') {
     const [dollars, cents] = money.split('.');
-    return `${dollars}.${(`${cents}00`).substr(0, 2)}`;
+    return `${dollars}.${(`${(cents || '00')}00`).substr(0, 2)}`;
   } else if (typeof money === 'number') {
     return parseFloat(money).toFixed(2);
   }

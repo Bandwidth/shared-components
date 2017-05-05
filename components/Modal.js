@@ -15,9 +15,10 @@ const Blocker = styled.div`
 
 const Content = styled.div`
   background: ${({ theme }) => theme.modal.bg};
-  width: 100%;
+  width: ${({ theme }) => theme.modal.naturalWidth};
   max-width: ${({ theme }) => theme.modal.maxWidth};
-  height: auto;
+  min-width: ${({ theme }) => theme.modal.minWidth};
+  height: ${({ theme }) => theme.modal.naturalHeight};
   min-height: ${({ theme }) => theme.modal.minHeight};
   max-height: ${({ theme }) => theme.modal.maxHeight};
   margin: auto;
