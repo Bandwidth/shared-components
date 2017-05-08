@@ -8,8 +8,8 @@ const PaneRow = styled.div.withConfig({ displayName: 'PaneRow' })`
 
   & > * {
     flex: 1;
-    border-right: ${({ theme }) => theme.pane.border};
-    border-left: ${({ theme }) => theme.pane.border};
+    border-right: 1px solid #e1e1e1;
+    border-left: 1px solid #e1e1e1;
     margin-left: -1px;
   }
 

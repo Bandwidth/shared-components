@@ -8,7 +8,7 @@ const PaneColumn = styled.div.withConfig({ displayName: 'PaneColumn' })`
 
   & > * {
     flex: 1 0 auto;
-    border-bottom: ${({ theme }) => theme.pane.border};
+    border-bottom: 1px solid #e1e1e1;
   }
 
   & > *:last-child {
