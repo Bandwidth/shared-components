@@ -14,6 +14,21 @@ const colors = {
   border: '#c2c2c2',
   disabled: '#e1e1e1',
   errorText: '#e8562e',
+
+  successText: '#6cbf0d',
+  successBorder: '#b5df86',
+  successBackground: '#5a9f0b',
+  successBackgroundLight: '#e9f5db',
+
+  infoText: '#3a455c',
+  infoBorder: '#33c9f0',
+  infoBackground: '#00bcec',
+  infoBackgroundLight: '#d9f5fc',
+
+  errorText: '#e8562e',
+  errorBorder: '#f6bbab',
+  errorBackground: '#b1351e',
+  errorBackgroundLight: '#fceae6',
 };
 
 const fonts = {
