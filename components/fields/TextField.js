@@ -15,6 +15,7 @@ class TextField extends React.Component {
     id: PropTypes.string,
     type: PropTypes.string,
     helpText: PropTypes.string,
+    callout: PropTypes.node,
   };
 
   static defaultProps = {
@@ -24,12 +25,19 @@ class TextField extends React.Component {
     id: null,
     type: 'text',
     helpText: null,
+    callout: null,
   };
 
   render() {
-    const { input, label, id, disabled, required, helpText, type } = this.props;
+    const { input, label, id, disabled, required, helpText, type, callout } = this.props;
     return (
-      <FieldWrapper label={label} helpText={helpText} disabled={disabled} required={required}>
+      <FieldWrapper
+        label={label}
+        helpText={helpText}
+        disabled={disabled}
+        required={required}
+        callout={callout}
+      >
         <TextInput {...input} id={id} type={type} disabled={disabled} required={required} />
       </FieldWrapper>
     );
@@ -46,6 +54,7 @@ Props:
 * \`helpText\`: some text to be rendered below the component
 * \`disabled\`: disables the component
 * \`required\`: adds a required mark and HTML field validation
+* \`callout\`: optional flyout to show on hover
 `;
 
 export default TextField;

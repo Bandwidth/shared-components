@@ -14,6 +14,7 @@ class TextAreaField extends React.Component {
     label: PropTypes.string,
     id: PropTypes.string,
     helpText: PropTypes.string,
+    callout: PropTypes.node,
   };
 
   static defaultProps = {
@@ -22,12 +23,19 @@ class TextAreaField extends React.Component {
     label: null,
     id: null,
     helpText: null,
+    callout: null,
   };
 
   render() {
-    const { input, label, id, disabled, required, helpText } = this.props;
+    const { input, label, id, disabled, required, helpText, callout } = this.props;
     return (
-      <FieldWrapper label={label} helpText={helpText} disabled={disabled} required={required}>
+      <FieldWrapper
+        label={label}
+        helpText={helpText}
+        disabled={disabled}
+        required={required}
+        callout={callout}
+      >
         <TextArea {...input} id={id} disabled={disabled} required={required} />
       </FieldWrapper>
     );
@@ -46,6 +54,7 @@ Props:
 * \`helpText\`: some text to be rendered below the component
 * \`disabled\`: disables the component
 * \`required\`: adds a required mark and HTML field validation
+* \`callout\`: optional flyout to show on hover
 
 \`\`\`
 <TextAreaField input={input} label="big text" helpText="write a lot here" required />

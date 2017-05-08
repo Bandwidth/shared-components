@@ -28,9 +28,9 @@ class ButtonField extends React.Component {
   };
 
   render() {
-    const { children, onClick, label, id, disabled, helpText, type, leftIcon, rightIcon } = this.props;
+    const { children, onClick, label, id, disabled, helpText, type, leftIcon, rightIcon, callout } = this.props;
     return (
-      <FieldWrapper label={label} helpText={helpText}>
+      <FieldWrapper label={label} helpText={helpText} callout={callout}>
         <Button
           onClick={onClick}
           id={id}

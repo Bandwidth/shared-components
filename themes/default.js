@@ -11,7 +11,7 @@ const colors = {
   secondaryFaded: '#3a455c',
   grayLightText: '#7f8897',
   gutter: '#f7f7f7',
-  border: '#e1e1e1',
+  border: '#c2c2c2',
   disabled: '#e1e1e1',
   errorText: '#e8562e',
 };
@@ -22,11 +22,20 @@ const fonts = {
   monospace: '"Source Code Pro", monospace',
 };
 
+const shadows = {
+  default: `
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0 ,0, 0, 0.2)
+    `,
+};
+
 export default {
   name: 'default',
 
   colors,
   fonts,
+  shadows,
 
   text: {
     fg: '#666',
@@ -345,11 +354,7 @@ export default {
   modal: {
     blockerBG: 'rgba(0, 0, 0, 0.3)',
     bg: colors.white,
-    shadow: `
-    0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 1px 5px 0 rgba(0, 0, 0, 0.12),
-    0 3px 1px -2px rgba(0 ,0, 0, 0.2)
-    `,
+    shadow: shadows.default,
     borderRadius: '5px',
     minWidth: '20%',
     maxWidth: '70%',
@@ -364,5 +369,15 @@ export default {
     titleFontWeight: 600,
     titleTextTransform: 'uppercase',
     titlePadding: '0.95em 1.5em 0.95em 1em',
+  },
+
+  callout: {
+    maxWidth: '300px',
+    bg: colors.white,
+    fg: 'inherit',
+    padding: '10px 15px',
+    borderRadius: '3px',
+    border: `1px solid ${colors.border}`,
+    shadow: shadows.default,
   },
 };

@@ -26,6 +26,7 @@ class SelectField extends React.Component {
     required: PropTypes.bool,
     helpText: PropTypes.string,
     selectOptionKey: PropTypes.func,
+    callout: PropTypes.node,
   };
 
   static defaultProps = {
@@ -38,6 +39,7 @@ class SelectField extends React.Component {
     required: false,
     helpText: null,
     selectOptionKey: (option) => option.key || option.id || '' + option,
+    callout: null,
   };
 
   renderOptions = () => {
@@ -53,13 +55,23 @@ class SelectField extends React.Component {
   };
 
   render() {
-    const { label, helpText, disabled, required, input, noneText, renderOption } = this.props;
+    const {
+      label,
+      helpText,
+      disabled,
+      required,
+      input,
+      noneText,
+      renderOption,
+      callout,
+    } = this.props;
     return (
       <FieldWrapper
         label={label}
         helpText={helpText}
         disabled={disabled}
         required={required}
+        callout={callout}
       >
         <Select
           {...input}
@@ -87,6 +99,7 @@ A dropdown input which lets you pick from a list of provided items. Supports def
 * \`options\`: an array of data
 * \`renderOption\`: a function to transform an option item into some text to show. Defaults to \`val => '' + val\`
 * \`selectOptionKey\`: a function to transform an option into a **unique** key
+* \`callout\`: optional flyout to show on hover
 
 \`\`\`
 <SelectField label="Choose:" required helpText="Make a choice!" options={['a', 'b']}>

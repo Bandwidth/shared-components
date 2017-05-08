@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Label from './Label';
 import HelpText from './HelpText';
+import Callout from './Callout';
 
 export const Container = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ class FieldWrapper extends React.Component {
     required: PropTypes.bool,
     label: PropTypes.string,
     helpText: PropTypes.string,
+    callout: PropTypes.node,
 
     children: PropTypes.node.isRequired,
   };
@@ -32,14 +34,24 @@ class FieldWrapper extends React.Component {
     id: null,
     type: 'text',
     helpText: null,
+    callout: null,
   };
 
+  renderChildren() {
+    const { children, callout } = this.props;
+    if (callout) {
+      return <Callout content={callout}>{children}</Callout>;
+    }
+
+    return children;
+  }
+
   render() {
-    const { label, disabled, required, helpText, children } = this.props;
+    const { label, disabled, required, helpText } = this.props;
     return (
       <Container>
         {label ? <Label required={required}>{label}</Label> : null}
-        {children}
+        {this.renderChildren()}
         {helpText ? <HelpText>{helpText}</HelpText> : null}
       </Container>
     );

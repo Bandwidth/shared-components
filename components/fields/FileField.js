@@ -13,6 +13,7 @@ class FileField extends React.Component {
     helpText: PropTypes.string,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
+    callout: PropTypes.node,
   };
 
   static defaultProps = {
@@ -20,16 +21,18 @@ class FileField extends React.Component {
     helpText: null,
     required: false,
     disabled: false,
+    callout: null,
   };
 
   render() {
-    const { label, helpText, required, disabled, input } = this.props;
+    const { label, helpText, required, disabled, input, callout } = this.props;
     return (
       <FieldWrapper
         label={label}
         helpText={helpText}
         required={required}
         disabled={disabled}
+        callout={callout}
       >
        <FileInput {...input} />
       </FieldWrapper>

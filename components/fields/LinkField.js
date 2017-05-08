@@ -13,6 +13,7 @@ class LinkField extends React.Component {
     onClick: PropTypes.func,
     exact: PropTypes.bool,
     children: PropTypes.node,
+    callout: PropTypes.node,
   };
 
   static defaultProps = {
@@ -24,12 +25,24 @@ class LinkField extends React.Component {
     children: 'Link',
     exact: false,
     onClick: () => null,
+    callout: null,
   };
 
   render() {
-    const { input, label, id, disabled, helpText, to, children, exact, onClick } = this.props;
+    const {
+      input,
+      label,
+      id,
+      disabled,
+      helpText,
+      to,
+      children,
+      exact,
+      onClick,
+      callout
+    } = this.props;
     return (
-      <FieldWrapper label={label} helpText={helpText} disabled={disabled}>
+      <FieldWrapper label={label} helpText={helpText} disabled={disabled} callout={callout}>
         <Link id={id} disabled={disabled} to={to} exact={exact} onClick={onClick}>
           {children}
         </Link>
@@ -51,6 +64,7 @@ Props:
 * \`label\`: a renderable label to go above the component
 * \`helpText\`: some text to be rendered below the component
 * \`disabled\`: disables the component
+* \`callout\`: optional flyout to show on hover
 `;
 
 export default LinkField;
