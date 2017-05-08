@@ -12,6 +12,7 @@ const colors = {
   grayLightText: '#7f8897',
   gutter: '#f7f7f7',
   border: '#c2c2c2',
+  borderLight: '#e1e1e1',
   disabled: '#e1e1e1',
   errorText: '#e8562e',
 
@@ -98,9 +99,9 @@ export default {
     accentValid: '#d9f5fc',
     disabledBG: '#e1e1e1',
     disabledFG: colors.black,
-    disabledBorder: '1px solid #c2c2c2',
-    border: `1px solid ${colors.border}`,
-    focusedBorder: '1px solid #c2c2c2',
+    disabledBorder: `1px solid ${colors.border}`,
+    border: `1px solid ${colors.borderLight}`,
+    focusedBorder: `1px solid ${colors.border}`,
     fontSize: '16px',
     fontFamily: fonts.brand,
     padding: '1em 1em',
@@ -121,7 +122,7 @@ export default {
     fg: '#666',
     accent: '#00bcec',
     active: '#fff',
-    border: `1px solid ${colors.border}`,
+    border: `1px solid ${colors.borderLight}`,
     padding: '1em 1.4em',
   },
 
@@ -136,7 +137,7 @@ export default {
   sidebar: {
     bg: '#e1e1e1',
     fg: '#666',
-    border: `1px solid ${colors.border}`,
+    border: `1px solid ${colors.borderLight}`,
     margin: '0',
     padding: '0',
   },
@@ -148,7 +149,7 @@ export default {
     activeFG: '#00bcec',
     padding: '0.5em',
     margin: '0',
-    border: `1px solid ${colors.border}`,
+    border: `1px solid ${colors.borderLight}`,
     listPadding: '0 30px 30px 30px',
     helpFontFamily: fonts.brand,
     helpFontSize: '0.9em',
@@ -159,7 +160,7 @@ export default {
     bg: colors.white,
     fg: '#666',
     padding: '30px 40px',
-    border: `1px solid ${colors.border}`,
+    border: `1px solid ${colors.borderLight}`,
     fontFamily: fonts.brand,
     // form intelligently applies spacing to its children
     // to acheive this spacing on elements
@@ -169,7 +170,7 @@ export default {
   },
 
   formColumn: {
-    border: `1px solid ${colors.border}`,
+    border: `1px solid ${colors.borderLight}`,
   },
 
   shadow: {
@@ -280,7 +281,7 @@ export default {
     bg: '#fff',
     activeFG: '#008db1',
     padding: '0.5em',
-    border: `1px solid ${colors.border}`,
+    border: `1px solid ${colors.borderLight}`,
   },
 
   accordion: {
@@ -289,7 +290,7 @@ export default {
     iconFontSize: '1em',
     labelFontFamily: fonts.brand,
     labelFontWeight: 400,
-    border: `1px solid ${colors.border}`,
+    border: `1px solid ${colors.borderLight}`,
     padding: '30px',
     textTransform: 'none',
   },
@@ -303,23 +304,11 @@ export default {
     selectedFG: colors.primary,
     selectedBG: colors.gutter,
     padding: '1.5em 2em',
-    border: `1px solid ${colors.border}`,
+    border: `1px solid ${colors.borderLight}`,
   },
 
   list: {
-    border: `1px solid ${colors.border}`,
-  },
-
-  metric: {
-    border: `1px solid ${colors.border}`,
-    bg: colors.white,
-    fg: colors.black,
-    accent: colors.primary,
-    figureFontSize: '4em',
-    figureFontWeight: 200,
-    figureFontFamily: fonts.brand,
-    detailsFontSize: '1em',
-    detailsFontFamily: fonts.default,
+    border: `1px solid ${colors.borderLight}`,
   },
 
   table: {
@@ -343,7 +332,6 @@ export default {
   },
 
   pane: {
-    border: `1px solid ${colors.border}`,
     contentPadding: '20px 30px 30px 30px',
   },
 
@@ -358,7 +346,7 @@ export default {
   textarea: {
     bg: colors.white,
     fg: colors.black,
-    border: `1px solid ${colors.border}`,
+    border: `1px solid ${colors.borderLight}`,
     padding: '15px',
     fontWeight: 400,
     fontFamily: fonts.brand,
