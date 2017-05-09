@@ -14,7 +14,6 @@ const colors = {
   border: '#c2c2c2',
   borderLight: '#e1e1e1',
   disabled: '#e1e1e1',
-  errorText: '#e8562e',
 
   successText: '#6cbf0d',
   successBorder: '#b5df86',
