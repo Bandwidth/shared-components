@@ -1,11 +1,13 @@
 import styled, { css } from 'styled-components';
 import icons from '../helpers/icons';
 
+const SIZE = '22px';
+
 export const HiddenInput = styled.input`
   margin-left: -9999px;
 
   &:focus + label::after {
-    box-shadow: ${({ theme }) => theme.checkbox.focusShadow};
+    box-shadow: ${({ theme }) => theme.shadows.focusOutline};
   }
 `;
 
@@ -13,10 +15,14 @@ const Checkbox = styled.label`
   cursor: pointer;
   position: relative;
   top: 50%;
+  font-size: 14px;
   padding: ${({ theme }) => theme.checkbox.labelPadding};
   user-select: none;
   float: left;
-  font-size: ${({ theme }) => theme.checkbox.labelFontSize};
+  font-size: ${({ theme }) => theme.label.fontSize};
+  font-weight: ${({ theme }) => theme.label.fontWeight};
+  letter-spacing: ${({ theme }) => theme.label.letterSpacing};
+  color: ${({ theme }) => theme.label.fg};
   transform: translateY(-50%);
 
   /* the check */
@@ -24,12 +30,12 @@ const Checkbox = styled.label`
     content: ${({ active }) => active ? `"${icons('checkmark')}"` : '""'};
     color: ${({ theme }) => theme.checkbox.checkFG};
     font-family: 'Bandwidth';
-    width: ${({ theme }) => theme.checkbox.size};
-    height: ${({ theme }) => theme.checkbox.size};
+    font-size: 1em;
     display: block;
     position: absolute;
-    top: ${({ theme }) => `calc(${theme.checkbox.size} / 5)`};
-    left: ${({ theme }) => `calc(${theme.checkbox.size} / 8)`};
+    top: 50%;
+    left: calc(${SIZE} / 2);
+    transform: translate(-50%, -48%);
     z-index: 1;
   }
 
@@ -38,9 +44,9 @@ const Checkbox = styled.label`
     content: "";
     background: ${({ theme, active }) => active ? theme.checkbox.fullBG : theme.checkbox.emptyBG};
     border: ${({ theme }) => theme.checkbox.border};
-    border-radius: ${({ theme }) => theme.checkbox.borderRadius};
-    width: ${({ theme }) => theme.checkbox.size};
-    height: ${({ theme }) => theme.checkbox.size};
+    border-radius: 0.2em;
+    width: ${SIZE};
+    height: ${SIZE};
     position: absolute;
     top: 50%;
     left: 0;

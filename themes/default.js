@@ -43,6 +43,7 @@ const shadows = {
     0 1px 5px 0 rgba(0, 0, 0, 0.12),
     0 3px 1px -2px rgba(0 ,0, 0, 0.2)
     `,
+  focusOutline: '0 0 0 5px #d9f5fc',
 };
 
 export default {
@@ -215,7 +216,6 @@ export default {
     fullBG: colors.secondary,
     border: `2px solid ${colors.secondary}`,
     borderRadius: '0.2em',
-    size: '1.3em',
     focusShadow: '0 0 0 5px #d9f5fc',
   },
 
