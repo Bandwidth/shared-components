@@ -19,18 +19,14 @@ const TD = styled.td`
 
 export default class Cell extends React.Component {
   static propTypes = {
-    value: PropTypes.any,
-    columnKey: PropTypes.string,
-    sorting: PropTypes.bool,
+    children: PropTypes.node.isRequired,
   };
 
   static defaultProps = {
-    value: null,
-    columnKey: null,
-    sorting: false,
+    children: null,
   };
 
   render() {
-    return <TD>{this.props.value}</TD>;
+    return <TD>{this.props.children}</TD>;
   }
 }

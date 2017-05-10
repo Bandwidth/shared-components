@@ -17,7 +17,7 @@ const TH = styled.th`
 
 const ColumnName = styled.span`
   display: inline;
-  text-decoration: underline;
+  text-decoration: ${({ sortable }) => sortable ? 'underline' : 'none'};
 `;
 
 const SortArrows = styled.span`
@@ -44,24 +44,24 @@ const SortArrows = styled.span`
 
 export default class Header extends React.Component {
   static propTypes = {
-    columnKey: PropTypes.string.isRequired,
-    handleClick: PropTypes.func.isRequired,
-    sortOrder: PropTypes.number.isRequired,
-    sorting: PropTypes.bool,
+    children: PropTypes.string.isRequired,
+    handleClick: PropTypes.func,
+    sortOrder: PropTypes.number,
     sortable: PropTypes.bool,
   };
 
   static defaultProps = {
-    sorting: false,
-    sortable: true,
+    sortable: false,
+    sortOrder: 0,
+    handleClick: () => null,
   };
 
   render() {
-    const { sortable, sortOrder, columnKey, handleClick } = this.props;
+    const { sortable, sortOrder, children, handleClick } = this.props;
 
     return (
       <TH onClick={handleClick} sortable={sortable}>
-        <ColumnName>{sentence(columnKey)}</ColumnName>
+        <ColumnName sortable={sortable}>{sentence(children)}</ColumnName>
         {
           sortable ?
           (

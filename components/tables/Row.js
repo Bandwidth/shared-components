@@ -13,19 +13,20 @@ const TR = styled.tr`
 
 export default class Row extends React.Component {
   static propTypes = {
-    index: PropTypes.number,
     children: PropTypes.node.isRequired,
-    sorting: PropTypes.bool,
+    loading: PropTypes.bool,
   };
 
   static defaultProps = {
     index: 0,
-    sorting: false,
+    loading: false,
   };
 
   render() {
+    const { loading } = this.props;
+
     return (
-      <TR>{this.props.children}</TR>
+      <TR style={{ opacity: loading ? '0.5' : '1' }}>{this.props.children}</TR>
     );
   }
 }

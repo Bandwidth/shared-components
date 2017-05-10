@@ -3,13 +3,24 @@ import color from 'color';
 const colors = {
   black: '#666',
   white: '#fff',
+
   primary: '#00bcec',
   primaryText: '#008db1',
   primaryLight: '#d9f5fc',
+
   secondary: '#1f2a44',
   secondaryText: '#3a455c',
   secondaryFaded: '#3a455c',
+
   grayLightText: '#7f8897',
+  greyLightText: '#7f8897',
+  grayLight: '#f3f3f3',
+  greyLight: '#f3f3f3',
+  grayMed: '#666',
+  greyMed: '#666',
+  grayDark: '#272b2d',
+  greyDark: '#272b2d',
+
   gutter: '#f7f7f7',
   border: '#c2c2c2',
   borderLight: '#e1e1e1',
@@ -131,7 +142,6 @@ export default {
     fg: '#fff',
     padding: '0 2em',
     margin: '0',
-    minHeight: '80px',
   },
 
   sidebar: {

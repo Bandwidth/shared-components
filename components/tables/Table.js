@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Wrap = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.table.bg};
-  border: ${({ theme }) => theme.table.border};
+  border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.table.borderRadius};
   overflow-x: auto;
   position: relative;
@@ -26,26 +26,25 @@ const TBody = styled.tbody`
 
 export default class Table extends React.Component {
   static propTypes = {
-    filter: PropTypes.node.isRequired,
-    rows: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
     headers: PropTypes.node.isRequired,
-    sorting: PropTypes.bool,
+    loading: PropTypes.bool,
   };
 
   static defaultProps = {
-    sorting: false,
+    loading: false,
   };
 
   render() {
-    const { rows, filter, headers, sorting } = this.props;
+    const { children, headers, loading } = this.props;
     return (
       <Wrap>
         <BaseTable cellPadding={0} cellSpacing={0}>
           <THead>
             {headers}
           </THead>
-          <TBody style={{ opacity: sorting ? '0.5' : '1' }}>
-            {rows}
+          <TBody style={{ opacity: loading ? '0.5' : '1' }}>
+            {children}
           </TBody>
         </BaseTable>
       </Wrap>
