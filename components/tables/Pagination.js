@@ -120,7 +120,6 @@ class Pagination extends React.Component {
 
   renderItems = () => {
     const { pageCount, currentPage } = this.props;
-    console.log(`${pageCount}, ${currentPage}`);
     const start = Math.max(0, Math.min(currentPage + 5, pageCount) - 10);
     const end = Math.min(start + 10, pageCount);
     return new Array(pageCount)
