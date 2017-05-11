@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import InputBox from './InputBox';
 
 const Input = styled.input`
@@ -24,8 +24,12 @@ const Input = styled.input`
     opacity: 1;
   }
 
-  &:invalid {
-    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.colors.errorBackgroundLight};
+  ${({ visited, theme }) => visited ?
+    css`
+      &:invalid {
+        box-shadow: inset 0 -5px 0 ${theme.colors.errorBackgroundLight};
+      }
+    ` : ''
   }
 `;
 
@@ -33,6 +37,7 @@ class TextInput extends React.Component {
   static propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     onChange: PropTypes.func,
+    onBlur: PropTypes.func,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     id: PropTypes.string,
@@ -44,13 +49,28 @@ class TextInput extends React.Component {
     required: false,
     id: null,
     type: 'text',
+    onChange: () => null,
+    onBlur: () => null,
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = { visited: false };
+  }
+
+  onBlur = (event) => {
+    this.setState({ visited: true });
+    if (this.props.onBlur) {
+      this.props.onBlur(event);
+    }
   };
 
   render() {
     const { disabled } = this.props;
+    const { visited } = this.state;
     return (
       <InputBox disabled={disabled}>
-        <Input {...this.props} />
+        <Input {...this.props} onBlur={this.onBlur} visited={visited} />
       </InputBox>
     );
   }

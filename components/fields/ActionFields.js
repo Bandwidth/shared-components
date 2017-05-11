@@ -1,19 +1,19 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Container as FieldWrapperContainer } from '../fields/FieldWrapper';
 
 const ActionFields = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: ${({ align }) => {
+  ${({ align }) => {
     switch(align) {
       case 'right':
-        return 'flex-end';
+        return 'justify-content: flex-end;';
       case 'left':
-        return 'flex-start';
+        return 'justify-content: flex-end; flex-direction: row-reverse;';
       case 'center':
-        return 'center';
+        return 'justify-content: center;';
       case 'outside':
-        return 'space-between';
+        return 'justify-content: space-between;';
     }
   }};
   margin-top: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
@@ -22,6 +22,9 @@ const ActionFields = styled.div`
 
   & > ${FieldWrapperContainer} {
     margin: auto ${({ theme }) => theme.form.elementHorizontalSpacing / 2}px;
+  }
+  & > ${FieldWrapperContainer}:last-child {
+    margin-${({ align }) => align}: 0;
   }
 `;
 
@@ -35,6 +38,8 @@ ActionFields.usage = `
 ActionFields is a layout container for that last row of buttons and links in a form. You know the one. They're all aligned in a particular way. You could achieve this with some fiddling and a FieldGroup, but why not just include a more convenient component for it?
 
 You can pass \`left|right|center|outside\` to the \`'align'\` prop to switch the alignment.
+
+Alignment \`'left'\` will reverse the order of elements, so you can switch easily between left and right.
 
 \`\`\`
 <Form>
