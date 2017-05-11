@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import ShowMore from './ShowMore';
 
 const ListContainer = styled.ul`
   display: flex;
@@ -9,22 +10,13 @@ const ListContainer = styled.ul`
   margin: 0;
   padding: 0;
   border-right: ${({ theme }) => theme.list.border};
-  overflow-y: auto;
-  overflow-x: visible;
-
-  /* TODO: extract this into something reusable */
-  &::-webkit-scrollbar {
-    width: 2px;
-    height: 0.5em;
-    position: absolute;
-  }
 
   &::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.15);
+    background: ${({ theme }) => theme.colors.gutter};
   }
 
   &::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.gutter};
+    background: ${({ theme }) => theme.colors.grayDark};
   }
 `;
 
@@ -32,10 +24,36 @@ class List extends React.Component {
   static propTypes = {
     selectedIndex: PropTypes.number,
     children: PropTypes.node.isRequired,
+    hasNextPage: PropTypes.bool,
+    hasPreviousPage: PropTypes.bool,
+    onNextPageClicked: PropTypes.func,
+    onPreviousPageClicked: PropTypes.func,
   };
 
   static defaultProps = {
     selectedIndex: -1,
+    hasNextPage: false,
+    hasPreviousPage: false,
+    onNextPageClicked: () => null,
+    onPreviousPageClicked: () => null,
+  };
+
+  renderPrevious = () => {
+    const { hasPreviousPage, onPreviousPageClicked } = this.props;
+    if (hasPreviousPage) {
+      return <ShowMore onClick={onPreviousPageClicked}>Show Previous</ShowMore>;
+    }
+
+    return null;
+  };
+
+  renderNext = () => {
+    const { hasNextPage, onNextPageClicked } = this.props;
+    if (hasNextPage) {
+      return <ShowMore onClick={onNextPageClicked}>Show Next</ShowMore>;
+    }
+
+    return null;
   };
 
   renderItems = () => {
@@ -50,7 +68,9 @@ class List extends React.Component {
   render() {
     return (
       <ListContainer>
+        {this.renderPrevious()}
         {this.renderItems()}
+        {this.renderNext()}
       </ListContainer>
     );
   }

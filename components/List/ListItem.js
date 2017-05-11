@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 const ListItemContainer = styled.li`
   background: ${({ active, theme }) => active ? theme.listItem.selectedBG : theme.listItem.bg};
   color: ${({ active, theme }) => active ? theme.listItem.selectedFG : theme.listItem.fg};
-  padding: ${({ theme }) => theme.listItem.padding};
+  padding: ${({ theme }) => `${theme.padding.medium} ${theme.padding.large}`};
   border-bottom: ${({ theme }) => theme.listItem.border};
   position: relative;
   overflow-x: visible;
