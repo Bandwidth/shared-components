@@ -33,12 +33,15 @@ const Label = styled.label`
   padding: ${({ theme }) => theme.radioButton.padding};
   cursor: pointer;
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
   background: ${({ theme }) => theme.radioButton.bg};
   color: ${({ theme }) => theme.radioButton.fg};
   transition: opacity 0.2s ease;
   text-transform: uppercase;
   font-weight: bold;
+  height: 100%;
 
   &::after {
     content: "";
@@ -61,7 +64,14 @@ const Label = styled.label`
 const Content = styled.figure`
   font-size: 2em;
   font-weight: 100;
-  margin: 0;
+  margin: auto auto auto 0;
+`;
+
+const LabelText = styled.span`
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  margin: auto auto auto 0;
 `;
 
 class RadioButton extends React.Component {
@@ -87,7 +97,7 @@ class RadioButton extends React.Component {
         <Input type="radio" id={id} value={value} name={name} checked={checked} onChange={onChange} />
         <Label htmlFor={id} active={checked}>
           {content !== null ? <Content active={checked}>{content}</Content> : null}
-          {label}
+          <LabelText>{label}</LabelText>
         </Label>
       </Container>
     );

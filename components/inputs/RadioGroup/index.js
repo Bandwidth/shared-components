@@ -6,6 +6,9 @@ import RadioButton from './RadioButton';
 const Container = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: stretch;
+  flex: 1 1 auto;
+  min-height: 58px;
 `;
 
 class RadioGroup extends React.Component {
