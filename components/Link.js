@@ -87,7 +87,7 @@ class SmartLink extends React.Component {
         exact={exact}
         children={({ match }) => (
           <Component to={to} onClick={onClick}>
-            {this.childrenWithProps({ active: match })}
+            {this.childrenWithProps({ active: !!match })}
           </Component>
         )}
       />
