@@ -57,12 +57,21 @@ const shadows = {
   focusOutline: '0 0 0 5px #d9f5fc',
 };
 
+const padding = {
+  extraSmall: '5px',
+  small: '10px',
+  medium: '15px',
+  large: '30px',
+  extraLarge: '60px',
+}
+
 export default {
   name: 'default',
 
   colors,
   fonts,
   shadows,
+  padding,
 
   text: {
     fg: '#666',
