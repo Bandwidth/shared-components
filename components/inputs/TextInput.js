@@ -17,11 +17,15 @@ const Input = styled.input`
   border: ${({ theme }) => theme.input.border};
 
   &:focus {
-    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.input.accentValid};
-    border: ${({ theme }) => theme.input.focusedBorder};
+    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.colors.primaryLight};
+    border: 1px solid ${({ theme }) => theme.colors.border};
   }
   &:focus + div {
     opacity: 1;
+  }
+
+  &:invalid {
+    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.colors.errorBackgroundLight};
   }
 `;
 

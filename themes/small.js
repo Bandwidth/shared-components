@@ -11,7 +11,7 @@ export default defaultsDeep({
   header: {
     margin: '12px 12px',
     fontSize: '22px',
-    lineHeight: 'auto',
+    lineHeight: '22px',
   },
 
   tab: {
@@ -50,5 +50,10 @@ export default defaultsDeep({
     padding: '0.05em 0.6em',
     fontSize: '14px',
     lineHeight: '1.2em',
+  },
+
+  button: {
+    padding: '11px 30px',
+    fontSize: '11px',
   },
 }, base);

@@ -9,7 +9,6 @@ const ListContainer = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
-  border-right: ${({ theme }) => theme.list.border};
 
   &::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.colors.gutter};

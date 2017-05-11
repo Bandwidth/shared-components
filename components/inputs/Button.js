@@ -58,20 +58,20 @@ const Button = styled.button`
 
   &::before {
     content: '${({ leftIcon, iconHelper }) => iconHelper(leftIcon)}';
-    left: -60%;
+    left: -200px;
   }
 
   &::after {
     content: '${({ rightIcon, iconHelper }) => iconHelper(rightIcon)}';
-    left: 160%;
+    right: -200px;
   }
 
   &:hover:not(:disabled)::before {
-    left: 8%;
+    left: 10px;
   }
 
   &:hover:not(:disabled)::after {
-    left: 85%;
+    right: 10px;
   }
 `;
 

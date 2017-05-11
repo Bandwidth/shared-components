@@ -3,30 +3,13 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const ListItemContainer = styled.li`
-  background: ${({ active, theme }) => active ? theme.listItem.selectedBG : theme.listItem.bg};
-  color: ${({ active, theme }) => active ? theme.listItem.selectedFG : theme.listItem.fg};
+  background: ${({ active, theme }) => active ? theme.colors.gutter : theme.colors.white};
+  color: ${({ active, theme }) => active ? theme.colors.primary : theme.colors.black};
   padding: ${({ theme }) => `${theme.padding.medium} ${theme.padding.large}`};
-  border-bottom: ${({ theme }) => theme.listItem.border};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
+  border-right: 1px solid ${({ theme, active }) => active ? theme.colors.gutter : theme.colors.borderLight};
   position: relative;
   overflow-x: visible;
-
-  ${({ active, theme }) => {
-    if (active) {
-      return css`
-        &::after {
-          content: '';
-          width: 2px;
-          background: ${theme.listItem.selectedBG};
-          position: absolute;
-          right: -1px;
-          height: 100%;
-          top: 0;
-          z-index: 100;
-        }
-      `;
-    }
-    return '';
-  }}
 `;
 
 const ListLabel = styled.h3`
