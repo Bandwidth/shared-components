@@ -3,6 +3,7 @@ export HelpText from './HelpText';
 export Label from './Label';
 export MultiFieldWrapper from './MultiFieldWrapper';
 export ActionFields from './ActionFields';
+export FlexFields from './FlexFields';
 
 export BinaryField from './BinaryField';
 export ButtonField from './ButtonField';
