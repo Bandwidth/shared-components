@@ -15,6 +15,10 @@ const sizePropType = PropTypes.oneOf([
 ]);
 
 const normalize = (size) => {
+  if (!size) {
+    return 'medium';
+  }
+
   switch (size) {
     case 'xs':
     case 'extraSmall':
@@ -28,18 +32,29 @@ const normalize = (size) => {
     case 'xl':
     case 'extraLarge':
       return 'extraLarge';
-    default:
+    case 'md':
+    case 'medium':
       return 'medium';
+    default:
+      return size;
   }
 }
 
-const Padding = styled.div`
-  ${({ size, theme }) => `padding: ${theme.padding[normalize(size)]};`}
+const getPadding = (theme, size) => {
+  if (theme.padding[normalize(size)]) {
+    return theme.padding[normalize(size)];
+  }
 
-  ${({ top, theme }) => top ? `padding-top: ${theme.padding[normalize(top)]};` : ''}
-  ${({ bottom, theme }) => bottom ? `padding-bottom: ${theme.padding[normalize(bottom)]};` : ''}
-  ${({ left, theme }) => left ? `padding-left: ${theme.padding[normalize(left)]};` : ''}
-  ${({ right, theme }) => right ? `padding-right: ${theme.padding[normalize(right)]};` : ''}
+  return size;
+}
+
+const Padding = styled.div`
+  ${({ size, theme }) => `padding: ${getPadding(theme, size)};`}
+
+  ${({ top, theme }) => top ? `padding-top: ${getPadding(theme, top)};` : ''}
+  ${({ bottom, theme }) => bottom ? `padding-bottom: ${getPadding(theme, bottom)};` : ''}
+  ${({ left, theme }) => left ? `padding-left: ${getPadding(theme, left)};` : ''}
+  ${({ right, theme }) => right ? `padding-right: ${getPadding(theme, right)};` : ''}
 `;
 
 Padding.propTypes = {
@@ -62,6 +77,8 @@ Padding.usage = `
 # Padding
 
 An experimental component which just adds some padding around something else, based on some pre-defined sizes our designers like. Since developers end up implementing their own padding a lot, it might be useful to include this generic utility. Hopefully it generalizes well.
+
+You can also specify a custom padding for any side, i.e. \`top="48px"\`. This is probably a bad idea.
 
 \`\`\`
 <Padding size="sm" bottom="lg">Some content</Padding>
