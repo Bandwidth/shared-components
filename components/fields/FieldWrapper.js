@@ -50,7 +50,7 @@ class FieldWrapper extends React.Component {
     const { label, disabled, required, helpText } = this.props;
     return (
       <Container>
-        {label ? <Label required={required}>{label}</Label> : null}
+        {label ? <Label required={required} disabled={disabled}>{label}</Label> : null}
         {this.renderChildren()}
         {helpText ? <HelpText>{helpText}</HelpText> : null}
       </Container>

@@ -178,7 +178,6 @@ export default {
   form: {
     bg: colors.white,
     fg: '#666',
-    padding: '30px 40px',
     border: `1px solid ${colors.borderLight}`,
     fontFamily: fonts.brand,
     // form intelligently applies spacing to its children

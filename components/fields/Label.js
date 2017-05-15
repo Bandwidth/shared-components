@@ -9,6 +9,7 @@ const Label = styled.label.withConfig({ displayName: 'Label' })`
   padding: ${({ theme }) => theme.label.padding};
   color: ${({ theme }) => theme.label.fg};
   background: ${({ theme }) => theme.label.bg};
+  opacity: ${({ disabled }) => disabled ? '0.5' : '1'};
 
   ${({ required, theme }) =>
     required ?

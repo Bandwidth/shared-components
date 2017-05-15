@@ -16,6 +16,7 @@ const InputBox = styled.div.withConfig({ displayName: 'InputBox' })`
         color: ${theme.input.disabledFG};
         background: ${theme.input.disabledBG};
         border: ${theme.input.disabledBorder};
+        opacity: 0.5;
       ` : ''
   }
 `;

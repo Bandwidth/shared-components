@@ -16,6 +16,7 @@ class TextField extends React.Component {
     type: PropTypes.string,
     helpText: PropTypes.string,
     callout: PropTypes.node,
+    placeholder: PropTypes.string,
   };
 
   static defaultProps = {
@@ -26,10 +27,11 @@ class TextField extends React.Component {
     type: 'text',
     helpText: null,
     callout: null,
+    placeholder: null,
   };
 
   render() {
-    const { input, label, id, disabled, required, helpText, type, callout } = this.props;
+    const { input, label, id, disabled, required, helpText, type, callout, placeholder } = this.props;
     return (
       <FieldWrapper
         label={label}
@@ -38,7 +40,14 @@ class TextField extends React.Component {
         required={required}
         callout={callout}
       >
-        <TextInput {...input} id={id} type={type} disabled={disabled} required={required} />
+        <TextInput
+          {...input}
+          id={id}
+          type={type}
+          disabled={disabled}
+          required={required}
+          placeholder={placeholder}
+        />
       </FieldWrapper>
     );
   }
