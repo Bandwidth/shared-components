@@ -8,7 +8,7 @@ const Container = styled.div`
   flex-direction: row;
   align-items: stretch;
   flex: 1 1 auto;
-  min-height: 58px;
+  min-height: 53px;
 `;
 
 class RadioGroup extends React.Component {

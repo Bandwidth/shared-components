@@ -122,7 +122,7 @@ export default {
     disabledBorder: `1px solid ${colors.border}`,
     border: `1px solid ${colors.borderLight}`,
     focusedBorder: `1px solid ${colors.border}`,
-    fontSize: '16px',
+    fontSize: '14px',
     fontFamily: fonts.brand,
     padding: '1em 1em',
     margin: 0,

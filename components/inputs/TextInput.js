@@ -12,7 +12,7 @@ const Input = styled.input`
   transition: all 0.2s ease;
   outline: none;
   width: 100%;
-  padding: ${({ theme }) => theme.input.padding};
+  padding: ${({ theme }) => theme.padding.medium};
   display: block;
   border: ${({ theme }) => theme.input.border};
 
