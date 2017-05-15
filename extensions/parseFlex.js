@@ -42,6 +42,6 @@ export default (flex) => {
     }
     itemIdx = itemIdx + 1;
     return lines;
-  }, ['justify-content: space-between;'])
+  }, [])
   .join('\n');
 }
