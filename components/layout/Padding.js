@@ -1,19 +1,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const sizePropType = PropTypes.oneOf([
-  'extraSmall',
-  'xs',
-  'small',
-  'sm',
-  'medium',
-  'md',
-  'large',
-  'lg',
-  'extraLarge',
-  'xl'
-]);
-
 const normalize = (size) => {
   if (!size) {
     return 'medium';
@@ -58,11 +45,11 @@ const Padding = styled.div`
 `;
 
 Padding.propTypes = {
-  size: sizePropType,
-  top: sizePropType,
-  bottom: sizePropType,
-  left: sizePropType,
-  right: sizePropType,
+  size: PropTypes.string,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
+  left: PropTypes.string,
+  right: PropTypes.string,
 };
 
 Padding.defaultProps = {
