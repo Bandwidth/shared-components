@@ -7,7 +7,6 @@ const TopNav = styled.header.withConfig({ displayName: 'TopNav' })`
   padding: ${({ theme }) => theme.topNav.padding};
   display: flex;
   justify-content: space-between;
-  min-height: 96px;
   z-index: 1000;
 `;
 
