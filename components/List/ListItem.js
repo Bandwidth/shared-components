@@ -7,7 +7,6 @@ const ListItemContainer = styled.li`
   color: ${({ active, theme }) => active ? theme.colors.primary : theme.colors.black};
   padding: ${({ theme }) => `${theme.padding.medium} ${theme.padding.large}`};
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
-  border-right: 1px solid ${({ theme, active }) => active ? theme.colors.gutter : theme.colors.borderLight};
   position: relative;
   overflow-x: visible;
 `;
