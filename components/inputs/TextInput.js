@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import InputBox from './InputBox';
 
 const Input = styled.input`
-  color: inherit;
+  color: ${({ theme }) => theme.colors.black};
+  background: ${({ theme }) => theme.colors.white};
   letter-spacing: 0.02em;
   line-height: ${({ theme }) => theme.input.lineHeight};
   font-size: ${({ theme }) => theme.input.fontSize};
@@ -22,6 +22,12 @@ const Input = styled.input`
   }
   &:focus + div {
     opacity: 1;
+  }
+
+  &:disabled {
+    background: ${({ theme }) => theme.colors.disabled};
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    opacity: 0.5;
   }
 
   ${({ visited, theme }) => visited ?
@@ -69,9 +75,7 @@ class TextInput extends React.Component {
     const { disabled } = this.props;
     const { visited } = this.state;
     return (
-      <InputBox disabled={disabled}>
-        <Input {...this.props} onBlur={this.onBlur} visited={visited} />
-      </InputBox>
+      <Input {...this.props} onBlur={this.onBlur} visited={visited} />
     );
   }
 }

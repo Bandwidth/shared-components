@@ -9,12 +9,13 @@ const SidebarLayout = styled.div.withConfig({ displayName: 'SidebarLayout' })`
 
   & > *:first-child {
     flex: 3;
-    border-right: 1px solid ${({ theme }) => theme.colors.borderLight};
   }
 
   & > *:last-child {
     flex: 6;
     background: ${({ theme }) => theme.colors.gutter};
+    border-left: 1px solid ${({ theme }) => theme.colors.borderLight};
+    margin-left: -1px;
   }
 `;
 

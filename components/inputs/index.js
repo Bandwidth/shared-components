@@ -2,7 +2,6 @@
 export Button from './Button';
 export Checkbox from './Checkbox';
 export FileInput from './FileInput';
-export InputBox from './InputBox';
 export TextArea from './TextArea';
 export TextInput from './TextInput';
 export Toggle from './Toggle';
