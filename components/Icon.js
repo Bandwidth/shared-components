@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import icons, { map } from './helpers/icons';
 
-const Icon = styled.span.withConfig({ displayName: 'Icon' })`
-  &::after {
-    font-family: 'Bandwidth';
-    font-size: ${({ theme, size }) => `${size}px` || theme.icon.fontSize};
-    color: ${({ theme }) => theme.icon.fg};
+const Icon = styled.i.withConfig({ displayName: 'Icon' })`
+  font-family: 'Bandwidth';
+  font-size: ${({ theme, size }) => `${size}px` || theme.icon.fontSize};
+  color: ${({ theme }) => theme.icon.fg};
+  font-style: normal;
+  display: inline-block;
+  &::before {
     content: "${({ name, iconsHelper }) => iconsHelper(name)}";
     display: block;
   }
