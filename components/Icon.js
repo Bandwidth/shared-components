@@ -8,7 +8,7 @@ const Icon = styled.i.withConfig({ displayName: 'Icon' })`
   font-style: normal;
   display: inline-block;
   &::before {
-    content: "${({ name, iconsHelper }) => iconsHelper(name)}";
+    content: "${({ name, iconsHelper }) => iconsHelper(name) || iconsHelper('help_2')}";
     display: block;
     color: inherit;
   }
