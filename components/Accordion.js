@@ -7,7 +7,7 @@ import { Easer } from 'functional-easing';
 import Icon from './Icon';
 
 export const Container = styled.div`
-  border: ${({ theme }) => theme.accordion.border};
+  border: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
 const Label = styled.div`

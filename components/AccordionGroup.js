@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Container as AccordionContainer } from './Accordion';
 
-const Container = styled.div``;
+const Container = styled.div`
+  & > ${AccordionContainer}:not(:first-child) {
+    border-top: none;
+  }
+`;
 
 class AccordionGroup extends React.Component {
   static propTypes = {
