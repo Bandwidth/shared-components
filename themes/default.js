@@ -105,7 +105,7 @@ export default {
     activeFG: '#fff',
     fontSize: '1em',
     fontWeight: 'auto',
-    padding: '15px 0 30px 0',
+    padding: '30px 0 30px 0',
     margin: '0 30px 0 0',
     // controls animations
     accentBarTop: 'auto',

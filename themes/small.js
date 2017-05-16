@@ -16,7 +16,7 @@ export default defaultsDeep({
 
   tab: {
     fontSize: '0.8em',
-    padding: '30px 0 5px 0',
+    padding: '30px 0 0 0',
     margin: '0 30px 0 0',
     accentBarTop: '100%',
     accentBarBottom: 'auto',
