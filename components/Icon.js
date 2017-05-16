@@ -3,7 +3,7 @@ import icons, { map } from './helpers/icons';
 
 const Icon = styled.i.withConfig({ displayName: 'Icon' })`
   font-family: 'Bandwidth';
-  font-size: ${({ theme, size }) => `${size}px` || theme.icon.fontSize};
+  font-size: ${({ theme, size }) => `${size}` || theme.icon.fontSize};
   color: inherit;
   font-style: normal;
   display: inline-block;
@@ -22,7 +22,7 @@ Icon.defaultProps = {
   name: 'attention',
   iconsHelper: icons,
 
-  size: 16,
+  size: '16px',
 };
 
 Icon.usage = `
