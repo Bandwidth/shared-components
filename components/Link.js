@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Link, Route } from 'react-router-dom';
+import { Link as ReactLink, Route } from 'react-router-dom';
 
-export const TextLink = styled(Link)`
-  color: ${({ theme }) => theme.link.fg};
+export const TextLink = styled(ReactLink)`
+  color: ${({ theme }) => theme.colors.primaryText};
   font-family: ${({ theme }) => theme.link.fontFamily};
   text-decoration: none;
   cursor: pointer;
@@ -44,24 +44,63 @@ export const TextLink = styled(Link)`
   }
 `;
 
-const WrapLink = styled(Link)`
+const IconLink = styled(TextLink)`
+  text-decoration: none;
+  &::after {
+    opacity: 0;
+  }
+`;
+
+// notice: this goes back to ReactLink, not TextLink as above
+const WrapLink = styled(ReactLink)`
   text-decoration: none;
 `;
 
-class SmartLink extends React.Component {
+const inferType = (children) => {
+  if (children === null) {
+    return 'wrap';
+  }
+
+  if (typeof children === 'string') {
+    return 'text';
+  }
+
+  if (children.type && children.type.displayName === 'Icon') {
+    return 'icon';
+  }
+
+  return 'wrap';
+}
+
+class Link extends React.Component {
   static propTypes = {
     to: PropTypes.string,
     children: PropTypes.node,
     exact: PropTypes.bool,
     onClick: PropTypes.func,
+    // whether the contents should be treated as text (styled) or not (untouched)
+    type: PropTypes.oneOf(['text', 'icon', 'wrap']),
   };
 
   static defaultProps = {
     to: '#',
-    children: 'Link',
+    children: null,
     exact: false,
     onClick: () => null,
+    type: null,
   };
+
+  getComponentType = () => {
+    const type = this.props.type || inferType(this.props.children);
+    switch (type) {
+      case 'wrap':
+        return WrapLink;
+      case 'icon':
+        return IconLink;
+      default:
+        return TextLink;
+    }
+  }
 
   // adds all non-children props to children
   childrenWithProps = (extraProps) => {
@@ -79,7 +118,7 @@ class SmartLink extends React.Component {
 
   render() {
     const { to, exact, children, onClick } = this.props;
-    const Component = (typeof children === 'string') ? TextLink : WrapLink;
+    const Component = this.getComponentType();
 
     return (
       <Route
@@ -95,7 +134,7 @@ class SmartLink extends React.Component {
   }
 }
 
-SmartLink.usage = `
+Link.usage = `
 # Link
 
 Links are meant to be used with React Router v4+. They provide a few features besides styling:
@@ -103,10 +142,11 @@ Links are meant to be used with React Router v4+. They provide a few features be
 * use the \`to\` prop instead of \`href\`; better syntax.
 * pass the \`exact\` prop to indicate that this link should only be active when the URL matches exactly.
 * any children are passed an \`active\` prop, which indicates whether the link is currently being visited.
+* pass \`type="icon"\` or \`type="wrap"\` to turn customize text styling within the link
 
 \`\`\`
 <Link to="/about" exact>Go to About Page</Link>
 \`\`\`
 `;
 
-export default SmartLink;
+export default Link;

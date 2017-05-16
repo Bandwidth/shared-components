@@ -4,12 +4,13 @@ import icons, { map } from './helpers/icons';
 const Icon = styled.i.withConfig({ displayName: 'Icon' })`
   font-family: 'Bandwidth';
   font-size: ${({ theme, size }) => `${size}px` || theme.icon.fontSize};
-  color: ${({ theme }) => theme.icon.fg};
+  color: inherit;
   font-style: normal;
   display: inline-block;
   &::before {
     content: "${({ name, iconsHelper }) => iconsHelper(name)}";
     display: block;
+    color: inherit;
   }
 `;
 
