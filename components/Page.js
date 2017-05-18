@@ -8,7 +8,7 @@ const Page = styled.article.withConfig({ displayName: 'Page' })`
   width: 100%;
 
   & > *:last-child {
-    flex: 1;
+    flex: 1 1 auto;
   }
 `;
 
