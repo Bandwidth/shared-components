@@ -59,7 +59,7 @@ class List extends React.Component {
     const { selectedIndex } = this.props;
 
     return React.Children.map(
-      this.props.children,
+      this.props.children.filter((child) => child !== null),
       (listItem, idx) => React.cloneElement(listItem, { key: idx, active: idx === selectedIndex }),
     );
   };

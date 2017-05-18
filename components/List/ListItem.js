@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import NewBadge from '../NewBadge';
 
 const ListItemContainer = styled.li`
   background: ${({ active, theme }) => active ? theme.colors.gutter : theme.colors.white};
@@ -25,20 +26,22 @@ class ListItem extends React.Component {
     label: PropTypes.string,
     details: PropTypes.node,
     active: PropTypes.bool,
+    isNew: PropTypes.bool,
   };
 
   static defaultProps = {
     label: null,
     details: null,
     active: false,
+    isNew: false,
   };
 
   render() {
-    const { label, details, active } = this.props;
+    const { label, details, active, isNew } = this.props;
 
     return (
       <ListItemContainer active={active}>
-        <ListLabel>{label}</ListLabel>
+        <ListLabel>{isNew ? <NewBadge /> : null}{label}</ListLabel>
         <ListDetails>{details}</ListDetails>
       </ListItemContainer>
     );
