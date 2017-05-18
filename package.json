@@ -28,6 +28,7 @@
     "color": "^1.0.3",
     "functional-easing": "^1.0.8",
     "prop-types": "^15.5.8",
+    "provinces": "^1.11.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-dropzone": "^3.13.1",
