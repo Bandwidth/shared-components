@@ -6,6 +6,9 @@ import { Container as AccordionContainer } from '../Accordion';
 import FormColumn from './FormColumn';
 import FormText from './FormText';
 
+// TODO: simplify field layout by wrapping all single fields in a single container element,
+// so we don't have to select on so many different types of classes here
+
 const Form = styled.form.withConfig({ displayName: 'Form' })`
   background: 'transparent';
   color: inherit;
@@ -54,6 +57,19 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
       space goes between the items on the inside of the form.
     */
     flex: 0 1 calc(50% - ${({ theme }) => theme.form.elementHorizontalSpacing / 2}px);
+  }
+
+  & > ${FieldGroup}:last-child,
+  & > ${FormText}:last-child,
+  & > ${FieldWrapperContainer}:last-child,
+  & > ${BinaryFieldContainer}:last-child {
+    margin-bottom: 0;
+  }
+  & > ${FieldGroup}:first-child,
+  & > ${FormText}:first-child,
+  & > ${FieldWrapperContainer}:first-child,
+  & > ${BinaryFieldContainer}:first-child {
+    margin-top: 0;
   }
 
   &:invalid button[type="submit"] {
