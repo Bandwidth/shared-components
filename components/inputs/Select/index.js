@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import arrowImage from './arrow.png';
 
 const Select = styled.select`
-  padding: ${({ theme }) => theme.input.padding};
+  padding: ${({ theme }) => theme.padding.medium};
   border: ${({ theme }) => theme.input.border};
   border-radius: 0;
   width: 100%;

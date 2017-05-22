@@ -5,6 +5,7 @@ import { Container as FieldWrapperContainer } from '../fields/FieldWrapper';
 import { Container as AccordionContainer } from '../Accordion';
 import FormColumn from './FormColumn';
 import FormText from './FormText';
+import FlexFields from '../fields/FlexFields';
 
 // TODO: simplify field layout by wrapping all single fields in a single container element,
 // so we don't have to select on so many different types of classes here
@@ -20,7 +21,8 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
 
   /* these are field groups which help layout rows inside a form */
   & ${FieldGroup},
-  & ${FormText} {
+  & ${FormText},
+  & > ${FlexFields} {
     flex: 0 0 100%;
     margin-top: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
     margin-bottom: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;

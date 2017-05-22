@@ -4,9 +4,6 @@ import parseFlex from '../../extensions/parseFlex';
 const FlexFields = styled.div`
   display: flex;
   flex-direction: row;
-  flex: 0 0 100%;
-  margin-top: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
-  margin-bottom: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
 
   ${({ flex }) => parseFlex(flex)}
 `;
@@ -25,6 +22,19 @@ There's obviously too many ways to layout fields in rows. Perhaps these can be c
   <Three />
   <Four />
   <Five />
+</FlexFields>
+\`\`\`
+
+FlexFields is nestable. So if you want half the row to be one field, and then the other half broken up among 3, you'd do something like
+
+\`\`\`
+<FlexFields flex="11">
+  <One />
+  <FlexFields flex="111">
+    <Two />
+    <Three />
+    <Four />
+  </FlexFields>
 </FlexFields>
 \`\`\`
 `;
