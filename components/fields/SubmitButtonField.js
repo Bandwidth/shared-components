@@ -37,10 +37,12 @@ class SubmitButtonField extends React.Component {
   }
 
   render() {
-    const { pristine, loading, disabled } = this.props;
+    const { pristine, loading, disabled, leftIcon, rightIcon } = this.props;
     return (
       <ButtonField
         disabled={pristine || loading || disabled}
+        leftIcon={leftIcon}
+        rightIcon={rightIcon}
         type="submit"
       >
         {this.renderContents()}
