@@ -5,7 +5,7 @@ import FieldWrapper from './FieldWrapper';
 
 class ButtonField extends React.Component {
   static propTypes = {
-    children: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
     label: PropTypes.string,

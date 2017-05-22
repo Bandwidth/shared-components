@@ -16,3 +16,4 @@ export TextField from './TextField';
 export ToggleField from './ToggleField';
 export SelectField from './SelectField';
 export RadioField from './RadioField';
+export SubmitButtonField from './SubmitButtonField';
