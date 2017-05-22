@@ -4,7 +4,7 @@ import parseFlex from '../../extensions/parseFlex';
 const FlexFields = styled.div`
   display: flex;
   flex-direction: row;
-  flex: 1 0 100%;
+  flex: 0 0 100%;
   margin-top: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
   margin-bottom: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
 

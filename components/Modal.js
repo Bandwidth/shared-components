@@ -15,7 +15,7 @@ const Blocker = styled.div`
 
 const Content = styled.div`
   background: ${({ theme }) => theme.modal.bg};
-  width: ${({ theme }) => theme.modal.naturalWidth};
+  width: ${({ naturalWidth }) => naturalWidth};
   max-width: ${({ theme }) => theme.modal.maxWidth};
   min-width: ${({ theme }) => theme.modal.minWidth};
   height: ${({ theme }) => theme.modal.naturalHeight};
@@ -45,17 +45,19 @@ class Modal extends React.Component {
     children: PropTypes.node.isRequired,
     title: PropTypes.string,
     onBlockerClicked: PropTypes.func,
+    naturalWidth: PropTypes.string,
   };
 
   static defaultProps = {
     title: null,
+    naturalWidth: 'auto',
     onBlockerClicked: () => null,
   };
 
   render() {
     return (
       <Blocker onClick={this.props.onBlockerClicked}>
-        <Content>
+        <Content naturalWidth={this.props.naturalWidth}>
           {this.props.title ? <Title>{this.props.title}</Title> : null}
           {this.props.children}
         </Content>

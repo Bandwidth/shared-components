@@ -21,13 +21,13 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
   /* these are field groups which help layout rows inside a form */
   & ${FieldGroup},
   & ${FormText} {
-    flex: 1 0 100%;
+    flex: 0 0 100%;
     margin-top: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
     margin-bottom: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
   }
 
   & > ${FormColumn} {
-    flex: 1 0 50%;
+    flex: 0 0 50%;
   }
 
   /* these are inputs directly within a field group inside a form */
@@ -60,15 +60,11 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
   }
 
   & > ${FieldGroup}:last-child,
-  & > ${FormText}:last-child,
-  & > ${FieldWrapperContainer}:last-child,
-  & > ${BinaryFieldContainer}:last-child {
+  & > ${FormText}:last-child {
     margin-bottom: 0;
   }
   & > ${FieldGroup}:first-child,
-  & > ${FormText}:first-child,
-  & > ${FieldWrapperContainer}:first-child,
-  & > ${BinaryFieldContainer}:first-child {
+  & > ${FormText}:first-child {
     margin-top: 0;
   }
 
