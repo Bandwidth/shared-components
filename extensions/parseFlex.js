@@ -2,10 +2,10 @@ import { css } from 'styled-components';
 
 const parseFlexChar = (char) => {
   if (char === '0') {
-    return 'flex: 0 0 auto;';
+    return 'flex: 0 0 0;';
   }
 
-  return `flex: ${char} 0 auto;`
+  return `flex: ${char} 0 0;`
 }
 
 export default (flex) => {
@@ -42,11 +42,11 @@ export default (flex) => {
     }
 
     if (idx === 0) {
-      lines.push('margin-left: 0;');
+      lines.push(`& > *:nth-child(${itemIdx + 1}) { margin-left: 0; }`);
     }
 
     if (idx === flex.length - 1) {
-      lines.push('margin-right: 0;');
+      lines.push(`& > *:nth-child(${itemIdx + 1}) { margin-right: 0; }`);
     }
 
     itemIdx = itemIdx + 1;
