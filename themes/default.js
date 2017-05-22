@@ -40,6 +40,9 @@ const colors = {
   errorBorder: '#f6bbab',
   errorBackground: '#b1351e',
   errorBackgroundLight: '#fceae6',
+
+  positiveText: '#6cbf0d',
+  negativeText: '#e8562e',
 };
 
 const fonts = {
