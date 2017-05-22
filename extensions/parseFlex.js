@@ -40,6 +40,15 @@ export default (flex) => {
         ${parseFlexChar(char)}
       }`);
     }
+
+    if (idx === 0) {
+      lines.push('margin-left: 0;');
+    }
+
+    if (idx === flex.length - 1) {
+      lines.push('margin-right: 0;');
+    }
+
     itemIdx = itemIdx + 1;
     return lines;
   }, [])

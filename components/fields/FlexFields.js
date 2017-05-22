@@ -9,13 +9,6 @@ const FlexFields = styled.div`
   margin-bottom: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
 
   ${({ flex }) => parseFlex(flex)}
-
-  & > *:first-child {
-    margin-left: 0;
-  }
-  & > *:last-child {
-    margin-right: 0;
-  }
 `;
 
 FlexFields.usage = `
