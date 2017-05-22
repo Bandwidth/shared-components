@@ -8,7 +8,8 @@ export default (countries) => countries.reduce((regions, countryCode) =>
     regions,
     provinceData
       .filter((province) => province.country === countryCode.toUpperCase())
-      .map((province) => province.short),
+      .map((province) => province.short)
+      .sort(),
   ),
   [],
 );
