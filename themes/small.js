@@ -18,9 +18,9 @@ export default defaultsDeep({
     fontSize: '0.8em',
     padding: '30px 0 0 0',
     margin: '0 30px 0 0',
-    accentBarTop: '100%',
+    accentBarTop: 'calc(100% + 10px)',
     accentBarBottom: 'auto',
-    marginBottom: '5px',
+    marginBottom: '15px',
   },
 
   topNav: {

@@ -152,8 +152,7 @@ export default {
   topNav: {
     bg: '#1f2a44',
     fg: '#fff',
-    padding: '0 2em',
-    margin: '0',
+    padding: '0 30px 0 30px',
   },
 
   sidebar: {
