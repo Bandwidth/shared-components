@@ -32,6 +32,10 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
     flex: 0 0 50%;
   }
 
+  & > ${AccordionContainer} {
+    flex: 1 0 100%;
+  }
+  
   /* these are inputs directly within a field group inside a form */
   & ${FieldGroup} > ${FieldWrapperContainer}:not(:first-child),
   & ${FieldGroup} > ${BinaryFieldContainer}:not(:first-child) {
