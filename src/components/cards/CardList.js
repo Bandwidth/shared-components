@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const CardList = styled.div.withConfig({ displayName: 'CardList' })`
-  padding: ${({ theme }) => theme.card.listPadding};
+  padding: ${({ theme }) => theme.padding.large};
 
   & > div {
     margin: 0;

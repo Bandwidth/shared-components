@@ -6,8 +6,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   font-size: ${({ theme }) => theme.card.fontSize};
-  margin: ${({ theme }) => theme.card.margin};
-  padding: ${({ theme }) => theme.card.padding};
+  margin: 0;
+  padding: ${({ theme }) => `${theme.padding.small} 0`};
   background: ${({ theme }) => theme.card.bg};
   color: ${({ theme, active }) => active ? theme.card.activeFG : theme.card.fg};
   border-bottom: ${({ theme }) => theme.card.border};

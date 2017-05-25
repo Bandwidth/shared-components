@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import formatMoney from '../extensions/formatMoney';
 
-const Figure = styled.figure`
+const Figure = styled.span`
   color: ${({ positive, theme }) => positive ? theme.colors.positiveText : theme.colors.negativeText };
 `;
 
