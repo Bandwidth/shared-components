@@ -2,10 +2,10 @@ import { css } from 'styled-components';
 
 const parseFlexChar = (char) => {
   if (char === '0') {
-    return 'flex: 0 0 0;';
+    return 'flex: 0 0 auto;';
   }
 
-  return `flex: ${char} 0 0;`
+  return `flex: ${char} 0 auto;`
 }
 
 export default (flex) => {
