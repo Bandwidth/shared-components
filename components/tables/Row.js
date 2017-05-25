@@ -4,10 +4,16 @@ import styled from 'styled-components';
 
 const TR = styled.tr`
   &:nth-child(odd) {
-    background: ${({ theme }) => theme.table.rowOddBG};
+    background: ${({ theme }) => theme.colors.white};
   }
   &:nth-child(even) {
-    background: ${({ theme }) => theme.table.rowEvenBG};
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+
+  &:last-of-type {
+    border-bottom: none;
   }
 `;
 

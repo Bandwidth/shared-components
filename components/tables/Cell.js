@@ -5,15 +5,14 @@ import styled from 'styled-components';
 const TD = styled.td`
   text-align: left;
   background: ${({ theme }) => theme.table.cellBG};
-  border: ${({ theme }) => theme.table.cellBorder};
-  border-width: 0 1px 1px 0;
+  border-right: 1px solid ${({ theme }) => theme.colors.border};
   margin: ${({ theme }) => theme.table.cellMargin};
-  padding: ${({ theme }) => theme.table.cellPadding};
+  padding: ${({ theme }) => `${theme.padding.small} ${theme.padding.medium}`};
   white-space: nowrap;
   transition: 0.2s ease all;
 
   &:last-child {
-    border-right: 0;
+    border-right: none;
   }
 `;
 
