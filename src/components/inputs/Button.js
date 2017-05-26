@@ -8,8 +8,8 @@ const Button = styled.button`
   font-family: ${({ theme }) => theme.button.fontFamily};
   text-transform: ${({ theme }) => theme.button.textTransform};
 
-  background: ${({ theme }) => theme.button.bg};
-  border: ${({ theme }) => theme.button.border};
+  background: ${({ theme }) => theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.button.fg};
   border-radius: 3em;
   padding: ${({ theme }) => theme.button.padding};
