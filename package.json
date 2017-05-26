@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "watch": "babel --watch --copy-files --out-dir build src",
-    "build": "babel --copy-files --out-dir build src"
+    "build": "babel --copy-files --out-dir build src",
+    "prepublish": "npm run build",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
