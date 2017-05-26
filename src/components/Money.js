@@ -27,7 +27,8 @@ class Money extends React.Component {
     return (
       <Figure positive={value >= 0}>
         {showSign ? this.getSign(value) : null}
-        ${formatMoney(value)}
+        {/* sign is already present, so remove it from the formatted number */}
+        ${formatMoney(value).replace('-', '')}
       </Figure>
     );
   }
