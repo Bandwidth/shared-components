@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const FormColumn = styled.section`
-  padding: 0 15px;
+  padding: 0 ${({ theme }) => theme.padding.large};
   border-right: ${({ theme }) => theme.formColumn.border};
 
   &:first-of-type {
