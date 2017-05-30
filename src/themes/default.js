@@ -97,7 +97,8 @@ export default {
     fontWeight: '700',
     fontFamily: fonts.default,
     textTransform: 'uppercase',
-    padding: '13px 40px',
+    // subtracting 1 from design system height due to uniform border across all styles
+    padding: '12px 40px',
     margin: '0',
   },
 
