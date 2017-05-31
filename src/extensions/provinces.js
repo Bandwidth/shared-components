@@ -5,7 +5,6 @@ import provinceData from 'provinces';
  */
 export default (countries) => countries.reduce((regions, countryCode) =>
   regions.concat(
-    regions,
     provinceData
       .filter((province) => province.country === countryCode.toUpperCase())
       .map((province) => province.short)
