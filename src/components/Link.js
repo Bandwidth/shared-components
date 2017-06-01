@@ -102,6 +102,16 @@ class Link extends React.Component {
     }
   }
 
+  handleClick = (event) => {
+    const { onClick, to } = this.props;
+    // if the user isn't using this link to navigate,
+    // prevent default navigation
+    if (onClick && to === '#') {
+      event.preventDefault();
+      onClick(event);
+    }
+  }
+
   // adds all non-children props to children
   childrenWithProps = (extraProps) => {
     const { children } = this.props;
@@ -117,7 +127,7 @@ class Link extends React.Component {
   };
 
   render() {
-    const { to, exact, children, onClick } = this.props;
+    const { to, exact, children } = this.props;
     const Component = this.getComponentType();
 
     return (
@@ -125,7 +135,7 @@ class Link extends React.Component {
         path={to}
         exact={exact}
         children={({ match }) => (
-          <Component to={to} onClick={onClick}>
+          <Component to={to} onClick={this.handleClick}>
             {this.childrenWithProps({ active: !!match })}
           </Component>
         )}
