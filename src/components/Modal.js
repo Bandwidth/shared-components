@@ -21,7 +21,7 @@ const Content = styled.div`
   height: ${({ theme }) => theme.modal.naturalHeight};
   min-height: ${({ theme }) => theme.modal.minHeight};
   max-height: ${({ theme }) => theme.modal.maxHeight};
-  margin: auto;
+  margin: 180px auto auto auto;
   display: flex;
   flex-direction: column;
   border-radius: ${({ theme }) => theme.modal.borderRadius};
@@ -33,7 +33,7 @@ const Title = styled.h3`
   margin: 0;
   background: ${({ theme }) => theme.modal.titleBG};
   color: ${({ theme }) => theme.modal.titleFG};
-  padding: ${({ theme }) => theme.modal.titlePadding};
+  padding: .95em 1em .95em 1.5em;
   font-family: ${({ theme }) => theme.modal.titleFontFamily};
   font-size: ${({ theme }) => theme.modal.titleFontSize};
   font-weight: ${({ theme }) => theme.modal.titleFontWeight};
