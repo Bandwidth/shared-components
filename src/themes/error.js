@@ -5,14 +5,20 @@ import base from './default';
 export default defaultsDeep({
   name: 'error',
 
+  colors: {
+    ...base.colors,
+
+    primary: base.colors.error,
+    primaryText: base.colors.errorText,
+    primaryLight: base.colors.errorBackgroundLight,
+  },
+
   button: {
-    fg: '#fff',
-    bg: '#e8562e',
-    activeBG: color('#e9562e').darken(0.2).string(),
-    border: '1px solid #e8562e',
+    activeBG: color(base.colors.error).darken(0.2).string(),
   },
 
   link: {
     fg: base.colors.errorText,
+    activeFG: color(base.colors.errorText).darken(0.2).string(),
   },
 }, base);

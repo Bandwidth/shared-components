@@ -36,6 +36,7 @@ const colors = {
   infoBackground: '#00bcec',
   infoBackgroundLight: '#d9f5fc',
 
+  error: '#e8562e',
   errorText: '#e8562e',
   errorBorder: '#f6bbab',
   errorBackground: '#b1351e',
