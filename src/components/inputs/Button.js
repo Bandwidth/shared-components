@@ -10,7 +10,7 @@ const Button = styled.button`
 
   background: ${({ theme }) => theme.colors.primary};
   border: 1px solid ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.button.fg};
+  color: ${({ theme }) => theme.colors.white};
   border-radius: 3em;
   padding: ${({ theme }) => theme.button.padding};
   display: inline-block;
