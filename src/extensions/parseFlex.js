@@ -5,7 +5,7 @@ const parseFlexChar = (char) => {
     return 'flex: 0 0 auto;';
   }
 
-  return `flex: ${char} 0 auto;`
+  return `flex: ${char} 0 0;`
 }
 
 export default (flex) => {
