@@ -12,16 +12,7 @@ const Alert = styled.div`
   line-height: 1em;
   
   a {
-    color: ${({ theme, type }) => {
-      switch (type) {
-        case 'success':
-          return theme.colors.successText;
-        case 'error':
-          return theme.colors.errorText;
-        default:
-          return theme.colors.infoText;
-      }
-    }};
+    color: inherit;
   }
 
   a::after {
