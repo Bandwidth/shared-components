@@ -1,8 +1,5 @@
 {
   "increment": null,
   "prereleaseId": "beta",
-  "requireCleanWorkingDir": true,
-  "npm": {
-    "tag": "latest"
-  }
+  "requireCleanWorkingDir": true
 }
