@@ -46,6 +46,7 @@ export const TextLink = styled(ReactLink)`
 
 const IconLink = styled(TextLink)`
   text-decoration: none;
+  display: inline-block;
   &::after {
     opacity: 0;
   }
