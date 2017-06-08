@@ -3,7 +3,7 @@
  */
 
 import { injectGlobal } from 'styled-components';
-import defaultTheme from './themes/defaultTheme';
+import defaultTheme from './theme';
 
 import eot from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.eot';
 import woff2 from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.woff2';
