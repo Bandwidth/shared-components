@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "watch": "babel --watch --copy-files --out-dir dist src",
-    "build": "babel --copy-files --out-dir dist src",
+    "build:indices": "node tools/generateIndices.js",
+    "build:dist": "babel --copy-files --out-dir dist src",
+    "build": "run-s build:*",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -40,6 +42,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "file": "^0.2.2",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "npm-run-all": "^4.0.2"
   }
 }
