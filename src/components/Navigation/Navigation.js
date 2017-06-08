@@ -1,72 +1,90 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import NavigationItem from './NavigationItem';
-import Anchor from '../Anchor';
+import styled, { ThemeProvider } from 'styled-components';
+import NavigationItems, { Container as ItemsContainer, linksPropType } from './NavigationItems';
+import LogoHeader from './LogoHeader';
+import theme from '../../theme';
 
-export const Container = styled.div.withConfig({ displayName: 'NavigationContainer' })`
+const Container = styled.header.withConfig({ displayName: 'NavigationContainer' })`
+  background: ${({ theme }) => theme.topNav.bg};
+  color: ${({ theme }) => theme.topNav.fg};
+  border-bottom: 1px solid ${({ theme }) => theme.shadow.color};
+  padding: ${({ theme }) => theme.topNav.padding};
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
+  z-index: 1000;
 
-  background: ${({ theme }) => theme.tab.bg};
-  color: ${({ theme }) => theme.tab.fg};
-  font-size: ${({ theme }) => theme.tab.fontSize};
-  margin-bottom: ${({ theme }) => theme.tab.marginBottom};
+  /* we don't want the nav to expand or collapse, just keep its natural size */
+  flex: 0 0 auto;
+`;
 
-  & > * {
-    margin: ${({ theme }) => theme.tab.margin};
+const Links = styled.div.withConfig({ displayName: 'NavigationLinks' })`
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+
+  & > div {
+    margin-top: auto;
   }
 
-  & > *:last-of-type {
-    margin: 0;
-    padding-right: 0;
-  }
-
-  & > a {
-    color: inherit;
-    text-decoration: none;
+  & > ${ItemsContainer}:nth-child(2) ${NavigationItems.Item} {
+    padding-top: 10px !important;
   }
 `;
 
-export const linksPropType = PropTypes.arrayOf(PropTypes.shape({
-  to: PropTypes.string,
-  onClick: PropTypes.func,
-  content: PropTypes.node.isRequired,
-  exact: PropTypes.bool,
-}));
 
-const Navigation = ({ links }) => (
-  <Container>
-    {links.map((link) => (
-      <Anchor key={`${link.content}_${link.to}`} to={link.to} onClick={link.onClick} exact={link.exact}>
-        <NavigationItem>{link.content}</NavigationItem>
-      </Anchor>
-    ))}
-  </Container>
-);
+class Navigation extends React.Component {
+  static propTypes = {
+    title: PropTypes.string,
+    links: linksPropType.isRequired,
+    topLinks: linksPropType,
+  };
 
-Navigation.propTypes = {
-  links: linksPropType,
-};
-Navigation.defaultProps = {
-  links: [],
-};
+  static defaultProps = {
+    topLinks: null,
+    title: null,
+  };
+
+  render() {
+    const { title, links, topLinks } = this.props;
+    const RenderIf = ({ children, val }) => (val ? children : null);
+
+    return (
+      <Container>
+        <RenderIf val={title}>
+          <LogoHeader>{title}</LogoHeader>
+        </RenderIf>
+        <Links>
+          <RenderIf val={topLinks}>
+            <ThemeProvider theme={theme.small}>
+              <NavigationItems links={topLinks} />
+            </ThemeProvider>
+          </RenderIf>
+          <NavigationItems links={links} />
+        </Links>
+      </Container>
+    );
+  }
+}
 
 Navigation.usage = `
 # Navigation
 
-Creates the top navigation selector, usually below the main navigation header.
+The header above a page which contains page title and navigation.
 
 \`\`\`
 <Navigation
+  title="Bandwidth App"
   links={[
     { to: '/cat', exact: true, content: 'Cat' },
     { to: '/anotherCat', content: 'Another Cat' },
   ]}
+  topLinks={[
+    { to: '/submitCat', content: 'Submit Cat' },
+    { to: '/logout', content: 'Log Out' },
+  ]}
 />
 \`\`\`
-`
+`;
 
-Navigation.Item = NavigationItem;
 export default Navigation;
