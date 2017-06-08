@@ -1,4 +1,3 @@
-export Code from './Code';
-export InlineCode from './InlineCode';
+export default from './Code';
+export CodeBlock from './CodeBlock';
 export CodeContainer from './CodeContainer';
-export MethodTag from './MethodTag';
