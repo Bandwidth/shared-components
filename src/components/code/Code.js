@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import Block from './CodeBlock';
+import Container from './CodeContainer';
 
 const Code = styled.pre.withConfig({ displayName: 'Code' })`
   font-family: ${({ theme }) => theme.inlineCode.fontFamily};
@@ -24,4 +25,5 @@ Lorem ipsum <Code>code</Code> dolor
 `;
 
 Code.Block = Block;
+Code.Container = Container;
 export default Code;
