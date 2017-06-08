@@ -47,7 +47,10 @@ const Navigation = ({ links }) => (
 );
 
 Navigation.propTypes = {
-  links: linksPropType.isRequired,
+  links: linksPropType,
+};
+Navigation.defaultProps = {
+  links: [],
 };
 
 Navigation.usage = `
