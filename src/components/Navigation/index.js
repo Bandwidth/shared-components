@@ -1,3 +1,3 @@
 export default from './Navigation';
-export NavigationHeader from './NavigationHeader';
+export NavigationItems from './NavigationItems';
 export NavigationItem from './NavigationItem';
