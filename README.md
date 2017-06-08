@@ -67,6 +67,16 @@ With this alias, you could just type:
 import Button from 'shared/components/inputs/Button';
 ```
 
+# Additional Components
+
+Besides the components listed in our design system, this library contains a few extras:
+
+* Header/SubHeader: different sized header texts
+* Gutter: a div with a gutter-styled background
+* Money: takes a currency value and renders it with special effects and proper formatting
+* NewBadge: a little badge indicating a new item
+* Code/MethodTag: a colored HTTP method verb tag
+
 # License
 
 The source of this library is licensed under the MIT license (see [LICENSE](./LICENSE))

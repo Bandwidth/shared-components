@@ -40,3 +40,4 @@ config.json
 .vscode/
 
 build
+dist
