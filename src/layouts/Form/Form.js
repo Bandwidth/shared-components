@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import FieldGroup from './FieldGroup';
 import { Container as BinaryFieldContainer } from './BinaryField';
 import { Container as FieldWrapperContainer } from './FieldWrapper';
-import { Container as AccordionContainer } from '../../components/Accordion';
+import { Container as AccordionContainer } from '../../components/Accordion/Accordion';
 import FormColumn from './FormColumn';
 import FormText from './FormText';
 import FlexFields from './FlexFields';
@@ -51,7 +51,7 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
   & > ${BinaryFieldContainer},
   & ${AccordionContainer} ${FieldWrapperContainer},
   & ${AccordionContainer} ${BinaryFieldContainer} {
-    margin: ${({ theme }) => theme.input.margin};
+    margin: 0;
     margin-top: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
     margin-bottom: ${({ theme }) => theme.form.elementVerticalSpacing / 2}px;
 
