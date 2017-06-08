@@ -1,6 +1,6 @@
 {
   "increment": null,
-  "prereleaseId": "alpha",
+  "prereleaseId": "beta",
   "requireCleanWorkingDir": true,
   "npm": {
     "tag": "latest"
