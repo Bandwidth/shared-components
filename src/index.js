@@ -60,6 +60,7 @@ export { default as Steps } from './components/Steps';
 export { default as Summary } from './components/Summary';
 export { default as Table } from './components/Table';
 export { default as TableCell } from './components/Table/TableCell';
+export { default as TableControls } from './components/Table/TableControls';
 export { default as TableHeader } from './components/Table/TableHeader';
 export { default as TableRow } from './components/Table/TableRow';
 export { default as Tabs } from './components/Tabs';
