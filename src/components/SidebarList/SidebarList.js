@@ -59,10 +59,11 @@ class SidebarList extends React.Component {
   renderItems = () => {
     const { selectedIndex } = this.props;
 
-    return React.Children.map(
-      this.props.children.filter((child) => child !== null),
-      (listItem, idx) => React.cloneElement(listItem, { key: idx, active: idx === selectedIndex }),
-    );
+    return React.Children.toArray(this.props.children)
+      .filter((child) => child !== null)
+      .map(
+        (listItem, idx) => React.cloneElement(listItem, { key: idx, active: idx === selectedIndex }),
+      );
   };
 
   render() {
