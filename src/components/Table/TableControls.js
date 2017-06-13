@@ -13,6 +13,8 @@ const ControlsRow = styled.div`
 
   & > ${Header} {
     flex: 1;
+    margin-bottom: ${({ theme }) => theme.padding.medium};
+    margin-top: 0;
   }
 
   & > ${Buttons} {
