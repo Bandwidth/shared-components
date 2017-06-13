@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ListItem = styled.ul.withConfig({ displayName: 'ListItem' })`
+const ListItem = styled.li.withConfig({ displayName: 'ListItem' })`
   margin: 0 0 0.5em 2em;
   padding: 0;
 
