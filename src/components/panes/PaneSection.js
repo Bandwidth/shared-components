@@ -11,13 +11,14 @@ const Content = styled.div`
   margin: 0;
 `;
 
-const Title = styled.h2`
+const Title = styled.h3`
   background: #dedede;
   display: block;
-  padding: 5px 30px;
+  padding: 1.25em 1em 0.95em 1.5em;
   margin: 0;
-  font-size: 0.85em;
-  font-weight: 800;
+  font-size: 0.9em;
+  font-weight: 600;
+  line-height: 1em;
   text-transform: uppercase;
 `;
 
