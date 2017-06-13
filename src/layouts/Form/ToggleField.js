@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Toggle, { HiddenInput } from '../../components/Toggle';
+import Toggle, { HiddenInput } from '../../components/Toggle/Toggle';
 import BinaryField from './BinaryField';
 
 class ToggleField extends React.Component {
