@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const normalize = (size) => {
   if (!size) {
-    return 'medium';
+    return 'large';
   }
 
   switch (size) {
@@ -53,7 +53,7 @@ Spacing.propTypes = {
 };
 
 Spacing.defaultProps = {
-  size: 'md',
+  size: 'lg',
   top: null,
   bottom: null,
   left: null,
