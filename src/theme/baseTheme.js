@@ -206,7 +206,6 @@ export default {
     fontSize: '1em',
     letterSpacing: '0.02em',
     fontFamily: fonts.brand,
-    padding: '0 0 0.4em 0',
     requiredMarkFG: '#e8562e',
   },
 
