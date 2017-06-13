@@ -4,7 +4,6 @@
   "description": "Shared Component Library for Bandwidth React Apps",
   "main": "dist/index.js",
   "scripts": {
-    "watch:clean": "rimraf dist",
     "watch:run": "babel --watch --copy-files --out-dir dist src",
     "watch": "run-s watch:*",
     "build:clean": "rimraf dist",

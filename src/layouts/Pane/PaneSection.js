@@ -14,11 +14,11 @@ const Content = styled.div`
 const Title = styled.h3`
   background: #dedede;
   display: block;
-  padding: 1.25em 1em 0.95em 1.5em;
+  padding: ${({ theme }) => `${theme.padding.extraSmall} ${theme.padding.large}`};
   margin: 0;
   font-size: 0.9em;
   font-weight: 600;
-  line-height: 1em;
+  line-height: 1.5em;
   text-transform: uppercase;
 `;
 
