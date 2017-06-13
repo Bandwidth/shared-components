@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Toggle, { HiddenInput } from '../../components/Toggle/Toggle';
+import Toggle from '../../components/Toggle/Toggle';
 import BinaryField from './BinaryField';
 
 class ToggleField extends React.Component {
@@ -24,7 +24,7 @@ class ToggleField extends React.Component {
 
   render() {
     return (
-      <BinaryField {...this.props} Input={HiddenInput} Label={Toggle} />
+      <BinaryField {...this.props} Input={Toggle.Input} Label={Toggle} />
     );
   }
 }

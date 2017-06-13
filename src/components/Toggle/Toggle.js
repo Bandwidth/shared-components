@@ -81,4 +81,5 @@ It's probably easier to use \`fields/ToggleField\`, which assembles these for yo
 \`\`\`
 `;
 
+Toggle.Input = HiddenInput;
 export default Toggle;

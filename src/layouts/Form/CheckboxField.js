@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BinaryField from './BinaryField';
-import Checkbox, { HiddenInput } from '../../components/Checkbox/Checkbox';
+import Checkbox from '../../components/Checkbox';
 
 class CheckboxField extends React.Component {
   static propTypes = {
@@ -24,7 +24,7 @@ class CheckboxField extends React.Component {
 
   render() {
     return (
-      <BinaryField {...this.props} Input={HiddenInput} Label={Checkbox} />
+      <BinaryField {...this.props} Input={Checkbox.Input} Label={Checkbox} />
     );
   }
 }

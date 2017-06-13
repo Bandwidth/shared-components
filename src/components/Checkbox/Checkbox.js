@@ -79,4 +79,5 @@ It's probably easier to use \`fields/CheckboxField\`, which assembles these for 
 \`\`\`
 `;
 
+Checkbox.Input = HiddenInput;
 export default Checkbox;
