@@ -5,11 +5,12 @@ const Label = styled.label.withConfig({ displayName: 'Label' })`
   letter-spacing: ${({ theme }) => theme.label.letterSpacing};
   font-weight: ${({ theme }) => theme.label.fontWeight};
   font-family: ${({ theme }) => theme.label.fontFamily};
-  margin: ${({ theme }) => theme.label.margin};
-  padding: ${({ theme }) => theme.label.padding};
+  padding-bottom: 0.4em;
   color: ${({ theme }) => theme.label.fg};
   background: ${({ theme }) => theme.label.bg};
   opacity: ${({ disabled }) => disabled ? '0.5' : '1'};
+  display: block;
+  line-height: 1.5em;
 
   ${({ required, theme }) =>
     required ?
