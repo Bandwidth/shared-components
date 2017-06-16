@@ -21,7 +21,7 @@ const ScrollBox = styled.div.withConfig({ displayName: 'ScrollBox' })`
   ${({ animateIn }) => {
     if (animateIn) {
       return css`
-        animation: ${appearAnimation} 0.5s ease;
+        animation: ${appearAnimation} 0.3s ease;
       `;
     }
 
@@ -43,16 +43,16 @@ const ScrollBox = styled.div.withConfig({ displayName: 'ScrollBox' })`
 `;
 
 ScrollBox.defaultProps = {
-  animateIn: true,
+  animateIn: false,
 };
 
 ScrollBox.usage = `
 # ScrollBox
 
-ScrollBox lays out content vertically via flexbox, and allows its content to scroll vertically. It also includes a little animation as content appears. You can turn this off with \`animateIn\`.
+ScrollBox lays out content vertically via flexbox, and allows its content to scroll vertically. It also includes an optional little animation as content appears. You can turn this on with \`animateIn\`.
 
 \`\`\`
-<ScrollBox animateIn={false}>
+<ScrollBox animateIn>
   <!-- content -->
 </ScrollBox>
 \`\`\`
