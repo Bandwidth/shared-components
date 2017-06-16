@@ -10,11 +10,11 @@ const Buttons = styled.div``;
 const ControlsRow = styled.div`
   display: flex;
   flex-direction: row;
+  margin-bottom: ${({ theme }) => theme.padding.medium};
 
   & > ${Header} {
     flex: 1;
-    margin-bottom: ${({ theme }) => theme.padding.medium};
-    margin-top: 0;
+    margin: 0;
   }
 
   & > ${Buttons} {
