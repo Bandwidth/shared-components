@@ -19,6 +19,7 @@ injectGlobal`
     font-family: ${defaultTheme.fonts.brand};
     font-size: 14px;
     letter-spacing: 0.28px;
+    margin: 0;
   }
 
   #main {
