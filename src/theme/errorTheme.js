@@ -1,4 +1,3 @@
-import color from 'color';
 import { defaultsDeep } from 'lodash';
 import base from './baseTheme';
 
@@ -14,11 +13,11 @@ export default defaultsDeep({
   },
 
   button: {
-    activeBG: color(base.colors.error).darken(0.2).string(),
+    activeBG: '#c83c16',
   },
 
   link: {
     fg: base.colors.errorText,
-    activeFG: color(base.colors.errorText).darken(0.2).string(),
+    activeFG: '#c83c16',
   },
 }, base);

@@ -1,5 +1,3 @@
-import color from 'color';
-
 const colors = {
   black: '#666',
   white: '#fff',
@@ -89,7 +87,7 @@ export default {
     fg: '#fff',
     bg: '#00bcec',
     activeFG: '#fff',
-    activeBG: color('#00bcec').darken(0.2).string(),
+    activeBG: '#0096bd',
     disabledBG: colors.disabled,
     disabledFG: colors.black,
     disabledBorder: `1px solid ${colors.disabled}`,
