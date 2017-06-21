@@ -13,6 +13,10 @@ import svg from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.svg';
 
 /* eslint-disable no-unused-expressions */
 injectGlobal`
+  * {
+    box-sizing: border-box;
+  }
+
   body, html {
     width: 100%;
     height: 100%;

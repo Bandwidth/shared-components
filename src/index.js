@@ -50,6 +50,7 @@ export { default as Pagination } from './components/Pagination';
 export { default as Radio } from './components/Radio';
 export { default as RadioGroup } from './components/RadioGroup';
 export { default as RadioButton } from './components/RadioGroup/RadioButton';
+export { default as Root } from './components/Root';
 export { default as Select } from './components/Select';
 export { default as SidebarList } from './components/SidebarList';
 export { default as ShowMore } from './components/SidebarList/ShowMore';
