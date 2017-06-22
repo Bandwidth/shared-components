@@ -15,6 +15,7 @@ export { default as Accordion } from './components/Accordion';
 export { default as AccordionGroup } from './components/Accordion/AccordionGroup';
 export { default as Alert } from './components/Alert';
 export { default as Anchor } from './components/Anchor';
+export { default as BandwidthThemeProvider } from './components/BandwidthThemeProvider';
 export { default as Breadcrumb } from './components/Breadcrumb';
 export { default as Button } from './components/Button';
 export { default as Callout } from './components/Callout';

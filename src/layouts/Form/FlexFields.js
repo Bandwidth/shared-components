@@ -8,6 +8,10 @@ const FlexFields = styled.div`
   ${({ flex }) => parseFlex(flex)}
 `;
 
+FlexFields.defaultProps = {
+  flex: '1',
+};
+
 FlexFields.usage = `
 # FlexFields
 
