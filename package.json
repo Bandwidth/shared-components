@@ -33,7 +33,6 @@
     "react-dropzone": "^3.13.1",
     "react-router-dom": "^4.0.0-beta.6",
     "react-syntax-highlighter": "^5.5.0",
-    "sanitize.css": "^5.0.0",
     "styled-components": "^2.0.0-15"
   },
   "devDependencies": {
