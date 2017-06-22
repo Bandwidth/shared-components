@@ -3,50 +3,24 @@ Shared Component Library for Bandwidth React Apps
 
 # How to use this library
 
-Install the library as an NPM module. Something like `"@bandwidth/shared-components": "v0.4.2"` in your `package.json`.
+Install the library as an NPM module. `npm i --save @bandwidth/shared-components`
 
-In your project, configure your Webpack to **not** compile this library with Babel. In Catapult UI, it looks something like this:
+Add the `BandwidthThemeProvider` to the root of your React component structure:
 
 ```javascript
-module: {
-  rules: [
-    {
-      resource: {
-        test: /\.js$/,
-        or: [
-          { exclude: /node_modules/ },
-          {
-            and: [
-              { include: /shared-components/ },
-              { exclude: /node_modules/ },
-            ],
-          },
-        ],
-      },
-      use: [
-        {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              ['es2015', { modules: false }],
-              'react',
-              'stage-0',
-            ],
-            plugins: [
-              'styled-components',
-            ],
-          },
-        },
-      ],
-    },
-  ],
-},
+import { BandwidthThemeProvider } from '@bandwidth/shared-components';
+
+...
+
+<BandwidthThemeProvider>
+  <MyApp />
+</BandwidthThemeProvider>
 ```
 
 Now you can start including the components in your code. Require them by traversing the directory structure of the module:
 
 ```javascript
-import Button from 'bandwidth-shared-components/components/inputs/Button`;
+import { Button } from '@bandwidth/shared-components'`;
 ```
 
 If you want to make this easier, you can alias the module in Webpack:
@@ -55,7 +29,7 @@ If you want to make this easier, you can alias the module in Webpack:
 resolve: {
   modules: ['node_modules'],
   alias: {
-    shared: '@bandwidth/shared-components',
+    'shared-components': '@bandwidth/shared-components',
   },
   extensions: ['.js', '.jsx'],
 },
@@ -64,7 +38,7 @@ resolve: {
 With this alias, you could just type:
 
 ```javascript
-import Button from 'shared/components/inputs/Button';
+import { Button } from 'shared-components';
 ```
 
 # Additional Components
