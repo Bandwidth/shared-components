@@ -1,6 +1,8 @@
 # bandwidth-shared-components
 Shared Component Library for Bandwidth React Apps
 
+## [Documentation](http://dev.bandwidth.com/shared-components)
+
 # How to use this library
 
 Install the library as an NPM module. `npm i --save @bandwidth/shared-components`
