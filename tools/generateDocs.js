@@ -87,10 +87,12 @@ const genAll = (src) => {
   });
 }
 
+fs.mkdirSync(path.resolve(__dirname, '..', 'docs'));
+
 genAll(path.resolve(__dirname, '..', 'src'));
 
 // finally, generate the index file
-const linksMd = links.map((link) => `[${link.replace('.md', '')}](${link})`);
+const linksMd = links.map((link) => `[${link.replace('.md', '').replace('./', '')}](${link})`);
 const indexContent = `# Bandwidth Shared Components
 ${linksMd.join('\n\n')}
 
