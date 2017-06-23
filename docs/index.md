@@ -1,15 +1,7 @@
 # Bandwidth Shared Components
-[src](./src.md)
-
-[animations](./animations.md)
-
 [Expand](./Expand.md)
 
-[behaviors](./behaviors.md)
-
 [ScrollBox](./ScrollBox.md)
-
-[components](./components.md)
 
 [Accordion](./Accordion.md)
 
@@ -21,13 +13,9 @@
 
 [BandwidthThemeProvider](./BandwidthThemeProvider.md)
 
-[Breadcrumb](./Breadcrumb.md)
-
 [Button](./Button.md)
 
 [Callout](./Callout.md)
-
-[Card](./Card.md)
 
 [Checkbox](./Checkbox.md)
 
@@ -36,8 +24,6 @@
 [CodeBlock](./CodeBlock.md)
 
 [CodeContainer](./CodeContainer.md)
-
-[Comments](./Comments.md)
 
 [FileLoader](./FileLoader.md)
 
@@ -55,8 +41,6 @@
 
 [Label](./Label.md)
 
-[List](./List.md)
-
 [ListItem](./ListItem.md)
 
 [OrderedList](./OrderedList.md)
@@ -73,9 +57,9 @@
 
 [Money](./Money.md)
 
-[Navigation](./Navigation.md)
-
 [LogoHeader](./LogoHeader.md)
+
+[Navigation](./Navigation.md)
 
 [NavigationItem](./NavigationItem.md)
 
@@ -85,25 +69,19 @@
 
 [Pagination](./Pagination.md)
 
-[Radio](./Radio.md)
+[RadioButton](./RadioButton.md)
 
 [RadioGroup](./RadioGroup.md)
 
-[RadioButton](./RadioButton.md)
-
 [Select](./Select.md)
-
-[SidebarList](./SidebarList.md)
 
 [ShowMore](./ShowMore.md)
 
+[SidebarList](./SidebarList.md)
+
 [SidebarListItem](./SidebarListItem.md)
 
-[SortOptions](./SortOptions.md)
-
 [Spacing](./Spacing.md)
-
-[Steps](./Steps.md)
 
 [Summary](./Summary.md)
 
@@ -116,8 +94,6 @@
 [TableHeader](./TableHeader.md)
 
 [TableRow](./TableRow.md)
-
-[Tabs](./Tabs.md)
 
 [TextArea](./TextArea.md)
 
@@ -134,10 +110,6 @@
 [parseFlex](./parseFlex.md)
 
 [provinces](./provinces.md)
-
-[layouts](./layouts.md)
-
-[Form](./Form.md)
 
 [ActionFields](./ActionFields.md)
 
@@ -156,6 +128,8 @@
 [FileField](./FileField.md)
 
 [FlexFields](./FlexFields.md)
+
+[Form](./Form.md)
 
 [FormBox](./FormBox.md)
 
@@ -194,8 +168,6 @@
 [PaneSection](./PaneSection.md)
 
 [SidebarLayout](./SidebarLayout.md)
-
-[theme](./theme.md)
 
 [baseTheme](./baseTheme.md)
 

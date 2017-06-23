@@ -46,9 +46,6 @@ const gen = (componentName, componentFilePath) => {
 const genComponents = (dir, subDirs, files) => {
   console.info(`Walking dir ${dir}...`);
   const dirName = dir.split(path.sep).pop();
-  if (files.includes('index.js')) {
-    gen(dirName, path.resolve(dir, 'index.js'));
-  }
 
   files.forEach((fileName) => {
     if (fileName.split('.').pop() !== 'js') {
@@ -58,8 +55,8 @@ const genComponents = (dir, subDirs, files) => {
     const name = fileName.replace('.js', '');
     const filePath = path.resolve(dir, fileName);
     if (
-      (_.upperFirst(fileName) === fileName || ['theme', 'extensions'].includes(dirName)) &&
-      name !== dirName
+      _.upperFirst(fileName) === fileName ||
+      ['theme', 'extensions'].includes(dirName)
     ) {
       gen(name, filePath);
     }

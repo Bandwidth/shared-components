@@ -1,7 +1,16 @@
 Navigation
-====
+==========
 
-      
+
+Props
+-----
+
+Prop                  | Type     | Default                   | Required | Description
+--------------------- | -------- | ------------------------- | -------- | -----------
+title|string|null|No|
+links|custom||No|
+topLinks|custom|null|No|
+
 The header above a page which contains page title and navigation.
 
 ```
