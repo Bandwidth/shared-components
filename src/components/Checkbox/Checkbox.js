@@ -65,8 +65,6 @@ const Checkbox = styled.label`
 `;
 
 Checkbox.usage = `
-# Checkbox
-
 A simple checkbox input. The default export is the label to use.
 
 Also exports \`HiddenInput\`, which is the actual <input> element.

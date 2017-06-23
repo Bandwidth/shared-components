@@ -40,10 +40,10 @@ const appendExports = (dir, subDirs, files) => {
   });
 };
 
-const walkAndAppend = (start) => {
-  const filenames = fs.readdirSync(start);
+const walk = (src) => {
+  const filenames = fs.readdirSync(src);
   const dirInfo = filenames.reduce((acc, name) => {
-    const filePath = posix.join(start, name);
+    const filePath = posix.join(src, name);
     if (fs.statSync(filePath).isDirectory()) {
       acc.dirs.push(name);
     } else {
@@ -53,15 +53,15 @@ const walkAndAppend = (start) => {
     return acc;
   }, { files: [], dirs: [] });
 
-  appendExports(start, dirInfo.dirs, dirInfo.files);
+  appendExports(src, dirInfo.dirs, dirInfo.files);
 
   dirInfo.dirs.forEach((dir) => {
-    const absPath = posix.join(start, dir);
-    walkAndAppend(absPath);
+    const absPath = posix.join(src, dir);
+    walk(absPath);
   });
-};
+}
 
-walkAndAppend(src);
+walk(src, appendExports);
 
 // validate exports
 const exportNames = exportItems.map((item) => item.name);

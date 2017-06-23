@@ -81,8 +81,6 @@ class Input extends React.Component {
 }
 
 Input.usage = `
-# Input
-
 A basic styled text input.
 `;
 

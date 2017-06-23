@@ -85,8 +85,6 @@ class TableControls extends React.Component {
 }
 
 TableControls.usage = `
-# TableControls
-
 Generally sits above a table. Standardized format of the table name and some common controls.
 
 \`\`\`

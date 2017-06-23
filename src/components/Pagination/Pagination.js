@@ -150,8 +150,6 @@ class Pagination extends React.Component {
 }
 
 Pagination.usage = `
-# Pagination
-
 Renders a 'controlled' pagination container. You need to provide the current page and other metadata.
 
 \`\`\`

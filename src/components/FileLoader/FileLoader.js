@@ -74,8 +74,6 @@ class FileLoader extends React.Component {
 }
 
 FileLoader.usage = `
-# FileLoader
-
 A file input component which accepts drag-and-drop.
 `;
 

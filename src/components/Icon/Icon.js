@@ -26,8 +26,6 @@ Icon.defaultProps = {
 };
 
 Icon.usage = `
-# Icon
-
 Icons let you easily render some of our icons. Pass in the \`name\` prop to specify which one.
 
 \`\`\`

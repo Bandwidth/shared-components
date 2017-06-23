@@ -62,4 +62,8 @@ Table.Header = Header;
 Table.Cell = Cell;
 Table.Controls = Controls;
 
+Table.usage = `
+Renders a table, using the \`children\` and \`headers\` props to define the various table parts. Also accepts \`loading\` to show a loading state.
+`;
+
 export default Table;

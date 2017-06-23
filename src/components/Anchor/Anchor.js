@@ -146,8 +146,6 @@ class Anchor extends React.Component {
 }
 
 Anchor.usage = `
-# Anchor
-
 Anchors are meant to be used with React Router v4+. They provide a few features besides styling:
 
 * use the \`to\` prop instead of \`href\`; better syntax.

@@ -68,8 +68,6 @@ class Navigation extends React.Component {
 }
 
 Navigation.usage = `
-# Navigation
-
 The header above a page which contains page title and navigation.
 
 \`\`\`

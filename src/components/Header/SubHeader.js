@@ -8,8 +8,6 @@ const SubHeader = styled.h2.withConfig({ displayName: 'SubHeader' })`
 `;
 
 SubHeader.usage = `
-# SubHeader
-
 A smaller header.
 `;
 

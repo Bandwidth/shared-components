@@ -45,8 +45,6 @@ class CodeBlock extends React.Component {
 }
 
 CodeBlock.usage = `
-# CodeBlock
-
 Applies styling to render code on the page. Supports multiline only (use InlineCode for single line).
 
 \`\`\`

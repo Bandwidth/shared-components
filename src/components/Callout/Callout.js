@@ -78,8 +78,6 @@ class Callout extends React.Component {
 }
 
 Callout.usage = `
-# Callout
-
 Renders a flyout on hover which can display helpful contextual information to the user.
 
 \`\`\`

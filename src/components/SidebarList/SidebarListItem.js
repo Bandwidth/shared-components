@@ -49,8 +49,6 @@ class SidebarListItem extends React.Component {
 }
 
 SidebarListItem.usage = `
-# SidebarListItem
-
 Renders a list item component. Use it inside a List for optimal effect.
 
 Props:

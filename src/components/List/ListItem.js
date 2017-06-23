@@ -10,8 +10,6 @@ const ListItem = styled.li.withConfig({ displayName: 'ListItem' })`
 `;
 
 ListItem.usage = `
-# ListItem
-
 A basic list item.
 
 \`\`\`

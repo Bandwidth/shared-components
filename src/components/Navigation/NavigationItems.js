@@ -54,8 +54,6 @@ NavigationItems.defaultProps = {
 };
 
 NavigationItems.usage = `
-# NavigationItems
-
 Helper to generate a list of navigation items.
 
 \`\`\`

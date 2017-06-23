@@ -37,8 +37,6 @@ const Select = styled.select`
 `;
 
 Select.usage = `
-# Select
-
 A dropdown input which lets you pick from a list of provided items. Supports default input-style props:
 
 * \`input\`: supplied by Redux Form's Field component, you can also specify this manually. Should contain \`value\` and \`onChange\` at least.

@@ -21,8 +21,6 @@ const OrderedList = styled.ul.withConfig({ displayName: 'OrderedList' })`
 `;
 
 OrderedList.usage = `
-# Ordered List
-
 A basic numbered list. Fill with \`Item\` elements.
 
 \`\`\`

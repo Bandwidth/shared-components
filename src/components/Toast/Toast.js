@@ -20,8 +20,6 @@ const Toast = styled.div.withConfig({ displayName: 'Toast' })`
 `;
 
 Toast.usage = `
-# Toast
-
 Fill with quick notification content.
 
 \`\`\`

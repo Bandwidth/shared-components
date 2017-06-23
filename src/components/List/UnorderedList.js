@@ -22,8 +22,6 @@ const UnorderedList = styled.ul.withConfig({ displayName: 'UnorderedList' })`
 `;
 
 UnorderedList.usage = `
-# Unordered List
-
 A basic bulletted list. Fill with \`Item\` elements.
 
 \`\`\`

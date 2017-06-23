@@ -18,8 +18,6 @@ const TextArea = styled.textarea`
 `;
 
 TextArea.usage = `
-# TextArea
-
 An input component that renders a large field for entering long text.
 
 \`\`\`

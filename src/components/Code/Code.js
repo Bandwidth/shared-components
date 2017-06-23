@@ -15,8 +15,6 @@ const Code = styled.pre.withConfig({ displayName: 'Code' })`
 `;
 
 Code.usage = `
-# Code
-
 Applies styling to render code inside a larger paragraph.
 
 \`\`\`
