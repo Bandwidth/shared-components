@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 const docGen = require('react-docgen');
-const markdown = require('react-markdown-gen/markdown');
+const markdown = require('./markdown');
 require('jsdom-global')();
 
 // shim require to ignore non-js files

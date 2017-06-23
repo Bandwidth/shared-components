@@ -4,6 +4,7 @@ PaneSection
 
 Props
 -----
+
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
 title|string|null|No|

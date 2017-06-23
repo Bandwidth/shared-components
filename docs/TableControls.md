@@ -4,6 +4,7 @@ TableControls
 
 Props
 -----
+
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
 enableDelete|bool|false|No|

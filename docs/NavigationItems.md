@@ -4,6 +4,7 @@ NavigationItems
 
 Props
 -----
+
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
 links|custom|[]|No|

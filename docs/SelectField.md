@@ -4,6 +4,7 @@ SelectField
 
 Props
 -----
+
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
 input|shape[object Object]||Yes|Input props, expected to be passed by redux-form

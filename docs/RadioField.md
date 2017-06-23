@@ -4,9 +4,10 @@ RadioField
 
 Props
 -----
+
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
-choices|union(arrayOf或objectOf)||Yes|
+choices|union(arrayOf\|objectOf)||Yes|
 label|string|null|No|
 input|shape[object Object]||Yes|
 disabled|bool|false|No|

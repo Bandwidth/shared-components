@@ -4,6 +4,7 @@ SidebarListItem
 
 Props
 -----
+
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
 label|string|null|No|

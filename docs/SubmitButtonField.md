@@ -4,6 +4,7 @@ SubmitButtonField
 
 Props
 -----
+
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
 pristine|bool|false|No|

@@ -4,6 +4,7 @@ RadioButton
 
 Props
 -----
+
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
 checked|bool||Yes|

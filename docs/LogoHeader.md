@@ -4,6 +4,7 @@ LogoHeader
 
 Props
 -----
+
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
 children|string|'Bandwidth'|No|
