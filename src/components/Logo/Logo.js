@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import logo from './logo.png';
 
@@ -8,9 +9,25 @@ const Img = styled.img`
   margin: auto;
 `;
 
-const Logo = function () {
-  return <Img src={logo} />;
-}
+const Logo = function ({ id, className }) {
+  return <Img src={logo} id={id} className={className} />;
+};
+
+Logo.propTypes = {
+  /**
+   * Adds a class name to the logo image.
+   */
+  className: PropTypes.string,
+  /**
+   * Adds an id to the logo image.
+   */
+  id: PropTypes.string,
+};
+
+Logo.defaultProps = {
+  className: null,
+  id: null,
+};
 
 Logo.usage = `
 Renders the company logo! At a size of about 30px. This isn't the most versatile component yet.

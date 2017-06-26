@@ -20,19 +20,35 @@ const PaddedHeader = styled(Header)`
 
 class Pane extends React.Component {
   static propTypes = {
+    /**
+     * Optional title for the top of the pane.
+     */
     title: PropTypes.string,
+    /**
+     * Contents of the pane.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * Adds an id to the pane.
+     */
+    id: PropTypes.string,
+    /**
+     * Adds a class name to the pane.
+     */
+    className: PropTypes.string,
   };
 
   static defaultProps = {
     title: null,
+    className: null,
+    id: null,
   };
 
   render() {
-    const { title, children } = this.props;
+    const { title, children, className, id } = this.props;
 
     return (
-      <Container>
+      <Container className={className} id={id}>
         {title ? <PaddedHeader>{title}</PaddedHeader> : null}
         {children}
       </Container>

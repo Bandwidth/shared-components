@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Item from './ListItem';
 
@@ -19,6 +20,22 @@ const OrderedList = styled.ul.withConfig({ displayName: 'OrderedList' })`
     margin-top: 0.5em;
   }
 `;
+
+OrderedList.propTypes = {
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+};
+
+OrderedList.defaultProps = {
+  className: null,
+  id: null,
+};
 
 OrderedList.usage = `
 A basic numbered list. Fill with \`Item\` elements.

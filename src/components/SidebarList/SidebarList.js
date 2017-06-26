@@ -22,12 +22,38 @@ const ListContainer = styled.ul`
 
 class SidebarList extends React.Component {
   static propTypes = {
+    /**
+     * Optional: indicate which item should be considered active.
+     */
     selectedIndex: PropTypes.number,
+    /**
+     * List items. An 'active' prop will be passed to the item that matches selectedIndex.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * Indicates whether the list should show that it has a next page.
+     */
     hasNextPage: PropTypes.bool,
+    /**
+     * Indicates whether the list should show that it has a previous page.
+     */
     hasPreviousPage: PropTypes.bool,
+    /**
+     * Called when the button to load the next page is clicked.
+     */
     onNextPageClicked: PropTypes.func,
+    /**
+     * Called when the button to load the previous page is clicked.
+     */
     onPreviousPageClicked: PropTypes.func,
+    /**
+     * Adds a class name to the containing list element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the containing list element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
@@ -36,6 +62,8 @@ class SidebarList extends React.Component {
     hasPreviousPage: false,
     onNextPageClicked: () => null,
     onPreviousPageClicked: () => null,
+    className: null,
+    id: null,
   };
 
   renderPrevious = () => {
@@ -67,8 +95,9 @@ class SidebarList extends React.Component {
   };
 
   render() {
+    const { className, id } = this.props;
     return (
-      <ListContainer>
+      <ListContainer className={className} id={id}>
         {this.renderPrevious()}
         {this.renderItems()}
         {this.renderNext()}

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import parseFlex from '../../extensions/parseFlex';
 
@@ -8,8 +9,25 @@ const FlexFields = styled.div`
   ${({ flex }) => parseFlex(flex)}
 `;
 
+FlexFields.propTypes = {
+  /**
+   * A visual string representation of the field layout. Like '1 0 22'. Numbers are flex sizes, spaces are space.
+   */
+  flex: PropTypes.string,
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+}
+
 FlexFields.defaultProps = {
   flex: '1',
+  id: null,
+  className: null,
 };
 
 FlexFields.usage = `

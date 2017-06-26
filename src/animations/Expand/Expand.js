@@ -9,16 +9,38 @@ const Content = styled.div`overflow: hidden; width: 100%; height: 100%;`;
 
 class Expand extends React.Component {
   static propTypes = {
+    /**
+     * Whether or not the expansion should be animated.
+     */
     animate: PropTypes.bool,
+    /**
+     * A direction to expand in. [vertical, horizontal, both].
+     */
     direction: PropTypes.oneOf(['vertical', 'horizontal', 'both']),
+    /**
+     * Contents of the expanding area.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * Milliseconds to spend expanding.
+     */
     duration: PropTypes.number,
+    /**
+     * Adds an id to the container.
+     */
+    id: PropTypes.string,
+    /**
+     * Adds a class name to the container.
+     */
+    className: PropTypes.string,
   };
 
   static defaultProps = {
     animate: true,
     direction: 'vertical',
     duration: 200,
+    id: null,
+    className: null,
   };
 
   animate = () => {
@@ -59,10 +81,11 @@ class Expand extends React.Component {
   }
 
   render() {
+    const { children, id, className } = this.props;
     return (
-      <Container>
+      <Container id={id} className={className}>
         <Content innerRef={(el) => { this._content = el; }}>
-          {this.props.children}
+          {children}
         </Content>
       </Container>
     );

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
@@ -28,5 +29,21 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
     height: 5px;
   }
 `;
+
+NavigationItem.propTypes = {
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+};
+
+NavigationItem.defaultProps = {
+  className: null,
+  id: null,
+};
 
 export default NavigationItem;

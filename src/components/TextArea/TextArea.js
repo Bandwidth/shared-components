@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TextArea = styled.textarea`
@@ -16,6 +17,22 @@ const TextArea = styled.textarea`
   width: 100%;
   min-height: 100px;
 `;
+
+TextArea.propTypes = {
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+};
+
+TextArea.defaultProps = {
+  className: null,
+  id: null,
+};
 
 TextArea.usage = `
 An input component that renders a large field for entering long text.

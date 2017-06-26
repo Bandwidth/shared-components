@@ -76,25 +76,61 @@ const LabelText = styled.span`
 
 class RadioButton extends React.Component {
   static propTypes = {
+    /**
+     * Whether or not the button is currently selected.
+     */
     checked: PropTypes.bool.isRequired,
+    /**
+     * Called when the checked state of the button changes.
+     */
     onChange: PropTypes.func.isRequired,
+    /**
+     * Text to render inside the button's label.
+     */
     label: PropTypes.string.isRequired,
+    /**
+     * Content to render inside the main part of the button.
+     */
     content: PropTypes.node,
+    /**
+     * A field name for the input.
+     */
     name: PropTypes.string.isRequired,
+    /**
+     * The input value.
+     */
     value: PropTypes.string.isRequired,
+    /**
+     * Adds a class name to the input element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the input element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     content: null,
+    className: null,
+    id: null,
   };
 
   render() {
-    const { checked, label, name, value, onChange, content } = this.props;
-    const id = `radio-${name}>${value}`;
+    const { checked, label, name, value, onChange, content, className } = this.props;
+    const id = this.props.id || `radio-${name}>${value}`;
 
     return (
       <Container>
-        <Input type="radio" id={id} value={value} name={name} checked={checked} onChange={onChange} />
+        <Input
+          type="radio"
+          id={id}
+          value={value}
+          name={name}
+          checked={checked}
+          onChange={onChange}
+          className={className}
+        />
         <Label htmlFor={id} active={checked}>
           {content !== null ? <Content active={checked}>{content}</Content> : null}
           <LabelText>{label}</LabelText>

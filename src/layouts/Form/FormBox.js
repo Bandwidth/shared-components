@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FormBox = styled.div.withConfig({ displayName: 'FormBox' })`
@@ -8,6 +9,22 @@ const FormBox = styled.div.withConfig({ displayName: 'FormBox' })`
   width: 100%;
   margin: auto;
 `;
+
+FormBox.propTypes = {
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+};
+
+FormBox.defaultProps = {
+  id: null,
+  className: null,
+};
 
 FormBox.usage = `
 # FormBox

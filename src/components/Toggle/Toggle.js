@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 export const HiddenInput = styled.input`
@@ -65,6 +66,22 @@ const Toggle = styled.label`
     background: ${({ theme }) => theme.toggle.disabledBG};
   }
 `;
+
+Toggle.propTypes = {
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+};
+
+Toggle.defaultProps = {
+  className: null,
+  id: null,
+};
 
 Toggle.usage = `
 A simple toggle input. The default export is the label to use.

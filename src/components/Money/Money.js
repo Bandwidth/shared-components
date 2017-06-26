@@ -9,12 +9,28 @@ const Figure = styled.span`
 
 class Money extends React.Component {
   static propTypes = {
+    /**
+     * The monetary value to show.
+     */
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    /**
+     * Whether or not to show a +/- sign before the amount (defaults true)
+     */
     showSign: PropTypes.bool,
+    /**
+     * Adds a class name to the element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     showSign: true,
+    className: null,
+    id: null,
   };
 
   getSign() {
@@ -23,9 +39,9 @@ class Money extends React.Component {
   }
 
   render() {
-    const { value, showSign } = this.props;
+    const { value, showSign, id, className } = this.props;
     return (
-      <Figure positive={value >= 0}>
+      <Figure positive={value >= 0} id={id} className={className}>
         {showSign ? this.getSign(value) : null}
         {/* sign is already present, so remove it from the formatted number */}
         ${formatMoney(value).replace('-', '')}

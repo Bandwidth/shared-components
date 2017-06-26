@@ -13,21 +13,48 @@ export const Container = styled.div`
 
 class RadioGroup extends React.Component {
   static propTypes = {
+    /**
+     * An array of choice objects or strings to create buttons from.
+     */
     choices: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.string),
       PropTypes.objectOf(PropTypes.node),
     ]).isRequired,
+    /**
+     * A field name for this input.
+     */
     name: PropTypes.string.isRequired,
+    /**
+     * The currently selected value.
+     */
     value: PropTypes.string.isRequired,
+    /**
+     * Called when the input value changes.
+     */
     onChange: PropTypes.func.isRequired,
-
+    /**
+     * Indicates whether the user can change the input.
+     */
     disabled: PropTypes.bool,
+    /**
+     * Indicates whether the value is required for form input.
+     */
     required: PropTypes.bool,
+    /**
+     * Adds a class name to the group container element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the group container element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     disabled: false,
     required: false,
+    className: null,
+    id: null,
   };
 
   choicesToButtons = () => {
@@ -69,8 +96,9 @@ class RadioGroup extends React.Component {
   };
 
   render() {
+    const { className, id } = this.props;
     return (
-      <Container>
+      <Container className={className} id={id}>
         {this.choicesToButtons()}
       </Container>
     );

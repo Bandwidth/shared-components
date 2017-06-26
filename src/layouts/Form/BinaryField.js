@@ -8,15 +8,33 @@ export const Container = styled.div`
 
 class BinaryField extends React.Component {
   static propTypes = {
+    /**
+     * A collection of input-related properties. All passed to the input.
+     */
     input: PropTypes.shape({
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
       onChange: PropTypes.func,
       disabled: PropTypes.bool,
     }),
+    /**
+     * Content of the label above the input.
+     */
     label: PropTypes.string,
+    /**
+     * Adds an id to the input element.
+     */
     id: PropTypes.string,
-
+    /**
+     * Adds a class name to the input element.
+     */
+    className: PropTypes.string,
+    /**
+     * The component to render the input with.
+     */
     Input: PropTypes.func.isRequired,
+    /**
+     * The component to render the input label with (generally the graphical representation of a binary input).
+     */
     Label: PropTypes.func.isRequired,
   };
 
@@ -26,6 +44,7 @@ class BinaryField extends React.Component {
     },
     label: null,
     id: null,
+    className: null,
   };
 
   handleClick = () => {
@@ -33,21 +52,24 @@ class BinaryField extends React.Component {
   };
 
   render() {
-    const { label, input: { value, disabled }, Input, Label } = this.props;
-    let id = this.props.id;
-
-    if (!id) {
-      /*
-        because this generation happens at render time,
-        the id is not reliable. developers should specify an id through
-        props if they want a reliable id.
-      */
-      id = generateId('toggle');
-    }
+    const { label, input: { value, disabled }, Input, Label, className } = this.props;
+    /*
+      because this generation happens at render time,
+      the id is not reliable. developers should specify an id through
+      props if they want a reliable id.
+    */
+    const id = this.props.id || generateId('toggle');
 
     return (
       <Container>
-        <Input id={id} type="checkbox" value={value} disabled={disabled} onClick={this.handleClick} />
+        <Input
+          id={id}
+          className={className}
+          type="checkbox"
+          value={value}
+          disabled={disabled}
+          onClick={this.handleClick}
+        />
         <Label htmlFor={id} active={value}>
           {label}
         </Label>

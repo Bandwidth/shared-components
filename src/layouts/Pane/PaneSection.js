@@ -24,19 +24,36 @@ const Title = styled.h3`
 
 class PaneSection extends React.Component {
   static propTypes = {
+    /**
+     * Optional title for the top of the pane section.
+     */
     title: PropTypes.string,
+    /**
+     * Pane section contents.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * Adds an id to the section.
+     */
+    id: PropTypes.string,
+    /**
+     * Adds a class name to the section.
+     */
+    className: PropTypes.string,
   };
 
   static defaultProps = {
     title: null,
+    id: null,
+    className: null,
   };
 
   render() {
+    const { title, children, id, className } = this.props;
     return (
-      <Wrap>
-        {this.props.title ? <Title>{this.props.title}</Title> : null}
-        <Content>{this.props.children}</Content>
+      <Wrap id={id} className={className}>
+        {title ? <Title>{title}</Title> : null}
+        <Content>{children}</Content>
       </Wrap>
     );
   }

@@ -65,15 +65,37 @@ export const ContentPadding = styled.div`
  */
 class Accordion extends React.Component {
   static propTypes = {
+    /**
+     * Content to render when the accordion is collapsed, and in the header of the expanded state.
+     */
     label: PropTypes.node.isRequired,
+    /**
+     * Content inside the collapsible part of the accordion.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * Pass isCollapsed to override the internal collapsing state
+     */
     isCollapsed: PropTypes.bool,
+    /**
+     * Add a handler for when the accordion is collapsed or expanded.
+     */
     onToggle: PropTypes.func,
+    /**
+     * Set a classname for the accordion container element.
+     */
+    className: PropTypes.string,
+    /**
+     * Set an id for the accordion container element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     isCollapsed: null,
     onToggle: () => {}, // no-op
+    className: null,
+    id: null,
   };
 
   constructor(props) {
@@ -146,8 +168,9 @@ class Accordion extends React.Component {
 
   render() {
     const isCollapsed = this.calcIsCollapsed();
+    const { id, className } = this.props;
     return (
-      <Container>
+      <Container id={id} className={className}>
         <Label onClick={this.handleToggle}>
           <ModdedIcon isCollapsed={isCollapsed} name="forward" size={21} />
           <LabelText>{this.props.label}</LabelText>

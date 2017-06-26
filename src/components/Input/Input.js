@@ -41,12 +41,37 @@ const StyledInput = styled.input`
 
 class Input extends React.Component {
   static propTypes = {
+    /**
+     * The value of the input.
+     */
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /**
+     * Handler for the onchange event.
+     */
     onChange: PropTypes.func,
+    /**
+     * Handler for the onblur event.
+     */
     onBlur: PropTypes.func,
+    /**
+     * Controls whether the user can change this element.
+     */
     disabled: PropTypes.bool,
+    /**
+     * Controls whether the element is marked as required for form submission.
+     */
     required: PropTypes.bool,
+    /**
+     * Adds an id to the element.
+     */
     id: PropTypes.string,
+    /**
+     * Adds a class name to the element.
+     */
+    className: PropTypes.string,
+    /**
+     * Sets the type of data expected for this input.
+     */
     type: PropTypes.string,
   };
 
@@ -57,6 +82,7 @@ class Input extends React.Component {
     type: 'text',
     onChange: () => null,
     onBlur: () => null,
+    className: null,
   };
 
   constructor(props) {

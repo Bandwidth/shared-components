@@ -45,11 +45,34 @@ const Spacing = styled.div`
 `;
 
 Spacing.propTypes = {
+  /**
+   * The default size to be applied to all directions. [xs, sm, md, lg, xl] or a CSS dimension.
+   */
   size: PropTypes.string,
+  /**
+   * The top spacing size. [xs, sm, md, lg, xl] or a CSS dimension.
+   */
   top: PropTypes.string,
+  /**
+   * The bottom spacing size. [xs, sm, md, lg, xl] or a CSS dimension.
+   */
   bottom: PropTypes.string,
+  /**
+   * The left spacing size. [xs, sm, md, lg, xl] or a CSS dimension.
+   */
   left: PropTypes.string,
+  /**
+   * The right spacing size. [xs, sm, md, lg, xl] or a CSS dimension.
+   */
   right: PropTypes.string,
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
 };
 
 Spacing.defaultProps = {
@@ -58,6 +81,8 @@ Spacing.defaultProps = {
   bottom: null,
   left: null,
   right: null,
+  className: null,
+  id: null,
 };
 
 Spacing.usage = `

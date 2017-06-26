@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Toast = styled.div.withConfig({ displayName: 'Toast' })`
@@ -18,6 +19,22 @@ const Toast = styled.div.withConfig({ displayName: 'Toast' })`
     margin: 0;
   }
 `;
+
+Toast.propTypes = {
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+};
+
+Toast.defaultProps = {
+  className: null,
+  id: null,
+};
 
 Toast.usage = `
 Fill with quick notification content.

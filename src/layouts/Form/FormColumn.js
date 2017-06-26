@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FormColumn = styled.section`
@@ -13,6 +14,22 @@ const FormColumn = styled.section`
     padding-right: 0;
   }
 `;
+
+FormColumn.propTypes = {
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+};
+
+FormColumn.defaultProps = {
+  id: null,
+  className: null,
+};
 
 FormColumn.usage = `
 # FormColumn

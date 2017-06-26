@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const SidebarLayout = styled.div.withConfig({ displayName: 'SidebarLayout' })`
@@ -18,6 +19,22 @@ const SidebarLayout = styled.div.withConfig({ displayName: 'SidebarLayout' })`
     margin-left: -1px;
   }
 `;
+
+SidebarLayout.propTypes = {
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+};
+
+SidebarLayout.defaultProps = {
+  id: null,
+  className: null,
+};
 
 SidebarLayout.usage = `
 # SidebarLayout

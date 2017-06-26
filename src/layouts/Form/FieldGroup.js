@@ -1,11 +1,11 @@
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 /**
  * A set of form fields which is grouped in a row
  *
  * You can supply `spacing` as a prop. Spacing can be an int (flex size) or an array of ints (flex size per item)
  */
-
-import styled from 'styled-components';
-
 const FieldGroup = styled.div`
   display: flex;
   flex-direction: row;
@@ -20,9 +20,30 @@ const FieldGroup = styled.div`
   }}
 `;
 
+FieldGroup.propTypes = {
+  /**
+   *
+   */
+  spacing: PropTypes.array,
+  /**
+   * A literal flexbox justify-content value.
+   */
+  align: PropTypes.string,
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+};
+
 FieldGroup.defaultProps = {
   spacing: '0 1 auto',
   align: 'space-around',
+  id: null,
+  className: null,
 };
 
 FieldGroup.usage = `

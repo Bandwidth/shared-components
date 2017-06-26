@@ -23,18 +23,33 @@ const Text = styled.span`
 
 class LogoHeader extends React.Component {
   static propTypes = {
+    /**
+     * The title to render inside the header.
+     */
     children: PropTypes.string,
+    /**
+     * Adds a class name to the whole containing header element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the whole containing header element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     children: 'Bandwidth',
+    className: null,
+    id: null,
   };
 
   render() {
+    const { children, id, className } = this.props;
+
     return (
-      <Container>
+      <Container id={id} className={className}>
         <Logo />
-        <Text>{this.props.children}</Text>
+        <Text>{children}</Text>
       </Container>
     );
   }

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
 
 const appearAnimation = keyframes`
@@ -42,8 +43,25 @@ const ScrollBox = styled.div.withConfig({ displayName: 'ScrollBox' })`
   }
 `;
 
+ScrollBox.propTypes = {
+  /**
+   * Whether or not to animate the contents as they are first rendered.
+   */
+  animateIn: PropTypes.bool,
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+}
+
 ScrollBox.defaultProps = {
   animateIn: false,
+  id: null,
+  className: null,
 };
 
 ScrollBox.usage = `

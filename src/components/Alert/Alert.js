@@ -93,13 +93,29 @@ const Alert = styled.div`
 `;
 
 Alert.propTypes = {
+  /**
+   * An alert type; one of [info, success, error].
+   */
   type: PropTypes.oneOf(['info', 'success', 'error']),
+  /**
+   * Whether to render only text (true) or an icon alongside text (false).
+   */
   textOnly: PropTypes.bool,
+  /**
+   * Additional class name to pass to the alert.
+   */
+  className: PropTypes.string,
+  /**
+   * Additional id to pass to the alert.
+   */
+  id: PropTypes.string,
 };
 
 Alert.defaultProps = {
   type: 'info',
   textOnly: false,
+  className: null,
+  id: null,
 };
 
 Alert.usage = `

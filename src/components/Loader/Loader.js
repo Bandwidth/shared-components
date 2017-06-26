@@ -57,20 +57,36 @@ Dot.defaultProps = {
 
 class Loader extends React.Component {
   static propTypes = {
+    /**
+     * The size of each loader 'dot'. Can be any CSS dimension string.
+     */
     size: PropTypes.string,
+    /**
+     * The color of the loader. Defaults to the primary theme color.
+     */
     color: PropTypes.string,
+    /**
+     * Adds a class name to the element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     size: '20px',
     color: null,
+    className: null,
+    id: null,
   };
 
   render() {
-    const { size, color } = this.props;
+    const { size, color, id, className } = this.props;
 
     return (
-      <Container>
+      <Container id={id} className={className}>
         <Dot size={size} color={color} />
         <Dot size={size} color={color} />
         <Dot size={size} color={color} />

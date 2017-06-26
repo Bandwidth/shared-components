@@ -45,23 +45,45 @@ const SortArrows = styled.span`
 
 export default class Header extends React.Component {
   static propTypes = {
+    /**
+     * Contents of the header cell.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * Called when the user clicks the header cell.
+     */
     handleClick: PropTypes.func,
+    /**
+     * Specifies the sorting order of this column. [-1, 0, 1] for descending, none, or ascending.
+     */
     sortOrder: PropTypes.number,
+    /**
+     * Indicates whether this column is sortable. This changes how it's rendered.
+     */
     sortable: PropTypes.bool,
+    /**
+     * Adds a class name to the element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     sortable: false,
     sortOrder: 0,
     handleClick: () => null,
+    className: null,
+    id: null,
   };
 
   render() {
-    const { sortable, sortOrder, children, handleClick } = this.props;
+    const { sortable, sortOrder, children, handleClick, id, className } = this.props;
 
     return (
-      <TH onClick={handleClick} sortable={sortable}>
+      <TH onClick={handleClick} sortable={sortable} className={className} id={id}>
         <ColumnName sortable={sortable}>{children}</ColumnName>
         {
           sortable ?

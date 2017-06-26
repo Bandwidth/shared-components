@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FormSectionHeader = styled.h2.withConfig({ displayName: 'FormSectionHeader' })`
@@ -7,6 +8,22 @@ const FormSectionHeader = styled.h2.withConfig({ displayName: 'FormSectionHeader
   font-family: ${({ theme }) => theme.fonts.brand};
   text-transform: uppercase;
 `;
+
+FormSectionHeader.propTypes = {
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+};
+
+FormSectionHeader.defaultProps = {
+  id: null,
+  className: null,
+};
 
 FormSectionHeader.usage = `
 # FormSectionHeader

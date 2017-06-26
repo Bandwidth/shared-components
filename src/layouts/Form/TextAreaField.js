@@ -5,15 +5,40 @@ import FieldWrapper from './FieldWrapper';
 
 class TextAreaField extends React.Component {
   static propTypes = {
+    /**
+     * A collection of input props. Passed to input.
+     */
     input: PropTypes.shape({
       value: PropTypes.string,
       onChange: PropTypes.func,
     }),
+    /**
+     * Indicates whether a user can change this field.
+     */
     disabled: PropTypes.bool,
+    /**
+     * Indicates whether this field is required for form submission.
+     */
     required: PropTypes.bool,
+    /**
+     * Contents of a label above the field.
+     */
     label: PropTypes.string,
+    /**
+     * Adds an id to the textarea.
+     */
     id: PropTypes.string,
+    /**
+     * Adds a class name to the textarea.
+     */
+    className: PropTypes.string,
+    /**
+     * Contents of help text below the field.
+     */
     helpText: PropTypes.string,
+    /**
+     * Optional callout contents to show when the user hovers the field.
+     */
     callout: PropTypes.node,
   };
 
@@ -22,12 +47,13 @@ class TextAreaField extends React.Component {
     required: false,
     label: null,
     id: null,
+    className: null,
     helpText: null,
     callout: null,
   };
 
   render() {
-    const { input, label, id, disabled, required, helpText, callout } = this.props;
+    const { input, label, id, className, disabled, required, helpText, callout } = this.props;
     return (
       <FieldWrapper
         label={label}
@@ -36,7 +62,7 @@ class TextAreaField extends React.Component {
         required={required}
         callout={callout}
       >
-        <TextArea {...input} id={id} disabled={disabled} required={required} />
+        <TextArea {...input} id={id} className={className} disabled={disabled} required={required} />
       </FieldWrapper>
     );
   }
