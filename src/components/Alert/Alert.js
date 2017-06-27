@@ -1,8 +1,9 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import icons from '../Icon/icons';
 
-const Alert = styled.div`
+const AlertContainer = styled.div`
   display: inline-block;
   padding: 10px 15px;
   border-width: 1px;
@@ -13,6 +14,12 @@ const Alert = styled.div`
 
   a {
     color: inherit;
+  }
+
+  p {
+    margin: 0;
+    margin-left: 3em;
+    padding: .3em 0em;
   }
 
   a::after {
@@ -87,7 +94,7 @@ const Alert = styled.div`
     text-align: center;
     border-radius: 100%;
     font-size: 0.9em;
-
+    position: absolute;
     margin-right: 1em;
   }
 `;
@@ -111,12 +118,19 @@ Alert.propTypes = {
   id: PropTypes.string,
 };
 
-Alert.defaultProps = {
+AlertContainer.defaultProps = {
   type: 'info',
   textOnly: false,
   className: null,
   id: null,
 };
+
+const Alert = (props) => (
+  <AlertContainer {...props}>
+    <p>{props.children}</p>
+  </AlertContainer>
+)
+
 
 Alert.usage = `
 Alerts control their own color based on \`type\`.
