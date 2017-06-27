@@ -98,10 +98,10 @@ class Input extends React.Component {
   };
 
   render() {
-    const { disabled } = this.props;
+    const { disabled, id, className } = this.props;
     const { visited } = this.state;
     return (
-      <StyledInput {...this.props} onBlur={this.onBlur} visited={visited} />
+      <StyledInput {...this.props} onBlur={this.onBlur} visited={visited} id={id} className={className} />
     );
   }
 }
