@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link as ReactLink, Route } from 'react-router-dom';
 
-export const TextAnchor = styled(ReactLink)`
+export const TextAnchor = styled.a`
   color: ${({ theme }) => theme.link.fg};
   font-family: ${({ theme }) => theme.link.fontFamily};
   text-decoration: none;
@@ -53,9 +53,13 @@ const IconAnchor = styled(TextAnchor)`
 `;
 
 // notice: this goes back to ReactLink, not TextAnchor as above
-const WrapAnchor = styled(ReactLink)`
+const WrapAnchor = styled.a`
   text-decoration: none;
 `;
+
+const ReactTextAnchor = TextAnchor.withComponent(ReactLink);
+const ReactIconAnchor = IconAnchor.withComponent(ReactLink);
+const ReactWrapAnchor = WrapAnchor.withComponent(ReactLink);
 
 const inferType = (children) => {
   if (children === null) {
@@ -71,7 +75,9 @@ const inferType = (children) => {
   }
 
   return 'wrap';
-}
+};
+
+const isExternal = (to) => /^(https?)*:\/\//.test(to);
 
 class Anchor extends React.Component {
   static propTypes = {
@@ -117,13 +123,14 @@ class Anchor extends React.Component {
 
   getComponentType = () => {
     const type = this.props.type || inferType(this.props.children);
+    const external = isExternal(this.props.to);
     switch (type) {
       case 'wrap':
-        return WrapAnchor;
+        return external ? WrapAnchor : ReactWrapAnchor;
       case 'icon':
-        return IconAnchor;
+        return external ? IconAnchor : ReactIconAnchor;
       default:
-        return TextAnchor;
+        return external ? TextAnchor : ReactTextAnchor;
     }
   }
 
@@ -160,7 +167,7 @@ class Anchor extends React.Component {
         path={to}
         exact={exact}
         children={({ match }) => (
-          <Component to={to} onClick={this.handleClick} className={className} id={id}>
+          <Component to={to} href={to} onClick={this.handleClick} className={className} id={id}>
             {this.childrenWithProps({ active: !!match })}
           </Component>
         )}
