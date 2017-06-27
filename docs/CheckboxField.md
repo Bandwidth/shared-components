@@ -9,9 +9,10 @@ Prop                  | Type     | Default                   | Required | Descri
 --------------------- | -------- | ------------------------- | -------- | -----------
 input|shape[object Object]|{
   value: 'false',
-}|No|
-label|string|null|No|
-id|string|null|No|
+}|No|A collection of input-related properties. All passed to the input.
+label|string|null|No|Contents of the label above the input.
+id|string|null|No|Adds an id to the input element.
+className|string|null|No|Adds a class name to the input element.
 
 # CheckboxField
 

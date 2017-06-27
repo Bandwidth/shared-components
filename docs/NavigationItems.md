@@ -7,7 +7,9 @@ Props
 
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
-links|custom|[]|No|
+links|custom|[]|No|Links to render in the list.
+className|string|null|No|Adds a class name to the link container element.
+id|string|null|No|Adds an id to the link container element.
 
 Helper to generate a list of navigation items.
 

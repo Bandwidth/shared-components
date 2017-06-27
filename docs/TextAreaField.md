@@ -7,13 +7,14 @@ Props
 
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
-input|shape[object Object]||No|
-disabled|bool|false|No|
-required|bool|false|No|
-label|string|null|No|
-id|string|null|No|
-helpText|string|null|No|
-callout|node|null|No|
+input|shape[object Object]||No|A collection of input props. Passed to input.
+disabled|bool|false|No|Indicates whether a user can change this field.
+required|bool|false|No|Indicates whether this field is required for form submission.
+label|string|null|No|Contents of a label above the field.
+id|string|null|No|Adds an id to the textarea.
+className|string|null|No|Adds a class name to the textarea.
+helpText|string|null|No|Contents of help text below the field.
+callout|node|null|No|Optional callout contents to show when the user hovers the field.
 
 # TextAreaField
 
