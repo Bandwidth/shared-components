@@ -11,6 +11,7 @@ const AlertContainer = styled.div`
   font-weight: 500;
   width: auto;
   line-height: 1em;
+  position: relative;
 
   a {
     color: inherit;
@@ -99,6 +100,12 @@ const AlertContainer = styled.div`
   }
 `;
 
+const Alert = (props) => (
+  <AlertContainer {...props}>
+    <p>{props.children}</p>
+  </AlertContainer>
+)
+
 Alert.propTypes = {
   /**
    * An alert type; one of [info, success, error].
@@ -118,19 +125,12 @@ Alert.propTypes = {
   id: PropTypes.string,
 };
 
-AlertContainer.defaultProps = {
+Alert.defaultProps = {
   type: 'info',
   textOnly: false,
   className: null,
   id: null,
 };
-
-const Alert = (props) => (
-  <AlertContainer {...props}>
-    <p>{props.children}</p>
-  </AlertContainer>
-)
-
 
 Alert.usage = `
 Alerts control their own color based on \`type\`.
