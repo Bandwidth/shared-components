@@ -1,11 +1,14 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+const HEIGHT = '24px';
+const WIDTH = '48px';
+
 export const HiddenInput = styled.input`
   margin: -9999px;
 
   &:focus + label::before {
-    box-shadow: ${({ theme }) => theme.toggle.focusShadow};
+    box-shadow: ${({ theme }) => theme.shadows.focusOutline};
   }
 `;
 
@@ -13,22 +16,23 @@ const Toggle = styled.label`
   cursor: pointer;
   position: relative;
   top: 50%;
-  padding: ${({ theme }) => theme.toggle.padding};
+  padding: ${({ theme }) => `${theme.padding.extraSmall} 0 ${theme.padding.extraSmall} ${theme.padding.extraLarge}`};
   float: left;
   user-select: none;
   transition: all 0.2s ease;
-  line-height: ${({ theme }) => theme.toggle.height};
-  font-family: ${({ theme }) => theme.toggle.fontFamily};
-  font-weight: ${({ theme }) => theme.toggle.fontWeight};
+  line-height: ${HEIGHT};
+  font-family: ${({ theme }) => theme.fonts.brand};
+  font-weight: 300;
   transform: translateY(-50%);
+  color: ${({ theme }) => theme.colors.grayMed};
 
   &::before {
     content: '';
-    background: ${({ theme, active }) => active ? theme.toggle.activeBG : theme.toggle.bg};
-    border: ${({ theme }) => theme.toggle.border};
-    border-radius: 2em;
-    width: ${({ theme }) => theme.toggle.width};
-    height: ${({ theme }) => theme.toggle.height};
+    background: ${({ theme, active }) => active ? theme.colors.secondary : theme.colors.white};
+    border: 2px solid ${({ theme }) => theme.colors.secondary};
+    border-radius: ${HEIGHT};
+    width: ${WIDTH};
+    height: ${HEIGHT};
     cursor: pointer;
     display: block;
     position: absolute;
@@ -40,30 +44,30 @@ const Toggle = styled.label`
 
   &::after {
     content: '';
-    background: ${({ theme, active }) => active ? theme.toggle.activeFG : theme.toggle.fg};
-    border: ${({ theme }) => theme.toggle.border};
-    border-radius: 2em;
-    width: ${({ theme }) => theme.toggle.height};
-    height: ${({ theme }) => theme.toggle.height};
+    background: ${({ theme }) => theme.colors.white};
+    border: 2px solid ${({ theme }) => theme.colors.secondary};
+    border-radius: ${HEIGHT};
+    width: ${HEIGHT};
+    height: ${HEIGHT};
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: ${({ active }) => active ? '1.7em' : 0};
+    left: ${({ active }) => active ? HEIGHT : 0};
     display: block;
     transition: all 0.2s ease;
   }
 
   &:hover::before,
   &:hover::after {
-    border: ${({ theme }) => theme.toggle.hoverBorder};
+    border: 2px solid ${({ theme }) => theme.colors.primaryDark};
   }
   &:hover::before {
-    background: ${({ theme, active }) => active ? theme.toggle.hoverBG : theme.toggle.bg};
+    background: ${({ theme, active }) => active ? theme.colors.primaryDark : theme.colors.white};
   }
 
   &:disabled::before, &:disabled::after {
-    border: ${({ theme }) => theme.toggle.disabledBorder};
-    background: ${({ theme }) => theme.toggle.disabledBG};
+    border: 2px solid ${({ theme }) => theme.colors.disabled};
+    background: ${({ theme }) => theme.colors.disabled};
   }
 `;
 
