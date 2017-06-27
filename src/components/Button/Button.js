@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import icons from '../Icon/icons';
 
@@ -75,10 +76,36 @@ const Button = styled.button`
   }
 `;
 
+Button.propTypes = {
+  /**
+   * An icon name for an icon to pop in from the left side of the button on hover.
+   */
+  leftIcon: PropTypes.string,
+  /**
+   * An icon name for an icon to pop in from the right side of the button on hover.
+   */
+  rightIcon: PropTypes.string,
+  /**
+   * Use this to override the icon provider function (advanced). An icon provider function takes an icon name and
+   * provides a unicode character to render.
+   */
+  iconHelper: PropTypes.func,
+  /**
+   * A class name to add to the button element.
+   */
+  className: PropTypes.string,
+  /**
+   * An id to add to the button element.
+   */
+  id: PropTypes.string,
+};
+
 Button.defaultProps = {
   leftIcon: null,
   rightIcon: null,
   iconHelper: icons,
+  className: null,
+  id: null,
 };
 
 Button.usage = `

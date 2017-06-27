@@ -25,8 +25,22 @@ export const CodeWrapper = styled.pre`
 
 class CodeBlock extends React.Component {
   static propTypes = {
+    /**
+     * Code to render inside the code block.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * Controls the syntax highlighting language.
+     */
     language: PropTypes.string,
+    /**
+     * Adds a class name to the code block container element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the code block container element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
@@ -34,8 +48,9 @@ class CodeBlock extends React.Component {
   };
 
   render() {
+    const { id, className } = this.props;
     return (
-      <CodeWrapper>
+      <CodeWrapper className={className} id={id}>
         <SyntaxHighlighter language={this.props.language} style={tomorrow}>
           {'' + this.props.children}
         </SyntaxHighlighter>

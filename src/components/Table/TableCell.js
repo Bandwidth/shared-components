@@ -18,14 +18,28 @@ const TD = styled.td`
 
 export default class Cell extends React.Component {
   static propTypes = {
+    /**
+     * Contents of the table cell.
+     */
     children: PropTypes.node,
+    /**
+     * Adds a class name to the element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     children: String.fromCharCode(160), // &nbsp;
+    className: null,
+    id: null,
   };
 
   render() {
-    return <TD>{this.props.children}</TD>;
+    const { id, className, children } = this.props;
+    return <TD id={id} className={className}>{children}</TD>;
   }
 }

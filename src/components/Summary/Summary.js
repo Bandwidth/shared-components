@@ -27,18 +27,34 @@ const Help = styled.span`
 
 class Summary extends React.Component {
   static propTypes = {
+    /**
+     * The main content of the summary.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * Optional aside to render explaining the summary.
+     */
     helpText: PropTypes.string,
+    /**
+     * Adds a class name to the container element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the container element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     helpText: null,
+    className: null,
+    id: null,
   };
 
   render() {
-    const { children, helpText } = this.props;
+    const { children, helpText, className, id } = this.props;
     return (
-      <Container>
+      <Container className={className} id={id}>
         {children}
         <Help>{helpText}</Help>
       </Container>

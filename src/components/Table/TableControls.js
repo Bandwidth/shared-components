@@ -27,17 +27,46 @@ const ControlsRow = styled.div`
 
 class TableControls extends React.Component {
   static propTypes = {
+    /**
+     * Show a delete button.
+     */
     enableDelete: PropTypes.bool,
+    /**
+     * Show an add button.
+     */
     enableAdd: PropTypes.bool,
+    /**
+     * Show a search button.
+     */
     enableSearch: PropTypes.bool,
-
+    /**
+     * A title to give for the table (optional).
+     */
     title: PropTypes.string,
-
+    /**
+     * Any other things you'd like to render between the title and the main controls.
+     */
     children: PropTypes.node,
-
+    /**
+     * Called when the user clicks the delete button.
+     */
     onDelete: PropTypes.func,
+    /**
+     * Called when the user clicks the add button.
+     */
     onAdd: PropTypes.func,
+    /**
+     * Called when the user clicks the search button.
+     */
     onSearch: PropTypes.func,
+    /**
+     * Adds a class name to the container element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the container element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
@@ -49,17 +78,19 @@ class TableControls extends React.Component {
     onDelete: () => null,
     onAdd: () => null,
     onSearch: () => null,
+    className: null,
+    id: null,
   };
 
   render() {
-    const { title, enableDelete, enableAdd, enableSearch, children, onDelete, onAdd } = this.props;
+    const { title, enableDelete, enableAdd, enableSearch, children, onDelete, onAdd, id, className } = this.props;
 
     if (!title && !enableAdd && !enableDelete && !children) {
       return null;
     }
 
     return (
-      <ControlsRow>
+      <ControlsRow id={id} className={className}>
         <Header>{title}</Header>
         {children}
         <Buttons>

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import arrowImage from './arrow.png';
 
@@ -35,6 +36,22 @@ const Select = styled.select`
     color: ${({ theme }) => theme.input.disabledFG};
   }
 `;
+
+Select.propTypes = {
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+};
+
+Select.defaultProps = {
+  className: null,
+  id: null,
+};
 
 Select.usage = `
 A dropdown input which lets you pick from a list of provided items. Supports default input-style props:

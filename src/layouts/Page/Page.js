@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Page = styled.article.withConfig({ displayName: 'Page' })`
@@ -11,6 +12,22 @@ const Page = styled.article.withConfig({ displayName: 'Page' })`
     flex: 1 1 auto;
   }
 `;
+
+Page.propTypes = {
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+};
+
+Page.defaultProps = {
+  id: null,
+  className: null,
+};
 
 Page.usage = `
 # Page

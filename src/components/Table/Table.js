@@ -31,20 +31,39 @@ const TBody = styled.tbody`
 
 class Table extends React.Component {
   static propTypes = {
+    /**
+     * Render the rows of the Table within its children.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * Render headers for the columns with this property.
+     */
     headers: PropTypes.node.isRequired,
+    /**
+     * [PENDING DEPRECATION] renders the rows as slightly transparent.
+     */
     loading: PropTypes.bool,
+    /**
+     * Adds a class name to the table element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the table element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     loading: false,
+    className: null,
+    id: null,
   };
 
   render() {
-    const { children, headers, loading } = this.props;
+    const { children, headers, loading, className, id } = this.props;
     return (
       <Wrap>
-        <BaseTable cellPadding={0} cellSpacing={0}>
+        <BaseTable cellPadding={0} cellSpacing={0} className={className} id={id}>
           <THead>
             {headers}
           </THead>

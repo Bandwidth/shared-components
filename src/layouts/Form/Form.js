@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FieldGroup from './FieldGroup';
 import { Container as BinaryFieldContainer } from './BinaryField';
@@ -88,6 +89,22 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
     left: -60%;
   }
 `;
+
+Form.propTypes = {
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+};
+
+Form.defaultProps = {
+  id: null,
+  className: null,
+};
 
 Form.usage = `
 # Form

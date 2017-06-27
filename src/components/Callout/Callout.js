@@ -37,13 +37,32 @@ const Flyout = styled.div`
 
 class Callout extends React.Component {
   static propTypes = {
+    /**
+     * Miliseconds to wait before showing the callout.
+     */
     delay: PropTypes.number,
+    /**
+     * Elements to render which will activate the callout on hover.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * Content to render inside the callout itself.
+     */
     content: PropTypes.node.isRequired,
+    /**
+     * A class name to pass to the callout activation area container.
+     */
+    className: PropTypes.string,
+    /**
+     * An id to pass to the callout activation area container.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     delay: 200,
+    className: null,
+    id: null,
   };
 
   constructor(props) {
@@ -68,8 +87,9 @@ class Callout extends React.Component {
   };
 
   render() {
+    const { className, id } = this.props;
     return (
-      <Container onMouseEnter={this.trigger} onMouseLeave={this.cancel}>
+      <Container onMouseEnter={this.trigger} onMouseLeave={this.cancel} className={className} id={id}>
         {this.props.children}
         {this.state.show ? <Flyout>{this.props.content}</Flyout> : null}
       </Container>

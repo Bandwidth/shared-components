@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Sub from './SubHeader';
@@ -10,6 +11,22 @@ const Header = styled.h1.withConfig({ displayName: 'Header' })`
   margin: ${({ theme }) => theme.header.margin};
   line-height: ${({ theme }) => theme.header.lineHeight};
 `;
+
+Header.propTypes = {
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+};
+
+Header.defaultProps = {
+  className: null,
+  id: null,
+};
 
 Header.usage = `
 A header is large text that usually sits above a section, page, or form.

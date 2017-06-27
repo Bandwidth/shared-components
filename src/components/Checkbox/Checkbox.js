@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import icons from '../Icon/icons';
 
@@ -63,6 +64,27 @@ const Checkbox = styled.label`
       ''
   }
 `;
+
+Checkbox.propTypes = {
+  /**
+   * Checkbox is a label, not an input - use 'active' to control whether it is checked or not, not 'value'.
+   */
+  active: PropTypes.bool,
+  /**
+   * A class name to add to the label element.
+   */
+  className: PropTypes.string,
+  /**
+   * An id to add to the label element.
+   */
+  id: PropTypes.string,
+};
+
+Checkbox.defaultProps = {
+  active: false,
+  className: null,
+  id: null,
+};
 
 Checkbox.usage = `
 A simple checkbox input. The default export is the label to use.

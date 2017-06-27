@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const PaneRow = styled.div.withConfig({ displayName: 'PaneRow' })`
@@ -22,6 +23,22 @@ const PaneRow = styled.div.withConfig({ displayName: 'PaneRow' })`
     border-right: none;
   }
 `;
+
+PaneRow.propTypes = {
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+};
+
+PaneRow.defaultProps = {
+  id: null,
+  className: null,
+};
 
 PaneRow.usage = `
 # PaneRow

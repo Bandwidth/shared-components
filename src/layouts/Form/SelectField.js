@@ -5,28 +5,63 @@ import Select from '../../components/Select';
 
 class SelectField extends React.Component {
   static propTypes = {
-    /** Input props, expected to be passed by redux-form */
+    /**
+     * Input props, expected to be passed by redux-form
+     */
     input: PropTypes.shape({
       /** The currently selected value */
       value: PropTypes.any,
       /** Event handler for change in value */
       onChange: PropTypes.func,
     }).isRequired,
-    /** All possible values */
+    /**
+     * All possible values
+     */
     options: PropTypes.array,
-    /** Function to render the display of a value */
+    /**
+     * Function to render the display of a value
+     */
     renderOption: PropTypes.func,
-    /** Can the user select 'none' ? */
+    /**
+     * Can the user select 'none' ?
+     */
     allowNone: PropTypes.bool,
-    /** Text to show if none is selected */
+    /**
+     * Text to show if none is selected
+     */
     noneText: PropTypes.string,
-    /** Adds a label above the select */
+    /**
+     * Adds a label above the select
+     */
     label: PropTypes.string,
+    /**
+     * Indicates whether the user can interact with this field.
+     */
     disabled: PropTypes.bool,
+    /**
+     * Indicates whether this field is required for form submission.
+     */
     required: PropTypes.bool,
+    /**
+     * Contents of the help text below the field.
+     */
     helpText: PropTypes.string,
+    /**
+     * Generates a React component iteration key from an object.
+     */
     selectOptionKey: PropTypes.func,
+    /**
+     * Optional callout contents if the user hovers the field.
+     */
     callout: PropTypes.node,
+    /**
+     * Adds an id to the input element.
+     */
+    id: PropTypes.string,
+    /**
+     * Adds a class name to the input element.
+     */
+    className: PropTypes.string,
   };
 
   static defaultProps = {
@@ -64,6 +99,8 @@ class SelectField extends React.Component {
       noneText,
       renderOption,
       callout,
+      id,
+      className,
     } = this.props;
     return (
       <FieldWrapper
@@ -78,6 +115,8 @@ class SelectField extends React.Component {
           value={input.value ? renderOption(input.value) : noneText}
           disabled={disabled}
           required={required}
+          id={id}
+          className={className}
         >
           {this.renderOptions()}
         </Select>

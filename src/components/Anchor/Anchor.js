@@ -75,12 +75,34 @@ const inferType = (children) => {
 
 class Anchor extends React.Component {
   static propTypes = {
+    /**
+     * A location to link to with this anchor.
+     */
     to: PropTypes.string,
+    /**
+     * Rendered contents inside the anchor.
+     */
     children: PropTypes.node,
+    /**
+     * Anchors pass an 'active' prop to their children when the route matches. This controls whether that is exact matching.
+     */
     exact: PropTypes.bool,
+    /**
+     * A handler for the anchor's onclick event.
+     */
     onClick: PropTypes.func,
-    // whether the contents should be treated as text (styled) or not (untouched)
+    /**
+     * whether the contents should be treated as text (underlined), icon (has specific styling), or 'wrap' (no styling).
+     */
     type: PropTypes.oneOf(['text', 'icon', 'wrap']),
+    /**
+     * A class name to pass to the <a> element.
+     */
+    className: PropTypes.string,
+    /**
+     * An id to pass to the <a> element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
@@ -89,6 +111,8 @@ class Anchor extends React.Component {
     exact: false,
     onClick: () => null,
     type: null,
+    className: null,
+    id: null,
   };
 
   getComponentType = () => {
@@ -128,7 +152,7 @@ class Anchor extends React.Component {
   };
 
   render() {
-    const { to, exact, children } = this.props;
+    const { to, exact, children, className, id } = this.props;
     const Component = this.getComponentType();
 
     return (
@@ -136,7 +160,7 @@ class Anchor extends React.Component {
         path={to}
         exact={exact}
         children={({ match }) => (
-          <Component to={to} onClick={this.handleClick}>
+          <Component to={to} onClick={this.handleClick} className={className} id={id}>
             {this.childrenWithProps({ active: !!match })}
           </Component>
         )}

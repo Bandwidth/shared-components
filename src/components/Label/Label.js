@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const Label = styled.label.withConfig({ displayName: 'Label' })`
@@ -24,6 +25,27 @@ const Label = styled.label.withConfig({ displayName: 'Label' })`
       ''
   }
 `;
+
+Label.propTypes = {
+  /**
+   * Styles the label to indicate that the associated field is disabled.
+   */
+  disabled: PropTypes.bool,
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+};
+
+Label.defaultProps = {
+  disabled: false,
+  className: null,
+  id: null,
+};
 
 Label.usage = `
 A simple label. Meant to be tied to an input component.

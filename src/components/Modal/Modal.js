@@ -42,16 +42,38 @@ const Title = styled.h3`
 
 class Modal extends React.Component {
   static propTypes = {
+    /**
+     * Content to render in the modal.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * An optional title for the top of the modal.
+     */
     title: PropTypes.string,
+    /**
+     * Handles click events on the backdrop behind the modal. Use this to close it if desired.
+     */
     onBlockerClicked: PropTypes.func,
+    /**
+     * Sets a natural CSS width for the modal window. Defaults to 'auto'.
+     */
     naturalWidth: PropTypes.string,
+    /**
+     * Adds a class name to the modal window element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the modal window element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     title: null,
     naturalWidth: 'auto',
     onBlockerClicked: () => null,
+    className: null,
+    id: null,
   };
 
   handleModalClicked = (event) => {
@@ -60,11 +82,17 @@ class Modal extends React.Component {
   };
 
   render() {
+    const { id, className, onBlockerClicked, naturalWidth, title, children } = this.props;
     return (
-      <Blocker onClick={this.props.onBlockerClicked}>
-        <Content naturalWidth={this.props.naturalWidth} onClick={this.handleModalClicked}>
-          {this.props.title ? <Title>{this.props.title}</Title> : null}
-          {this.props.children}
+      <Blocker onClick={onBlockerClicked}>
+        <Content
+          naturalWidth={naturalWidth}
+          onClick={this.handleModalClicked}
+          id={id}
+          className={className}
+        >
+          {title ? <Title>{title}</Title> : null}
+          {children}
         </Content>
       </Blocker>
     );

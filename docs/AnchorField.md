@@ -1,21 +1,26 @@
 AnchorField
 ===========
 
+A form field which renders a link.
+
+@class AnchorField
+@extends {React.Component}
 
 Props
 -----
 
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
-disabled|bool|false|No|
-label|string|null|No|
-id|string|null|No|
-helpText|string|null|No|
-to|string|'#'|No|
-onClick|func|() => null|No|
-exact|bool|false|No|
-children|node|'Anchor'|No|
-callout|node|null|No|
+disabled|bool|false|No|Deprecated: has no effect.
+label|string|null|No|The content of the label above the anchor.
+id|string|null|No|Adds an id to the anchor element.
+className|string|null|No|Adds a class name to the anchor element.
+helpText|string|null|No|Content of the help text below the anchor.
+to|string|'#'|No|The location the anchor should link to.
+onClick|func|() => null|No|Handler for when the anchor element is clicked.
+exact|bool|false|No|Anchors can render differently when they match the current route. This indicates whether that match is exact.
+children|node|'Anchor'|No|Content of the anchor element.
+callout|node|null|No|An optional callout to show when hovering the field.
 
 # AnchorField
 

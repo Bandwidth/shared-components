@@ -5,13 +5,26 @@ import Checkbox from '../../components/Checkbox';
 
 class CheckboxField extends React.Component {
   static propTypes = {
+    /**
+     * A collection of input-related properties. All passed to the input.
+     */
     input: PropTypes.shape({
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
       onChange: PropTypes.func,
       disabled: PropTypes.bool,
     }),
+    /**
+     * Contents of the label above the input.
+     */
     label: PropTypes.string,
+    /**
+     * Adds an id to the input element.
+     */
     id: PropTypes.string,
+    /**
+     * Adds a class name to the input element.
+     */
+    className: PropTypes.string,
   };
 
   static defaultProps = {
@@ -20,6 +33,7 @@ class CheckboxField extends React.Component {
     },
     label: null,
     id: null,
+    className: null,
   };
 
   render() {

@@ -18,13 +18,38 @@ export const Container = styled.div`
 
 class FieldWrapper extends React.Component {
   static propTypes = {
+    /**
+     * Indicates whether the user can interact with the field.
+     */
     disabled: PropTypes.bool,
+    /**
+     * Indicates whether the field is required for form submission.
+     */
     required: PropTypes.bool,
+    /**
+     * Content of the label above the field.
+     */
     label: PropTypes.string,
+    /**
+     * Content of the help text below the field.
+     */
     helpText: PropTypes.string,
+    /**
+     * Content of the callout displayed when the user hovers the field.
+     */
     callout: PropTypes.node,
-
+    /**
+     * The field input itself.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * Adds an id to the field wrapper container.
+     */
+    id: PropTypes.string,
+    /**
+     * Adds a class name to the field wrapper container.
+     */
+    className: PropTypes.string,
   };
 
   static defaultProps = {
@@ -32,6 +57,7 @@ class FieldWrapper extends React.Component {
     required: false,
     label: null,
     id: null,
+    className: null,
     type: 'text',
     helpText: null,
     callout: null,
@@ -47,9 +73,9 @@ class FieldWrapper extends React.Component {
   }
 
   render() {
-    const { label, disabled, required, helpText } = this.props;
+    const { label, disabled, required, helpText, id, className } = this.props;
     return (
-      <Container>
+      <Container id={id} className={className}>
         {label ? <Label required={required} disabled={disabled}>{label}</Label> : null}
         {this.renderChildren()}
         {helpText ? <HelpText>{helpText}</HelpText> : null}

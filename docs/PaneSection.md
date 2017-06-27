@@ -7,8 +7,10 @@ Props
 
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
-title|string|null|No|
-children|node||Yes|
+title|string|null|No|Optional title for the top of the pane section.
+children|node||Yes|Pane section contents.
+id|string|null|No|Adds an id to the section.
+className|string|null|No|Adds a class name to the section.
 
 # PaneSection
 

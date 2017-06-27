@@ -35,22 +35,41 @@ const Links = styled.div.withConfig({ displayName: 'NavigationLinks' })`
 
 class Navigation extends React.Component {
   static propTypes = {
+    /**
+     * The title to render within the navigation header (optional)
+     */
     title: PropTypes.string,
+    /**
+     * A list of links to include in the main navigation.
+     */
     links: linksPropType.isRequired,
+    /**
+     * A list of links to include above the main links (optional).
+     */
     topLinks: linksPropType,
+    /**
+     * Adds a class name to the element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     topLinks: null,
     title: null,
+    className: null,
+    id: null,
   };
 
   render() {
-    const { title, links, topLinks } = this.props;
+    const { title, links, topLinks, id, className } = this.props;
     const RenderIf = ({ children, val }) => (val ? children : null);
 
     return (
-      <Container>
+      <Container id={id} className={className}>
         <RenderIf val={title}>
           <LogoHeader>{title}</LogoHeader>
         </RenderIf>

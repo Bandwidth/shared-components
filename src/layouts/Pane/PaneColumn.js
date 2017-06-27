@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const PaneColumn = styled.div.withConfig({ displayName: 'PaneColumn' })`
@@ -15,6 +16,22 @@ const PaneColumn = styled.div.withConfig({ displayName: 'PaneColumn' })`
     border-bottom: none;
   }
 `;
+
+PaneColumn.propTypes = {
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+};
+
+PaneColumn.defaultProps = {
+  id: null,
+  className: null,
+};
 
 PaneColumn.usage = `
 # PaneColumn

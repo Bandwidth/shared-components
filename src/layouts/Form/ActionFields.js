@@ -1,6 +1,10 @@
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { Container as FieldWrapperContainer } from './FieldWrapper';
 
+/**
+ * DEPRECATED: prefer FlexFields
+ */
 const ActionFields = styled.div`
   display: flex;
   flex-direction: row;
@@ -28,8 +32,25 @@ const ActionFields = styled.div`
   }
 `;
 
+ActionFields.propTypes = {
+  /**
+   * Indicates how the fields should align.
+   */
+  align: PropTypes.oneOf(['right', 'left', 'center', 'outside']),
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+}
+
 ActionFields.defaultProps = {
   align: 'right',
+  className: null,
+  id: null,
 };
 
 ActionFields.usage = `

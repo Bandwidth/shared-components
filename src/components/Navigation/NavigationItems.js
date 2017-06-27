@@ -36,8 +36,8 @@ export const linksPropType = PropTypes.arrayOf(PropTypes.shape({
   exact: PropTypes.bool,
 }));
 
-const NavigationItems = ({ links }) => (
-  <Container>
+const NavigationItems = ({ links, className, id }) => (
+  <Container id={id} className={className}>
     {links.map((link) => (
       <Anchor key={`${link.content}_${link.to}`} to={link.to} onClick={link.onClick} exact={link.exact}>
         <NavigationItem>{link.content}</NavigationItem>
@@ -47,10 +47,23 @@ const NavigationItems = ({ links }) => (
 );
 
 NavigationItems.propTypes = {
+  /**
+   * Links to render in the list.
+   */
   links: linksPropType,
+  /**
+   * Adds a class name to the link container element.
+   */
+  className: PropTypes.string,
+  /**
+   * Adds an id to the link container element.
+   */
+  id: PropTypes.string,
 };
 NavigationItems.defaultProps = {
   links: [],
+  className: null,
+  id: null,
 };
 
 NavigationItems.usage = `

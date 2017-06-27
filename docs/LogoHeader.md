@@ -7,7 +7,9 @@ Props
 
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
-children|string|'Bandwidth'|No|
+children|string|'Bandwidth'|No|The title to render inside the header.
+className|string|null|No|Adds a class name to the whole containing header element.
+id|string|null|No|Adds an id to the whole containing header element.
 
 LogoHeader is mostly used for the top nav. It's just like Header, except it renders a logo before the text you supply.
 

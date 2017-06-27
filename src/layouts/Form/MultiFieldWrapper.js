@@ -19,6 +19,9 @@ export const SubFieldContainer = styled.li`
 
 class MultiFieldWrapper extends React.Component {
   static propTypes = {
+    /**
+     * redux-form defined fields object.
+     */
     fields: PropTypes.shape({
       name: PropTypes.string,
       forEach: PropTypes.func,
@@ -36,11 +39,30 @@ class MultiFieldWrapper extends React.Component {
       swap: PropTypes.func,
       unshift: PropTypes.func,
     }).isRequired,
-
+    /**
+     * Function which renders a field. Function signature is (name, index) => field
+     */
     renderField: PropTypes.func.isRequired,
+    /**
+     * Contents of the label above the fields.
+     */
     label: PropTypes.string,
+    /**
+     * Contents of the help text below the fields.
+     */
     helpText: PropTypes.string,
+    /**
+     * Indicates whether this value is required for form submission.
+     */
     required: PropTypes.bool,
+    /**
+     * Adds an id to the container element.
+     */
+    id: PropTypes.string,
+    /**
+     * Adds a class name to the container element.
+     */
+    className: PropTypes.string,
   };
 
   static defaultProps = {
@@ -57,9 +79,9 @@ class MultiFieldWrapper extends React.Component {
   );
 
   render() {
-    const { label, helpText, required } = this.props;
+    const { label, helpText, required, id, className } = this.props;
     return (
-      <FieldWrapper label={label} helpText={helpText} required={required}>
+      <FieldWrapper label={label} helpText={helpText} required={required} id={id} className={className}>
         <List>
           {this.props.fields.map(this.renderSubField)}
         </List>

@@ -5,13 +5,26 @@ import BinaryField from './BinaryField';
 
 class ToggleField extends React.Component {
   static propTypes = {
+    /**
+     * A collection of input props. Passed to the input.
+     */
     input: PropTypes.shape({
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
       onChange: PropTypes.func,
       disabled: PropTypes.bool,
     }),
+    /**
+     * Contents of a label on the field.
+     */
     label: PropTypes.string,
+    /**
+     * Adds an id to the input.
+     */
     id: PropTypes.string,
+    /**
+     * Adds a class name to the input.
+     */
+    className: PropTypes.string,
   };
 
   static defaultProps = {
@@ -20,6 +33,7 @@ class ToggleField extends React.Component {
     },
     label: null,
     id: null,
+    className: null,
   };
 
   render() {

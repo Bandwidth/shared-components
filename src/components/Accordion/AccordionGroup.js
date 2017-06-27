@@ -11,12 +11,28 @@ const Container = styled.div`
 
 class AccordionGroup extends React.Component {
   static propTypes = {
+    /**
+     * Accordions to render in this group.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * The key of the accordion (if any) to start in the expanded state.
+     */
     startExpandedKey: PropTypes.string,
+    /**
+     * A class name to pass to the accordion group container.
+     */
+    className: PropTypes.string,
+    /**
+     * An id to pass to the accordion group container
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     startExpandedKey: null,
+    className: null,
+    id: null,
   };
 
   constructor(props) {
@@ -53,8 +69,10 @@ class AccordionGroup extends React.Component {
   }
 
   render() {
+    const { className, id } = this.props;
+
     return (
-      <Container>
+      <Container className={className} id={id}>
         {this.renderAccordions()}
       </Container>
     );

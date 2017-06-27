@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Block from './CodeBlock';
@@ -13,6 +14,22 @@ const Code = styled.pre.withConfig({ displayName: 'Code' })`
   borderRadius: ${({ theme }) => theme.inlineCode.borderRadius};
   margin: 0;
 `;
+
+Code.propTypes = {
+  /**
+   * A class name to pass to the element.
+   */
+  className: PropTypes.string,
+  /**
+   * An id to pass to the element.
+   */
+  id: PropTypes.string,
+};
+
+Code.defaultProps = {
+  className: null,
+  id: null,
+};
 
 Code.usage = `
 Applies styling to render code inside a larger paragraph.

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const MethodTag = styled.pre`
@@ -11,6 +12,22 @@ const MethodTag = styled.pre`
   line-height: ${({ theme }) => theme.methodTag.lineHeight};
   margin: 0;
 `;
+
+MethodTag.propTypes = {
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+};
+
+MethodTag.defaultProps = {
+  className: null,
+  id: null,
+};
 
 MethodTag.usage = `
 Use this to annotate URLs with the method which is used to access them (for instance, in API docs). It will automatically choose a color based on the contents of the component, so use \`GET\`, \`POST\` inside, etc.

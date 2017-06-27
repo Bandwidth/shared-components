@@ -68,14 +68,33 @@ const ItemPlaceholder = styled.li`
 
 class Pagination extends React.Component {
   static propTypes = {
+    /**
+     * The number of total pages available.
+     */
     pageCount: PropTypes.number,
+    /**
+     * The currently selected page index.
+     */
     currentPage: PropTypes.number,
+    /**
+     * A callback for page selection. The callback is passed the new selected page index.
+     */
     onPageSelected: PropTypes.func.isRequired,
+    /**
+     * Adds a class name to the pagination container element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the pagination container element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     pageCount: 1,
     currentPage: 0,
+    className: null,
+    id: null,
   };
 
   createItemClickHandler = (index) => () => this.props.onPageSelected(index);
@@ -139,8 +158,9 @@ class Pagination extends React.Component {
   };
 
   render() {
+    const { id, className } = this.props;
     return (
-      <Container>
+      <Container id={id} className={className}>
         {this.renderPrevious()}
         {this.renderItems()}
         {this.renderNext()}

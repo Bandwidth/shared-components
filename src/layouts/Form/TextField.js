@@ -5,17 +5,48 @@ import FieldWrapper from './FieldWrapper';
 
 class TextField extends React.Component {
   static propTypes = {
+    /**
+     * A collection of input props. Passed to input.
+     */
     input: PropTypes.shape({
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       onChange: PropTypes.func,
     }).isRequired,
+    /**
+     * Indicates whether the user can change this field.
+     */
     disabled: PropTypes.bool,
+    /**
+     * Indicates whether this field is required for form submission.
+     */
     required: PropTypes.bool,
+    /**
+     * Contents of a label above the field.
+     */
     label: PropTypes.string,
+    /**
+     * Adds an id to the input.
+     */
     id: PropTypes.string,
+    /**
+     * Adds a class name to the input.
+     */
+    className: PropTypes.string,
+    /**
+     * Indicates the type of text this field accepts.
+     */
     type: PropTypes.string,
+    /**
+     * Contents of help text below the field.
+     */
     helpText: PropTypes.string,
+    /**
+     * Optional callout contents when a user hovers the field.
+     */
     callout: PropTypes.node,
+    /**
+     * Placeholder text to render inside the input.
+     */
     placeholder: PropTypes.string,
   };
 
@@ -24,6 +55,7 @@ class TextField extends React.Component {
     required: false,
     label: null,
     id: null,
+    className: null,
     type: 'text',
     helpText: null,
     callout: null,
@@ -31,7 +63,7 @@ class TextField extends React.Component {
   };
 
   render() {
-    const { input, label, id, disabled, required, helpText, type, callout, placeholder } = this.props;
+    const { input, label, id, className, disabled, required, helpText, type, callout, placeholder } = this.props;
     return (
       <FieldWrapper
         label={label}
@@ -43,6 +75,7 @@ class TextField extends React.Component {
         <TextInput
           {...input}
           id={id}
+          className={className}
           type={type}
           disabled={disabled}
           required={required}

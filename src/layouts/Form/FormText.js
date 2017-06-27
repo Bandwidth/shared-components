@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FormText = styled.div.withConfig({ displayName: 'FormText' })`
@@ -9,6 +10,22 @@ const FormText = styled.div.withConfig({ displayName: 'FormText' })`
     margin: 0;
   }
 `;
+
+FormText.propTypes = {
+  /**
+   * Adds an id to the element.
+   */
+  id: PropTypes.string,
+  /**
+   * Adds a class name to the element.
+   */
+  className: PropTypes.string,
+};
+
+FormText.defaultProps = {
+  id: null,
+  className: null,
+};
 
 FormText.usage = `
 # FormText

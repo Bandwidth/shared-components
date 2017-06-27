@@ -21,20 +21,37 @@ const Content = styled.div`
 
 class CodeContainer extends React.Component {
   static propTypes = {
+    /**
+     * Multiple CodeBlock elements to render in one frame.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * An optional header element to place above the frame.
+     */
     header: PropTypes.node,
+    /**
+     * A class name to add to the container element.
+     */
+    className: PropTypes.string,
+    /**
+     * An id to add to the container element.
+     */
+    id: PropTypes.string,
   };
 
   static defaultProps = {
     header: null,
+    className: null,
+    id: null,
   };
 
   render() {
+    const { header, children, className, id } = this.props;
     return (
-      <Container>
-        {this.props.header}
+      <Container className={className} id={id}>
+        {header}
         <Content>
-          {this.props.children}
+          {children}
         </Content>
       </Container>
     );

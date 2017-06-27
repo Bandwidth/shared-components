@@ -3,16 +3,53 @@ import PropTypes from 'prop-types';
 import Anchor from '../../components/Anchor';
 import FieldWrapper from './FieldWrapper';
 
+/**
+ * A form field which renders a link.
+ *
+ * @class AnchorField
+ * @extends {React.Component}
+ */
 class AnchorField extends React.Component {
   static propTypes = {
+    /**
+     * Deprecated: has no effect.
+     */
     disabled: PropTypes.bool,
+    /**
+     * The content of the label above the anchor.
+     */
     label: PropTypes.string,
+    /**
+     * Adds an id to the anchor element.
+     */
     id: PropTypes.string,
+    /**
+     * Adds a class name to the anchor element.
+     */
+    className: PropTypes.string,
+    /**
+     * Content of the help text below the anchor.
+     */
     helpText: PropTypes.string,
+    /**
+     * The location the anchor should link to.
+     */
     to: PropTypes.string,
+    /**
+     * Handler for when the anchor element is clicked.
+     */
     onClick: PropTypes.func,
+    /**
+     * Anchors can render differently when they match the current route. This indicates whether that match is exact.
+     */
     exact: PropTypes.bool,
+    /**
+     * Content of the anchor element.
+     */
     children: PropTypes.node,
+    /**
+     * An optional callout to show when hovering the field.
+     */
     callout: PropTypes.node,
   };
 
@@ -20,6 +57,7 @@ class AnchorField extends React.Component {
     disabled: false,
     label: null,
     id: null,
+    className: null,
     helpText: null,
     to: '#',
     children: 'Anchor',
@@ -39,11 +77,12 @@ class AnchorField extends React.Component {
       children,
       exact,
       onClick,
-      callout
+      callout,
+      className,
     } = this.props;
     return (
       <FieldWrapper label={label} helpText={helpText} disabled={disabled} callout={callout}>
-        <Anchor id={id} disabled={disabled} to={to} exact={exact} onClick={onClick}>
+        <Anchor id={id} className={className} disabled={disabled} to={to} exact={exact} onClick={onClick}>
           {children}
         </Anchor>
       </FieldWrapper>
