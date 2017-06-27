@@ -5,6 +5,7 @@ const colors = {
   primary: '#00bcec',
   primaryText: '#008db1',
   primaryLight: '#d9f5fc',
+  primaryDark: '#008db1',
 
   secondary: '#1f2a44',
   secondaryText: '#3a455c',
@@ -205,25 +206,6 @@ export default {
     letterSpacing: '0.02em',
     fontFamily: fonts.brand,
     requiredMarkFG: '#e8562e',
-  },
-
-  toggle: {
-    bg: '#fff',
-    fg: '#fff',
-    activeBG: '#3a455c',
-    activeFG: '#fff',
-    border: '2px solid #3a455c',
-    activeBorder: '2px solid #3a455c',
-    disabledBG: '#666',
-    disabledBorder: '2px solid #666',
-    hoverBorder: '2px solid #008db1',
-    hoverBG: '#008db1',
-    focusShadow: '0 0 0 5px #d9f5fc',
-    padding: '0.2em 0 0.2em 4.2em',
-    height: '2em',
-    width: '3.6em',
-    fontFamily: fonts.brand,
-    fontWeight: 600,
   },
 
   checkbox: {
