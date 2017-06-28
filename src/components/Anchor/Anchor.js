@@ -77,7 +77,7 @@ const inferType = (children) => {
   return 'wrap';
 };
 
-const isExternal = (to) => /^(https?)*:\/\//.test(to);
+const isExternal = (to) => /^(https?:)*\/\//.test(to);
 
 class Anchor extends React.Component {
   static propTypes = {
