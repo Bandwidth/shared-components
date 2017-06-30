@@ -132,9 +132,16 @@ class Accordion extends React.Component {
         .on('tick', easer((percent) => {
           const directionalPercent = isCollapsed ? 1.0 - percent : percent;
           content.style.height = `${naturalHeight * directionalPercent}px`;
-        })).play();
+        }))
+        .on('stop', () => {
+          // after an animation has expanded the accordion, switch to
+          // auto so it reacts to changes in content size or window size automatically
+          if (!isCollapsed) {
+            content.style.height = 'auto';
+          }
+        }).play();
     } else {
-      content.style.height = isCollapsed ? 0 : naturalHeight;
+      content.style.height = isCollapsed ? 0 : 'auto';
     }
   };
 
@@ -157,7 +164,12 @@ class Accordion extends React.Component {
 
   renderContent = () => (
     <Content
-      innerRef={(el) => { this._content = el; }}
+      innerRef={
+        (el) => {
+          this._content = el;
+          this.setContentCollapseState(false);
+        }
+      }
       isCollapsed={this.calcIsCollapsed()}
     >
       <ContentHolder>

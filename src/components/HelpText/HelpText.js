@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const HelpText = styled.div.withConfig({ displayName: 'HelpText' })`
-  color: ${({ theme }) => theme.helpText.fg};
+  color: ${({ theme, error }) => error ? theme.colors.errorText : theme.helpText.fg};
   font-style: italic;
   font-weight: ${({ theme }) => theme.helpText.fontWeight};
   padding: ${({ theme }) => theme.input.helpTextPadding};
@@ -18,6 +18,10 @@ HelpText.propTypes = {
    * Adds an id to the element.
    */
   id: PropTypes.string,
+  /**
+   * Whether this help text is in an error state
+   */
+  error: PropTypes.bool,
 };
 
 HelpText.defaultProps = {

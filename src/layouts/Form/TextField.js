@@ -12,6 +12,13 @@ class TextField extends React.Component {
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       onChange: PropTypes.func,
     }).isRequired,
+
+    meta: PropTypes.shape({
+      error: PropTypes.string,
+      invalid: PropTypes.bool,
+      pristine: PropTypes.bool,
+      warning: PropTypes.string,
+    }),
     /**
      * Indicates whether the user can change this field.
      */
@@ -60,20 +67,28 @@ class TextField extends React.Component {
     helpText: null,
     callout: null,
     placeholder: null,
+    meta: {
+      error: null,
+      invalid: false,
+      pristine: false,
+      warning: null,
+    },
   };
 
   render() {
-    const { input, label, id, className, disabled, required, helpText, type, callout, placeholder } = this.props;
+    const { input, label, id, className, disabled, required, helpText, type, callout, placeholder, meta } = this.props;
     return (
       <FieldWrapper
         label={label}
         helpText={helpText}
+        error={meta.error}
         disabled={disabled}
         required={required}
         callout={callout}
       >
         <TextInput
           {...input}
+          {...meta}
           id={id}
           className={className}
           type={type}
