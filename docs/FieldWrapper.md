@@ -15,6 +15,7 @@ callout|node|null|No|Content of the callout displayed when the user hovers the f
 children|node||Yes|The field input itself.
 id|string|null|No|Adds an id to the field wrapper container.
 className|string|null|No|Adds a class name to the field wrapper container.
+error|string|null|No|An error message related to this field
 type||'text'|No|
 
 # FieldWrapper
