@@ -11,6 +11,7 @@ const Container = styled.header.withConfig({ displayName: 'NavigationContainer' 
   border-bottom: 1px solid ${({ theme }) => theme.shadow.color};
   padding: ${({ theme }) => theme.topNav.padding};
   display: flex;
+  flex-shrink: 0;
   justify-content: space-between;
   z-index: 1000;
 

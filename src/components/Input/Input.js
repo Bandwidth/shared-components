@@ -34,8 +34,17 @@ const StyledInput = styled.input`
     css`
       &:invalid {
         box-shadow: inset 0 -5px 0 ${theme.colors.errorBackgroundLight};
+        border: 1px solid ${theme.colors.errorBorder};
       }
     ` : ''
+  }
+
+  ${({ invalid, error, theme }) => invalid || error ?
+    `
+    box-shadow: inset 0 -5px ${theme.colors.errorBackgroundLight};
+    border: 1px solid ${theme.colors.errorBorder};
+    ` :
+    ''
   }
 `;
 
@@ -73,6 +82,14 @@ class Input extends React.Component {
      * Sets the type of data expected for this input.
      */
     type: PropTypes.string,
+    /**
+     * Styles this input as being invalid
+     */
+    invalid: PropTypes.bool,
+    /**
+     * Styles this input as having an error related to it
+     */
+    error: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -83,6 +100,8 @@ class Input extends React.Component {
     onChange: () => null,
     onBlur: () => null,
     className: null,
+    invalid: false,
+    error: false,
   };
 
   constructor(props) {
@@ -98,10 +117,17 @@ class Input extends React.Component {
   };
 
   render() {
-    const { disabled, id, className } = this.props;
+    const { disabled, id, className, invalid } = this.props;
     const { visited } = this.state;
     return (
-      <StyledInput {...this.props} onBlur={this.onBlur} visited={visited} id={id} className={className} />
+      <StyledInput
+        {...this.props}
+        onBlur={this.onBlur}
+        visited={visited}
+        id={id}
+        className={className}
+        invalid={invalid}
+      />
     );
   }
 }

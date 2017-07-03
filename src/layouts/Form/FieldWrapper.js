@@ -50,6 +50,10 @@ class FieldWrapper extends React.Component {
      * Adds a class name to the field wrapper container.
      */
     className: PropTypes.string,
+    /**
+     * An error message related to this field
+     */
+    error: PropTypes.string,
   };
 
   static defaultProps = {
@@ -61,6 +65,7 @@ class FieldWrapper extends React.Component {
     type: 'text',
     helpText: null,
     callout: null,
+    error: null,
   };
 
   renderChildren() {
@@ -73,12 +78,12 @@ class FieldWrapper extends React.Component {
   }
 
   render() {
-    const { label, disabled, required, helpText, id, className } = this.props;
+    const { label, disabled, required, helpText, id, className, error } = this.props;
     return (
       <Container id={id} className={className}>
         {label ? <Label required={required} disabled={disabled}>{label}</Label> : null}
         {this.renderChildren()}
-        {helpText ? <HelpText>{helpText}</HelpText> : null}
+        {helpText || error ? <HelpText error={!!error}>{error || helpText}</HelpText> : null}
       </Container>
     );
   }

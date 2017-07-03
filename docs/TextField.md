@@ -8,6 +8,12 @@ Props
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
 input|shape[object Object]||Yes|A collection of input props. Passed to input.
+meta|shape[object Object]|{
+  error: null,
+  invalid: false,
+  pristine: false,
+  warning: null,
+}|No|
 disabled|bool|false|No|Indicates whether the user can change this field.
 required|bool|false|No|Indicates whether this field is required for form submission.
 label|string|null|No|Contents of a label above the field.
