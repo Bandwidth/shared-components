@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import warning from 'warning';
 import Item from './FlowItem';
-import Container from './FlowContainer';
 
 const HORIZONTAL_SPACING = 30;
 

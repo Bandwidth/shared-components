@@ -153,7 +153,7 @@ class FlowItem extends React.Component {
     if (_.isString(this.props.helpText)) {
       return <HelpText error={this.props.error}>{this.props.helpText}</HelpText>;
     } else if (this.props.helpText && this.props.helpText.props) {
-      React.cloneElement(this.props.helpText, { error: this.props.error });
+      return React.cloneElement(this.props.helpText, { error: this.props.error });
     }
 
     return this.props.helpText || null;
@@ -165,8 +165,9 @@ class FlowItem extends React.Component {
   ;
 
   render() {
+    const { id, className } = this.props;
     return (
-      <Container alignment={this.props.alignment}>
+      <Container alignment={this.props.alignment} id={id} className={className}>
         {this.renderLabel()}
         {this.renderChildren()}
         {this.renderHelpText()}

@@ -41,3 +41,4 @@ config.json
 
 build
 dist
+__coverage__
