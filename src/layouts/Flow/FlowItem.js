@@ -99,11 +99,6 @@ class FlowItem extends React.Component {
      */
     alignment: PropTypes.oneOf(['stretch', 'left', 'right']),
     /**
-     * If true, a falsy label will cause the whole label area to collapse instead of
-     * rendering a fixed height blank space. Defaults to false.
-     */
-    suppressLabel: PropTypes.bool,
-    /**
      * Whether this item should render a visual error state.
      */
     error: PropTypes.bool,
@@ -127,20 +122,16 @@ class FlowItem extends React.Component {
     id: null,
     className: null,
     alignment: 'stretch',
-    suppressLabel: false,
   };
 
   renderLabel = () => {
-    const { label, suppressLabel } = this.props;
+    const { label } = this.props;
 
     if (!!label && _.isString(label)) {
       return <Label>{label}</Label>;
     }
 
-    if (suppressLabel) {
-      return label || null;
-    }
-
+    // always render some label, even if blank, to keep layout consistent
     return label || <Label />;
   };
 

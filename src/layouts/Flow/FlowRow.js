@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import warning from 'warning';
 import Item from './FlowItem';
+import Label from '../../components/Label';
 
 const HORIZONTAL_SPACING = 30;
 
@@ -33,27 +34,20 @@ const Styles = styled(BaseStyles)`
       margin-right: 0;
     }
   }
-`;
 
-const SuppressedLabel = styled.label`
-  height: 0;
-  overflow: hidden;
+  & ${Label} {
+    ${({ suppressLabels }) => suppressLabels && 'display: none;'}
+  }
 `;
 
 class FlowRow extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    forceLabels: PropTypes.bool,
-  };
-
-  static defaultProps = {
-    forceLabels: false,
   };
 
   /**
    * Triggers suppressing labels when all child components have no label.
    * When labels are suppressed, the label section at the top of this row is collapsed.
-   * This behavior can be overridden by explicitly providing the forceLabels prop.
    *
    * @memberof FlowRow
    */
@@ -64,25 +58,16 @@ class FlowRow extends React.Component {
         hasLabel || !!child.props.label,
         false
       );
-    return !this.props.forceLabels && !atLeastOneChildHasLabel;
+    return !atLeastOneChildHasLabel;
   };
 
   render() {
     const { children } = this.props;
-
-    warning(
-      children.length === 2 || !!children.props,
-      'Supplied children prop to a Flow.Row was not either 2 elements or a single node',
-    );
-
     const suppressLabel = this.shouldSuppressLabels();
 
     return (
-      <Styles>
-        {
-          React.Children
-          .map(children, (child) => React.cloneElement(child, { suppressLabel }))
-        }
+      <Styles suppressLabels={suppressLabel}>
+        {children}
       </Styles>
     );
   }

@@ -1,12 +1,4 @@
 Flow
 ====
 
-
-Props
------
-
-Prop                  | Type     | Default                   | Required | Description
---------------------- | -------- | ------------------------- | -------- | -----------
-children|custom||No|
-
-
+      No usage details for this component.

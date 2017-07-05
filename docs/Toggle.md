@@ -12,7 +12,7 @@ id|string|null|No|Adds an id to the input element.
 value|bool|false|No|The value of the toggle.
 required|bool|false|No|Whether the toggle is required for form submission.
 disabled|bool|false|No|Whether the user is prevented from interacting with the toggle.
-label|node|null|No|A label to display next to the toggle.
+description|node|null|No|A description to display next to the toggle.
 onChange|func|() => null|No|Callback for the onChange event of the input.
 
 A simple toggle input.

@@ -85,19 +85,6 @@ describe('the FlowItem component', () => {
     });
   });
 
-  describe('can suppress its label', () => {
-    let wrapper;
-
-    beforeEach(() => {
-      wrapper = shallowWithTheme(<FlowItem suppressLabel />);
-    });
-
-    test('does not render a label', () => {
-      const container = wrapper.children();
-      expect(container.find(Label)).toHaveLength(0);
-    });
-  });
-
   describe('can render more content', () => {
     let wrapper;
 
@@ -151,10 +138,6 @@ describe('the FlowItem component styling', () => {
   });
   test('with flexible content', () => {
     const wrapper = mountWithTheme(<FlowItem flexibleContent><div style={{ height: '300px' }} /></FlowItem>);
-    expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
-  });
-  test('with suppressed label', () => {
-    const wrapper = mountWithTheme(<FlowItem suppressLabel>foo</FlowItem>);
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
   test('with error', () => {
