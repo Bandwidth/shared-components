@@ -14,7 +14,6 @@ label|string|null|No|Content of the label above the input.
 id|string|null|No|Adds an id to the input element.
 className|string|null|No|Adds a class name to the input element.
 Input|func||Yes|The component to render the input with.
-Label|func||Yes|The component to render the input label with (generally the graphical representation of a binary input).
 
 # BinaryField
 

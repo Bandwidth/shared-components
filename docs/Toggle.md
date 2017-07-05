@@ -1,14 +1,22 @@
 Toggle
-====
+======
 
-      
-A simple toggle input. The default export is the label to use.
 
-Also exports `HiddenInput`, which is the actual <input> element.
+Props
+-----
 
-It's probably easier to use `fields/ToggleField`, which assembles these for you.
+Prop                  | Type     | Default                   | Required | Description
+--------------------- | -------- | ------------------------- | -------- | -----------
+className|string|null|No|Adds a class name to the input element.
+id|string|null|No|Adds an id to the input element.
+value|bool|false|No|The value of the toggle.
+required|bool|false|No|Whether the toggle is required for form submission.
+disabled|bool|false|No|Whether the user is prevented from interacting with the toggle.
+label|node|null|No|A label to display next to the toggle.
+onChange|func|() => null|No|Callback for the onChange event of the input.
+
+A simple toggle input.
 
 ```
-<HiddenInput value={true} id="a" />
-<Toggle for="a" />
+<Toggle value={false} label="Foo" />
 ```

@@ -38,7 +38,7 @@ class ToggleField extends React.Component {
 
   render() {
     return (
-      <BinaryField {...this.props} Input={Toggle.Input} Label={Toggle} />
+      <BinaryField {...this.props} Input={Toggle} />
     );
   }
 }

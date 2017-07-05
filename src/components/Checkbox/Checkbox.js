@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import icons from '../Icon/icons';
@@ -12,7 +13,7 @@ export const HiddenInput = styled.input`
   }
 `;
 
-const Checkbox = styled.label`
+const CheckboxLabel = styled.label`
   cursor: pointer;
   position: relative;
   top: 50%;
@@ -65,39 +66,81 @@ const Checkbox = styled.label`
   }
 `;
 
-Checkbox.propTypes = {
-  /**
-   * Checkbox is a label, not an input - use 'active' to control whether it is checked or not, not 'value'.
-   */
-  active: PropTypes.bool,
-  /**
-   * A class name to add to the label element.
-   */
-  className: PropTypes.string,
-  /**
-   * An id to add to the label element.
-   */
-  id: PropTypes.string,
-};
+const Container = styled.div``;
 
-Checkbox.defaultProps = {
-  active: false,
-  className: null,
-  id: null,
-};
+class Checkbox extends React.Component {
+  static propTypes = {
+    /**
+     * Adds a class name to the input element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the input element.
+     */
+    id: PropTypes.string,
+    /**
+     * The value of the checkbox.
+     */
+    value: PropTypes.bool,
+    /**
+     * Whether the checkbox is required for form submission.
+     */
+    required: PropTypes.bool,
+    /**
+     * Whether the user is prevented from interacting with the checkbox.
+     */
+    disabled: PropTypes.bool,
+    /**
+     * A description to display next to the checkbox.
+     */
+    description: PropTypes.node,
+    /**
+     * Callback for the onChange event of the input.
+     */
+    onChange: PropTypes.func,
+  };
+
+  static defaultProps = {
+    className: null,
+    id: null,
+    value: false,
+    required: false,
+    disabled: false,
+    description: null,
+    onChange: () => null,
+  };
+
+  render() {
+    const { className, disabled, value, required, description, onChange } = this.props;
+    const id = this.props.id || generateId('toggle');
+    return (
+      <Container>
+        <HiddenInput
+          id={id}
+          className={className}
+          type="checkbox"
+          disabled={disabled}
+          value={value}
+          required={required}
+          onChange={onChange}
+        />
+        <CheckboxLabel for={id} active={value}>
+          {description}
+        </CheckboxLabel>
+      </Container>
+    );
+  }
+}
 
 Checkbox.usage = `
-A simple checkbox input. The default export is the label to use.
-
-Also exports \`HiddenInput\`, which is the actual <input> element.
-
-It's probably easier to use \`fields/CheckboxField\`, which assembles these for you.
+A simple checkbox input.
 
 \`\`\`
-<HiddenInput value={true} id="a" />
-<Checkbox for="a" />
+<Checkbox value={true} description="Foo" />
 \`\`\`
 `;
 
 Checkbox.Input = HiddenInput;
+Checkbox.Label = CheckboxLabel;
+Checkbox.Container = Container;
 export default Checkbox;

@@ -38,7 +38,7 @@ class CheckboxField extends React.Component {
 
   render() {
     return (
-      <BinaryField {...this.props} Input={Checkbox.Input} Label={Checkbox} />
+      <BinaryField {...this.props} Input={Checkbox} />
     );
   }
 }

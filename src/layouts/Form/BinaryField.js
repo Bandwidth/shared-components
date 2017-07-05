@@ -1,10 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import generateId from '../../extensions/generateId';
-
-export const Container = styled.div`
-`;
 
 class BinaryField extends React.Component {
   static propTypes = {
@@ -32,10 +27,6 @@ class BinaryField extends React.Component {
      * The component to render the input with.
      */
     Input: PropTypes.func.isRequired,
-    /**
-     * The component to render the input label with (generally the graphical representation of a binary input).
-     */
-    Label: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -52,28 +43,18 @@ class BinaryField extends React.Component {
   };
 
   render() {
-    const { label, input: { value, disabled }, Input, Label, className } = this.props;
-    /*
-      because this generation happens at render time,
-      the id is not reliable. developers should specify an id through
-      props if they want a reliable id.
-    */
-    const id = this.props.id || generateId('toggle');
+    const { label, id, input: { value, disabled }, Input, className } = this.props;
 
     return (
-      <Container>
-        <Input
-          id={id}
-          className={className}
-          type="checkbox"
-          value={value}
-          disabled={disabled}
-          onClick={this.handleClick}
-        />
-        <Label htmlFor={id} active={value}>
-          {label}
-        </Label>
-      </Container>
+      <Input
+        id={id}
+        className={className}
+        type="checkbox"
+        value={value}
+        disabled={disabled}
+        onClick={this.handleClick}
+        description={label}
+      />
     );
   }
 }

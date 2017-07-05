@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import icons from '../Icon/icons';
+import SubmitButton from './SubmitButton';
 
 const Button = styled.button`
   font-size: ${({ theme }) => theme.button.fontSize};
@@ -123,5 +124,7 @@ Change the color with themes, not on the button itself!
 </ThemeProvider>
 \`\`\`
 `;
+
+Button.Submit = SubmitButton;
 
 export default Button;
