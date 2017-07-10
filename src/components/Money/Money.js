@@ -40,13 +40,16 @@ class Money extends React.Component {
 
   render() {
     const { value, showSign, id, className } = this.props;
-    return (
-      <Figure positive={value >= 0} id={id} className={className}>
-        {showSign ? this.getSign(value) : null}
-        {/* sign is already present, so remove it from the formatted number */}
-        ${formatMoney(value).replace('-', '')}
-      </Figure>
-    );
+    if (value) {
+      return (
+        <Figure positive={value >= 0} id={id} className={className}>
+          {showSign ? this.getSign(value) : null}
+          {/* sign is already present, so remove it from the formatted number */}
+          ${formatMoney(value).replace('-', '')}
+        </Figure>
+      );
+    }
+    return null;
   }
 }
 
