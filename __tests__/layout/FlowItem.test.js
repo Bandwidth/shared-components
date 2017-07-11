@@ -15,13 +15,13 @@ describe('the FlowItem component', () => {
     });
 
     test('should render', () => {
-      expect(wrapper).toHaveLength(1);
+      expect(wrapper).toBePresent();
     });
 
     test('renders a label and contents inside a container despite being empty', () => {
-      expect(wrapper.children().find(Label)).toHaveLength(1);
-      expect(wrapper.children().find(FlowItem.Content)).toHaveLength(1);
-      expect(wrapper.children().find(HelpText)).toHaveLength(0);
+      expect(wrapper.children().find(Label)).toBePresent();
+      expect(wrapper.children().find(FlowItem.Content)).toBePresent();
+      expect(wrapper.children().find(HelpText)).toBeEmpty();
     });
   });
 
@@ -35,11 +35,11 @@ describe('the FlowItem component', () => {
     test('renders the correct values', () => {
       const label = wrapper.children().find(Label);
       const helpText = wrapper.children().find(HelpText);
-      expect(label).toHaveLength(1);
-      expect(helpText).toHaveLength(1);
-      expect(label.props().children).toEqual('foo');
-      expect(helpText.props().children).toEqual('bar');
-      expect(helpText.props().error).toEqual(true);
+      expect(label).toBePresent();
+      expect(helpText).toBePresent();
+      expect(label).toHaveProp('children', 'foo');
+      expect(helpText).toHaveProp('children', 'bar');
+      expect(helpText).toHaveProp('error', true);
     });
   });
 
@@ -53,8 +53,7 @@ describe('the FlowItem component', () => {
 
     test('renders the help text', () => {
       const helpText = wrapper.children().find('#custom');
-      expect(helpText).toHaveLength(1);
-      expect(helpText.props().error).toEqual(true);
+      expect(helpText).toHaveProp('error', true);
     });
   });
 
@@ -66,10 +65,9 @@ describe('the FlowItem component', () => {
     });
 
     test('renders children', () => {
-      const container = wrapper.children();
-      const content = container.find(FlowItem.Content);
-      expect(content).toHaveLength(1);
-      expect(content.props().children).toEqual('foo');
+      const content = wrapper.children().find(FlowItem.Content);
+      expect(content).toBePresent();
+      expect(content).toHaveProp('children', 'foo');
     });
   });
 
@@ -81,7 +79,7 @@ describe('the FlowItem component', () => {
     });
 
     test('applies alignment to container', () => {
-      expect(wrapper.props().alignment).toEqual('left');
+      expect(wrapper).toHaveProp('alignment', 'left');
     });
   });
 
@@ -93,10 +91,9 @@ describe('the FlowItem component', () => {
     });
 
     test('adds more content', () => {
-      const container = wrapper.children();
-      const moreContent = container.find(FlowItem.MoreContent);
-      expect(moreContent).toHaveLength(1);
-      expect(moreContent.props().children).toEqual('foo');
+      const moreContent = wrapper.children().find(FlowItem.MoreContent);
+      expect(moreContent).toBePresent();
+      expect(moreContent).toHaveProp('children', 'foo');
     });
   });
 
@@ -111,9 +108,9 @@ describe('the FlowItem component', () => {
     test('renders flexible content', () => {
       const container = wrapper.children();
       const flexContent = container.find(FlowItem.FlexibleContent);
-      expect(flexContent).toHaveLength(1);
-      expect(flexContent.props().children).toEqual(content);
-      expect(container.find(FlowItem.Content)).toHaveLength(0);
+      expect(flexContent).toBePresent();
+      expect(flexContent).toHaveProp('children', content);
+      expect(container.find(FlowItem.Content)).toBeEmpty();
     });
   });
 
@@ -125,8 +122,8 @@ describe('the FlowItem component', () => {
     });
 
     test('assigns them to the container element', () => {
-      expect(wrapper.props().id).toEqual('a');
-      expect(wrapper.props().className).toEqual('b');
+      expect(wrapper).toHaveProp('id', 'a');
+      expect(wrapper).toHaveProp('className', 'b');
     });
   });
 });

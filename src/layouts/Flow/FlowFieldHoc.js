@@ -33,15 +33,10 @@ export default (FieldComponent) => class FlowField extends React.Component {
   alignment = [RadioGroup, Toggle, Checkbox].includes(FieldComponent) ? 'left' : 'stretch';
 
   /**
-   * Renders the label with required state. Also handles special cases.
+   * Renders the label with required state.
    */
   renderLabel = () => {
     const { label, required } = this.props;
-    // suppress label on Checkbox and Toggle, which render their own
-    if (FieldComponent === Checkbox || FieldComponent === Toggle) {
-      return null;
-    }
-
     return <Label required={required}>{label}</Label>;
   };
 
@@ -55,13 +50,14 @@ export default (FieldComponent) => class FlowField extends React.Component {
       ...this.props,
       ...input,
       ...meta,
+      error: !!meta.error,
     };
 
     return <FieldComponent {...passedProps} />;
   };
 
   render() {
-    const { moreContent, meta, helpText, suppressLabel } = this.props;
+    const { moreContent, meta, helpText } = this.props;
 
     return (
       <Item
@@ -71,7 +67,6 @@ export default (FieldComponent) => class FlowField extends React.Component {
         flexibleContent={this.hasFlexibleContent}
         error={!!meta.error}
         alignment={this.alignment}
-        suppressLabel={suppressLabel}
       >
         {this.renderInput()}
       </Item>

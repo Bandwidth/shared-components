@@ -1,11 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import warning from 'warning';
+import styled, { css } from 'styled-components';
 import Item from './FlowItem';
 import Label from '../../components/Label';
 
 const HORIZONTAL_SPACING = 30;
+
+const grow = (alignment) => ['left', 'right'].includes(alignment) ? 0 : 1;
+
+const justification = (alignment) => {
+  switch (alignment) {
+    case 'left':
+      return 'space-after';
+    case 'right':
+      return 'space-before';
+    default:
+      return 'space-between';
+  }
+};
+
+const generateSizes = (sizes) =>
+  sizes.map((size, idx) =>
+    size !== undefined && size !== null ?
+      css`
+        & > ${Item.Container}, & > ${BaseStyles} {
+          &:nth-child(${idx + 1}) {
+            flex-grow: ${size};
+          }
+        }
+      `
+      : ''
+  );
 
 const BaseStyles = styled.div`
   /* Flow is a row */
@@ -15,25 +40,26 @@ const BaseStyles = styled.div`
 
 // immediately extend via wrap so that we can do nested Flows
 const Styles = styled(BaseStyles)`
+  justify-content: ${({ alignment }) => justification(alignment)};
+
   /* Flow is designed to be nestable */
   & > ${Item.Container}, & > ${BaseStyles} {
-    flex-grow: 0;
+    flex-grow: ${({ alignment }) => grow(alignment)};
     flex-shrink: 0;
+    margin-left: ${HORIZONTAL_SPACING / 2}px;
+    margin-right: ${HORIZONTAL_SPACING / 2}px;
+    flex-basis: 0;
 
     &:first-child {
-      flex-basis: calc(50% - ${HORIZONTAL_SPACING / 2}px);
-      margin-right: ${HORIZONTAL_SPACING / 2}px;
-    }
-    &:last-child {
-      flex-basis: calc(50% - ${HORIZONTAL_SPACING / 2}px);
-      margin-left: ${HORIZONTAL_SPACING / 2}px;
-    }
-    &:only-child {
-      flex-basis: 100%;
       margin-left: 0;
+    }
+
+    &:last-child {
       margin-right: 0;
     }
   }
+
+  ${({ sizes }) => generateSizes(sizes)}
 
   & ${Label} {
     ${({ suppressLabels }) => suppressLabels && 'display: none;'}
@@ -43,6 +69,23 @@ const Styles = styled(BaseStyles)`
 class FlowRow extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
+    sizes: PropTypes.array,
+    alignment: (props, propName, componentName) => {
+      if (props.sizes && props[propName] !== 'stretch') {
+        return new Error(`Using ${propName} with sizes is invalid in ${componentName}`);
+      }
+
+      if (!['left', 'right', 'stretch'].includes(props[propName])) {
+        return new Error(
+          `Invalid prop ${propName} supplied to ${componentName}: must be one of [left, right, stretch].`
+        );
+      }
+    }
+  };
+
+  static defaultProps = {
+    sizes: [],
+    alignment: 'stretch',
   };
 
   /**
@@ -62,11 +105,15 @@ class FlowRow extends React.Component {
   };
 
   render() {
-    const { children } = this.props;
+    const { children, sizes, alignment } = this.props;
     const suppressLabel = this.shouldSuppressLabels();
 
     return (
-      <Styles suppressLabels={suppressLabel}>
+      <Styles
+        suppressLabels={suppressLabel}
+        sizes={sizes}
+        alignment={alignment}
+      >
         {children}
       </Styles>
     );

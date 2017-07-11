@@ -1,0 +1,382 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the Flow component styling containing rows 1`] = `
+.cPiMim {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.cPiMim > .FlowRow__Styles-iRxcTN {
+  margin: 14px 0;
+}
+
+.cPiMim > .FlowRow__Styles-iRxcTN:first-child {
+  margin-top: 0;
+}
+
+.cPiMim > .FlowRow__Styles-iRxcTN:last-child: {
+  margin-bottom: 0;
+}
+
+.YEuSm {
+  -webkit-box-pack: space-between;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
+}
+
+.YEuSm > .FlowItem__Container-krUYur,
+.YEuSm > .FlowRow__BaseStyles-jBvvfh {
+  -webkit-flex-grow: 1;
+  -ms-flex-grow: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-shrink: 0;
+  flex-shrink: 0;
+  margin-left: 15px;
+  margin-right: 15px;
+  -webkit-flex-basis: 0;
+  -ms-flex-basis: 0;
+  flex-basis: 0;
+}
+
+.YEuSm > .FlowItem__Container-krUYur:first-child,
+.YEuSm > .FlowRow__BaseStyles-jBvvfh:first-child {
+  margin-left: 0;
+}
+
+.YEuSm > .FlowItem__Container-krUYur:last-child,
+.YEuSm > .FlowRow__BaseStyles-jBvvfh:last-child {
+  margin-right: 0;
+}
+
+.YEuSm .Label__Label-jsURsk {
+  display: none;
+}
+
+.gbwVLv {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.jVAKAe {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.jVAKAe > .Label__Label-jsURsk {
+  height: 21px;
+  margin: 0;
+  margin-bottom: 5.6px;
+  overflow-x: hidden;
+  -webkit-flex-basis: 21px;
+  -ms-flex-basis: 21px;
+  flex-basis: 21px;
+  -webkit-flex-grow: 0;
+  -ms-flex-grow: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-shrink: 0;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.jVAKAe > .FlowItem__Content-bZFRMT {
+  height: 53px;
+  -webkit-flex-grow: 0;
+  -ms-flex-grow: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-shrink: 0;
+  flex-shrink: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.jVAKAe > .FlowItem__Content-bZFRMT > * {
+  margin: auto;
+}
+
+.jVAKAe > .FlowItem__Content-bZFRMT > *:not(:last-child):not(:only-child) {
+  margin-right: 30px;
+}
+
+.jVAKAe > .FlowItem__FlexibleContent-kAxlQq {
+  height: auto;
+  -webkit-flex-basis: 53px;
+  -ms-flex-basis: 53px;
+  flex-basis: 53px;
+  -webkit-flex-grow: 1;
+  -ms-flex-grow: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-shrink: 0;
+  flex-shrink: 0;
+}
+
+.jVAKAe > .HelpText__HelpText-cZQOvv {
+  min-height: 18px;
+  margin: 0;
+  margin-top: 5.6px;
+  -webkit-flex-basis: 18px;
+  -ms-flex-basis: 18px;
+  flex-basis: 18px;
+  -webkit-flex-grow: 1;
+  -ms-flex-grow: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-shrink: 0;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.jVAKAe > .FlowItem__MoreContent-eNWnOb {
+  -webkit-flex: 1 0 0;
+  -ms-flex: 1 0 0;
+  flex: 1 0 0;
+}
+
+.gdcnMF {
+  font-size: 1em;
+  -webkit-letter-spacing: 0.02em;
+  -moz-letter-spacing: 0.02em;
+  -ms-letter-spacing: 0.02em;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  font-family: "Overpass", Raleway, "Open Sans", arial, sans-serif;
+  padding-bottom: 0.4em;
+  color: #666;
+  background: transparent;
+  opacity: 1;
+  display: block;
+  line-height: 1.5em;
+}
+
+<Flow__Flow
+  __styled-components__={[Function]}
+>
+  <div
+    className="Flow__Flow-leoEqO cPiMim"
+  >
+    <FlowRow
+      alignment="stretch"
+      sizes={Array []}
+    >
+      <FlowRow__Styles
+        alignment="stretch"
+        sizes={Array []}
+        suppressLabels={true}
+      >
+        <FlowRow__BaseStyles
+          alignment="stretch"
+          className="FlowRow__Styles-iRxcTN YEuSm"
+          sizes={Array []}
+          suppressLabels={true}
+        >
+          <div
+            className="FlowRow__Styles-iRxcTN YEuSm FlowRow__BaseStyles-jBvvfh gbwVLv"
+            sizes={Array []}
+          >
+            <FlowItem
+              alignment="stretch"
+              className={null}
+              error={false}
+              flexibleContent={false}
+              helpText={null}
+              id={null}
+              label={null}
+              moreContent={null}
+            >
+              <FlowItem__Container
+                alignment="stretch"
+                className={null}
+                id={null}
+              >
+                <div
+                  className="FlowItem__Container-krUYur jVAKAe"
+                  id={null}
+                >
+                  <Label__Label
+                    className={null}
+                    disabled={false}
+                    id={null}
+                  >
+                    <label
+                      className="Label__Label-jsURsk gdcnMF"
+                      disabled={false}
+                      id={null}
+                    />
+                  </Label__Label>
+                  <FlowItem__Content>
+                    <div
+                      className="FlowItem__Content-bZFRMT cwqVhq"
+                    />
+                  </FlowItem__Content>
+                </div>
+              </FlowItem__Container>
+            </FlowItem>
+            <FlowItem
+              alignment="stretch"
+              className={null}
+              error={false}
+              flexibleContent={false}
+              helpText={null}
+              id={null}
+              label={null}
+              moreContent={null}
+            >
+              <FlowItem__Container
+                alignment="stretch"
+                className={null}
+                id={null}
+              >
+                <div
+                  className="FlowItem__Container-krUYur jVAKAe"
+                  id={null}
+                >
+                  <Label__Label
+                    className={null}
+                    disabled={false}
+                    id={null}
+                  >
+                    <label
+                      className="Label__Label-jsURsk gdcnMF"
+                      disabled={false}
+                      id={null}
+                    />
+                  </Label__Label>
+                  <FlowItem__Content>
+                    <div
+                      className="FlowItem__Content-bZFRMT cwqVhq"
+                    />
+                  </FlowItem__Content>
+                </div>
+              </FlowItem__Container>
+            </FlowItem>
+          </div>
+        </FlowRow__BaseStyles>
+      </FlowRow__Styles>
+    </FlowRow>
+    <FlowRow
+      alignment="stretch"
+      sizes={Array []}
+    >
+      <FlowRow__Styles
+        alignment="stretch"
+        sizes={Array []}
+        suppressLabels={true}
+      >
+        <FlowRow__BaseStyles
+          alignment="stretch"
+          className="FlowRow__Styles-iRxcTN YEuSm"
+          sizes={Array []}
+          suppressLabels={true}
+        >
+          <div
+            className="FlowRow__Styles-iRxcTN YEuSm FlowRow__BaseStyles-jBvvfh gbwVLv"
+            sizes={Array []}
+          >
+            <FlowItem
+              alignment="stretch"
+              className={null}
+              error={false}
+              flexibleContent={false}
+              helpText={null}
+              id={null}
+              label={null}
+              moreContent={null}
+            >
+              <FlowItem__Container
+                alignment="stretch"
+                className={null}
+                id={null}
+              >
+                <div
+                  className="FlowItem__Container-krUYur jVAKAe"
+                  id={null}
+                >
+                  <Label__Label
+                    className={null}
+                    disabled={false}
+                    id={null}
+                  >
+                    <label
+                      className="Label__Label-jsURsk gdcnMF"
+                      disabled={false}
+                      id={null}
+                    />
+                  </Label__Label>
+                  <FlowItem__Content>
+                    <div
+                      className="FlowItem__Content-bZFRMT cwqVhq"
+                    />
+                  </FlowItem__Content>
+                </div>
+              </FlowItem__Container>
+            </FlowItem>
+            <FlowItem
+              alignment="stretch"
+              className={null}
+              error={false}
+              flexibleContent={false}
+              helpText={null}
+              id={null}
+              label={null}
+              moreContent={null}
+            >
+              <FlowItem__Container
+                alignment="stretch"
+                className={null}
+                id={null}
+              >
+                <div
+                  className="FlowItem__Container-krUYur jVAKAe"
+                  id={null}
+                >
+                  <Label__Label
+                    className={null}
+                    disabled={false}
+                    id={null}
+                  >
+                    <label
+                      className="Label__Label-jsURsk gdcnMF"
+                      disabled={false}
+                      id={null}
+                    />
+                  </Label__Label>
+                  <FlowItem__Content>
+                    <div
+                      className="FlowItem__Content-bZFRMT cwqVhq"
+                    />
+                  </FlowItem__Content>
+                </div>
+              </FlowItem__Container>
+            </FlowItem>
+          </div>
+        </FlowRow__BaseStyles>
+      </FlowRow__Styles>
+    </FlowRow>
+  </div>
+</Flow__Flow>
+`;
