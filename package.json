@@ -8,7 +8,7 @@
     "watch:run": "babel --watch --copy-files --out-dir dist src",
     "watch": "run-s watch:*",
     "build:clean": "rimraf dist",
-    "build:cleanDocs": "rimraf docs",
+    "build:cleanDocs": "rimraf docs/components",
     "build:indices": "node tools/generateIndices.js",
     "build:dist": "babel --copy-files --out-dir dist src",
     "build:docs": "node tools/generateDocs.js",
