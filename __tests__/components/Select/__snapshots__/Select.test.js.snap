@@ -60,12 +60,19 @@ exports[`the Select component styling with string options 1`] = `
   value="bar"
 >
   <Select__Styles
+    className={null}
+    disabled={false}
+    id={null}
     onChange={[Function]}
+    required={false}
     value="bar"
   >
     <select
       className="Select__Styles-hCutyD cVhWj"
+      disabled={false}
+      id={null}
       onChange={[Function]}
+      required={false}
       value="bar"
     >
       <option

@@ -61,23 +61,44 @@ class Select extends React.Component {
      * Adds an id to the element.
      */
     id: PropTypes.string,
-
+    /**
+     * Indicates whether the user can interact with this field.
+     */
     disabled: PropTypes.bool,
-
+    /**
+     * Indicates whether this field is required for form submission.
+     */
     required: PropTypes.bool,
-
+    /**
+     * Text to show if none is selected
+     */
     noneText: PropTypes.string,
-
+    /**
+     * Can the user select 'none'? (Defaults true)
+     */
     allowNone: PropTypes.bool,
-
+    /**
+     * A list of selection options. Can be complex objects.
+     */
     options: PropTypes.array.isRequired,
-
+    /**
+     * A function which takes an option and renders text for the select. Has
+     * a sane default.
+     */
     renderOption: PropTypes.func,
-
+    /**
+     * A function which takes an option and computes a single string value to
+     * represent it. Has a sane default.
+     */
     selectOptionValue: PropTypes.func,
-
+    /**
+     * The currently selected value.
+     */
     value: PropTypes.string,
-
+    /**
+     * Handler for change events on the select. It will be called with the new value
+     * computed from selectOptionValue.
+     */
     onChange: PropTypes.func,
   };
 
@@ -134,8 +155,16 @@ class Select extends React.Component {
   };
 
   render() {
+    const { value, disabled, required, id, className } = this.props;
     return (
-      <Styles onChange={this.handleChange} value={this.props.value}>
+      <Styles
+        onChange={this.handleChange}
+        value={value}
+        disabled={disabled}
+        required={required}
+        id={id}
+        className={className}
+      >
         {this.renderOptions()}
       </Styles>
     );
