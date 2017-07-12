@@ -77,18 +77,6 @@ class SelectField extends React.Component {
     callout: null,
   };
 
-  renderOptions = () => {
-    const { options, renderOption, selectOptionKey, allowNone, noneText } = this.props;
-    const opts = options.map((option) => (
-      <option key={selectOptionKey(option)}>{renderOption(option)}</option>
-    ));
-    if (allowNone) {
-      opts.unshift(<option key="None">{noneText}</option>);
-    }
-
-    return opts;
-  };
-
   render() {
     const {
       label,
@@ -101,6 +89,10 @@ class SelectField extends React.Component {
       callout,
       id,
       className,
+      computeValue,
+      selectOptionKey,
+      options,
+      allowNone,
     } = this.props;
     return (
       <FieldWrapper
@@ -112,14 +104,17 @@ class SelectField extends React.Component {
       >
         <Select
           {...input}
-          value={input.value ? renderOption(input.value) : noneText}
           disabled={disabled}
           required={required}
           id={id}
           className={className}
-        >
-          {this.renderOptions()}
-        </Select>
+          renderOption={renderOption}
+          selectOptionKey={selectOptionKey}
+          computeValue={computeValue}
+          options={options}
+          allowNone={allowNone}
+          noneText={noneText}
+        />
       </FieldWrapper>
     );
   }

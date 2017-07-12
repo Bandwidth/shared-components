@@ -1,4 +1,10 @@
-## v1 migration
+## v1.1.0 migration
+
+`v1.1.0` brings the Flow system, which streamlines the way we lay out and annotate individual inputs, fields, and other UI components. Flow replaces the old Form- and Field-based layout solution with its confusing FieldGroup and FlexField options.
+
+Wherever you used to rely on Form to layout Field components, you should migrate to use `Flow`, `Flow.Row`, `Flow.Item`, and `Flow.field`.
+
+## v1.0.0 migration
 
 ### `/components` directory has been flattened into individual components and many directories have been reshuffled.
 

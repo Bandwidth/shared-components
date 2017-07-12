@@ -4,7 +4,7 @@ import {
   FlowItem,
   Label,
   HelpText,
-} from '../../src';
+} from '../../../src';
 
 describe('the FlowItem component', () => {
   describe('renders with no properties', () => {

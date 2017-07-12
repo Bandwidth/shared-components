@@ -2,7 +2,7 @@ import React from 'react';
 import toJSON from 'enzyme-to-json';
 import {
   Flow,
-} from '../../src';
+} from '../../../src';
 
 describe('the Flow component', () => {
   test('defines subcomponents', () => {

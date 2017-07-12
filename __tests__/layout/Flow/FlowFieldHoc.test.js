@@ -7,7 +7,7 @@ import {
   Toggle,
   Checkbox,
   TextArea,
-} from '../../src';
+} from '../../../src';
 
 describe('the Flow field HOC', () => {
   describe('wrapping a provided input', () => {

@@ -1,8 +1,12 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import _ from 'lodash';
 import arrowImage from './arrow.png';
 
-const Select = styled.select`
+const NONE_KEY = 'BW_SHARED_SELECT_NONE';
+
+const Styles = styled.select`
   padding: ${({ theme }) => theme.padding.medium};
   border: ${({ theme }) => theme.input.border};
   border-radius: 0;
@@ -37,21 +41,106 @@ const Select = styled.select`
   }
 `;
 
-Select.propTypes = {
-  /**
-   * Adds a class name to the element.
-   */
-  className: PropTypes.string,
-  /**
-   * Adds an id to the element.
-   */
-  id: PropTypes.string,
+const selectOptionPrimaryValue = (option) => {
+  if (_.isString(option)) {
+    return option;
+  }
+  if (_.isFunction(option.get)) {
+    return option.get('id');
+  }
+  return option.id || '' + option;
 };
 
-Select.defaultProps = {
-  className: null,
-  id: null,
-};
+class Select extends React.Component {
+  static propTypes = {
+    /**
+     * Adds a class name to the element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the element.
+     */
+    id: PropTypes.string,
+
+    disabled: PropTypes.bool,
+
+    required: PropTypes.bool,
+
+    noneText: PropTypes.string,
+
+    allowNone: PropTypes.bool,
+
+    options: PropTypes.array.isRequired,
+
+    renderOption: PropTypes.func,
+
+    selectOptionValue: PropTypes.func,
+
+    value: PropTypes.string,
+
+    onChange: PropTypes.func,
+  };
+
+  static defaultProps = {
+    className: null,
+    id: null,
+    disabled: false,
+    required: false,
+    noneText: 'None',
+    allowNone: true,
+    renderOption: selectOptionPrimaryValue,
+    selectOptionValue: selectOptionPrimaryValue,
+  };
+
+  handleChange = (ev) => {
+    const val = ev.target.value;
+    if (val === NONE_KEY) {
+      return this.props.onChange(null);
+    }
+
+    return this.props.onChange(val);
+  };
+
+  renderOptions = () => {
+    const {
+      options,
+      renderOption,
+      allowNone,
+      noneText,
+      selectOptionValue,
+    } = this.props;
+
+    const opts = options.map((option) => (
+      <option
+        key={selectOptionValue(option)}
+        value={selectOptionValue(option)}
+      >
+        {renderOption(option)}
+      </option>
+    ));
+
+    if (allowNone) {
+      opts.unshift(
+        <option
+          key={NONE_KEY}
+          value={NONE_KEY}
+        >
+          {noneText}
+        </option>
+      );
+    }
+
+    return opts;
+  };
+
+  render() {
+    return (
+      <Styles onChange={this.handleChange} value={this.props.value}>
+        {this.renderOptions()}
+      </Styles>
+    );
+  }
+}
 
 Select.usage = `
 A dropdown input which lets you pick from a list of provided items. Supports default input-style props:
@@ -69,5 +158,7 @@ A dropdown input which lets you pick from a list of provided items. Supports def
 <Select label="Choose:" required helpText="Make a choice!" options={['a', 'b']}>
 \`\`\`
 `;
+
+Select.Container = Styles;
 
 export default Select;

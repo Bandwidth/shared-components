@@ -7,6 +7,7 @@ import { Container as AccordionContainer } from '../../components/Accordion/Acco
 import FormColumn from './FormColumn';
 import FormText from './FormText';
 import FlexFields from './FlexFields';
+import Flow from '../Flow/Flow';
 
 // TODO: simplify field layout by wrapping all single fields in a single container element,
 // so we don't have to select on so many different types of classes here
@@ -87,6 +88,11 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
   }
   &:invalid button[type="submit"]::before {
     left: -60%;
+  }
+
+  & > ${Flow} {
+    margin: 0;
+    width: 100%;
   }
 `;
 

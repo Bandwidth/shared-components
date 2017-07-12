@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the Select component styling with string options 1`] = `
+.cVhWj {
+  padding: 15px;
+  border: 1px solid #e1e1e1;
+  border-radius: 0;
+  width: 100%;
+  color: #666;
+  font-family: "Overpass", Raleway, "Open Sans", arial, sans-serif;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.02em;
+  -moz-letter-spacing: 0.02em;
+  -ms-letter-spacing: 0.02em;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  cursor: pointer;
+  box-shadow: none;
+  background-color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  background-image: url(arrow.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 35px;
+  -webkit-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+}
+
+.cVhWj:focus {
+  box-shadow: inset 0 -5px 0 #d9f5fc;
+  border-color: 1px solid #c2c2c2;
+  outline: none;
+}
+
+.cVhWj:disabled {
+  background: #e1e1e1;
+  color: #666;
+}
+
+<Select
+  __styled-components__={[Function]}
+  allowNone={true}
+  className={null}
+  disabled={false}
+  id={null}
+  noneText="None"
+  options={
+    Array [
+      "foo",
+      "bar",
+      "baz",
+    ]
+  }
+  renderOption={[Function]}
+  required={false}
+  selectOptionValue={[Function]}
+  value="bar"
+>
+  <Select__Styles
+    onChange={[Function]}
+    value="bar"
+  >
+    <select
+      className="Select__Styles-hCutyD cVhWj"
+      onChange={[Function]}
+      value="bar"
+    >
+      <option
+        value="BW_SHARED_SELECT_NONE"
+      >
+        None
+      </option>
+      <option
+        value="foo"
+      >
+        foo
+      </option>
+      <option
+        value="bar"
+      >
+        bar
+      </option>
+      <option
+        value="baz"
+      >
+        baz
+      </option>
+    </select>
+  </Select__Styles>
+</Select>
+`;

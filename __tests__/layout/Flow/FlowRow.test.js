@@ -3,7 +3,7 @@ import toJSON from 'enzyme-to-json';
 import {
   FlowRow,
   Label,
-} from '../../src';
+} from '../../../src';
 
 describe('the FlowRow component', () => {
   test('defines subcomponents', () => {
