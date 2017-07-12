@@ -48,7 +48,7 @@ const selectOptionPrimaryValue = (option) => {
   if (_.isFunction(option.get)) {
     return option.get('id');
   }
-  return option.id || '' + option;
+  return option.id || JSON.stringify(option);
 };
 
 class Select extends React.Component {

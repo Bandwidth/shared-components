@@ -73,7 +73,7 @@ class SelectField extends React.Component {
     disabled: false,
     required: false,
     helpText: null,
-    selectOptionKey: (option) => option.key || option.id || '' + option,
+    selectOptionValue: null,
     callout: null,
   };
 
