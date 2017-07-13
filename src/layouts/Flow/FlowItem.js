@@ -72,6 +72,15 @@ const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
   }
 `;
 
+/**
+ * Flow.Item is an individual element in the Flow system. It annotates the provided
+ * content with a label, help text, and ensures correct layout with sibling elements when used properly inside
+ * a Flow.Row. Flow.Item includes some advanced props like `moreContent` and `flexibleContent` to further
+ * customize the way it looks and behaves.
+ *
+ * @class FlowItem
+ * @extends {React.Component}
+ */
 class FlowItem extends React.Component {
   static propTypes = {
     /**
@@ -174,7 +183,37 @@ class FlowItem extends React.Component {
 }
 
 FlowItem.usage = `
+Flow.Item can be used without any customization just for its layout benefits in the Flow system:
 
+\`\`\`
+<Flow.Item>
+  Foo
+</Flow.Item>
+\`\`\`
+
+You can also add standardized label and help text:
+
+\`\`\`
+<Flow.Item label="describes the item" helpText="explanation of the item">
+  Foo
+</Flow.Item>
+\`\`\`
+
+By default, a Flow.Item's content is limited to a set pixel size. You can turn this off with \`flexibleContent\`:
+
+\`\`\`
+<Flow.Item flexibleContent>
+  <div style={{ height: '1000px' }} />
+</Flow.Item>
+\`\`\`
+
+Sometimes you may want to render more stuff in an item. You can use \`moreContent\` to put any arbitrary JSX below the item's help text.
+
+\`\`\`
+<Flow.Item moreContent={(<SomeOtherStuff />)}>
+  Main Content
+</Flow.Item>
+\`\`\`
 `;
 
 FlowItem.Container = Container;

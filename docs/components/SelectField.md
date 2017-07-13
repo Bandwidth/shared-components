@@ -16,10 +16,11 @@ label|string|null|No|Adds a label above the select
 disabled|bool|false|No|Indicates whether the user can interact with this field.
 required|bool|false|No|Indicates whether this field is required for form submission.
 helpText|string|null|No|Contents of the help text below the field.
-selectOptionKey|func|(option) => option.key || option.id || '' + option|No|Generates a React component iteration key from an object.
+selectOptionKey|func||No|Generates a React component iteration key from an object.
 callout|node|null|No|Optional callout contents if the user hovers the field.
 id|string||No|Adds an id to the input element.
 className|string||No|Adds a class name to the input element.
+selectOptionValue||null|No|
 
 # SelectField
 
