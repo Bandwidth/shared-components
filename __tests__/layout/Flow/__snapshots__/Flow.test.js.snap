@@ -1,25 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the Flow component styling containing rows 1`] = `
-.cPiMim {
+.fHFrIZ {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: space-between;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
 }
 
-.cPiMim > .FlowRow__Styles-iRxcTN {
-  margin: 14px 0;
+.fHFrIZ > .FlowRow__Styles-iRxcTN {
+  -webkit-flex-basis: 100%;
+  -ms-flex-basis: 100%;
+  flex-basis: 100%;
+  -webkit-flex-shrink: 0;
+  -ms-flex-shrink: 0;
+  flex-shrink: 0;
 }
 
-.cPiMim > .FlowRow__Styles-iRxcTN:first-child {
+.fHFrIZ > .FlowItem__Container-krUYur {
+  -webkit-flex-basis: calc(50% - 15px);
+  -ms-flex-basis: calc(50% - 15px);
+  flex-basis: calc(50% - 15px);
+  -webkit-flex-grow: 0;
+  -ms-flex-grow: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-shrink: 0;
+  flex-shrink: 0;
+}
+
+.fHFrIZ > .FlowRow__Styles-iRxcTN,
+.fHFrIZ > .FlowItem__Container-krUYur {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.fHFrIZ > .FlowRow__Styles-iRxcTN:first-child,
+.fHFrIZ > .FlowItem__Container-krUYur:first-child {
   margin-top: 0;
 }
 
-.cPiMim > .FlowRow__Styles-iRxcTN:last-child: {
+.fHFrIZ > .FlowRow__Styles-iRxcTN:last-child,
+.fHFrIZ > .FlowItem__Container-krUYur:last-child {
   margin-bottom: 0;
 }
 
@@ -177,7 +209,7 @@ exports[`the Flow component styling containing rows 1`] = `
   __styled-components__={[Function]}
 >
   <div
-    className="Flow__Flow-leoEqO cPiMim"
+    className="Flow__Flow-leoEqO fHFrIZ"
   >
     <FlowRow
       alignment="stretch"

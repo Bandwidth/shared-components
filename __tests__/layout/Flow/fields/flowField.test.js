@@ -1,13 +1,12 @@
 import React from 'react';
 import {
-  FlowFieldHoc,
-  FlowItem,
+  Flow,
   Input,
   RadioGroup,
   Toggle,
   Checkbox,
   TextArea,
-} from '../../../src';
+} from '../../../../src';
 
 describe('the Flow field HOC', () => {
   describe('wrapping a provided input', () => {
@@ -18,7 +17,7 @@ describe('the Flow field HOC', () => {
     let wrapper;
 
     beforeEach(() => {
-      const Field = FlowFieldHoc(Input);
+      const Field = Flow.createField(Input);
       wrapper = mountWithTheme(<Field input={inputProps} />);
     });
 
@@ -46,12 +45,12 @@ describe('the Flow field HOC', () => {
     let wrapper;
 
     beforeEach(() => {
-      const Field = FlowFieldHoc(Input);
+      const Field = Flow.createField(Input);
       wrapper = shallowWithTheme(<Field input={inputProps} meta={metaProps} required={required} disabled={disabled} />);
     });
 
     test('assigns item props', () => {
-      expect(wrapper).toHaveProp('error', !!metaProps.error);
+      expect(wrapper).toHaveProp('error', metaProps.error);
     });
 
     test('assigns input props', () => {
@@ -70,18 +69,18 @@ describe('the Flow field HOC', () => {
   ].forEach(([Component, props]) => {
     describe(`wrapping a ${Component.displayName}`, () => {
       test('aligns to the left automatically', () => {
-        const Field = FlowFieldHoc(Component);
+        const Field = Flow.createField(Component);
         const wrapper = shallowWithTheme(<Field {...props} />);
-        expect(wrapper.find(FlowItem)).toHaveProp('alignment', 'left');
+        expect(wrapper.find(Flow.Item)).toHaveProp('alignment', 'left');
       });
     });
   });
 
   describe('wrapping a TextArea', () => {
     test('uses flexible content', () => {
-      const Field = FlowFieldHoc(TextArea);
+      const Field = Flow.createField(TextArea);
       const wrapper = shallowWithTheme(<Field input={{ value: 'foo' }} />);
-      expect(wrapper.find(FlowItem)).toHaveProp('flexibleContent', true);
+      expect(wrapper.find(Flow.Item)).toHaveProp('flexibleContent', true);
     });
   });
 });

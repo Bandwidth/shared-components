@@ -154,7 +154,7 @@ describe('the Select component', () => {
 
     test('renders options correctly', () => {
       expect(wrapper.containsAllMatchingElements(
-        options.map((option) => <option key={'' + option} value={'' + option}>{'' + option}</option>)
+        options.map((option) => <option key={JSON.stringify(option)} value={JSON.stringify(option)}>{JSON.stringify(option)}</option>)
       )).toBe(true);
     });
 

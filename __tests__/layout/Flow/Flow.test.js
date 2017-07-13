@@ -7,8 +7,9 @@ import {
 describe('the Flow component', () => {
   test('defines subcomponents', () => {
     expect(Flow.Row).toBeTruthy();
-    expect(Flow.field).toBeTruthy();
+    expect(Flow.createField).toBeTruthy();
     expect(Flow.Item).toBeTruthy();
+    expect(Flow.fields).toBeTruthy();
   });
 });
 
