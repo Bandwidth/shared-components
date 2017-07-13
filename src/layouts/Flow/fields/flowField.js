@@ -65,7 +65,7 @@ export default (FieldComponent) => class FlowField extends React.Component {
         helpText={helpText}
         moreContent={moreContent}
         flexibleContent={this.hasFlexibleContent}
-        error={!!meta.error}
+        error={meta.error}
         alignment={this.alignment}
       >
         {this.renderInput()}

@@ -5,8 +5,8 @@ import Item from './FlowItem';
 import Label from '../../components/Label';
 import { HORIZONTAL_SPACING } from './constants';
 
-const grow = (alignment) => ['left', 'right'].includes(alignment) ? 0 : 1;
-const basis = (alignment) => ['left', 'right'].includes(alignment) ? 'auto' : 0;
+const grow = (alignment) => ['left', 'right', 'center'].includes(alignment) ? 0 : 1;
+const basis = (alignment) => ['left', 'right', 'center'].includes(alignment) ? 'auto' : 0;
 
 const justification = (alignment) => {
   switch (alignment) {
@@ -14,6 +14,8 @@ const justification = (alignment) => {
       return 'space-after';
     case 'right':
       return 'space-before';
+    case 'center':
+      return 'center';
     default:
       return 'space-between';
   }
@@ -76,9 +78,9 @@ class FlowRow extends React.Component {
         ${propName} is ${JSON.stringify(props[propName])}, sizes is ${JSON.stringify(props.sizes)}`);
       }
 
-      if (!['left', 'right', 'stretch'].includes(props[propName])) {
+      if (!['left', 'right', 'stretch', 'center'].includes(props[propName])) {
         return new Error(
-          `Invalid prop ${propName} supplied to ${componentName}: must be one of [left, right, stretch].`
+          `Invalid prop ${propName} supplied to ${componentName}: must be one of [left, right, center, stretch].`
         );
       }
     }

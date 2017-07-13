@@ -142,13 +142,17 @@ class FlowItem extends React.Component {
   ;
 
   renderHelpText = () => {
-    if (_.isString(this.props.helpText)) {
-      return <HelpText error={this.props.error}>{this.props.helpText}</HelpText>;
-    } else if (this.props.helpText && this.props.helpText.props) {
-      return React.cloneElement(this.props.helpText, { error: this.props.error });
+    const { helpText, error } = this.props;
+
+    if (_.isString(helpText)) {
+      return <HelpText error={error}>{helpText}</HelpText>;
+    } else if (helpText && helpText.props) {
+      return React.cloneElement(helpText, { error: error });
+    } else if (!helpText && error) {
+      return <HelpText error>{error}</HelpText>;
     }
 
-    return this.props.helpText || null;
+    return helpText || null;
   };
 
   renderMoreContent = () => this.props.moreContent ?
