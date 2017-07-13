@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Checkbox from '../../components/Checkbox';
-import Toggle from '../../components/Toggle';
-import TextArea from '../../components/TextArea';
-import RadioGroup from '../../components/RadioGroup';
-import Label from '../../components/Label';
-import Item from './FlowItem';
+import Checkbox from '../../../components/Checkbox';
+import Toggle from '../../../components/Toggle';
+import TextArea from '../../../components/TextArea';
+import RadioGroup from '../../../components/RadioGroup';
+import Label from '../../../components/Label';
+import Item from '../FlowItem';
 
 /**
  * Creates a wrapper which renders a redux-form Field component as a FlowItem

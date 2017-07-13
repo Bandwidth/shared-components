@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import FlowRow from './FlowRow';
-import FlowFieldHoc from './FlowFieldHoc';
+import field from './fields/flowField';
+import * as fields from './fields';
 import FlowItem from './FlowItem';
 
 const VERTICAL_SPACING = 28;
@@ -23,7 +24,8 @@ const Flow = styled.div.withConfig({ displayName: 'Flow' })`
 `;
 
 Flow.Row = FlowRow;
-Flow.field = FlowFieldHoc;
+Flow.fields = fields;
+Flow.createField = field;
 Flow.Item = FlowItem;
 
 export default Flow;

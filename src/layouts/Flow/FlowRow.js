@@ -7,6 +7,7 @@ import Label from '../../components/Label';
 const HORIZONTAL_SPACING = 30;
 
 const grow = (alignment) => ['left', 'right'].includes(alignment) ? 0 : 1;
+const basis = (alignment) => ['left', 'right'].includes(alignment) ? 'auto' : 0;
 
 const justification = (alignment) => {
   switch (alignment) {
@@ -48,7 +49,7 @@ const Styles = styled(BaseStyles)`
     flex-shrink: 0;
     margin-left: ${HORIZONTAL_SPACING / 2}px;
     margin-right: ${HORIZONTAL_SPACING / 2}px;
-    flex-basis: 0;
+    flex-basis: ${({ alignment }) => basis(alignment)};
 
     &:first-child {
       margin-left: 0;
