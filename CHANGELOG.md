@@ -4,6 +4,10 @@
 
 Wherever you used to rely on Form to layout Field components, you should migrate to use `Flow`, `Flow.Row`, `Flow.Item`, and `Flow.field`.
 
+### Other Breaking Changes
+
+`Select` now has an entirely reworked API.
+
 ## v1.0.0 migration
 
 ### `/components` directory has been flattened into individual components and many directories have been reshuffled.
