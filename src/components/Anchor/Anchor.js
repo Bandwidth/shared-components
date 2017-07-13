@@ -105,7 +105,7 @@ const ReactIconAnchor = styled(ReactTextAnchor)`
   }
 `;
 
-const ReactWrapAnchor = styled(ReactTextAnchor)`
+const ReactWrapAnchor = styled(ReactLink)`
   text-decoration: none;
 `;
 
