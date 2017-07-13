@@ -31,7 +31,7 @@ const Flow = styled.div.withConfig({ displayName: 'Flow' })`
       margin-top: 0;
     }
 
-    &:last-child: {
+    &:last-child {
       margin-bottom: 0;
     }
   }
