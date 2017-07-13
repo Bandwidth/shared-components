@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
+import Loader from '../Loader';
 
 class SubmitButton extends React.Component {
   static propTypes = {

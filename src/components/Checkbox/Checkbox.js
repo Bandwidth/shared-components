@@ -120,11 +120,11 @@ class Checkbox extends React.Component {
           className={className}
           type="checkbox"
           disabled={disabled}
-          value={value}
+          checked={!!value}
           required={required}
           onChange={onChange}
         />
-        <CheckboxLabel htmlFor={id} active={value}>
+        <CheckboxLabel htmlFor={id} active={!!value}>
           {description}
         </CheckboxLabel>
       </Container>

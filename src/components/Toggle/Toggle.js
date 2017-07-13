@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import generateId from '../../extensions/generateId';
 
 const HEIGHT = '24px';
 const WIDTH = '48px';
 
 export const HiddenInput = styled.input`
-  margin: -9999px;
+  opacity: 0;
+  position: absolute;
+  z-index: -100000;
 
   &:focus + label::before {
     box-shadow: ${({ theme }) => theme.shadows.focusOutline};
@@ -18,13 +20,13 @@ const ToggleLabel = styled.label`
   cursor: pointer;
   position: relative;
   padding: ${({ theme }) => `${theme.padding.extraSmall} 0 ${theme.padding.extraSmall} ${theme.padding.extraLarge}`};
-  float: left;
   user-select: none;
   transition: all 0.2s ease;
   line-height: ${HEIGHT};
   font-family: ${({ theme }) => theme.fonts.brand};
   font-weight: 300;
   color: ${({ theme }) => theme.colors.grayMed};
+  display: inline;
 
   &::before {
     content: '';
@@ -65,13 +67,20 @@ const ToggleLabel = styled.label`
     background: ${({ theme, active }) => active ? theme.colors.primaryDark : theme.colors.white};
   }
 
-  &:disabled::before, &:disabled::after {
-    border: 2px solid ${({ theme }) => theme.colors.disabled};
-    background: ${({ theme }) => theme.colors.disabled};
+  ${({ disabled }) => disabled ?
+    css`
+      &::before, &::after {
+        border: 2px solid ${({ theme }) => theme.colors.grayDark};
+        background: ${({ theme }) => theme.colors.disabled};
+      }
+    ` : ''
   }
 `;
 
-const Container = styled.div``;
+const Container = styled.div`
+  position: relative;
+  display: block;
+`;
 
 class Toggle extends React.Component {
   static propTypes = {
@@ -125,11 +134,11 @@ class Toggle extends React.Component {
           className={className}
           type="checkbox"
           disabled={disabled}
-          value={value}
+          checked={!!value}
           required={required}
           onChange={onChange}
         />
-        <ToggleLabel htmlFor={id} active={value}>
+        <ToggleLabel htmlFor={id} active={value} disabled={disabled}>
           {description}
         </ToggleLabel>
       </Container>
