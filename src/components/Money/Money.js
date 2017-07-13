@@ -31,6 +31,7 @@ class Money extends React.Component {
     showSign: true,
     className: null,
     id: null,
+    value: 0,
   };
 
   getSign() {
