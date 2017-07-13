@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import Item from './FlowItem';
 import Label from '../../components/Label';
-
-const HORIZONTAL_SPACING = 30;
+import { HORIZONTAL_SPACING } from './constants';
 
 const grow = (alignment) => ['left', 'right'].includes(alignment) ? 0 : 1;
 const basis = (alignment) => ['left', 'right'].includes(alignment) ? 'auto' : 0;

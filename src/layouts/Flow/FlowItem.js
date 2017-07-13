@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import _ from 'lodash';
 import Label from '../../components/Label';
 import HelpText from '../../components/HelpText';
+import { HORIZONTAL_SPACING } from './constants';
 
 const Content = styled.div.withConfig({ displayName: 'FlowItemContent' })``;
 const FlexibleContent = styled.div.withConfig({ displayName: 'FlowItemContentFlexible' })``;
@@ -45,7 +46,7 @@ const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
     }
 
     & > *:not(:last-child):not(:only-child) {
-      margin-right: 30px;
+      margin-right: ${HORIZONTAL_SPACING}px;
     }
   }
 
