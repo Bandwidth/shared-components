@@ -2,11 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import icons from '../Icon/icons';
+import generateId from '../../extensions/generateId';
 
 const SIZE = '22px';
 
 export const HiddenInput = styled.input`
-  margin-left: -9999px;
+  opacity: 0;
+  position: absolute;
+  z-index: -1000000;
 
   &:focus + label::after {
     box-shadow: ${({ theme }) => theme.shadows.focusOutline};
@@ -16,16 +19,13 @@ export const HiddenInput = styled.input`
 const CheckboxLabel = styled.label`
   cursor: pointer;
   position: relative;
-  top: 50%;
   font-size: 14px;
   padding: ${({ theme }) => theme.checkbox.labelPadding};
   user-select: none;
-  float: left;
   font-size: ${({ theme }) => theme.label.fontSize};
   font-weight: ${({ theme }) => theme.label.fontWeight};
   letter-spacing: ${({ theme }) => theme.label.letterSpacing};
   color: ${({ theme }) => theme.label.fg};
-  transform: translateY(-50%);
 
   /* the check */
   &::before {
@@ -39,6 +39,7 @@ const CheckboxLabel = styled.label`
     left: calc(${SIZE} / 2);
     transform: translate(-50%, -48%);
     z-index: 1;
+    box-sizing: border-box;
   }
 
   /* the box */
@@ -54,6 +55,7 @@ const CheckboxLabel = styled.label`
     left: 0;
     transform: translateY(-50%);
     transition: all 0.2s ease;
+    box-sizing: border-box;
   }
 
   ${({ disabled, theme }) =>
@@ -66,7 +68,10 @@ const CheckboxLabel = styled.label`
   }
 `;
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: block;
+  position: relative;
+`;
 
 class Checkbox extends React.Component {
   static propTypes = {
