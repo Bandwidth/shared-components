@@ -57,9 +57,57 @@ const WrapAnchor = styled.a`
   text-decoration: none;
 `;
 
-const ReactTextAnchor = TextAnchor.withComponent(ReactLink);
-const ReactIconAnchor = IconAnchor.withComponent(ReactLink);
-const ReactWrapAnchor = WrapAnchor.withComponent(ReactLink);
+const ReactTextAnchor = styled(ReactLink)`
+  color: ${({ theme }) => theme.link.fg};
+  font-family: ${({ theme }) => theme.link.fontFamily};
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2 ease;
+  white-space: nowrap;
+  position: relative;
+  height: auto;
+  margin: auto;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    color: ${({ theme }) => theme.link.activeFG};
+  }
+
+  &::after {
+    content: "";
+    background: ${({ theme }) => theme.link.fg};
+    border-radius: ${({ theme }) => theme.link.bubbleBorderRadius};
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    bottom: -0.1em;
+    left: 0;
+    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0.15s ease 0.15s;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    height: calc(100% + 0.2em);
+    width: calc(100% + 0.6em);
+    left: -0.3em;
+    opacity: 0.125;
+    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0s ease;
+  }
+`;
+const ReactIconAnchor = styled(ReactTextAnchor)`
+  text-decoration: none;
+  display: inline-block;
+  &::after {
+    opacity: 0;
+  }
+`;
+
+const ReactWrapAnchor = styled(ReactTextAnchor)`
+  text-decoration: none;
+`;
 
 const inferType = (children) => {
   if (children === null) {
