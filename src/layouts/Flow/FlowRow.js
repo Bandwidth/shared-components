@@ -71,8 +71,9 @@ class FlowRow extends React.Component {
     children: PropTypes.node.isRequired,
     sizes: PropTypes.array,
     alignment: (props, propName, componentName) => {
-      if (props.sizes && props[propName] !== 'stretch') {
-        return new Error(`Using ${propName} with sizes is invalid in ${componentName}`);
+      if (props.sizes.length > 0 && props[propName] !== 'stretch') {
+        return new Error(`Using ${propName} with sizes is invalid in ${componentName}.
+        ${propName} is ${JSON.stringify(props[propName])}, sizes is ${JSON.stringify(props.sizes)}`);
       }
 
       if (!['left', 'right', 'stretch'].includes(props[propName])) {
