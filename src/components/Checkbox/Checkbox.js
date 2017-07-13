@@ -124,7 +124,7 @@ class Checkbox extends React.Component {
           required={required}
           onChange={onChange}
         />
-        <CheckboxLabel for={id} active={value}>
+        <CheckboxLabel htmlFor={id} active={value}>
           {description}
         </CheckboxLabel>
       </Container>

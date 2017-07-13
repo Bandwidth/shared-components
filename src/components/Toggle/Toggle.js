@@ -131,7 +131,7 @@ class Toggle extends React.Component {
           required={required}
           onChange={onChange}
         />
-        <ToggleLabel for={id} active={value}>
+        <ToggleLabel htmlFor={id} active={value}>
           {description}
         </ToggleLabel>
       </Container>
