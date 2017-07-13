@@ -17,7 +17,6 @@ export const HiddenInput = styled.input`
 const ToggleLabel = styled.label`
   cursor: pointer;
   position: relative;
-  top: 50%;
   padding: ${({ theme }) => `${theme.padding.extraSmall} 0 ${theme.padding.extraSmall} ${theme.padding.extraLarge}`};
   float: left;
   user-select: none;
@@ -25,7 +24,6 @@ const ToggleLabel = styled.label`
   line-height: ${HEIGHT};
   font-family: ${({ theme }) => theme.fonts.brand};
   font-weight: 300;
-  transform: translateY(-50%);
   color: ${({ theme }) => theme.colors.grayMed};
 
   &::before {
