@@ -7,7 +7,7 @@ Props
 
 Prop                  | Type     | Default                   | Required | Description
 --------------------- | -------- | ------------------------- | -------- | -----------
-value|union(string\|number)||Yes|The monetary value to show.
+value|union(string\|number)|0|Yes|The monetary value to show.
 showSign|bool|true|No|Whether or not to show a +/- sign before the amount (defaults true)
 className|string|null|No|Adds a class name to the element.
 id|string|null|No|Adds an id to the element.
