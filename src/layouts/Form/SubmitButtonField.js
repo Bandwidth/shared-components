@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import ButtonField from './ButtonField';
 import Loader from '../../components/Loader';
 
+/**
+ * DEPRECATED
+ *
+ * @class SubmitButtonField
+ * @extends {React.Component}
+ */
 class SubmitButtonField extends React.Component {
   static propTypes = {
     /**

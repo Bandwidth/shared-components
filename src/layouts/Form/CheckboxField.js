@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import BinaryField from './BinaryField';
 import Checkbox from '../../components/Checkbox';
 
+/**
+ * DEPRECATED
+ *
+ * @class CheckboxField
+ * @extends {React.Component}
+ */
 class CheckboxField extends React.Component {
   static propTypes = {
     /**

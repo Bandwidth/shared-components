@@ -1,6 +1,10 @@
 BinaryField
 ===========
 
+DEPRECATED
+
+@class BinaryField
+@extends {React.Component}
 
 Props
 -----

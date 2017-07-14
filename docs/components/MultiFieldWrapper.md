@@ -1,6 +1,10 @@
 MultiFieldWrapper
 =================
 
+DEPRECATED
+
+@class MultiFieldWrapper
+@extends {React.Component}
 
 Props
 -----

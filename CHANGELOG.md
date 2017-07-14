@@ -1,14 +1,26 @@
-## v1.1.0 migration
+# v1.1.0
+
+### Flow System
 
 `v1.1.0` brings the Flow system, which streamlines the way we lay out and annotate individual inputs, fields, and other UI components. Flow replaces the old Form- and Field-based layout solution with its confusing FieldGroup and FlexField options.
 
 Wherever you used to rely on Form to layout Field components, you should migrate to use `Flow`, `Flow.Row`, `Flow.Item`, and `Flow.field`.
 
+### Field deprecation
+
+`Field` components are now deprecated. `Form` is still available (it can provide some submit button features), but you should migrate from all `Field` components to `Flow.field` or raw `Flow.Item`s.
+
 ### Other Breaking Changes
 
-`Select` now has an entirely reworked API.
+`Select` now has an entirely reworked API. Now, instead of being a style wrapper around a typical HTML `<select>` element, it's a fleshed-out and powerful dropdown component. See the [docs](dev.bandwidth.com/shared-components/components/Select.html) for more information.
 
-## v1.0.0 migration
+`SelectField` has also changed its API.
+
+`Toggle` and `Checkbox` now use `description`, not `label`, to render their text label. This is to avoid conflicts with the Flow `label` prop.
+
+`Toggle` and `Checkbox` now assign the `value` prop to `checked` on the underlying `input`.
+
+# v1.0.0
 
 ### `/components` directory has been flattened into individual components and many directories have been reshuffled.
 

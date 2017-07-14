@@ -1,6 +1,10 @@
 ButtonField
 ===========
 
+DEPRECATED
+
+@class ButtonField
+@extends {React.Component}
 
 Props
 -----

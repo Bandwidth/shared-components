@@ -1,6 +1,10 @@
 CheckboxField
 =============
 
+DEPRECATED
+
+@class CheckboxField
+@extends {React.Component}
 
 Props
 -----

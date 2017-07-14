@@ -1,6 +1,10 @@
 SubmitButtonField
 =================
 
+DEPRECATED
+
+@class SubmitButtonField
+@extends {React.Component}
 
 Props
 -----

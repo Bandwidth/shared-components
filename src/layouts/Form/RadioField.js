@@ -9,6 +9,12 @@ const Container = styled.div`
   flex-direction: row;
 `;
 
+/**
+ * DEPRECATED
+ *
+ * @class RadioField
+ * @extends {React.Component}
+ */
 class RadioField extends React.Component {
   static propTypes = {
     /**

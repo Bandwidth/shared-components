@@ -1,6 +1,10 @@
 ToggleField
 ===========
 
+DEPRECATED
+
+@class ToggleField
+@extends {React.Component}
 
 Props
 -----

@@ -1,6 +1,10 @@
 SelectField
 ===========
 
+DEPRECATED
+
+@class SelectField
+@extends {React.Component}
 
 Props
 -----

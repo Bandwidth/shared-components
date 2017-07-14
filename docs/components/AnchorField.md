@@ -1,6 +1,8 @@
 AnchorField
 ===========
 
+DEPRECATED
+
 A form field which renders a link.
 
 @class AnchorField

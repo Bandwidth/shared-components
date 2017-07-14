@@ -1,6 +1,10 @@
 TextField
 =========
 
+DEPRECATED
+
+@class TextField
+@extends {React.Component}
 
 Props
 -----

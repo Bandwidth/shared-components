@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * DEPRECATED
+ *
+ * @class BinaryField
+ * @extends {React.Component}
+ */
 class BinaryField extends React.Component {
   static propTypes = {
     /**
@@ -37,6 +43,10 @@ class BinaryField extends React.Component {
     id: null,
     className: null,
   };
+
+  componentDidMount() {
+    warning(true, 'DEPRECATED: the Field system is now deprecated. Please use Flow instead. (from BinaryField)');
+  }
 
   handleClick = () => {
     this.props.input.onChange(!this.props.input.value);

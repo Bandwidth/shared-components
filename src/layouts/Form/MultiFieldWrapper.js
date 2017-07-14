@@ -17,6 +17,12 @@ export const SubFieldContainer = styled.li`
   margin: ${({ theme }) => theme.input.margin};
 `;
 
+/**
+ * DEPRECATED
+ *
+ * @class MultiFieldWrapper
+ * @extends {React.Component}
+ */
 class MultiFieldWrapper extends React.Component {
   static propTypes = {
     /**
@@ -70,6 +76,10 @@ class MultiFieldWrapper extends React.Component {
     helpText: null,
     required: false,
   };
+
+  componentDidMount() {
+    warning(true, 'DEPRECATED: the Field system is now deprecated. Please use Flow instead. (from MultiFieldWrapper)');
+  }
 
   renderSubField = (name, index, fields) => (
     <SubFieldContainer key={index}>

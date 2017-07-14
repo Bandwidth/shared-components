@@ -1,6 +1,10 @@
 RadioField
 ==========
 
+DEPRECATED
+
+@class RadioField
+@extends {React.Component}
 
 Props
 -----

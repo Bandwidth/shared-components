@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Label from '../../components/Label';
 import HelpText from '../../components/HelpText';
 import Callout from '../../components/Callout';
+import warning from 'warning';
 
 export const Container = styled.div`
   display: flex;
@@ -67,6 +68,10 @@ class FieldWrapper extends React.Component {
     callout: null,
     error: null,
   };
+
+  componentDidMount() {
+    warning(true, 'DEPRECATED: the Field system is now deprecated. Please use Flow instead. (from FieldWrapper)');
+  }
 
   renderChildren() {
     const { children, callout } = this.props;

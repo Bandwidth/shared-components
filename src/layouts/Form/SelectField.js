@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import FieldWrapper from './FieldWrapper';
 import Select from '../../components/Select';
 
+/**
+ * DEPRECATED
+ *
+ * @class SelectField
+ * @extends {React.Component}
+ */
 class SelectField extends React.Component {
   static propTypes = {
     /**

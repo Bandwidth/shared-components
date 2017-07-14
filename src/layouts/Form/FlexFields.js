@@ -2,6 +2,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import parseFlex from '../../extensions/parseFlex';
 
+/**
+ * DEPRECATED
+ */
 const FlexFields = styled.div`
   display: flex;
   flex-direction: row;

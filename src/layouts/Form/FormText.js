@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+/**
+ * DEPRECATED
+ */
 const FormText = styled.div.withConfig({ displayName: 'FormText' })`
   font-family: ${({ theme }) => theme.form.fontFamily};
   color: ${({ theme }) => theme.form.fg};
