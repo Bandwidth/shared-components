@@ -16,7 +16,7 @@ class RadioGroup extends React.Component {
     /**
      * An array of choice objects or strings to create buttons from.
      */
-    choices: PropTypes.oneOfType([
+    options: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.string),
       PropTypes.objectOf(PropTypes.node),
     ]).isRequired,
@@ -48,6 +48,13 @@ class RadioGroup extends React.Component {
      * Adds an id to the group container element.
      */
     id: PropTypes.string,
+    /**
+     * Deprecated: see options
+     */
+    choices: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.string),
+      PropTypes.objectOf(PropTypes.node),
+    ]),
   };
 
   static defaultProps = {
@@ -55,12 +62,16 @@ class RadioGroup extends React.Component {
     required: false,
     className: null,
     id: null,
+    choices: null,
   };
 
-  choicesToButtons = () => {
-    const { choices, value, onChange, disabled, required } = this.props;
-    if (choices instanceof Array) {
-      return choices.map((choice) => (
+  getOptions = () => this.props.options || this.props.choices;
+
+  optionsToButtons = () => {
+    const { value, onChange, disabled, required } = this.props;
+    const options = this.getOptions();
+    if (options instanceof Array) {
+      return options.map((choice) => (
         <RadioButton
           checked={choice === value}
           name={name}
@@ -72,9 +83,9 @@ class RadioGroup extends React.Component {
           onChange={() => onChange(choice)}
         />
       ));
-    } else if (typeof choices === 'object') {
-      return Object.keys(choices).map((key) => {
-        const choice = choices[key];
+    } else if (typeof options === 'object') {
+      return Object.keys(options).map((key) => {
+        const choice = options[key];
 
         return (
           <RadioButton
@@ -91,7 +102,7 @@ class RadioGroup extends React.Component {
         );
       });
     } else {
-      return 'invalid choices';
+      return 'invalid options';
     }
   };
 
@@ -99,7 +110,7 @@ class RadioGroup extends React.Component {
     const { className, id } = this.props;
     return (
       <Container className={className} id={id}>
-        {this.choicesToButtons()}
+        {this.optionsToButtons()}
       </Container>
     );
   }
