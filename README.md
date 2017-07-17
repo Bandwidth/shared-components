@@ -45,6 +45,8 @@ import { Button } from 'shared-components';
 
 # The Flow Layout System
 
+![Flow example](http://dev.bandwidth.com/shared-components/images/flow/formRecipe.png)
+
 Built into the library is a layout system which is designed to easily create experiences according to Bandwidth's design guidelines. You can read more in the [Flow docs](http://dev.bandwidth.com/shared-components/components/Flow.html)
 
 # Additional Components
