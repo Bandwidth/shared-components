@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import FieldWrapper from './FieldWrapper';
 import Select from '../../components/Select';
 
+/**
+ * DEPRECATED
+ *
+ * @class SelectField
+ * @extends {React.Component}
+ */
 class SelectField extends React.Component {
   static propTypes = {
     /**
@@ -73,20 +79,8 @@ class SelectField extends React.Component {
     disabled: false,
     required: false,
     helpText: null,
-    selectOptionKey: (option) => option.key || option.id || '' + option,
+    selectOptionValue: null,
     callout: null,
-  };
-
-  renderOptions = () => {
-    const { options, renderOption, selectOptionKey, allowNone, noneText } = this.props;
-    const opts = options.map((option) => (
-      <option key={selectOptionKey(option)}>{renderOption(option)}</option>
-    ));
-    if (allowNone) {
-      opts.unshift(<option key="None">{noneText}</option>);
-    }
-
-    return opts;
   };
 
   render() {
@@ -101,6 +95,10 @@ class SelectField extends React.Component {
       callout,
       id,
       className,
+      computeValue,
+      selectOptionKey,
+      options,
+      allowNone,
     } = this.props;
     return (
       <FieldWrapper
@@ -112,14 +110,17 @@ class SelectField extends React.Component {
       >
         <Select
           {...input}
-          value={input.value ? renderOption(input.value) : noneText}
           disabled={disabled}
           required={required}
           id={id}
           className={className}
-        >
-          {this.renderOptions()}
-        </Select>
+          renderOption={renderOption}
+          selectOptionKey={selectOptionKey}
+          computeValue={computeValue}
+          options={options}
+          allowNone={allowNone}
+          noneText={noneText}
+        />
       </FieldWrapper>
     );
   }

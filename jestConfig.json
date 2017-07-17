@@ -1,0 +1,21 @@
+{
+  "automock": false,
+  "coverageDirectory": "./__coverage__",
+  "collectCoverageFrom": [
+    "src/behaviors/**/*.js",
+    "src/components/**/*.js",
+    "src/extensions/**/*.js",
+    "src/layouts/**/*.js"
+  ],
+  "setupTestFrameworkScriptFile": "./__tests__/__testExtensions__/index.js",
+  "testRegex": "./__tests__/.*\\.test\\.jsx?$",
+  "transform": {
+	  "\\.(js|jsx)$": "babel-jest",
+	  "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./__tests__/__mocks__/fileTransformer.js",
+	  "\\.(css|scss)$": "identity-obj-proxy"
+	},
+  "modulePaths": [
+    "./src",
+    "./node_modules"
+  ]
+}

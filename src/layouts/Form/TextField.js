@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import TextInput from '../../components/Input';
 import FieldWrapper from './FieldWrapper';
 
+/**
+ * DEPRECATED
+ *
+ * @class TextField
+ * @extends {React.Component}
+ */
 class TextField extends React.Component {
   static propTypes = {
     /**

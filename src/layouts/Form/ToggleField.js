@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import Toggle from '../../components/Toggle/Toggle';
 import BinaryField from './BinaryField';
 
+/**
+ * DEPRECATED
+ *
+ * @class ToggleField
+ * @extends {React.Component}
+ */
 class ToggleField extends React.Component {
   static propTypes = {
     /**
@@ -38,7 +44,7 @@ class ToggleField extends React.Component {
 
   render() {
     return (
-      <BinaryField {...this.props} Input={Toggle.Input} Label={Toggle} />
+      <BinaryField {...this.props} Input={Toggle} />
     );
   }
 }

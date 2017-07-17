@@ -1,30 +1,32 @@
+import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import generateId from '../../extensions/generateId';
 
 const HEIGHT = '24px';
 const WIDTH = '48px';
 
 export const HiddenInput = styled.input`
-  margin: -9999px;
+  opacity: 0;
+  position: absolute;
+  z-index: -100000;
 
   &:focus + label::before {
     box-shadow: ${({ theme }) => theme.shadows.focusOutline};
   }
 `;
 
-const Toggle = styled.label`
+const ToggleLabel = styled.label`
   cursor: pointer;
   position: relative;
-  top: 50%;
   padding: ${({ theme }) => `${theme.padding.extraSmall} 0 ${theme.padding.extraSmall} ${theme.padding.extraLarge}`};
-  float: left;
   user-select: none;
   transition: all 0.2s ease;
   line-height: ${HEIGHT};
   font-family: ${({ theme }) => theme.fonts.brand};
   font-weight: 300;
-  transform: translateY(-50%);
   color: ${({ theme }) => theme.colors.grayMed};
+  display: inline;
 
   &::before {
     content: '';
@@ -65,40 +67,94 @@ const Toggle = styled.label`
     background: ${({ theme, active }) => active ? theme.colors.primaryDark : theme.colors.white};
   }
 
-  &:disabled::before, &:disabled::after {
-    border: 2px solid ${({ theme }) => theme.colors.disabled};
-    background: ${({ theme }) => theme.colors.disabled};
+  ${({ disabled }) => disabled ?
+    css`
+      &::before, &::after {
+        border: 2px solid ${({ theme }) => theme.colors.grayDark};
+        background: ${({ theme }) => theme.colors.disabled};
+      }
+    ` : ''
   }
 `;
 
-Toggle.propTypes = {
-  /**
-   * Adds a class name to the element.
-   */
-  className: PropTypes.string,
-  /**
-   * Adds an id to the element.
-   */
-  id: PropTypes.string,
-};
+const Container = styled.div`
+  position: relative;
+  display: block;
+`;
 
-Toggle.defaultProps = {
-  className: null,
-  id: null,
-};
+class Toggle extends React.Component {
+  static propTypes = {
+    /**
+     * Adds a class name to the input element.
+     */
+    className: PropTypes.string,
+    /**
+     * Adds an id to the input element.
+     */
+    id: PropTypes.string,
+    /**
+     * The value of the toggle.
+     */
+    value: PropTypes.bool,
+    /**
+     * Whether the toggle is required for form submission.
+     */
+    required: PropTypes.bool,
+    /**
+     * Whether the user is prevented from interacting with the toggle.
+     */
+    disabled: PropTypes.bool,
+    /**
+     * A description to display next to the toggle.
+     */
+    description: PropTypes.node,
+    /**
+     * Callback for the onChange event of the input.
+     */
+    onChange: PropTypes.func,
+  };
+
+  static defaultProps = {
+    className: null,
+    id: null,
+    value: false,
+    required: false,
+    disabled: false,
+    description: null,
+    onChange: () => null,
+  };
+
+  render() {
+    const { className, disabled, value, required, description, onChange } = this.props;
+    const id = this.props.id || generateId('toggle');
+    return (
+      <Container>
+        <HiddenInput
+          id={id}
+          className={className}
+          type="checkbox"
+          disabled={disabled}
+          checked={!!value}
+          required={required}
+          onChange={onChange}
+        />
+        <ToggleLabel htmlFor={id} active={value} disabled={disabled}>
+          {description}
+        </ToggleLabel>
+      </Container>
+    );
+  }
+}
 
 Toggle.usage = `
-A simple toggle input. The default export is the label to use.
-
-Also exports \`HiddenInput\`, which is the actual <input> element.
-
-It's probably easier to use \`fields/ToggleField\`, which assembles these for you.
+A simple toggle input.
 
 \`\`\`
-<HiddenInput value={true} id="a" />
-<Toggle for="a" />
+<Toggle value={false} label="Foo" />
 \`\`\`
 `;
 
 Toggle.Input = HiddenInput;
+Toggle.Label = ToggleLabel;
+Toggle.Container = Container;
 export default Toggle;

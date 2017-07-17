@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import Button from '../../components/Button';
 import FieldWrapper from './FieldWrapper';
 
+/**
+ * DEPRECATED
+ *
+ * @class ButtonField
+ * @extends {React.Component}
+ */
 class ButtonField extends React.Component {
   static propTypes = {
     /**

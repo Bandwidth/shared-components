@@ -51,6 +51,10 @@ class FileField extends React.Component {
     className: null,
   };
 
+  componentDidMount() {
+    warning(true, 'DEPRECATED: the Field system is now deprecated. Please use Flow instead. (from FileField)');
+  }
+
   render() {
     const { label, helpText, required, disabled, input, callout, id, className } = this.props;
     return (

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { Container as FieldWrapperContainer } from './FieldWrapper';
 
 /**
- * DEPRECATED: prefer FlexFields
+ * DEPRECATED
  */
 const ActionFields = styled.div`
   display: flex;

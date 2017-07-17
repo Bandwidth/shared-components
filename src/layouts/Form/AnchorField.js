@@ -4,6 +4,8 @@ import Anchor from '../../components/Anchor';
 import FieldWrapper from './FieldWrapper';
 
 /**
+ * DEPRECATED
+ *
  * A form field which renders a link.
  *
  * @class AnchorField

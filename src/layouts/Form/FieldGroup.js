@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 /**
+ * DEPRECATED
+ *
  * A set of form fields which is grouped in a row
  *
  * You can supply `spacing` as a prop. Spacing can be an int (flex size) or an array of ints (flex size per item)
