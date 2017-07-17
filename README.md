@@ -43,6 +43,10 @@ With this alias, you could just type:
 import { Button } from 'shared-components';
 ```
 
+# The Flow Layout System
+
+Built into the library is a layout system which is designed to easily create experiences according to Bandwidth's design guidelines. You can read more in the [Flow docs](http://dev.bandwidth.com/shared-components/components/Flow.html)
+
 # Additional Components
 
 Besides the components listed in our design system, this library contains a few extras:
