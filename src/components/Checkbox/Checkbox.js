@@ -86,7 +86,7 @@ class Checkbox extends React.Component {
     /**
      * The value of the checkbox.
      */
-    value: PropTypes.bool,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     /**
      * Whether the checkbox is required for form submission.
      */

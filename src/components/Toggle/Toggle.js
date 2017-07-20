@@ -95,7 +95,7 @@ class Toggle extends React.Component {
     /**
      * The value of the toggle.
      */
-    value: PropTypes.bool,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     /**
      * Whether the toggle is required for form submission.
      */
