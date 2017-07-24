@@ -292,15 +292,15 @@ exports[`the FlowRow component styling with 3 items 1`] = `
 `;
 
 exports[`the FlowRow component styling with alignment left 1`] = `
-.dTfAOE {
-  -webkit-box-pack: space-after;
-  -webkit-justify-content: space-after;
-  -ms-flex-pack: space-after;
-  justify-content: space-after;
+.cBjuKi {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
 }
 
-.dTfAOE > .FlowItem__Container-krUYur,
-.dTfAOE > .FlowRow__BaseStyles-jBvvfh {
+.cBjuKi > .FlowItem__Container-krUYur,
+.cBjuKi > .FlowRow__BaseStyles-jBvvfh {
   -webkit-flex-grow: 0;
   -ms-flex-grow: 0;
   flex-grow: 0;
@@ -314,17 +314,17 @@ exports[`the FlowRow component styling with alignment left 1`] = `
   flex-basis: auto;
 }
 
-.dTfAOE > .FlowItem__Container-krUYur:first-child,
-.dTfAOE > .FlowRow__BaseStyles-jBvvfh:first-child {
+.cBjuKi > .FlowItem__Container-krUYur:first-child,
+.cBjuKi > .FlowRow__BaseStyles-jBvvfh:first-child {
   margin-left: 0;
 }
 
-.dTfAOE > .FlowItem__Container-krUYur:last-child,
-.dTfAOE > .FlowRow__BaseStyles-jBvvfh:last-child {
+.cBjuKi > .FlowItem__Container-krUYur:last-child,
+.cBjuKi > .FlowRow__BaseStyles-jBvvfh:last-child {
   margin-right: 0;
 }
 
-.dTfAOE .Label__Label-jsURsk {
+.cBjuKi .Label__Label-jsURsk {
   display: none;
 }
 
@@ -454,12 +454,12 @@ exports[`the FlowRow component styling with alignment left 1`] = `
   >
     <FlowRow__BaseStyles
       alignment="left"
-      className="FlowRow__Styles-iRxcTN dTfAOE"
+      className="FlowRow__Styles-iRxcTN cBjuKi"
       sizes={Array []}
       suppressLabels={true}
     >
       <div
-        className="FlowRow__Styles-iRxcTN dTfAOE FlowRow__BaseStyles-jBvvfh gbwVLv"
+        className="FlowRow__Styles-iRxcTN cBjuKi FlowRow__BaseStyles-jBvvfh gbwVLv"
         sizes={Array []}
       >
         <FlowItem
@@ -545,15 +545,15 @@ exports[`the FlowRow component styling with alignment left 1`] = `
 `;
 
 exports[`the FlowRow component styling with alignment right 1`] = `
-.jgIrrt {
-  -webkit-box-pack: space-before;
-  -webkit-justify-content: space-before;
-  -ms-flex-pack: space-before;
-  justify-content: space-before;
+.kgzfCq {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
-.jgIrrt > .FlowItem__Container-krUYur,
-.jgIrrt > .FlowRow__BaseStyles-jBvvfh {
+.kgzfCq > .FlowItem__Container-krUYur,
+.kgzfCq > .FlowRow__BaseStyles-jBvvfh {
   -webkit-flex-grow: 0;
   -ms-flex-grow: 0;
   flex-grow: 0;
@@ -567,17 +567,17 @@ exports[`the FlowRow component styling with alignment right 1`] = `
   flex-basis: auto;
 }
 
-.jgIrrt > .FlowItem__Container-krUYur:first-child,
-.jgIrrt > .FlowRow__BaseStyles-jBvvfh:first-child {
+.kgzfCq > .FlowItem__Container-krUYur:first-child,
+.kgzfCq > .FlowRow__BaseStyles-jBvvfh:first-child {
   margin-left: 0;
 }
 
-.jgIrrt > .FlowItem__Container-krUYur:last-child,
-.jgIrrt > .FlowRow__BaseStyles-jBvvfh:last-child {
+.kgzfCq > .FlowItem__Container-krUYur:last-child,
+.kgzfCq > .FlowRow__BaseStyles-jBvvfh:last-child {
   margin-right: 0;
 }
 
-.jgIrrt .Label__Label-jsURsk {
+.kgzfCq .Label__Label-jsURsk {
   display: none;
 }
 
@@ -707,12 +707,12 @@ exports[`the FlowRow component styling with alignment right 1`] = `
   >
     <FlowRow__BaseStyles
       alignment="right"
-      className="FlowRow__Styles-iRxcTN jgIrrt"
+      className="FlowRow__Styles-iRxcTN kgzfCq"
       sizes={Array []}
       suppressLabels={true}
     >
       <div
-        className="FlowRow__Styles-iRxcTN jgIrrt FlowRow__BaseStyles-jBvvfh gbwVLv"
+        className="FlowRow__Styles-iRxcTN kgzfCq FlowRow__BaseStyles-jBvvfh gbwVLv"
         sizes={Array []}
       >
         <FlowItem
