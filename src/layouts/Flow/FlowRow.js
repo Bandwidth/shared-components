@@ -11,9 +11,9 @@ const basis = (alignment) => ['left', 'right', 'center'].includes(alignment) ? '
 const justification = (alignment) => {
   switch (alignment) {
     case 'left':
-      return 'space-after';
+      return 'flex-start';
     case 'right':
-      return 'space-before';
+      return 'flex-end';
     case 'center':
       return 'center';
     default:

@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/inetCatapult/bandwidth-shared-components.git"
+    "url": "git+https://github.com/Bandwidth/shared-components.git"
   },
   "author": "Grant <gaforres@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/inetCatapult/bandwidth-shared-components/issues"
+    "url": "https://github.com/Bandwidth/shared-components/issues"
   },
-  "homepage": "https://github.com/inetCatapult/bandwidth-shared-components#readme",
+  "homepage": "https://github.com/Bandwidth/shared-components#readme",
   "dependencies": {
     "animation-timer": "^1.0.12",
     "change-case": "^3.0.1",
