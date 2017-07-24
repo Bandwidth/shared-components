@@ -3,42 +3,53 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { sentence } from 'change-case';
 import Icon from '../Icon';
+import Anchor from '../Anchor';
 
 const TH = styled.th`
   background: ${({ theme }) => theme.table.headerBG};
   text-transform: uppercase;
-  color: ${({ theme }) => theme.table.headerFG};
+  color: ${({ theme }) => theme.colors.white};
   font-weight: ${({ theme }) => theme.table.headerFontWeight};
   font-family: ${({ theme }) => theme.table.headerFontFamily};
   padding: ${({ theme }) => theme.table.headerPadding};
   text-align: left;
 
   cursor: ${({ sortable }) => sortable ? 'pointer' : 'default' };
+
+  &>a {
+    color: inherit;
+  }
+  &>a:focus {
+    color: inherit;
+  }
+  &>a::after {
+    background: ${({ theme }) => theme.colors.white};
+  }
 `;
 
 const ColumnName = styled.span`
   display: inline;
-  text-decoration: ${({ sortable }) => sortable ? 'underline' : 'none'};
 `;
 
 const SortArrows = styled.span`
   margin-left: 8px;
+  white-space: nowrap;
 
-  &>span {
-    color: ${({ theme }) => theme.table.sortArrowFG};
+  &>a {
+    color: ${({ theme }) => theme.colors.grayLightText};
   }
-
-  &>span::after {
-    color: inherit;
-    display: inline;
-    padding: 0;
+  &>a:focus {
+    color: ${({ theme }) => theme.colors.white};
+  }
+  &>a::after {
+    background: ${({ theme }) => theme.colors.grayLightText};
   }
 
   ${({ theme, sortOrder }) => {
     if (sortOrder > 0) {
-      return css`&>span:first-child { color: ${theme.table.sortArrowActiveFG}; }`;
+      return css`&>*:first-child { color: ${theme.colors.white}; }`;
     } else if (sortOrder < 0) {
-      return css`&>span:last-child { color: ${theme.table.sortArrowActiveFG}; }`;
+      return css`&>*:last-child { color: ${theme.colors.white}; }`;
     }
   }}
 `;
@@ -50,9 +61,13 @@ export default class Header extends React.Component {
      */
     children: PropTypes.node.isRequired,
     /**
-     * Called when the user clicks the header cell.
+     * [Deprecated] use onClick
      */
     handleClick: PropTypes.func,
+    /**
+     * Called when the user clicks the header cell.
+     */
+    onClick: PropTypes.func,
     /**
      * Specifies the sorting order of this column. [-1, 0, 1] for descending, none, or ascending.
      */
@@ -75,25 +90,39 @@ export default class Header extends React.Component {
     sortable: false,
     sortOrder: 0,
     handleClick: () => null,
+    onClick: () => null,
     className: null,
     id: null,
   };
 
+  createClickHandler = (naturalOrder) => () =>
+    this.props.onClick ? this.props.onClick(naturalOrder) :
+    this.props.handleClick(naturalOrder);
+
+  renderColumnName = () => {
+    const { sortable, children } = this.props;
+    if (sortable) {
+      return (
+        <Anchor type="text" onClick={this.createClickHandler(0)}>
+          <ColumnName sortable>{children}</ColumnName>
+        </Anchor>
+      );
+    }
+
+    return <ColumnName>{children}</ColumnName>;
+  }
+
   render() {
-    const { sortable, sortOrder, children, handleClick, id, className } = this.props;
+    const { sortable, sortOrder, handleClick, onClick, id, className } = this.props;
 
     return (
-      <TH onClick={handleClick} sortable={sortable} className={className} id={id}>
-        <ColumnName sortable={sortable}>{children}</ColumnName>
-        {
-          sortable ?
-          (
-            <SortArrows sortOrder={sortOrder}>
-              <Icon name="up" />
-              <Icon name="down" />
-            </SortArrows>
-          ) :
-          null
+      <TH sortable={sortable} className={className} id={id}>
+        {this.renderColumnName()}
+        {sortable &&
+          <SortArrows sortOrder={sortOrder}>
+            <Anchor type="icon" onClick={this.createClickHandler(1)}><Icon name="down" /></Anchor>
+            <Anchor type="icon" onClick={this.createClickHandler(-1)}><Icon name="up" /></Anchor>
+          </SortArrows>
         }
       </TH>
     );

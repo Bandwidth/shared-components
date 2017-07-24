@@ -44,7 +44,7 @@ export const TextAnchor = styled.a`
   }
 `;
 
-const IconAnchor = styled(TextAnchor)`
+export const IconAnchor = styled(TextAnchor)`
   text-decoration: none;
   display: inline-block;
   &::after {
@@ -53,11 +53,11 @@ const IconAnchor = styled(TextAnchor)`
 `;
 
 // notice: this goes back to ReactLink, not TextAnchor as above
-const WrapAnchor = styled.a`
+export const WrapAnchor = styled.a`
   text-decoration: none;
 `;
 
-const ReactTextAnchor = styled(ReactLink)`
+export const ReactTextAnchor = styled(ReactLink)`
   color: ${({ theme }) => theme.link.fg};
   font-family: ${({ theme }) => theme.link.fontFamily};
   text-decoration: none;
@@ -97,7 +97,7 @@ const ReactTextAnchor = styled(ReactLink)`
     transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0s ease;
   }
 `;
-const ReactIconAnchor = styled(ReactTextAnchor)`
+export const ReactIconAnchor = styled(ReactTextAnchor)`
   text-decoration: none;
   display: inline-block;
   &::after {
@@ -105,7 +105,7 @@ const ReactIconAnchor = styled(ReactTextAnchor)`
   }
 `;
 
-const ReactWrapAnchor = styled(ReactLink)`
+export const ReactWrapAnchor = styled(ReactLink)`
   text-decoration: none;
 `;
 

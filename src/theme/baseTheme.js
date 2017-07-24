@@ -136,7 +136,7 @@ export default {
   },
 
   helpText: {
-    fg: '#7f8897',
+    fg: colors.grayLightText,
     fontWeight: 300,
     fontFamily: fonts.brand,
   },

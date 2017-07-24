@@ -3,18 +3,20 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TR = styled.tr`
-  &:nth-child(odd) {
-    background: ${({ theme }) => theme.colors.white};
+  &:nth-of-type(odd) {
+    background: transparent;
   }
-  &:nth-child(even) {
+  &:nth-of-type(even) {
     background: rgba(0, 0, 0, 0.05);
   }
 
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
 
-  &:last-of-type {
-    border-bottom: none;
+  &:first-of-type {
+    border-top: none;
   }
+
+  ${({ clickable }) => clickable ? 'cursor: pointer;' : ''}
 `;
 
 export default class Row extends React.Component {
@@ -24,10 +26,6 @@ export default class Row extends React.Component {
      */
     children: PropTypes.node.isRequired,
     /**
-     * [PENDING DEPRECATION] renders the row as semitransparent.
-     */
-    loading: PropTypes.bool,
-    /**
      * Adds a class name to the element.
      */
     className: PropTypes.string,
@@ -35,20 +33,31 @@ export default class Row extends React.Component {
      * Adds an id to the element.
      */
     id: PropTypes.string,
+    /**
+     * Handler that is called whenever the row is clicked.
+     */
+    onClick: PropTypes.func,
   };
 
   static defaultProps = {
     index: 0,
-    loading: false,
     className: null,
     id: null,
+    onClick: () => null,
   };
 
   render() {
-    const { loading, id, className, children } = this.props;
+    const { id, className, children, onClick } = this.props;
 
     return (
-      <TR style={{ opacity: loading ? '0.5' : '1' }} id={id} className={className}>{children}</TR>
+      <TR
+        id={id}
+        className={className}
+        onClick={onClick}
+        clickable={!!onClick}
+      >
+        {children}
+      </TR>
     );
   }
 }
