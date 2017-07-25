@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import _ from 'lodash';
 
 const WrapStyles = styled.div`
   width: 100%;
@@ -45,9 +46,13 @@ class Wrap extends React.Component {
   updateAndSubscribeWrapShadowChanges = () => {
     this.setWrapShadow(this.computeWrapShadow());
 
-    this._wrap.addEventListener('scroll', () => {
+    this._wrap.addEventListener('scroll', _.debounce(() => {
       this.setWrapShadow(this.computeWrapShadow());
-    });
+    }, 300, { leading: true }));
+
+    window.addEventListener('resize', _.debounce(() =>{
+      this.setWrapShadow(this.computeWrapShadow());
+    }, 300, { leading: true }));
   }
 
   setWrapShadow = (shadow) => {

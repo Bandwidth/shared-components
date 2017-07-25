@@ -13,6 +13,7 @@ const TH = styled.th`
   font-family: ${({ theme }) => theme.table.headerFontFamily};
   padding: ${({ theme }) => theme.table.headerPadding};
   text-align: left;
+  white-space: nowrap;
 
   cursor: ${({ sortable }) => sortable ? 'pointer' : 'default' };
 
