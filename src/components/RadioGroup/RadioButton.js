@@ -31,7 +31,7 @@ const Input = styled.input`
   border: none;
 
   &:focus + label {
-    box-shadow: ${({ theme }) => theme.shadows.focusOutline};
+    border-color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
