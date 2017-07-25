@@ -16,9 +16,37 @@ export default (FieldComponent) => class FlowField extends React.Component {
     ...Item.propTypes,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
-    input: PropTypes.object.isRequired,
+    options: PropTypes.array,
+    choices: PropTypes.array,
+    description: PropTypes.string,
+    type: PropTypes.string,
+    input: PropTypes.shape({
+      checked: PropTypes.bool,
+      name: PropTypes.string,
+      onBlur: PropTypes.func,
+      onChange: PropTypes.func,
+      onDragStart: PropTypes.func,
+      onDrop: PropTypes.func,
+      onFocus: PropTypes.func,
+      value: PropTypes.any,
+    }).isRequired,
     meta: PropTypes.shape({
       error: PropTypes.string,
+      active: PropTypes.bool,
+      autofilled: PropTypes.bool,
+      asyncValidating: PropTypes.bool,
+      dirty: PropTypes.bool,
+      dispatch: PropTypes.func,
+      form: PropTypes.string,
+      initial: PropTypes.any,
+      invalid: PropTypes.bool,
+      pristine: PropTypes.bool,
+      submitting: PropTypes.bool,
+      submitFailed: PropTypes.bool,
+      touched: PropTypes.bool,
+      valid: PropTypes.bool,
+      visited: PropTypes.bool,
+      warning: PropTypes.string,
     }),
   };
 
@@ -27,6 +55,10 @@ export default (FieldComponent) => class FlowField extends React.Component {
     meta: {},
     required: false,
     disabled: false,
+    options: null,
+    choices: null,
+    description: null,
+    type: null,
   };
 
   hasFlexibleContent = FieldComponent === TextArea;
@@ -44,13 +76,31 @@ export default (FieldComponent) => class FlowField extends React.Component {
    * Renders the input component with desired passed props.
    */
   renderInput = () => {
-    const { input, meta } = this.props;
+    const {
+      input,
+      meta,
+      required,
+      disabled,
+      id,
+      className,
+      options,
+      choices,
+      description,
+      type,
+    } = this.props;
 
     const passedProps = {
-      ...this.props,
       ...input,
       ...meta,
       error: !!meta.error,
+      required,
+      disabled,
+      id,
+      className,
+      options,
+      choices,
+      description,
+      type,
     };
 
     return <FieldComponent {...passedProps} />;

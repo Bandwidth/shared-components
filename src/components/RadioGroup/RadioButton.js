@@ -23,7 +23,16 @@ const Container = styled.div`
 `;
 
 const Input = styled.input`
-  display: none;
+  display: block;
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  &:focus + label {
+    box-shadow: ${({ theme }) => theme.shadows.focusOutline};
+  }
 `;
 
 const Label = styled.label`
@@ -57,7 +66,11 @@ const Label = styled.label`
 
   &:hover::after {
     height: 5px;
-    opacity: 0.5;
+    opacity: ${({ active }) => active ? 1 : 0.5};
+  }
+
+  &:hover {
+    border-color: ${({ active, theme }) => active ? theme.colors.borderLight : theme.colors.primary};
   }
 `;
 

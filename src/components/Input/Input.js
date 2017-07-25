@@ -63,6 +63,10 @@ class Input extends React.Component {
      */
     onBlur: PropTypes.func,
     /**
+     * Handler for the onfocus event.
+     */
+    onFocus: PropTypes.func,
+    /**
      * Controls whether the user can change this element.
      */
     disabled: PropTypes.bool,
@@ -99,6 +103,7 @@ class Input extends React.Component {
     type: 'text',
     onChange: () => null,
     onBlur: () => null,
+    onFocus: () => null,
     className: null,
     invalid: false,
     error: false,
@@ -117,16 +122,33 @@ class Input extends React.Component {
   };
 
   render() {
-    const { disabled, id, className, invalid } = this.props;
+    const {
+      disabled,
+      id,
+      className,
+      invalid,
+      onFocus,
+      onChange,
+      value,
+      required,
+      type,
+      error,
+    } = this.props;
     const { visited } = this.state;
     return (
       <StyledInput
-        {...this.props}
         onBlur={this.onBlur}
+        onFocus={onFocus}
         visited={visited}
         id={id}
         className={className}
         invalid={invalid}
+        onChange={onChange}
+        value={value}
+        required={required}
+        type={type}
+        error={error}
+        disabled={disabled}
       />
     );
   }
