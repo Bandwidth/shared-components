@@ -2,31 +2,41 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import Loader from '../Loader';
+
 import Cell from './TableCell';
 import Header from './TableHeader';
 import Row from './TableRow';
 import Controls from './TableControls';
-
-const Wrap = styled.div`
-  width: 100%;
-  background: ${({ theme }) => theme.table.bg};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.table.borderRadius};
-  overflow-x: auto;
-  position: relative;
-  font-size: ${({ theme }) => theme.table.fontSize};
-`;
+import Simple from './SimpleTable';
+import RowDetails from './TableRowDetails';
+import Wrap from './TableWrap';
 
 const BaseTable = styled.table`
   min-width: 100%;
+  border-collapse: collapse;
 `;
 
 const THead = styled.thead`
-  background: ${({ theme }) => theme.table.bg};
+  background: transparent;
 `;
 
 const TBody = styled.tbody`
-  background: ${({ theme }) => theme.table.bg};
+  background: transparent;
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 40px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+
+  & > div {
+    margin: auto;
+  }
 `;
 
 class Table extends React.Component {
@@ -38,9 +48,9 @@ class Table extends React.Component {
     /**
      * Render headers for the columns with this property.
      */
-    headers: PropTypes.node.isRequired,
+    headers: PropTypes.node,
     /**
-     * [PENDING DEPRECATION] renders the rows as slightly transparent.
+     * Renders a loading spinner over the table body.
      */
     loading: PropTypes.bool,
     /**
@@ -57,20 +67,29 @@ class Table extends React.Component {
     loading: false,
     className: null,
     id: null,
+    headers: null,
   };
 
   render() {
     const { children, headers, loading, className, id } = this.props;
     return (
       <Wrap>
-        <BaseTable cellPadding={0} cellSpacing={0} className={className} id={id}>
+        <BaseTable
+          cellPadding={0}
+          cellSpacing={0}
+          className={className}
+          id={id}
+        >
           <THead>
             {headers}
           </THead>
-          <TBody style={{ opacity: loading ? '0.5' : '1' }}>
+          <TBody>
             {children}
           </TBody>
         </BaseTable>
+        {loading &&
+          <Overlay><Loader /></Overlay>
+        }
       </Wrap>
     );
   }
@@ -80,6 +99,9 @@ Table.Row = Row;
 Table.Header = Header;
 Table.Cell = Cell;
 Table.Controls = Controls;
+Table.Simple = Simple;
+Table.RowDetails = RowDetails;
+Table.Wrap = Wrap;
 
 Table.usage = `
 Renders a table, using the \`children\` and \`headers\` props to define the various table parts. Also accepts \`loading\` to show a loading state.

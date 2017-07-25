@@ -87,6 +87,8 @@
 
 [Summary](./Summary.md)
 
+[SimpleTable](./SimpleTable.md)
+
 [Table](./Table.md)
 
 [TableCell](./TableCell.md)
@@ -96,6 +98,10 @@
 [TableHeader](./TableHeader.md)
 
 [TableRow](./TableRow.md)
+
+[TableRowDetails](./TableRowDetails.md)
+
+[TableWrap](./TableWrap.md)
 
 [TextArea](./TextArea.md)
 
