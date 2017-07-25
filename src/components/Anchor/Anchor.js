@@ -157,6 +157,10 @@ class Anchor extends React.Component {
      * An id to pass to the <a> element.
      */
     id: PropTypes.string,
+    /**
+     * Opens the link in a new tab.
+     */
+    newTab: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -167,6 +171,7 @@ class Anchor extends React.Component {
     type: null,
     className: null,
     id: null,
+    newTab: false,
   };
 
   getComponentType = () => {
@@ -206,6 +211,23 @@ class Anchor extends React.Component {
     ));
   };
 
+  // provides extra properties based on certain factors to the underlying element
+  extraProps = () => {
+    const { to, newTab } = this.props;
+    const newTabProps = newTab ? { rel: 'noopener', target: '_blank' } : {};
+    if (isExternal(to)) {
+      return {
+        href: to,
+        ...newTabProps,
+      };
+    } else {
+      return {
+        to,
+        ...newTabProps,
+      };
+    }
+  };
+
   render() {
     const { to, exact, children, className, id } = this.props;
     const Component = this.getComponentType();
@@ -215,7 +237,12 @@ class Anchor extends React.Component {
         path={to}
         exact={exact}
         children={({ match }) => (
-          <Component to={to} href={to} onClick={this.handleClick} className={className} id={id}>
+          <Component
+            {...this.extraProps()}
+            onClick={this.handleClick}
+            className={className}
+            id={id}
+          >
             {this.childrenWithProps({ active: !!match })}
           </Component>
         )}

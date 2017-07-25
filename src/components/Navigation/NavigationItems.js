@@ -34,12 +34,19 @@ export const linksPropType = PropTypes.arrayOf(PropTypes.shape({
   onClick: PropTypes.func,
   content: PropTypes.node.isRequired,
   exact: PropTypes.bool,
+  newTab: PropTypes.bool,
 }));
 
 const NavigationItems = ({ links, className, id }) => (
   <Container id={id} className={className}>
     {links.map((link) => (
-      <Anchor key={`${link.content}_${link.to}`} to={link.to} onClick={link.onClick} exact={link.exact}>
+      <Anchor
+        key={`${link.content}_${link.to}`}
+        to={link.to}
+        onClick={link.onClick}
+        exact={link.exact}
+        newTab={link.newTab}
+      >
         <NavigationItem>{link.content}</NavigationItem>
       </Anchor>
     ))}
