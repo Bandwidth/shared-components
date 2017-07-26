@@ -87,6 +87,10 @@ class SimpleTable extends React.Component {
       null;
 
   createRowClickHandler = (item) => () => {
+    if (!this.props.renderDetails) {
+      return;
+    }
+
     if (this.state.detailsItem === item) {
       this.setState({ detailsItem: null });
     } else {
@@ -121,7 +125,7 @@ class SimpleTable extends React.Component {
 
   renderRowDetails = () => {
     const itemIdx = this.indexOfDetailsItem();
-    if (!this.state.detailsItem || itemIdx === -1) {
+    if (!this.props.renderDetails || !this.state.detailsItem || itemIdx === -1) {
       return null;
     }
 
