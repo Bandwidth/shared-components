@@ -15,7 +15,7 @@ renderRow|func|(item) => (
 )|No|Renders a Table.Row that represents a particular item. Row must include an onClick prop for details to work.
 (item) => <Row />
 renderDetails|func|null|No|Renders the detail view of any item when that item is selected.
-columns|arrayOf[object Object]|null|No|An array of column descriptions. Column name should correspond to a key in the data items.
+columns|arrayOf[object Object]|null|No|An array of column descriptions. Column name should correspond to a key in the data items. displayName is what is actually rendered (defaults to name).
 onSortChanged|func|() => null|No|Called when the user changes the sort state of a column. Column name and sort order are passed as params.
 (columnName, sortOrder) => void
 loading|bool|false|No|Indicates whether the table should render a loading state.
