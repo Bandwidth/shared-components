@@ -3,13 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TR = styled.tr`
-  &:nth-of-type(odd) {
-    background: transparent;
-  }
-  &:nth-of-type(even) {
-    background: rgba(0, 0, 0, 0.05);
-  }
-
   border-top: 1px solid ${({ theme }) => theme.colors.border};
 
   &:first-of-type {

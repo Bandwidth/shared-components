@@ -32,7 +32,7 @@ class SimpleTable extends React.Component {
      */
     columns: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string.isRequired,
-      displayName: PropTypes.string.isRequired,
+      displayName: PropTypes.string,
       sortable: PropTypes.bool,
     })),
     /**
@@ -63,7 +63,14 @@ class SimpleTable extends React.Component {
     detailsItem: null,
   };
 
-  blankSortOrders = () => this.props.columns.reduce((orders, { name }) => ({ ...orders, [name]: 0 }), {});
+  blankSortOrders = () => this.props.columns.reduce(
+    (orders, { name }) => ({ ...orders, [name]: 0 }),
+    {}
+  );
+
+  indexOfDetailsItem = () => this.props.items.findIndex(
+    (item) => item === this.state.detailsItem
+  );
 
   createHeaderClickHandler = (headerName) =>
     this.props.onSortChanged ?
@@ -96,20 +103,61 @@ class SimpleTable extends React.Component {
     );
   };
 
-  renderRows = () => {
+  renderUpperSection = () => {
     const { items, renderRow } = this.props;
-    return items.reduce((elements, item) => {
-      const rendered = React.cloneElement(renderRow(item), { onClick: this.createRowClickHandler(item) });
-      if (item === this.state.detailsItem) {
-        return [
-          ...elements,
-          rendered,
-          this.renderDetails(item),
-        ];
-      }
-      return [...elements, rendered];
-    }, []);
+    const detailsItemIndex = this.indexOfDetailsItem();
+    return (
+      <Table.Body>
+        {
+          items.slice(0, detailsItemIndex >= 0 ? detailsItemIndex + 1 : undefined)
+            .map((item) => React.cloneElement(renderRow(item), {
+              onClick: this.createRowClickHandler(item),
+              key: JSON.stringify(item),
+            }))
+        }
+      </Table.Body>
+    );
   };
+
+  renderRowDetails = () => {
+    const itemIdx = this.indexOfDetailsItem();
+    if (!this.state.detailsItem || itemIdx === -1) {
+      return null;
+    }
+
+    return (
+      <Table.RowDetails rowIndex={itemIdx}>
+        {this.props.renderDetails(this.state.detailsItem)}
+      </Table.RowDetails>
+    );
+  };
+
+  renderLowerSection = () => {
+    const { items, renderRow } = this.props;
+    const itemIdx = this.indexOfDetailsItem();
+    // if details item is not present, the upper section contains all rows already
+    if (itemIdx === -1) {
+      return null;
+    }
+
+    return (
+      <Table.Body startIndex={itemIdx + 1}>
+        {
+          items.slice(itemIdx + 1)
+            .map((item) => React.cloneElement(renderRow(item), {
+              onClick: this.createRowClickHandler(item),
+              key: JSON.stringify(item),
+            }))
+        }
+      </Table.Body>
+    );
+  };
+
+  renderRows = () => ([
+    this.renderUpperSection(),
+    this.renderRowDetails(),
+    this.renderLowerSection()
+  ]);
 
   renderColumnHeaders = () => {
     const { columns, onSortChanged } = this.props;
@@ -136,7 +184,7 @@ class SimpleTable extends React.Component {
 
   render() {
     return (
-      <Table headers={this.renderColumnHeaders()} loading={this.props.loading}>
+      <Table headers={this.renderColumnHeaders()} loading={this.props.loading} wrapBody={false}>
         {this.renderRows()}
       </Table>
     );

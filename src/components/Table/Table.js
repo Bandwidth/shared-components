@@ -11,18 +11,15 @@ import Controls from './TableControls';
 import Simple from './SimpleTable';
 import RowDetails from './TableRowDetails';
 import Wrap from './TableWrap';
+import TBody from './TBody';
 
 const BaseTable = styled.table`
   min-width: 100%;
   border-collapse: collapse;
-`;
 
-const THead = styled.thead`
-  background: transparent;
-`;
-
-const TBody = styled.tbody`
-  background: transparent;
+  & > tbody, & > thead {
+    background: transparent;
+  }
 `;
 
 const Overlay = styled.div`
@@ -61,6 +58,10 @@ class Table extends React.Component {
      * Adds an id to the table element.
      */
     id: PropTypes.string,
+    /**
+     * Whether to wrap the passed children in a <Table.Body>. Defaults true.
+     */
+    wrapBody: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -68,10 +69,11 @@ class Table extends React.Component {
     className: null,
     id: null,
     headers: null,
+    wrapBody: true,
   };
 
   render() {
-    const { children, headers, loading, className, id } = this.props;
+    const { children, headers, loading, className, id, wrapBody } = this.props;
     return (
       <Wrap>
         <BaseTable
@@ -80,12 +82,15 @@ class Table extends React.Component {
           className={className}
           id={id}
         >
-          <THead>
+          <thead>
             {headers}
-          </THead>
-          <TBody>
-            {children}
-          </TBody>
+          </thead>
+          {wrapBody?
+            <TBody>
+              {children}
+            </TBody> :
+            children
+          }
         </BaseTable>
         {loading &&
           <Overlay><Loader /></Overlay>
@@ -102,6 +107,7 @@ Table.Controls = Controls;
 Table.Simple = Simple;
 Table.RowDetails = RowDetails;
 Table.Wrap = Wrap;
+Table.Body = TBody;
 
 Table.usage = `
 Renders a table, using the \`children\` and \`headers\` props to define the various table parts. Also accepts \`loading\` to show a loading state.
