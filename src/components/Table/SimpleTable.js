@@ -28,10 +28,11 @@ class SimpleTable extends React.Component {
      */
     renderDetails: PropTypes.func,
     /**
-     * An array of column descriptions. Column name should correspond to a key in the data items.
+     * An array of column descriptions. Column name should correspond to a key in the data items. displayName is what is actually rendered (defaults to name).
      */
     columns: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string.isRequired,
+      displayName: PropTypes.string.isRequired,
       sortable: PropTypes.bool,
     })),
     /**
@@ -126,7 +127,7 @@ class SimpleTable extends React.Component {
             sortable={column.sortable}
             sortOrder={sortOrders[column.name]}
           >
-            {column.name}
+            {column.displayName || column.name}
           </Table.Header>
         ))}
       </Table.Row>
