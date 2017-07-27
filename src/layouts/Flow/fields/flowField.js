@@ -48,6 +48,7 @@ export default (FieldComponent) => class FlowField extends React.Component {
       visited: PropTypes.bool,
       warning: PropTypes.string,
     }),
+    extraProps: PropTypes.object,
   };
 
   static defaultProps = {
@@ -59,6 +60,7 @@ export default (FieldComponent) => class FlowField extends React.Component {
     choices: null,
     description: null,
     type: null,
+    extraProps: {},
   };
 
   hasFlexibleContent = FieldComponent === TextArea;
@@ -87,9 +89,11 @@ export default (FieldComponent) => class FlowField extends React.Component {
       choices,
       description,
       type,
+      extraProps,
     } = this.props;
 
     const passedProps = {
+      ...extraProps,
       ...input,
       ...meta,
       error: !!meta.error,
