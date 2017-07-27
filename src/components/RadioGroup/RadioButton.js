@@ -40,7 +40,7 @@ const Input = styled.input`
 `;
 
 const Label = styled.label`
-  opacity: ${({ active }) => active ? 1 : 0.5};
+  opacity: ${({ active }) => (active ? 1 : 0.5)};
   border: ${({ theme }) => theme.radioButton.border};
   margin-right: -1px;
   padding: ${({ theme }) => theme.radioButton.padding};
@@ -60,7 +60,7 @@ const Label = styled.label`
     content: "";
     background: ${({ theme }) => theme.radioButton.accent};
     width: calc(100% + 2px);
-    height: ${({ active }) => active ? '5px' : 0};
+    height: ${({ active }) => (active ? '5px' : 0)};
     position: absolute;
     bottom: -1px;
     left: -1px;
@@ -70,11 +70,12 @@ const Label = styled.label`
 
   &:hover::after {
     height: 5px;
-    opacity: ${({ active }) => active ? 1 : 0.5};
+    opacity: ${({ active }) => (active ? 1 : 0.5)};
   }
 
   &:hover {
-    border-color: ${({ active, theme }) => active ? theme.colors.borderLight : theme.colors.primary};
+    border-color: ${({ active, theme }) =>
+      active ? theme.colors.borderLight : theme.colors.primary};
   }
 `;
 
@@ -134,7 +135,15 @@ export class RadioButton extends React.Component {
   };
 
   render() {
-    const { checked, label, name, value, onChange, content, className } = this.props;
+    const {
+      checked,
+      label,
+      name,
+      value,
+      onChange,
+      content,
+      className,
+    } = this.props;
     const id = this.props.id || `radio-${name}>${value}`;
 
     return (
@@ -149,8 +158,14 @@ export class RadioButton extends React.Component {
           className={className}
         />
         <Label htmlFor={id} active={checked}>
-          {content !== null ? <Content active={checked}>{content}</Content> : null}
-          <LabelText>{label}</LabelText>
+          {content !== null
+            ? <Content active={checked}>
+                {content}
+              </Content>
+            : null}
+          <LabelText>
+            {label}
+          </LabelText>
         </Label>
       </Container>
     );

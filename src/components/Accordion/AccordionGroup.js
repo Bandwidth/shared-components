@@ -47,13 +47,13 @@ export class AccordionGroup extends React.Component {
     // current state is open, it will close
     if (!isAlreadyExpanded) {
       this.setState({ expandedKey: key });
-    // close already open accordion
+      // close already open accordion
     } else {
       this.setState({ expandedKey: null });
     }
   };
 
-  renderAccordion = (accordion) => {
+  renderAccordion = accordion => {
     const { expandedKey } = this.state;
     if (!accordion.key) {
       throw new Error('All AccordionGroup accordion children must have a key');
@@ -67,7 +67,7 @@ export class AccordionGroup extends React.Component {
   renderAccordions = () => {
     const { children } = this.props;
     return React.Children.map(children, this.renderAccordion);
-  }
+  };
 
   render() {
     const { className, id } = this.props;

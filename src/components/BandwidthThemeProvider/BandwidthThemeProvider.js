@@ -4,7 +4,6 @@ import { ThemeProvider } from 'styled-components';
 import theme from '../../theme';
 import '../../bootstrap'; // sets base CSS
 
-
 const BandwidthThemeProvider = ({ children }) => (
   <ThemeProvider theme={theme}>
     {React.Children.only(children)}

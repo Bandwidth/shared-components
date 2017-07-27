@@ -72,7 +72,7 @@ export class RadioGroup extends React.Component {
     const { value, onChange, disabled, required } = this.props;
     const options = this.getOptions();
     if (options instanceof Array) {
-      return options.map((choice) => (
+      return options.map(choice =>
         <RadioButton
           checked={choice === value}
           name={name}
@@ -82,10 +82,10 @@ export class RadioGroup extends React.Component {
           disabled={disabled}
           required={required}
           onChange={() => onChange(choice)}
-        />
-      ));
+        />,
+      );
     } else if (typeof options === 'object') {
-      return Object.keys(options).map((key) => {
+      return Object.keys(options).map(key => {
         const choice = options[key];
 
         return (

@@ -24,7 +24,7 @@ const TableRowDetailContainer = styled.tr`
 const TableRowDetailsStyles = styled.td`
   border-top: 1px solid ${({ theme }) => theme.colors.border};
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  box-shadow: inset 5px 0 0 rgba(0,0,0,.12);
+  box-shadow: inset 5px 0 0 rgba(0, 0, 0, .12);
 `;
 
 export const TableRowDetails = ({ children, rowIndex = 0 }) => (

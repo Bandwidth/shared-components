@@ -87,7 +87,7 @@ export class Modal extends React.Component {
     actionContent: null,
   };
 
-  handleModalClicked = (event) => {
+  handleModalClicked = event => {
     // prevents click event bubbling to blocker and triggering blockerclicked callback
     event.stopPropagation();
   };

@@ -9,13 +9,13 @@ const NavigationItemImpl = styled.div.withConfig({ displayName: 'NavigationItem'
   transition: all 0.2s ease;
   position: relative;
   cursor: pointer;
-  color: ${({ theme, active }) => active ? theme.tab.activeFG : theme.tab.fg};
+  color: ${({ theme, active }) => (active ? theme.tab.activeFG : theme.tab.fg)};
 
   &::before {
     content: "";
     background: ${({ theme }) => theme.tab.accent};
     width: 104%;
-    height: ${({ active }) => active ? '5px' : 0};
+    height: ${({ active }) => (active ? '5px' : 0)};
     display: block;
     position: absolute;
     bottom: ${({ theme }) => theme.tab.accentBarBottom};

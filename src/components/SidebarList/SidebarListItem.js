@@ -5,11 +5,15 @@ import sharedComponent from '../../sharedComponent';
 import NewBadge from '../NewBadge';
 
 const ListItemContainer = styled.li`
-  background: ${({ active, theme }) => active ? theme.colors.gutter : theme.colors.white};
-  color: ${({ active, theme }) => active ? theme.colors.primary : theme.colors.black};
+  background: ${({ active, theme }) =>
+    active ? theme.colors.gutter : theme.colors.white};
+  color: ${({ active, theme }) =>
+    active ? theme.colors.primary : theme.colors.black};
   padding: ${({ theme }) => `${theme.padding.medium} ${theme.padding.large}`};
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
-  border-right: 1px solid ${({ theme, active }) => active ? theme.colors.gutter : theme.colors.borderLight};
+  border-right: 1px solid
+    ${({ theme, active }) =>
+      active ? theme.colors.gutter : theme.colors.borderLight};
   position: relative;
   overflow-x: visible;
 `;
@@ -64,8 +68,13 @@ export class SidebarListItem extends React.Component {
 
     return (
       <ListItemContainer active={active} className={className} id={id}>
-        <ListLabel>{isNew ? <NewBadge /> : null}{label}</ListLabel>
-        <ListDetails>{details}</ListDetails>
+        <ListLabel>
+          {isNew ? <NewBadge /> : null}
+          {label}
+        </ListLabel>
+        <ListDetails>
+          {details}
+        </ListDetails>
       </ListItemContainer>
     );
   }

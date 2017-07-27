@@ -28,8 +28,9 @@ const Item = styled.li`
   border-right: none;
   user-select: none;
 
-  ${({ active, theme }) => active ?
-    `
+  ${({ active, theme }) =>
+    active
+      ? `
       background: ${theme.colors.primary};
       border-color: ${theme.colors.primary};
       color: ${theme.colors.white};
@@ -37,15 +38,12 @@ const Item = styled.li`
       & + li {
         border-left-color: ${theme.colors.primary};
       }
-    ` :
     `
+      : `
       &:hover {
         background: ${theme.colors.primaryLight};
       }
-    `
-  }
-
-  &:active {
+    `} &:active {
     background: ${({ theme }) => theme.colors.lightGray};
   }
 
@@ -98,7 +96,7 @@ export class Pagination extends React.Component {
     id: null,
   };
 
-  createItemClickHandler = (index) => () => this.props.onPageSelected(index);
+  createItemClickHandler = index => () => this.props.onPageSelected(index);
 
   handlePreviousClick = () => {
     const { onPageSelected, currentPage } = this.props;
@@ -118,44 +116,39 @@ export class Pagination extends React.Component {
   };
 
   renderPrevious = () =>
-    this.props.currentPage > 0 ?
-      (
-        <Item
-          onClick={this.handlePreviousClick}
-        >
+    this.props.currentPage > 0
+      ? <Item onClick={this.handlePreviousClick}>
           <Icon name="back" />
         </Item>
-      ) : <ItemPlaceholder />;
-
+      : <ItemPlaceholder />;
 
   renderNext = () =>
-    this.props.currentPage < this.props.pageCount - 1 ?
-      (
-        <Item
-          onClick={this.handleNextClick}
-        >
+    this.props.currentPage < this.props.pageCount - 1
+      ? <Item onClick={this.handleNextClick}>
           <Icon name="forward" />
         </Item>
-      ) : <ItemPlaceholder />;
+      : <ItemPlaceholder />;
 
   renderItems = () => {
     const { pageCount, currentPage } = this.props;
     const start = Math.max(0, Math.min(currentPage + 5, pageCount) - 10);
     const end = Math.min(start + 10, pageCount);
-    return new Array(pageCount)
-      .fill(null)
-      // creates an array of incrementing numbers
-      .map((_, index) => index)
-      .slice(start, end)
-      .map((pageNumber) => (
-        <Item
-          key={pageNumber}
-          onClick={this.createItemClickHandler(pageNumber)}
-          active={pageNumber === currentPage}
-        >
-          {pageNumber + 1}
-        </Item>
-      ));
+    return (
+      new Array(pageCount)
+        .fill(null)
+        // creates an array of incrementing numbers
+        .map((_, index) => index)
+        .slice(start, end)
+        .map(pageNumber =>
+          <Item
+            key={pageNumber}
+            onClick={this.createItemClickHandler(pageNumber)}
+            active={pageNumber === currentPage}
+          >
+            {pageNumber + 1}
+          </Item>,
+        )
+    );
   };
 
   render() {

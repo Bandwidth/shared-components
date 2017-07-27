@@ -64,14 +64,18 @@ export class SubmitButton extends React.Component {
     const { pristine, loading, children, pristineContents } = this.props;
 
     if (pristine) {
-      return <span>{pristineContents}</span>;
+      return (
+        <span>
+          {pristineContents}
+        </span>
+      );
     }
     if (loading) {
-      return <Loader size="1em" />
+      return <Loader size="1em" />;
     }
 
     return children;
-  }
+  };
 
   render() {
     const { pristine, loading, disabled, leftIcon, rightIcon, id, className, onClick } = this.props;
@@ -87,10 +91,8 @@ export class SubmitButton extends React.Component {
       >
         {this.renderContents()}
       </Button>
-    )
+    );
   }
 }
 
-export default sharedComponent(`
-
-`)(SubmitButton);
+export default sharedComponent()(SubmitButton);

@@ -103,9 +103,11 @@ const AlertContainer = styled.div`
 
 export const Alert = (props) => (
   <AlertContainer {...props}>
-    <p>{props.children}</p>
+    <p>
+      {props.children}
+    </p>
   </AlertContainer>
-)
+);
 
 Alert.propTypes = {
   /**

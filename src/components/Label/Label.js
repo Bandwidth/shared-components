@@ -11,21 +11,20 @@ const LabelImpl = styled.label.withConfig({ displayName: 'Label' })`
   padding-bottom: 0.4em;
   color: ${({ theme }) => theme.label.fg};
   background: ${({ theme }) => theme.label.bg};
-  opacity: ${({ disabled }) => disabled ? '0.5' : '1'};
+  opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
   display: block;
   line-height: 1.5em;
 
   ${({ required, theme }) =>
-    required ?
-      css`
+    required
+      ? css`
         &::after {
           content: '*';
           color: ${theme.label.requiredMarkFG};
           padding-left: 0.3em;
         }
-      ` :
-      ''
-  }
+      `
+      : ''}
 `;
 
 export const Label = ({children, ...rest}) => (

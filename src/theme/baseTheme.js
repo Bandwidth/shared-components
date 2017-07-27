@@ -66,7 +66,7 @@ const padding = {
   medium: '15px',
   large: '30px',
   extraLarge: '60px',
-}
+};
 
 export default {
   name: 'default',

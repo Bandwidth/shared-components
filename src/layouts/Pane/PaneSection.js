@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
-const Wrap = styled.section`
-
-`;
+const Wrap = styled.section``;
 
 const Content = styled.div`
   padding: 0;
@@ -15,7 +13,8 @@ const Content = styled.div`
 const Title = styled.h3`
   background: #dedede;
   display: block;
-  padding: ${({ theme }) => `${theme.padding.extraSmall} ${theme.padding.large}`};
+  padding: ${({ theme }) =>
+    `${theme.padding.extraSmall} ${theme.padding.large}`};
   margin: 0;
   font-size: 0.9em;
   font-weight: 600;
@@ -53,8 +52,14 @@ export class PaneSection extends React.Component {
     const { title, children, id, className } = this.props;
     return (
       <Wrap id={id} className={className}>
-        {title ? <Title>{title}</Title> : null}
-        <Content>{children}</Content>
+        {title
+          ? <Title>
+              {title}
+            </Title>
+          : null}
+        <Content>
+          {children}
+        </Content>
       </Wrap>
     );
   }

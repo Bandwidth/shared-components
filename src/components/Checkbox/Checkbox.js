@@ -30,7 +30,7 @@ const CheckboxLabel = styled.label`
 
   /* the check */
   &::before {
-    content: ${({ active }) => active ? `"${icons('checkmark')}"` : '""'};
+    content: ${({ active }) => (active ? `"${icons('checkmark')}"` : '""')};
     color: ${({ theme }) => theme.checkbox.checkFG};
     font-family: 'Bandwidth';
     font-size: 1em;
@@ -46,7 +46,8 @@ const CheckboxLabel = styled.label`
   /* the box */
   &::after {
     content: "";
-    background: ${({ theme, active }) => active ? theme.checkbox.fullBG : theme.checkbox.emptyBG};
+    background: ${({ theme, active }) =>
+      active ? theme.checkbox.fullBG : theme.checkbox.emptyBG};
     border: ${({ theme }) => theme.checkbox.border};
     border-radius: 0.2em;
     width: ${SIZE};
@@ -60,13 +61,12 @@ const CheckboxLabel = styled.label`
   }
 
   ${({ disabled, theme }) =>
-    disabled ?
-      css`
+    disabled
+      ? css`
         opacity: ${theme.checkbox.disabledOpacity};
         &::before { opacity: ${theme.checkbox.disabledOpacity}; }
-      ` :
-      ''
-  }
+      `
+      : ''};
 `;
 
 const Container = styled.div`
@@ -117,7 +117,14 @@ export class Checkbox extends React.Component {
   };
 
   render() {
-    const { className, disabled, value, required, description, onChange } = this.props;
+    const {
+      className,
+      disabled,
+      value,
+      required,
+      description,
+      onChange,
+    } = this.props;
     const id = this.props.id || generateId('toggle');
     return (
       <Container>

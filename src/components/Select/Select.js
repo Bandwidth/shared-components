@@ -42,7 +42,7 @@ const Styles = styled.select`
   }
 `;
 
-const selectOptionPrimaryValue = (option) => {
+const selectOptionPrimaryValue = option => {
   if (_.isString(option)) {
     return option;
   }
@@ -114,7 +114,7 @@ export class Select extends React.Component {
     selectOptionValue: selectOptionPrimaryValue,
   };
 
-  handleChange = (ev) => {
+  handleChange = ev => {
     const val = ev.target.value;
     if (val === NONE_KEY) {
       return this.props.onChange(null);
@@ -132,23 +132,17 @@ export class Select extends React.Component {
       selectOptionValue,
     } = this.props;
 
-    const opts = options.map((option) => (
-      <option
-        key={selectOptionValue(option)}
-        value={selectOptionValue(option)}
-      >
+    const opts = options.map(option =>
+      <option key={selectOptionValue(option)} value={selectOptionValue(option)}>
         {renderOption(option)}
-      </option>
-    ));
+      </option>,
+    );
 
     if (allowNone) {
       opts.unshift(
-        <option
-          key={NONE_KEY}
-          value={NONE_KEY}
-        >
+        <option key={NONE_KEY} value={NONE_KEY}>
           {noneText}
-        </option>
+        </option>,
       );
     }
 
@@ -172,16 +166,5 @@ export class Select extends React.Component {
   }
 }
 
-<<<<<<< HEAD
 export default sharedComponent({ Container: Styles })(Select);
-=======
-export default sharedComponent(`
-A dropdown input which lets you pick from a list of provided items.
 
-Select can be used like a regular HTML select (except by supplying options as a prop instead of rendering them inside), or you can use it for more advanced scenarios by supplying options as an array of complex data types and using the \`renderOption\` and \`selectOptionValue\` props to control the displayed text and the backing field value.
-
-\`\`\`
-<Select label="Choose:" required helpText="Make a choice!" options={['a', 'b']}>
-\`\`\`
-`, { Container: Styles })(Select);
->>>>>>> Fix and regenerate docs

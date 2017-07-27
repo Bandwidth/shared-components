@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import sharedComponent from '../../sharedComponent';
 import styled, { keyframes } from 'styled-components';
 
-const Container = styled.div`
-  position: relative;
-`;
+const Container = styled.div`position: relative;`;
 
 const openAnimation = keyframes`
   from {
@@ -72,10 +70,7 @@ export class Callout extends React.Component {
   }
 
   trigger = () => {
-    this._timer = setTimeout(
-      this.show,
-      this.props.delay,
-    );
+    this._timer = setTimeout(this.show, this.props.delay);
   };
 
   show = () => {
@@ -90,11 +85,20 @@ export class Callout extends React.Component {
   render() {
     const { className, id } = this.props;
     return (
-      <Container onMouseEnter={this.trigger} onMouseLeave={this.cancel} className={className} id={id}>
+      <Container
+        onMouseEnter={this.trigger}
+        onMouseLeave={this.cancel}
+        className={className}
+        id={id}
+      >
         {this.props.children}
-        {this.state.show ? <Flyout>{this.props.content}</Flyout> : null}
+        {this.state.show
+          ? <Flyout>
+              {this.props.content}
+            </Flyout>
+          : null}
       </Container>
-    )
+    );
   }
 }
 

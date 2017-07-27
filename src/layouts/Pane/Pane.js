@@ -50,7 +50,11 @@ export class Pane extends React.Component {
 
     return (
       <Container className={className} id={id}>
-        {title ? <PaddedHeader>{title}</PaddedHeader> : null}
+        {title
+          ? <PaddedHeader>
+              {title}
+            </PaddedHeader>
+          : null}
         {children}
       </Container>
     );

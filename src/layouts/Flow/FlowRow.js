@@ -6,10 +6,12 @@ import Item from './FlowItem';
 import Label from '../../components/Label';
 import { HORIZONTAL_SPACING } from './constants';
 
-const grow = (alignment) => ['left', 'right', 'center'].includes(alignment) ? 0 : 1;
-const basis = (alignment) => ['left', 'right', 'center'].includes(alignment) ? 'auto' : 0;
+const grow = alignment =>
+  ['left', 'right', 'center'].includes(alignment) ? 0 : 1;
+const basis = alignment =>
+  ['left', 'right', 'center'].includes(alignment) ? 'auto' : 0;
 
-const justification = (alignment) => {
+const justification = alignment => {
   switch (alignment) {
     case 'left':
       return 'flex-start';
@@ -22,17 +24,18 @@ const justification = (alignment) => {
   }
 };
 
-const generateSizes = (sizes) =>
-  sizes.map((size, idx) =>
-    size !== undefined && size !== null ?
-      css`
+const generateSizes = sizes =>
+  sizes.map(
+    (size, idx) =>
+      size !== undefined && size !== null
+        ? css`
         & > ${Item.Container}, & > ${BaseStyles} {
           &:nth-child(${idx + 1}) {
             flex-grow: ${size};
           }
         }
       `
-      : ''
+        : '',
   );
 
 const BaseStyles = styled.div`
@@ -99,15 +102,17 @@ export class FlowRow extends React.Component {
     alignment: (props, propName, componentName) => {
       if (props.sizes.length > 0 && props[propName] !== 'stretch') {
         return new Error(`Using ${propName} with sizes is invalid in ${componentName}.
-        ${propName} is ${JSON.stringify(props[propName])}, sizes is ${JSON.stringify(props.sizes)}`);
+        ${propName} is ${JSON.stringify(
+          props[propName],
+        )}, sizes is ${JSON.stringify(props.sizes)}`);
       }
 
       if (!['left', 'right', 'stretch', 'center'].includes(props[propName])) {
         return new Error(
-          `Invalid prop ${propName} supplied to ${componentName}: must be one of [left, right, center, stretch].`
+          `Invalid prop ${propName} supplied to ${componentName}: must be one of [left, right, center, stretch].`,
         );
       }
-    }
+    },
   };
 
   static defaultProps = {
@@ -122,12 +127,9 @@ export class FlowRow extends React.Component {
    * @memberof FlowRow
    */
   shouldSuppressLabels = () => {
-    const atLeastOneChildHasLabel =
-      React.Children.toArray(this.props.children)
-      .reduce((hasLabel, child) =>
-        hasLabel || !!child.props.label,
-        false
-      );
+    const atLeastOneChildHasLabel = React.Children
+      .toArray(this.props.children)
+      .reduce((hasLabel, child) => hasLabel || !!child.props.label, false);
     return !atLeastOneChildHasLabel;
   };
 

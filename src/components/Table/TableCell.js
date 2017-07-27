@@ -41,7 +41,11 @@ export class Cell extends React.Component {
 
   render() {
     const { id, className, children } = this.props;
-    return <TD id={id} className={className}>{children}</TD>;
+    return (
+      <TD id={id} className={className}>
+        {children}
+      </TD>
+    );
   }
 }
 

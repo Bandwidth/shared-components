@@ -50,7 +50,9 @@ export class LogoHeader extends React.Component {
     return (
       <Container id={id} className={className}>
         <Logo />
-        <Text>{children}</Text>
+        <Text>
+          {children}
+        </Text>
       </Container>
     );
   }

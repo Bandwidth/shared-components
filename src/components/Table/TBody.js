@@ -7,11 +7,13 @@ const lightBG = 'transparent';
 const TBodyImpl = styled.tbody`
   & > tr {
     &:nth-child(odd) {
-      background: ${({ zebraStripe, startIndex }) => zebraStripe && (startIndex % 2 === 0) ? darkBG : lightBG };
+      background: ${({ zebraStripe, startIndex }) =>
+        zebraStripe && startIndex % 2 === 0 ? darkBG : lightBG};
     }
 
     &:nth-child(even) {
-      background: ${({ zebraStripe, startIndex }) => zebraStripe ? ((startIndex % 2 === 0) ? lightBG : darkBG) : lightBG };
+      background: ${({ zebraStripe, startIndex }) =>
+        zebraStripe ? (startIndex % 2 === 0 ? lightBG : darkBG) : lightBG};
     }
   }
 `;

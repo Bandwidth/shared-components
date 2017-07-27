@@ -5,7 +5,9 @@ import sharedComponent from '../../sharedComponent';
 import NavigationItem from './NavigationItem';
 import Anchor from '../Anchor';
 
-export const Container = styled.div.withConfig({ displayName: 'NavigationItemsContainer' })`
+export const Container = styled.div.withConfig({
+  displayName: 'NavigationItemsContainer',
+})`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -30,17 +32,19 @@ export const Container = styled.div.withConfig({ displayName: 'NavigationItemsCo
   }
 `;
 
-export const linksPropType = PropTypes.arrayOf(PropTypes.shape({
-  to: PropTypes.string,
-  onClick: PropTypes.func,
-  content: PropTypes.node.isRequired,
-  exact: PropTypes.bool,
-  newTab: PropTypes.bool,
-}));
+export const linksPropType = PropTypes.arrayOf(
+  PropTypes.shape({
+    to: PropTypes.string,
+    onClick: PropTypes.func,
+    content: PropTypes.node.isRequired,
+    exact: PropTypes.bool,
+    newTab: PropTypes.bool,
+  }),
+);
 
 export const NavigationItems = ({ links, className, id }) => (
   <Container id={id} className={className}>
-    {links.map((link) => (
+    {links.map(link =>
       <Anchor
         key={`${link.content}_${link.to}`}
         to={link.to}
@@ -48,11 +52,12 @@ export const NavigationItems = ({ links, className, id }) => (
         exact={link.exact}
         newTab={link.newTab}
       >
-        <NavigationItem>{link.content}</NavigationItem>
-      </Anchor>
-    ))}
-  </Container>
-);
+        <NavigationItem>
+          {link.content}
+        </NavigationItem>
+      </Anchor>,
+    )}
+  </Container>;
 
 NavigationItems.propTypes = {
   /**

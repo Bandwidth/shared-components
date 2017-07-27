@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 import PropTypes from 'prop-types';
 
-const normalize = (size) => {
+const normalize = size => {
   if (!size) {
     return 'large';
   }
@@ -27,7 +27,7 @@ const normalize = (size) => {
     default:
       return size;
   }
-}
+};
 
 const getSpacing = (theme, size) => {
   if (theme.padding[normalize(size)]) {
@@ -35,7 +35,7 @@ const getSpacing = (theme, size) => {
   }
 
   return size;
-}
+};
 
 const SpacingImpl = styled.div`
   ${({ size, theme }) => `padding: ${getSpacing(theme, size)};`}

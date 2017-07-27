@@ -17,7 +17,8 @@ const BaseTable = styled.table`
   min-width: 100%;
   border-collapse: collapse;
 
-  & > tbody, & > thead {
+  & > tbody,
+  & > thead {
     background: transparent;
   }
 `;
@@ -85,16 +86,16 @@ export class Table extends React.Component {
           <thead>
             {headers}
           </thead>
-          {wrapBody?
-            <TBody>
-              {children}
-            </TBody> :
-            children
-          }
+          {wrapBody
+            ? <TBody>
+                {children}
+              </TBody>
+            : children}
         </BaseTable>
         {loading &&
-          <Overlay><Loader /></Overlay>
-        }
+          <Overlay>
+            <Loader />
+          </Overlay>}
       </Wrap>
     );
   }

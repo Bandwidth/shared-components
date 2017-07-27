@@ -13,7 +13,9 @@ import PropTypes from 'prop-types';
 
 const sharedComponent = (subComponents = {}, ) => (Wrapped) => {
   if (!Wrapped) {
-    throw new Error('sharedComponent was called with an undefined wrapped component');
+    throw new Error(
+      'sharedComponent was called with an undefined wrapped component',
+    );
   }
 
   class ModAwareComponent extends React.Component {
@@ -29,9 +31,7 @@ const sharedComponent = (subComponents = {}, ) => (Wrapped) => {
     render() {
       const { mods } = this.context;
 
-      return (
-        <Wrapped {...this.props} mods={mods} />
-      );
+      return <Wrapped {...this.props} mods={mods} />;
     }
   }
 

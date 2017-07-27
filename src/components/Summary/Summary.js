@@ -10,7 +10,8 @@ const Container = styled.div`
   margin: 0;
   padding: ${({ theme }) => `${theme.padding.small} 0`};
   background: ${({ theme }) => theme.card.bg};
-  color: ${({ theme, active }) => active ? theme.card.activeFG : theme.card.fg};
+  color: ${({ theme, active }) =>
+    active ? theme.card.activeFG : theme.card.fg};
   border-bottom: ${({ theme }) => theme.card.border};
 
   &:last-child {
@@ -62,7 +63,9 @@ export class Summary extends React.Component {
     return (
       <Container className={className} id={id}>
         {children}
-        <Help>{helpText}</Help>
+        <Help>
+          {helpText}
+        </Help>
       </Container>
     );
   }

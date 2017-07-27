@@ -23,9 +23,7 @@ const Label = styled.div`
   user-select: none;
 `;
 
-const Content = styled.div`
-  overflow: hidden;
-`;
+const Content = styled.div`overflow: hidden;`;
 
 const ContentHolder = styled.div`
   padding: 0;

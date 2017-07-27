@@ -2,7 +2,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
-const FormSectionHeader = styled.h2.withConfig({ displayName: 'FormSectionHeader' })`
+const FormSectionHeader = styled.h2.withConfig({
+  displayName: 'FormSectionHeader',
+})`
   color: ${({ theme }) => theme.colors.black};
   font-size: 1.17em;
   font-weight: 800;

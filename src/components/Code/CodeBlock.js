@@ -17,7 +17,8 @@ export const CodeWrapper = styled.pre`
   padding: ${({ theme }) => theme.code.padding};
   margin: 0;
 
-  & pre, & code {
+  & pre,
+  & code {
     background: transparent !important;
     word-wrap: inherit;
     white-space: inherit;

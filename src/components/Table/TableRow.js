@@ -10,7 +10,7 @@ const TR = styled.tr`
     border-top: none;
   }
 
-  ${({ clickable }) => clickable ? 'cursor: pointer;' : ''}
+  ${({ clickable }) => (clickable ? 'cursor: pointer;' : '')};
 `;
 
 export class Row extends React.Component {
@@ -44,12 +44,7 @@ export class Row extends React.Component {
     const { id, className, children, onClick } = this.props;
 
     return (
-      <TR
-        id={id}
-        className={className}
-        onClick={onClick}
-        clickable={!!onClick}
-      >
+      <TR id={id} className={className} onClick={onClick} clickable={!!onClick}>
         {children}
       </TR>
     );

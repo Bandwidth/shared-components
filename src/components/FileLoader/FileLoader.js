@@ -19,9 +19,7 @@ const DropArea = styled.div`
   cursor: pointer;
 `;
 
-const Preview = styled.div`
-  margin: auto auto auto 16px;
-`;
+const Preview = styled.div`margin: auto auto auto 16px;`;
 
 export class FileLoader extends React.Component {
   static propTypes = {
@@ -64,7 +62,9 @@ export class FileLoader extends React.Component {
       return (
         <DropArea>
           <Icon name="fileFilled" />
-          <Preview active={true}>{value[0].name}</Preview>
+          <Preview active={true}>
+            {value[0].name}
+          </Preview>
         </DropArea>
       );
     } else {
@@ -75,7 +75,7 @@ export class FileLoader extends React.Component {
         </DropArea>
       );
     }
-  }
+  };
 
   render() {
     const { onChange, value, required, disabled, className, id } = this.props;
@@ -83,7 +83,7 @@ export class FileLoader extends React.Component {
     return (
       <Dropzone
         multiple={false}
-        onDrop={(files) => onChange(files)}
+        onDrop={files => onChange(files)}
         style={{ width: '100%' }}
         activeStyle={{ color: '#00bcec' }}
         rejectStyle={{}}

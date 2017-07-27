@@ -24,7 +24,7 @@ const WrapStyles = styled.div`
       default:
         return '';
     }
-  }}
+  }};
 `;
 
 export class Wrap extends React.Component {
@@ -47,16 +47,30 @@ export class Wrap extends React.Component {
   updateAndSubscribeWrapShadowChanges = () => {
     this.setWrapShadow(this.computeWrapShadow());
 
-    this._wrap.addEventListener('scroll', _.debounce(() => {
-      this.setWrapShadow(this.computeWrapShadow());
-    }, 300, { leading: true }));
+    this._wrap.addEventListener(
+      'scroll',
+      _.debounce(
+        () => {
+          this.setWrapShadow(this.computeWrapShadow());
+        },
+        300,
+        { leading: true },
+      ),
+    );
 
-    window.addEventListener('resize', _.debounce(() =>{
-      this.setWrapShadow(this.computeWrapShadow());
-    }, 300, { leading: true }));
-  }
+    window.addEventListener(
+      'resize',
+      _.debounce(
+        () => {
+          this.setWrapShadow(this.computeWrapShadow());
+        },
+        300,
+        { leading: true },
+      ),
+    );
+  };
 
-  setWrapShadow = (shadow) => {
+  setWrapShadow = shadow => {
     if (this.state.shadow === shadow) {
       return;
     }
@@ -87,10 +101,10 @@ export class Wrap extends React.Component {
 
   render() {
     return (
-      <WrapStyles innerRef={(el) => this._wrap = el} shadow={this.state.shadow}>
+      <WrapStyles innerRef={el => (this._wrap = el)} shadow={this.state.shadow}>
         {this.props.children}
       </WrapStyles>
-    )
+    );
   }
 }
 

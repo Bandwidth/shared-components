@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
-export const Container = styled.div.withConfig({ displayName: 'LoaderContainer' })`
+export const Container = styled.div.withConfig({
+  displayName: 'LoaderContainer',
+})`
   display: flex;
   flex-direction: row;
   margin: auto;
@@ -30,7 +32,7 @@ export const Dot = styled.div.withConfig({ displayName: 'LoaderDot' })`
 
   border-thickness: 2px;
   border-style: solid;
-  border-color: ${({ theme, color }) => color ? color : theme.colors.primary};
+  border-color: ${({ theme, color }) => (color ? color : theme.colors.primary)};
   border-radius: 50%;
   margin: 0 5px;
   transform: scale(0);

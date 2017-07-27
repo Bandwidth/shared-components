@@ -87,12 +87,11 @@ class FlowMultiField extends React.Component {
     required: false,
   };
 
-  renderSubField = (name, index, fields) => (
+  renderSubField = (name, index, fields) =>
     <SubFieldContainer key={name}>
       {this.props.renderField(name, index)}
       <Anchor onClick={() => fields.remove(index)}>remove</Anchor>
-    </SubFieldContainer>
-  );
+    </SubFieldContainer>;
 
   render() {
     const { label, helpText, required, id, className, fields } = this.props;

@@ -41,16 +41,14 @@ const StyledInput = styled.input`
         box-shadow: inset 0 -5px 0 ${theme.colors.errorBackgroundLight};
         border: 1px solid ${theme.colors.errorBorder};
       }
-    ` : ''
-  }
-
-  ${({ invalid, error, theme }) => invalid || error ?
     `
+      : ''} ${({ invalid, error, theme }) =>
+      invalid || error
+        ? `
     box-shadow: inset 0 -5px ${theme.colors.errorBackgroundLight};
     border: 1px solid ${theme.colors.errorBorder};
-    ` :
-    ''
-  }
+    `
+        : ''};
 `;
 
 export class Input extends React.Component {
@@ -132,7 +130,7 @@ export class Input extends React.Component {
     this.state = { visited: false };
   }
 
-  onBlur = (event) => {
+  onBlur = event => {
     this.setState({ visited: true });
     if (this.props.onBlur) {
       this.props.onBlur(event);

@@ -57,7 +57,7 @@ ScrollBox.propTypes = {
    * Adds a class name to the element.
    */
   className: PropTypes.string,
-}
+};
 
 ScrollBox.defaultProps = {
   animateIn: false,
