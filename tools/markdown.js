@@ -42,7 +42,7 @@ function generatePropType(type) {
 }
 
 function generatePropDefaultValue(value) {
-    return value.value;
+    return '`' + value.value + '`';
 }
 
 function generateProp(propName, prop) {

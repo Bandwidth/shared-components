@@ -24,6 +24,8 @@ const sharedComponent = (subComponents = {}, ) => (Wrapped) => {
       }),
     };
 
+    static usage = usage;
+
     render() {
       const { mods } = this.context;
 
