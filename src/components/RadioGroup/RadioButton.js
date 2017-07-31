@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   flex: 1 1 auto;
+  position: relative;
 
   &:first-of-type > label {
     border-radius: 3px 0 0 3px;
@@ -29,6 +30,8 @@ const Input = styled.input`
   margin: 0;
   padding: 0;
   border: none;
+  position: absolute;
+  opacity: 0;
 
   &:focus + label {
     border-color: ${({ theme }) => theme.colors.primary};
