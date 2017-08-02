@@ -1,6 +1,6 @@
 {
   "name": "@bandwidth/shared-components",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "dependencies": {
     "@types/node": {
       "version": "6.0.85",
