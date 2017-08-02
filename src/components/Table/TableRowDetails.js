@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import TBody from './TBody';
 
+// Firefox has an artificial limit on colspan of 1000. This is obviously an arbitrary
+// number of columns, but there are no cleaner or easier solutions to spanning the entire
+// table at time of writing.
+const COLSPAN = 1000;
+
 const TableRowDetailContainer = styled.tr`
   display: table-row;
   text-align: left;
@@ -24,7 +29,7 @@ const TableRowDetailsStyles = styled.td`
 const TableRowDetails = ({ children, rowIndex = 0 }) => (
   <TBody startIndex={rowIndex}>
     <TableRowDetailContainer>
-      <TableRowDetailsStyles colSpan={100000}>
+      <TableRowDetailsStyles colSpan={COLSPAN}>
         {children}
       </TableRowDetailsStyles>
     </TableRowDetailContainer>
