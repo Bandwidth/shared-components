@@ -67,6 +67,10 @@ class Input extends React.Component {
      */
     onFocus: PropTypes.func,
     /**
+       * Handler for the onkeydown event.
+       */
+    onKeyDown: PropTypes.func,
+    /**
      * Controls whether the user can change this element.
      */
     disabled: PropTypes.bool,
@@ -104,6 +108,7 @@ class Input extends React.Component {
     onChange: () => null,
     onBlur: () => null,
     onFocus: () => null,
+    onKeyDown: () => null,
     className: null,
     invalid: false,
     error: false,
@@ -129,6 +134,7 @@ class Input extends React.Component {
       invalid,
       onFocus,
       onChange,
+      onKeyDown,
       value,
       required,
       type,
@@ -138,6 +144,7 @@ class Input extends React.Component {
     return (
       <StyledInput
         onBlur={this.onBlur}
+        onKeyDown={onKeyDown}
         onFocus={onFocus}
         visited={visited}
         id={id}
