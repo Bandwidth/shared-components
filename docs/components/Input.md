@@ -11,6 +11,7 @@ value|union(string\|number)||No|The value of the input.
 onChange|func|() => null|No|Handler for the onchange event.
 onBlur|func|() => null|No|Handler for the onblur event.
 onFocus|func|() => null|No|Handler for the onfocus event.
+onKeyDown|func|() => null|No|Handler for the onkeydown event.
 disabled|bool|false|No|Controls whether the user can change this element.
 required|bool|false|No|Controls whether the element is marked as required for form submission.
 id|string|null|No|Adds an id to the element.
