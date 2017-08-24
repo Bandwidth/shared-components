@@ -16,5 +16,6 @@ children|node||Yes|Contents of the button.
 pristineContents|node|'Up to Date'|No|Alternate optional contents of the button when 'pristine' is true.
 id|string|null|No|Adds an id to the button.
 className|string|null|No|Adds a class name to the button.
+onClick|func|() => null|No|Adds a click handler to the button
 
 

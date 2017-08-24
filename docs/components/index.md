@@ -89,8 +89,6 @@
 
 [SimpleTable](./SimpleTable.md)
 
-[TBody](./TBody.md)
-
 [Table](./Table.md)
 
 [TableCell](./TableCell.md)
@@ -104,6 +102,8 @@
 [TableRowDetails](./TableRowDetails.md)
 
 [TableWrap](./TableWrap.md)
+
+[TBody](./TBody.md)
 
 [TextArea](./TextArea.md)
 

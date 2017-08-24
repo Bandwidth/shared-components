@@ -41,6 +41,10 @@ class SubmitButton extends React.Component {
      * Adds a class name to the button.
      */
     className: PropTypes.string,
+    /**
+     * Adds a click handler to the button
+     */
+    onClick: PropTypes.func,
   };
 
   static defaultProps = {
@@ -52,6 +56,7 @@ class SubmitButton extends React.Component {
     pristineContents: 'Up to Date',
     id: null,
     className: null,
+    onClick: () => null,
   };
 
   renderContents = () => {
@@ -68,7 +73,7 @@ class SubmitButton extends React.Component {
   }
 
   render() {
-    const { pristine, loading, disabled, leftIcon, rightIcon, id, className } = this.props;
+    const { pristine, loading, disabled, leftIcon, rightIcon, id, className, onClick } = this.props;
     return (
       <Button
         disabled={pristine || loading || disabled}
@@ -77,6 +82,7 @@ class SubmitButton extends React.Component {
         type="submit"
         id={id}
         className={className}
+        onClick={onClick}
       >
         {this.renderContents()}
       </Button>
