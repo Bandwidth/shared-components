@@ -111,7 +111,7 @@ class SimpleTable extends React.Component {
     const { items, renderRow } = this.props;
     const detailsItemIndex = this.indexOfDetailsItem();
     return (
-      <Table.Body>
+      <Table.Body key="upperSection">
         {
           items.slice(0, detailsItemIndex >= 0 ? detailsItemIndex + 1 : undefined)
             .map((item) => React.cloneElement(renderRow(item), {
@@ -130,7 +130,7 @@ class SimpleTable extends React.Component {
     }
 
     return (
-      <Table.RowDetails rowIndex={itemIdx}>
+      <Table.RowDetails rowIndex={itemIdx} key="rowDetails">
         {this.props.renderDetails(this.state.detailsItem)}
       </Table.RowDetails>
     );
@@ -145,7 +145,7 @@ class SimpleTable extends React.Component {
     }
 
     return (
-      <Table.Body startIndex={itemIdx + 1}>
+      <Table.Body startIndex={itemIdx + 1} key="lowerSection">
         {
           items.slice(itemIdx + 1)
             .map((item) => React.cloneElement(renderRow(item), {
