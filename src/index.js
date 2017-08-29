@@ -32,6 +32,7 @@ export { default as Header } from './components/Header';
 export { default as SubHeader } from './components/Header/SubHeader';
 export { default as HelpText } from './components/HelpText';
 export { default as Icon } from './components/Icon';
+export { default as icons } from './components/Icon/icons';
 export { default as Input } from './components/Input';
 export { default as Label } from './components/Label';
 export { default as List } from './components/List';

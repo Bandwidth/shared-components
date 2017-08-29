@@ -7,10 +7,14 @@ import Icon from '../Icon';
 
 const Buttons = styled.div``;
 
+const Container = styled.div`
+  margin-bottom: ${({ theme }) => theme.padding.medium};
+`;
+
 const ControlsRow = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: ${({ theme }) => theme.padding.medium};
+  margin-bottom: ${({ theme }) => theme.padding.small};
 
   & > ${Header} {
     flex: 1;
@@ -44,7 +48,7 @@ class TableControls extends React.Component {
      */
     title: PropTypes.string,
     /**
-     * Any other things you'd like to render between the title and the main controls.
+     * Any other things you'd like to render below the title and the main controls.
      */
     children: PropTypes.node,
     /**
@@ -83,34 +87,47 @@ class TableControls extends React.Component {
   };
 
   render() {
-    const { title, enableDelete, enableAdd, enableSearch, children, onDelete, onAdd, id, className } = this.props;
+    const {
+      title,
+      enableDelete,
+      enableAdd,
+      enableSearch,
+      children,
+      onDelete,
+      onAdd,
+      id,
+      className,
+      onSearch
+    } = this.props;
 
     if (!title && !enableAdd && !enableDelete && !children) {
       return null;
     }
 
     return (
-      <ControlsRow id={id} className={className}>
-        <Header>{title}</Header>
+      <Container>
+        <ControlsRow id={id} className={className}>
+          <Header>{title}</Header>
+          <Buttons>
+            {
+              enableAdd ?
+                <Anchor onClick={onAdd} type="icon"><Icon size="21px" name="plusMath" /></Anchor> :
+                null
+            }
+            {
+              enableSearch ?
+                <Anchor onClick={onSearch} type="icon"><Icon size="21px" name="search" /></Anchor> :
+                null
+            }
+            {
+              enableDelete ?
+                <Anchor onClick={onDelete} type="icon"><Icon size="21px" name="trash" /></Anchor> :
+                null
+            }
+          </Buttons>
+        </ControlsRow>
         {children}
-        <Buttons>
-          {
-            enableAdd ?
-              <Anchor onClick={onAdd} type="icon"><Icon size="21px" name="plusMath" /></Anchor> :
-              null
-          }
-          {
-            enableSearch ?
-              <Anchor onClick={onSearch} type="icon"><Icon size="21px" name="plusMath" /></Anchor> :
-              null
-          }
-          {
-            enableDelete ?
-              <Anchor onClick={onDelete} type="icon"><Icon size="21px" name="trash" /></Anchor> :
-              null
-          }
-        </Buttons>
-      </ControlsRow>
+      </Container>
     )
   }
 }

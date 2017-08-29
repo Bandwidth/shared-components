@@ -31,8 +31,11 @@ const appendExports = (dir, subDirs, files) => {
     const name = fileName.replace('.js', '');
     // note: posix.resolve did not work correctly for this. Falling back to manual resolution.
     const relativeFilePath = relativeToSrc + posix.sep + name;
-    if (
-      (_.upperFirst(fileName) === fileName || ['theme', 'extensions'].includes(dirName)) &&
+    if ((
+        _.upperFirst(fileName) === fileName ||
+        ['theme', 'extensions'].includes(dirName) ||
+        name === 'icons'
+      ) &&
       name !== dirName
     ) {
       exportItems.push({ name, path: relativeFilePath });

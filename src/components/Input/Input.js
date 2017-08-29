@@ -30,6 +30,10 @@ const StyledInput = styled.input`
     opacity: 0.5;
   }
 
+  &::placeholder {
+    opacity: 0.5;
+  }
+
   ${({ visited, theme }) => visited ?
     css`
       &:invalid {
@@ -98,6 +102,10 @@ class Input extends React.Component {
      * Styles this input as having an error related to it
      */
     error: PropTypes.bool,
+    /**
+     * Placeholder text to display when the input is blank
+     */
+    placeholder: PropTypes.string,
   };
 
   static defaultProps = {
@@ -112,6 +120,7 @@ class Input extends React.Component {
     className: null,
     invalid: false,
     error: false,
+    placeholder: '',
   };
 
   constructor(props) {
@@ -139,6 +148,7 @@ class Input extends React.Component {
       required,
       type,
       error,
+      placeholder,
     } = this.props;
     const { visited } = this.state;
     return (
@@ -156,6 +166,7 @@ class Input extends React.Component {
         type={type}
         error={error}
         disabled={disabled}
+        placeholder={placeholder}
       />
     );
   }

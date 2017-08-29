@@ -19,5 +19,6 @@ className|string|null|No|Adds a class name to the element.
 type|string|'text'|No|Sets the type of data expected for this input.
 invalid|bool|false|No|Styles this input as being invalid
 error|bool|false|No|Styles this input as having an error related to it
+placeholder|string|''|No|Placeholder text to display when the input is blank
 
 A basic styled text input.
