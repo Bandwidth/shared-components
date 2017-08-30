@@ -1,8 +1,9 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import icons, { map } from './icons';
 
-const Icon = styled.i.withConfig({ displayName: 'Icon' })`
+const IconImpl = styled.i.withConfig({ displayName: 'Icon' })`
   font-family: 'Bandwidth';
   font-size: ${({ theme, size }) => `${size}` || theme.icon.fontSize};
   color: inherit;
@@ -14,6 +15,10 @@ const Icon = styled.i.withConfig({ displayName: 'Icon' })`
     color: inherit;
   }
 `;
+
+const Icon = ({children, ...rest}) => (
+  <IconImpl {...rest}>{children}</IconImpl>
+)
 
 Icon.propTypes = {
   /**
@@ -47,19 +52,5 @@ Icon.defaultProps = {
   size: '16px',
   iconsHelper: icons,
 };
-
-Icon.usage = `
-Icons let you easily render some of our icons. Pass in the \`name\` prop to specify which one.
-
-\`\`\`
-<Icon name="checkmark" />
-\`\`\`
-
-## Icons
-
-The icon definition file is in \`components/helpers/icons.js\`
-
-${Object.keys(map).map((name) => `* ${name}`).join('\n')}
-`;
 
 export default Icon;

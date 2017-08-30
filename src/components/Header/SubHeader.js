@@ -1,12 +1,17 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const SubHeader = styled.h2.withConfig({ displayName: 'SubHeader' })`
+const SubHeaderImpl = styled.h2.withConfig({ displayName: 'SubHeader' })`
   color: ${({ theme }) => theme.subheader.fg};
   font-size: ${({ theme }) => theme.subheader.fontSize};
   font-weight: ${({ theme }) => theme.subheader.fontWeight};
   font-family: ${({ theme }) => theme.subheader.fontFamily};
 `;
+
+const SubHeader = ({children, ...rest}) => (
+  <SubHeaderImpl {...rest}>{children}</SubHeaderImpl>
+)
 
 SubHeader.propTypes = {
   /**
@@ -23,9 +28,5 @@ SubHeader.defaultProps = {
   className: null,
   id: null,
 };
-
-SubHeader.usage = `
-A smaller header.
-`;
 
 export default SubHeader;

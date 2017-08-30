@@ -1,9 +1,14 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Gutter = styled.div.withConfig({ displayName: 'Gutter' })`
+const GutterImpl = styled.div.withConfig({ displayName: 'Gutter' })`
   background: ${({ theme }) => theme.colors.gutter};
 `;
+
+const Gutter = ({children, ...rest}) => (
+  <GutterImpl {...rest}>{children}</GutterImpl>
+)
 
 Gutter.propTypes = {
   /**
@@ -20,17 +25,5 @@ Gutter.defaultProps = {
   className: null,
   id: null,
 };
-
-Gutter.usage = `
-A simple container box which sets the background color. That's it!
-
-\`\`\`
-<Page>
-  <Gutter>
-    <!-- content -->
-  </Gutter>
-</Page>
-\`\`\`
-`;
 
 export default Gutter;
