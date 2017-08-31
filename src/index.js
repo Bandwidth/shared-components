@@ -9,6 +9,7 @@
 export { default as animations } from './animations';
 export { default as Expand } from './animations/Expand';
 export { default as behaviors } from './behaviors';
+export { default as ExpandToggle } from './behaviors/ExpandToggle';
 export { default as ScrollBox } from './behaviors/ScrollBox';
 export { default as components } from './components';
 export { default as Accordion } from './components/Accordion';

@@ -42,9 +42,9 @@ class AccordionGroup extends React.Component {
     };
   }
 
-  createToggleHandler = (key) => (isAlreadyCollapsed) => {
-    // current state is closed, it will open
-    if (isAlreadyCollapsed) {
+  createToggleHandler = (key) => (isAlreadyExpanded) => {
+    // current state is open, it will close
+    if (!isAlreadyExpanded) {
       this.setState({ expandedKey: key });
     // close already open accordion
     } else {
@@ -58,7 +58,7 @@ class AccordionGroup extends React.Component {
       throw new Error('All AccordionGroup accordion children must have a key');
     }
     return React.cloneElement(accordion, {
-      isCollapsed: expandedKey !== accordion.key,
+      isExpanded: expandedKey === accordion.key,
       onToggle: this.createToggleHandler(accordion.key),
     });
   };

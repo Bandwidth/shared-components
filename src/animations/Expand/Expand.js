@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import _ from 'lodash';
 import { AnimationTimer } from 'animation-timer';
 import { Easer } from 'functional-easing';
 
 const Container = styled.div`overflow: hidden; width: 100%; height: 100%;`;
 const Content = styled.div`overflow: hidden; width: 100%; height: 100%;`;
 
+/**
+ * FIXME: migrate this to use react-movement!
+ */
 class Expand extends React.Component {
   static propTypes = {
     /**
@@ -43,9 +47,28 @@ class Expand extends React.Component {
     className: null,
   };
 
-  animate = () => {
-    const { direction, duration } = this.props;
+  componentDidMount() {
+    this.updateSize();
+
+    window.addEventListener('resize',
+      _.debounce(this.updateSize, 300),
+    );
+  }
+
+  componentDidUpdate() {
+    this.updateSize();
+  }
+
+  updateSize = () => {
+    const { direction, duration, animate } = this.props;
     const content = this._content;
+
+    if (!animate) {
+      content.style.width = 'auto';
+      content.style.height = 'auto';
+      return;
+    }
+
     const naturalHeight = content.scrollHeight;
     const naturalWidth = content.scrollWidth;
     const easer = new Easer().using('cubic');
@@ -72,12 +95,6 @@ class Expand extends React.Component {
         content.style.height = '';
       })
       .play();
-  }
-
-  componentDidMount() {
-    if (this.props.animate) {
-      this.animate();
-    }
   }
 
   render() {

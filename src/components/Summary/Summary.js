@@ -25,6 +25,11 @@ const Help = styled.span`
   color: ${({ theme }) => theme.helpText.fg};
 `;
 
+/**
+ * DEPRECATED: This component is not included in the design system, and may
+ * not be considered universal enough to be included in a shared library. Use at
+ * your own risk.
+ */
 class Summary extends React.Component {
   static propTypes = {
     /**

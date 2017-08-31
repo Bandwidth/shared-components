@@ -1,6 +1,8 @@
 # Bandwidth Shared Components
 [Expand](./Expand.md)
 
+[Expandable](./Expandable.md)
+
 [ScrollBox](./ScrollBox.md)
 
 [Accordion](./Accordion.md)

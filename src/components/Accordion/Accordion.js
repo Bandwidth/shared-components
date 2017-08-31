@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { debounce } from 'lodash';
 import styled from 'styled-components';
-import { AnimationTimer } from 'animation-timer';
-import { Easer } from 'functional-easing';
+import ExpandToggle from '../../behaviors/ExpandToggle';
 import Icon from '../Icon';
 import Group from './AccordionGroup';
 
@@ -24,19 +22,10 @@ const Label = styled.div`
   user-select: none;
 `;
 
-const Content = styled.div`
-  overflow: hidden;
-`;
-
-const ContentHolder = styled.div`
-  padding: 0;
-  padding-top: 0;
-`;
-
 const ModdedIcon = styled(Icon)`
   color: #666;
   margin: auto 1em auto auto;
-  transform: ${({ isCollapsed }) => isCollapsed ? 'rotate(0)' : 'rotate(90deg)'};
+  transform: ${({ isExpanded }) => isExpanded ? 'rotate(90deg)' : 'rotate(0)'};
   transition: 0.2s all ease;
   font-weight: 100;
 
@@ -61,7 +50,7 @@ export const ContentPadding = styled.div`
 
 /**
  * Accordion works like a controllable component. Provide the
- * isCollapsed prop to control it, or don't to let it control itself.
+ * isExpanded prop to control it, or don't to let it control itself.
  */
 class Accordion extends React.Component {
   static propTypes = {
@@ -74,7 +63,11 @@ class Accordion extends React.Component {
      */
     children: PropTypes.node.isRequired,
     /**
-     * Pass isCollapsed to override the internal collapsing state
+     * Pass isExpanded to override the internal collapsing state
+     */
+    isExpanded: PropTypes.bool,
+    /**
+     * DEPRECATED: the negation of isExpanded, overrides internal collapse state
      */
     isCollapsed: PropTypes.bool,
     /**
@@ -92,109 +85,52 @@ class Accordion extends React.Component {
   };
 
   static defaultProps = {
+    isExpanded: null,
     isCollapsed: null,
-    onToggle: () => {}, // no-op
+    onToggle: null,
     className: null,
     id: null,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = { internalIsCollapsed: true };
+  coalesceIsExpandedProps = () => {
+    const { isExpanded, isCollapsed } = this.props;
+    if (isExpanded === null && isCollapsed === null) {
+      return null;
+    }
+    if (isExpanded === null) {
+      return !isCollapsed;
+    }
+    return isExpanded;
   }
 
-  componentDidMount() {
-    // on first mount, recalculate the natural size and setup without animation
-    this.setContentCollapseState(false);
-    // any time the window resizes, recalculate the natural size
-    window.addEventListener('resize',
-      debounce(this.setContentCollapseState.bind(this, false), 300),
-    );
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    // only animate if the collapsed state has changed.
-    this.setContentCollapseState(prevProps.isCollapsed !== this.props.isCollapsed ||
-      prevState.internalIsCollapsed !== this.state.internalIsCollapsed);
-  }
-
-  setContentCollapseState = (animate = true) => {
-    const isCollapsed = this.calcIsCollapsed();
-    const content = this._content;
-    if (!content) {
-      return;
-    }
-    const naturalHeight = content.scrollHeight;
-    if (animate) {
-      const easer = new Easer().using('cubic');
-      new AnimationTimer()
-        .duration(200)
-        .on('tick', easer((percent) => {
-          const directionalPercent = isCollapsed ? 1.0 - percent : percent;
-          content.style.height = `${naturalHeight * directionalPercent}px`;
-        }))
-        .on('stop', () => {
-          // after an animation has expanded the accordion, switch to
-          // auto so it reacts to changes in content size or window size automatically
-          if (!isCollapsed) {
-            content.style.height = 'auto';
-          }
-        }).play();
-    } else {
-      content.style.height = isCollapsed ? 0 : 'auto';
-    }
-  };
-
-  handleToggle = () => {
-    if (this.props.onToggle) {
-      this.props.onToggle(this.calcIsCollapsed());
-    }
-    this.setState({ internalIsCollapsed: !this.state.internalIsCollapsed });
-  };
-
-  calcIsCollapsed = () => {
-    const { isCollapsed } = this.props;
-    const { internalIsCollapsed } = this.state;
-    if (isCollapsed === null) {
-      return internalIsCollapsed;
-    }
-
-    return isCollapsed;
-  };
-
-  renderContent = () => (
-    <Content
-      innerRef={
-        (el) => {
-          this._content = el;
-          this.setContentCollapseState(false);
-        }
-      }
-      isCollapsed={this.calcIsCollapsed()}
-    >
-      <ContentHolder>
-        {this.props.children}
-      </ContentHolder>
-    </Content>
-    );
+  renderLabel = (isExpanded) => (
+    <Label onClick={this.handleToggle}>
+      <ModdedIcon isExpanded={isExpanded} name="forward" size={21} />
+      <LabelText>{this.props.label}</LabelText>
+    </Label>
+  );
 
   render() {
-    const isCollapsed = this.calcIsCollapsed();
-    const { id, className } = this.props;
+    const { id, className, onToggle, children } = this.props;
+
     return (
-      <Container id={id} className={className}>
-        <Label onClick={this.handleToggle}>
-          <ModdedIcon isCollapsed={isCollapsed} name="forward" size={21} />
-          <LabelText>{this.props.label}</LabelText>
-        </Label>
-        {this.renderContent()}
+      <Container>
+        <ExpandToggle
+          id={id}
+          className={className}
+          onToggle={onToggle}
+          toggleContent={this.renderLabel}
+          isExpanded={this.coalesceIsExpandedProps()}
+        >
+          {children}
+        </ExpandToggle>
       </Container>
-    );
+    )
   }
 }
 
 Accordion.usage = `
-Expands and collapses when the label is clicked. Or, you can provide the \`isCollapsed\` prop to force open/closed state. You can also provide a hook to \`onToggle\`. Your \`onToggle\` function will be called with one parameter, a boolean representing whether the component is currently collapsed at the time it was clicked.
+Expands and collapses when the label is clicked. Or, you can provide the \`isExpanded\` prop to force open/closed state. You can also provide a hook to \`onToggle\`. Your \`onToggle\` function will be called with one parameter, a boolean representing whether the component is currently collapsed at the time it was clicked.
 
 Accepts \`label\` to define what's rendered in the label.
 
