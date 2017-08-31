@@ -1,6 +1,7 @@
 Expand
 ======
 
+FIXME: migrate this to use react-movement!
 
 Props
 -----

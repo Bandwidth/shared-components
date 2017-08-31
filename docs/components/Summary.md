@@ -1,6 +1,9 @@
 Summary
 =======
 
+DEPRECATED: This component is not included in the design system, and may
+not be considered universal enough to be included in a shared library. Use at
+your own risk.
 
 Props
 -----
