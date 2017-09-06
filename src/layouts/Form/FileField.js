@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FieldWrapper from './FieldWrapper';
 import FileInput from '../../components/FileLoader';
+import warning from 'warning';
 
 class FileField extends React.Component {
   static propTypes = {
