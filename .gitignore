@@ -38,8 +38,8 @@ jspm_packages
 
 config.json
 .vscode/
-
 build
+!docs/build
 dist
 __coverage__
 .DS_Store
