@@ -1,9 +1,11 @@
+import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, {ThemeProvider} from 'styled-components';
 import icons from '../Icon/icons';
 import SubmitButton from './SubmitButton';
+import {secondaryTheme} from '../../theme';
 
-const Button = styled.button`
+const ButtonImpl = styled.button`
   font-size: ${({ theme }) => theme.button.fontSize};
   text-decoration: none;
   font-weight: ${({ theme }) => theme.button.fontWeight};
@@ -77,6 +79,10 @@ const Button = styled.button`
   }
 `;
 
+const Button = ({children, ...rest}) => (
+  <ButtonImpl {...rest}>{children}</ButtonImpl>
+)
+
 Button.propTypes = {
   /**
    * An icon name for an icon to pop in from the left side of the button on hover.
@@ -109,22 +115,11 @@ Button.defaultProps = {
   id: null,
 };
 
-Button.usage = `
-The trusty button. Renders a \`<button\` tag with styling. You can add fancy little icons with animations using the \`leftIcon\` and \`rightIcon\` props. These icons should be names from the icons list (see \`components/helpers/icons\`).
-
-Change the color with themes, not on the button itself!
-
-\`\`\`
-<Button rightIcon="checkmark">Ok</Button>
-\`\`\`
-
-\`\`\`
-<ThemeProvider theme={secondaryTheme}>
-  <Button>Secondary!</Button>
-</ThemeProvider>
-\`\`\`
-`;
+Button.Example2 = () => (<ThemeProvider theme={secondaryTheme}>
+<Button>Secondary!</Button>
+</ThemeProvider>)
 
 Button.Submit = SubmitButton;
+Button.Styled = ButtonImpl;
 
 export default Button;

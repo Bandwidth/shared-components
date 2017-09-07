@@ -93,7 +93,10 @@ class Input extends React.Component {
     /**
      * Sets the type of data expected for this input.
      */
-    type: PropTypes.string,
+    type: PropTypes.oneOf([
+      'search', 'email', 'url', 'tel', 'number', 'range', 'date',
+      'month', 'week', 'time', 'datetime', 'datetime-local', 'color'
+    ]),
     /**
      * Styles this input as being invalid
      */
@@ -120,7 +123,7 @@ class Input extends React.Component {
     className: null,
     invalid: false,
     error: false,
-    placeholder: '',
+    placeholder: ''
   };
 
   constructor(props) {
@@ -171,9 +174,5 @@ class Input extends React.Component {
     );
   }
 }
-
-Input.usage = `
-A basic styled text input.
-`;
 
 export default Input;
