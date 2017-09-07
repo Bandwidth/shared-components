@@ -137,14 +137,6 @@ class Checkbox extends React.Component {
   }
 }
 
-Checkbox.usage = `
-A simple checkbox input.
-
-\`\`\`
-<Checkbox value={true} description="Foo" />
-\`\`\`
-`;
-
 Checkbox.Input = HiddenInput;
 Checkbox.Label = CheckboxLabel;
 Checkbox.Container = Container;

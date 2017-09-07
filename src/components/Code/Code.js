@@ -1,10 +1,11 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Block from './CodeBlock';
 import Container from './CodeContainer';
 
-const Code = styled.pre.withConfig({ displayName: 'Code' })`
+const CodeImpl = styled.pre.withConfig({ displayName: 'Code' })`
   font-family: ${({ theme }) => theme.inlineCode.fontFamily};
   fontSize: ${({ theme }) => theme.inlineCode.fontSize};
   background: ${({ theme }) => theme.inlineCode.bg};
@@ -14,6 +15,10 @@ const Code = styled.pre.withConfig({ displayName: 'Code' })`
   borderRadius: ${({ theme }) => theme.inlineCode.borderRadius};
   margin: 0;
 `;
+
+const Code = ({...rest, children}) => (
+  <CodeImpl {...rest}>{children}</CodeImpl>
+)
 
 Code.propTypes = {
   /**
@@ -31,14 +36,8 @@ Code.defaultProps = {
   id: null,
 };
 
-Code.usage = `
-Applies styling to render code inside a larger paragraph.
-
-\`\`\`
-Lorem ipsum <Code>code</Code> dolor
-\`\`\`
-`;
-
 Code.Block = Block;
 Code.Container = Container;
+Code.Styled = CodeImpl;
+
 export default Code;

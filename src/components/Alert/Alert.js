@@ -132,11 +132,5 @@ Alert.defaultProps = {
   id: null,
 };
 
-Alert.usage = `
-Alerts control their own color based on \`type\`.
-
-* \`type\`: \`['info', 'success', 'error']\`
-* \`textOnly\`: \`true|false\`
-`;
 
 export default Alert;

@@ -42,3 +42,4 @@ config.json
 build
 dist
 __coverage__
+.DS_Store

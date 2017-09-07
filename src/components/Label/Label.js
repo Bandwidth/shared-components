@@ -1,7 +1,8 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-const Label = styled.label.withConfig({ displayName: 'Label' })`
+const LabelImpl = styled.label.withConfig({ displayName: 'Label' })`
   font-size: ${({ theme }) => theme.label.fontSize};
   letter-spacing: ${({ theme }) => theme.label.letterSpacing};
   font-weight: ${({ theme }) => theme.label.fontWeight};
@@ -26,6 +27,10 @@ const Label = styled.label.withConfig({ displayName: 'Label' })`
   }
 `;
 
+const Label = ({children, ...rest}) => (
+  <LabelImpl {...rest}>{children}</LabelImpl>
+)
+
 Label.propTypes = {
   /**
    * Styles the label to indicate that the associated field is disabled.
@@ -47,12 +52,6 @@ Label.defaultProps = {
   id: null,
 };
 
-Label.usage = `
-A simple label. Meant to be tied to an input component.
-
-\`\`\`
-<Label htmlFor="some-components-id">Hi</Label>
-\`\`\`
-`;
+Label.Styled = LabelImpl;
 
 export default Label;
