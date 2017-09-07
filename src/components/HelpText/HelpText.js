@@ -34,4 +34,6 @@ HelpText.defaultProps = {
   id: null,
 };
 
+HelpText.Styled = HelpTextImpl;
+
 export default HelpText;

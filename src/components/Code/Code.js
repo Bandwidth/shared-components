@@ -38,4 +38,6 @@ Code.defaultProps = {
 
 Code.Block = Block;
 Code.Container = Container;
+Code.Styled = CodeImpl;
+
 export default Code;

@@ -28,5 +28,6 @@ SubHeader.defaultProps = {
   className: null,
   id: null,
 };
+SubHeader.Styled = SubHeaderImpl;
 
 export default SubHeader;

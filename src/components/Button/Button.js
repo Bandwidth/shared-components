@@ -120,5 +120,6 @@ Button.Example2 = () => (<ThemeProvider theme={secondaryTheme}>
 </ThemeProvider>)
 
 Button.Submit = SubmitButton;
+Button.Styled = ButtonImpl;
 
 export default Button;

@@ -33,4 +33,6 @@ Header.defaultProps = {
 };
 
 Header.Sub = Sub;
+Header.Styled = HeaderImpl;
+
 export default Header;

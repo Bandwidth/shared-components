@@ -52,4 +52,6 @@ Label.defaultProps = {
   id: null,
 };
 
+Label.Styled = LabelImpl;
+
 export default Label;

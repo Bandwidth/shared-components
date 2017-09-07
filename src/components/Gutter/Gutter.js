@@ -26,4 +26,6 @@ Gutter.defaultProps = {
   id: null,
 };
 
+Gutter.Styled = GutterImpl;
+
 export default Gutter;

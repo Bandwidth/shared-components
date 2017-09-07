@@ -53,4 +53,6 @@ Icon.defaultProps = {
   iconsHelper: icons,
 };
 
+Icon.Styled = IconImpl;
+
 export default Icon;

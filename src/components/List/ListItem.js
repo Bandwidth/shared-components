@@ -31,4 +31,6 @@ ListItem.defaultProps = {
   id: null,
 };
 
+ListItem.Styled = ListItemImpl;
+
 export default ListItem;

@@ -43,4 +43,6 @@ OrderedList.defaultProps = {
 };
 
 OrderedList.Item = Item;
+OrderedList.Styled = OrderedListImpl;
+
 export default OrderedList;
