@@ -54,7 +54,7 @@ const SortArrows = styled.span`
   }};
 `;
 
-export class Header extends React.Component {
+export class TableHeader extends React.Component {
   static propTypes = {
     /**
      * Contents of the header cell.
@@ -146,4 +146,4 @@ export class Header extends React.Component {
   }
 }
 
-export default sharedComponent({ TH, ColumnName, SortArrows })(Header);
+export default sharedComponent({ TH, ColumnName, SortArrows })(TableHeader);

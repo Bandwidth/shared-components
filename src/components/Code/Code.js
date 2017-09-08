@@ -15,6 +15,7 @@ const CodeImpl = styled.pre.withConfig({ displayName: 'Code' })`
   padding: 0.3em;
   borderRadius: 3px;
   margin: 0;
+  display: inline-block;
 `;
 
 export const Code = ({...rest, children}) => (

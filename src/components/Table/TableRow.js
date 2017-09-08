@@ -13,7 +13,7 @@ const TR = styled.tr`
   ${({ clickable }) => (clickable ? 'cursor: pointer;' : '')};
 `;
 
-export class Row extends React.Component {
+export class TableRow extends React.Component {
   static propTypes = {
     /**
      * Contents of the row - should be cells.
@@ -51,4 +51,4 @@ export class Row extends React.Component {
   }
 }
 
-export default sharedComponent({ TR })(Row);
+export default sharedComponent({ TR })(TableRow);

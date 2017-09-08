@@ -4,7 +4,11 @@ If you pass the \`selectedIndex\` prop, the child component which matches that i
 
 ```
 <SidebarList selectedIndex={1}>
-  <SidebarListItem>One</SidebarListItem>
-  <SidebarListItem>Two</SidebarListItem>
+  <SidebarListItem label="One" isNew />
+  <SidebarListItem label="Two" />
+  <SidebarListItem label="Three" />
+  <SidebarListItem label="Four" />
+  <SidebarListItem label="Five" />
+  <SidebarListItem label="Six" details="the last item" />
 </SidebarList>
 ```

@@ -1,7 +1,5 @@
 Renders a list item component. Use it inside a List for optimal effect.
 
-TODO: refactor this to use Card.
+See SidebarList for usage.
 
-```
-<SidebarListItem label="hi" active={true} />
-```
+TODO: refactor this to use Card.
