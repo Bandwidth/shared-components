@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
 const HelpTextImpl = styled.div.withConfig({ displayName: 'HelpText' })`
-  color: ${({ theme, error }) => error ? theme.colors.errorText : theme.helpText.fg};
+  color: ${({ theme, error }) =>
+    error ? theme.colors.errorText : theme.colors.grayLightText};
   font-style: italic;
-  font-weight: ${({ theme }) => theme.helpText.fontWeight};
-  padding: ${({ theme }) => theme.input.helpTextPadding};
-  font-family: ${({ theme }) => theme.helpText.fontFamily};
+  font-weight: 300;
+  padding: 0.4em 0 0 0;
+  font-family: ${({ theme }) => theme.fonts.brand};
 `;
 
 export const HelpText = ({children, ...rest}) => (

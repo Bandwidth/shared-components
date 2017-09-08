@@ -5,10 +5,10 @@ import sharedComponent from '../../sharedComponent';
 
 const TD = styled.td`
   text-align: left;
-  background: ${({ theme }) => theme.table.cellBG};
+  background: transparent;
   border-right: 1px solid ${({ theme }) => theme.colors.border};
-  margin: ${({ theme }) => theme.table.cellMargin};
-  padding: ${({ theme }) => `${theme.padding.small} ${theme.padding.medium}`};
+  margin: 0;
+  padding: ${({ theme }) => `${theme.spacing.small} ${theme.spacing.medium}`};
   white-space: nowrap;
   transition: 0.2s ease all;
 

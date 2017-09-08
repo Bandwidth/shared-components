@@ -11,9 +11,9 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  background: ${({ theme }) => theme.code.bg};
-  padding: ${({ theme }) => theme.code.padding};
-  color: ${({ theme }) => theme.code.fg};
+  background: ${({ theme }) => theme.colors.grayDark};
+  padding: 2em;
+  color: ${({ theme }) => theme.colors.white};
 
   & > ${CodeBlock.Wrapper} {
     padding: 0;

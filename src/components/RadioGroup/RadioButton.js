@@ -41,16 +41,16 @@ const Input = styled.input`
 
 const Label = styled.label`
   opacity: ${({ active }) => (active ? 1 : 0.5)};
-  border: ${({ theme }) => theme.radioButton.border};
+  border: 1px solid ${({ theme }) => theme.colors.borderLight};
   margin-right: -1px;
-  padding: ${({ theme }) => theme.radioButton.padding};
+  padding: 1em 1.4em;
   cursor: pointer;
   position: relative;
   display: flex;
   flex-direction: column;
   align-content: flex-start;
-  background: ${({ theme }) => theme.radioButton.bg};
-  color: ${({ theme }) => theme.radioButton.fg};
+  background: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   transition: opacity 0.2s ease;
   text-transform: uppercase;
   font-weight: bold;
@@ -58,7 +58,7 @@ const Label = styled.label`
 
   &::after {
     content: "";
-    background: ${({ theme }) => theme.radioButton.accent};
+    background: ${({ theme }) => theme.colors.primary};
     width: calc(100% + 2px);
     height: ${({ active }) => (active ? '5px' : 0)};
     position: absolute;

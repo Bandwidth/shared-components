@@ -5,7 +5,7 @@ import ScrollBox from '../../behaviors/ScrollBox';
 import sharedComponent from '../../sharedComponent';
 
 const Blocker = styled.div`
-  background: ${({ theme }) => theme.modal.blockerBG};
+  background: rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0;
   left: 0;
@@ -19,31 +19,31 @@ const Blocker = styled.div`
 // content flex is `0 1 auto`: it won't grow beyond the content size, but can shrink if the window is too small
 // to show everything.
 const Content = styled.div`
-  background: ${({ theme }) => theme.modal.bg};
+  background: ${({ theme }) => theme.colors.white};
   width: ${({ naturalWidth }) => naturalWidth};
-  max-width: ${({ theme }) => theme.modal.maxWidth};
-  min-width: ${({ theme }) => theme.modal.minWidth};
-  flex: 0 1 auto;
-  min-height: ${({ theme }) => theme.modal.minHeight};
-  max-height: ${({ theme }) => theme.modal.maxHeight};
+  max-width: 70vw;
+  min-width: 20vw;
+  height: auto;
+  min-height: 0;
+  max-height: 70vh;
   margin: 180px auto auto auto;
   display: flex;
   flex-direction: column;
-  border-radius: ${({ theme }) => theme.modal.borderRadius};
-  box-shadow: ${({ theme }) => theme.modal.shadow};
+  border-radius: 5px;
+  box-shadow: ${({ theme }) => theme.shadows.default};
   position: relative;
 `;
 
 const Title = styled.h3`
   display: block;
   margin: 0;
-  background: ${({ theme }) => theme.modal.titleBG};
-  color: ${({ theme }) => theme.modal.titleFG};
+  background: ${({ theme }) => theme.colors.borderLight};
+  color: ${({ theme }) => theme.colors.black};
   padding: .95em 1em .95em 1.5em;
-  font-family: ${({ theme }) => theme.modal.titleFontFamily};
-  font-size: ${({ theme }) => theme.modal.titleFontSize};
-  font-weight: ${({ theme }) => theme.modal.titleFontWeight};
-  text-transform: ${({ theme }) => theme.modal.titleTextTransform};
+  font-family: ${({ theme }) => theme.fonts.brand};
+  font-size: 0.9em;
+  font-weight: 600;
+  text-transform: uppercase;
 `;
 
 export class Modal extends React.Component {

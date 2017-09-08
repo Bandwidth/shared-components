@@ -14,7 +14,7 @@ const Title = styled.h3`
   background: #dedede;
   display: block;
   padding: ${({ theme }) =>
-    `${theme.padding.extraSmall} ${theme.padding.large}`};
+    `${theme.spacing.extraSmall} ${theme.spacing.large}`};
   margin: 0;
   font-size: 0.9em;
   font-weight: 600;

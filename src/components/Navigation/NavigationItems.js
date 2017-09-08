@@ -12,13 +12,13 @@ export const Container = styled.div.withConfig({
   flex-direction: row;
   justify-content: flex-end;
 
-  background: ${({ theme }) => theme.tab.bg};
-  color: ${({ theme }) => theme.tab.fg};
-  font-size: ${({ theme }) => theme.tab.fontSize};
-  margin-bottom: ${({ theme }) => theme.tab.marginBottom};
+  background: transparent;
+  color: ${({ theme }) => theme.colors.white};
+  font-size: ${({ mods }) => mods.compact ? '0.8em' : '1em'};
+  margin-bottom: ${({ mods }) => mods.compact ? '15px' : 'auto'};
 
   & > * {
-    margin: ${({ theme }) => theme.tab.margin};
+    margin: 0 30px 0 0;
   }
 
   & > *:last-of-type {
@@ -42,8 +42,8 @@ export const linksPropType = PropTypes.arrayOf(
   }),
 );
 
-export const NavigationItems = ({ links, className, id }) => (
-  <Container id={id} className={className}>
+const NavigationItems = ({ links, className, id, mods }) =>
+  <Container id={id} className={className} mods={mods}>
     {links.map(link =>
       <Anchor
         key={`${link.content}_${link.to}`}
@@ -72,6 +72,10 @@ NavigationItems.propTypes = {
    * Adds an id to the link container element.
    */
   id: PropTypes.string,
+  /**
+   * Provided by our sharedComponent HOC
+   */
+  mods: PropTypes.object.isRequired,
 };
 
 NavigationItems.defaultProps = {

@@ -9,7 +9,7 @@ const ToastImpl = styled.div.withConfig({ displayName: 'Toast' })`
   left: 50%;
   transform: translateX(-50%);
   width: 400px;
-  padding: ${({ theme }) => theme.padding.small};
+  padding: ${({ theme }) => theme.spacing.small};
   text-align: center;
   display: block;
   top: 120px;

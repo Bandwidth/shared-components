@@ -7,17 +7,18 @@ import SubmitButton from './SubmitButton';
 import {secondaryTheme} from '../../theme';
 
 const ButtonImpl = styled.button`
-  font-size: ${({ theme }) => theme.button.fontSize};
+  font-size: ${({ mods }) => mods.compact ? '0.7em' : '0.8em'};
   text-decoration: none;
-  font-weight: ${({ theme }) => theme.button.fontWeight};
-  font-family: ${({ theme }) => theme.button.fontFamily};
-  text-transform: ${({ theme }) => theme.button.textTransform};
+  font-weight: 700;
+  font-family: ${({ theme }) => theme.fonts.brand};
+  text-transform: uppercase;
 
   background: ${({ theme }) => theme.colors.primary};
   border: 1px solid ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.white};
   border-radius: 3em;
-  padding: ${({ theme }) => theme.button.padding};
+  /* subtracting 1 from the design system height due to the border */
+  padding: ${({ mods }) => mods.compact ? '11px 30px' : '12px 40px'};
   display: inline-block;
   line-height: normal;
   white-space: nowrap;
@@ -34,16 +35,16 @@ const ButtonImpl = styled.button`
   overflow: hidden;
 
   &:hover:not(:disabled), &:focus {
-    background-color: ${({ theme }) => theme.button.activeBG};
-    border-color: ${({ theme }) => theme.button.activeBG};
-    color: ${({ theme }) => theme.button.activeFG};
-    box-shadow: 0 2px 4px ${({ theme }) => theme.shadow.color};
+    background-color: ${({ theme }) => theme.colors.primaryDark};
+    border-color: ${({ theme }) => theme.colors.primaryDark};
+    color: ${({ theme }) => theme.colors.white};
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
   }
 
   &:disabled {
-    background: ${({ theme }) => theme.button.disabledBG};
-    color: ${({ theme }) => theme.button.disabledFG};
-    border: ${({ theme }) => theme.button.disabledBorder};
+    background: ${({ theme }) => theme.colors.disabled};
+    color: ${({ theme }) => theme.colors.black};
+    border-color: ${({ theme }) => theme.colors.disabled};
     cursor: default;
   }
 
@@ -51,14 +52,14 @@ const ButtonImpl = styled.button`
     position: absolute;
     height: 100%;
     font-size: 125%;
-    color: ${({ theme }) => theme.button.fg};
+    color: ${({ theme }) => theme.colors.white};
     transition: all 0.3s;
     speak: none;
     font-family: 'Bandwidth';
   }
 
   &:hover::before, &:hover::after {
-    color: ${({ theme }) => theme.button.activeFG};
+    color: ${({ theme }) => theme.colors.white};
   }
 
   &::before {

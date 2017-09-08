@@ -7,18 +7,18 @@ const StyledInput = styled.input`
   color: ${({ theme }) => theme.colors.black};
   background: ${({ theme }) => theme.colors.white};
   letter-spacing: 0.02em;
-  line-height: ${({ theme }) => theme.input.lineHeight};
-  font-size: ${({ theme }) => theme.input.fontSize};
-  font-family: ${({ theme }) => theme.input.fontFamily};
+  line-height: 1.5;
+  font-size: 14px;
+  font-family: ${({ theme }) => theme.fonts.default};
   transition: all 0.2s ease;
   outline: none;
   width: 100%;
-  padding: ${({ theme }) => theme.padding.medium};
+  padding: ${({ theme }) => theme.spacing.medium};
   display: block;
-  border: ${({ theme }) => theme.input.border};
+  border: 1px solid ${({ theme }) => theme.colors.borderLight};
 
   &:focus {
-    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.colors.primaryLight};
+    box-shadow: ${({ theme }) => theme.shadows.insetValid};
     border: 1px solid ${({ theme }) => theme.colors.border};
   }
   &:focus + div {
@@ -38,14 +38,14 @@ const StyledInput = styled.input`
   ${({ visited, theme }) => visited ?
     css`
       &:invalid {
-        box-shadow: inset 0 -5px 0 ${theme.colors.errorBackgroundLight};
+        box-shadow: ${({ theme }) => theme.shadows.insetInvalid};
         border: 1px solid ${theme.colors.errorBorder};
       }
     `
       : ''} ${({ invalid, error, theme }) =>
       invalid || error
         ? `
-    box-shadow: inset 0 -5px ${theme.colors.errorBackgroundLight};
+    box-shadow: ${theme.shadows.insetInvalid};
     border: 1px solid ${theme.colors.errorBorder};
     `
         : ''};

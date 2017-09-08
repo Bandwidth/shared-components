@@ -15,7 +15,7 @@ const List = styled.ul`
 const SubFieldContainer = styled.li`
   display: flex;
   flex-direction: row;
-  margin: ${({ theme }) => theme.padding.small};
+  margin: ${({ theme }) => theme.spacing.small};
 
   & > * {
     flex: 1;

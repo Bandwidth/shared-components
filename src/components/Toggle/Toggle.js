@@ -21,7 +21,7 @@ const ToggleLabel = styled.label`
   cursor: pointer;
   position: relative;
   padding: ${({ theme }) =>
-    `${theme.padding.extraSmall} 0 ${theme.padding.extraSmall} ${theme.padding
+    `${theme.spacing.extraSmall} 0 ${theme.spacing.extraSmall} ${theme.padding
       .extraLarge}`};
   user-select: none;
   transition: all 0.2s ease;

@@ -11,12 +11,12 @@ export const Container = styled.div`
 `;
 
 const Label = styled.div`
-  padding: ${({ theme }) => theme.accordion.padding};
-  color: ${({ theme }) => theme.accordion.labelFG};
-  font-family: ${({ theme }) => theme.accordion.labelFontFamily};
-  font-size: ${({ theme }) => theme.accordion.labelFontSize};
-  text-transform: ${({ theme }) => theme.accordion.textTransform};
-  font-weight: ${({ theme }) => theme.accordion.labelFontWeight};
+  padding: ${({ theme, mods }) => mods.compact ? theme.spacing.medium : theme.spacing.large};
+  color: ${({ theme, mods }) => mods.compact ? theme.colors.black : theme.colors.primary};
+  font-family: ${({ theme }) => theme.fonts.brand};
+  font-size: ${({ mods }) => mods.compact ? '14px' : '1.5em'};
+  text-transform: ${({ mods }) => mods.compact ? 'uppercase' : 'none'};
+  font-weight: ${({ mods }) => mods.compact ? '700' : '400'};
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -40,7 +40,7 @@ const ModdedIcon = styled(Icon.Class)`
   &:after {
     padding-top: 0;
     padding-bottom: 0;
-    font-size: ${({ theme }) => theme.accordion.iconFontSize};
+    font-size: ${({ mods }) => mods.compact ? '14px' : '1em'};
   }
 `;
 
@@ -49,8 +49,8 @@ const LabelText = styled.span`
   flex: 1;
 `;
 
-const ContentPadding = styled.div`
-  padding: ${({ theme }) => theme.accordion.padding};
+export const ContentPadding = styled.div`
+  padding: ${({ theme, mods }) => mods.compact ? theme.spacing.medium : theme.spacing.large};
   padding-top: 0;
   display: flex;
   flex-direction: column;
@@ -90,6 +90,10 @@ export class Accordion extends React.Component {
      * Set an id for the accordion container element.
      */
     id: PropTypes.string,
+    /**
+     * Provided by the sharedComponent HOC
+     */
+    mods: PropTypes.object.isRequired,
   };
 
   static defaultProps = {

@@ -4,22 +4,22 @@ import sharedComponent from '../../sharedComponent';
 
 const NavigationItemImpl = styled.div.withConfig({ displayName: 'NavigationItem' })`
   border: 0;
-  padding: ${({ theme }) => theme.tab.padding};
+  padding: ${({ mods }) => mods.compact ? '30px 0 0 0' : '30px 0 30px 0'};
   opacity: 1;
   transition: all 0.2s ease;
   position: relative;
   cursor: pointer;
-  color: ${({ theme, active }) => (active ? theme.tab.activeFG : theme.tab.fg)};
+  color: ${({ theme }) => theme.colors.white};
 
   &::before {
     content: "";
-    background: ${({ theme }) => theme.tab.accent};
+    background: ${({ theme }) => theme.colors.primary};
     width: 104%;
     height: ${({ active }) => (active ? '5px' : 0)};
     display: block;
     position: absolute;
-    bottom: ${({ theme }) => theme.tab.accentBarBottom};
-    top: ${({ theme }) => theme.tab.accentBarTop};
+    bottom: ${({ mods }) => mods.compact ? 'auto' : '0'};
+    top: ${({ mods }) => mods.compact ? 'calc(100% + 10px)' : 'auto'};
     left: 50%;
     transform: translateX(-50%);
     transition: height 0.2s ease, opacity 0.2s ease;

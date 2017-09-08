@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 import NavigationItems, { linksPropType } from './NavigationItems';
 import LogoHeader from './LogoHeader';
-import theme from '../../theme';
+import Compact from '../../mods/Compact';
 
 const Container = styled.header.withConfig({
   displayName: 'NavigationContainer',
 })`
-  background: ${({ theme }) => theme.topNav.bg};
-  color: ${({ theme }) => theme.topNav.fg};
-  border-bottom: 1px solid ${({ theme }) => theme.shadow.color};
-  padding: ${({ theme }) => theme.topNav.padding};
+  background: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.white};
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  padding: 0 30px 0 30px;
   display: flex;
   flex-shrink: 0;
   justify-content: space-between;
@@ -81,9 +81,9 @@ export class Navigation extends React.Component {
         </RenderIf>
         <Links>
           <RenderIf val={topLinks}>
-            <ThemeProvider theme={theme.small}>
+            <Compact>
               <NavigationItems links={topLinks} />
-            </ThemeProvider>
+            </Compact>
           </RenderIf>
           <NavigationItems links={links} />
         </Links>

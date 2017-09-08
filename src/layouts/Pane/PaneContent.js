@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
 const PaneContentImpl = styled.div`
-  padding: ${({ theme }) => theme.pane.contentPadding};
+  padding: 20px 30px 30px 30px;
 `;
 
 export const PaneContent = ({ children, ...rest }) => (

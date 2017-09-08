@@ -6,13 +6,13 @@ import sharedComponent from '../../sharedComponent';
 import Icon from '../Icon';
 
 const DropArea = styled.div`
-  border: ${({ theme }) => theme.input.border};
-  padding: ${({ theme }) => theme.input.padding};
-  font-size: ${({ theme }) => theme.input.fontSize};
-  font-family: ${({ theme }) => theme.input.fontFamily};
-  line-height: ${({ theme }) => theme.input.lineHeight};
-  background: ${({ theme }) => theme.input.bg};
-  color: ${({ theme }) => theme.input.fg};
+  border: 1px solid ${({ theme }) => theme.colors.borderLight};
+  padding: 1em 1em;
+  font-size: 14px;
+  font-family: ${({ theme }) => theme.fonts.default};
+  line-height: 1.5;
+  background: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   width: 100%;
   display: flex;
   flex-direction: row;

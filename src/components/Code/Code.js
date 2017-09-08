@@ -7,13 +7,13 @@ import Block from './CodeBlock';
 import Container from './CodeContainer';
 
 const CodeImpl = styled.pre.withConfig({ displayName: 'Code' })`
-  font-family: ${({ theme }) => theme.inlineCode.fontFamily};
-  fontSize: ${({ theme }) => theme.inlineCode.fontSize};
-  background: ${({ theme }) => theme.inlineCode.bg};
-  color: ${({ theme }) => theme.inlineCode.fg};
-  border: ${({ theme }) => theme.inlineCode.border};
-  padding: ${({ theme }) => theme.inlineCode.padding}
-  borderRadius: ${({ theme }) => theme.inlineCode.borderRadius};
+  font-family: ${({ theme }) => theme.fonts.monospace};
+  fontSize: 0.85em;
+  background: #f1f1f1;
+  color: ${({ theme }) => theme.colors.black};
+  border: 1px solid #e4e4e4;
+  padding: 0.3em;
+  borderRadius: 3px;
   margin: 0;
 `;
 

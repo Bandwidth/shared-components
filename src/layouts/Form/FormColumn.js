@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
 const FormColumnImpl = styled.section`
-  padding: 0 ${({ theme }) => theme.padding.large};
-  border-right: ${({ theme }) => theme.formColumn.border};
+  padding: 0 ${({ theme }) => theme.spacing.large};
+  border-right: 1px solid ${({ theme }) => theme.colors.borderLight};
 
   &:first-of-type {
     padding-left: 0;

@@ -11,6 +11,7 @@ export default defaultsDeep(
       primary: base.colors.error,
       primaryText: base.colors.errorText,
       primaryLight: base.colors.errorBackgroundLight,
+      primaryDark: base.colors.errorBackground,
     },
 
     button: {

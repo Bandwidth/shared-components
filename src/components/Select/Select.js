@@ -8,18 +8,18 @@ import arrowImage from './arrow.png';
 const NONE_KEY = 'BW_SHARED_SELECT_NONE';
 
 const Styles = styled.select`
-  padding: ${({ theme }) => theme.padding.medium};
-  border: ${({ theme }) => theme.input.border};
+  padding: ${({ theme }) => theme.spacing.medium};
+  border: 1px solid ${({ theme }) => theme.colors.borderLight};
   border-radius: 0;
   width: 100%;
-  color: ${({ theme }) => theme.input.fg};
-  font-family: ${({ theme }) => theme.input.fontFamily};
-  font-size: ${({ theme }) => theme.input.fontSize};
-  letter-spacing: ${({ theme }) => theme.input.letterSpacing};
-  line-height: ${({ theme }) => theme.input.lineHeight};
+  color: ${({ theme }) => theme.colors.black};
+  font-family: ${({ theme }) => theme.fonts.default};
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
   cursor: pointer;
   box-shadow: none;
-  background-color: ${({ theme }) => theme.input.bg};
+  background-color: ${({ theme }) => theme.colors.white};
   appearance: none;
   position: relative;
 
@@ -31,14 +31,14 @@ const Styles = styled.select`
   transition: 0.2s ease all;
 
   &:focus {
-    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.input.accentValid};
-    border-color: ${({ theme }) => theme.input.focusedBorder};
+    box-shadow: ${({ theme }) => theme.shadows.insetValid}
+    border-color: ${({ theme }) => theme.colors.border};
     outline: none;
   }
 
   &:disabled {
-    background: ${({ theme }) => theme.input.disabledBG};
-    color: ${({ theme }) => theme.input.disabledFG};
+    background: ${({ theme }) => theme.colors.disabled};
+    color: ${({ theme }) => theme.colors.black};
   }
 `;
 

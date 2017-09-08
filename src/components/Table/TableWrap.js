@@ -6,12 +6,12 @@ import _ from 'lodash';
 
 const WrapStyles = styled.div`
   width: 100%;
-  background: ${({ theme }) => theme.table.bg};
+  background: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: 5px 5px 0 0;
   overflow-x: auto;
   position: relative;
-  font-size: ${({ theme }) => theme.table.fontSize};
+  font-size: ${({ mods }) => mods.compact ? '0.9em' : '1em'};
 
   ${({ shadow }) => {
     switch (shadow) {
@@ -30,6 +30,10 @@ const WrapStyles = styled.div`
 export class Wrap extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
+    /**
+     * Provided by the sharedComponent HOC
+     */
+    mods: PropTypes.object.isRequired,
   };
 
   state = {
@@ -101,7 +105,7 @@ export class Wrap extends React.Component {
 
   render() {
     return (
-      <WrapStyles innerRef={el => (this._wrap = el)} shadow={this.state.shadow}>
+      <WrapStyles innerRef={el => (this._wrap = el)} shadow={this.state.shadow} mods={this.props.mods}>
         {this.props.children}
       </WrapStyles>
     );

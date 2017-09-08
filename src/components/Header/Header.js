@@ -5,12 +5,12 @@ import sharedComponent from '../../sharedComponent';
 import Sub from './SubHeader';
 
 const HeaderImpl = styled.h1.withConfig({ displayName: 'Header' })`
-  color: ${({ theme }) => theme.header.fg};
-  font-family: ${({ theme }) => theme.header.fontFamily};
-  font-weight: ${({ theme }) => theme.header.fontWeight};
-  font-size: ${({ theme }) => theme.header.fontSize};
-  margin: ${({ theme }) => theme.header.margin};
-  line-height: ${({ theme }) => theme.header.lineHeight};
+  color: ${({ theme }) => theme.colors.primary};
+  font-family: ${({ theme }) => theme.fonts.brand};
+  font-weight: 100;
+  font-size: ${({ mods }) => mods.compact ? '22px' : '2.5em'};
+  margin: ${({ mods }) => mods.compact ? '12px' : '0.83em 0 0 0'};
+  line-height: ${({ mods }) => mods.compact ? '22px' : '21px'};
 `;
 
 export const Header = ({...rest, children}) => (

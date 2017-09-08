@@ -9,13 +9,13 @@ import Icon from '../Icon';
 const Buttons = styled.div``;
 
 const Container = styled.div`
-  margin-bottom: ${({ theme }) => theme.padding.medium};
+  margin-bottom: ${({ theme }) => theme.spacing.medium};
 `;
 
 const ControlsRow = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: ${({ theme }) => theme.padding.small};
+  margin-bottom: ${({ theme }) => theme.spacing.small};
 
   & > ${Header.Class} {
     flex: 1;
@@ -25,7 +25,7 @@ const ControlsRow = styled.div`
   & > ${Buttons} {
     flex: 0 0 auto;
     & > a {
-      margin-left: ${({ theme }) => theme.padding.medium};
+      margin-left: ${({ theme }) => theme.spacing.medium};
     }
   }
 `;

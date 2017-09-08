@@ -10,11 +10,11 @@ export const CodeWrapper = styled.pre`
   white-space: pre-wrap;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  font-family: ${({ theme }) => theme.code.fontFamily};
-  font-size: ${({ theme }) => theme.code.fontSize};
-  background: ${({ theme }) => theme.code.bg};
-  color: ${({ theme }) => theme.code.fg};
-  padding: ${({ theme }) => theme.code.padding};
+  font-family: ${({ theme }) => theme.fonts.monospace};
+  font-size: 1em;
+  background: ${({ theme }) => theme.colors.grayDark};
+  color: ${({ theme }) => theme.colors.white};
+  padding: 2em;
   margin: 0;
 
   & pre,

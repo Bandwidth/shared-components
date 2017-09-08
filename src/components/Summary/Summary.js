@@ -6,13 +6,13 @@ import sharedComponent from '../../sharedComponent';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: ${({ theme }) => theme.card.fontSize};
+  font-size: 1em;
   margin: 0;
-  padding: ${({ theme }) => `${theme.padding.small} 0`};
-  background: ${({ theme }) => theme.card.bg};
+  padding: ${({ theme }) => `${theme.spacing.small} 0`};
+  background: ${({ theme }) => theme.colors.white};
   color: ${({ theme, active }) =>
-    active ? theme.card.activeFG : theme.card.fg};
-  border-bottom: ${({ theme }) => theme.card.border};
+    active ? theme.colors.primary : theme.colors.black};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
 
   &:last-child {
     border-bottom: none;
@@ -20,11 +20,11 @@ const Container = styled.div`
 `;
 
 const Help = styled.span`
-  font-family: ${({ theme }) => theme.card.helpFontFamily};
+  font-family: ${({ theme }) => theme.fonts.default};
   font-style: italic;
-  font-size: ${({ theme }) => theme.card.helpFontSize};
-  font-weight: ${({ theme }) => theme.card.helpFontWeight};
-  color: ${({ theme }) => theme.helpText.fg};
+  font-size: 0.9em;
+  font-weight: 100;
+  color: ${({ theme }) => theme.colors.grayLightText};
 `;
 
 /**

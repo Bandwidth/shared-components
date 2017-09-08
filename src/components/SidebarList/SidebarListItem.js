@@ -9,7 +9,7 @@ const ListItemContainer = styled.li`
     active ? theme.colors.gutter : theme.colors.white};
   color: ${({ active, theme }) =>
     active ? theme.colors.primary : theme.colors.black};
-  padding: ${({ theme }) => `${theme.padding.medium} ${theme.padding.large}`};
+  padding: ${({ theme }) => `${theme.spacing.medium} ${theme.spacing.large}`};
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
   border-right: 1px solid
     ${({ theme, active }) =>
@@ -19,8 +19,8 @@ const ListItemContainer = styled.li`
 `;
 
 const ListLabel = styled.h3`
-  text-transform: ${({ theme }) => theme.listItem.textTransform};
-  font-weight: ${({ theme }) => theme.listItem.fontWeight};
+  text-transform: uppercase;
+  font-weight: bold;
   margin: 0;
 `;
 

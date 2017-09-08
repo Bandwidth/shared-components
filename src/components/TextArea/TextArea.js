@@ -3,17 +3,17 @@ import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
 const TextAreaImpl = styled.textarea`
-  background: ${({ theme }) => theme.textarea.bg};
-  color: ${({ theme }) => theme.textarea.fg};
-  border: ${({ theme }) => theme.textarea.border};
-  font-size: ${({ theme }) => theme.textarea.fontSize};
-  font-weight: ${({ theme }) => theme.textarea.fontWeight};
-  font-family: ${({ theme }) => theme.textarea.fontFamily};
-  padding: ${({ theme }) => theme.textarea.padding};
+  background: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
+  border: 1px solid ${({ theme }) => theme.colors.borderLight};
+  font-size: 14px;
+  font-weight: 400;
+  font-family: ${({ theme }) => theme.fonts.default};
+  padding: ${({ theme }) => theme.spacing.medium};
   letter-spacing: 0.02em;
   box-shadow: none;
   transition: all 0.2s ease;
-  line-height: ${({ theme }) => theme.textarea.lineHeight};
+  line-height: 1.5em;
   outline: none;
   width: 100%;
   min-height: 100px;

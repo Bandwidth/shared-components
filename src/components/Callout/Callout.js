@@ -18,13 +18,13 @@ const openAnimation = keyframes`
 const Flyout = styled.div`
   position: absolute;
   z-index: 1;
-  max-width: ${({ theme }) => theme.callout.maxWidth};
-  background: ${({ theme }) => theme.callout.bg};
-  color: ${({ theme }) => theme.callout.fg};
-  padding: ${({ theme }) => theme.callout.padding};
-  border-radius: ${({ theme }) => theme.callout.borderRadius};
-  border: ${({ theme }) => theme.callout.border};
-  box-shadow: ${({ theme }) => theme.callout.shadow};
+  max-width: 300px;
+  background: ${({ theme }) => theme.colors.white};
+  color: inherit;
+  padding: ${({ theme }) => `${theme.spacing.small} ${theme.spacing.medium}`};
+  border-radius: 3px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  box-shadow: ${({ theme }) => theme.shadow.default};
   left: 100%;
   top: 50%;
   transform: translateX(10px) translateY(-50%);

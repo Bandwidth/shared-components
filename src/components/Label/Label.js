@@ -4,13 +4,13 @@ import styled, { css } from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
 const LabelImpl = styled.label.withConfig({ displayName: 'Label' })`
-  font-size: ${({ theme }) => theme.label.fontSize};
-  letter-spacing: ${({ theme }) => theme.label.letterSpacing};
-  font-weight: ${({ theme }) => theme.label.fontWeight};
-  font-family: ${({ theme }) => theme.label.fontFamily};
+  font-size: 1em;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  font-family: ${({ theme }) => theme.fonts.brand};
   padding-bottom: 0.4em;
-  color: ${({ theme }) => theme.label.fg};
-  background: ${({ theme }) => theme.label.bg};
+  color: ${({ theme }) => theme.colors.black};
+  background: transparent;
   opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
   display: block;
   line-height: 1.5em;
@@ -20,7 +20,7 @@ const LabelImpl = styled.label.withConfig({ displayName: 'Label' })`
       ? css`
         &::after {
           content: '*';
-          color: ${theme.label.requiredMarkFG};
+          color: #e8562e;
           padding-left: 0.3em;
         }
       `

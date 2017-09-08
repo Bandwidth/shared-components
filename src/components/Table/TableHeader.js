@@ -7,12 +7,12 @@ import Icon from '../Icon';
 import Anchor from '../Anchor';
 
 const TH = styled.th`
-  background: ${({ theme }) => theme.table.headerBG};
+  background: ${({ theme }) => theme.colors.secondaryFaded};
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.white};
-  font-weight: ${({ theme }) => theme.table.headerFontWeight};
-  font-family: ${({ theme }) => theme.table.headerFontFamily};
-  padding: ${({ theme }) => theme.table.headerPadding};
+  font-weight: 300;
+  font-family: ${({ theme }) => theme.fonts.brand};
+  padding: ${({ theme }) => `${theme.spacing.small} ${theme.spacing.medium}`};
   text-align: left;
   white-space: nowrap;
 

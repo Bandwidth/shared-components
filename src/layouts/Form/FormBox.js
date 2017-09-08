@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
 const FormBoxImpl = styled.div.withConfig({ displayName: 'FormBox' })`
-  background: ${({ theme }) => theme.form.bg};
-  border: ${({ theme }) => theme.form.border};
-  padding: ${({ theme }) => theme.padding.large};
+  background: ${({ theme }) => theme.colors.white};
+  border: 1px solid ${({ theme }) => theme.colors.borderLight};
+  padding: ${({ theme }) => theme.spacing.large};
   max-width: 70vw;
   width: 100%;
   margin: auto;

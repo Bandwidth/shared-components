@@ -10,6 +10,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import defaultTheme from './theme/defaultTheme';
 
 const sharedComponent = (subComponents = {}, ) => (Wrapped) => {
   if (!Wrapped) {
@@ -17,6 +18,11 @@ const sharedComponent = (subComponents = {}, ) => (Wrapped) => {
       'sharedComponent was called with an undefined wrapped component',
     );
   }
+
+  // provide some defaults
+  Wrapped.defaultProps = Wrapped.defaultProps || {};
+  Wrapped.defaultProps.theme = defaultTheme;
+  Wrapped.defaultProps.mods = {};
 
   class ModAwareComponent extends React.Component {
     static contextTypes = {
@@ -31,7 +37,7 @@ const sharedComponent = (subComponents = {}, ) => (Wrapped) => {
     render() {
       const { mods } = this.context;
 
-      return <Wrapped {...this.props} mods={mods} />;
+      return <Wrapped {...this.props} mods={mods || {}} />;
     }
   }
 

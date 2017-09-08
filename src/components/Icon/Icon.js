@@ -6,7 +6,7 @@ import icons, { map } from './icons';
 
 const IconImpl = styled.i.withConfig({ displayName: 'Icon' })`
   font-family: 'Bandwidth';
-  font-size: ${({ theme, size }) => `${size}` || theme.icon.fontSize};
+  font-size: ${({ theme, size }) => `${size}` || '16px'};
   color: inherit;
   font-style: normal;
   display: inline-block;

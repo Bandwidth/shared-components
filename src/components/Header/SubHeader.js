@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
 const SubHeaderImpl = styled.h2.withConfig({ displayName: 'SubHeader' })`
-  color: ${({ theme }) => theme.subheader.fg};
-  font-size: ${({ theme }) => theme.subheader.fontSize};
-  font-weight: ${({ theme }) => theme.subheader.fontWeight};
-  font-family: ${({ theme }) => theme.subheader.fontFamily};
+  color: ${({ theme }) => theme.colors.black};
+  font-size: 1.17em;
+  font-weight: 800;
+  font-family: ${({ theme }) => theme.fonts.brand};
 `;
 
 export const SubHeader = ({children, ...rest}) => (

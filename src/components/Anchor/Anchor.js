@@ -5,8 +5,8 @@ import sharedComponent from '../../sharedComponent';
 import { Link as ReactLink, Route } from 'react-router-dom';
 
 export const TextAnchor = styled.a`
-  color: ${({ theme }) => theme.link.fg};
-  font-family: ${({ theme }) => theme.link.fontFamily};
+  color: ${({ theme }) => theme.colors.primaryText};
+  font-family: ${({ theme }) => theme.fonts.brand};
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2 ease;
@@ -20,13 +20,13 @@ export const TextAnchor = styled.a`
   }
 
   &:active {
-    color: ${({ theme }) => theme.link.activeFG};
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   &::after {
     content: "";
-    background: ${({ theme }) => theme.link.fg};
-    border-radius: ${({ theme }) => theme.link.bubbleBorderRadius};
+    background: ${({ theme }) => theme.colors.primaryText};
+    border-radius: 2em;
     height: 1px;
     width: 100%;
     position: absolute;
@@ -59,8 +59,8 @@ export const IconAnchor = styled(TextAnchor)`
 export const WrapAnchor = styled.a`text-decoration: none;`;
 
 export const ReactTextAnchor = styled(ReactLink)`
-  color: ${({ theme }) => theme.link.fg};
-  font-family: ${({ theme }) => theme.link.fontFamily};
+  color: ${({ theme }) => theme.colors.primaryText};
+  font-family: ${({ theme }) => theme.fonts.brand};
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2 ease;
@@ -74,13 +74,13 @@ export const ReactTextAnchor = styled(ReactLink)`
   }
 
   &:active {
-    color: ${({ theme }) => theme.link.activeFG};
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   &::after {
     content: "";
-    background: ${({ theme }) => theme.link.fg};
-    border-radius: ${({ theme }) => theme.link.bubbleBorderRadius};
+    background: ${({ theme }) => theme.colors.primaryText};
+    border-radius: 2em;
     height: 1px;
     width: 100%;
     position: absolute;

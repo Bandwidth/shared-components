@@ -21,17 +21,17 @@ const CheckboxLabel = styled.label`
   cursor: pointer;
   position: relative;
   font-size: 14px;
-  padding: ${({ theme }) => theme.checkbox.labelPadding};
+  padding: 0.2em 0 0.2em 2.1em;
   user-select: none;
-  font-size: ${({ theme }) => theme.label.fontSize};
-  font-weight: ${({ theme }) => theme.label.fontWeight};
-  letter-spacing: ${({ theme }) => theme.label.letterSpacing};
-  color: ${({ theme }) => theme.label.fg};
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: ${({ theme }) => theme.colors.black};
 
   /* the check */
   &::before {
     content: ${({ active }) => (active ? `"${icons('checkmark')}"` : '""')};
-    color: ${({ theme }) => theme.checkbox.checkFG};
+    color: ${({ theme }) => theme.colors.white};
     font-family: 'Bandwidth';
     font-size: 1em;
     display: block;
@@ -47,8 +47,8 @@ const CheckboxLabel = styled.label`
   &::after {
     content: "";
     background: ${({ theme, active }) =>
-      active ? theme.checkbox.fullBG : theme.checkbox.emptyBG};
-    border: ${({ theme }) => theme.checkbox.border};
+      active ? theme.colors.secondary : theme.colors.white};
+    border: 2px solid ${({ theme }) => theme.colors.secondary};
     border-radius: 0.2em;
     width: ${SIZE};
     height: ${SIZE};
@@ -63,8 +63,8 @@ const CheckboxLabel = styled.label`
   ${({ disabled, theme }) =>
     disabled
       ? css`
-        opacity: ${theme.checkbox.disabledOpacity};
-        &::before { opacity: ${theme.checkbox.disabledOpacity}; }
+        opacity: 0.7;
+        &::before { opacity: 0.7; }
       `
       : ''};
 `;
