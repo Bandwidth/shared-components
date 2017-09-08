@@ -59,7 +59,15 @@ class SimpleTable extends React.Component {
     renderDetails: null,
     columns: null,
     onSortChanged: () => null,
-    getId: undefined,
+    getId: (item) => {
+      if (_.isString(item)) {
+        return item;
+      }
+      if (_.isFunction(item.get)) {
+        return item.get('id');
+      }
+      return item.id || JSON.stringify(item);
+    },
     loading: false,
   };
 
@@ -68,24 +76,13 @@ class SimpleTable extends React.Component {
     detailsItemId: null,
   };
 
-  getId = (item) => {
-    if (_.isString(item)) {
-      return item;
-    }
-    if (_.isFunction(item.get)) {
-      return item.get('id');
-    }
-    return item.id || JSON.stringify(item);
-  };
-
   blankSortOrders = () => this.props.columns.reduce(
     (orders, { name }) => ({ ...orders, [name]: 0 }),
     {}
   );
 
   indexOfDetailsItem = () => this.props.items.findIndex(
-    this.props.getId ? (item) => this.props.getId(item) === this.state.detailsItemId
-      : (item) => this.getId(item) === this.state.detailsItemId
+    (item) => this.props.getId(item) === this.state.detailsItemId
   );
 
   createHeaderClickHandler = (headerName) =>
@@ -107,12 +104,10 @@ class SimpleTable extends React.Component {
       return;
     }
 
-    const realId = this.props.getId ? this.props.getId(item) : this.getId(item);
-
-    if (this.state.detailsItemId === realId) {
+    if (this.state.detailsItemId === this.props.getId(item)) {
       this.setState({ detailsItemId: null });
     } else {
-      this.setState({ detailsItemId: realId });
+      this.setState({ detailsItemId: this.props.getId(item) });
     }
   };
 
@@ -143,12 +138,12 @@ class SimpleTable extends React.Component {
 
   renderRowDetails = () => {
     const itemIdx = this.indexOfDetailsItem();
-    const item = this.props.items[itemIdx];
 
     if (!this.props.renderDetails || itemIdx === -1 ) {
       return null;
     }
 
+    const item = this.props.items[itemIdx];
     return (
       <Table.RowDetails rowIndex={itemIdx} key="rowDetails">
         {this.props.renderDetails(item)}
