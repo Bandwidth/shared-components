@@ -44,6 +44,10 @@ class SimpleTable extends React.Component {
      * Indicates whether the table should render a loading state.
      */
     loading: PropTypes.bool,
+    /**
+    * A function that provides an unique id for a row item.
+    */
+    getId: PropTypes.func,
   };
 
   static defaultProps = {
@@ -55,12 +59,23 @@ class SimpleTable extends React.Component {
     renderDetails: null,
     columns: null,
     onSortChanged: () => null,
+    getId: undefined,
     loading: false,
   };
 
   state = {
     sortOrders: {},
-    detailsItem: null,
+    detailsItemId: null,
+  };
+
+  getId = (item) => {
+    if (_.isString(item)) {
+      return item;
+    }
+    if (_.isFunction(item.get)) {
+      return item.get('id');
+    }
+    return item.id || JSON.stringify(item);
   };
 
   blankSortOrders = () => this.props.columns.reduce(
@@ -69,7 +84,8 @@ class SimpleTable extends React.Component {
   );
 
   indexOfDetailsItem = () => this.props.items.findIndex(
-    (item) => item === this.state.detailsItem
+    this.props.getId ? (item) => this.props.getId(item) === this.state.detailsItemId
+      : (item) => this.getId(item) === this.state.detailsItemId
   );
 
   createHeaderClickHandler = (headerName) =>
@@ -91,10 +107,12 @@ class SimpleTable extends React.Component {
       return;
     }
 
-    if (this.state.detailsItem === item) {
-      this.setState({ detailsItem: null });
+    const realId = this.props.getId ? this.props.getId(item) : this.getId(item);
+
+    if (this.state.detailsItemId === realId) {
+      this.setState({ detailsItemId: null });
     } else {
-      this.setState({ detailsItem: item });
+      this.setState({ detailsItemId: realId });
     }
   };
 
@@ -125,13 +143,15 @@ class SimpleTable extends React.Component {
 
   renderRowDetails = () => {
     const itemIdx = this.indexOfDetailsItem();
-    if (!this.props.renderDetails || !this.state.detailsItem || itemIdx === -1) {
+    const item = this.props.items[itemIdx];
+
+    if (!this.props.renderDetails || itemIdx === -1 ) {
       return null;
     }
 
     return (
       <Table.RowDetails rowIndex={itemIdx} key="rowDetails">
-        {this.props.renderDetails(this.state.detailsItem)}
+        {this.props.renderDetails(item)}
       </Table.RowDetails>
     );
   };
