@@ -7,7 +7,7 @@ import SubmitButton from './SubmitButton';
 import {secondaryTheme} from '../../theme';
 
 const ButtonImpl = styled.button`
-  font-size: ${({ mods }) => mods.compact ? '0.7em' : '0.8em'};
+  font-size: ${({ mods }) => mods.small ? '0.7em' : '0.8em'};
   text-decoration: none;
   font-weight: 700;
   font-family: ${({ theme }) => theme.fonts.brand};
@@ -18,7 +18,7 @@ const ButtonImpl = styled.button`
   color: ${({ theme }) => theme.colors.white};
   border-radius: 3em;
   /* subtracting 1 from the design system height due to the border */
-  padding: ${({ mods }) => mods.compact ? '11px 30px' : '12px 40px'};
+  padding: ${({ mods }) => mods.small ? '11px 30px' : '12px 40px'};
   display: inline-block;
   line-height: normal;
   white-space: nowrap;

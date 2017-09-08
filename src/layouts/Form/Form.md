@@ -8,7 +8,7 @@ Form is a smart layout component. It tries its best to lay out any Input compone
 
 Regardless of whether Inputs are 'loose' or inside a FieldGroup, the Form will try to put the proper padding between them and ensure that the outside edges are not padded.
 
-\`\`\`
+```
 <FormBox>
   <Form>
     <TextInput />
@@ -19,4 +19,4 @@ Regardless of whether Inputs are 'loose' or inside a FieldGroup, the Form will t
     </FieldGroup>
   </Form>
 </FormBox>
-\`\`\`
+```

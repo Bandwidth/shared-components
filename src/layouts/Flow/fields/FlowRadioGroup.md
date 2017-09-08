@@ -1,6 +1,6 @@
 A prebuilt \`Flow.Item\` with a \`RadioGroup\` component inside, designed for use with Redux Form.
 
-\`\`\`
+```
 <Flow.Row>
   <Field
     component={Flow.fields.RadioGroup}
@@ -9,4 +9,4 @@ A prebuilt \`Flow.Item\` with a \`RadioGroup\` component inside, designed for us
     label="Choose one"
   />
 </Flow.Row>
-\`\`\`
+```

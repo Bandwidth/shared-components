@@ -2,6 +2,6 @@ An experimental component which just adds some padding around something else, ba
 
 You can also specify a custom padding for any side, i.e. \`top="48px"\`. This is probably a bad idea.
 
-\`\`\`
+```
 <Spacing size="sm" bottom="lg">Some content</Spacing>
-\`\`\`
+```

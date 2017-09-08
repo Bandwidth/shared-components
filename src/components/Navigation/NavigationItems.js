@@ -14,8 +14,8 @@ export const Container = styled.div.withConfig({
 
   background: transparent;
   color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ mods }) => mods.compact ? '0.8em' : '1em'};
-  margin-bottom: ${({ mods }) => mods.compact ? '15px' : 'auto'};
+  font-size: ${({ mods }) => mods.small ? '0.8em' : '1em'};
+  margin-bottom: ${({ mods }) => mods.small ? '15px' : 'auto'};
 
   & > * {
     margin: 0 30px 0 0;
@@ -84,4 +84,4 @@ NavigationItems.defaultProps = {
   id: null,
 };
 
-export default sharedComponent({ Container, Item: NavigationItem })(NavigationItems);
+export default sharedComponent({ Container, Styled: Container, Item: NavigationItem })(NavigationItems);

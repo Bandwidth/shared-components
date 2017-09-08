@@ -11,7 +11,7 @@ const WrapStyles = styled.div`
   border-radius: 5px 5px 0 0;
   overflow-x: auto;
   position: relative;
-  font-size: ${({ mods }) => mods.compact ? '0.9em' : '1em'};
+  font-size: ${({ mods }) => mods.small ? '0.9em' : '1em'};
 
   ${({ shadow }) => {
     switch (shadow) {

@@ -27,12 +27,10 @@ const sharedComponent = (subComponents = {}, ) => (Wrapped) => {
   class ModAwareComponent extends React.Component {
     static contextTypes = {
       mods: PropTypes.shape({
-        compact: PropTypes.bool,
+        small: PropTypes.bool,
         large: PropTypes.bool,
       }),
     };
-
-    static usage = usage;
 
     render() {
       const { mods } = this.context;

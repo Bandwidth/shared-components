@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
@@ -8,9 +9,9 @@ const HeaderImpl = styled.h1.withConfig({ displayName: 'Header' })`
   color: ${({ theme }) => theme.colors.primary};
   font-family: ${({ theme }) => theme.fonts.brand};
   font-weight: 100;
-  font-size: ${({ mods }) => mods.compact ? '22px' : '2.5em'};
-  margin: ${({ mods }) => mods.compact ? '12px' : '0.83em 0 0 0'};
-  line-height: ${({ mods }) => mods.compact ? '22px' : '21px'};
+  font-size: ${({ mods }) => mods.small ? '22px' : '2.5em'};
+  margin: ${({ mods }) => mods.small ? '12px' : '0.83em 0 0 0'};
+  line-height: ${({ mods }) => mods.small ? '22px' : '21px'};
 `;
 
 export const Header = ({...rest, children}) => (

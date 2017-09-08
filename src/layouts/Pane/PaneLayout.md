@@ -1,6 +1,6 @@
 A top-level space for panes. Simply provides the padding that is common to pane layouts.
 
-\`\`\`
+```
 <PaneLayout>
   <PaneColumn>
     <PaneRow>
@@ -13,4 +13,4 @@ A top-level space for panes. Simply provides the padding that is common to pane 
     </PaneRow>
   </PaneColumn>
 </PaneLayout>
-\`\`\`
+```

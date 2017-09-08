@@ -11,12 +11,12 @@ export const Container = styled.div`
 `;
 
 const Label = styled.div`
-  padding: ${({ theme, mods }) => mods.compact ? theme.spacing.medium : theme.spacing.large};
-  color: ${({ theme, mods }) => mods.compact ? theme.colors.black : theme.colors.primary};
+  padding: ${({ theme, mods }) => mods.small ? theme.spacing.medium : theme.spacing.large};
+  color: ${({ theme, mods }) => mods.small ? theme.colors.black : theme.colors.primary};
   font-family: ${({ theme }) => theme.fonts.brand};
-  font-size: ${({ mods }) => mods.compact ? '14px' : '1.5em'};
-  text-transform: ${({ mods }) => mods.compact ? 'uppercase' : 'none'};
-  font-weight: ${({ mods }) => mods.compact ? '700' : '400'};
+  font-size: ${({ mods }) => mods.small ? '14px' : '1.5em'};
+  text-transform: ${({ mods }) => mods.small ? 'uppercase' : 'none'};
+  font-weight: ${({ mods }) => mods.small ? '700' : '400'};
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -40,7 +40,7 @@ const ModdedIcon = styled(Icon.Class)`
   &:after {
     padding-top: 0;
     padding-bottom: 0;
-    font-size: ${({ mods }) => mods.compact ? '14px' : '1em'};
+    font-size: ${({ mods }) => mods.small ? '14px' : '1em'};
   }
 `;
 
@@ -50,7 +50,7 @@ const LabelText = styled.span`
 `;
 
 export const ContentPadding = styled.div`
-  padding: ${({ theme, mods }) => mods.compact ? theme.spacing.medium : theme.spacing.large};
+  padding: ${({ theme, mods }) => mods.small ? theme.spacing.medium : theme.spacing.large};
   padding-top: 0;
   display: flex;
   flex-direction: column;
@@ -116,8 +116,8 @@ export class Accordion extends React.Component {
   }
 
   renderLabel = (isExpanded) => (
-    <Label onClick={this.handleToggle}>
-      <ModdedIcon isExpanded={isExpanded} name="forward" size={21} />
+    <Label onClick={this.handleToggle} mods={this.props.mods}>
+      <ModdedIcon isExpanded={isExpanded} name="forward" size={21} mods={this.props.mods} />
       <LabelText>{this.props.label}</LabelText>
     </Label>
   );

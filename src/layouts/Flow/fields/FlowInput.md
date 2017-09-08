@@ -1,6 +1,6 @@
 A prebuilt \`Flow.Item\` with an \`Input\` component inside, designed for use with Redux Form.
 
-\`\`\`
+```
 <Flow.Row>
   <Field
     component={Flow.fields.Input}
@@ -9,4 +9,4 @@ A prebuilt \`Flow.Item\` with an \`Input\` component inside, designed for use wi
     required
   />
 </Flow.Row>
-\`\`\`
+```

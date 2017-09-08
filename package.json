@@ -9,6 +9,7 @@
     "watch": "run-s watch:*",
     "build:clean": "rimraf dist",
     "build:cleanDocs": "rimraf docs",
+    "build:index": "node ./tools/generateIndices.js",
     "build:dist": "babel --copy-files --out-dir dist src",
     "build:styleguide": "styleguidist build",
     "build": "run-s build:*",

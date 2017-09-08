@@ -10,7 +10,6 @@ const Container = styled.ul`
   display: inline-block;
   margin: 0;
   padding: 0;
-  float: left;
   list-style: none;
   user-select: none;
 `;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 import NavigationItems, { linksPropType } from './NavigationItems';
 import LogoHeader from './LogoHeader';
-import Compact from '../../mods/Compact';
+import Small from '../../mods/Small';
 
 const Container = styled.header.withConfig({
   displayName: 'NavigationContainer',
@@ -31,7 +31,7 @@ const Links = styled.div.withConfig({ displayName: 'NavigationLinks' })`
     margin-top: auto;
   }
 
-  & > ${NavigationItems.Container}:nth-child(2) ${NavigationItems.Item.Class} {
+  & > ${NavigationItems.Styled}:nth-child(2) ${NavigationItems.Item.Styled} {
     padding-top: 10px !important;
   }
 `;
@@ -81,9 +81,9 @@ export class Navigation extends React.Component {
         </RenderIf>
         <Links>
           <RenderIf val={topLinks}>
-            <Compact>
+            <Small>
               <NavigationItems links={topLinks} />
-            </Compact>
+            </Small>
           </RenderIf>
           <NavigationItems links={links} />
         </Links>

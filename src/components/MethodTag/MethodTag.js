@@ -12,13 +12,13 @@ const colors = {
 };
 
 const MethodTagImpl = styled.pre`
-  background: ${({ children }) => colors[children]};
+  background: ${({ children }) => colors[children.toLowerCase()]};
   color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ mods }) => mods.compact ? '14px' : '1em'};
-  padding: ${({ mods }) => mods.compact ? '0.05em 0.6em' : '0.5em 1em'};
+  font-size: ${({ mods }) => mods.small ? '14px' : '1em'};
+  padding: ${({ mods }) => mods.small ? '0.05em 0.6em' : '0.5em 1em'};
   border-radius: 5px;
   text-transform: uppercase;
-  line-height: ${({ mods }) => mods.compact ? '1.2em' : '1em'};
+  line-height: ${({ mods }) => mods.small ? '1.2em' : '1em'};
   margin: 0;
   display: inline-block;
 `;

@@ -2,7 +2,7 @@ Provides a nice delineated section of content within a Pane. Add a \`title\` to 
 
 Does no layout on children. Add your own padding to children if needed.
 
-\`\`\`
+```
 <Pane title="parent">
   <PaneSection title="foo">
     Content
@@ -11,4 +11,4 @@ Does no layout on children. Add your own padding to children if needed.
     Content
   </PaneSection>
 </Pane>
-\`\`\`
+```

@@ -2,7 +2,7 @@
 
 Sometimes forms are split into vertical columns. Very rarely, but we still have a component for that.
 
-\`\`\`
+```
 <Form>
   <FormColumn>
     <Field component={Foo} />
@@ -13,4 +13,4 @@ Sometimes forms are split into vertical columns. Very rarely, but we still have 
     <FieldGroup> ... </FieldGroup>
   </FormColumn>
 </Form>
-\`\`\`
+```

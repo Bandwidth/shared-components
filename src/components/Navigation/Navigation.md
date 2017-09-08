@@ -1,6 +1,6 @@
 The header above a page which contains page title and navigation.
 
-\`\`\`
+```
 <Navigation
   title="Bandwidth App"
   links={[
@@ -12,4 +12,4 @@ The header above a page which contains page title and navigation.
     { to: '/logout', content: 'Log Out' },
   ]}
 />
-\`\`\`
+```

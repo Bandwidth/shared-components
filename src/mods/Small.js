@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Compact extends React.Component {
+class Small extends React.Component {
   static childContextTypes = {
     mods: PropTypes.shape({
-      compact: PropTypes.bool,
+      small: PropTypes.bool,
     }),
   };
 
   getChildContext() {
-    return { mods: { compact: true } };
+    return { mods: { small: true } };
   }
 
   render() {
@@ -17,4 +17,4 @@ class Compact extends React.Component {
   }
 }
 
-export default Compact;
+export default Small;

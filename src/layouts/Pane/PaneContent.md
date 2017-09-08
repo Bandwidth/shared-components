@@ -1,6 +1,6 @@
 Wraps content inside a Pane or PaneSection with appropriate padding.
 
-\`\`\`
+```
 <Pane>
   <PaneSection>
     <PaneContent>
@@ -8,4 +8,4 @@ Wraps content inside a Pane or PaneSection with appropriate padding.
     </PaneContent>
   </PaneSection>
 </Pane>
-\`\`\`
+```

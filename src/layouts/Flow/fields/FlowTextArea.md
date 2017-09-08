@@ -1,6 +1,6 @@
 A prebuilt \`Flow.Item\` with a \`TextArea\` component inside, designed for use with Redux Form.
 
-\`\`\`
+```
 <Flow.Row>
   <Field
     component={Flow.fields.TextArea}
@@ -8,4 +8,4 @@ A prebuilt \`Flow.Item\` with a \`TextArea\` component inside, designed for use 
     label="Type a story here"
   />
 </Flow.Row>
-\`\`\`
+```

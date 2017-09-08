@@ -1,10 +1,11 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
 const NavigationItemImpl = styled.div.withConfig({ displayName: 'NavigationItem' })`
   border: 0;
-  padding: ${({ mods }) => mods.compact ? '30px 0 0 0' : '30px 0 30px 0'};
+  padding: ${({ mods }) => mods.small ? '30px 0 0 0' : '30px 0 30px 0'};
   opacity: 1;
   transition: all 0.2s ease;
   position: relative;
@@ -18,8 +19,8 @@ const NavigationItemImpl = styled.div.withConfig({ displayName: 'NavigationItem'
     height: ${({ active }) => (active ? '5px' : 0)};
     display: block;
     position: absolute;
-    bottom: ${({ mods }) => mods.compact ? 'auto' : '0'};
-    top: ${({ mods }) => mods.compact ? 'calc(100% + 10px)' : 'auto'};
+    bottom: ${({ mods }) => mods.small ? 'auto' : '0'};
+    top: ${({ mods }) => mods.small ? 'calc(100% + 10px)' : 'auto'};
     left: 50%;
     transform: translateX(-50%);
     transition: height 0.2s ease, opacity 0.2s ease;
@@ -51,4 +52,4 @@ NavigationItem.defaultProps = {
   id: null,
 };
 
-export default sharedComponent()(NavigationItem);
+export default sharedComponent({ Styled: NavigationItemImpl })(NavigationItem);

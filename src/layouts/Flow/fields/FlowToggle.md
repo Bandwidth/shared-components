@@ -1,6 +1,6 @@
 A prebuilt \`Flow.Item\` with a \`Toggle\` component inside, designed for use with Redux Form.
 
-\`\`\`
+```
 <Flow.Row>
   <Field
     component={Flow.fields.Toggle}
@@ -8,4 +8,4 @@ A prebuilt \`Flow.Item\` with a \`Toggle\` component inside, designed for use wi
     label="Toggle on/off"
   />
 </Flow.Row>
-\`\`\`
+```

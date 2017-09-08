@@ -16,7 +16,7 @@ Flow Items have a label, help text, and content which has a fixed height. Someti
 
 ![Simple Recipe](../images/flow/simpleRecipe.png)
 
-\`\`\`
+```
 <Flow>
   <Flow.Item label="User ID:" helpText={userIdHelpText}>
     <Input value={userId} disabled />
@@ -25,7 +25,7 @@ Flow Items have a label, help text, and content which has a fixed height. Someti
     <Button>Show Token and Secret</Button>
   </Flow.Item>
 </Flow>
-\`\`\`
+```
 
 #### Precise Field Alignment
 
@@ -35,7 +35,7 @@ Sometimes you need to use nesting to achieve a precise alignment of various rows
 
 (Item contents omitted for brevity)
 
-\`\`\`
+```
 <Flow>
   <Flow.Row>
     <Flow.Item label="Company" />
@@ -49,7 +49,7 @@ Sometimes you need to use nesting to achieve a precise alignment of various rows
     </Flow.Row>
   </Flow.Row>
 </Flow>
-\`\`\`
+```
 
 #### Redux Form
 
@@ -57,7 +57,7 @@ Flow includes built-in Redux Form fields for all our Input types. Reference them
 
 ![Form Recipe](../images/flow/formRecipe.png)
 
-\`\`\`
+```
 // in a redux-form HOC
 <Form onSubmit={this.props.handleSubmit}>
   <Flow>
@@ -94,7 +94,7 @@ Flow includes built-in Redux Form fields for all our Input types. Reference them
     </Flow.Row>
   </Flow>
 </Form>
-\`\`\`
+```
 
 #### Form Controls
 
@@ -102,7 +102,7 @@ Usually in a form, submit buttons and other controls lay out differently. There 
 
 ![Left Recipe](../images/flow/leftRecipe.png)
 
-\`\`\`
+```
 <Flow>
   <Flow.Row alignment="left">
     <Flow.Item>
@@ -113,11 +113,11 @@ Usually in a form, submit buttons and other controls lay out differently. There 
     </Flow.Item>
   </Flow.Row>
 </Flow>
-\`\`\`
+```
 
 ![Spaced Recipe](../images/flow/spacedRecipe.png)
 
-\`\`\`
+```
 <Flow>
   <Flow.Row>
     <Flow.Item alignment="left">
@@ -133,4 +133,4 @@ Usually in a form, submit buttons and other controls lay out differently. There 
     </Flow.Row>
   </Flow.Row>
 </Flow>
-\`\`\`
+```

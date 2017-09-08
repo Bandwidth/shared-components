@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
@@ -36,4 +37,4 @@ NewBadge.defaultProps = {
   id: null,
 };
 
-export default sharedComponent()(NewBadge);
+export default sharedComponent({ Styled: NewBadgeImpl })(NewBadge);

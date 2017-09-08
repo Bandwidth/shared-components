@@ -1,6 +1,6 @@
 A prebuilt \`Flow.Item\` with a \`Select\` component inside, designed for use with Redux Form.
 
-\`\`\`
+```
 <Flow.Row>
   <Field
     component={Flow.fields.Select}
@@ -12,4 +12,4 @@ A prebuilt \`Flow.Item\` with a \`Select\` component inside, designed for use wi
     required
   />
 </Flow.Row>
-\`\`\`
+```
