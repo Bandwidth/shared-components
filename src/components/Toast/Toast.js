@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
-const Toast = styled.div.withConfig({ displayName: 'Toast' })`
+const ToastImpl = styled.div.withConfig({ displayName: 'Toast' })`
   position: fixed;
   z-index: 10000000;
   background: ${({ theme }) => theme.colors.white};
@@ -21,6 +21,10 @@ const Toast = styled.div.withConfig({ displayName: 'Toast' })`
   }
 `;
 
+export const Toast = ({ children, ...rest }) => (
+  <ToastImpl {...rest}>{children}</ToastImpl>
+);
+
 Toast.propTypes = {
   /**
    * Adds a class name to the element.
@@ -37,10 +41,4 @@ Toast.defaultProps = {
   id: null,
 };
 
-export default sharedComponent(`
-Fill with quick notification content.
-
-\`\`\`
-<Toast>Hi there</Toast>
-\`\`\`
-`)(Toast);
+export default sharedComponent()(Toast);

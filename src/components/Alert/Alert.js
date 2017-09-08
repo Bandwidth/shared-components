@@ -101,7 +101,7 @@ const AlertContainer = styled.div`
   }
 `;
 
-const Alert = (props) => (
+export const Alert = (props) => (
   <AlertContainer {...props}>
     <p>{props.children}</p>
   </AlertContainer>

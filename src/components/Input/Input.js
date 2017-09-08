@@ -53,7 +53,7 @@ const StyledInput = styled.input`
   }
 `;
 
-class Input extends React.Component {
+export class Input extends React.Component {
   static propTypes = {
     /**
      * The value of the input.
@@ -176,6 +176,4 @@ class Input extends React.Component {
   }
 }
 
-export default sharedComponent(`
-A basic styled text input.
-`, { Styled: StyledInput })(Input);
+export default sharedComponent({ Styled: StyledInput })(Input);

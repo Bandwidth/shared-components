@@ -10,7 +10,7 @@ const Img = styled.img`
   margin: auto;
 `;
 
-const Logo =  ({ id, className }) => (
+export const Logo = ({ id, className }) => (
   <Img src={logo} id={id} className={className} />
 );
 
@@ -30,4 +30,4 @@ Logo.defaultProps = {
   id: null,
 };
 
-export default sharedComponent({ Image: Img })(Logo);
+export default sharedComponent({ Styled: Img })(Logo);

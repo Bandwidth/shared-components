@@ -19,7 +19,7 @@ const PaddedHeader = styled(Header.Class)`
   padding: 0 30px 30px 30px;
 `;
 
-class Pane extends React.Component {
+export class Pane extends React.Component {
   static propTypes = {
     /**
      * Optional title for the top of the pane.
@@ -57,12 +57,4 @@ class Pane extends React.Component {
   }
 }
 
-export default sharedComponent(`
-# Pane
-
-A section of display content with a title. Arranges children vertically.
-
-\`\`\`
-<Pane title="Hello">Content</Pane>
-\`\`\`
-`, { Column, Content, Layout, Row, Section, Container })(Pane);
+export default sharedComponent({ Column, Content, Layout, Row, Section, Container })(Pane);

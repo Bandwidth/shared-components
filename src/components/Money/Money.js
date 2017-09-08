@@ -8,7 +8,7 @@ const Figure = styled.span`
   color: ${({ positive, theme }) => positive ? theme.colors.positiveText : theme.colors.negativeText };
 `;
 
-class Money extends React.Component {
+export class Money extends React.Component {
   static propTypes = {
     /**
      * The monetary value to show.

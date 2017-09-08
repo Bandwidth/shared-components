@@ -4,7 +4,7 @@ import sharedComponent from '../../sharedComponent';
 import Button from './Button';
 import Loader from '../Loader';
 
-class SubmitButton extends React.Component {
+export class SubmitButton extends React.Component {
   static propTypes = {
     /**
      * Indicates that the form has not been touched yet. Will disable submission.

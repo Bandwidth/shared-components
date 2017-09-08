@@ -128,7 +128,7 @@ const inferType = (children) => {
 
 const isExternal = (to) => /^(https?:)*\/\//.test(to);
 
-class Anchor extends React.Component {
+export class Anchor extends React.Component {
   static propTypes = {
     /**
      * A location to link to with this anchor.

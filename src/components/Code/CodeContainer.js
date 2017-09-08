@@ -20,7 +20,7 @@ const Content = styled.div`
   }
 `;
 
-class CodeContainer extends React.Component {
+export class CodeContainer extends React.Component {
   static propTypes = {
     /**
      * Multiple CodeBlock elements to render in one frame.
@@ -59,21 +59,4 @@ class CodeContainer extends React.Component {
   }
 }
 
-<<<<<<< HEAD
-
-export default CodeContainer;
-=======
-export default sharedComponent(`
-When you want to make a big block of code which contains multiple elements (including non-code labels), this component can wrap everything with a nice consistent background and foreground.
-
-Also allows a header to be rendered above.
-
-\`\`\`
-<CodeContainer header={someHeaderNode}>
-  <Code>some thing;</Code>
-  <h3>a label for next thing</h3>
-  <Code>some other thing;</Code>
-</CodeContainer>
-\`\`\`
-`, { Container, Content })(CodeContainer);
->>>>>>> Wrap all components in an HOC
+export default sharedComponent({ Styled: Container, Content })(CodeContainer);

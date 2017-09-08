@@ -56,7 +56,7 @@ Dot.defaultProps = {
   color: null,
 };
 
-class Loader extends React.Component {
+export class Loader extends React.Component {
   static propTypes = {
     /**
      * The size of each loader 'dot'. Can be any CSS dimension string.

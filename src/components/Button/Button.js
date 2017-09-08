@@ -80,7 +80,7 @@ const ButtonImpl = styled.button`
   }
 `;
 
-const Button = ({children, ...rest}) => (
+export const Button = ({children, ...rest}) => (
   <ButtonImpl {...rest}>{children}</ButtonImpl>
 )
 
@@ -116,11 +116,4 @@ Button.defaultProps = {
   id: null,
 };
 
-Button.Example2 = () => (<ThemeProvider theme={secondaryTheme}>
-<Button>Secondary!</Button>
-</ThemeProvider>)
-
-Button.Submit = SubmitButton;
-Button.Styled = ButtonImpl;
-
-export default sharedComponent({ Submit: SubmitButton })(Button);
+export default sharedComponent({ Submit: SubmitButton, Styled: ButtonImpl })(Button);

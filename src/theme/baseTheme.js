@@ -260,22 +260,6 @@ export default {
     padding: '0.3em',
   },
 
-  // for request methods
-  methodTag: {
-    colors: {
-      get: '#6cbf0d',
-      post: '#00bcec',
-      del: '#e8562e',
-      delete: '#e8562e',
-      put: '#a5639b',
-    },
-    padding: '0.5em 1em',
-    borderRadius: '5px',
-    fg: colors.white,
-    fontSize: '1em',
-    lineHeight: '1em',
-  },
-
   selectItem: {
     fg: '#666',
     bg: '#fff',

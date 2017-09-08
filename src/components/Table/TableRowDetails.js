@@ -27,7 +27,7 @@ const TableRowDetailsStyles = styled.td`
   box-shadow: inset 5px 0 0 rgba(0,0,0,.12);
 `;
 
-const TableRowDetails = ({ children, rowIndex = 0 }) => (
+export const TableRowDetails = ({ children, rowIndex = 0 }) => (
   <TBody startIndex={rowIndex}>
     <TableRowDetailContainer>
       <TableRowDetailsStyles colSpan={COLSPAN}>
@@ -37,8 +37,4 @@ const TableRowDetails = ({ children, rowIndex = 0 }) => (
   </TBody>
 );
 
-export default sharedComponent(`
-\`TableRowDetails\` is a \`<tbody>\` with a full-length element as its only row.
-
-Insert it between an upper \`<tbody>\` and a lower \`<tbody>\`, where the last row in the upper \`<tbody>\` is the selected element to show details for. See \`SimpleTable\` for example usage.
-`, { Container: TableRowDetailContainer, Content: TableRowDetailsStyles })(TableRowDetails);
+export default sharedComponent({ Container: TableRowDetailContainer, Content: TableRowDetailsStyles })(TableRowDetails);

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
-const TextArea = styled.textarea`
+const TextAreaImpl = styled.textarea`
   background: ${({ theme }) => theme.textarea.bg};
   color: ${({ theme }) => theme.textarea.fg};
   border: ${({ theme }) => theme.textarea.border};
@@ -18,6 +18,10 @@ const TextArea = styled.textarea`
   width: 100%;
   min-height: 100px;
 `;
+
+export const TextArea = ({ children, ...rest }) => (
+  <TextAreaImpl {...rest}>{children}</TextAreaImpl>
+);
 
 TextArea.propTypes = {
   /**
@@ -35,10 +39,4 @@ TextArea.defaultProps = {
   id: null,
 };
 
-export default sharedComponent(`
-An input component that renders a large field for entering long text.
-
-\`\`\`
-<TextArea value="hi" required />
-\`\`\`
-`)(TextArea);
+export default sharedComponent()(TextArea);

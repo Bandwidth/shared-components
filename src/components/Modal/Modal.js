@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-<<<<<<< HEAD
 import ScrollBox from '../../behaviors/ScrollBox';
-=======
 import sharedComponent from '../../sharedComponent';
->>>>>>> Wrap all components in an HOC
 
 const Blocker = styled.div`
   background: ${({ theme }) => theme.modal.blockerBG};
@@ -49,7 +46,7 @@ const Title = styled.h3`
   text-transform: ${({ theme }) => theme.modal.titleTextTransform};
 `;
 
-class Modal extends React.Component {
+export class Modal extends React.Component {
   static propTypes = {
     /**
      * Content to render in the modal.

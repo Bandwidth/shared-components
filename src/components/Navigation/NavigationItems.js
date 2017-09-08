@@ -38,7 +38,7 @@ export const linksPropType = PropTypes.arrayOf(PropTypes.shape({
   newTab: PropTypes.bool,
 }));
 
-const NavigationItems = ({ links, className, id }) => (
+export const NavigationItems = ({ links, className, id }) => (
   <Container id={id} className={className}>
     {links.map((link) => (
       <Anchor
@@ -75,15 +75,4 @@ NavigationItems.defaultProps = {
   id: null,
 };
 
-export default sharedComponent(`
-Helper to generate a list of navigation items.
-
-\`\`\`
-<NavigationItems
-  links={[
-    { to: '/cat', exact: true, content: 'Cat' },
-    { to: '/anotherCat', content: 'Another Cat' },
-  ]}
-/>
-\`\`\`
-`, { Container, Item: NavigationItem })(NavigationItems);
+export default sharedComponent({ Container, Item: NavigationItem })(NavigationItems);

@@ -17,7 +17,7 @@ const IconImpl = styled.i.withConfig({ displayName: 'Icon' })`
   }
 `;
 
-const Icon = ({children, ...rest}) => (
+export const Icon = ({children, ...rest}) => (
   <IconImpl {...rest}>{children}</IconImpl>
 )
 
@@ -54,10 +54,4 @@ Icon.defaultProps = {
   iconsHelper: icons,
 };
 
-export default sharedComponent({ Styled: IconImpl },`
-## Icons
-
-The icon definition file is in \`components/helpers/icons.js\`
-
-${Object.keys(map).map((name) => `* ${name}`).join('\n')}
-`)(Icon);
+export default sharedComponent({ Styled: IconImpl })(Icon);

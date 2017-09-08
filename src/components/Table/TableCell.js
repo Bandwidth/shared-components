@@ -17,7 +17,7 @@ const TD = styled.td`
   }
 `;
 
-class Cell extends React.Component {
+export class Cell extends React.Component {
   static propTypes = {
     /**
      * Contents of the table cell.
@@ -45,6 +45,4 @@ class Cell extends React.Component {
   }
 }
 
-export default sharedComponent(`
-A table cell with some styling on it.
-`, { TD })(Cell);
+export default sharedComponent({ TD })(Cell);

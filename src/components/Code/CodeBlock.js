@@ -24,7 +24,7 @@ export const CodeWrapper = styled.pre`
   }
 `;
 
-class CodeBlock extends React.Component {
+export class CodeBlock extends React.Component {
   static propTypes = {
     /**
      * Code to render inside the code block.

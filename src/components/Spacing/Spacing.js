@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 import PropTypes from 'prop-types';
@@ -36,7 +37,7 @@ const getSpacing = (theme, size) => {
   return size;
 }
 
-const Spacing = styled.div`
+const SpacingImpl = styled.div`
   ${({ size, theme }) => `padding: ${getSpacing(theme, size)};`}
 
   ${({ top, theme }) => top ? `padding-top: ${getSpacing(theme, top)};` : ''}
@@ -44,6 +45,10 @@ const Spacing = styled.div`
   ${({ left, theme }) => left ? `padding-left: ${getSpacing(theme, left)};` : ''}
   ${({ right, theme }) => right ? `padding-right: ${getSpacing(theme, right)};` : ''}
 `;
+
+export const Spacing = ({ children, ...rest }) => (
+  <SpacingImpl {...rest}>{children}</SpacingImpl>
+);
 
 Spacing.propTypes = {
   /**
@@ -86,12 +91,4 @@ Spacing.defaultProps = {
   id: null,
 };
 
-export default sharedComponent(`
-An experimental component which just adds some padding around something else, based on some pre-defined sizes our designers like. Since developers end up implementing their own padding a lot, it might be useful to include this generic utility. Hopefully it generalizes well.
-
-You can also specify a custom padding for any side, i.e. \`top="48px"\`. This is probably a bad idea.
-
-\`\`\`
-<Spacing size="sm" bottom="lg">Some content</Spacing>
-\`\`\`
-`)(Spacing);
+export default sharedComponent()(Spacing);

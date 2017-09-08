@@ -22,7 +22,7 @@ const ListLabel = styled.h3`
 
 const ListDetails = styled.div``;
 
-class SidebarListItem extends React.Component {
+export class SidebarListItem extends React.Component {
   static propTypes = {
     /**
      * The main details of the list item.
@@ -71,18 +71,8 @@ class SidebarListItem extends React.Component {
   }
 }
 
-export default sharedComponent(`
-Renders a list item component. Use it inside a List for optimal effect.
-
-Props:
-
-* \`label\`: the main content
-* \`details\`: some extra info to render below the label
-* \`active\`: determines whether the item should render as active or not
-
-TODO: refactor this to use Card.
-
-\`\`\`
-<SidebarListItem label="hi" active={true} />
-\`\`\`
-`, { Container: ListItemContainer, Label: ListLabel, Details: ListDetails })(SidebarListItem);
+export default sharedComponent({
+  Container: ListItemContainer,
+  Label: ListLabel,
+  Details: ListDetails
+})(SidebarListItem);

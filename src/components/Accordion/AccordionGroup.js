@@ -10,7 +10,7 @@ const Container = styled.div`
   }
 `;
 
-class AccordionGroup extends React.Component {
+export class AccordionGroup extends React.Component {
   static propTypes = {
     /**
      * Accordions to render in this group.

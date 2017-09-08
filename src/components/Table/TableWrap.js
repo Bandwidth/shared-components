@@ -27,7 +27,7 @@ const WrapStyles = styled.div`
   }}
 `;
 
-class Wrap extends React.Component {
+export class Wrap extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
   };
@@ -94,6 +94,4 @@ class Wrap extends React.Component {
   }
 }
 
-export default sharedComponent(`
-
-`, { Container: WrapStyles })(Wrap);
+export default sharedComponent({ Container: WrapStyles, Styled: WrapStyles })(Wrap);

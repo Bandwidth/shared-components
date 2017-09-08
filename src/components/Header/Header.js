@@ -13,7 +13,7 @@ const HeaderImpl = styled.h1.withConfig({ displayName: 'Header' })`
   line-height: ${({ theme }) => theme.header.lineHeight};
 `;
 
-const Header = ({...rest, children}) => (
+export const Header = ({...rest, children}) => (
   <HeaderImpl {...rest}>{children}</HeaderImpl>
 )
 

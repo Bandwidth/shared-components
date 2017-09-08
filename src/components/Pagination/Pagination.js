@@ -67,7 +67,7 @@ const ItemPlaceholder = styled.li`
   height: ${ITEM_SIZE};
 `;
 
-class Pagination extends React.Component {
+export class Pagination extends React.Component {
   static propTypes = {
     /**
      * The number of total pages available.
@@ -170,10 +170,4 @@ class Pagination extends React.Component {
   }
 }
 
-export default sharedComponent(`
-Renders a 'controlled' pagination container. You need to provide the current page and other metadata.
-
-\`\`\`
-<Pagination pageCount={4} page={1} onPageSelected={(pageNumber) => { /* handle it */ }} />
-\`\`\`
-`, { Container, Item, ItemPlaceholder })(Pagination);
+export default sharedComponent({ Container, Item, ItemPlaceholder })(Pagination);

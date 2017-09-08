@@ -11,7 +11,7 @@ const HelpTextImpl = styled.div.withConfig({ displayName: 'HelpText' })`
   font-family: ${({ theme }) => theme.helpText.fontFamily};
 `;
 
-const HelpText = ({children, ...rest}) => (
+export const HelpText = ({children, ...rest}) => (
   <HelpTextImpl {...rest}>{children}</HelpTextImpl>
 )
 

@@ -74,7 +74,7 @@ const Container = styled.div`
   position: relative;
 `;
 
-class Checkbox extends React.Component {
+export class Checkbox extends React.Component {
   static propTypes = {
     /**
      * Adds a class name to the input element.
@@ -139,4 +139,4 @@ class Checkbox extends React.Component {
 }
 
 
-export default sharedComponent({ Input: HiddenInput, Label: CheckboxLabel, Container })(Checkbox);
+export default sharedComponent({ Input: HiddenInput, Label: CheckboxLabel, Styled: Container })(Checkbox);

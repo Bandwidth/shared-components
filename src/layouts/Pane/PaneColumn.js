@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
-const PaneColumn = styled.div.withConfig({ displayName: 'PaneColumn' })`
+const PaneColumnImpl = styled.div.withConfig({ displayName: 'PaneColumn' })`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -17,6 +17,10 @@ const PaneColumn = styled.div.withConfig({ displayName: 'PaneColumn' })`
     border-bottom: none;
   }
 `;
+
+export const PaneColumn = ({ children, ...rest }) => (
+  <PaneColumnImpl {...rest}>{children}</PaneColumnImpl>
+);
 
 PaneColumn.propTypes = {
   /**
@@ -34,15 +38,4 @@ PaneColumn.defaultProps = {
   className: null,
 };
 
-export default sharedComponent(`
-# PaneColumn
-
-A composeable column. Lays out children vertically. Applies a divider between children.
-
-\`\`\`
-<PaneColumn>
-  <Pane>Content</Pane>
-  <Pane>Content</Pane>
-</PaneColumn>
-\`\`\`
-`)(PaneColumn);
+export default sharedComponent()(PaneColumn);

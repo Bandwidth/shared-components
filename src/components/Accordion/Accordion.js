@@ -62,7 +62,7 @@ const ContentPadding = styled.div`
  * Accordion works like a controllable component. Provide the
  * isExpanded prop to control it, or don't to let it control itself.
  */
-class Accordion extends React.Component {
+export class Accordion extends React.Component {
   static propTypes = {
     /**
      * Content to render when the accordion is collapsed, and in the header of the expanded state.

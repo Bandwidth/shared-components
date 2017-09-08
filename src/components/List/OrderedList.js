@@ -23,7 +23,7 @@ const OrderedListImpl = styled.ul.withConfig({ displayName: 'OrderedList' })`
   }
 `;
 
-const OrderedList = ({children, ...rest}) => (
+export const OrderedList = ({children, ...rest}) => (
   <OrderedListImpl {...rest}>{children}</OrderedListImpl>
 )
 

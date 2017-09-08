@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
-const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
+const NavigationItemImpl = styled.div.withConfig({ displayName: 'NavigationItem' })`
   border: 0;
   padding: ${({ theme }) => theme.tab.padding};
   opacity: 1;
@@ -31,6 +31,10 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
   }
 `;
 
+export const NavigationItem = ({ children, ...rest }) => (
+  <NavigationItemImpl {...rest}>{children}</NavigationItemImpl>
+);
+
 NavigationItem.propTypes = {
   /**
    * Adds a class name to the element.
@@ -47,4 +51,4 @@ NavigationItem.defaultProps = {
   id: null,
 };
 
-export default sharedComponent(``)(NavigationItem);
+export default sharedComponent()(NavigationItem);

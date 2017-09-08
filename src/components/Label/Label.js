@@ -28,7 +28,7 @@ const LabelImpl = styled.label.withConfig({ displayName: 'Label' })`
   }
 `;
 
-const Label = ({children, ...rest}) => (
+export const Label = ({children, ...rest}) => (
   <LabelImpl {...rest}>{children}</LabelImpl>
 )
 

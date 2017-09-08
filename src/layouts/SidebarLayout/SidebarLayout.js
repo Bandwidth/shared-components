@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 
-const SidebarLayout = styled.div.withConfig({ displayName: 'SidebarLayout' })`
+const SidebarLayoutImpl = styled.div.withConfig({ displayName: 'SidebarLayout' })`
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -21,6 +21,10 @@ const SidebarLayout = styled.div.withConfig({ displayName: 'SidebarLayout' })`
   }
 `;
 
+export const SidebarLayout = ({ children, ...rest }) => (
+  <SidebarLayoutImpl {...rest}>{children}</SidebarLayoutImpl>
+);
+
 SidebarLayout.propTypes = {
   /**
    * Adds an id to the element.
@@ -37,15 +41,4 @@ SidebarLayout.defaultProps = {
   className: null,
 };
 
-export default sharedComponent(`
-# SidebarLayout
-
-Does some simple stuff with flexbox to layout two columns. Assumes that it only has two children. We could extend this with media queries at some point to make it more useful.
-
-\`\`\`
-<SidebarLayout>
-  <ASidebar/>
-  <SomeContent/>
-</SidebarLayout>
-\`\`\`
-`)(SidebarLayout);
+export default sharedComponent()(SidebarLayout);

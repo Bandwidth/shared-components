@@ -17,7 +17,7 @@ const CodeImpl = styled.pre.withConfig({ displayName: 'Code' })`
   margin: 0;
 `;
 
-const Code = ({...rest, children}) => (
+export const Code = ({...rest, children}) => (
   <CodeImpl {...rest}>{children}</CodeImpl>
 )
 

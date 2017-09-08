@@ -36,7 +36,7 @@ const Flyout = styled.div`
   animation-fill-mode: forwards;
 `;
 
-class Callout extends React.Component {
+export class Callout extends React.Component {
   static propTypes = {
     /**
      * Miliseconds to wait before showing the callout.
@@ -98,4 +98,4 @@ class Callout extends React.Component {
   }
 }
 
-export default sharedComponent()(Callout);
+export default sharedComponent({ Styled: Container })(Callout);

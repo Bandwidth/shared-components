@@ -83,7 +83,7 @@ const Container = styled.div`
   display: block;
 `;
 
-class Toggle extends React.Component {
+export class Toggle extends React.Component {
   static propTypes = {
     /**
      * Adds a class name to the input element.
@@ -147,10 +147,4 @@ class Toggle extends React.Component {
   }
 }
 
-export default sharedComponent(`
-A simple toggle input.
-
-\`\`\`
-<Toggle value={false} label="Foo" />
-\`\`\`
-`, { Input: HiddenInput, Label: ToggleLabel, Container })(Toggle);
+export default sharedComponent({ Input: HiddenInput, Label: ToggleLabel, Container, Styled: Container })(Toggle);

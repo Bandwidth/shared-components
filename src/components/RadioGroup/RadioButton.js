@@ -91,7 +91,7 @@ const LabelText = styled.span`
   margin: auto auto auto 0;
 `;
 
-class RadioButton extends React.Component {
+export class RadioButton extends React.Component {
   static propTypes = {
     /**
      * Whether or not the button is currently selected.
@@ -157,6 +157,4 @@ class RadioButton extends React.Component {
   }
 }
 
-export default sharedComponent(`
-Not really meant to be used alone, unless you just want the styling of it. Use RadioGroup to create a group of RadioButtons.
-`, { Container, Input, Label, Content, LabelText })(RadioButton);
+export default sharedComponent({ Container, Input, Label, Content, LabelText })(RadioButton);

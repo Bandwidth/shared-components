@@ -36,7 +36,7 @@ const Overlay = styled.div`
   }
 `;
 
-class Table extends React.Component {
+export class Table extends React.Component {
   static propTypes = {
     /**
      * Render the rows of the Table within its children.
@@ -100,6 +100,4 @@ class Table extends React.Component {
   }
 }
 
-export default sharedComponent(`
-Renders a table, using the \`children\` and \`headers\` props to define the various table parts. Also accepts \`loading\` to show a loading state.
-`, { Row, Header, Cell, Controls, Simple, RowDetails, Wrap, Body: TBody })(Table);
+export default sharedComponent({ Row, Header, Cell, Controls, Simple, RowDetails, Wrap, Body: TBody })(Table);

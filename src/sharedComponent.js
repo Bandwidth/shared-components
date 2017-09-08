@@ -1,7 +1,7 @@
 /**
  * The higher-order-component responds to component modifications it receives from mod provider components
  * further up in the state tree. It also provides standardized fields for various things we
- * want to attach to our component, like usage.
+ * want to attach to our component, like subcomponents.
  *
  * All library components are wrapped in this HOC which will enable the use of mod components like <Small>
  *
@@ -11,7 +11,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const sharedComponent = (usage, subComponents = {}) => (Wrapped) => {
+const sharedComponent = (subComponents = {}, ) => (Wrapped) => {
   if (!Wrapped) {
     throw new Error('sharedComponent was called with an undefined wrapped component');
   }

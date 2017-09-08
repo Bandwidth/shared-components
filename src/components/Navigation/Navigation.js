@@ -35,7 +35,7 @@ const Links = styled.div.withConfig({ displayName: 'NavigationLinks' })`
 `;
 
 
-class Navigation extends React.Component {
+export class Navigation extends React.Component {
   static propTypes = {
     /**
      * The title to render within the navigation header (optional)
@@ -88,20 +88,4 @@ class Navigation extends React.Component {
   }
 }
 
-export default sharedComponent(`
-The header above a page which contains page title and navigation.
-
-\`\`\`
-<Navigation
-  title="Bandwidth App"
-  links={[
-    { to: '/cat', exact: true, content: 'Cat' },
-    { to: '/anotherCat', content: 'Another Cat' },
-  ]}
-  topLinks={[
-    { to: '/submitCat', content: 'Submit Cat' },
-    { to: '/logout', content: 'Log Out' },
-  ]}
-/>
-\`\`\`
-`, { Container, Links })(Navigation);
+export default sharedComponent({ Container, Styled: Container, Links })(Navigation);

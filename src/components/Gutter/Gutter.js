@@ -7,7 +7,7 @@ const GutterImpl = styled.div.withConfig({ displayName: 'Gutter' })`
   background: ${({ theme }) => theme.colors.gutter};
 `;
 
-const Gutter = ({children, ...rest}) => (
+export const Gutter = ({children, ...rest}) => (
   <GutterImpl {...rest}>{children}</GutterImpl>
 )
 

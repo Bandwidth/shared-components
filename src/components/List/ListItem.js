@@ -12,7 +12,7 @@ const ListItemImpl = styled.li.withConfig({ displayName: 'ListItem' })`
   }
 `;
 
-const ListItem = ({children, ...rest}) => (
+export const ListItem = ({children, ...rest}) => (
   <ListItemImpl {...rest}>{children}</ListItemImpl>
 )
 

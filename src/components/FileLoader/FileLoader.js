@@ -23,7 +23,7 @@ const Preview = styled.div`
   margin: auto auto auto 16px;
 `;
 
-class FileLoader extends React.Component {
+export class FileLoader extends React.Component {
   static propTypes = {
     /**
      * A FileList object to use as the value of the input.

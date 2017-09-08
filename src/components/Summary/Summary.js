@@ -31,7 +31,7 @@ const Help = styled.span`
  * not be considered universal enough to be included in a shared library. Use at
  * your own risk.
  */
-class Summary extends React.Component {
+export class Summary extends React.Component {
   static propTypes = {
     /**
      * The main content of the summary.
@@ -68,10 +68,4 @@ class Summary extends React.Component {
   }
 }
 
-export default sharedComponent(`
-Summaries are simple data items. They're not meant to be interactive, just informative. Supports adding a little help text with the \`helpText\` property.
-
-\`\`\`
-<Summary helpText="This is usually bar">Foo</Summary>
-\`\`\`
-`, { Container, Help })(Summary);
+export default sharedComponent({ Container, Help })(Summary);

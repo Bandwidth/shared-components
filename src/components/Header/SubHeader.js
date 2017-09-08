@@ -10,7 +10,7 @@ const SubHeaderImpl = styled.h2.withConfig({ displayName: 'SubHeader' })`
   font-family: ${({ theme }) => theme.subheader.fontFamily};
 `;
 
-const SubHeader = ({children, ...rest}) => (
+export const SubHeader = ({children, ...rest}) => (
   <SubHeaderImpl {...rest}>{children}</SubHeaderImpl>
 )
 

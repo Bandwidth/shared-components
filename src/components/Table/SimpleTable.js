@@ -13,7 +13,7 @@ const defaultValueRenderer = (val) =>
         JSON.stringify(val)
     );
 
-class SimpleTable extends React.Component {
+export class SimpleTable extends React.Component {
   static propTypes = {
     /**
      * An array of data items to use for the rows of the table.
@@ -196,17 +196,4 @@ class SimpleTable extends React.Component {
   }
 }
 
-export default sharedComponent(`
-Provides a more straighforward interface for creating a Table which may suit most use cases.
-
-\`\`\`
-<Table.Simple
-  items={arrayOfItemData}
-  columns={arrayOfColumnData}
-  renderRow={functionToRenderARow}
-  onSortChanged={functionToHandleSortChanges}
-  renderDetails={functionToRenderDetailViewOfRow}
-  loading={trueOrFalse}
-/>
-\`\`\`
-`)(SimpleTable);
+export default sharedComponent()(SimpleTable);
