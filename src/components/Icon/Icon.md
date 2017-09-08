@@ -12,7 +12,7 @@ The icon definition file is in `components/helpers/icons.js`
 Available Icons:
 ```
 const icons = require('./icons').map;
-const iconItemStyle = { border: '1px solid black', padding: '2px', margin: '2px', display: 'inline-block' };
+const iconItemStyle = { border: '1px solid #f1f1f1', padding: '2px', margin: '2px', display: 'inline-block' };
 class IconList extends React.Component {
   render() {
     return (

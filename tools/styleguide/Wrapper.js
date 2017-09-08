@@ -48,21 +48,24 @@ class OptXRay extends React.Component {
   }
 }
 
-const FixedModSelector = styled.div`
+const FixedModToggle = styled.div`
   position: absolute;
   top: -40px;
   left: 0;
+`;
+
+const FixedModSelector = styled.div`
+  position: absolute;
+  bottom: calc(100% + 44px);
+  left: 0;
+  margin-top: 4px;
+  padding: 8px;
+  background: white;
+  border: 1px solid ${({ theme }) => theme.colors.gray};
   z-index: 1000;
 
   & > div {
     margin-top: 4px;
-    padding: 8px;
-    background: white;
-    border: 1px solid ${({ theme }) => theme.colors.gray};
-
-    & > div {
-      margin-top: 4px;
-    }
   }
 `;
 
@@ -99,15 +102,15 @@ class MockSharedComponentContext extends React.Component {
     const { show, mods: { small, large } } = this.state;
     return (
       <div>
-        <FixedModSelector>
+        <FixedModToggle>
           <Anchor onClick={this.toggleShow}>{show ? 'hide mods' : 'show mods'}</Anchor>
-          {show &&
-            <div>
-              <Checkbox value={small} onChange={() => this.toggleMod('small')} description="Small" />
-              <Checkbox value={large} onChange={() => this.toggleMod('large')} description="Large" />
-            </div>
-          }
-        </FixedModSelector>
+        </FixedModToggle>
+        {show &&
+          <FixedModSelector>
+            <Checkbox value={small} onChange={() => this.toggleMod('small')} description="Small" />
+            <Checkbox value={large} onChange={() => this.toggleMod('large')} description="Large" />
+          </FixedModSelector>
+        }
         <OptXRay>
           {children}
         </OptXRay>
