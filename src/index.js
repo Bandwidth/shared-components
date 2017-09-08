@@ -1,10 +1,8 @@
-
 /**
  * THIS IS A GENERATED FILE
  *
  * Please see /tools/generateIndices.js to regenerate after structural changes or component additions / deletions
  */
-
 
 export { default as animations } from './animations';
 export { default as Expand } from './animations/Expand';
@@ -13,10 +11,14 @@ export { default as ExpandToggle } from './behaviors/ExpandToggle';
 export { default as ScrollBox } from './behaviors/ScrollBox';
 export { default as components } from './components';
 export { default as Accordion } from './components/Accordion';
-export { default as AccordionGroup } from './components/Accordion/AccordionGroup';
+export {
+  default as AccordionGroup,
+} from './components/Accordion/AccordionGroup';
 export { default as Alert } from './components/Alert';
 export { default as Anchor } from './components/Anchor';
-export { default as BandwidthThemeProvider } from './components/BandwidthThemeProvider';
+export {
+  default as BandwidthThemeProvider,
+} from './components/BandwidthThemeProvider';
 export { default as Breadcrumb } from './components/Breadcrumb';
 export { default as Button } from './components/Button';
 export { default as SubmitButton } from './components/Button/SubmitButton';
@@ -47,8 +49,12 @@ export { default as Modal } from './components/Modal';
 export { default as Money } from './components/Money';
 export { default as Navigation } from './components/Navigation';
 export { default as LogoHeader } from './components/Navigation/LogoHeader';
-export { default as NavigationItem } from './components/Navigation/NavigationItem';
-export { default as NavigationItems } from './components/Navigation/NavigationItems';
+export {
+  default as NavigationItem,
+} from './components/Navigation/NavigationItem';
+export {
+  default as NavigationItems,
+} from './components/Navigation/NavigationItems';
 export { default as NewBadge } from './components/NewBadge';
 export { default as Pagination } from './components/Pagination';
 export { default as Radio } from './components/Radio';
@@ -57,7 +63,9 @@ export { default as RadioButton } from './components/RadioGroup/RadioButton';
 export { default as Select } from './components/Select';
 export { default as SidebarList } from './components/SidebarList';
 export { default as ShowMore } from './components/SidebarList/ShowMore';
-export { default as SidebarListItem } from './components/SidebarList/SidebarListItem';
+export {
+  default as SidebarListItem,
+} from './components/SidebarList/SidebarListItem';
 export { default as SortOptions } from './components/SortOptions';
 export { default as Spacing } from './components/Spacing';
 export { default as Steps } from './components/Steps';
@@ -89,7 +97,9 @@ export { default as FlowCheckbox } from './layouts/Flow/fields/FlowCheckbox';
 export { default as FlowFile } from './layouts/Flow/fields/FlowFile';
 export { default as FlowInput } from './layouts/Flow/fields/FlowInput';
 export { default as FlowMulti } from './layouts/Flow/fields/FlowMulti';
-export { default as FlowRadioGroup } from './layouts/Flow/fields/FlowRadioGroup';
+export {
+  default as FlowRadioGroup,
+} from './layouts/Flow/fields/FlowRadioGroup';
 export { default as FlowSelect } from './layouts/Flow/fields/FlowSelect';
 export { default as FlowTextArea } from './layouts/Flow/fields/FlowTextArea';
 export { default as FlowToggle } from './layouts/Flow/fields/FlowToggle';
@@ -105,6 +115,7 @@ export { default as PaneLayout } from './layouts/Pane/PaneLayout';
 export { default as PaneRow } from './layouts/Pane/PaneRow';
 export { default as PaneSection } from './layouts/Pane/PaneSection';
 export { default as SidebarLayout } from './layouts/SidebarLayout';
+export { default as Large } from './mods/Large';
 export { default as Small } from './mods/Small';
 export { default as theme } from './theme';
 export { default as baseTheme } from './theme/baseTheme';
