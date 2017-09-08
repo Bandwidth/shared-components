@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
+import sharedComponent from '../../sharedComponent';
 import Loader from '../Loader';
 
 import Cell from './TableCell';
@@ -100,17 +100,6 @@ class Table extends React.Component {
   }
 }
 
-Table.Row = Row;
-Table.Header = Header;
-Table.Cell = Cell;
-Table.Controls = Controls;
-Table.Simple = Simple;
-Table.RowDetails = RowDetails;
-Table.Wrap = Wrap;
-Table.Body = TBody;
-
-Table.usage = `
+export default sharedComponent(`
 Renders a table, using the \`children\` and \`headers\` props to define the various table parts. Also accepts \`loading\` to show a loading state.
-`;
-
-export default Table;
+`, { Row, Header, Cell, Controls, Simple, RowDetails, Wrap, Body: TBody })(Table);

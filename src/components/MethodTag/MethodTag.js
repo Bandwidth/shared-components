@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const MethodTag = styled.pre`
   background: ${({ theme, children }) => theme.methodTag.colors[children]};
@@ -29,8 +30,6 @@ MethodTag.defaultProps = {
   id: null,
 };
 
-MethodTag.usage = `
+export default sharedComponent(`
 Use this to annotate URLs with the method which is used to access them (for instance, in API docs). It will automatically choose a color based on the contents of the component, so use \`GET\`, \`POST\` inside, etc.
-`;
-
-export default MethodTag;
+`)(MethodTag);

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
   border: 0;
@@ -46,4 +47,4 @@ NavigationItem.defaultProps = {
   id: null,
 };
 
-export default NavigationItem;
+export default sharedComponent(``)(NavigationItem);

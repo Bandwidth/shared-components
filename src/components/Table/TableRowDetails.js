@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import TBody from './TBody';
 
 // Firefox has an artificial limit on colspan of 1000. This is obviously an arbitrary
@@ -36,10 +37,8 @@ const TableRowDetails = ({ children, rowIndex = 0 }) => (
   </TBody>
 );
 
-TableRowDetails.usage = `
+export default sharedComponent(`
 \`TableRowDetails\` is a \`<tbody>\` with a full-length element as its only row.
 
 Insert it between an upper \`<tbody>\` and a lower \`<tbody>\`, where the last row in the upper \`<tbody>\` is the selected element to show details for. See \`SimpleTable\` for example usage.
-`;
-
-export default TableRowDetails;
+`, { Container: TableRowDetailContainer, Content: TableRowDetailsStyles })(TableRowDetails);

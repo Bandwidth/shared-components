@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sharedComponent from '../../sharedComponent';
 import styled from 'styled-components';
 import { Container as AccordionContainer } from './Accordion';
 
@@ -79,4 +80,4 @@ class AccordionGroup extends React.Component {
   }
 }
 
-export default AccordionGroup;
+export default sharedComponent()(AccordionGroup);

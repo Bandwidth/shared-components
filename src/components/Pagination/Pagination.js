@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import Icon from '../Icon';
 
 const ITEM_SIZE = '30px';
@@ -169,12 +170,10 @@ class Pagination extends React.Component {
   }
 }
 
-Pagination.usage = `
+export default sharedComponent(`
 Renders a 'controlled' pagination container. You need to provide the current page and other metadata.
 
 \`\`\`
 <Pagination pageCount={4} page={1} onPageSelected={(pageNumber) => { /* handle it */ }} />
 \`\`\`
-`;
-
-export default Pagination;
+`, { Container, Item, ItemPlaceholder })(Pagination);

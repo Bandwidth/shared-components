@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Logo from '../Logo';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const Container = styled.div`
   margin: auto 0;
@@ -55,7 +56,7 @@ class LogoHeader extends React.Component {
   }
 }
 
-LogoHeader.usage = `
+export default sharedComponent(`
 LogoHeader is mostly used for the top nav. It's just like Header, except it renders a logo before the text you supply.
 
 Bandwidth and the BW logo are trademarks of Bandwidth.com, Inc.  Bandwidth reserves all rights to these trademarks, as well as any others that may be included from time to time.
@@ -63,6 +64,4 @@ Bandwidth and the BW logo are trademarks of Bandwidth.com, Inc.  Bandwidth reser
 \`\`\`
 <LogoHeader>Bandwidth</LogoHeader>
 \`\`\`
-`;
-
-export default LogoHeader;
+`, { Container, Text })(LogoHeader);

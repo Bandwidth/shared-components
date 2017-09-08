@@ -1,9 +1,10 @@
 import field from './flowField';
 import FileLoader from '../../../components/FileLoader';
+import sharedComponent from '../../../sharedComponent';
 
 const FlowFile = field(FileLoader);
 
-FlowFile.usage = `
+export default sharedComponent(`
 A prebuilt \`Flow.Item\` with a \`FileLoader\` component inside, designed for use with Redux Form.
 
 \`\`\`
@@ -15,6 +16,4 @@ A prebuilt \`Flow.Item\` with a \`FileLoader\` component inside, designed for us
   />
 </Flow.Row>
 \`\`\`
-`;
-
-export default FlowFile;
+`)(FlowFile);

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const PaneRow = styled.div.withConfig({ displayName: 'PaneRow' })`
   display: flex;
@@ -40,7 +41,7 @@ PaneRow.defaultProps = {
   className: null,
 };
 
-PaneRow.usage = `
+export default sharedComponent(`
 # PaneRow
 
 A composeable column. Lays out children horizontally. Applies a divider between children.
@@ -51,6 +52,4 @@ A composeable column. Lays out children horizontally. Applies a divider between 
   <Pane>Content</Pane>
 </PaneRow>
 \`\`\`
-`;
-
-export default PaneRow;
+`)(PaneRow);

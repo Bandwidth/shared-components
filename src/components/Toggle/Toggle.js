@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import generateId from '../../extensions/generateId';
 
 const HEIGHT = '24px';
@@ -146,15 +147,10 @@ class Toggle extends React.Component {
   }
 }
 
-Toggle.usage = `
+export default sharedComponent(`
 A simple toggle input.
 
 \`\`\`
 <Toggle value={false} label="Foo" />
 \`\`\`
-`;
-
-Toggle.Input = HiddenInput;
-Toggle.Label = ToggleLabel;
-Toggle.Container = Container;
-export default Toggle;
+`, { Input: HiddenInput, Label: ToggleLabel, Container })(Toggle);

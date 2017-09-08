@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import _ from 'lodash';
 
 const WrapStyles = styled.div`
@@ -93,4 +94,6 @@ class Wrap extends React.Component {
   }
 }
 
-export default Wrap;
+export default sharedComponent(`
+
+`, { Container: WrapStyles })(Wrap);

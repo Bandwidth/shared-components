@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+<<<<<<< HEAD
 import ScrollBox from '../../behaviors/ScrollBox';
+=======
+import sharedComponent from '../../sharedComponent';
+>>>>>>> Wrap all components in an HOC
 
 const Blocker = styled.div`
   background: ${({ theme }) => theme.modal.blockerBG};
@@ -112,4 +116,4 @@ class Modal extends React.Component {
   }
 }
 
-export default Modal;
+export default sharedComponent({ Blocker, Content, Title })(Modal);

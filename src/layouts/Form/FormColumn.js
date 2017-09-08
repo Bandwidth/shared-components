@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const FormColumn = styled.section`
   padding: 0 ${({ theme }) => theme.padding.large};
@@ -31,7 +32,7 @@ FormColumn.defaultProps = {
   className: null,
 };
 
-FormColumn.usage = `
+export default sharedComponent(`
 # FormColumn
 
 Sometimes forms are split into vertical columns. Very rarely, but we still have a component for that.
@@ -48,6 +49,4 @@ Sometimes forms are split into vertical columns. Very rarely, but we still have 
   </FormColumn>
 </Form>
 \`\`\`
-`;
-
-export default FormColumn;
+`)(FormColumn);

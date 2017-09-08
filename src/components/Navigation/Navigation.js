@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
-import NavigationItems, { Container as ItemsContainer, linksPropType } from './NavigationItems';
+import sharedComponent from '../../sharedComponent';
+import NavigationItems, { linksPropType } from './NavigationItems';
 import LogoHeader from './LogoHeader';
 import theme from '../../theme';
 
@@ -28,7 +29,7 @@ const Links = styled.div.withConfig({ displayName: 'NavigationLinks' })`
     margin-top: auto;
   }
 
-  & > ${ItemsContainer}:nth-child(2) ${NavigationItems.Item} {
+  & > ${NavigationItems.Container}:nth-child(2) ${NavigationItems.Item.Class} {
     padding-top: 10px !important;
   }
 `;
@@ -87,7 +88,7 @@ class Navigation extends React.Component {
   }
 }
 
-Navigation.usage = `
+export default sharedComponent(`
 The header above a page which contains page title and navigation.
 
 \`\`\`
@@ -103,6 +104,4 @@ The header above a page which contains page title and navigation.
   ]}
 />
 \`\`\`
-`;
-
-export default Navigation;
+`, { Container, Links })(Navigation);

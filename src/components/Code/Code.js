@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 import Block from './CodeBlock';
 import Container from './CodeContainer';
@@ -36,8 +37,4 @@ Code.defaultProps = {
   id: null,
 };
 
-Code.Block = Block;
-Code.Container = Container;
-Code.Styled = CodeImpl;
-
-export default Code;
+export default sharedComponent({ Block, Container, Styled: CodeImpl })(Code);

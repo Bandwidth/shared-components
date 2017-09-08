@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const FormSectionHeader = styled.h2.withConfig({ displayName: 'FormSectionHeader' })`
   color: ${({ theme }) => theme.colors.black};
@@ -25,10 +26,8 @@ FormSectionHeader.defaultProps = {
   className: null,
 };
 
-FormSectionHeader.usage = `
+export default sharedComponent(`
 # FormSectionHeader
 
 Like a subheader for sections of a form.
-`;
-
-export default FormSectionHeader;
+`)(FormSectionHeader);

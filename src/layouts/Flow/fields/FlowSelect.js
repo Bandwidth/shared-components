@@ -1,9 +1,10 @@
 import field from './flowField';
 import Select from '../../../components/Select';
+import sharedComponent from '../../../sharedComponent';
 
 const FlowSelect = field(Select);
 
-FlowSelect.usage = `
+export default sharedComponent(`
 A prebuilt \`Flow.Item\` with a \`Select\` component inside, designed for use with Redux Form.
 
 \`\`\`
@@ -19,6 +20,4 @@ A prebuilt \`Flow.Item\` with a \`Select\` component inside, designed for use wi
   />
 </Flow.Row>
 \`\`\`
-`;
-
-export default FlowSelect;
+`)(FlowSelect);

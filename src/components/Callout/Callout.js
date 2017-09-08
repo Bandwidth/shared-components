@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sharedComponent from '../../sharedComponent';
 import styled, { keyframes } from 'styled-components';
 
 const Container = styled.div`
@@ -97,4 +98,4 @@ class Callout extends React.Component {
   }
 }
 
-export default Callout;
+export default sharedComponent()(Callout);

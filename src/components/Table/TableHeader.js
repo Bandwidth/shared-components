@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import { sentence } from 'change-case';
 import Icon from '../Icon';
 import Anchor from '../Anchor';
@@ -55,7 +56,7 @@ const SortArrows = styled.span`
   }}
 `;
 
-export default class Header extends React.Component {
+class Header extends React.Component {
   static propTypes = {
     /**
      * Contents of the header cell.
@@ -129,3 +130,6 @@ export default class Header extends React.Component {
     );
   }
 }
+
+export default sharedComponent(`
+`, { TH, ColumnName, SortArrows })(Header);

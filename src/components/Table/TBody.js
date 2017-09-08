@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const darkBG = 'rgba(0, 0, 0, 0.05)';
 const lightBG = 'transparent';
@@ -20,10 +21,8 @@ TBody.defaultProps = {
   startIndex: 0,
 };
 
-TBody.usage = `
+export default sharedComponent(`
 Used to wrap rows within tables. Allows applying zebra stripe patterns (defaults to on, use \`zebraStripe\` prop to turn off).
 
 Use the \`startIndex\` prop to control what row index this body should assume it's starting with. This can help align zebra stripes if you have multiple bodies in one table.
-`;
-
-export default TBody;
+`)(TBody);

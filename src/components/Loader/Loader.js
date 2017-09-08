@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 export const Container = styled.div.withConfig({ displayName: 'LoaderContainer' })`
   display: flex;
@@ -95,4 +96,4 @@ class Loader extends React.Component {
   }
 }
 
-export default Loader;
+export default sharedComponent({ Styled: Container })(Loader);

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import Icon from '../Icon';
 
 const DropArea = styled.div`
@@ -98,4 +99,4 @@ class FileLoader extends React.Component {
   }
 }
 
-export default FileLoader;
+export default sharedComponent({ DropArea })(FileLoader);

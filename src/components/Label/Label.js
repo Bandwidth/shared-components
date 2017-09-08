@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const LabelImpl = styled.label.withConfig({ displayName: 'Label' })`
   font-size: ${({ theme }) => theme.label.fontSize};
@@ -52,6 +53,4 @@ Label.defaultProps = {
   id: null,
 };
 
-Label.Styled = LabelImpl;
-
-export default Label;
+export default sharedComponent({ Styled: LabelImpl })(Label);

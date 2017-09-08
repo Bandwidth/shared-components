@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import FlowRow from './FlowRow';
 import field from './fields/flowField';
 import * as fields from './fields';
@@ -37,12 +38,7 @@ const Flow = styled.div.withConfig({ displayName: 'Flow' })`
   }
 `;
 
-Flow.Row = FlowRow;
-Flow.fields = fields;
-Flow.createField = field;
-Flow.Item = FlowItem;
-
-Flow.usage = `
+export default sharedComponent(`
 ## The Flow System
 
 Flow is a layout system which is intended to capture the rules which have surfaced in various UX mockups into tested, repeatable code. With Flow, each UI element is annotated with an optional label and help text component. Vertical spacing is kept consistent on every row. Horizontal alignment has sane defaults and a lot of options for fine-tuning. Flow is primarily designed for use inside forms to layout inputs, but it can be used anywhere you need it.
@@ -179,6 +175,4 @@ Usually in a form, submit buttons and other controls lay out differently. There 
   </Flow.Row>
 </Flow>
 \`\`\`
-`;
-
-export default Flow;
+`, { Row: FlowRow, fields, createField: field, Item: FlowItem })(Flow);

@@ -1,9 +1,10 @@
 import field from './flowField';
 import Input from '../../../components/Input';
+import sharedComponent from '../../../sharedComponent';
 
 const FlowInput = field(Input);
 
-FlowInput.usage = `
+export default sharedComponent(`
 A prebuilt \`Flow.Item\` with an \`Input\` component inside, designed for use with Redux Form.
 
 \`\`\`
@@ -16,6 +17,4 @@ A prebuilt \`Flow.Item\` with an \`Input\` component inside, designed for use wi
   />
 </Flow.Row>
 \`\`\`
-`;
-
-export default FlowInput;
+`)(FlowInput);

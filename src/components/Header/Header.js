@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 import Sub from './SubHeader';
 
@@ -32,7 +33,4 @@ Header.defaultProps = {
   id: null,
 };
 
-Header.Sub = Sub;
-Header.Styled = HeaderImpl;
-
-export default Header;
+export default sharedComponent({ Sub, Styled: HeaderImpl })(Header);

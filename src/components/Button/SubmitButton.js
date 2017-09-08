@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sharedComponent from '../../sharedComponent';
 import Button from './Button';
 import Loader from '../Loader';
 
@@ -90,8 +91,6 @@ class SubmitButton extends React.Component {
   }
 }
 
-SubmitButton.usage = `
+export default sharedComponent(`
 
-`;
-
-export default SubmitButton;
+`)(SubmitButton);

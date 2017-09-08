@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import Header from '../Header';
 import Anchor from '../Anchor';
 import Icon from '../Icon';
@@ -16,7 +17,7 @@ const ControlsRow = styled.div`
   flex-direction: row;
   margin-bottom: ${({ theme }) => theme.padding.small};
 
-  & > ${Header} {
+  & > ${Header.Class} {
     flex: 1;
     margin: 0;
   }
@@ -132,7 +133,7 @@ class TableControls extends React.Component {
   }
 }
 
-TableControls.usage = `
+export default sharedComponent(`
 Generally sits above a table. Standardized format of the table name and some common controls.
 
 \`\`\`
@@ -148,6 +149,4 @@ Generally sits above a table. Standardized format of the table name and some com
   Some extra top row content
 </TableControls>
 \`\`\`
-`;
-
-export default TableControls;
+`, { Buttons, ControlsRow })(TableControls);

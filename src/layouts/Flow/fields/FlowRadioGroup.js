@@ -1,9 +1,10 @@
 import field from './flowField';
 import RadioGroup from '../../../components/RadioGroup';
+import sharedComponent from '../../../sharedComponent';
 
 const FlowRadioGroup = field(RadioGroup);
 
-FlowRadioGroup.usage = `
+export default sharedComponent(`
 A prebuilt \`Flow.Item\` with a \`RadioGroup\` component inside, designed for use with Redux Form.
 
 \`\`\`
@@ -16,6 +17,4 @@ A prebuilt \`Flow.Item\` with a \`RadioGroup\` component inside, designed for us
   />
 </Flow.Row>
 \`\`\`
-`;
-
-export default FlowRadioGroup;
+`)(FlowRadioGroup);

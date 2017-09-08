@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const HelpTextImpl = styled.div.withConfig({ displayName: 'HelpText' })`
   color: ${({ theme, error }) => error ? theme.colors.errorText : theme.helpText.fg};
@@ -34,6 +35,4 @@ HelpText.defaultProps = {
   id: null,
 };
 
-HelpText.Styled = HelpTextImpl;
-
-export default HelpText;
+export default sharedComponent({ Styled: HelpTextImpl })(HelpText);

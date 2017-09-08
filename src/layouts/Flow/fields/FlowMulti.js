@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../../sharedComponent';
 import Anchor from '../../../components/Anchor';
 import FlowItem from '../FlowItem';
 
@@ -113,13 +114,8 @@ class FlowMultiField extends React.Component {
   }
 }
 
-FlowMultiField.List = List;
-FlowMultiField.SubFieldContainer = SubFieldContainer;
-
-FlowMultiField.usage = `
+export default sharedComponent(`
 A helper component to create Redux Form multi-value fields. Supply a \`renderField\` function prop to render your individual fields, and this component will take care of allowing users to add a new value, delete values, and syncing the values with Redux Form.
 
 \`renderField\` takes two parameters: \`name\` and \`index\`. You can read more in the Redux Form docs.
-`;
-
-export default FlowMultiField;
+`, { List, SubFieldContainer })(FlowMultiField);

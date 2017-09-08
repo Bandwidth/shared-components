@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const StyledInput = styled.input`
   color: ${({ theme }) => theme.colors.black};
@@ -175,4 +176,6 @@ class Input extends React.Component {
   }
 }
 
-export default Input;
+export default sharedComponent(`
+A basic styled text input.
+`, { Styled: StyledInput })(Input);

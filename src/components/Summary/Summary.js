@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const Container = styled.div`
   display: flex;
@@ -67,12 +68,10 @@ class Summary extends React.Component {
   }
 }
 
-Summary.usage = `
+export default sharedComponent(`
 Summaries are simple data items. They're not meant to be interactive, just informative. Supports adding a little help text with the \`helpText\` property.
 
 \`\`\`
 <Summary helpText="This is usually bar">Foo</Summary>
 \`\`\`
-`;
-
-export default Summary;
+`, { Container, Help })(Summary);

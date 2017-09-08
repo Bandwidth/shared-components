@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import _ from 'lodash';
 import arrowImage from './arrow.png';
 
@@ -171,7 +172,7 @@ class Select extends React.Component {
   }
 }
 
-Select.usage = `
+export default sharedComponent(`
 A dropdown input which lets you pick from a list of provided items. Supports default input-style props:
 
 * \`input\`: supplied by Redux Form's Field component, you can also specify this manually. Should contain \`value\` and \`onChange\` at least.
@@ -186,8 +187,4 @@ A dropdown input which lets you pick from a list of provided items. Supports def
 \`\`\`
 <Select label="Choose:" required helpText="Make a choice!" options={['a', 'b']}>
 \`\`\`
-`;
-
-Select.Container = Styles;
-
-export default Select;
+`, { Container: Styles })(Select);

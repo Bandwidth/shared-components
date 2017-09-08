@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sharedComponent from '../../sharedComponent';
 import styled from 'styled-components';
 import ExpandToggle from '../../behaviors/ExpandToggle';
 import Icon from '../Icon';
@@ -22,7 +23,16 @@ const Label = styled.div`
   user-select: none;
 `;
 
-const ModdedIcon = styled(Icon)`
+const Content = styled.div`
+  overflow: hidden;
+`;
+
+const ContentHolder = styled.div`
+  padding: 0;
+  padding-top: 0;
+`;
+
+const ModdedIcon = styled(Icon.Class)`
   color: #666;
   margin: auto 1em auto auto;
   transform: ${({ isExpanded }) => isExpanded ? 'rotate(90deg)' : 'rotate(0)'};
@@ -41,7 +51,7 @@ const LabelText = styled.span`
   flex: 1;
 `;
 
-export const ContentPadding = styled.div`
+const ContentPadding = styled.div`
   padding: ${({ theme }) => theme.accordion.padding};
   padding-top: 0;
   display: flex;
@@ -129,5 +139,4 @@ class Accordion extends React.Component {
   }
 }
 
-Accordion.Group = Group;
-export default Accordion;
+export default sharedComponent({ Group, Container, ContentPadding, Label, Icon: ModdedIcon })(Accordion);

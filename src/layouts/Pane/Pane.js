@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import Header from '../../components/Header';
 import Column from './PaneColumn';
 import Content from './PaneContent';
@@ -14,7 +15,7 @@ const Container = styled.article`
   flex: 1 1;
 `;
 
-const PaddedHeader = styled(Header)`
+const PaddedHeader = styled(Header.Class)`
   padding: 0 30px 30px 30px;
 `;
 
@@ -56,7 +57,7 @@ class Pane extends React.Component {
   }
 }
 
-Pane.usage = `
+export default sharedComponent(`
 # Pane
 
 A section of display content with a title. Arranges children vertically.
@@ -64,11 +65,4 @@ A section of display content with a title. Arranges children vertically.
 \`\`\`
 <Pane title="Hello">Content</Pane>
 \`\`\`
-`;
-
-Pane.Column = Column;
-Pane.Content = Content;
-Pane.Layout = Layout;
-Pane.Row = Row;
-Pane.Section = Section;
-export default Pane;
+`, { Column, Content, Layout, Row, Section, Container })(Pane);

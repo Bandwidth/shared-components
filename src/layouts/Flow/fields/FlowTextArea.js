@@ -1,9 +1,10 @@
 import field from './flowField';
 import TextArea from '../../../components/TextArea';
+import sharedComponent from '../../../sharedComponent';
 
 const FlowTextArea = field(TextArea);
 
-FlowTextArea.usage = `
+export default sharedComponent(`
 A prebuilt \`Flow.Item\` with a \`TextArea\` component inside, designed for use with Redux Form.
 
 \`\`\`
@@ -15,6 +16,4 @@ A prebuilt \`Flow.Item\` with a \`TextArea\` component inside, designed for use 
   />
 </Flow.Row>
 \`\`\`
-`;
-
-export default FlowTextArea;
+`)(FlowTextArea);

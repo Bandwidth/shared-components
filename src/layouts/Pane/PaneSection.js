@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const Wrap = styled.section`
 
@@ -59,7 +60,7 @@ class PaneSection extends React.Component {
   }
 }
 
-PaneSection.usage = `
+export default sharedComponent(`
 # PaneSection
 
 Provides a nice delineated section of content within a Pane. Add a \`title\` to display a little divider with the title inside.
@@ -76,6 +77,4 @@ Does no layout on children. Add your own padding to children if needed.
   </PaneSection>
 </Pane>
 \`\`\`
-`;
-
-export default PaneSection;
+`, { Container: Wrap, Content, Title })(PaneSection);

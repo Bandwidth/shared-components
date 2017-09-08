@@ -1,9 +1,10 @@
 import field from './flowField';
 import Checkbox from '../../../components/Checkbox';
+import sharedComponent from '../../../sharedComponent';
 
 const FlowCheckbox = field(Checkbox);
 
-FlowCheckbox.usage = `
+export default sharedComponent(`
 A prebuilt \`Flow.Item\` with a \`Checkbox\` component inside, designed for use with Redux Form.
 
 \`\`\`
@@ -15,6 +16,4 @@ A prebuilt \`Flow.Item\` with a \`Checkbox\` component inside, designed for use 
   />
 </Flow.Row>
 \`\`\`
-`;
-
-export default FlowCheckbox;
+`)(FlowCheckbox);

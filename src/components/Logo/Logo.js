@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import logo from './logo.png';
 
 const Img = styled.img`
@@ -29,4 +30,4 @@ Logo.defaultProps = {
   id: null,
 };
 
-export default Logo;
+export default sharedComponent({ Image: Img })(Logo);

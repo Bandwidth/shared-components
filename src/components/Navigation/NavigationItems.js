@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import NavigationItem from './NavigationItem';
 import Anchor from '../Anchor';
 
@@ -67,13 +68,14 @@ NavigationItems.propTypes = {
    */
   id: PropTypes.string,
 };
+
 NavigationItems.defaultProps = {
   links: [],
   className: null,
   id: null,
 };
 
-NavigationItems.usage = `
+export default sharedComponent(`
 Helper to generate a list of navigation items.
 
 \`\`\`
@@ -84,7 +86,4 @@ Helper to generate a list of navigation items.
   ]}
 />
 \`\`\`
-`
-
-NavigationItems.Item = NavigationItem;
-export default NavigationItems;
+`, { Container, Item: NavigationItem })(NavigationItems);

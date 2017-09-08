@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, {ThemeProvider} from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import icons from '../Icon/icons';
 import SubmitButton from './SubmitButton';
 import {secondaryTheme} from '../../theme';
@@ -122,4 +123,4 @@ Button.Example2 = () => (<ThemeProvider theme={secondaryTheme}>
 Button.Submit = SubmitButton;
 Button.Styled = ButtonImpl;
 
-export default Button;
+export default sharedComponent({ Submit: SubmitButton })(Button);

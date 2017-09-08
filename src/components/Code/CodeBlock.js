@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import tomorrow from 'react-syntax-highlighter/dist/styles/tomorrow-night';
 
@@ -59,4 +60,4 @@ class CodeBlock extends React.Component {
   }
 }
 
-export default CodeBlock;
+export default sharedComponent({ Wrapper: CodeWrapper })(CodeBlock);

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import icons from '../Icon/icons';
 import generateId from '../../extensions/generateId';
 
@@ -137,7 +138,5 @@ class Checkbox extends React.Component {
   }
 }
 
-Checkbox.Input = HiddenInput;
-Checkbox.Label = CheckboxLabel;
-Checkbox.Container = Container;
-export default Checkbox;
+
+export default sharedComponent({ Input: HiddenInput, Label: CheckboxLabel, Container })(Checkbox);

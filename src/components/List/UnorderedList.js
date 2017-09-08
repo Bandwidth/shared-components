@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import Item from './ListItem';
 import Ordered from './OrderedList';
 
@@ -16,8 +17,8 @@ const UnorderedList = styled.ul.withConfig({ displayName: 'UnorderedList' })`
     list-style: circle outside;
   }
 
-  & ul ${Item}:first-child,
-  & ol ${Item}:first-child {
+  & ul ${Item.Class}:first-child,
+  & ol ${Item.Class}:first-child {
     margin-top: 0.5em;
   }
 `;
@@ -38,7 +39,7 @@ UnorderedList.defaultProps = {
   id: null,
 };
 
-UnorderedList.usage = `
+export default sharedComponent(`
 A basic bulletted list. Fill with \`Item\` elements.
 
 \`\`\`
@@ -47,8 +48,4 @@ A basic bulletted list. Fill with \`Item\` elements.
   <Item>Bar</Item>
 </UnorderedList>
 \`\`\`
-`;
-
-UnorderedList.Item = Item;
-UnorderedList.Ordered = Ordered;
-export default UnorderedList;
+`, { Item, Ordered })(UnorderedList);

@@ -1,9 +1,10 @@
 import field from './flowField';
 import Toggle from '../../../components/Toggle';
+import sharedComponent from '../../../sharedComponent';
 
 const FlowToggle = field(Toggle);
 
-FlowToggle.usage = `
+export default sharedComponent(`
 A prebuilt \`Flow.Item\` with a \`Toggle\` component inside, designed for use with Redux Form.
 
 \`\`\`
@@ -15,6 +16,4 @@ A prebuilt \`Flow.Item\` with a \`Toggle\` component inside, designed for use wi
   />
 </Flow.Row>
 \`\`\`
-`;
-
-export default FlowToggle;
+`)(FlowToggle);

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const ShowMore = styled.div`
   background: ${({ theme }) => theme.colors.primaryLight};
@@ -26,4 +27,4 @@ ShowMore.defaultProps = {
   id: null,
 };
 
-export default ShowMore;
+export default sharedComponent('')(ShowMore);

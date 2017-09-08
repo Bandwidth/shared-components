@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sharedComponent from '../../sharedComponent';
 import _ from 'lodash';
 import Table from './Table';
 
@@ -195,7 +196,7 @@ class SimpleTable extends React.Component {
   }
 }
 
-SimpleTable.usage = `
+export default sharedComponent(`
 Provides a more straighforward interface for creating a Table which may suit most use cases.
 
 \`\`\`
@@ -208,6 +209,4 @@ Provides a more straighforward interface for creating a Table which may suit mos
   loading={trueOrFalse}
 />
 \`\`\`
-`;
-
-export default SimpleTable;
+`)(SimpleTable);

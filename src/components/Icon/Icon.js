@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import icons, { map } from './icons';
 
 const IconImpl = styled.i.withConfig({ displayName: 'Icon' })`
@@ -53,6 +54,10 @@ Icon.defaultProps = {
   iconsHelper: icons,
 };
 
-Icon.Styled = IconImpl;
+export default sharedComponent({ Styled: IconImpl },`
+## Icons
 
-export default Icon;
+The icon definition file is in \`components/helpers/icons.js\`
+
+${Object.keys(map).map((name) => `* ${name}`).join('\n')}
+`)(Icon);

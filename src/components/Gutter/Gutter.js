@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const GutterImpl = styled.div.withConfig({ displayName: 'Gutter' })`
   background: ${({ theme }) => theme.colors.gutter};
@@ -26,6 +27,4 @@ Gutter.defaultProps = {
   id: null,
 };
 
-Gutter.Styled = GutterImpl;
-
-export default Gutter;
+export default sharedComponent({ Styled: GutterImpl })(Gutter);

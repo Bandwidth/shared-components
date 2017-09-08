@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import Item from './FlowItem';
 import Label from '../../components/Label';
 import { HORIZONTAL_SPACING } from './constants';
@@ -63,7 +64,7 @@ const Styles = styled(BaseStyles)`
 
   ${({ sizes }) => generateSizes(sizes)}
 
-  & ${Label} {
+  & ${Label.Class} {
     ${({ suppressLabels }) => suppressLabels && 'display: none;'}
   }
 `;
@@ -146,10 +147,7 @@ class FlowRow extends React.Component {
   }
 }
 
-FlowRow.Container = Styles;
-FlowRow.Item = Item;
-
-FlowRow.usage = `
+export default sharedComponent(`
 Flow.Row is designed to be used with 2 children:
 
 \`\`\`\
@@ -198,6 +196,4 @@ Flow.Row can achieve some pretty complex layouts with nesting and its props:
   </Flow.Row>
 </Flow.Row>
 \`\`\`
-`;
-
-export default FlowRow;
+`, { Item, Container: Styles })(FlowRow);

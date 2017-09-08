@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const ListItemImpl = styled.li.withConfig({ displayName: 'ListItem' })`
   margin: 0 0 0.5em 2em;
@@ -31,6 +32,4 @@ ListItem.defaultProps = {
   id: null,
 };
 
-ListItem.Styled = ListItemImpl;
-
-export default ListItem;
+export default sharedComponent({ Styled: ListItemImpl })(ListItem);

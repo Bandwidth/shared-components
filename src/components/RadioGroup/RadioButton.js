@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const Container = styled.div`
   flex: 1 1 auto;
@@ -156,8 +157,6 @@ class RadioButton extends React.Component {
   }
 }
 
-RadioButton.usage = `
+export default sharedComponent(`
 Not really meant to be used alone, unless you just want the styling of it. Use RadioGroup to create a group of RadioButtons.
-`;
-
-export default RadioButton;
+`, { Container, Input, Label, Content, LabelText })(RadioButton);

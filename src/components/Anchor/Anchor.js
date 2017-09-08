@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import { Link as ReactLink, Route } from 'react-router-dom';
 
 export const TextAnchor = styled.a`
@@ -251,4 +252,4 @@ class Anchor extends React.Component {
   }
 }
 
-export default Anchor;
+export default sharedComponent()(Anchor);

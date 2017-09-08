@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const Toast = styled.div.withConfig({ displayName: 'Toast' })`
   position: fixed;
@@ -36,10 +37,10 @@ Toast.defaultProps = {
   id: null,
 };
 
-Toast.usage = `
+export default sharedComponent(`
 Fill with quick notification content.
 
 \`\`\`
 <Toast>Hi there</Toast>
 \`\`\`
-`
+`)(Toast);

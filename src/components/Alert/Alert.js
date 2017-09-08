@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sharedComponent from '../../sharedComponent';
 import styled from 'styled-components';
 import icons from '../Icon/icons';
 
@@ -132,5 +133,4 @@ Alert.defaultProps = {
   id: null,
 };
 
-
-export default Alert;
+export default sharedComponent()(Alert);

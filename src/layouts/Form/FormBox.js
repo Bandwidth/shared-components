@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const FormBox = styled.div.withConfig({ displayName: 'FormBox' })`
   background: ${({ theme }) => theme.form.bg};
@@ -26,7 +27,7 @@ FormBox.defaultProps = {
   className: null,
 };
 
-FormBox.usage = `
+export default sharedComponent(`
 # FormBox
 
 FormBox is the containing box around a standalone form. It more or less just applies a border to make the form stand out from its surroundings.
@@ -38,6 +39,4 @@ FormBox is the containing box around a standalone form. It more or less just app
   </Form>
 </FormBox>
 \`\`\`
-`;
-
-export default FormBox;
+`)(FormBox);

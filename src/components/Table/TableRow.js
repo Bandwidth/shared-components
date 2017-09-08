@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const TR = styled.tr`
   border-top: 1px solid ${({ theme }) => theme.colors.border};
@@ -12,7 +13,7 @@ const TR = styled.tr`
   ${({ clickable }) => clickable ? 'cursor: pointer;' : ''}
 `;
 
-export default class Row extends React.Component {
+class Row extends React.Component {
   static propTypes = {
     /**
      * Contents of the row - should be cells.
@@ -54,3 +55,6 @@ export default class Row extends React.Component {
     );
   }
 }
+
+export default sharedComponent(`
+`, { TR })(Row);

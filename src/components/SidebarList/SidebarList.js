@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import ShowMore from './ShowMore';
 import Item from './SidebarListItem';
 
@@ -106,7 +107,7 @@ class SidebarList extends React.Component {
   }
 }
 
-SidebarList.usage = `
+export default sharedComponent(`
 Lays out items vertically and provides selection context. Does not do scrolling.
 
 If you pass the \`selectedIndex\` prop, the child component which matches that index will receive an \`active=true\` prop when rendering. Use this to show selected state. Before relying on list selection state, though, consider whether your list shouldn't instead be linked to your router, so that each item is a unique route. If you go that direction, you can have the items be \`<Route/>\` components from React Router, and have them utilize RR's built-in route matching logic to determine rendering appearance.
@@ -117,7 +118,4 @@ If you pass the \`selectedIndex\` prop, the child component which matches that i
   <SidebarListItem>Two</SidebarListItem>
 </SidebarList>
 \`\`\`
-`;
-
-SidebarList.Item = Item;
-export default SidebarList;
+`, { Item, Container: ListContainer })(SidebarList);

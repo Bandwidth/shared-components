@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import NewBadge from '../NewBadge';
 
 const ListItemContainer = styled.li`
@@ -70,7 +71,7 @@ class SidebarListItem extends React.Component {
   }
 }
 
-SidebarListItem.usage = `
+export default sharedComponent(`
 Renders a list item component. Use it inside a List for optimal effect.
 
 Props:
@@ -84,6 +85,4 @@ TODO: refactor this to use Card.
 \`\`\`
 <SidebarListItem label="hi" active={true} />
 \`\`\`
-`;
-
-export default SidebarListItem;
+`, { Container: ListItemContainer, Label: ListLabel, Details: ListDetails })(SidebarListItem);

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import _ from 'lodash';
 import Label from '../../components/Label';
 import HelpText from '../../components/HelpText';
@@ -24,7 +25,7 @@ const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
     }
   }};
 
-  & > ${Label} {
+  & > ${Label.Class} {
     height: 21px;
     margin: 0;
     margin-bottom: 5.6px;
@@ -57,7 +58,7 @@ const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
     flex-shrink: 0;
   }
 
-  & > ${HelpText} {
+  & > ${HelpText.Class} {
     min-height: 18px;
     margin: 0;
     margin-top: 5.6px;
@@ -182,7 +183,7 @@ class FlowItem extends React.Component {
   }
 }
 
-FlowItem.usage = `
+export default sharedComponent(`
 Flow.Item can be used without any customization just for its layout benefits in the Flow system:
 
 \`\`\`
@@ -214,11 +215,4 @@ Sometimes you may want to render more stuff in an item. You can use \`moreConten
   Main Content
 </Flow.Item>
 \`\`\`
-`;
-
-FlowItem.Container = Container;
-FlowItem.Content = Content;
-FlowItem.FlexibleContent = FlexibleContent;
-FlowItem.MoreContent = MoreContent;
-
-export default FlowItem;
+`, { Container, Content, FlexibleContent, MoreContent })(FlowItem);

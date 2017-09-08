@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const TD = styled.td`
   text-align: left;
@@ -16,7 +17,7 @@ const TD = styled.td`
   }
 `;
 
-export default class Cell extends React.Component {
+class Cell extends React.Component {
   static propTypes = {
     /**
      * Contents of the table cell.
@@ -43,3 +44,7 @@ export default class Cell extends React.Component {
     return <TD id={id} className={className}>{children}</TD>;
   }
 }
+
+export default sharedComponent(`
+A table cell with some styling on it.
+`, { TD })(Cell);
