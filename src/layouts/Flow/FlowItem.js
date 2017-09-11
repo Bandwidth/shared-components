@@ -24,7 +24,7 @@ const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
     }
   }};
 
-  & > ${Label} {
+  & > ${Label.Styled} {
     height: 21px;
     margin: 0;
     margin-bottom: 5.6px;
@@ -57,7 +57,7 @@ const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
     flex-shrink: 0;
   }
 
-  & > ${HelpText} {
+  & > ${HelpText.Styled} {
     min-height: 18px;
     margin: 0;
     margin-top: 5.6px;

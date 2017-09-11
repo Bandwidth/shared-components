@@ -16,7 +16,7 @@ const ControlsRow = styled.div`
   flex-direction: row;
   margin-bottom: ${({ theme }) => theme.padding.small};
 
-  & > ${Header} {
+  & > ${Header.Styled} {
     flex: 1;
     margin: 0;
   }
