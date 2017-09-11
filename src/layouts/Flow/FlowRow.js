@@ -63,7 +63,7 @@ const Styles = styled(BaseStyles)`
 
   ${({ sizes }) => generateSizes(sizes)}
 
-  & ${Label} {
+  & ${Label.Styled} {
     ${({ suppressLabels }) => suppressLabels && 'display: none;'}
   }
 `;
