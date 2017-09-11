@@ -45,26 +45,38 @@ export class SimpleTable extends React.Component {
      * Indicates whether the table should render a loading state.
      */
     loading: PropTypes.bool,
+    /**
+    * A function that provides an unique id for a row item.
+    */
+    getId: PropTypes.func,
   };
 
   static defaultProps = {
-    renderRow: item =>
+    renderRow: item => (
       <Table.Row key={JSON.stringify(item)}>
-        {Object.values(item).map(val =>
-          <Table.Cell>
-            {defaultValueRenderer(val)}
-          </Table.Cell>,
-        )}
-      </Table.Row>,
+        {Object.values(item).map(val => (
+          <Table.Cell>{defaultValueRenderer(val)}</Table.Cell>
+        ))}
+      </Table.Row>
+    ),
     renderDetails: null,
     columns: null,
     onSortChanged: () => null,
+    getId: item => {
+      if (_.isString(item)) {
+        return item;
+      }
+      if (_.isFunction(item.get)) {
+        return item.get('id');
+      }
+      return item.id || JSON.stringify(item);
+    },
     loading: false,
   };
 
   state = {
     sortOrders: {},
-    detailsItem: null,
+    detailsItemId: null,
   };
 
   blankSortOrders = () =>
@@ -74,7 +86,9 @@ export class SimpleTable extends React.Component {
     );
 
   indexOfDetailsItem = () =>
-    this.props.items.findIndex(item => item === this.state.detailsItem);
+    this.props.items.findIndex(
+      item => this.props.getId(item) === this.state.detailsItemId,
+    );
 
   createHeaderClickHandler = headerName =>
     this.props.onSortChanged
@@ -96,19 +110,17 @@ export class SimpleTable extends React.Component {
       return;
     }
 
-    if (this.state.detailsItem === item) {
-      this.setState({ detailsItem: null });
+    if (this.state.detailsItemId === this.props.getId(item)) {
+      this.setState({ detailsItemId: null });
     } else {
-      this.setState({ detailsItem: item });
+      this.setState({ detailsItemId: this.props.getId(item) });
     }
   };
 
   renderDetails = item => {
     const { renderDetails } = this.props;
     return (
-      <Table.RowDetails key="details">
-        {renderDetails(item)}
-      </Table.RowDetails>
+      <Table.RowDetails key="details">{renderDetails(item)}</Table.RowDetails>
     );
   };
 
@@ -117,9 +129,10 @@ export class SimpleTable extends React.Component {
     const detailsItemIndex = this.indexOfDetailsItem();
     return (
       <Table.Body key="upperSection">
-        {
-          items.slice(0, detailsItemIndex >= 0 ? detailsItemIndex + 1 : undefined)
-            .map((item) => React.cloneElement(renderRow(item), {
+        {items
+          .slice(0, detailsItemIndex >= 0 ? detailsItemIndex + 1 : undefined)
+          .map(item =>
+            React.cloneElement(renderRow(item), {
               onClick: this.createRowClickHandler(item),
               key: JSON.stringify(item),
             }),
@@ -130,17 +143,15 @@ export class SimpleTable extends React.Component {
 
   renderRowDetails = () => {
     const itemIdx = this.indexOfDetailsItem();
-    if (
-      !this.props.renderDetails ||
-      !this.state.detailsItem ||
-      itemIdx === -1
-    ) {
+
+    if (!this.props.renderDetails || itemIdx === -1) {
       return null;
     }
 
+    const item = this.props.items[itemIdx];
     return (
       <Table.RowDetails rowIndex={itemIdx} key="rowDetails">
-        {this.props.renderDetails(this.state.detailsItem)}
+        {this.props.renderDetails(item)}
       </Table.RowDetails>
     );
   };
@@ -180,7 +191,7 @@ export class SimpleTable extends React.Component {
 
     return (
       <Table.Row>
-        {columns.map((column, idx) =>
+        {columns.map((column, idx) => (
           <Table.Header
             key={column.name}
             onClick={
@@ -190,8 +201,8 @@ export class SimpleTable extends React.Component {
             sortOrder={sortOrders[column.name]}
           >
             {column.displayName || column.name}
-          </Table.Header>,
-        )}
+          </Table.Header>
+        ))}
       </Table.Row>
     );
   };
