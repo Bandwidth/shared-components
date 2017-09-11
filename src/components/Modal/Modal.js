@@ -30,7 +30,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  box-shadow: ${({ theme }) => theme.shadows.default};
+  box-shadow: ${({ theme }) => theme.shadows.overlay};
   position: relative;
 `;
 
@@ -39,7 +39,7 @@ const Title = styled.h3`
   margin: 0;
   background: ${({ theme }) => theme.colors.borderLight};
   color: ${({ theme }) => theme.colors.black};
-  padding: .95em 1em .95em 1.5em;
+  padding: 0.95em 1em 0.95em 1.5em;
   font-family: ${({ theme }) => theme.fonts.brand};
   font-size: 0.9em;
   font-weight: 600;
@@ -93,7 +93,15 @@ export class Modal extends React.Component {
   };
 
   render() {
-    const { id, className, onBlockerClicked, naturalWidth, title, children, actionContent } = this.props;
+    const {
+      id,
+      className,
+      onBlockerClicked,
+      naturalWidth,
+      title,
+      children,
+      actionContent,
+    } = this.props;
     return (
       <Blocker onClick={onBlockerClicked}>
         <Content
@@ -103,9 +111,7 @@ export class Modal extends React.Component {
           className={className}
         >
           {title ? <Title>{title}</Title> : null}
-          <ScrollBox>
-            {children}
-          </ScrollBox>
+          <ScrollBox>{children}</ScrollBox>
           {actionContent}
         </Content>
       </Blocker>

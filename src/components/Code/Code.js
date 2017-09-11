@@ -8,19 +8,19 @@ import Container from './CodeContainer';
 
 const CodeImpl = styled.pre.withConfig({ displayName: 'Code' })`
   font-family: ${({ theme }) => theme.fonts.monospace};
-  fontSize: 0.85em;
+  font-size: 0.85em;
   background: #f1f1f1;
   color: ${({ theme }) => theme.colors.black};
   border: 1px solid #e4e4e4;
   padding: 0.3em;
-  borderRadius: 3px;
+  border-radius: 3px;
   margin: 0;
   display: inline-block;
 `;
 
-export const Code = ({...rest, children}) => (
+export const Code = ({ children, ...rest }) => (
   <CodeImpl {...rest}>{children}</CodeImpl>
-)
+);
 
 Code.propTypes = {
   /**

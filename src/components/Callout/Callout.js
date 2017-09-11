@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import sharedComponent from '../../sharedComponent';
 import styled, { keyframes } from 'styled-components';
 
-const Container = styled.div`
-  position: relative;
-`;
+const Container = styled.div`position: relative;`;
 
 const openAnimation = keyframes`
   from {
@@ -26,7 +24,7 @@ const Flyout = styled.div`
   padding: ${({ theme }) => `${theme.spacing.small} ${theme.spacing.medium}`};
   border-radius: 3px;
   border: 1px solid ${({ theme }) => theme.colors.border};
-  box-shadow: ${({ theme }) => theme.shadows.default};
+  box-shadow: ${({ theme }) => theme.shadows.overlay};
   left: 100%;
   top: 50%;
   transform: translateX(10px) translateY(-50%);
@@ -94,11 +92,7 @@ export class Callout extends React.Component {
         id={id}
       >
         {this.props.children}
-        {this.state.show
-          ? <Flyout>
-              {this.props.content}
-            </Flyout>
-          : null}
+        {this.state.show ? <Flyout>{this.props.content}</Flyout> : null}
       </Container>
     );
   }

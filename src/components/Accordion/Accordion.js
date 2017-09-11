@@ -11,12 +11,15 @@ export const Container = styled.div`
 `;
 
 const Label = styled.div`
-  padding: ${({ theme, mods }) => mods.small ? theme.spacing.medium : theme.spacing.large};
-  color: ${({ theme, mods }) => mods.small ? theme.colors.black : theme.colors.primary};
+  padding: ${({ theme, mods }) =>
+    mods.small ? theme.spacing.medium : theme.spacing.large};
+  color: ${({ theme, mods }) =>
+    mods.small ? theme.colors.black : theme.colors.primary};
   font-family: ${({ theme }) => theme.fonts.brand};
-  font-size: ${({ mods }) => mods.small ? '14px' : '1.5em'};
-  text-transform: ${({ mods }) => mods.small ? 'uppercase' : 'none'};
-  font-weight: ${({ mods }) => mods.small ? '700' : '400'};
+  font-size: ${({ mods, theme }) =>
+    mods.small ? theme.fontSizes.small : theme.fontSizes.default};
+  text-transform: ${({ mods }) => (mods.small ? 'uppercase' : 'none')};
+  font-weight: ${({ mods }) => (mods.small ? '700' : '400')};
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -33,14 +36,16 @@ const ContentHolder = styled.div`
 const ModdedIcon = styled(Icon.Class)`
   color: #666;
   margin: auto 1em auto auto;
-  transform: ${({ isExpanded }) => isExpanded ? 'rotate(90deg)' : 'rotate(0)'};
+  transform: ${({ isExpanded }) =>
+    isExpanded ? 'rotate(90deg)' : 'rotate(0)'};
   transition: 0.2s all ease;
   font-weight: 100;
 
   &:after {
     padding-top: 0;
     padding-bottom: 0;
-    font-size: ${({ mods }) => mods.small ? '14px' : '1em'};
+    font-size: ${({ mods }) =>
+      mods.small ? theme.fontSizes.small : theme.fontSizes.default};
   }
 `;
 
@@ -50,7 +55,8 @@ const LabelText = styled.span`
 `;
 
 export const ContentPadding = styled.div`
-  padding: ${({ theme, mods }) => mods.small ? theme.spacing.medium : theme.spacing.large};
+  padding: ${({ theme, mods }) =>
+    mods.small ? theme.spacing.medium : theme.spacing.large};
   padding-top: 0;
   display: flex;
   flex-direction: column;
@@ -113,11 +119,16 @@ export class Accordion extends React.Component {
       return !isCollapsed;
     }
     return isExpanded;
-  }
+  };
 
-  renderLabel = (isExpanded) => (
+  renderLabel = isExpanded => (
     <Label onClick={this.handleToggle} mods={this.props.mods}>
-      <ModdedIcon isExpanded={isExpanded} name="forward" size={21} mods={this.props.mods} />
+      <ModdedIcon
+        isExpanded={isExpanded}
+        name="forward"
+        size={21}
+        mods={this.props.mods}
+      />
       <LabelText>{this.props.label}</LabelText>
     </Label>
   );
@@ -137,8 +148,14 @@ export class Accordion extends React.Component {
           {children}
         </ExpandToggle>
       </Container>
-    )
+    );
   }
 }
 
-export default sharedComponent({ Group, Container, ContentPadding, Label, Icon: ModdedIcon })(Accordion);
+export default sharedComponent({
+  Group,
+  Container,
+  ContentPadding,
+  Label,
+  Icon: ModdedIcon,
+})(Accordion);

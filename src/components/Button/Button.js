@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, {ThemeProvider} from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import sharedComponent from '../../sharedComponent';
 import icons from '../Icon/icons';
 import SubmitButton from './SubmitButton';
-import {secondaryTheme} from '../../theme';
+import { secondaryTheme } from '../../theme';
 
 const ButtonImpl = styled.button`
-  font-size: ${({ mods }) => mods.small ? '0.7em' : '0.8em'};
+  font-size: ${({ mods }) => (mods.small ? '0.7em' : '0.8em')};
   text-decoration: none;
   font-weight: 700;
   font-family: ${({ theme }) => theme.fonts.brand};
@@ -17,8 +17,8 @@ const ButtonImpl = styled.button`
   border: 1px solid ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.white};
   border-radius: 3em;
-  /* subtracting 1 from the design system height due to the border */
-  padding: ${({ mods }) => mods.small ? '11px 30px' : '12px 40px'};
+  /* subtracting 2 from the design system documented height due to the border thickness */
+  padding: ${({ mods }) => (mods.small ? '11px 30px' : '12px 40px')};
   display: inline-block;
   line-height: normal;
   white-space: nowrap;
@@ -38,7 +38,7 @@ const ButtonImpl = styled.button`
     background-color: ${({ theme }) => theme.colors.primaryDark};
     border-color: ${({ theme }) => theme.colors.primaryDark};
     color: ${({ theme }) => theme.colors.white};
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
+    box-shadow: ${({ theme }) => theme.shadows.hover};
   }
 
   &:disabled {
@@ -81,9 +81,9 @@ const ButtonImpl = styled.button`
   }
 `;
 
-export const Button = ({children, ...rest}) => (
+export const Button = ({ children, ...rest }) => (
   <ButtonImpl {...rest}>{children}</ButtonImpl>
-)
+);
 
 Button.propTypes = {
   /**
@@ -117,4 +117,6 @@ Button.defaultProps = {
   id: null,
 };
 
-export default sharedComponent({ Submit: SubmitButton, Styled: ButtonImpl })(Button);
+export default sharedComponent({ Submit: SubmitButton, Styled: ButtonImpl })(
+  Button,
+);

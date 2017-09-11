@@ -43,6 +43,8 @@ const colors = {
 
   positiveText: '#6cbf0d',
   negativeText: '#e8562e',
+
+  shadow: 'rgba(0, 0, 0, 0.14)',
 };
 
 const fonts = {
@@ -51,9 +53,15 @@ const fonts = {
   monospace: '"Source Code Pro", monospace',
 };
 
+const fontSizes = {
+  small: '14px',
+  default: '1em',
+};
+
 const shadows = {
-  default: `
-    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+  hover: `0 2px 4px ${colors.shadow}`,
+  overlay: `
+    0 2px 2px 0 ${colors.shadow},
     0 1px 5px 0 rgba(0, 0, 0, 0.12),
     0 3px 1px -2px rgba(0 ,0, 0, 0.2)
     `,
@@ -75,6 +83,7 @@ export default {
 
   colors,
   fonts,
+  fontSizes,
   shadows,
   padding,
   spacing: padding,
