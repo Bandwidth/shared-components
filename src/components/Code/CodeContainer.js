@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
-import CodeBlock from './CodeBlock';
+import { CodeWrapper } from './CodeBlock';
 
 const Container = styled.div`
   display: flex;
@@ -11,16 +10,16 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  background: ${({ theme }) => theme.colors.grayDark};
-  padding: 2em;
-  color: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.code.bg};
+  padding: ${({ theme }) => theme.code.padding};
+  color: ${({ theme }) => theme.code.fg};
 
-  & > ${CodeBlock.Wrapper} {
+  & > ${CodeWrapper} {
     padding: 0;
   }
 `;
 
-export class CodeContainer extends React.Component {
+class CodeContainer extends React.Component {
   static propTypes = {
     /**
      * Multiple CodeBlock elements to render in one frame.
@@ -59,4 +58,5 @@ export class CodeContainer extends React.Component {
   }
 }
 
-export default sharedComponent({ Styled: Container, Content })(CodeContainer);
+
+export default CodeContainer;

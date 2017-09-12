@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import sharedComponent from '../../sharedComponent';
 import styled from 'styled-components';
 import ExpandToggle from '../../behaviors/ExpandToggle';
 import Icon from '../Icon';
@@ -11,41 +10,29 @@ export const Container = styled.div`
 `;
 
 const Label = styled.div`
-  padding: ${({ theme, mods }) =>
-    mods.small ? theme.spacing.medium : theme.spacing.large};
-  color: ${({ theme, mods }) =>
-    mods.small ? theme.colors.black : theme.colors.primary};
-  font-family: ${({ theme }) => theme.fonts.brand};
-  font-size: ${({ mods, theme }) =>
-    mods.small ? theme.fontSizes.small : theme.fontSizes.default};
-  text-transform: ${({ mods }) => (mods.small ? 'uppercase' : 'none')};
-  font-weight: ${({ mods }) => (mods.small ? '700' : '400')};
+  padding: ${({ theme }) => theme.accordion.padding};
+  color: ${({ theme }) => theme.accordion.labelFG};
+  font-family: ${({ theme }) => theme.accordion.labelFontFamily};
+  font-size: ${({ theme }) => theme.accordion.labelFontSize};
+  text-transform: ${({ theme }) => theme.accordion.textTransform};
+  font-weight: ${({ theme }) => theme.accordion.labelFontWeight};
   cursor: pointer;
   display: flex;
   flex-direction: row;
   user-select: none;
 `;
 
-const Content = styled.div`overflow: hidden;`;
-
-const ContentHolder = styled.div`
-  padding: 0;
-  padding-top: 0;
-`;
-
-const ModdedIcon = styled(Icon.Class)`
+const ModdedIcon = styled(Icon)`
   color: #666;
   margin: auto 1em auto auto;
-  transform: ${({ isExpanded }) =>
-    isExpanded ? 'rotate(90deg)' : 'rotate(0)'};
+  transform: ${({ isExpanded }) => isExpanded ? 'rotate(90deg)' : 'rotate(0)'};
   transition: 0.2s all ease;
   font-weight: 100;
 
   &:after {
     padding-top: 0;
     padding-bottom: 0;
-    font-size: ${({ mods }) =>
-      mods.small ? theme.fontSizes.small : theme.fontSizes.default};
+    font-size: ${({ theme }) => theme.accordion.iconFontSize};
   }
 `;
 
@@ -55,8 +42,7 @@ const LabelText = styled.span`
 `;
 
 export const ContentPadding = styled.div`
-  padding: ${({ theme, mods }) =>
-    mods.small ? theme.spacing.medium : theme.spacing.large};
+  padding: ${({ theme }) => theme.accordion.padding};
   padding-top: 0;
   display: flex;
   flex-direction: column;
@@ -66,7 +52,7 @@ export const ContentPadding = styled.div`
  * Accordion works like a controllable component. Provide the
  * isExpanded prop to control it, or don't to let it control itself.
  */
-export class Accordion extends React.Component {
+class Accordion extends React.Component {
   static propTypes = {
     /**
      * Content to render when the accordion is collapsed, and in the header of the expanded state.
@@ -96,10 +82,6 @@ export class Accordion extends React.Component {
      * Set an id for the accordion container element.
      */
     id: PropTypes.string,
-    /**
-     * Provided by the sharedComponent HOC
-     */
-    mods: PropTypes.object.isRequired,
   };
 
   static defaultProps = {
@@ -119,16 +101,11 @@ export class Accordion extends React.Component {
       return !isCollapsed;
     }
     return isExpanded;
-  };
+  }
 
-  renderLabel = isExpanded => (
-    <Label onClick={this.handleToggle} mods={this.props.mods}>
-      <ModdedIcon
-        isExpanded={isExpanded}
-        name="forward"
-        size={21}
-        mods={this.props.mods}
-      />
+  renderLabel = (isExpanded) => (
+    <Label onClick={this.handleToggle}>
+      <ModdedIcon isExpanded={isExpanded} name="forward" size={21} />
       <LabelText>{this.props.label}</LabelText>
     </Label>
   );
@@ -148,14 +125,9 @@ export class Accordion extends React.Component {
           {children}
         </ExpandToggle>
       </Container>
-    );
+    )
   }
 }
 
-export default sharedComponent({
-  Group,
-  Container,
-  ContentPadding,
-  Label,
-  Icon: ModdedIcon,
-})(Accordion);
+Accordion.Group = Group;
+export default Accordion;

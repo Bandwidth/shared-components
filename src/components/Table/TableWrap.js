@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 import _ from 'lodash';
 
 const WrapStyles = styled.div`
   width: 100%;
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.table.bg};
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: 5px 5px 0 0;
   overflow-x: auto;
   position: relative;
-  font-size: ${({ mods }) => mods.small ? '0.9em' : '1em'};
+  font-size: ${({ theme }) => theme.table.fontSize};
 
   ${({ shadow }) => {
     switch (shadow) {
@@ -24,16 +23,12 @@ const WrapStyles = styled.div`
       default:
         return '';
     }
-  }};
+  }}
 `;
 
-export class Wrap extends React.Component {
+class Wrap extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    /**
-     * Provided by the sharedComponent HOC
-     */
-    mods: PropTypes.object.isRequired,
   };
 
   state = {
@@ -51,30 +46,16 @@ export class Wrap extends React.Component {
   updateAndSubscribeWrapShadowChanges = () => {
     this.setWrapShadow(this.computeWrapShadow());
 
-    this._wrap.addEventListener(
-      'scroll',
-      _.debounce(
-        () => {
-          this.setWrapShadow(this.computeWrapShadow());
-        },
-        300,
-        { leading: true },
-      ),
-    );
+    this._wrap.addEventListener('scroll', _.debounce(() => {
+      this.setWrapShadow(this.computeWrapShadow());
+    }, 300, { leading: true }));
 
-    window.addEventListener(
-      'resize',
-      _.debounce(
-        () => {
-          this.setWrapShadow(this.computeWrapShadow());
-        },
-        300,
-        { leading: true },
-      ),
-    );
-  };
+    window.addEventListener('resize', _.debounce(() =>{
+      this.setWrapShadow(this.computeWrapShadow());
+    }, 300, { leading: true }));
+  }
 
-  setWrapShadow = shadow => {
+  setWrapShadow = (shadow) => {
     if (this.state.shadow === shadow) {
       return;
     }
@@ -105,11 +86,11 @@ export class Wrap extends React.Component {
 
   render() {
     return (
-      <WrapStyles innerRef={el => (this._wrap = el)} shadow={this.state.shadow} mods={this.props.mods}>
+      <WrapStyles innerRef={(el) => this._wrap = el} shadow={this.state.shadow}>
         {this.props.children}
       </WrapStyles>
-    );
+    )
   }
 }
 
-export default sharedComponent({ Container: WrapStyles, Styled: WrapStyles })(Wrap);
+export default Wrap;

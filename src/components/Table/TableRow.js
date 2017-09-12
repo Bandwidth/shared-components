@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 
 const TR = styled.tr`
   border-top: 1px solid ${({ theme }) => theme.colors.border};
@@ -10,10 +9,10 @@ const TR = styled.tr`
     border-top: none;
   }
 
-  ${({ clickable }) => (clickable ? 'cursor: pointer;' : '')};
+  ${({ clickable }) => clickable ? 'cursor: pointer;' : ''}
 `;
 
-export class TableRow extends React.Component {
+export default class Row extends React.Component {
   static propTypes = {
     /**
      * Contents of the row - should be cells.
@@ -44,11 +43,14 @@ export class TableRow extends React.Component {
     const { id, className, children, onClick } = this.props;
 
     return (
-      <TR id={id} className={className} onClick={onClick} clickable={!!onClick}>
+      <TR
+        id={id}
+        className={className}
+        onClick={onClick}
+        clickable={!!onClick}
+      >
         {children}
       </TR>
     );
   }
 }
-
-export default sharedComponent({ TR })(TableRow);

@@ -1,18 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 1em;
+  font-size: ${({ theme }) => theme.card.fontSize};
   margin: 0;
-  padding: ${({ theme }) => `${theme.spacing.small} 0`};
-  background: ${({ theme }) => theme.colors.white};
-  color: ${({ theme, active }) =>
-    active ? theme.colors.primary : theme.colors.black};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
+  padding: ${({ theme }) => `${theme.padding.small} 0`};
+  background: ${({ theme }) => theme.card.bg};
+  color: ${({ theme, active }) => active ? theme.card.activeFG : theme.card.fg};
+  border-bottom: ${({ theme }) => theme.card.border};
 
   &:last-child {
     border-bottom: none;
@@ -20,11 +18,11 @@ const Container = styled.div`
 `;
 
 const Help = styled.span`
-  font-family: ${({ theme }) => theme.fonts.default};
+  font-family: ${({ theme }) => theme.card.helpFontFamily};
   font-style: italic;
-  font-size: 0.9em;
-  font-weight: 100;
-  color: ${({ theme }) => theme.colors.grayLightText};
+  font-size: ${({ theme }) => theme.card.helpFontSize};
+  font-weight: ${({ theme }) => theme.card.helpFontWeight};
+  color: ${({ theme }) => theme.helpText.fg};
 `;
 
 /**
@@ -32,7 +30,7 @@ const Help = styled.span`
  * not be considered universal enough to be included in a shared library. Use at
  * your own risk.
  */
-export class Summary extends React.Component {
+class Summary extends React.Component {
   static propTypes = {
     /**
      * The main content of the summary.
@@ -63,12 +61,18 @@ export class Summary extends React.Component {
     return (
       <Container className={className} id={id}>
         {children}
-        <Help>
-          {helpText}
-        </Help>
+        <Help>{helpText}</Help>
       </Container>
     );
   }
 }
 
-export default sharedComponent({ Container, Help })(Summary);
+Summary.usage = `
+Summaries are simple data items. They're not meant to be interactive, just informative. Supports adding a little help text with the \`helpText\` property.
+
+\`\`\`
+<Summary helpText="This is usually bar">Foo</Summary>
+\`\`\`
+`;
+
+export default Summary;

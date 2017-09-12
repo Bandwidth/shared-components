@@ -1,4 +1,4 @@
-Provides all of the standard input fields
+Provides all of the standard input fields 
 
 
 A basic styled text input.
@@ -10,8 +10,4 @@ A basic styled text input.
 
 ```
 <Input type="email" placeholder="joe@domain.com"/>
-```
-
-```
-<Input invalid value="Bad data" />
 ```

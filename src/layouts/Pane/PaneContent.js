@@ -1,14 +1,9 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 
-const PaneContentImpl = styled.div`
-  padding: 20px 30px 30px 30px;
+const PaneContent = styled.div`
+  padding: ${({ theme }) => theme.pane.contentPadding};
 `;
-
-export const PaneContent = ({ children, ...rest }) => (
-  <PaneContentImpl {...rest}>{children}</PaneContentImpl>
-);
 
 PaneContent.propTypes = {
   /**
@@ -26,4 +21,20 @@ PaneContent.defaultProps = {
   className: null,
 };
 
-export default sharedComponent()(PaneContent);
+PaneContent.usage = `
+# PaneContent
+
+Wraps content inside a Pane or PaneSection with appropriate padding.
+
+\`\`\`
+<Pane>
+  <PaneSection>
+    <PaneContent>
+      foo
+    </PaneContent>
+  </PaneSection>
+</Pane>
+\`\`\`
+`;
+
+export default PaneContent;

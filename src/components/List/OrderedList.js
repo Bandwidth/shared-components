@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 import Item from './ListItem';
 
 const OrderedListImpl = styled.ul.withConfig({ displayName: 'OrderedList' })`
@@ -17,13 +16,13 @@ const OrderedListImpl = styled.ul.withConfig({ displayName: 'OrderedList' })`
     list-style: lower-latin outside;
   }
 
-  & ul ${Item.Class}:first-child,
-  & ol ${Item.Class}:first-child {
+  & ul ${Item}:first-child,
+  & ol ${Item}:first-child {
     margin-top: 0.5em;
   }
 `;
 
-export const OrderedList = ({children, ...rest}) => (
+const OrderedList = ({children, ...rest}) => (
   <OrderedListImpl {...rest}>{children}</OrderedListImpl>
 )
 
@@ -43,4 +42,7 @@ OrderedList.defaultProps = {
   id: null,
 };
 
-export default sharedComponent({ Item, Styled: OrderedListImpl })(OrderedList);
+OrderedList.Item = Item;
+OrderedList.Styled = OrderedListImpl;
+
+export default OrderedList;

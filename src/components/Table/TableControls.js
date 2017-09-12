@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 import Header from '../Header';
 import Anchor from '../Anchor';
 import Icon from '../Icon';
@@ -9,13 +8,13 @@ import Icon from '../Icon';
 const Buttons = styled.div``;
 
 const Container = styled.div`
-  margin-bottom: ${({ theme }) => theme.spacing.medium};
+  margin-bottom: ${({ theme }) => theme.padding.medium};
 `;
 
 const ControlsRow = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: ${({ theme }) => theme.spacing.small};
+  margin-bottom: ${({ theme }) => theme.padding.small};
 
   & > ${Header.Styled} {
     flex: 1;
@@ -25,12 +24,12 @@ const ControlsRow = styled.div`
   & > ${Buttons} {
     flex: 0 0 auto;
     & > a {
-      margin-left: ${({ theme }) => theme.spacing.medium};
+      margin-left: ${({ theme }) => theme.padding.medium};
     }
   }
 `;
 
-export class TableControls extends React.Component {
+class TableControls extends React.Component {
   static propTypes = {
     /**
      * Show a delete button.
@@ -133,4 +132,22 @@ export class TableControls extends React.Component {
   }
 }
 
-export default sharedComponent({ Buttons, ControlsRow })(TableControls);
+TableControls.usage = `
+Generally sits above a table. Standardized format of the table name and some common controls.
+
+\`\`\`
+<TableControls
+  title="Sample Table"
+  enableAdd
+  enableDelete
+  enableSearch
+  onAdd={...}
+  onDelete={...}
+  onSearch={...}
+>
+  Some extra top row content
+</TableControls>
+\`\`\`
+`;
+
+export default TableControls;

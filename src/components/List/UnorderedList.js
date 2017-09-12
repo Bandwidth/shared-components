@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 import Item from './ListItem';
 import Ordered from './OrderedList';
 
-const UnorderedListImpl = styled.ul.withConfig({ displayName: 'UnorderedList' })`
+const UnorderedList = styled.ul.withConfig({ displayName: 'UnorderedList' })`
   margin: 0 0 1em;
   padding: 0;
   list-style: disc outside;
@@ -17,15 +16,11 @@ const UnorderedListImpl = styled.ul.withConfig({ displayName: 'UnorderedList' })
     list-style: circle outside;
   }
 
-  & ul ${Item.Class}:first-child,
-  & ol ${Item.Class}:first-child {
+  & ul ${Item}:first-child,
+  & ol ${Item}:first-child {
     margin-top: 0.5em;
   }
 `;
-
-export const UnorderedList = ({children, ...rest}) => (
-  <UnorderedListImpl {...rest}>{children}</UnorderedListImpl>
-);
 
 UnorderedList.propTypes = {
   /**
@@ -43,4 +38,17 @@ UnorderedList.defaultProps = {
   id: null,
 };
 
-export default sharedComponent({ Item, Ordered })(UnorderedList);
+UnorderedList.usage = `
+A basic bulletted list. Fill with \`Item\` elements.
+
+\`\`\`
+<UnorderedList>
+  <Item>Foo</Item>
+  <Item>Bar</Item>
+</UnorderedList>
+\`\`\`
+`;
+
+UnorderedList.Item = Item;
+UnorderedList.Ordered = Ordered;
+export default UnorderedList;

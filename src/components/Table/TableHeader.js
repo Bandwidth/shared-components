@@ -1,47 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 import { sentence } from 'change-case';
 import Icon from '../Icon';
 import Anchor from '../Anchor';
 
 const TH = styled.th`
-  background: ${({ theme }) => theme.colors.secondaryFaded};
+  background: ${({ theme }) => theme.table.headerBG};
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.white};
-  font-weight: 300;
-  font-family: ${({ theme }) => theme.fonts.brand};
-  padding: ${({ theme }) => `${theme.spacing.small} ${theme.spacing.medium}`};
+  font-weight: ${({ theme }) => theme.table.headerFontWeight};
+  font-family: ${({ theme }) => theme.table.headerFontFamily};
+  padding: ${({ theme }) => theme.table.headerPadding};
   text-align: left;
   white-space: nowrap;
 
-  cursor: ${({ sortable }) => (sortable ? 'pointer' : 'default')};
+  cursor: ${({ sortable }) => sortable ? 'pointer' : 'default' };
 
-  & > a {
+  &>a {
     color: inherit;
   }
-  & > a:focus {
+  &>a:focus {
     color: inherit;
   }
-  & > a::after {
+  &>a::after {
     background: ${({ theme }) => theme.colors.white};
   }
 `;
 
-const ColumnName = styled.span`display: inline;`;
+const ColumnName = styled.span`
+  display: inline;
+`;
 
 const SortArrows = styled.span`
   margin-left: 8px;
   white-space: nowrap;
 
-  & > a {
+  &>a {
     color: ${({ theme }) => theme.colors.grayLightText};
   }
-  & > a:focus {
+  &>a:focus {
     color: ${({ theme }) => theme.colors.white};
   }
-  & > a::after {
+  &>a::after {
     background: ${({ theme }) => theme.colors.grayLightText};
   }
 
@@ -51,10 +52,10 @@ const SortArrows = styled.span`
     } else if (sortOrder < 0) {
       return css`&>*:last-child { color: ${theme.colors.white}; }`;
     }
-  }};
+  }}
 `;
 
-export class TableHeader extends React.Component {
+export default class Header extends React.Component {
   static propTypes = {
     /**
      * Contents of the header cell.
@@ -95,55 +96,36 @@ export class TableHeader extends React.Component {
     id: null,
   };
 
-  createClickHandler = naturalOrder => () =>
-    this.props.onClick
-      ? this.props.onClick(naturalOrder)
-      : this.props.handleClick(naturalOrder);
+  createClickHandler = (naturalOrder) => () =>
+    this.props.onClick ? this.props.onClick(naturalOrder) :
+    this.props.handleClick(naturalOrder);
 
   renderColumnName = () => {
     const { sortable, children } = this.props;
     if (sortable) {
       return (
         <Anchor type="text" onClick={this.createClickHandler(0)}>
-          <ColumnName sortable>
-            {children}
-          </ColumnName>
+          <ColumnName sortable>{children}</ColumnName>
         </Anchor>
       );
     }
 
-    return (
-      <ColumnName>
-        {children}
-      </ColumnName>
-    );
-  };
+    return <ColumnName>{children}</ColumnName>;
+  }
 
   render() {
-    const {
-      sortable,
-      sortOrder,
-      handleClick,
-      onClick,
-      id,
-      className,
-    } = this.props;
+    const { sortable, sortOrder, handleClick, onClick, id, className } = this.props;
 
     return (
       <TH sortable={sortable} className={className} id={id}>
         {this.renderColumnName()}
         {sortable &&
           <SortArrows sortOrder={sortOrder}>
-            <Anchor type="icon" onClick={this.createClickHandler(1)}>
-              <Icon name="down" />
-            </Anchor>
-            <Anchor type="icon" onClick={this.createClickHandler(-1)}>
-              <Icon name="up" />
-            </Anchor>
-          </SortArrows>}
+            <Anchor type="icon" onClick={this.createClickHandler(1)}><Icon name="down" /></Anchor>
+            <Anchor type="icon" onClick={this.createClickHandler(-1)}><Icon name="up" /></Anchor>
+          </SortArrows>
+        }
       </TH>
     );
   }
 }
-
-export default sharedComponent({ TH, ColumnName, SortArrows })(TableHeader);

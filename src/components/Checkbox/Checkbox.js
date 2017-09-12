@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 import icons from '../Icon/icons';
 import generateId from '../../extensions/generateId';
 
@@ -21,17 +20,17 @@ const CheckboxLabel = styled.label`
   cursor: pointer;
   position: relative;
   font-size: 14px;
-  padding: 0.2em 0 0.2em 2.1em;
+  padding: ${({ theme }) => theme.checkbox.labelPadding};
   user-select: none;
-  font-size: 1em;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: ${({ theme }) => theme.colors.black};
+  font-size: ${({ theme }) => theme.label.fontSize};
+  font-weight: ${({ theme }) => theme.label.fontWeight};
+  letter-spacing: ${({ theme }) => theme.label.letterSpacing};
+  color: ${({ theme }) => theme.label.fg};
 
   /* the check */
   &::before {
-    content: ${({ active }) => (active ? `"${icons('checkmark')}"` : '""')};
-    color: ${({ theme }) => theme.colors.white};
+    content: ${({ active }) => active ? `"${icons('checkmark')}"` : '""'};
+    color: ${({ theme }) => theme.checkbox.checkFG};
     font-family: 'Bandwidth';
     font-size: 1em;
     display: block;
@@ -46,9 +45,8 @@ const CheckboxLabel = styled.label`
   /* the box */
   &::after {
     content: "";
-    background: ${({ theme, active }) =>
-      active ? theme.colors.secondary : theme.colors.white};
-    border: 2px solid ${({ theme }) => theme.colors.secondary};
+    background: ${({ theme, active }) => active ? theme.checkbox.fullBG : theme.checkbox.emptyBG};
+    border: ${({ theme }) => theme.checkbox.border};
     border-radius: 0.2em;
     width: ${SIZE};
     height: ${SIZE};
@@ -61,12 +59,13 @@ const CheckboxLabel = styled.label`
   }
 
   ${({ disabled, theme }) =>
-    disabled
-      ? css`
-        opacity: 0.7;
-        &::before { opacity: 0.7; }
-      `
-      : ''};
+    disabled ?
+      css`
+        opacity: ${theme.checkbox.disabledOpacity};
+        &::before { opacity: ${theme.checkbox.disabledOpacity}; }
+      ` :
+      ''
+  }
 `;
 
 const Container = styled.div`
@@ -74,7 +73,7 @@ const Container = styled.div`
   position: relative;
 `;
 
-export class Checkbox extends React.Component {
+class Checkbox extends React.Component {
   static propTypes = {
     /**
      * Adds a class name to the input element.
@@ -117,14 +116,7 @@ export class Checkbox extends React.Component {
   };
 
   render() {
-    const {
-      className,
-      disabled,
-      value,
-      required,
-      description,
-      onChange,
-    } = this.props;
+    const { className, disabled, value, required, description, onChange } = this.props;
     const id = this.props.id || generateId('toggle');
     return (
       <Container>
@@ -145,5 +137,7 @@ export class Checkbox extends React.Component {
   }
 }
 
-
-export default sharedComponent({ Input: HiddenInput, Label: CheckboxLabel, Styled: Container })(Checkbox);
+Checkbox.Input = HiddenInput;
+Checkbox.Label = CheckboxLabel;
+Checkbox.Container = Container;
+export default Checkbox;

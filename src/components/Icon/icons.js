@@ -101,4 +101,4 @@ export const map = {
   xls: '\\f15f',
 };
 
-export default name => map[name];
+export default (name) => map[name];

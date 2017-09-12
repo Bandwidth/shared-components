@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 
 const TD = styled.td`
   text-align: left;
-  background: transparent;
+  background: ${({ theme }) => theme.table.cellBG};
   border-right: 1px solid ${({ theme }) => theme.colors.border};
-  margin: 0;
-  padding: ${({ theme }) => `${theme.spacing.small} ${theme.spacing.medium}`};
+  margin: ${({ theme }) => theme.table.cellMargin};
+  padding: ${({ theme }) => `${theme.padding.small} ${theme.padding.medium}`};
   white-space: nowrap;
   transition: 0.2s ease all;
 
@@ -17,7 +16,7 @@ const TD = styled.td`
   }
 `;
 
-export class TableCell extends React.Component {
+export default class Cell extends React.Component {
   static propTypes = {
     /**
      * Contents of the table cell.
@@ -41,12 +40,6 @@ export class TableCell extends React.Component {
 
   render() {
     const { id, className, children } = this.props;
-    return (
-      <TD id={id} className={className}>
-        {children}
-      </TD>
-    );
+    return <TD id={id} className={className}>{children}</TD>;
   }
 }
-
-export default sharedComponent({ TD })(TableCell);
