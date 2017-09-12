@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const Container = styled.div`
   flex: 1 1 auto;
@@ -39,17 +40,17 @@ const Input = styled.input`
 `;
 
 const Label = styled.label`
-  opacity: ${({ active }) => active ? 1 : 0.5};
-  border: ${({ theme }) => theme.radioButton.border};
+  opacity: ${({ active }) => (active ? 1 : 0.5)};
+  border: 1px solid ${({ theme }) => theme.colors.borderLight};
   margin-right: -1px;
-  padding: ${({ theme }) => theme.radioButton.padding};
+  padding: 1em 1.4em;
   cursor: pointer;
   position: relative;
   display: flex;
   flex-direction: column;
   align-content: flex-start;
-  background: ${({ theme }) => theme.radioButton.bg};
-  color: ${({ theme }) => theme.radioButton.fg};
+  background: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   transition: opacity 0.2s ease;
   text-transform: uppercase;
   font-weight: bold;
@@ -57,9 +58,9 @@ const Label = styled.label`
 
   &::after {
     content: "";
-    background: ${({ theme }) => theme.radioButton.accent};
+    background: ${({ theme }) => theme.colors.primary};
     width: calc(100% + 2px);
-    height: ${({ active }) => active ? '5px' : 0};
+    height: ${({ active }) => (active ? '5px' : 0)};
     position: absolute;
     bottom: -1px;
     left: -1px;
@@ -69,11 +70,12 @@ const Label = styled.label`
 
   &:hover::after {
     height: 5px;
-    opacity: ${({ active }) => active ? 1 : 0.5};
+    opacity: ${({ active }) => (active ? 1 : 0.5)};
   }
 
   &:hover {
-    border-color: ${({ active, theme }) => active ? theme.colors.borderLight : theme.colors.primary};
+    border-color: ${({ active, theme }) =>
+      active ? theme.colors.borderLight : theme.colors.primary};
   }
 `;
 
@@ -90,7 +92,7 @@ const LabelText = styled.span`
   margin: auto auto auto 0;
 `;
 
-class RadioButton extends React.Component {
+export class RadioButton extends React.Component {
   static propTypes = {
     /**
      * Whether or not the button is currently selected.
@@ -133,7 +135,15 @@ class RadioButton extends React.Component {
   };
 
   render() {
-    const { checked, label, name, value, onChange, content, className } = this.props;
+    const {
+      checked,
+      label,
+      name,
+      value,
+      onChange,
+      content,
+      className,
+    } = this.props;
     const id = this.props.id || `radio-${name}>${value}`;
 
     return (
@@ -148,16 +158,18 @@ class RadioButton extends React.Component {
           className={className}
         />
         <Label htmlFor={id} active={checked}>
-          {content !== null ? <Content active={checked}>{content}</Content> : null}
-          <LabelText>{label}</LabelText>
+          {content !== null
+            ? <Content active={checked}>
+                {content}
+              </Content>
+            : null}
+          <LabelText>
+            {label}
+          </LabelText>
         </Label>
       </Container>
     );
   }
 }
 
-RadioButton.usage = `
-Not really meant to be used alone, unless you just want the styling of it. Use RadioGroup to create a group of RadioButtons.
-`;
-
-export default RadioButton;
+export default sharedComponent({ Container, Input, Label, Content, LabelText })(RadioButton);

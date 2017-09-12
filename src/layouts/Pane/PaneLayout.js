@@ -1,9 +1,14 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
-const PaneLayout = styled.div.withConfig({ displayName: 'PaneLayout' })`
+const PaneLayoutImpl = styled.div.withConfig({ displayName: 'PaneLayout' })`
   padding: 30px;
 `;
+
+const PaneLayout = ({ children, ...rest }) => (
+  <PaneLayoutImpl {...rest}>{children}</PaneLayoutImpl>
+);
 
 PaneLayout.propTypes = {
   /**
@@ -21,25 +26,4 @@ PaneLayout.defaultProps = {
   className: null,
 };
 
-PaneLayout.usage = `
-# PaneLayout
-
-A top-level space for panes. Simply provides the padding that is common to pane layouts.
-
-\`\`\`
-<PaneLayout>
-  <PaneColumn>
-    <PaneRow>
-      <Pane />
-      <Pane />
-    </PaneRow>
-    <PaneRow>
-      <Pane />
-      <Pane />
-    </PaneRow>
-  </PaneColumn>
-</PaneLayout>
-\`\`\`
-`;
-
-export default PaneLayout;
+export default sharedComponent()(PaneLayout);

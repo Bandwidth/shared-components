@@ -1,14 +1,16 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
-const Toast = styled.div.withConfig({ displayName: 'Toast' })`
+const ToastImpl = styled.div.withConfig({ displayName: 'Toast' })`
   position: fixed;
   z-index: 10000000;
   background: ${({ theme }) => theme.colors.white};
   left: 50%;
   transform: translateX(-50%);
   width: 400px;
-  padding: ${({ theme }) => theme.padding.small};
+  padding: ${({ theme }) => theme.spacing.small};
   text-align: center;
   display: block;
   top: 120px;
@@ -19,6 +21,10 @@ const Toast = styled.div.withConfig({ displayName: 'Toast' })`
     margin: 0;
   }
 `;
+
+export const Toast = ({ children, ...rest }) => (
+  <ToastImpl {...rest}>{children}</ToastImpl>
+);
 
 Toast.propTypes = {
   /**
@@ -36,10 +42,4 @@ Toast.defaultProps = {
   id: null,
 };
 
-Toast.usage = `
-Fill with quick notification content.
-
-\`\`\`
-<Toast>Hi there</Toast>
-\`\`\`
-`
+export default sharedComponent()(Toast);

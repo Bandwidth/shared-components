@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import formatMoney from '../../extensions/formatMoney';
 
 const Figure = styled.span`
-  color: ${({ positive, theme }) => positive ? theme.colors.positiveText : theme.colors.negativeText };
+  color: ${({ positive, theme }) =>
+    positive ? theme.colors.positiveText : theme.colors.negativeText};
 `;
 
-class Money extends React.Component {
+export class Money extends React.Component {
   static propTypes = {
     /**
      * The monetary value to show.
@@ -51,12 +53,13 @@ class Money extends React.Component {
   }
 }
 
-Money.usage = `
+export default sharedComponent(
+  `
 The Money component renders a monetary value with a color and sign to indicate positive or negative. It formats decimal values and adds a $ to the beginning, so just pass in the raw number/string value for \`value\`. Use the \`showSign\` prop to turn off the plus/minus sign.
 
 \`\`\`
 <Money value="0.33224" />
 \`\`\`
-`;
-
-export default Money;
+`,
+  { Container: Figure },
+)(Money);

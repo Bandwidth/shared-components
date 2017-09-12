@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
-const FormColumn = styled.section`
-  padding: 0 ${({ theme }) => theme.padding.large};
-  border-right: ${({ theme }) => theme.formColumn.border};
+const FormColumnImpl = styled.section`
+  padding: 0 ${({ theme }) => theme.spacing.large};
+  border-right: 1px solid ${({ theme }) => theme.colors.borderLight};
 
   &:first-of-type {
     padding-left: 0;
@@ -14,6 +15,10 @@ const FormColumn = styled.section`
     padding-right: 0;
   }
 `;
+
+const FormColumn = ({ children, ...rest }) => (
+  <FormColumnImpl {...rest}>{children}</FormColumnImpl>
+);
 
 FormColumn.propTypes = {
   /**
@@ -31,23 +36,4 @@ FormColumn.defaultProps = {
   className: null,
 };
 
-FormColumn.usage = `
-# FormColumn
-
-Sometimes forms are split into vertical columns. Very rarely, but we still have a component for that.
-
-\`\`\`
-<Form>
-  <FormColumn>
-    <Field component={Foo} />
-    <FieldGroup> ... </FieldGroup>
-  </FormColumn>
-  <FormColumn>
-    <Field component={Bar} />
-    <FieldGroup> ... </FieldGroup>
-  </FormColumn>
-</Form>
-\`\`\`
-`;
-
-export default FormColumn;
+export default sharedComponent()(FormColumn);

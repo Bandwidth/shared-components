@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sharedComponent from '../../sharedComponent';
 import styled from 'styled-components';
 import icons from '../Icon/icons';
 
@@ -100,11 +101,13 @@ const AlertContainer = styled.div`
   }
 `;
 
-const Alert = (props) => (
+export const Alert = (props) => (
   <AlertContainer {...props}>
-    <p>{props.children}</p>
+    <p>
+      {props.children}
+    </p>
   </AlertContainer>
-)
+);
 
 Alert.propTypes = {
   /**
@@ -132,5 +135,4 @@ Alert.defaultProps = {
   id: null,
 };
 
-
-export default Alert;
+export default sharedComponent()(Alert);

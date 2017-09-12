@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import icons, { map } from './icons';
 
 const IconImpl = styled.i.withConfig({ displayName: 'Icon' })`
   font-family: 'Bandwidth';
-  font-size: ${({ theme, size }) => `${size}` || theme.icon.fontSize};
+  font-size: ${({ theme, size }) => `${size}` || '16px'};
   color: inherit;
   font-style: normal;
   display: inline-block;
   &::before {
-    content: "${({ name, iconsHelper }) => iconsHelper(name) || iconsHelper('help_2')}";
+    content: "${({ name, iconsHelper }) =>
+      iconsHelper(name) || iconsHelper('help_2')}";
     display: block;
     color: inherit;
   }
 `;
 
-const Icon = ({children, ...rest}) => (
+export const Icon = ({children, ...rest}) => (
   <IconImpl {...rest}>{children}</IconImpl>
 )
 
@@ -41,7 +43,7 @@ Icon.propTypes = {
    * Replace the icon helper function (advanced).
    */
   iconsHelper: PropTypes.func,
-}
+};
 
 Icon.defaultProps = {
   theme: {
@@ -53,6 +55,4 @@ Icon.defaultProps = {
   iconsHelper: icons,
 };
 
-Icon.Styled = IconImpl;
-
-export default Icon;
+export default sharedComponent({ Styled: IconImpl })(Icon);

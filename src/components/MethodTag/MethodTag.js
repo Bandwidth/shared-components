@@ -1,17 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
-const MethodTag = styled.pre`
-  background: ${({ theme, children }) => theme.methodTag.colors[children]};
-  color: ${({ theme }) => theme.methodTag.fg};
-  font-size: ${({ theme }) => theme.methodTag.fontSize};
-  padding: ${({ theme }) => theme.methodTag.padding};
-  border-radius: ${({ theme }) => theme.methodTag.borderRadius};
+const colors = {
+  get: '#6cbf0d',
+  post: '#00bcec',
+  del: '#e8562e',
+  delete: '#e8562e',
+  put: '#a5639b',
+};
+
+const MethodTagImpl = styled.pre`
+  background: ${({ children }) => colors[children.toLowerCase()]};
+  color: ${({ theme }) => theme.colors.white};
+  font-size: ${({ mods }) => mods.small ? '14px' : '1em'};
+  padding: ${({ mods }) => mods.small ? '0.05em 0.6em' : '0.5em 1em'};
+  border-radius: 5px;
   text-transform: uppercase;
-  line-height: ${({ theme }) => theme.methodTag.lineHeight};
+  line-height: ${({ mods }) => mods.small ? '1.2em' : '1em'};
   margin: 0;
+  display: inline-block;
 `;
+
+export const MethodTag = ({ children, ...rest }) => (
+  <MethodTagImpl {...rest}>{children}</MethodTagImpl>
+);
 
 MethodTag.propTypes = {
   /**
@@ -29,8 +43,4 @@ MethodTag.defaultProps = {
   id: null,
 };
 
-MethodTag.usage = `
-Use this to annotate URLs with the method which is used to access them (for instance, in API docs). It will automatically choose a color based on the contents of the component, so use \`GET\`, \`POST\` inside, etc.
-`;
-
-export default MethodTag;
+export default sharedComponent()(MethodTag);

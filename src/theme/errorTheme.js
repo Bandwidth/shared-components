@@ -1,23 +1,27 @@
 import { defaultsDeep } from 'lodash';
 import base from './baseTheme';
 
-export default defaultsDeep({
-  name: 'error',
+export default defaultsDeep(
+  {
+    name: 'error',
 
-  colors: {
-    ...base.colors,
+    colors: {
+      ...base.colors,
 
-    primary: base.colors.error,
-    primaryText: base.colors.errorText,
-    primaryLight: base.colors.errorBackgroundLight,
+      primary: base.colors.error,
+      primaryText: base.colors.errorText,
+      primaryLight: base.colors.errorBackgroundLight,
+      primaryDark: base.colors.errorBackground,
+    },
+
+    button: {
+      activeBG: '#c83c16',
+    },
+
+    link: {
+      fg: base.colors.errorText,
+      activeFG: '#c83c16',
+    },
   },
-
-  button: {
-    activeBG: '#c83c16',
-  },
-
-  link: {
-    fg: base.colors.errorText,
-    activeFG: '#c83c16',
-  },
-}, base);
+  base,
+);

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import generateId from '../../extensions/generateId';
 
 const HEIGHT = '24px';
@@ -19,7 +20,9 @@ export const HiddenInput = styled.input`
 const ToggleLabel = styled.label`
   cursor: pointer;
   position: relative;
-  padding: ${({ theme }) => `${theme.padding.extraSmall} 0 ${theme.padding.extraSmall} ${theme.padding.extraLarge}`};
+  padding: ${({ theme }) =>
+    `${theme.spacing.extraSmall} 0 ${theme.spacing.extraSmall} ${theme.padding
+      .extraLarge}`};
   user-select: none;
   transition: all 0.2s ease;
   line-height: ${HEIGHT};
@@ -30,7 +33,8 @@ const ToggleLabel = styled.label`
 
   &::before {
     content: '';
-    background: ${({ theme, active }) => active ? theme.colors.secondary : theme.colors.white};
+    background: ${({ theme, active }) =>
+      active ? theme.colors.secondary : theme.colors.white};
     border: 2px solid ${({ theme }) => theme.colors.secondary};
     border-radius: ${HEIGHT};
     width: ${WIDTH};
@@ -54,7 +58,7 @@ const ToggleLabel = styled.label`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: ${({ active }) => active ? HEIGHT : 0};
+    left: ${({ active }) => (active ? HEIGHT : 0)};
     display: block;
     transition: all 0.2s ease;
   }
@@ -64,17 +68,19 @@ const ToggleLabel = styled.label`
     border: 2px solid ${({ theme }) => theme.colors.primaryDark};
   }
   &:hover::before {
-    background: ${({ theme, active }) => active ? theme.colors.primaryDark : theme.colors.white};
+    background: ${({ theme, active }) =>
+      active ? theme.colors.primaryDark : theme.colors.white};
   }
 
-  ${({ disabled }) => disabled ?
-    css`
+  ${({ disabled }) =>
+    disabled
+      ? css`
       &::before, &::after {
         border: 2px solid ${({ theme }) => theme.colors.grayDark};
         background: ${({ theme }) => theme.colors.disabled};
       }
-    ` : ''
-  }
+    `
+      : ''};
 `;
 
 const Container = styled.div`
@@ -82,7 +88,7 @@ const Container = styled.div`
   display: block;
 `;
 
-class Toggle extends React.Component {
+export class Toggle extends React.Component {
   static propTypes = {
     /**
      * Adds a class name to the input element.
@@ -125,7 +131,14 @@ class Toggle extends React.Component {
   };
 
   render() {
-    const { className, disabled, value, required, description, onChange } = this.props;
+    const {
+      className,
+      disabled,
+      value,
+      required,
+      description,
+      onChange,
+    } = this.props;
     const id = this.props.id || generateId('toggle');
     return (
       <Container>
@@ -146,15 +159,4 @@ class Toggle extends React.Component {
   }
 }
 
-Toggle.usage = `
-A simple toggle input.
-
-\`\`\`
-<Toggle value={false} label="Foo" />
-\`\`\`
-`;
-
-Toggle.Input = HiddenInput;
-Toggle.Label = ToggleLabel;
-Toggle.Container = Container;
-export default Toggle;
+export default sharedComponent({ Input: HiddenInput, Label: ToggleLabel, Container, Styled: Container })(Toggle);

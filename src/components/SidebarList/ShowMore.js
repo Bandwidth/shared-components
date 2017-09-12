@@ -1,14 +1,19 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
-const ShowMore = styled.div`
+const ShowMoreImpl = styled.div`
   background: ${({ theme }) => theme.colors.primaryLight};
   color: ${({ theme }) => theme.colors.primaryText};
-  padding: ${({ theme }) => `${theme.padding.medium} ${theme.padding.large}`};
+  padding: ${({ theme }) => `${theme.spacing.medium} ${theme.spacing.large}`};
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
   border-right: 1px solid ${({ theme }) => theme.colors.borderLight};
   cursor: pointer;
 `;
+
+export const ShowMore = ({ children, ...rest }) => (
+  <ShowMoreImpl {...rest}>{children}</ShowMoreImpl>
+);
 
 ShowMore.propTypes = {
   /**
@@ -26,4 +31,4 @@ ShowMore.defaultProps = {
   id: null,
 };
 
-export default ShowMore;
+export default sharedComponent()(ShowMore);

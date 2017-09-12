@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sharedComponent from '../../sharedComponent';
 import styled, { keyframes } from 'styled-components';
 
-const Container = styled.div`
-  position: relative;
-`;
+const Container = styled.div`position: relative;`;
 
 const openAnimation = keyframes`
   from {
@@ -19,13 +18,13 @@ const openAnimation = keyframes`
 const Flyout = styled.div`
   position: absolute;
   z-index: 1;
-  max-width: ${({ theme }) => theme.callout.maxWidth};
-  background: ${({ theme }) => theme.callout.bg};
-  color: ${({ theme }) => theme.callout.fg};
-  padding: ${({ theme }) => theme.callout.padding};
-  border-radius: ${({ theme }) => theme.callout.borderRadius};
-  border: ${({ theme }) => theme.callout.border};
-  box-shadow: ${({ theme }) => theme.callout.shadow};
+  max-width: 300px;
+  background: ${({ theme }) => theme.colors.white};
+  color: inherit;
+  padding: ${({ theme }) => `${theme.spacing.small} ${theme.spacing.medium}`};
+  border-radius: 3px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  box-shadow: ${({ theme }) => theme.shadows.overlay};
   left: 100%;
   top: 50%;
   transform: translateX(10px) translateY(-50%);
@@ -35,7 +34,7 @@ const Flyout = styled.div`
   animation-fill-mode: forwards;
 `;
 
-class Callout extends React.Component {
+export class Callout extends React.Component {
   static propTypes = {
     /**
      * Miliseconds to wait before showing the callout.
@@ -71,10 +70,7 @@ class Callout extends React.Component {
   }
 
   trigger = () => {
-    this._timer = setTimeout(
-      this.show,
-      this.props.delay,
-    );
+    this._timer = setTimeout(this.show, this.props.delay);
   };
 
   show = () => {
@@ -89,12 +85,17 @@ class Callout extends React.Component {
   render() {
     const { className, id } = this.props;
     return (
-      <Container onMouseEnter={this.trigger} onMouseLeave={this.cancel} className={className} id={id}>
+      <Container
+        onMouseEnter={this.trigger}
+        onMouseLeave={this.cancel}
+        className={className}
+        id={id}
+      >
         {this.props.children}
         {this.state.show ? <Flyout>{this.props.content}</Flyout> : null}
       </Container>
-    )
+    );
   }
 }
 
-export default Callout;
+export default sharedComponent({ Styled: Container })(Callout);

@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
 const HelpTextImpl = styled.div.withConfig({ displayName: 'HelpText' })`
-  color: ${({ theme, error }) => error ? theme.colors.errorText : theme.helpText.fg};
+  color: ${({ theme, error }) =>
+    error ? theme.colors.errorText : theme.colors.grayLightText};
   font-style: italic;
-  font-weight: ${({ theme }) => theme.helpText.fontWeight};
-  padding: ${({ theme }) => theme.input.helpTextPadding};
-  font-family: ${({ theme }) => theme.helpText.fontFamily};
+  font-weight: 300;
+  padding: 0.4em 0 0 0;
+  font-family: ${({ theme }) => theme.fonts.brand};
 `;
 
-const HelpText = ({children, ...rest}) => (
+export const HelpText = ({children, ...rest}) => (
   <HelpTextImpl {...rest}>{children}</HelpTextImpl>
 )
 
@@ -34,6 +36,4 @@ HelpText.defaultProps = {
   id: null,
 };
 
-HelpText.Styled = HelpTextImpl;
-
-export default HelpText;
+export default sharedComponent({ Styled: HelpTextImpl })(HelpText);

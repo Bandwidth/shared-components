@@ -46,7 +46,14 @@ describe('the Flow field HOC', () => {
 
     beforeEach(() => {
       const Field = Flow.createField(Input);
-      wrapper = shallowWithTheme(<Field input={inputProps} meta={metaProps} required={required} disabled={disabled} />);
+      wrapper = shallowWithTheme(
+        <Field
+          input={inputProps}
+          meta={metaProps}
+          required={required}
+          disabled={disabled}
+        />,
+      );
     });
 
     test('assigns item props', () => {
@@ -63,7 +70,14 @@ describe('the Flow field HOC', () => {
 
   // test special cases of alignments
   [
-    [RadioGroup, { input: { value: 'foo', onChange: jest.fn() }, choices: ['foo'], name: 'bar' }],
+    [
+      RadioGroup,
+      {
+        input: { value: 'foo', onChange: jest.fn() },
+        choices: ['foo'],
+        name: 'bar',
+      },
+    ],
     [Checkbox, { input: { value: true, onChange: jest.fn() } }],
     [Toggle, { input: { value: true, onChange: jest.fn() } }],
   ].forEach(([Component, props]) => {

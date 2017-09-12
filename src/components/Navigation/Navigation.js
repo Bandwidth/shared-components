@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { ThemeProvider } from 'styled-components';
-import NavigationItems, { Container as ItemsContainer, linksPropType } from './NavigationItems';
+import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
+import NavigationItems, { linksPropType } from './NavigationItems';
 import LogoHeader from './LogoHeader';
-import theme from '../../theme';
+import Small from '../../mods/Small';
 
-const Container = styled.header.withConfig({ displayName: 'NavigationContainer' })`
-  background: ${({ theme }) => theme.topNav.bg};
-  color: ${({ theme }) => theme.topNav.fg};
-  border-bottom: 1px solid ${({ theme }) => theme.shadow.color};
-  padding: ${({ theme }) => theme.topNav.padding};
+const Container = styled.header.withConfig({
+  displayName: 'NavigationContainer',
+})`
+  background: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.white};
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  padding: 0 30px 0 30px;
   display: flex;
   flex-shrink: 0;
   justify-content: space-between;
@@ -28,13 +31,13 @@ const Links = styled.div.withConfig({ displayName: 'NavigationLinks' })`
     margin-top: auto;
   }
 
-  & > ${ItemsContainer}:nth-child(2) ${NavigationItems.Item} {
+  & > ${NavigationItems.Styled}:nth-child(2) ${NavigationItems.Item.Styled} {
     padding-top: 10px !important;
   }
 `;
 
 
-class Navigation extends React.Component {
+export class Navigation extends React.Component {
   static propTypes = {
     /**
      * The title to render within the navigation header (optional)
@@ -72,13 +75,15 @@ class Navigation extends React.Component {
     return (
       <Container id={id} className={className}>
         <RenderIf val={title}>
-          <LogoHeader>{title}</LogoHeader>
+          <LogoHeader>
+            {title}
+          </LogoHeader>
         </RenderIf>
         <Links>
           <RenderIf val={topLinks}>
-            <ThemeProvider theme={theme.small}>
+            <Small>
               <NavigationItems links={topLinks} />
-            </ThemeProvider>
+            </Small>
           </RenderIf>
           <NavigationItems links={links} />
         </Links>
@@ -87,22 +92,4 @@ class Navigation extends React.Component {
   }
 }
 
-Navigation.usage = `
-The header above a page which contains page title and navigation.
-
-\`\`\`
-<Navigation
-  title="Bandwidth App"
-  links={[
-    { to: '/cat', exact: true, content: 'Cat' },
-    { to: '/anotherCat', content: 'Another Cat' },
-  ]}
-  topLinks={[
-    { to: '/submitCat', content: 'Submit Cat' },
-    { to: '/logout', content: 'Log Out' },
-  ]}
-/>
-\`\`\`
-`;
-
-export default Navigation;
+export default sharedComponent({ Container, Styled: Container, Links })(Navigation);

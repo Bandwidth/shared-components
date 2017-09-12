@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import TBody from './TBody';
 
 // Firefox has an artificial limit on colspan of 1000. This is obviously an arbitrary
@@ -23,10 +24,10 @@ const TableRowDetailContainer = styled.tr`
 const TableRowDetailsStyles = styled.td`
   border-top: 1px solid ${({ theme }) => theme.colors.border};
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  box-shadow: inset 5px 0 0 rgba(0,0,0,.12);
+  box-shadow: inset 5px 0 0 rgba(0, 0, 0, .12);
 `;
 
-const TableRowDetails = ({ children, rowIndex = 0 }) => (
+export const TableRowDetails = ({ children, rowIndex = 0 }) => (
   <TBody startIndex={rowIndex}>
     <TableRowDetailContainer>
       <TableRowDetailsStyles colSpan={COLSPAN}>
@@ -36,10 +37,4 @@ const TableRowDetails = ({ children, rowIndex = 0 }) => (
   </TBody>
 );
 
-TableRowDetails.usage = `
-\`TableRowDetails\` is a \`<tbody>\` with a full-length element as its only row.
-
-Insert it between an upper \`<tbody>\` and a lower \`<tbody>\`, where the last row in the upper \`<tbody>\` is the selected element to show details for. See \`SimpleTable\` for example usage.
-`;
-
-export default TableRowDetails;
+export default sharedComponent({ Container: TableRowDetailContainer, Content: TableRowDetailsStyles })(TableRowDetails);

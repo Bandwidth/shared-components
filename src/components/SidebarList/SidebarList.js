@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import ShowMore from './ShowMore';
 import Item from './SidebarListItem';
 
@@ -20,7 +21,7 @@ const ListContainer = styled.ul`
   }
 `;
 
-class SidebarList extends React.Component {
+export class SidebarList extends React.Component {
   static propTypes = {
     /**
      * Optional: indicate which item should be considered active.
@@ -87,10 +88,14 @@ class SidebarList extends React.Component {
   renderItems = () => {
     const { selectedIndex } = this.props;
 
-    return React.Children.toArray(this.props.children)
-      .filter((child) => child !== null)
-      .map(
-        (listItem, idx) => React.cloneElement(listItem, { key: idx, active: idx === selectedIndex }),
+    return React.Children
+      .toArray(this.props.children)
+      .filter(child => child !== null)
+      .map((listItem, idx) =>
+        React.cloneElement(listItem, {
+          key: idx,
+          active: idx === selectedIndex,
+        }),
       );
   };
 
@@ -106,18 +111,4 @@ class SidebarList extends React.Component {
   }
 }
 
-SidebarList.usage = `
-Lays out items vertically and provides selection context. Does not do scrolling.
-
-If you pass the \`selectedIndex\` prop, the child component which matches that index will receive an \`active=true\` prop when rendering. Use this to show selected state. Before relying on list selection state, though, consider whether your list shouldn't instead be linked to your router, so that each item is a unique route. If you go that direction, you can have the items be \`<Route/>\` components from React Router, and have them utilize RR's built-in route matching logic to determine rendering appearance.
-
-\`\`\`
-<SidebarList selectedIndex={1}>
-  <SidebarListItem>One</SidebarListItem>
-  <SidebarListItem>Two</SidebarListItem>
-</SidebarList>
-\`\`\`
-`;
-
-SidebarList.Item = Item;
-export default SidebarList;
+export default sharedComponent({ Item, Container: ListContainer })(SidebarList);

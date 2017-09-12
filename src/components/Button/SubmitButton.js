@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sharedComponent from '../../sharedComponent';
 import Button from './Button';
 import Loader from '../Loader';
 
-class SubmitButton extends React.Component {
+export class SubmitButton extends React.Component {
   static propTypes = {
     /**
      * Indicates that the form has not been touched yet. Will disable submission.
@@ -63,14 +64,18 @@ class SubmitButton extends React.Component {
     const { pristine, loading, children, pristineContents } = this.props;
 
     if (pristine) {
-      return <span>{pristineContents}</span>;
+      return (
+        <span>
+          {pristineContents}
+        </span>
+      );
     }
     if (loading) {
-      return <Loader size="1em" />
+      return <Loader size="1em" />;
     }
 
     return children;
-  }
+  };
 
   render() {
     const { pristine, loading, disabled, leftIcon, rightIcon, id, className, onClick } = this.props;
@@ -86,12 +91,8 @@ class SubmitButton extends React.Component {
       >
         {this.renderContents()}
       </Button>
-    )
+    );
   }
 }
 
-SubmitButton.usage = `
-
-`;
-
-export default SubmitButton;
+export default sharedComponent()(SubmitButton);

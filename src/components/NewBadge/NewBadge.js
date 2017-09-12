@@ -1,7 +1,9 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
-const NewBadge = styled.span`
+const NewBadgeImpl = styled.span`
   display: inline-block;
 
   &::after {
@@ -14,6 +16,10 @@ const NewBadge = styled.span`
     margin-right: 1em;
   }
 `;
+
+const NewBadge = ({ children, ...rest }) => (
+  <NewBadgeImpl {...rest}>{children}</NewBadgeImpl>
+);
 
 NewBadge.propTypes = {
   /**
@@ -31,8 +37,4 @@ NewBadge.defaultProps = {
   id: null,
 };
 
-NewBadge.usage = `
-NewBadge lets a user quickly find new items that were just created by a previous action. Drop it on any item which just appeared on the page to easily inform the user of changes.
-`;
-
-export default NewBadge;
+export default sharedComponent({ Styled: NewBadgeImpl })(NewBadge);

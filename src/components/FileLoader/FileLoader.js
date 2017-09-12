@@ -2,27 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 import Icon from '../Icon';
 
 const DropArea = styled.div`
-  border: ${({ theme }) => theme.input.border};
-  padding: ${({ theme }) => theme.input.padding};
-  font-size: ${({ theme }) => theme.input.fontSize};
-  font-family: ${({ theme }) => theme.input.fontFamily};
-  line-height: ${({ theme }) => theme.input.lineHeight};
-  background: ${({ theme }) => theme.input.bg};
-  color: ${({ theme }) => theme.input.fg};
+  border: 1px solid ${({ theme }) => theme.colors.borderLight};
+  padding: 1em 1em;
+  font-size: 14px;
+  font-family: ${({ theme }) => theme.fonts.default};
+  line-height: 1.5;
+  background: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   width: 100%;
   display: flex;
   flex-direction: row;
   cursor: pointer;
 `;
 
-const Preview = styled.div`
-  margin: auto auto auto 16px;
-`;
+const Preview = styled.div`margin: auto auto auto 16px;`;
 
-class FileLoader extends React.Component {
+export class FileLoader extends React.Component {
   static propTypes = {
     /**
      * A FileList object to use as the value of the input.
@@ -63,7 +62,9 @@ class FileLoader extends React.Component {
       return (
         <DropArea>
           <Icon name="fileFilled" />
-          <Preview active={true}>{value[0].name}</Preview>
+          <Preview active={true}>
+            {value[0].name}
+          </Preview>
         </DropArea>
       );
     } else {
@@ -74,7 +75,7 @@ class FileLoader extends React.Component {
         </DropArea>
       );
     }
-  }
+  };
 
   render() {
     const { onChange, value, required, disabled, className, id } = this.props;
@@ -82,7 +83,7 @@ class FileLoader extends React.Component {
     return (
       <Dropzone
         multiple={false}
-        onDrop={(files) => onChange(files)}
+        onDrop={files => onChange(files)}
         style={{ width: '100%' }}
         activeStyle={{ color: '#00bcec' }}
         rejectStyle={{}}
@@ -98,4 +99,4 @@ class FileLoader extends React.Component {
   }
 }
 
-export default FileLoader;
+export default sharedComponent({ DropArea })(FileLoader);

@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import sharedComponent from '../../sharedComponent';
 
-const Page = styled.article.withConfig({ displayName: 'Page' })`
+const PageImpl = styled.article.withConfig({ displayName: 'Page' })`
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -12,6 +13,10 @@ const Page = styled.article.withConfig({ displayName: 'Page' })`
     flex: 1 1 auto;
   }
 `;
+
+export const Page = ({ children, ...rest }) => (
+  <PageImpl {...rest}>{children}</PageImpl>
+);
 
 Page.propTypes = {
   /**
@@ -29,18 +34,4 @@ Page.defaultProps = {
   className: null,
 };
 
-Page.usage = `
-# Page
-
-Page just sets up some defaults for layout and sizing on an average page. Items arrange via flexbox vertically. The page will be 100% of the width of its container.
-
-\`\`\`
-<Page>
-  <ScrollBox>
-    <!-- content -->
-  </ScrollBox>
-</Page>
-\`\`\`
-`;
-
-export default Page;
+export default sharedComponent()(Page);
