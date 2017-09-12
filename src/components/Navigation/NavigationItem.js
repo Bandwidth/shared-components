@@ -1,26 +1,24 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 
-const NavigationItemImpl = styled.div.withConfig({ displayName: 'NavigationItem' })`
+const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
   border: 0;
-  padding: ${({ mods }) => mods.small ? '30px 0 0 0' : '30px 0 30px 0'};
+  padding: ${({ theme }) => theme.tab.padding};
   opacity: 1;
   transition: all 0.2s ease;
   position: relative;
   cursor: pointer;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme, active }) => active ? theme.tab.activeFG : theme.tab.fg};
 
   &::before {
     content: "";
-    background: ${({ theme }) => theme.colors.primary};
+    background: ${({ theme }) => theme.tab.accent};
     width: 104%;
-    height: ${({ active }) => (active ? '5px' : 0)};
+    height: ${({ active }) => active ? '5px' : 0};
     display: block;
     position: absolute;
-    bottom: ${({ mods }) => mods.small ? 'auto' : '0'};
-    top: ${({ mods }) => mods.small ? 'calc(100% + 10px)' : 'auto'};
+    bottom: ${({ theme }) => theme.tab.accentBarBottom};
+    top: ${({ theme }) => theme.tab.accentBarTop};
     left: 50%;
     transform: translateX(-50%);
     transition: height 0.2s ease, opacity 0.2s ease;
@@ -31,10 +29,6 @@ const NavigationItemImpl = styled.div.withConfig({ displayName: 'NavigationItem'
     height: 5px;
   }
 `;
-
-export const NavigationItem = ({ children, ...rest }) => (
-  <NavigationItemImpl {...rest}>{children}</NavigationItemImpl>
-);
 
 NavigationItem.propTypes = {
   /**
@@ -52,4 +46,4 @@ NavigationItem.defaultProps = {
   id: null,
 };
 
-export default sharedComponent({ Styled: NavigationItemImpl })(NavigationItem);
+export default NavigationItem;

@@ -9,19 +9,11 @@
     "watch": "run-s watch:*",
     "build:clean": "rimraf dist",
     "build:cleanDocs": "rimraf docs",
-    "build:index": "node ./tools/generateIndices.js",
     "build:dist": "babel --copy-files --out-dir dist src",
     "build:styleguide": "styleguidist build",
     "build": "run-s build:*",
     "prepublish": "npm run build",
-    "styleguide": "styleguidist server",
-    "precommit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --single-quote --trailing-comma all --write \"{src,__tests__}/**/*.js\"",
-      "git add"
-    ]
+    "styleguide": "styleguidist server"
   },
   "repository": {
     "type": "git",
@@ -64,19 +56,16 @@
     "file": "^0.2.2",
     "file-loader": "^0.11.2",
     "google-fonts-webpack-plugin": "^0.4.2",
-    "husky": "^0.14.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
     "jest-enzyme": "^3.4.0",
     "jest-styled-components": "^3.1.5",
     "jsdom": "^11.0.0",
     "jsdom-global": "^3.0.2",
-    "lint-staged": "^4.0.2",
     "lodash": "^4.17.4",
     "npm-run-all": "^4.0.2",
     "postcss-loader": "^2.0.6",
     "react-docgen": "^2.17.0",
-    "prettier": "^1.5.3",
     "react-dom": "^15.6.1",
     "react-styleguidist": "^6.0.21",
     "react-test-renderer": "^15.6.1",

@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 import { Link as ReactLink, Route } from 'react-router-dom';
 
 export const TextAnchor = styled.a`
-  color: ${({ theme }) => theme.colors.primaryText};
-  font-family: ${({ theme }) => theme.fonts.brand};
+  color: ${({ theme }) => theme.link.fg};
+  font-family: ${({ theme }) => theme.link.fontFamily};
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2 ease;
@@ -20,20 +19,19 @@ export const TextAnchor = styled.a`
   }
 
   &:active {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.link.activeFG};
   }
 
   &::after {
     content: "";
-    background: ${({ theme }) => theme.colors.primaryText};
-    border-radius: 2em;
+    background: ${({ theme }) => theme.link.fg};
+    border-radius: ${({ theme }) => theme.link.bubbleBorderRadius};
     height: 1px;
     width: 100%;
     position: absolute;
     bottom: -0.1em;
     left: 0;
-    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
-      opacity 0.15s ease 0.15s;
+    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0.15s ease 0.15s;
   }
 
   &:hover::after,
@@ -42,8 +40,7 @@ export const TextAnchor = styled.a`
     width: calc(100% + 0.6em);
     left: -0.3em;
     opacity: 0.125;
-    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
-      opacity 0s ease;
+    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0s ease;
   }
 `;
 
@@ -56,11 +53,13 @@ export const IconAnchor = styled(TextAnchor)`
 `;
 
 // notice: this goes back to ReactLink, not TextAnchor as above
-export const WrapAnchor = styled.a`text-decoration: none;`;
+export const WrapAnchor = styled.a`
+  text-decoration: none;
+`;
 
 export const ReactTextAnchor = styled(ReactLink)`
-  color: ${({ theme }) => theme.colors.primaryText};
-  font-family: ${({ theme }) => theme.fonts.brand};
+  color: ${({ theme }) => theme.link.fg};
+  font-family: ${({ theme }) => theme.link.fontFamily};
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2 ease;
@@ -74,13 +73,13 @@ export const ReactTextAnchor = styled(ReactLink)`
   }
 
   &:active {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.link.activeFG};
   }
 
   &::after {
     content: "";
-    background: ${({ theme }) => theme.colors.primaryText};
-    border-radius: 2em;
+    background: ${({ theme }) => theme.link.fg};
+    border-radius: ${({ theme }) => theme.link.bubbleBorderRadius};
     height: 1px;
     width: 100%;
     position: absolute;
@@ -110,7 +109,7 @@ export const ReactWrapAnchor = styled(ReactLink)`
   text-decoration: none;
 `;
 
-const inferType = children => {
+const inferType = (children) => {
   if (children === null) {
     return 'wrap';
   }
@@ -126,9 +125,9 @@ const inferType = children => {
   return 'wrap';
 };
 
-const isExternal = to => /^(https?:)*\/\//.test(to);
+const isExternal = (to) => /^(https?:)*\/\//.test(to);
 
-export class Anchor extends React.Component {
+class Anchor extends React.Component {
   static propTypes = {
     /**
      * A location to link to with this anchor.
@@ -186,9 +185,9 @@ export class Anchor extends React.Component {
       default:
         return external ? TextAnchor : ReactTextAnchor;
     }
-  };
+  }
 
-  handleClick = event => {
+  handleClick = (event) => {
     const { onClick, to } = this.props;
     // if the user isn't using this link to navigate,
     // prevent default navigation
@@ -196,10 +195,10 @@ export class Anchor extends React.Component {
       event.preventDefault();
       onClick(event);
     }
-  };
+  }
 
   // adds all non-children props to children
-  childrenWithProps = extraProps => {
+  childrenWithProps = (extraProps) => {
     const { children } = this.props;
     if (!children) {
       return null;
@@ -207,9 +206,9 @@ export class Anchor extends React.Component {
     if (typeof children === 'string') {
       return children;
     }
-    return React.Children.map(children, child =>
-      React.cloneElement(child, extraProps),
-    );
+    return React.Children.map(children, (child) => (
+      React.cloneElement(child, extraProps)
+    ));
   };
 
   // provides extra properties based on certain factors to the underlying element
@@ -237,7 +236,7 @@ export class Anchor extends React.Component {
       <Route
         path={to}
         exact={exact}
-        children={({ match }) =>
+        children={({ match }) => (
           <Component
             {...this.extraProps()}
             onClick={this.handleClick}
@@ -245,10 +244,11 @@ export class Anchor extends React.Component {
             id={id}
           >
             {this.childrenWithProps({ active: !!match })}
-          </Component>}
+          </Component>
+        )}
       />
     );
   }
 }
 
-export default sharedComponent()(Anchor);
+export default Anchor;

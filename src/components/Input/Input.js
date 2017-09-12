@@ -1,24 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 
 const StyledInput = styled.input`
   color: ${({ theme }) => theme.colors.black};
   background: ${({ theme }) => theme.colors.white};
   letter-spacing: 0.02em;
-  line-height: 1.5;
-  font-size: 14px;
-  font-family: ${({ theme }) => theme.fonts.default};
+  line-height: ${({ theme }) => theme.input.lineHeight};
+  font-size: ${({ theme }) => theme.input.fontSize};
+  font-family: ${({ theme }) => theme.input.fontFamily};
   transition: all 0.2s ease;
   outline: none;
   width: 100%;
-  padding: ${({ theme }) => theme.spacing.medium};
+  padding: ${({ theme }) => theme.padding.medium};
   display: block;
-  border: 1px solid ${({ theme }) => theme.colors.borderLight};
+  border: ${({ theme }) => theme.input.border};
 
   &:focus {
-    box-shadow: ${({ theme }) => theme.shadows.insetValid};
+    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.colors.primaryLight};
     border: 1px solid ${({ theme }) => theme.colors.border};
   }
   &:focus + div {
@@ -38,20 +37,22 @@ const StyledInput = styled.input`
   ${({ visited, theme }) => visited ?
     css`
       &:invalid {
-        box-shadow: ${({ theme }) => theme.shadows.insetInvalid};
+        box-shadow: inset 0 -5px 0 ${theme.colors.errorBackgroundLight};
         border: 1px solid ${theme.colors.errorBorder};
       }
+    ` : ''
+  }
+
+  ${({ invalid, error, theme }) => invalid || error ?
     `
-      : ''} ${({ invalid, error, theme }) =>
-      invalid || error
-        ? `
-    box-shadow: ${theme.shadows.insetInvalid};
+    box-shadow: inset 0 -5px ${theme.colors.errorBackgroundLight};
     border: 1px solid ${theme.colors.errorBorder};
-    `
-        : ''};
+    ` :
+    ''
+  }
 `;
 
-export class Input extends React.Component {
+class Input extends React.Component {
   static propTypes = {
     /**
      * The value of the input.
@@ -130,7 +131,7 @@ export class Input extends React.Component {
     this.state = { visited: false };
   }
 
-  onBlur = event => {
+  onBlur = (event) => {
     this.setState({ visited: true });
     if (this.props.onBlur) {
       this.props.onBlur(event);
@@ -174,4 +175,4 @@ export class Input extends React.Component {
   }
 }
 
-export default sharedComponent({ Styled: StyledInput })(Input);
+export default Input;

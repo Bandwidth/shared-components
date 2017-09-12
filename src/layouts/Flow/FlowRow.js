@@ -1,17 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 import Item from './FlowItem';
 import Label from '../../components/Label';
 import { HORIZONTAL_SPACING } from './constants';
 
-const grow = alignment =>
-  ['left', 'right', 'center'].includes(alignment) ? 0 : 1;
-const basis = alignment =>
-  ['left', 'right', 'center'].includes(alignment) ? 'auto' : 0;
+const grow = (alignment) => ['left', 'right', 'center'].includes(alignment) ? 0 : 1;
+const basis = (alignment) => ['left', 'right', 'center'].includes(alignment) ? 'auto' : 0;
 
-const justification = alignment => {
+const justification = (alignment) => {
   switch (alignment) {
     case 'left':
       return 'flex-start';
@@ -24,18 +21,17 @@ const justification = alignment => {
   }
 };
 
-const generateSizes = sizes =>
-  sizes.map(
-    (size, idx) =>
-      size !== undefined && size !== null
-        ? css`
-            & > ${Item.Container}, & > ${BaseStyles} {
-              &:nth-child(${idx + 1}) {
-                flex-grow: ${size};
-              }
-            }
-          `
-        : '',
+const generateSizes = (sizes) =>
+  sizes.map((size, idx) =>
+    size !== undefined && size !== null ?
+      css`
+        & > ${Item.Container}, & > ${BaseStyles} {
+          &:nth-child(${idx + 1}) {
+            flex-grow: ${size};
+          }
+        }
+      `
+      : ''
   );
 
 const BaseStyles = styled.div`
@@ -65,8 +61,10 @@ const Styles = styled(BaseStyles)`
     }
   }
 
-  ${({ sizes }) => generateSizes(sizes)} & ${Label.Styled} {
-    ${({ suppressLabels }) => suppressLabels && 'display: none;'};
+  ${({ sizes }) => generateSizes(sizes)}
+
+  & ${Label.Styled} {
+    ${({ suppressLabels }) => suppressLabels && 'display: none;'}
   }
 `;
 
@@ -81,7 +79,7 @@ const Styles = styled(BaseStyles)`
  * @class FlowRow
  * @extends {React.Component}
  */
-export class FlowRow extends React.Component {
+class FlowRow extends React.Component {
   static propTypes = {
     /**
      * FlowRow children should be either FlowItems or other FlowRows. You can use nested FlowRows to achieve more
@@ -100,17 +98,15 @@ export class FlowRow extends React.Component {
     alignment: (props, propName, componentName) => {
       if (props.sizes.length > 0 && props[propName] !== 'stretch') {
         return new Error(`Using ${propName} with sizes is invalid in ${componentName}.
-        ${propName} is ${JSON.stringify(
-          props[propName],
-        )}, sizes is ${JSON.stringify(props.sizes)}`);
+        ${propName} is ${JSON.stringify(props[propName])}, sizes is ${JSON.stringify(props.sizes)}`);
       }
 
       if (!['left', 'right', 'stretch', 'center'].includes(props[propName])) {
         return new Error(
-          `Invalid prop ${propName} supplied to ${componentName}: must be one of [left, right, center, stretch].`,
+          `Invalid prop ${propName} supplied to ${componentName}: must be one of [left, right, center, stretch].`
         );
       }
-    },
+    }
   };
 
   static defaultProps = {
@@ -125,9 +121,12 @@ export class FlowRow extends React.Component {
    * @memberof FlowRow
    */
   shouldSuppressLabels = () => {
-    const atLeastOneChildHasLabel = React.Children
-      .toArray(this.props.children)
-      .reduce((hasLabel, child) => hasLabel || !!child.props.label, false);
+    const atLeastOneChildHasLabel =
+      React.Children.toArray(this.props.children)
+      .reduce((hasLabel, child) =>
+        hasLabel || !!child.props.label,
+        false
+      );
     return !atLeastOneChildHasLabel;
   };
 
@@ -147,4 +146,58 @@ export class FlowRow extends React.Component {
   }
 }
 
-export default sharedComponent({ Item, Container: Styles })(FlowRow);
+FlowRow.Container = Styles;
+FlowRow.Item = Item;
+
+FlowRow.usage = `
+Flow.Row is designed to be used with 2 children:
+
+\`\`\`\
+<Flow.Row>
+  <Flow.Item>foo</Flow.Item>
+  <Flow.Item>bar</Flow.Item>
+</Flow.Row>
+\`\`\`
+
+You can still add more than 2 children to Flow.Row and it will try to lay them out gracefully.
+
+\`\`\`
+<Flow.Row>
+  <Flow.Item>all</Flow.Item>
+  <Flow.Item>the same</Flow.Item>
+  <Flow.Item>size</Flow.Item>
+</Flow.Row>
+\`\`\`
+
+You can use the \`sizes\` prop to have more control over item sizes:
+
+\`\`\`
+<Flow.Row sizes={[1, 8]}>
+  <Flow.Item>small</Flow.Item>
+  <Flow.Item>BIG!</Flow.Item>
+</Flow.Row>
+\`\`\`
+
+You can also change the way items are aligned:
+
+\`\`\`
+<Flow.Row alignment="left">
+  <Flow.Item>These are on the</Flow.Item>
+  <Flow.Item>Left!</Flow.Item>
+</Flow.Row>
+\`\`\`
+
+Flow.Row can achieve some pretty complex layouts with nesting and its props:
+
+\`\`\`
+<Flow.Row>
+  <Flow.Item>foo</Flow.Item>
+  <Flow.Row alignment="left">
+    <Flow.Item>these will be</Flow.Item>
+    <Flow.Item>pushed up against the center</Flow.Item>
+  </Flow.Row>
+</Flow.Row>
+\`\`\`
+`;
+
+export default FlowRow;

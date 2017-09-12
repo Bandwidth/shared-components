@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
+
 import Loader from '../Loader';
 
 import Cell from './TableCell';
@@ -17,8 +17,7 @@ const BaseTable = styled.table`
   min-width: 100%;
   border-collapse: collapse;
 
-  & > tbody,
-  & > thead {
+  & > tbody, & > thead {
     background: transparent;
   }
 `;
@@ -37,7 +36,7 @@ const Overlay = styled.div`
   }
 `;
 
-export class Table extends React.Component {
+class Table extends React.Component {
   static propTypes = {
     /**
      * Render the rows of the Table within its children.
@@ -86,19 +85,32 @@ export class Table extends React.Component {
           <thead>
             {headers}
           </thead>
-          {wrapBody
-            ? <TBody>
-                {children}
-              </TBody>
-            : children}
+          {wrapBody?
+            <TBody>
+              {children}
+            </TBody> :
+            children
+          }
         </BaseTable>
         {loading &&
-          <Overlay>
-            <Loader />
-          </Overlay>}
+          <Overlay><Loader /></Overlay>
+        }
       </Wrap>
     );
   }
 }
 
-export default sharedComponent({ Row, Header, Cell, Controls, Simple, RowDetails, Wrap, Body: TBody })(Table);
+Table.Row = Row;
+Table.Header = Header;
+Table.Cell = Cell;
+Table.Controls = Controls;
+Table.Simple = Simple;
+Table.RowDetails = RowDetails;
+Table.Wrap = Wrap;
+Table.Body = TBody;
+
+Table.usage = `
+Renders a table, using the \`children\` and \`headers\` props to define the various table parts. Also accepts \`loading\` to show a loading state.
+`;
+
+export default Table;

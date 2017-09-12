@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import tomorrow from 'react-syntax-highlighter/dist/styles/tomorrow-night';
 
@@ -10,22 +9,21 @@ export const CodeWrapper = styled.pre`
   white-space: pre-wrap;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  font-family: ${({ theme }) => theme.fonts.monospace};
-  font-size: 1em;
-  background: ${({ theme }) => theme.colors.grayDark};
-  color: ${({ theme }) => theme.colors.white};
-  padding: 2em;
+  font-family: ${({ theme }) => theme.code.fontFamily};
+  font-size: ${({ theme }) => theme.code.fontSize};
+  background: ${({ theme }) => theme.code.bg};
+  color: ${({ theme }) => theme.code.fg};
+  padding: ${({ theme }) => theme.code.padding};
   margin: 0;
 
-  & pre,
-  & code {
+  & pre, & code {
     background: transparent !important;
     word-wrap: inherit;
     white-space: inherit;
   }
 `;
 
-export class CodeBlock extends React.Component {
+class CodeBlock extends React.Component {
   static propTypes = {
     /**
      * Code to render inside the code block.
@@ -61,4 +59,4 @@ export class CodeBlock extends React.Component {
   }
 }
 
-export default sharedComponent({ Wrapper: CodeWrapper })(CodeBlock);
+export default CodeBlock;

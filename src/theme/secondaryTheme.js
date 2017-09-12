@@ -1,19 +1,28 @@
 import { defaultsDeep } from 'lodash';
 import base from './baseTheme';
 
-export default defaultsDeep(
-  {
-    name: 'secondary',
+export default defaultsDeep({
+  name: 'secondary',
 
-    colors: {
-      ...base.colors,
-      primary: base.colors.secondary,
-      primaryLight: base.colors.secondaryFaded,
-      primaryText: base.colors.secondaryText,
-      secondary: base.colors.gutter,
-      white: base.colors.black,
-      black: base.colors.white,
-    },
+  button: {
+    fg: '#1f2a44',
+    bg: 'transparent',
+    border: '1px solid #1f2a44',
+    disabledBG: 'transparent',
+    disabledBorder: `1px solid ${base.colors.disabled}`,
+    activeBG: '#1f2a44',
   },
-  base,
-);
+
+  tab: {
+    bg: base.colors.gutter,
+    fg: base.colors.black,
+    accent: '#1f2a44',
+    activeFG: '#00bcec',
+  },
+
+  topNav: {
+    bg: base.colors.gutter,
+    fg: base.colors.black,
+    minHeight: '60px',
+  },
+}, base);

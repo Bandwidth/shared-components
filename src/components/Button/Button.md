@@ -9,9 +9,5 @@ Change the color with themes, not on the button itself!
 
 **Button with secondary theme applied**
 ```
-const ThemeProvider = require('styled-components').ThemeProvider;
-const secondaryTheme = require('../../theme/secondaryTheme');
-<ThemeProvider theme={secondaryTheme}>
-  <Button>Secondary!</Button>
-</ThemeProvider>
+<Button.Example2 />
 ```

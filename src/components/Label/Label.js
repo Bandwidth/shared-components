@@ -1,33 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 
 const LabelImpl = styled.label.withConfig({ displayName: 'Label' })`
-  font-size: 1em;
-  letter-spacing: 0.02em;
-  font-weight: 600;
-  font-family: ${({ theme }) => theme.fonts.brand};
+  font-size: ${({ theme }) => theme.label.fontSize};
+  letter-spacing: ${({ theme }) => theme.label.letterSpacing};
+  font-weight: ${({ theme }) => theme.label.fontWeight};
+  font-family: ${({ theme }) => theme.label.fontFamily};
   padding-bottom: 0.4em;
-  color: ${({ theme }) => theme.colors.black};
-  background: transparent;
-  opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
+  color: ${({ theme }) => theme.label.fg};
+  background: ${({ theme }) => theme.label.bg};
+  opacity: ${({ disabled }) => disabled ? '0.5' : '1'};
   display: block;
   line-height: 1.5em;
 
   ${({ required, theme }) =>
-    required
-      ? css`
+    required ?
+      css`
         &::after {
           content: '*';
-          color: #e8562e;
+          color: ${theme.label.requiredMarkFG};
           padding-left: 0.3em;
         }
-      `
-      : ''}
+      ` :
+      ''
+  }
 `;
 
-export const Label = ({children, ...rest}) => (
+const Label = ({children, ...rest}) => (
   <LabelImpl {...rest}>{children}</LabelImpl>
 )
 
@@ -52,4 +52,6 @@ Label.defaultProps = {
   id: null,
 };
 
-export default sharedComponent({ Styled: LabelImpl })(Label);
+Label.Styled = LabelImpl;
+
+export default Label;

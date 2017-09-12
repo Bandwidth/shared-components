@@ -1,6 +1,8 @@
 import React from 'react';
 import toJSON from 'enzyme-to-json';
-import { Flow } from '../../../src';
+import {
+  Flow,
+} from '../../../src';
 
 describe('the Flow component', () => {
   test('defines subcomponents', () => {
@@ -13,18 +15,18 @@ describe('the Flow component', () => {
 
 describe('the Flow component styling', () => {
   test('containing rows', () => {
-    const wrapper = mountWithTheme(
+    const wrapper = mountWithTheme((
       <Flow>
         <Flow.Row>
-          <Flow.Row.Item />
-          <Flow.Row.Item />
+          <Flow.Row.Item/>
+          <Flow.Row.Item/>
         </Flow.Row>
         <Flow.Row>
-          <Flow.Row.Item />
-          <Flow.Row.Item />
+          <Flow.Row.Item/>
+          <Flow.Row.Item/>
         </Flow.Row>
-      </Flow>,
-    );
+      </Flow>
+    ));
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
 });

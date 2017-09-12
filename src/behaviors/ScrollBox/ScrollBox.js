@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 
 const appearAnimation = keyframes`
   from {
@@ -57,7 +56,7 @@ ScrollBox.propTypes = {
    * Adds a class name to the element.
    */
   className: PropTypes.string,
-};
+}
 
 ScrollBox.defaultProps = {
   animateIn: false,
@@ -65,7 +64,7 @@ ScrollBox.defaultProps = {
   className: null,
 };
 
-export default sharedComponent(`
+ScrollBox.usage = `
 # ScrollBox
 
 ScrollBox lays out content vertically via flexbox, and allows its content to scroll vertically. It also includes an optional little animation as content appears. You can turn this on with \`animateIn\`.
@@ -75,4 +74,6 @@ ScrollBox lays out content vertically via flexbox, and allows its content to scr
   <!-- content -->
 </ScrollBox>
 \`\`\`
-`)(ScrollBox);
+`;
+
+export default ScrollBox;

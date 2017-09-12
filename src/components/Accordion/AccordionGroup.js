@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import sharedComponent from '../../sharedComponent';
 import styled from 'styled-components';
 import { Container as AccordionContainer } from './Accordion';
 
@@ -10,7 +9,7 @@ const Container = styled.div`
   }
 `;
 
-export class AccordionGroup extends React.Component {
+class AccordionGroup extends React.Component {
   static propTypes = {
     /**
      * Accordions to render in this group.
@@ -47,13 +46,13 @@ export class AccordionGroup extends React.Component {
     // current state is open, it will close
     if (!isAlreadyExpanded) {
       this.setState({ expandedKey: key });
-      // close already open accordion
+    // close already open accordion
     } else {
       this.setState({ expandedKey: null });
     }
   };
 
-  renderAccordion = accordion => {
+  renderAccordion = (accordion) => {
     const { expandedKey } = this.state;
     if (!accordion.key) {
       throw new Error('All AccordionGroup accordion children must have a key');
@@ -67,7 +66,7 @@ export class AccordionGroup extends React.Component {
   renderAccordions = () => {
     const { children } = this.props;
     return React.Children.map(children, this.renderAccordion);
-  };
+  }
 
   render() {
     const { className, id } = this.props;
@@ -80,4 +79,4 @@ export class AccordionGroup extends React.Component {
   }
 }
 
-export default sharedComponent()(AccordionGroup);
+export default AccordionGroup;

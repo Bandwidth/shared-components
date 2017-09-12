@@ -1,23 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 import _ from 'lodash';
 import Label from '../../components/Label';
 import HelpText from '../../components/HelpText';
 import { HORIZONTAL_SPACING } from './constants';
 
 const Content = styled.div.withConfig({ displayName: 'FlowItemContent' })``;
-const FlexibleContent = styled.div.withConfig({
-  displayName: 'FlowItemContentFlexible',
-})`
-
-`;
-const MoreContent = styled.div.withConfig({
-  displayName: 'FlowItemMoreContent',
-})`
-
-`;
+const FlexibleContent = styled.div.withConfig({ displayName: 'FlowItemContentFlexible' })``;
+const MoreContent = styled.div.withConfig({ displayName: 'FlowItemMoreContent' })``;
 
 const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
   display: flex;
@@ -90,7 +81,7 @@ const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
  * @class FlowItem
  * @extends {React.Component}
  */
-export class FlowItem extends React.Component {
+class FlowItem extends React.Component {
   static propTypes = {
     /**
      * A label for this item. May be a Label instance or a string.
@@ -154,12 +145,10 @@ export class FlowItem extends React.Component {
     return label || <Label />;
   };
 
-  renderChildren = () =>
-    this.props.flexibleContent ? (
-      <FlexibleContent>{this.props.children}</FlexibleContent>
-    ) : (
-      <Content>{this.props.children}</Content>
-    );
+  renderChildren = () => this.props.flexibleContent ?
+    <FlexibleContent>{this.props.children}</FlexibleContent> :
+    <Content>{this.props.children}</Content>
+  ;
 
   renderHelpText = () => {
     const { helpText, error } = this.props;
@@ -175,10 +164,10 @@ export class FlowItem extends React.Component {
     return helpText || null;
   };
 
-  renderMoreContent = () =>
-    this.props.moreContent ? (
-      <MoreContent>{this.props.moreContent}</MoreContent>
-    ) : null;
+  renderMoreContent = () => this.props.moreContent ?
+    <MoreContent>{this.props.moreContent}</MoreContent> :
+    null
+  ;
 
   render() {
     const { id, className } = this.props;
@@ -193,9 +182,43 @@ export class FlowItem extends React.Component {
   }
 }
 
-export default sharedComponent({
-  Container,
-  Content,
-  FlexibleContent,
-  MoreContent,
-})(FlowItem);
+FlowItem.usage = `
+Flow.Item can be used without any customization just for its layout benefits in the Flow system:
+
+\`\`\`
+<Flow.Item>
+  Foo
+</Flow.Item>
+\`\`\`
+
+You can also add standardized label and help text:
+
+\`\`\`
+<Flow.Item label="describes the item" helpText="explanation of the item">
+  Foo
+</Flow.Item>
+\`\`\`
+
+By default, a Flow.Item's content is limited to a set pixel size. You can turn this off with \`flexibleContent\`:
+
+\`\`\`
+<Flow.Item flexibleContent>
+  <div style={{ height: '1000px' }} />
+</Flow.Item>
+\`\`\`
+
+Sometimes you may want to render more stuff in an item. You can use \`moreContent\` to put any arbitrary JSX below the item's help text.
+
+\`\`\`
+<Flow.Item moreContent={(<SomeOtherStuff />)}>
+  Main Content
+</Flow.Item>
+\`\`\`
+`;
+
+FlowItem.Container = Container;
+FlowItem.Content = Content;
+FlowItem.FlexibleContent = FlexibleContent;
+FlowItem.MoreContent = MoreContent;
+
+export default FlowItem;

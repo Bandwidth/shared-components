@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 
-const Wrap = styled.section``;
+const Wrap = styled.section`
+
+`;
 
 const Content = styled.div`
   padding: 0;
@@ -13,8 +14,7 @@ const Content = styled.div`
 const Title = styled.h3`
   background: #dedede;
   display: block;
-  padding: ${({ theme }) =>
-    `${theme.spacing.extraSmall} ${theme.spacing.large}`};
+  padding: ${({ theme }) => `${theme.padding.extraSmall} ${theme.padding.large}`};
   margin: 0;
   font-size: 0.9em;
   font-weight: 600;
@@ -22,7 +22,7 @@ const Title = styled.h3`
   text-transform: uppercase;
 `;
 
-export class PaneSection extends React.Component {
+class PaneSection extends React.Component {
   static propTypes = {
     /**
      * Optional title for the top of the pane section.
@@ -52,17 +52,30 @@ export class PaneSection extends React.Component {
     const { title, children, id, className } = this.props;
     return (
       <Wrap id={id} className={className}>
-        {title
-          ? <Title>
-              {title}
-            </Title>
-          : null}
-        <Content>
-          {children}
-        </Content>
+        {title ? <Title>{title}</Title> : null}
+        <Content>{children}</Content>
       </Wrap>
     );
   }
 }
 
-export default sharedComponent({ Container: Wrap, Content, Title })(PaneSection);
+PaneSection.usage = `
+# PaneSection
+
+Provides a nice delineated section of content within a Pane. Add a \`title\` to display a little divider with the title inside.
+
+Does no layout on children. Add your own padding to children if needed.
+
+\`\`\`
+<Pane title="parent">
+  <PaneSection title="foo">
+    Content
+  </PaneSection>
+  <PaneSection title="bar">
+    Content
+  </PaneSection>
+</Pane>
+\`\`\`
+`;
+
+export default PaneSection;

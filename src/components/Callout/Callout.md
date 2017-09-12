@@ -2,6 +2,6 @@ Renders a flyout on hover which can display helpful contextual information to th
 
 ```
 <Callout content="hi there">
-  Hover this area
+  <Button>Hover me</Button>
 </Callout>
 ```

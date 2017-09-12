@@ -1,6 +1,9 @@
 import React from 'react';
 import toJSON from 'enzyme-to-json';
-import { FlowRow, Label } from '../../../src';
+import {
+  FlowRow,
+  Label,
+} from '../../../src';
 
 describe('the FlowRow component', () => {
   test('defines subcomponents', () => {
@@ -11,19 +14,16 @@ describe('the FlowRow component', () => {
     let wrapper;
 
     beforeEach(() => {
-      wrapper = shallowWithTheme(
+      wrapper = shallowWithTheme((
         <FlowRow>
           <FlowRow.Item label="foo" />
           <FlowRow.Item label="bar" />
-        </FlowRow>,
-      );
+        </FlowRow>
+      ));
     });
 
     test('renders items with labels', () => {
-      expect(wrapper.find(FlowRow.Container)).toHaveProp(
-        'suppressLabels',
-        false,
-      );
+      expect(wrapper.find(FlowRow.Container)).toHaveProp('suppressLabels', false);
       expect(wrapper.find(FlowRow.Item)).toHaveLength(2);
     });
   });
@@ -32,19 +32,16 @@ describe('the FlowRow component', () => {
     let wrapper;
 
     beforeEach(() => {
-      wrapper = shallowWithTheme(
+      wrapper = shallowWithTheme((
         <FlowRow>
           <FlowRow.Item />
           <FlowRow.Item />
-        </FlowRow>,
-      );
+        </FlowRow>
+      ));
     });
 
     test('renders items with suppressed labels', () => {
-      expect(wrapper.find(FlowRow.Container)).toHaveProp(
-        'suppressLabels',
-        true,
-      );
+      expect(wrapper.find(FlowRow.Container)).toHaveProp('suppressLabels', true);
       expect(wrapper.find(FlowRow.Item)).toHaveLength(2);
     });
   });
@@ -53,19 +50,16 @@ describe('the FlowRow component', () => {
     let wrapper;
 
     beforeEach(() => {
-      wrapper = shallowWithTheme(
+      wrapper = shallowWithTheme((
         <FlowRow>
           <FlowRow.Item label="foo" />
           <FlowRow.Item />
-        </FlowRow>,
-      );
+        </FlowRow>
+      ));
     });
 
     test('renders items with labels', () => {
-      expect(wrapper.find(FlowRow.Container)).toHaveProp(
-        'suppressLabels',
-        false,
-      );
+      expect(wrapper.find(FlowRow.Container)).toHaveProp('suppressLabels', false);
       expect(wrapper.find(FlowRow.Item)).toHaveLength(2);
     });
   });
@@ -73,85 +67,85 @@ describe('the FlowRow component', () => {
 
 describe('the FlowRow component styling', () => {
   test('with two labeled items', () => {
-    const wrapper = mountWithTheme(
+    const wrapper = mountWithTheme((
       <FlowRow>
         <FlowRow.Item label="foo" />
         <FlowRow.Item label="bar" />
-      </FlowRow>,
-    );
+      </FlowRow>
+    ));
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
 
   test('with two unlabeled items', () => {
-    const wrapper = mountWithTheme(
+    const wrapper = mountWithTheme((
       <FlowRow>
         <FlowRow.Item />
         <FlowRow.Item />
-      </FlowRow>,
-    );
+      </FlowRow>
+    ));
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
 
   test('with one labeled item and one not', () => {
-    const wrapper = mountWithTheme(
+    const wrapper = mountWithTheme((
       <FlowRow>
         <FlowRow.Item label="foo" />
         <FlowRow.Item />
-      </FlowRow>,
-    );
+      </FlowRow>
+    ));
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
 
   test('with nesting', () => {
-    const wrapper = mountWithTheme(
+    const wrapper = mountWithTheme((
       <FlowRow>
         <FlowRow.Item />
         <FlowRow>
           <FlowRow.Item label="foo" />
           <FlowRow.Item />
         </FlowRow>
-      </FlowRow>,
-    );
+      </FlowRow>
+    ));
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
 
   test('with just one item', () => {
-    const wrapper = mountWithTheme(
+    const wrapper = mountWithTheme((
       <FlowRow>
         <FlowRow.Item />
-      </FlowRow>,
-    );
+      </FlowRow>
+    ));
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
 
   test('with 3 items', () => {
-    const wrapper = mountWithTheme(
+    const wrapper = mountWithTheme((
       <FlowRow>
         <FlowRow.Item />
         <FlowRow.Item />
         <FlowRow.Item />
-      </FlowRow>,
-    );
+      </FlowRow>
+    ));
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
 
   test('with alignment left', () => {
-    const wrapper = mountWithTheme(
+    const wrapper = mountWithTheme((
       <FlowRow alignment="left">
         <FlowRow.Item />
         <FlowRow.Item />
-      </FlowRow>,
-    );
+      </FlowRow>
+    ));
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
 
   test('with alignment right', () => {
-    const wrapper = mountWithTheme(
+    const wrapper = mountWithTheme((
       <FlowRow alignment="right">
         <FlowRow.Item />
         <FlowRow.Item />
-      </FlowRow>,
-    );
+      </FlowRow>
+    ));
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
 });

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 import RadioButton from './RadioButton';
 
 export const Container = styled.div`
@@ -12,7 +11,7 @@ export const Container = styled.div`
   min-height: 53px;
 `;
 
-export class RadioGroup extends React.Component {
+class RadioGroup extends React.Component {
   static propTypes = {
     /**
      * An array of choice objects or strings to create buttons from.
@@ -72,7 +71,7 @@ export class RadioGroup extends React.Component {
     const { value, onChange, disabled, required } = this.props;
     const options = this.getOptions();
     if (options instanceof Array) {
-      return options.map(choice =>
+      return options.map((choice) => (
         <RadioButton
           checked={choice === value}
           name={name}
@@ -82,10 +81,10 @@ export class RadioGroup extends React.Component {
           disabled={disabled}
           required={required}
           onChange={() => onChange(choice)}
-        />,
-      );
+        />
+      ));
     } else if (typeof options === 'object') {
-      return Object.keys(options).map(key => {
+      return Object.keys(options).map((key) => {
         const choice = options[key];
 
         return (
@@ -117,4 +116,13 @@ export class RadioGroup extends React.Component {
   }
 }
 
-export default sharedComponent({ Button: RadioButton, Container })(RadioGroup);
+RadioGroup.usage = `
+RadioGroup is a fully functional input. It generates its own radio buttons from the options you supply. You can use it manually by passing in \`value\` and \`onChange\` props. It's a controlled component, so it won\'t update its own value.
+
+\`\`\`
+<RadioGroup value="a" onChange={handleChange} choices={['a', 'b']} />
+\`\`\`
+`;
+
+RadioGroup.Button = RadioButton;
+export default RadioGroup;

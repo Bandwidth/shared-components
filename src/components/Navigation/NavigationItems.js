@@ -1,24 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import sharedComponent from '../../sharedComponent';
 import NavigationItem from './NavigationItem';
 import Anchor from '../Anchor';
 
-export const Container = styled.div.withConfig({
-  displayName: 'NavigationItemsContainer',
-})`
+export const Container = styled.div.withConfig({ displayName: 'NavigationItemsContainer' })`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 
-  background: transparent;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ mods }) => mods.small ? '0.8em' : '1em'};
-  margin-bottom: ${({ mods }) => mods.small ? '15px' : 'auto'};
+  background: ${({ theme }) => theme.tab.bg};
+  color: ${({ theme }) => theme.tab.fg};
+  font-size: ${({ theme }) => theme.tab.fontSize};
+  margin-bottom: ${({ theme }) => theme.tab.marginBottom};
 
   & > * {
-    margin: 0 30px 0 0;
+    margin: ${({ theme }) => theme.tab.margin};
   }
 
   & > *:last-of-type {
@@ -32,19 +29,17 @@ export const Container = styled.div.withConfig({
   }
 `;
 
-export const linksPropType = PropTypes.arrayOf(
-  PropTypes.shape({
-    to: PropTypes.string,
-    onClick: PropTypes.func,
-    content: PropTypes.node.isRequired,
-    exact: PropTypes.bool,
-    newTab: PropTypes.bool,
-  }),
-);
+export const linksPropType = PropTypes.arrayOf(PropTypes.shape({
+  to: PropTypes.string,
+  onClick: PropTypes.func,
+  content: PropTypes.node.isRequired,
+  exact: PropTypes.bool,
+  newTab: PropTypes.bool,
+}));
 
-const NavigationItems = ({ links, className, id, mods }) =>
-  <Container id={id} className={className} mods={mods}>
-    {links.map(link =>
+const NavigationItems = ({ links, className, id }) => (
+  <Container id={id} className={className}>
+    {links.map((link) => (
       <Anchor
         key={`${link.content}_${link.to}`}
         to={link.to}
@@ -52,12 +47,11 @@ const NavigationItems = ({ links, className, id, mods }) =>
         exact={link.exact}
         newTab={link.newTab}
       >
-        <NavigationItem>
-          {link.content}
-        </NavigationItem>
-      </Anchor>,
-    )}
-  </Container>;
+        <NavigationItem>{link.content}</NavigationItem>
+      </Anchor>
+    ))}
+  </Container>
+);
 
 NavigationItems.propTypes = {
   /**
@@ -72,16 +66,25 @@ NavigationItems.propTypes = {
    * Adds an id to the link container element.
    */
   id: PropTypes.string,
-  /**
-   * Provided by our sharedComponent HOC
-   */
-  mods: PropTypes.object.isRequired,
 };
-
 NavigationItems.defaultProps = {
   links: [],
   className: null,
   id: null,
 };
 
-export default sharedComponent({ Container, Styled: Container, Item: NavigationItem })(NavigationItems);
+NavigationItems.usage = `
+Helper to generate a list of navigation items.
+
+\`\`\`
+<NavigationItems
+  links={[
+    { to: '/cat', exact: true, content: 'Cat' },
+    { to: '/anotherCat', content: 'Another Cat' },
+  ]}
+/>
+\`\`\`
+`
+
+NavigationItems.Item = NavigationItem;
+export default NavigationItems;

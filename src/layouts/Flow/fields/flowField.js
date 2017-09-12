@@ -63,24 +63,18 @@ export default (FieldComponent) => class FlowField extends React.Component {
     extraProps: {},
   };
 
-    hasFlexibleContent = FieldComponent === TextArea;
-    alignment = [RadioGroup, Toggle, Checkbox].includes(FieldComponent)
-      ? 'left'
-      : 'stretch';
+  hasFlexibleContent = FieldComponent === TextArea;
+  alignment = [RadioGroup, Toggle, Checkbox].includes(FieldComponent) ? 'left' : 'stretch';
 
-    /**
+  /**
    * Renders the label with required state.
    */
-    renderLabel = () => {
-      const { label, required } = this.props;
-      return (
-        <Label required={required}>
-          {label}
-        </Label>
-      );
-    };
+  renderLabel = () => {
+    const { label, required } = this.props;
+    return <Label required={required}>{label}</Label>;
+  };
 
-    /**
+  /**
    * Renders the input component with desired passed props.
    */
   renderInput = () => {
@@ -113,23 +107,23 @@ export default (FieldComponent) => class FlowField extends React.Component {
       type,
     };
 
-      return <FieldComponent {...passedProps} />;
-    };
-
-    render() {
-      const { moreContent, meta, helpText } = this.props;
-
-      return (
-        <Item
-          label={this.renderLabel()}
-          helpText={helpText}
-          moreContent={moreContent}
-          flexibleContent={this.hasFlexibleContent}
-          error={meta.error}
-          alignment={this.alignment}
-        >
-          {this.renderInput()}
-        </Item>
-      );
-    }
+    return <FieldComponent {...passedProps} />;
   };
+
+  render() {
+    const { moreContent, meta, helpText } = this.props;
+
+    return (
+      <Item
+        label={this.renderLabel()}
+        helpText={helpText}
+        moreContent={moreContent}
+        flexibleContent={this.hasFlexibleContent}
+        error={meta.error}
+        alignment={this.alignment}
+      >
+        {this.renderInput()}
+      </Item>
+    );
+  }
+};
