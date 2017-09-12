@@ -29,12 +29,12 @@ const generateSizes = sizes =>
     (size, idx) =>
       size !== undefined && size !== null
         ? css`
-        & > ${Item.Container}, & > ${BaseStyles} {
-          &:nth-child(${idx + 1}) {
-            flex-grow: ${size};
-          }
-        }
-      `
+            & > ${Item.Container}, & > ${BaseStyles} {
+              &:nth-child(${idx + 1}) {
+                flex-grow: ${size};
+              }
+            }
+          `
         : '',
   );
 
@@ -65,10 +65,8 @@ const Styles = styled(BaseStyles)`
     }
   }
 
-  ${({ sizes }) => generateSizes(sizes)}
-
-  & ${Label.Class} {
-    ${({ suppressLabels }) => suppressLabels && 'display: none;'}
+  ${({ sizes }) => generateSizes(sizes)} & ${Label.Styled} {
+    ${({ suppressLabels }) => suppressLabels && 'display: none;'};
   }
 `;
 

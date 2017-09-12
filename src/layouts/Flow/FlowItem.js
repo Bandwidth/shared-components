@@ -10,10 +10,14 @@ import { HORIZONTAL_SPACING } from './constants';
 const Content = styled.div.withConfig({ displayName: 'FlowItemContent' })``;
 const FlexibleContent = styled.div.withConfig({
   displayName: 'FlowItemContentFlexible',
-})``;
+})`
+
+`;
 const MoreContent = styled.div.withConfig({
   displayName: 'FlowItemMoreContent',
-})``;
+})`
+
+`;
 
 const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
   display: flex;
@@ -29,7 +33,7 @@ const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
     }
   }};
 
-  & > ${Label.Class} {
+  & > ${Label.Styled} {
     height: 21px;
     margin: 0;
     margin-bottom: 5.6px;
@@ -62,7 +66,7 @@ const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
     flex-shrink: 0;
   }
 
-  & > ${HelpText.Class} {
+  & > ${HelpText.Styled} {
     min-height: 18px;
     margin: 0;
     margin-top: 5.6px;
@@ -143,11 +147,7 @@ export class FlowItem extends React.Component {
     const { label } = this.props;
 
     if (!!label && _.isString(label)) {
-      return (
-        <Label>
-          {label}
-        </Label>
-      );
+      return <Label>{label}</Label>;
     }
 
     // always render some label, even if blank, to keep layout consistent
@@ -155,42 +155,30 @@ export class FlowItem extends React.Component {
   };
 
   renderChildren = () =>
-    this.props.flexibleContent
-      ? <FlexibleContent>
-          {this.props.children}
-        </FlexibleContent>
-      : <Content>
-          {this.props.children}
-        </Content>;
+    this.props.flexibleContent ? (
+      <FlexibleContent>{this.props.children}</FlexibleContent>
+    ) : (
+      <Content>{this.props.children}</Content>
+    );
 
   renderHelpText = () => {
     const { helpText, error } = this.props;
 
     if (_.isString(helpText)) {
-      return (
-        <HelpText error={error}>
-          {helpText}
-        </HelpText>
-      );
+      return <HelpText error={error}>{helpText}</HelpText>;
     } else if (helpText && helpText.props) {
       return React.cloneElement(helpText, { error: error });
     } else if (!helpText && error) {
-      return (
-        <HelpText error>
-          {error}
-        </HelpText>
-      );
+      return <HelpText error>{error}</HelpText>;
     }
 
     return helpText || null;
   };
 
   renderMoreContent = () =>
-    this.props.moreContent
-      ? <MoreContent>
-          {this.props.moreContent}
-        </MoreContent>
-      : null;
+    this.props.moreContent ? (
+      <MoreContent>{this.props.moreContent}</MoreContent>
+    ) : null;
 
   render() {
     const { id, className } = this.props;
@@ -205,4 +193,9 @@ export class FlowItem extends React.Component {
   }
 }
 
-export default sharedComponent({ Container, Content, FlexibleContent, MoreContent })(FlowItem);
+export default sharedComponent({
+  Container,
+  Content,
+  FlexibleContent,
+  MoreContent,
+})(FlowItem);
