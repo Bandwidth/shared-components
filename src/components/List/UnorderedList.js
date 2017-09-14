@@ -16,8 +16,8 @@ const UnorderedList = styled.ul.withConfig({ displayName: 'UnorderedList' })`
     list-style: circle outside;
   }
 
-  & ul ${Item}:first-child,
-  & ol ${Item}:first-child {
+  & ul ${Item.Styled}:first-child,
+  & ol ${Item.Styled}:first-child {
     margin-top: 0.5em;
   }
 `;

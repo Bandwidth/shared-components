@@ -16,8 +16,8 @@ const OrderedListImpl = styled.ul.withConfig({ displayName: 'OrderedList' })`
     list-style: lower-latin outside;
   }
 
-  & ul ${Item}:first-child,
-  & ol ${Item}:first-child {
+  & ul ${Item.Styled}:first-child,
+  & ol ${Item.Styled}:first-child {
     margin-top: 0.5em;
   }
 `;
