@@ -100,7 +100,7 @@ class TableControls extends React.Component {
       onSearch
     } = this.props;
 
-    if (!title && !enableAdd && !enableDelete && !children) {
+    if (!title && !enableAdd && !enableDelete && !enableSearch && !children) {
       return null;
     }
 
