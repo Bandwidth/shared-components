@@ -27,7 +27,7 @@ export const Dot = styled.div.withConfig({ displayName: 'LoaderDot' })`
   height: ${({ size }) => size};
   width: ${({ size }) => size};
 
-  border-thickness: 2px;
+  border-width: 2px;
   border-style: solid;
   border-color: ${({ theme, color }) => color ? color : theme.colors.primary};
   border-radius: 50%;
