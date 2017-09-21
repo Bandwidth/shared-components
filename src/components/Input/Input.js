@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import Anchor from '../Anchor';
 
 const StyledInput = styled.input`
   color: ${({ theme }) => theme.colors.black};
@@ -15,6 +16,7 @@ const StyledInput = styled.input`
   padding: ${({ theme }) => theme.padding.medium};
   display: block;
   border: ${({ theme }) => theme.input.border};
+
 
   &:focus {
     box-shadow: inset 0 -5px 0 ${({ theme }) => theme.colors.primaryLight};
@@ -95,7 +97,8 @@ class Input extends React.Component {
      */
     type: PropTypes.oneOf([
       'search', 'email', 'url', 'tel', 'number', 'range', 'date',
-      'month', 'week', 'time', 'datetime', 'datetime-local', 'color'
+      'month', 'week', 'time', 'datetime', 'datetime-local', 'color',
+      'password'
     ]),
     /**
      * Styles this input as being invalid
@@ -109,7 +112,18 @@ class Input extends React.Component {
      * Placeholder text to display when the input is blank
      */
     placeholder: PropTypes.string,
+    /**
+     * Disables the ability to show a password
+     */
+    disableShowPassword: PropTypes.bool,
+
   };
+
+  componentDidMount () {
+    this.setState({
+      _type: this.props.type
+    })
+  }
 
   static defaultProps = {
     disabled: false,
@@ -123,7 +137,8 @@ class Input extends React.Component {
     className: null,
     invalid: false,
     error: false,
-    placeholder: ''
+    placeholder: '',
+    disableShowPassword: false
   };
 
   constructor(props) {
@@ -138,7 +153,33 @@ class Input extends React.Component {
     }
   };
 
-  render() {
+  renderPasswordField = () => {
+    const toggleState = () => this.state._type === 'password' ? 'text' : 'password';
+    const handleClick = (evt) => {
+      evt.preventDefault();
+      this.setState({
+        _type: toggleState(this.state._type)
+      });
+    }
+
+    const getText = () => {
+      return this.state._type === 'password' ? 'Show' : 'Hide'
+    }
+
+    return (
+      <div style={{position:'relative'}}>
+          <div style={{position:'absolute', right: '10px', top: '25%'}}>
+            <Anchor href="" onClick={handleClick}>{getText()}</Anchor>
+          </div>
+          {this.renderInputField({
+            style: {paddingRight: '60px'}
+          })}          
+      </div>
+    )
+  }
+
+  renderInputField = (addlProps) => {
+
     const {
       disabled,
       id,
@@ -149,29 +190,43 @@ class Input extends React.Component {
       onKeyDown,
       value,
       required,
-      type,
       error,
       placeholder,
     } = this.props;
-    const { visited } = this.state;
+
+    const { visited, _type:type } = this.state;
+    
     return (
       <StyledInput
-        onBlur={this.onBlur}
-        onKeyDown={onKeyDown}
-        onFocus={onFocus}
-        visited={visited}
-        id={id}
-        className={className}
-        invalid={invalid}
-        onChange={onChange}
-        value={value}
-        required={required}
-        type={type}
-        error={error}
-        disabled={disabled}
-        placeholder={placeholder}
-      />
-    );
+          onBlur={this.onBlur}
+          onKeyDown={onKeyDown}
+          onFocus={onFocus}
+          visited={visited}
+          id={id}
+          className={className}
+          invalid={invalid}
+          onChange={onChange}
+          value={value}
+          required={required}
+          type={type}
+          error={error}
+          disabled={disabled}
+          placeholder={placeholder}
+          {...addlProps}
+        />
+        )
+  }
+    
+
+  render() {
+    
+    const { type, disableShowPassword } = this.props;
+
+    if ( type === 'password' && !disableShowPassword) {
+      return this.renderPasswordField();
+    }
+
+    return this.renderInputField();
   }
 }
 
