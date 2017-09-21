@@ -45,6 +45,17 @@ const Title = styled.h3`
   text-transform: ${({ theme }) => theme.modal.titleTextTransform};
 `;
 
+const ActionContent = styled.div`
+  position: relative;
+  &::before {
+    position: absolute;
+    content: '';
+    left: ${({ theme }) => theme.padding.large};
+    right: ${({ theme }) => theme.padding.large};
+    border-top: 1px solid ${({ theme }) => theme.colors.borderLight};
+  }
+`;
+
 class Modal extends React.Component {
   static propTypes = {
     /**
@@ -105,7 +116,7 @@ class Modal extends React.Component {
           <ScrollBox>
             {children}
           </ScrollBox>
-          {actionContent}
+          <ActionContent>{actionContent}</ActionContent>
         </Content>
       </Blocker>
     );
