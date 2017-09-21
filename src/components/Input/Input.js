@@ -56,11 +56,13 @@ const StyledInput = styled.input`
 
 const RevealPasswordContainer = styled.div`
   position: relative;
+  width: 100%;
 
   div {
     position: absolute;
     right: 10px; 
     top: 25%;
+    z-index: 10;
   }
 
   input[type="password"],
