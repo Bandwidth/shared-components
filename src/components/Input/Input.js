@@ -54,6 +54,22 @@ const StyledInput = styled.input`
   }
 `;
 
+const RevealPasswordContainer = styled.div`
+  position: relative;
+
+  div {
+    position: absolute;
+    right: 10px; 
+    top: 25%;
+  }
+
+  input[type="password"],
+  input[type="text"] {
+    padding-right: ${({theme}) => theme.padding.extraLarge} !important;
+  }
+
+`
+
 class Input extends React.Component {
   static propTypes = {
     /**
@@ -162,23 +178,19 @@ class Input extends React.Component {
       });
     }
 
-    const getText = () => {
-      return this.state._type === 'password' ? 'Show' : 'Hide'
-    }
-
     return (
-      <div style={{position:'relative'}}>
-          <div style={{position:'absolute', right: '10px', top: '25%'}}>
-            <Anchor href="" onClick={handleClick}>{getText()}</Anchor>
+      <RevealPasswordContainer>
+          <div>
+            <Anchor href="" onClick={handleClick}>
+              {this.state._type === 'password' ? 'Show' : 'Hide'}
+            </Anchor>
           </div>
-          {this.renderInputField({
-            style: {paddingRight: '60px'}
-          })}          
-      </div>
+          {this.renderInputField()}          
+      </RevealPasswordContainer>
     )
   }
 
-  renderInputField = (addlProps) => {
+  renderInputField = () => {
 
     const {
       disabled,
@@ -212,7 +224,6 @@ class Input extends React.Component {
           error={error}
           disabled={disabled}
           placeholder={placeholder}
-          {...addlProps}
         />
         )
   }
