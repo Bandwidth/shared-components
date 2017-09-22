@@ -1,6 +1,6 @@
 {
   "name": "@bandwidth/shared-components",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
@@ -1656,9 +1656,9 @@
       }
     },
     "buffer": {
-      "version": "5.0.6",
-      "resolved": "https://registry.npmjs.org/buffer/-/buffer-5.0.6.tgz",
-      "integrity": "sha1-LqZp9+7Atu2gWwj4tf9mGyhXNYg=",
+      "version": "5.0.7",
+      "resolved": "https://registry.npmjs.org/buffer/-/buffer-5.0.7.tgz",
+      "integrity": "sha512-NeeHXWh5pCbPQCt2/6rLvXqapZfVsqw/YgRgaHpT3H9Uzgs+S0lSg5SQzouIuDvcmlQRqBe8hOO2scKCu3cxrg==",
       "requires": {
         "base64-js": "1.2.1",
         "ieee754": "1.1.8"
@@ -4483,14 +4483,6 @@
             }
           }
         },
-        "string_decoder": {
-          "version": "1.0.1",
-          "bundled": true,
-          "dev": true,
-          "requires": {
-            "safe-buffer": "5.0.1"
-          }
-        },
         "string-width": {
           "version": "1.0.2",
           "bundled": true,
@@ -4499,6 +4491,14 @@
             "code-point-at": "1.1.0",
             "is-fullwidth-code-point": "1.0.0",
             "strip-ansi": "3.0.1"
+          }
+        },
+        "string_decoder": {
+          "version": "1.0.1",
+          "bundled": true,
+          "dev": true,
+          "requires": {
+            "safe-buffer": "5.0.1"
           }
         },
         "stringstream": {
@@ -7083,7 +7083,7 @@
       "requires": {
         "assert": "1.4.1",
         "browserify-zlib": "0.1.4",
-        "buffer": "5.0.6",
+        "buffer": "4.9.1",
         "console-browserify": "1.1.0",
         "constants-browserify": "1.0.0",
         "crypto-browserify": "3.11.1",
@@ -7104,6 +7104,25 @@
         "url": "0.11.0",
         "util": "0.10.3",
         "vm-browserify": "0.0.4"
+      },
+      "dependencies": {
+        "buffer": {
+          "version": "4.9.1",
+          "resolved": "https://registry.npmjs.org/buffer/-/buffer-4.9.1.tgz",
+          "integrity": "sha1-bRu2AbB6TvztlwlBMgkwJ8lbwpg=",
+          "dev": true,
+          "requires": {
+            "base64-js": "1.2.1",
+            "ieee754": "1.1.8",
+            "isarray": "1.0.0"
+          }
+        },
+        "isarray": {
+          "version": "1.0.0",
+          "resolved": "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz",
+          "integrity": "sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=",
+          "dev": true
+        }
       }
     },
     "node-notifier": {
@@ -9668,15 +9687,6 @@
       "integrity": "sha1-J5siXfHVgrH1TmWt3UNS4Y+qBxM=",
       "dev": true
     },
-    "string_decoder": {
-      "version": "1.0.3",
-      "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-1.0.3.tgz",
-      "integrity": "sha512-4AH6Z5fzNNBcH+6XDMfA/BTt87skxqJlO0lAh3Dker5zThcAxG6mKz+iGu308UKoPPQ8Dcqx/4JhujzltRa+hQ==",
-      "dev": true,
-      "requires": {
-        "safe-buffer": "5.1.1"
-      }
-    },
     "string-length": {
       "version": "1.0.1",
       "resolved": "https://registry.npmjs.org/string-length/-/string-length-1.0.1.tgz",
@@ -9706,6 +9716,15 @@
         "define-properties": "1.1.2",
         "es-abstract": "1.7.0",
         "function-bind": "1.1.0"
+      }
+    },
+    "string_decoder": {
+      "version": "1.0.3",
+      "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-1.0.3.tgz",
+      "integrity": "sha512-4AH6Z5fzNNBcH+6XDMfA/BTt87skxqJlO0lAh3Dker5zThcAxG6mKz+iGu308UKoPPQ8Dcqx/4JhujzltRa+hQ==",
+      "dev": true,
+      "requires": {
+        "safe-buffer": "5.1.1"
       }
     },
     "stringify-entities": {
@@ -9764,11 +9783,11 @@
       }
     },
     "styled-components": {
-      "version": "2.1.1",
-      "resolved": "https://registry.npmjs.org/styled-components/-/styled-components-2.1.1.tgz",
-      "integrity": "sha1-fptbwxnuOWO0euu3T0ZYEZ6p1IQ=",
+      "version": "2.1.2",
+      "resolved": "https://registry.npmjs.org/styled-components/-/styled-components-2.1.2.tgz",
+      "integrity": "sha512-PuEOMaCmtdWE7zaswiXAGN3GzWe3FWd3dJgyXMsOXIqyViKeVu1yHSxRsSkoWRg+l07qs9KJh8gk8udCZl5NmQ==",
       "requires": {
-        "buffer": "5.0.6",
+        "buffer": "5.0.7",
         "css-to-react-native": "2.0.4",
         "fbjs": "0.8.14",
         "hoist-non-react-statics": "1.2.0",

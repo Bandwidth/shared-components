@@ -11,3 +11,14 @@ A basic styled text input.
 ```
 <Input type="email" placeholder="joe@domain.com"/>
 ```
+
+
+Default password field
+```
+<Input type="password" placeholder="User Password"/>
+```
+
+Password field with show/hide disabled
+```
+<Input type="password" placeholder="User Password" disableShowPassword/>
+```
