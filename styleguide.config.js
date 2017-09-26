@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   title: 'Bandwidth Shared React Components',
   styleguideDir: "docs",
+  components: 'src/*(components|layouts)**/**/*.js',
   theme: {
     fontSize :{
       base: 14
