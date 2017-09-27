@@ -156,8 +156,4 @@ class RadioButton extends React.Component {
   }
 }
 
-RadioButton.usage = `
-Not really meant to be used alone, unless you just want the styling of it. Use RadioGroup to create a group of RadioButtons.
-`;
-
 export default RadioButton;
