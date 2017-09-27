@@ -55,7 +55,7 @@ export default class Wrapper extends React.Component {
           <Router history={history}>
             <Container>
             <OptXRay>
-            {this.props.children}
+              {this.props.children}
             </OptXRay>
             </Container>
           </Router>

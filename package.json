@@ -1,6 +1,6 @@
 {
   "name": "@bandwidth/shared-components",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Shared Component Library for Bandwidth React Apps",
   "main": "dist/index.js",
   "scripts": {
@@ -67,7 +67,7 @@
     "postcss-loader": "^2.0.6",
     "react-docgen": "^2.17.0",
     "react-dom": "^15.6.1",
-    "react-styleguidist": "^6.0.21",
+    "react-styleguidist": "^6.0.26",
     "react-test-renderer": "^15.6.1",
     "react-x-ray": "^1.0.0-2",
     "rimraf": "^2.6.1",
