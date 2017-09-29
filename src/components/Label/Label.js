@@ -1,25 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
+
+const select = theme
+  .register('Label', ({ colors, fonts }) => ({
+    fontSize: '1em',
+    letterSpacing: '0.02em',
+    fontWeight: 600,
+    fontFamily: fonts.brand,
+    color: colors.black,
+    background: 'transparent',
+    disabledOpacity: '0.5',
+    lineHeight: '1.5em',
+    requiredMarkColor: '#e8562e',
+  }))
+  .createSelector();
 
 const LabelImpl = styled.label.withConfig({ displayName: 'Label' })`
-  font-size: ${({ theme }) => theme.label.fontSize};
-  letter-spacing: ${({ theme }) => theme.label.letterSpacing};
-  font-weight: ${({ theme }) => theme.label.fontWeight};
-  font-family: ${({ theme }) => theme.label.fontFamily};
-  padding-bottom: 0.4em;
-  color: ${({ theme }) => theme.label.fg};
-  background: ${({ theme }) => theme.label.bg};
-  opacity: ${({ disabled }) => disabled ? '0.5' : '1'};
+  ${spreadStyles(select)}
   display: block;
-  line-height: 1.5em;
+
+  &:disabled {
+    opacity: ${select('disabledOpacity')};
+  }
 
   ${({ required, theme }) =>
     required ?
       css`
         &::after {
           content: '*';
-          color: ${theme.label.requiredMarkFG};
+          color: ${select('requiredMarkColor')};
           padding-left: 0.3em;
         }
       ` :

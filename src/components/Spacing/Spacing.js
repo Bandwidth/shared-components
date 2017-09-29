@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import theme from '../../theme';
+
+const select = theme
+  .register('Spacing', ({ spacing }) => ({
+    ...spacing,
+  }))
+  .createSelector();
 
 const normalize = (size) => {
   if (!size) {
@@ -27,24 +34,21 @@ const normalize = (size) => {
   }
 }
 
-const getSpacing = (theme, size) => {
-  if (theme.padding[normalize(size)]) {
-    return theme.padding[normalize(size)];
-  }
+const getSpacing = (props, size) =>
+  select(normalize(size))(props) || size;
 
-  return size;
-}
+const SpacingImpl = theme.connect(styled.div`
+  ${(props) => `padding: ${getSpacing(props, props.size)};`}
 
-const Spacing = styled.div`
-  ${({ size, theme }) => `padding: ${getSpacing(theme, size)};`}
+  ${(props) => props.top ? `padding-top: ${getSpacing(props, props.top)};` : ''}
+  ${(props) => props.bottom ? `padding-bottom: ${getSpacing(props, props.bottom)};` : ''}
+  ${(props) => props.left ? `padding-left: ${getSpacing(props, props.left)};` : ''}
+  ${(props) => props.right ? `padding-right: ${getSpacing(props, props.right)};` : ''}
+`);
 
-  ${({ top, theme }) => top ? `padding-top: ${getSpacing(theme, top)};` : ''}
-  ${({ bottom, theme }) => bottom ? `padding-bottom: ${getSpacing(theme, bottom)};` : ''}
-  ${({ left, theme }) => left ? `padding-left: ${getSpacing(theme, left)};` : ''}
-  ${({ right, theme }) => right ? `padding-right: ${getSpacing(theme, right)};` : ''}
-`;
+export const Spacing = (props) => <SpacingImpl {...props} />;
 
-Spacing.propTypes = {
+Spacing.propTypes = SpacingImpl.propTypes = {
   /**
    * The default size to be applied to all directions. [xs, sm, md, lg, xl] or a CSS dimension.
    */
@@ -75,7 +79,7 @@ Spacing.propTypes = {
   id: PropTypes.string,
 };
 
-Spacing.defaultProps = {
+SpacingImpl.defaultProps = {
   size: 'lg',
   top: null,
   bottom: null,
@@ -85,14 +89,4 @@ Spacing.defaultProps = {
   id: null,
 };
 
-Spacing.usage = `
-An experimental component which just adds some padding around something else, based on some pre-defined sizes our designers like. Since developers end up implementing their own padding a lot, it might be useful to include this generic utility. Hopefully it generalizes well.
-
-You can also specify a custom padding for any side, i.e. \`top="48px"\`. This is probably a bad idea.
-
-\`\`\`
-<Spacing size="sm" bottom="lg">Some content</Spacing>
-\`\`\`
-`;
-
-export default Spacing;
+export default SpacingImpl;

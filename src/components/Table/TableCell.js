@@ -1,14 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../theme';
+
+const select = theme
+  .register('TableCell', ({ colors, spacing }) =>({
+    background: 'transparent',
+    textAlign: 'left',
+    borderColor: colors.shadow,
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    whiteSpace: 'nowrap',
+    padding: `${spacing.small} ${spacing.medium}`,
+  }))
+  .createSelector();
 
 const TD = styled.td`
-  text-align: left;
-  background: ${({ theme }) => theme.table.cellBG};
-  border-right: 1px solid ${({ theme }) => theme.colors.border};
-  margin: ${({ theme }) => theme.table.cellMargin};
-  padding: ${({ theme }) => `${theme.padding.small} ${theme.padding.medium}`};
-  white-space: nowrap;
+  background: ${select('background')};
+  text-align: ${select('textAlign')};
+  border-right: ${select('borderWidth')} ${select('borderStyle')} ${select('borderColor')};
+  white-space: ${select('whiteSpace')};
+  padding: ${select('padding')};
   transition: 0.2s ease all;
 
   &:last-child {
@@ -16,7 +28,7 @@ const TD = styled.td`
   }
 `;
 
-export default class Cell extends React.Component {
+export default class TableCell extends React.Component {
   static propTypes = {
     /**
      * Contents of the table cell.

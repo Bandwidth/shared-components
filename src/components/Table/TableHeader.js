@@ -4,16 +4,26 @@ import styled, { css } from 'styled-components';
 import { sentence } from 'change-case';
 import Icon from '../Icon';
 import Anchor from '../Anchor';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
+
+const select = theme
+  .register('TableHeader', ({ colors, fonts, spacing }) => ({
+    background: colors.secondaryFaded,
+    color: colors.white,
+    textTransform: 'uppercase',
+    fontWeight: 300,
+    fontFamily: fonts.brand,
+    padding: `${spacing.small} ${spacing.medium}`,
+    textAlign: 'left',
+    whiteSpace: 'nowrap',
+    inactiveSortArrowColor: colors.grayLightText,
+    activeSortArrowColor: colors.white,
+  }))
+  .createSelector();
 
 const TH = styled.th`
-  background: ${({ theme }) => theme.table.headerBG};
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.white};
-  font-weight: ${({ theme }) => theme.table.headerFontWeight};
-  font-family: ${({ theme }) => theme.table.headerFontFamily};
-  padding: ${({ theme }) => theme.table.headerPadding};
-  text-align: left;
-  white-space: nowrap;
+  ${spreadStyles(select)}
 
   cursor: ${({ sortable }) => sortable ? 'pointer' : 'default' };
 
@@ -24,7 +34,7 @@ const TH = styled.th`
     color: inherit;
   }
   &>a::after {
-    background: ${({ theme }) => theme.colors.white};
+    background: ${select('color')};
   }
 `;
 
@@ -37,25 +47,25 @@ const SortArrows = styled.span`
   white-space: nowrap;
 
   &>a {
-    color: ${({ theme }) => theme.colors.grayLightText};
+    color: ${select('inactiveSortArrowColor')};
   }
   &>a:focus {
-    color: ${({ theme }) => theme.colors.white};
+    color: ${select('activeSortArrowColor')};
   }
   &>a::after {
-    background: ${({ theme }) => theme.colors.grayLightText};
+    background: ${select('inactiveSortArrowColor')};
   }
 
-  ${({ theme, sortOrder }) => {
-    if (sortOrder > 0) {
-      return css`&>*:first-child { color: ${theme.colors.white}; }`;
-    } else if (sortOrder < 0) {
-      return css`&>*:last-child { color: ${theme.colors.white}; }`;
+  ${(props) => {
+    if (props.sortOrder > 0) {
+      return css`&>*:first-child { color: ${select('activeSortArrowColor')(props)}; }`;
+    } else if (props.sortOrder < 0) {
+      return css`&>*:last-child { color: ${select('activeSortArrowColor')(props)}; }`;
     }
   }}
 `;
 
-export default class Header extends React.Component {
+export default class TableHeader extends React.Component {
   static propTypes = {
     /**
      * Contents of the header cell.

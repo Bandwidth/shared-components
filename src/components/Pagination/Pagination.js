@@ -2,69 +2,87 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from '../Icon';
+import theme from '../../theme';
 
-const ITEM_SIZE = '30px';
+const select = theme
+  .register('Pagination', ({ colors }) => ({
+    size: '30px',
+    background: colors.white,
+    selectedBackground: colors.primary,
+    borderColor: colors.border,
+    selectedBorderColor: colors.primary,
+    hoverBackground: colors.primaryLight,
+    color: colors.black,
+    selectedColor: colors.white,
+    borderWidth: '1px',
+    activeBackground: colors.lightGray,
+    cornerRadius: '3px',
+  }))
+  .createSelector();
 
 const Container = styled.ul`
   display: inline-block;
   margin: 0;
   padding: 0;
-  float: left;
   list-style: none;
   user-select: none;
 `;
 
-const Item = styled.li`
+const Item = theme.connect(styled.li`
   float: left;
   margin: 0;
   padding: 0;
-  width: ${ITEM_SIZE};
-  height: ${ITEM_SIZE};
-  line-height: ${ITEM_SIZE};
+  width: ${select('size')};
+  height: ${select('size')};
+  line-height: ${select('size')};
   text-align: center;
   cursor: pointer;
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-width: ${select('borderWidth')};
+  border-style: solid;
+  border-color: ${select('borderColor')};
   border-right: none;
   user-select: none;
+  background: ${select('background')};
+  color: ${select('activeColor')};
 
-  ${({ active, theme }) => active ?
+  ${(props) => props.selected ?
     `
-      background: ${theme.colors.primary};
-      border-color: ${theme.colors.primary};
-      color: ${theme.colors.white};
+      background: ${select('selectedBackground')(props)};
+      border-color: ${select('selectedBorderColor')(props)};
+      color: ${select('selectedColor')(props)};
 
       & + li {
-        border-left-color: ${theme.colors.primary};
+        border-left-color: ${select('selectedBorderColor')(props)};
       }
     ` :
     `
       &:hover {
-        background: ${theme.colors.primaryLight};
+        background: ${select('hoverBackground')(props)};
       }
     `
   }
 
   &:active {
-    background: ${({ theme }) => theme.colors.lightGray};
+    background: ${select('activeBackground')};
   }
 
   &:first-of-type {
-    border-radius: 3px 0px 0px 3px;
+    border-radius: ${select('cornerRadius')} 0px 0px ${select('cornerRadius')};
   }
 
   &:last-of-type {
-    border-radius: 0px 3px 3px 0px;
-    border-right: 1px solid ${({ theme }) => theme.colors.border};
+    border-radius: 0px ${select('cornerRadius')} ${select('cornerRadius')} 0px;
+    border-right: ${select('borderWidth')} solid ${select('borderColor')};
   }
-`;
+`);
 
-const ItemPlaceholder = styled.li`
+const ItemPlaceholder = theme.connect(styled.li`
   float: left;
   margin: 0;
   padding: 0;
-  width: ${ITEM_SIZE};
-  height: ${ITEM_SIZE};
-`;
+  width: ${select('size')};
+  height: ${select('size')};
+`);
 
 class Pagination extends React.Component {
   static propTypes = {
@@ -150,7 +168,7 @@ class Pagination extends React.Component {
         <Item
           key={pageNumber}
           onClick={this.createItemClickHandler(pageNumber)}
-          active={pageNumber === currentPage}
+          selected={pageNumber === currentPage}
         >
           {pageNumber + 1}
         </Item>
@@ -168,13 +186,5 @@ class Pagination extends React.Component {
     );
   }
 }
-
-Pagination.usage = `
-Renders a 'controlled' pagination container. You need to provide the current page and other metadata.
-
-\`\`\`
-<Pagination pageCount={4} page={1} onPageSelected={(pageNumber) => { /* handle it */ }} />
-\`\`\`
-`;
 
 export default Pagination;

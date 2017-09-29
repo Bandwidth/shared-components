@@ -3,25 +3,34 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import tomorrow from 'react-syntax-highlighter/dist/styles/tomorrow-night';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
 
-export const CodeWrapper = styled.pre`
+const select = theme
+  .register('CodeBlock', ({ colors, fonts }) => ({
+    fontFamily: fonts.monospace,
+    fontSize: '1em',
+    background: colors.grayDark,
+    color: colors.white,
+    padding: '2em',
+    margin: '0',
+  }))
+  .createSelector();
+
+export const CodeWrapper = theme.connect(styled.pre`
+  ${spreadStyles(select)}
+
   word-wrap: break-word;
   white-space: pre-wrap;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  font-family: ${({ theme }) => theme.code.fontFamily};
-  font-size: ${({ theme }) => theme.code.fontSize};
-  background: ${({ theme }) => theme.code.bg};
-  color: ${({ theme }) => theme.code.fg};
-  padding: ${({ theme }) => theme.code.padding};
-  margin: 0;
 
   & pre, & code {
     background: transparent !important;
     word-wrap: inherit;
     white-space: inherit;
   }
-`;
+`);
 
 class CodeBlock extends React.Component {
   static propTypes = {

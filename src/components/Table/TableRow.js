@@ -1,18 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../theme';
 
-const TR = styled.tr`
-  border-top: 1px solid ${({ theme }) => theme.colors.border};
+const select = theme
+  .register('TableRow', ({ colors }) => ({
+    borderColor: colors.border,
+    borderWidth: '1px',
+    borderStyle: 'solid',
+  }))
+  .createSelector();
+
+const TR = theme.connect(styled.tr`
+  border-top: ${select('borderWidth')} ${select('borderStyle')} ${select('borderColor')};
 
   &:first-of-type {
     border-top: none;
   }
 
   ${({ clickable }) => clickable ? 'cursor: pointer;' : ''}
-`;
+`);
 
-export default class Row extends React.Component {
+export default class TableRow extends React.Component {
   static propTypes = {
     /**
      * Contents of the row - should be cells.
@@ -36,7 +45,7 @@ export default class Row extends React.Component {
     index: 0,
     className: null,
     id: null,
-    onClick: () => null,
+    onClick: null,
   };
 
   render() {

@@ -3,7 +3,7 @@
  */
 
 import { injectGlobal } from 'styled-components';
-import defaultTheme from './theme';
+import { fonts } from './theme/baseTheme';
 
 import eot from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.eot';
 import woff2 from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.woff2';
@@ -20,7 +20,7 @@ injectGlobal`
   body, html {
     width: 100%;
     height: 100%;
-    font-family: ${defaultTheme.fonts.brand};
+    font-family: ${fonts.brand};
     font-size: 14px;
     letter-spacing: 0.28px;
     margin: 0;

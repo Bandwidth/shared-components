@@ -3,8 +3,16 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ShowMore from './ShowMore';
 import Item from './SidebarListItem';
+import theme from '../../theme';
 
-const ListContainer = styled.ul`
+const select = theme
+  .register('ListContainer', ({ colors }) => ({
+    scrollbarTrackColor: colors.grayDark,
+    scrollbarColor: colors.grayLight,
+  }))
+  .createSelector();
+
+const ListContainer = theme.connect(styled.ul`
   display: flex;
   flex-direction: column;
   list-style-type: none;
@@ -12,13 +20,13 @@ const ListContainer = styled.ul`
   padding: 0;
 
   &::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.gutter};
+    background: ${select('scrollbarColor')};
   }
 
   &::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.grayDark};
+    background: ${select('scrollbarTrackColor')};
   }
-`;
+`);
 
 class SidebarList extends React.Component {
   static propTypes = {
@@ -105,19 +113,6 @@ class SidebarList extends React.Component {
     );
   }
 }
-
-SidebarList.usage = `
-Lays out items vertically and provides selection context. Does not do scrolling.
-
-If you pass the \`selectedIndex\` prop, the child component which matches that index will receive an \`active=true\` prop when rendering. Use this to show selected state. Before relying on list selection state, though, consider whether your list shouldn't instead be linked to your router, so that each item is a unique route. If you go that direction, you can have the items be \`<Route/>\` components from React Router, and have them utilize RR's built-in route matching logic to determine rendering appearance.
-
-\`\`\`
-<SidebarList selectedIndex={1}>
-  <SidebarListItem>One</SidebarListItem>
-  <SidebarListItem>Two</SidebarListItem>
-</SidebarList>
-\`\`\`
-`;
 
 SidebarList.Item = Item;
 export default SidebarList;

@@ -4,8 +4,16 @@ Accepts \`label\` to define what's rendered in the label.
 
 Also exports \`ContentPadding\`, which you can use on any content contained inside the accordion to achieve consistent padding.
 
-```
+```javascript
 <Accordion label="Hello">
   Some content
 </Accordion>
+```
+
+_Small_
+
+```javascript
+<Accordion.Small label="Small!">
+  Some content
+</Accordion.Small>
 ```

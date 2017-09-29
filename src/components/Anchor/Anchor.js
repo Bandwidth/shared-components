@@ -2,10 +2,75 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link as ReactLink, Route } from 'react-router-dom';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
 
-export const TextAnchor = styled.a`
-  color: ${({ theme }) => theme.link.fg};
-  font-family: ${({ theme }) => theme.link.fontFamily};
+const select = theme.register('Anchor', ({ colors, fonts }) => ({
+  color: colors.primaryText,
+  fontFamily: fonts.brand,
+  activeColor: colors.primary,
+  bubbleBorderRadius: '2em',
+})).createSelector();
+
+export const TextAnchorImpl = styled.a`
+  ${spreadStyles(select)}
+
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2 ease;
+  white-space: nowrap;
+  position: relative;
+  height: auto;
+  margin: auto;
+  display: inline-block;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    color: ${select('activeColor')};
+  }
+
+  &::after {
+    content: "";
+    background: ${select('color')};
+    border-radius: ${select('bubbleBorderRadius')};
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    bottom: -0.1em;
+    left: 0;
+    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0.15s ease 0.15s;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    height: calc(100% + 0.2em);
+    width: calc(100% + 0.6em);
+    left: -0.3em;
+    opacity: 0.125;
+    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0s ease;
+  }
+`;
+const TextAnchor = theme.connect(TextAnchorImpl);
+
+export const IconAnchor = theme.connect(styled(TextAnchorImpl)`
+  text-decoration: none;
+  display: inline-block;
+  &::after {
+    opacity: 0;
+  }
+`);
+
+// notice: this goes back to regular link, not TextAnchor as above
+export const WrapAnchor = theme.connect(styled.a`
+  text-decoration: none;
+`);
+
+export const ReactTextAnchorImpl = styled(ReactLink)`
+  ${spreadStyles(select)}
+
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2 ease;
@@ -19,13 +84,13 @@ export const TextAnchor = styled.a`
   }
 
   &:active {
-    color: ${({ theme }) => theme.link.activeFG};
+    color: ${select('activeColor')};
   }
 
   &::after {
     content: "";
-    background: ${({ theme }) => theme.link.fg};
-    border-radius: ${({ theme }) => theme.link.bubbleBorderRadius};
+    background: ${select('color')};
+    border-radius: ${select('bubbleBorderRadius')};
     height: 1px;
     width: 100%;
     position: absolute;
@@ -44,70 +109,19 @@ export const TextAnchor = styled.a`
   }
 `;
 
-export const IconAnchor = styled(TextAnchor)`
+const ReactTextAnchor = theme.connect(ReactTextAnchorImpl);
+
+export const ReactIconAnchor = theme.connect(styled(ReactTextAnchorImpl)`
   text-decoration: none;
   display: inline-block;
   &::after {
     opacity: 0;
   }
-`;
+`);
 
-// notice: this goes back to ReactLink, not TextAnchor as above
-export const WrapAnchor = styled.a`
+export const ReactWrapAnchor = theme.connect(styled(ReactLink)`
   text-decoration: none;
-`;
-
-export const ReactTextAnchor = styled(ReactLink)`
-  color: ${({ theme }) => theme.link.fg};
-  font-family: ${({ theme }) => theme.link.fontFamily};
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2 ease;
-  white-space: nowrap;
-  position: relative;
-  height: auto;
-  margin: auto;
-
-  &:focus {
-    outline: none;
-  }
-
-  &:active {
-    color: ${({ theme }) => theme.link.activeFG};
-  }
-
-  &::after {
-    content: "";
-    background: ${({ theme }) => theme.link.fg};
-    border-radius: ${({ theme }) => theme.link.bubbleBorderRadius};
-    height: 1px;
-    width: 100%;
-    position: absolute;
-    bottom: -0.1em;
-    left: 0;
-    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0.15s ease 0.15s;
-  }
-
-  &:hover::after,
-  &:focus::after {
-    height: calc(100% + 0.2em);
-    width: calc(100% + 0.6em);
-    left: -0.3em;
-    opacity: 0.125;
-    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0s ease;
-  }
-`;
-export const ReactIconAnchor = styled(ReactTextAnchor)`
-  text-decoration: none;
-  display: inline-block;
-  &::after {
-    opacity: 0;
-  }
-`;
-
-export const ReactWrapAnchor = styled(ReactLink)`
-  text-decoration: none;
-`;
+`);
 
 const inferType = (children) => {
   if (children === null) {

@@ -1,21 +1,31 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
 
-const NewBadge = styled.span`
+const select = theme
+  .register('NewBadge', ({ colors }) => ({
+    color: colors.primary,
+    fontWeight: 'bold',
+    fontSize: '0.85em',
+    margin: '0 0 0 1em',
+    textTransform: 'uppercase',
+  }))
+  .createSelector();
+
+const NewBadgeImpl = theme.connect(styled.span`
   display: inline-block;
 
   &::after {
     content: 'New:';
-    text-transform: uppercase;
     display: inline-block;
-    color: ${({ theme }) => theme.colors.primary};
-    font-weight: bold;
-    font-size: 0.85em;
-    margin-right: 1em;
+    ${spreadStyles(select)}
   }
-`;
+`);
 
-NewBadge.propTypes = {
+export const NewBadge = (props) => <NewBadge {...props} />;
+
+NewBadgeImpl.propTypes = NewBadge.propTypes = {
   /**
    * Adds a class name to the element.
    */
@@ -26,13 +36,9 @@ NewBadge.propTypes = {
   id: PropTypes.string,
 };
 
-NewBadge.defaultProps = {
+NewBadgeImpl.defaultProps = {
   className: null,
   id: null,
 };
 
-NewBadge.usage = `
-NewBadge lets a user quickly find new items that were just created by a previous action. Drop it on any item which just appeared on the page to easily inform the user of changes.
-`;
-
-export default NewBadge;
+export default NewBadgeImpl;

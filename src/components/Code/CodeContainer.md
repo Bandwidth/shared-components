@@ -4,8 +4,8 @@ Also allows a header to be rendered above.
 
 ```
 <CodeContainer header="Awesome Code Container">
-  <Code>some thing;</Code>
+  <CodeBlock>some thing;</CodeBlock>
   <h3>a label for next thing</h3>
-  <Code>some other thing;</Code>
+  <CodeBlock>some other thing;</CodeBlock>
 </CodeContainer>
 ```

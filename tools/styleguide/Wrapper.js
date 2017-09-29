@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {BandwidthThemeProvider, Anchor} from '../../src';
+import BandwidthThemeProvider from '../../src/components/BandwidthThemeProvider';
+import Anchor from '../../src/components/Anchor';
 import {Router} from 'react-router';
 import { createMemoryHistory } from 'history';
 import XRay from 'react-x-ray';
@@ -40,9 +41,9 @@ class OptXRay extends React.Component {
     return (
       <div>
       <FloatButton onClick={this.toggleState}>X-RAY Component</FloatButton>
-      <XRay disabled={disable} grid={5}>        
+      <XRay disabled={disable} grid={5}>
         {children}
-      </XRay> 
+      </XRay>
       </div>
     );
   }

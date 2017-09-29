@@ -5,6 +5,18 @@ import _ from 'lodash';
 import Label from '../../components/Label';
 import HelpText from '../../components/HelpText';
 import { HORIZONTAL_SPACING } from './constants';
+import theme from '../../theme';
+
+const select = theme
+  .register('FlowItem', {
+    labelHeight: '21px',
+    labelMargin: `0 0 5.6px 0`,
+    minContentHeight: '53px',
+    minHelpTextHeight: '18px',
+    helpTextMargin: `5.6px 0 0 0`,
+    horizontalContentSpacing: HORIZONTAL_SPACING + 'px',
+  })
+  .createSelector();
 
 const Content = styled.div.withConfig({ displayName: 'FlowItemContent' })``;
 const FlexibleContent = styled.div.withConfig({ displayName: 'FlowItemContentFlexible' })``;
@@ -25,18 +37,17 @@ const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
   }};
 
   & > ${Label.Styled} {
-    height: 21px;
-    margin: 0;
-    margin-bottom: 5.6px;
+    height: ${select('labelHeight')};
+    margin: ${select('labelMargin')};
     overflow-x: hidden;
-    flex-basis: 21px;
+    flex-basis: ${select('labelHeight')};
     flex-grow: 0;
     flex-shrink: 0;
     padding: 0;
   }
 
   & > ${Content} {
-    height: 53px;
+    height: ${select('minContentHeight')};
     flex-grow: 0;
     flex-shrink: 0;
     display: flex;
@@ -46,22 +57,21 @@ const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
     }
 
     & > *:not(:last-child):not(:only-child) {
-      margin-right: ${HORIZONTAL_SPACING}px;
+      margin-right: ${select('horizontalContentSpacing')};
     }
   }
 
   & > ${FlexibleContent} {
     height: auto;
-    flex-basis: 53px;
+    flex-basis: ${select('minContentHeight')};
     flex-grow: 1;
     flex-shrink: 0;
   }
 
   & > ${HelpText.Styled} {
-    min-height: 18px;
-    margin: 0;
-    margin-top: 5.6px;
-    flex-basis: 18px;
+    min-height: ${select('minHelpTextHeight')};
+    margin: ${select('helpTextMargin')};
+    flex-basis: ${select('minHelpTextHeight')};
     flex-grow: 1;
     flex-shrink: 0;
     padding: 0;

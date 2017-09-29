@@ -2,16 +2,41 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import icons from '../Icon/icons';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
 
-const AlertContainer = styled.div`
+const select = theme
+  .register('Alert', ({ colors, spacing }) => ({
+    padding: `${spacing.small} ${spacing.medium}`,
+    fontWeight: 500,
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    width: 'auto',
+    lineHeight: '1em',
+    position: 'relative',
+    iconBackground: colors.white,
+    colors: {
+      success: colors.successText,
+      info: colors.infoText,
+      error: colors.errorText,
+    },
+    backgrounds: {
+      success: colors.successBackgroundLight,
+      info: colors.infoBackgroundLight,
+      error: colors.errorBackgroundLight,
+    },
+    borderColors: {
+      success: colors.successBorder,
+      info: colors.infoBorder,
+      error: colors.errorBorder,
+    },
+  }))
+  .createSelector();
+
+const AlertContainer = theme.connect(styled.div`
+  ${spreadStyles(select)}
+
   display: inline-block;
-  padding: 10px 15px;
-  border-width: 1px;
-  border-style: solid;
-  font-weight: 500;
-  width: auto;
-  line-height: 1em;
-  position: relative;
 
   a {
     color: inherit;
@@ -27,11 +52,11 @@ const AlertContainer = styled.div`
     background: ${({ theme, type }) => {
       switch (type) {
         case 'success':
-          return theme.colors.successText;
+          return select('colors.success');
         case 'error':
-          return theme.colors.errorText;
+          return select('colors.error');
         default:
-          return theme.colors.infoText;
+          return select('colors.info');
       }
     }};
   }
@@ -39,21 +64,21 @@ const AlertContainer = styled.div`
   background: ${({ theme, type }) => {
     switch (type) {
       case 'success':
-        return theme.colors.successBackgroundLight;
+        return select('backgrounds.success');
       case 'error':
-        return theme.colors.errorBackgroundLight;
+        return select('backgrounds.error');
       default:
-        return theme.colors.infoBackgroundLight;
+        return select('backgrounds.info');
     }
   }};
   color: ${({ theme, type }) => {
     switch (type) {
       case 'success':
-        return theme.colors.successText;
+        return select('colors.success');
       case 'error':
-        return theme.colors.errorText;
+        return select('colors.error');
       default:
-        return theme.colors.infoText;
+        return select('colors.info');
     }
   }};
 
@@ -78,27 +103,27 @@ const AlertContainer = styled.div`
     border-color: ${({ theme, type }) => {
       switch (type) {
         case 'success':
-          return theme.colors.successBorder;
+          return select('borders.success');
         case 'error':
-          return theme.colors.errorBorder;
+          return select('borders.error');
         default:
-          return theme.colors.infoBorder;
+          return select('borders.info');
       }
     }};
 
-    background: ${({ theme }) => theme.colors.white};
+    background: ${select('iconBackground')};
     width: 1.2em;
     height: 1.2em;
     display: inline-block;
     line-height: 1.2em;
-    font-family: ${({ theme }) => `Bandwidth, ${theme.fonts.brand}`};
+    font-family: "Bandwidth";
     text-align: center;
     border-radius: 100%;
     font-size: 0.9em;
     position: absolute;
     margin-right: 1em;
   }
-`;
+`);
 
 const Alert = (props) => (
   <AlertContainer {...props}>

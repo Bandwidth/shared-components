@@ -1,26 +1,36 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
 
-const Toast = styled.div.withConfig({ displayName: 'Toast' })`
+const select = theme
+  .register('Toast', ({ colors, spacing }) => ({
+    background: colors.white,
+    width: '400px',
+    padding: spacing.small,
+    textAlign: 'center',
+    top: '120px',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: colors.border,
+    borderRadius: '3px',
+  }))
+  .createSelector();
+
+const ToastImpl = theme.connect(styled.div.withConfig({ displayName: 'Toast' })`
+  ${spreadStyles(select)}
   position: fixed;
   z-index: 10000000;
-  background: ${({ theme }) => theme.colors.white};
   left: 50%;
   transform: translateX(-50%);
-  width: 400px;
-  padding: ${({ theme }) => theme.padding.small};
-  text-align: center;
   display: block;
-  top: 120px;
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: 3px;
 
   & p {
     margin: 0;
   }
-`;
+`);
 
-Toast.propTypes = {
+ToastImpl.propTypes = {
   /**
    * Adds a class name to the element.
    */
@@ -31,15 +41,19 @@ Toast.propTypes = {
   id: PropTypes.string,
 };
 
-Toast.defaultProps = {
+ToastImpl.defaultProps = {
   className: null,
   id: null,
 };
 
-Toast.usage = `
+ToastImpl.usage = `
 Fill with quick notification content.
 
 \`\`\`
 <Toast>Hi there</Toast>
 \`\`\`
-`
+`;
+
+export const Toast = (props) => (<ToastImpl {...props} />);
+
+export default ToastImpl;

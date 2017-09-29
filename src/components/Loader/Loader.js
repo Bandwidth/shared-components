@@ -1,6 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
+import theme from '../../theme';
+
+const select = theme
+  .register('Loader', ({ colors }) => ({
+    ringThickness: '2px',
+    ringLineStyle: 'solid',
+    color: colors.primary,
+  }))
+  .createSelector();
 
 export const Container = styled.div.withConfig({ displayName: 'LoaderContainer' })`
   display: flex;
@@ -27,9 +36,9 @@ export const Dot = styled.div.withConfig({ displayName: 'LoaderDot' })`
   height: ${({ size }) => size};
   width: ${({ size }) => size};
 
-  border-width: 2px;
-  border-style: solid;
-  border-color: ${({ theme, color }) => color ? color : theme.colors.primary};
+  border-width: ${select('ringThickness')};
+  border-style: ${select('ringLineStyle')};
+  border-color: ${(props) => props.color ? props.color : select('color')(props)};
   border-radius: 50%;
   margin: 0 5px;
   transform: scale(0);

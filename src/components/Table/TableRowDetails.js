@@ -1,30 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import TBody from './TBody';
+import TBody from './TableBody';
+import theme from '../../theme';
 
 // Firefox has an artificial limit on colspan of 1000. This is obviously an arbitrary
 // number of columns, but there are no cleaner or easier solutions to spanning the entire
 // table at time of writing.
 const COLSPAN = 1000;
 
-const TableRowDetailContainer = styled.tr`
+const select = theme
+  .register('TableRowDetails', ({ colors }) => ({
+    textAlign: 'left',
+    zebraLightStripeColor: 'transparent',
+    zebraDarkStripColor: colors.shadowExtraLight,
+    borderColor: colors.border,
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    effectColor: colors.shadowLight,
+    effectWidth: '5px',
+  }))
+  .createSelector();
+
+const TableRowDetailContainer = theme.connect(styled.tr`
   display: table-row;
-  text-align: left;
+  text-align: ${select('text-align')};
 
   &:nth-child(even) {
-    background: transparent;
+    background: ${select('zebraLightStripeColor')};
   }
   &:nth-child(odd) {
-    background: rgba(0, 0, 0, 0.05);
+    background: ${select('zebraDarkStripeColor')};
   }
-`;
+`);
 
-const TableRowDetailsStyles = styled.td`
-  border-top: 1px solid ${({ theme }) => theme.colors.border};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  box-shadow: inset 5px 0 0 rgba(0,0,0,.12);
-`;
+const TableRowDetailsStyles = theme.connect(styled.td`
+  border-top: ${select('borderWidth')} ${select('borderStyle')} ${select('borderColor')};
+  border-bottom: ${select('borderWidth')} ${select('borderStyle')} ${select('borderColor')};
+  box-shadow: inset ${select('effectWidth')} 0 0 ${select('effectColor')};
+`);
 
 const TableRowDetails = ({ children, rowIndex = 0 }) => (
   <TBody startIndex={rowIndex}>

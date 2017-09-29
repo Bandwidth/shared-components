@@ -2,14 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import RadioButton from './RadioButton';
+import theme from '../../theme';
 
-export const Container = styled.div`
+const select = theme
+  .register('RadioGroup', { alignItems: 'stretch', minHeight: '53px', flowDirection: 'row' })
+  .addVariant('vertical', { flowDirection: 'column' })
+  .addVariant('small', { minHeight: '0' })
+  .createSelector();
+
+export const Container = theme.connect(styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  flex-direction: ${select('flowDirection')};
+  align-items: ${select('alignItems')};
   flex: 1 1 auto;
-  min-height: 53px;
-`;
+  min-height: ${select('minHeight')};
+`);
 
 class RadioGroup extends React.Component {
   static propTypes = {
@@ -116,5 +123,7 @@ class RadioGroup extends React.Component {
   }
 }
 
+RadioGroup.Vertical = theme.variant('vertical')(RadioGroup);
+RadioGroup.Small = theme.variant('small')(RadioGroup);
 RadioGroup.Button = RadioButton;
 export default RadioGroup;

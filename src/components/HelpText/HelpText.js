@@ -1,14 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../theme';
 
-const HelpTextImpl = styled.div.withConfig({ displayName: 'HelpText' })`
-  color: ${({ theme, error }) => error ? theme.colors.errorText : theme.helpText.fg};
-  font-style: italic;
-  font-weight: ${({ theme }) => theme.helpText.fontWeight};
-  padding: ${({ theme }) => theme.input.helpTextPadding};
-  font-family: ${({ theme }) => theme.helpText.fontFamily};
-`;
+const select = theme
+  .register('HelpText', ({ colors, fonts }) => ({
+    color: colors.grayLightText,
+    errorColor: colors.errorText,
+    fontWeight: 300,
+    fontFamily: fonts.brand,
+    fontStyle: 'italic',
+  }))
+  .createSelector();
+
+const HelpTextImpl = theme.connect(styled.div.withConfig({ displayName: 'HelpText' })`
+  color: ${(props) => props.error ? select('errorColor') : select('color')};
+  font-style: ${select('fontStyle')};
+  font-weight: ${select('fontWeight')};
+  font-family: ${select('fontFamily')};
+`);
 
 const HelpText = ({children, ...rest}) => (
   <HelpTextImpl {...rest}>{children}</HelpTextImpl>

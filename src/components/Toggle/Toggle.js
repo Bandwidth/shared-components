@@ -2,39 +2,106 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import generateId from '../../extensions/generateId';
+import theme from '../../theme';
 
-const HEIGHT = '24px';
-const WIDTH = '48px';
+const select = theme
+  .register('Toggle', ({ colors, shadows, spacing, fonts }) => ({
+    focusShadow: shadows.focusOutline,
+    onBackground: colors.secondary,
+    offBackground: colors.white,
+    borderColor: colors.secondary,
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    hoverBackground: colors.primaryDark,
+    hoverBorderColor: colors.primaryDark,
+    offColor: colors.white,
+    onColor: colors.white,
+    size: '24px',
+    descriptionPadding: `${spacing.extraSmall} 0 ${spacing.extraSmall} ${spacing.extraLarge}`,
+    descriptionFontFamily: fonts.brand,
+    descriptionColor: colors.black,
+    descriptionFontWeight: 300,
+    disabledBorderColor: colors.grayMed,
+    disabledBackground: colors.grayLight,
+  }))
+  .createSelector();
 
-export const HiddenInput = styled.input`
+export const HiddenInput = theme.connect(styled.input`
   opacity: 0;
   position: absolute;
   z-index: -100000;
 
   &:focus + label::before {
-    box-shadow: ${({ theme }) => theme.shadows.focusOutline};
+    box-shadow: ${select('focusShadow')};
   }
-`;
 
-const ToggleLabel = styled.label`
+  & + label::before {
+    background: ${select('offBackground')};
+    border-color: ${select('borderColor')};
+  }
+
+  & + label::after {
+    background: ${select('offColor')};
+    border-color: ${select('borderColor')};
+  }
+
+  & + label:hover::before {
+    border-color: ${select('hoverBorderColor')};
+  }
+
+  & + label:hover::after {
+    border-color: ${select('hoverBorderColor')};
+  }
+
+  &:checked + label {
+    &::before {
+      background: ${select('onBackground')};
+      border-color: ${select('borderColor')};
+    }
+
+    &::after {
+      left: ${select('size')};
+      background: ${select('onColor')};
+      border-color: ${select('borderColor')};
+    }
+
+    &:hover {
+      &::before {
+        background: ${select('hoverBackground')};
+      }
+      &::before, &::after {
+        border-color: ${select('hoverBorderColor')};
+      }
+    }
+  }
+
+  &:disabled + label {
+    &::before, &::after {
+      border-color: ${select('disabledBorderColor')};
+      background: ${select('disabledBackground')};
+    }
+  }
+`);
+
+const ToggleLabel = theme.connect(styled.label`
   cursor: pointer;
   position: relative;
-  padding: ${({ theme }) => `${theme.padding.extraSmall} 0 ${theme.padding.extraSmall} ${theme.padding.extraLarge}`};
+  padding: ${select('descriptionPadding')};
   user-select: none;
   transition: all 0.2s ease;
-  line-height: ${HEIGHT};
-  font-family: ${({ theme }) => theme.fonts.brand};
-  font-weight: 300;
-  color: ${({ theme }) => theme.colors.grayMed};
+  line-height: calc(${select('size')} * 1.5);
+  font-family: ${select('descriptionFontFamily')};
+  font-weight: ${select('descriptionFontWeight')};
+  color: ${select('descriptionColor')};
   display: inline;
 
   &::before {
     content: '';
-    background: ${({ theme, active }) => active ? theme.colors.secondary : theme.colors.white};
-    border: 2px solid ${({ theme }) => theme.colors.secondary};
-    border-radius: ${HEIGHT};
-    width: ${WIDTH};
-    height: ${HEIGHT};
+    border-width: ${select('borderWidth')};
+    border-style: ${select('borderStyle')};
+    border-radius: ${select('size')};
+    width: calc(${select('size')} * 2);
+    height: ${select('size')};
     cursor: pointer;
     display: block;
     position: absolute;
@@ -46,36 +113,19 @@ const ToggleLabel = styled.label`
 
   &::after {
     content: '';
-    background: ${({ theme }) => theme.colors.white};
-    border: 2px solid ${({ theme }) => theme.colors.secondary};
-    border-radius: ${HEIGHT};
-    width: ${HEIGHT};
-    height: ${HEIGHT};
+    border-width: ${select('borderWidth')};
+    border-style: ${select('borderStyle')};
+    border-radius: ${select('size')};
+    width: ${select('size')};
+    height: ${select('size')};
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: ${({ active }) => active ? HEIGHT : 0};
+    left: 0;
     display: block;
     transition: all 0.2s ease;
   }
-
-  &:hover::before,
-  &:hover::after {
-    border: 2px solid ${({ theme }) => theme.colors.primaryDark};
-  }
-  &:hover::before {
-    background: ${({ theme, active }) => active ? theme.colors.primaryDark : theme.colors.white};
-  }
-
-  ${({ disabled }) => disabled ?
-    css`
-      &::before, &::after {
-        border: 2px solid ${({ theme }) => theme.colors.grayDark};
-        background: ${({ theme }) => theme.colors.disabled};
-      }
-    ` : ''
-  }
-`;
+`);
 
 const Container = styled.div`
   position: relative;
@@ -138,7 +188,7 @@ class Toggle extends React.Component {
           required={required}
           onChange={onChange}
         />
-        <ToggleLabel htmlFor={id} active={value} disabled={disabled}>
+        <ToggleLabel htmlFor={id}>
           {description}
         </ToggleLabel>
       </Container>
@@ -146,15 +196,4 @@ class Toggle extends React.Component {
   }
 }
 
-Toggle.usage = `
-A simple toggle input.
-
-\`\`\`
-<Toggle value={false} label="Foo" />
-\`\`\`
-`;
-
-Toggle.Input = HiddenInput;
-Toggle.Label = ToggleLabel;
-Toggle.Container = Container;
 export default Toggle;

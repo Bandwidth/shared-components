@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../theme';
 
 import Loader from '../Loader';
 
@@ -11,7 +12,13 @@ import Controls from './TableControls';
 import Simple from './SimpleTable';
 import RowDetails from './TableRowDetails';
 import Wrap from './TableWrap';
-import TBody from './TBody';
+import TableBody from './TableBody';
+
+const select = theme
+  .register('Table', ({ colors }) => ({
+    overlayBackground: colors.whiteShadow,
+  }))
+  .createSelector();
 
 const BaseTable = styled.table`
   min-width: 100%;
@@ -22,19 +29,19 @@ const BaseTable = styled.table`
   }
 `;
 
-const Overlay = styled.div`
+const Overlay = theme.connect(styled.div`
   position: absolute;
   top: 40px;
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.2);
+  background: ${select('overlayBackground')};
   display: flex;
 
   & > div {
     margin: auto;
   }
-`;
+`);
 
 class Table extends React.Component {
   static propTypes = {
@@ -86,9 +93,9 @@ class Table extends React.Component {
             {headers}
           </thead>
           {wrapBody?
-            <TBody>
+            <TableBody>
               {children}
-            </TBody> :
+            </TableBody> :
             children
           }
         </BaseTable>
@@ -107,10 +114,6 @@ Table.Controls = Controls;
 Table.Simple = Simple;
 Table.RowDetails = RowDetails;
 Table.Wrap = Wrap;
-Table.Body = TBody;
-
-Table.usage = `
-Renders a table, using the \`children\` and \`headers\` props to define the various table parts. Also accepts \`loading\` to show a loading state.
-`;
+Table.Body = TableBody;
 
 export default Table;

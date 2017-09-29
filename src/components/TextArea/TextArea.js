@@ -1,22 +1,31 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
 
-const TextArea = styled.textarea`
-  background: ${({ theme }) => theme.textarea.bg};
-  color: ${({ theme }) => theme.textarea.fg};
-  border: ${({ theme }) => theme.textarea.border};
-  font-size: ${({ theme }) => theme.textarea.fontSize};
-  font-weight: ${({ theme }) => theme.textarea.fontWeight};
-  font-family: ${({ theme }) => theme.textarea.fontFamily};
-  padding: ${({ theme }) => theme.textarea.padding};
-  letter-spacing: 0.02em;
+const select = theme
+  .register('TextArea', ({ colors, spacing, fonts }) => ({
+    background: colors.white,
+    color: colors.black,
+    fontSize: '14px',
+    fontWeight: 400,
+    fontFamily: fonts.brand,
+    letterSpacing: '0.02em',
+    borderColor: colors.borderLight,
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    lineHeight: '1.5',
+    minHeight: '100px',
+  }))
+  .createSelector();
+
+const TextArea = theme.connect(styled.textarea`
+  ${spreadStyles(select)}
   box-shadow: none;
   transition: all 0.2s ease;
-  line-height: ${({ theme }) => theme.textarea.lineHeight};
   outline: none;
   width: 100%;
-  min-height: 100px;
-`;
+`);
 
 TextArea.propTypes = {
   /**

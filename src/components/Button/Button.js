@@ -3,23 +3,44 @@ import PropTypes from 'prop-types';
 import styled, {ThemeProvider} from 'styled-components';
 import icons from '../Icon/icons';
 import SubmitButton from './SubmitButton';
-import {secondaryTheme} from '../../theme';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
 
-const ButtonImpl = styled.button`
-  font-size: ${({ theme }) => theme.button.fontSize};
-  text-decoration: none;
-  font-weight: ${({ theme }) => theme.button.fontWeight};
-  font-family: ${({ theme }) => theme.button.fontFamily};
-  text-transform: ${({ theme }) => theme.button.textTransform};
+const select = theme
+  .register('Button', ({ colors, fonts, spacing, shadows }) => ({
+    fontSize: '0.8em',
+    textDecoration: 'none',
+    fontWeight: 700,
+    fontFamily: fonts.brand,
+    textTransform: 'uppercase',
+    background: colors.primary,
+    borderColor: colors.primary,
+    borderThickness: '1px',
+    borderStyle: 'solid',
+    color: colors.white,
+    borderRadius: '3em',
+    padding: '12px 40px',
+    display: 'inline-block',
+    lineHeight: 'normal',
+    whiteSpace: 'nowrap',
+    activeBackground: colors.primaryDark,
+    activeColor: colors.white,
+    activeShadow: shadows.short,
+    disabledBackground: colors.disabled,
+    disabledColor: colors.black,
+    disabledBorderColor: colors.disabled,
+  }))
+  .addVariant('secondary', ({ colors }) => ({
+    borderColor: colors.secondary,
+    background: 'transparent',
+    color: colors.secondary,
+    activeBackground: colors.secondary,
+  }))
+  .createSelector();
 
-  background: ${({ theme }) => theme.colors.primary};
-  border: 1px solid ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.white};
-  border-radius: 3em;
-  padding: ${({ theme }) => theme.button.padding};
-  display: inline-block;
-  line-height: normal;
-  white-space: nowrap;
+const ButtonImpl = theme.connect(styled.button`
+  ${spreadStyles(select)}
+
   vertical-align: middle;
   text-align: center;
   cursor: pointer;
@@ -33,16 +54,18 @@ const ButtonImpl = styled.button`
   overflow: hidden;
 
   &:hover:not(:disabled), &:focus {
-    background-color: ${({ theme }) => theme.button.activeBG};
-    border-color: ${({ theme }) => theme.button.activeBG};
-    color: ${({ theme }) => theme.button.activeFG};
-    box-shadow: 0 2px 4px ${({ theme }) => theme.shadow.color};
+    background-color: ${select('activeBackground')};
+    border-color: ${select('activeBackground')};
+    color: ${select('activeColor')};
+    box-shadow: ${select('activeShadow')};
   }
 
   &:disabled {
-    background: ${({ theme }) => theme.button.disabledBG};
-    color: ${({ theme }) => theme.button.disabledFG};
-    border: ${({ theme }) => theme.button.disabledBorder};
+    background: ${select('disabledBackground')};
+    color: ${select('disabledColor')};
+    border-width: ${select('borderWidth')};
+    border-style: ${select('borderStyle')};
+    border-color: ${select('disabledBorderColor')};
     cursor: default;
   }
 
@@ -50,14 +73,10 @@ const ButtonImpl = styled.button`
     position: absolute;
     height: 100%;
     font-size: 125%;
-    color: ${({ theme }) => theme.button.fg};
+    color: inherit;
     transition: all 0.3s;
     speak: none;
     font-family: 'Bandwidth';
-  }
-
-  &:hover::before, &:hover::after {
-    color: ${({ theme }) => theme.button.activeFG};
   }
 
   &::before {
@@ -77,7 +96,7 @@ const ButtonImpl = styled.button`
   &:hover:not(:disabled)::after {
     right: 10px;
   }
-`;
+`);
 
 const Button = ({children, ...rest}) => (
   <ButtonImpl {...rest}>{children}</ButtonImpl>
@@ -115,11 +134,8 @@ Button.defaultProps = {
   id: null,
 };
 
-Button.Example2 = () => (<ThemeProvider theme={secondaryTheme}>
-<Button>Secondary!</Button>
-</ThemeProvider>)
-
 Button.Submit = SubmitButton;
+Button.Secondary = theme.variant('secondary')(Button);
 Button.Styled = ButtonImpl;
 
 export default Button;

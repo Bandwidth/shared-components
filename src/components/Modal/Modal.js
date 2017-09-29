@@ -2,9 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ScrollBox from '../../behaviors/ScrollBox';
+import theme from '../../theme';
+
+const select = theme
+  .register('Modal', ({ colors, shadows, fonts }) => ({
+    overlayBackground: colors.shadow,
+    background: colors.white,
+    width: 'auto',
+    maxWidth: '70%',
+    minWidth: '20%',
+    minHeight: '0',
+    maxHeight: '70vh',
+    distanceFromTop: '180px',
+    borderRadius: '5px',
+    boxShadow: shadows.long,
+    titleBackground: colors.grayLight,
+    titleColor: colors.black,
+    titleFont: fonts.brand,
+    titleFontWeight: 600,
+    titleFontSize: '0.9em',
+    titleTextTransform: 'uppercase',
+    titlePadding: '0.95em 1em 0.95em 1.5em',
+  }))
+  .createSelector();
 
 const Blocker = styled.div`
-  background: ${({ theme }) => theme.modal.blockerBG};
+  background: ${select('overlayBackground')};
   position: fixed;
   top: 0;
   left: 0;
@@ -18,31 +41,31 @@ const Blocker = styled.div`
 // content flex is `0 1 auto`: it won't grow beyond the content size, but can shrink if the window is too small
 // to show everything.
 const Content = styled.div`
-  background: ${({ theme }) => theme.modal.bg};
-  width: ${({ naturalWidth }) => naturalWidth};
-  max-width: ${({ theme }) => theme.modal.maxWidth};
-  min-width: ${({ theme }) => theme.modal.minWidth};
+  background: ${select('background')};
+  width: ${select('width')};
+  max-width: ${select('maxWidth')};
+  min-width: ${select('minWidth')};
   flex: 0 1 auto;
-  min-height: ${({ theme }) => theme.modal.minHeight};
-  max-height: ${({ theme }) => theme.modal.maxHeight};
-  margin: 180px auto auto auto;
+  min-height: ${select('minHeight')};
+  max-height: ${select('maxHeight')};
+  margin: ${select('distanceFromTop')} auto auto auto;
   display: flex;
   flex-direction: column;
-  border-radius: ${({ theme }) => theme.modal.borderRadius};
-  box-shadow: ${({ theme }) => theme.modal.shadow};
+  border-radius: ${select('borderRadius')};
+  box-shadow: ${select('shadow')};
   position: relative;
 `;
 
 const Title = styled.h3`
   display: block;
   margin: 0;
-  background: ${({ theme }) => theme.modal.titleBG};
-  color: ${({ theme }) => theme.modal.titleFG};
-  padding: .95em 1em .95em 1.5em;
-  font-family: ${({ theme }) => theme.modal.titleFontFamily};
-  font-size: ${({ theme }) => theme.modal.titleFontSize};
-  font-weight: ${({ theme }) => theme.modal.titleFontWeight};
-  text-transform: ${({ theme }) => theme.modal.titleTextTransform};
+  background: ${select('titleBackground')};
+  color: ${select('titleColor')};
+  padding: ${select('titlePadding')};
+  font-family: ${select('titleFontFamily')};
+  font-size: ${select('titleFontSize')};
+  font-weight: ${select('titleFontWeight')};
+  text-transform: ${select('titleTextTransform')};
 `;
 
 const ActionContent = styled.div`

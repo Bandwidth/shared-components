@@ -4,49 +4,73 @@ import styled from 'styled-components';
 import ExpandToggle from '../../behaviors/ExpandToggle';
 import Icon from '../Icon';
 import Group from './AccordionGroup';
+import theme from '../../theme';
+
+const select = theme
+  .register('Accordion', ({ colors, fonts, spacing }) => ({
+    border: `1px solid ${colors.border}`,
+    labelPadding: spacing.large,
+    labelColor: colors.primary,
+    labelFont: fonts.brand,
+    labelFontSize: '1.5em',
+    labelFontWeight: 400,
+    labelTextTransform: 'none',
+    iconColor: colors.black,
+    iconFontWeight: 100,
+    iconSize: '1.5em',
+    contentPadding: spacing.large,
+  })).addVariant('small', ({ spacing, colors }) => ({
+    labelPadding: spacing.medium,
+    labelColor: colors.black,
+    labelFontSize: '1em',
+    labelFontWeight: 600,
+    labelTextTransform: 'uppercase',
+    iconSize: '1em',
+    contentPadding: spacing.medium,
+  })).createSelector();
 
 export const Container = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  border: ${select('border')};
 `;
 
-const Label = styled.div`
-  padding: ${({ theme }) => theme.accordion.padding};
-  color: ${({ theme }) => theme.accordion.labelFG};
-  font-family: ${({ theme }) => theme.accordion.labelFontFamily};
-  font-size: ${({ theme }) => theme.accordion.labelFontSize};
-  text-transform: ${({ theme }) => theme.accordion.textTransform};
-  font-weight: ${({ theme }) => theme.accordion.labelFontWeight};
+const Label = theme.connect(styled.div`
+  padding: ${select('labelPadding')};
+  color: ${select('labelColor')};
+  font-family: ${select('labelFont')};
+  font-size: ${select('labelFontSize')};
+  text-transform: ${select('labelTextTransform')};
+  font-weight: ${select('labelFontWeight')};
   cursor: pointer;
   display: flex;
   flex-direction: row;
   user-select: none;
-`;
+`);
 
-const ModdedIcon = styled(Icon)`
-  color: #666;
+const AccordionExpandIcon = theme.connect(styled(Icon)`
+  color: ${select('iconColor')};
   margin: auto 1em auto auto;
   transform: ${({ isExpanded }) => isExpanded ? 'rotate(90deg)' : 'rotate(0)'};
   transition: 0.2s all ease;
-  font-weight: 100;
+  font-weight: ${select('iconFontWeight')};
 
   &:after {
     padding-top: 0;
     padding-bottom: 0;
-    font-size: ${({ theme }) => theme.accordion.iconFontSize};
+    font-size: ${select('iconSize')};
   }
-`;
+`);
 
-const LabelText = styled.span`
+const LabelText = theme.connect(styled.span`
   margin: auto;
   flex: 1;
-`;
+`);
 
-export const ContentPadding = styled.div`
-  padding: ${({ theme }) => theme.accordion.padding};
+export const ContentPadding = theme.connect(styled.div`
+  padding: ${select('contentPadding')};
   padding-top: 0;
   display: flex;
   flex-direction: column;
-`;
+`);
 
 /**
  * Accordion works like a controllable component. Provide the
@@ -105,7 +129,7 @@ class Accordion extends React.Component {
 
   renderLabel = (isExpanded) => (
     <Label onClick={this.handleToggle}>
-      <ModdedIcon isExpanded={isExpanded} name="forward" size={21} />
+      <AccordionExpandIcon isExpanded={isExpanded} name="forward" size={21} />
       <LabelText>{this.props.label}</LabelText>
     </Label>
   );
@@ -122,7 +146,7 @@ class Accordion extends React.Component {
           toggleContent={this.renderLabel}
           isExpanded={this.coalesceIsExpandedProps()}
         >
-          {children}
+          <ContentPadding>{children}</ContentPadding>
         </ExpandToggle>
       </Container>
     )
@@ -130,4 +154,5 @@ class Accordion extends React.Component {
 }
 
 Accordion.Group = Group;
+Accordion.Small = theme.variant('small')(Accordion);
 export default Accordion;

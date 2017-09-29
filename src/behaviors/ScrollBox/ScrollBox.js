@@ -39,7 +39,7 @@ const ScrollBox = styled.div.withConfig({ displayName: 'ScrollBox' })`
   }
 
   &::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.gutter};
+    background: #f3f3f3;
   }
 `;
 

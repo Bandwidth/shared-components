@@ -1,29 +1,57 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../theme';
 
-const Container = styled.div`
+const select = theme
+  .register('RadioGroupButton', ({ colors }) => ({
+    cornerRadius: '3px',
+    color: colors.black,
+    activeColor: colors.primary,
+    effectColor: colors.primary,
+    borderColor: colors.border,
+    activeBorderColor: colors.primary,
+    opacity: '0.5',
+    selectedOpacity: '1',
+    padding: '1em 1.4em',
+    background: colors.white,
+    effectHeight: '5px',
+    borderWidth: '1px',
+    hoverBorderColor: colors.primary,
+    activeHoverBorderColor: colors.borderLight,
+    fontSize: '1em',
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+  }))
+  .addVariant('small', {
+    fontSize: '0.8em',
+    padding: '0.8em 1em',
+    effectHeight: '2px',
+  })
+  .createSelector();
+
+const Container = theme.connect(styled.div`
   flex: 1 1 auto;
   position: relative;
 
   &:first-of-type > label {
-    border-radius: 3px 0 0 3px;
+    border-radius: ${select('cornerRadius')} 0 0 ${select('cornerRadius')};
   }
 
   &:first-of-type > label::after {
-    border-radius: 0 0 0 3px;
+    border-radius: 0 0 0 ${select('cornerRadius')};
   }
 
   &:last-of-type > label {
-    border-radius: 0 3px 3px 0;
+    border-radius: 0 ${select('cornerRadius')} ${select('cornerRadius')} 0;
   }
 
   &:last-of-type > label::after {
-    border-radius: 0 0 3px 0;
+    border-radius: 0 0 ${select('cornerRadius')} 0;
   }
-`;
+`);
 
-const Input = styled.input`
+const Input = theme.connect(styled.input`
   display: block;
   height: 0;
   width: 0;
@@ -33,49 +61,62 @@ const Input = styled.input`
   position: absolute;
   opacity: 0;
 
-  &:focus + label {
-    border-color: ${({ theme }) => theme.colors.primary};
+  &:hover + label {
+    border-color: ${select('hoverBorderColor')};
+    &::after {
+      height: ${select('effectHeight')};
+      opacity: ${select('opacity')};
+    }
   }
-`;
 
-const Label = styled.label`
-  opacity: ${({ active }) => active ? 1 : 0.5};
-  border: ${({ theme }) => theme.radioButton.border};
+  &:focus + label {
+    border-color: ${select('activeBorderColor')};
+  }
+
+  &:checked:hover + label {
+    border-color: ${select('activeHoverBorderColor')};
+  }
+
+  &:checked + label {
+    opacity: ${select('selectedOpacity')};
+    &::after {
+      height: ${select('effectHeight')};
+    }
+  }
+`);
+
+const Label = theme.connect(styled.label`
+  opacity: ${select('opacity')};
+  border-width: ${select('borderWidth')};
+  border-style: solid;
+  border-color: ${select('borderColor')};
   margin-right: -1px;
-  padding: ${({ theme }) => theme.radioButton.padding};
+  padding: ${select('padding')};
   cursor: pointer;
   position: relative;
   display: flex;
   flex-direction: column;
   align-content: flex-start;
-  background: ${({ theme }) => theme.radioButton.bg};
-  color: ${({ theme }) => theme.radioButton.fg};
+  background: ${select('background')};
+  color: ${select('color')};
   transition: opacity 0.2s ease;
-  text-transform: uppercase;
-  font-weight: bold;
+  text-transform: ${select('textTransform')};
+  font-weight: ${select('fontWeight')};
+  font-size: ${select('fontSize')};
   height: 100%;
 
   &::after {
     content: "";
-    background: ${({ theme }) => theme.radioButton.accent};
+    background: ${select('effectColor')};
     width: calc(100% + 2px);
-    height: ${({ active }) => active ? '5px' : 0};
+    height: 0;
     position: absolute;
     bottom: -1px;
     left: -1px;
     display: block;
     transition: height 0.2s ease, opacity 0.2s ease;
   }
-
-  &:hover::after {
-    height: 5px;
-    opacity: ${({ active }) => active ? 1 : 0.5};
-  }
-
-  &:hover {
-    border-color: ${({ active, theme }) => active ? theme.colors.borderLight : theme.colors.primary};
-  }
-`;
+`);
 
 const Content = styled.figure`
   font-size: 2em;
@@ -155,5 +196,7 @@ class RadioButton extends React.Component {
     );
   }
 }
+
+RadioButton.Small = theme.variant('small')(RadioButton);
 
 export default RadioButton;

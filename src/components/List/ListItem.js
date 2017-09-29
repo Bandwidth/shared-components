@@ -1,15 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../theme';
 
-const ListItemImpl = styled.li.withConfig({ displayName: 'ListItem' })`
-  margin: 0 0 0.5em 2em;
-  padding: 0;
+const select = theme
+  .register('ListItem', {
+    margin: '0 0 0.5em 2em',
+    padding: '0',
+    paragraphMargin: '0 0 0.5em',
+  })
+  .createSelector();
+
+const ListItemImpl = theme.connect(styled.li.withConfig({ displayName: 'ListItem' })`
+  margin: ${select('margin')};
+  padding: ${select('padding')};
 
   & p {
-    margin: 0 0 0.5em;
+    margin: ${select('paragraphMargin')};
   }
-`;
+`);
 
 const ListItem = ({children, ...rest}) => (
   <ListItemImpl {...rest}>{children}</ListItemImpl>
@@ -30,7 +39,5 @@ ListItem.defaultProps = {
   className: null,
   id: null,
 };
-
-ListItem.Styled = ListItemImpl;
 
 export default ListItem;

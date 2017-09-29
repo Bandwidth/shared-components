@@ -3,19 +3,31 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import NavigationItem from './NavigationItem';
 import Anchor from '../Anchor';
+import theme from '../../theme';
 
-export const Container = styled.div.withConfig({ displayName: 'NavigationItemsContainer' })`
+const select = theme
+  .register('NavigationItems', ({ spacing }) => ({
+    background: 'transparent',
+    color: 'inherit',
+    fontSize: '1em',
+    marginBottom: 'auto',
+    itemSpacing: spacing.large,
+  }))
+  .addVariant('small', { fontSize: '0.8em' })
+  .createSelector();
+
+export const Container = theme.connect(styled.div.withConfig({ displayName: 'NavigationItemsContainer' })`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 
-  background: ${({ theme }) => theme.tab.bg};
-  color: ${({ theme }) => theme.tab.fg};
-  font-size: ${({ theme }) => theme.tab.fontSize};
-  margin-bottom: ${({ theme }) => theme.tab.marginBottom};
+  background: ${select('background')};
+  color: ${select('color')};
+  font-size: ${select('fontSize')};
+  margin-bottom: ${select('marginBottom')};
 
   & > * {
-    margin: ${({ theme }) => theme.tab.margin};
+    margin-right: ${select('itemSpacing')};
   }
 
   & > *:last-of-type {
@@ -27,7 +39,7 @@ export const Container = styled.div.withConfig({ displayName: 'NavigationItemsCo
     color: inherit;
     text-decoration: none;
   }
-`;
+`);
 
 export const linksPropType = PropTypes.arrayOf(PropTypes.shape({
   to: PropTypes.string,
@@ -87,4 +99,5 @@ Helper to generate a list of navigation items.
 `
 
 NavigationItems.Item = NavigationItem;
+NavigationItems.Small = theme.variant('small', true)(NavigationItems);
 export default NavigationItems;

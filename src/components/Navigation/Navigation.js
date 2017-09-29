@@ -1,15 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
-import NavigationItems, { Container as ItemsContainer, linksPropType } from './NavigationItems';
+import NavigationItems, { linksPropType } from './NavigationItems';
 import LogoHeader from './LogoHeader';
 import theme from '../../theme';
 
-const Container = styled.header.withConfig({ displayName: 'NavigationContainer' })`
-  background: ${({ theme }) => theme.topNav.bg};
-  color: ${({ theme }) => theme.topNav.fg};
-  border-bottom: 1px solid ${({ theme }) => theme.shadow.color};
-  padding: ${({ theme }) => theme.topNav.padding};
+const select = theme
+  .register('Navigation', ({ colors, spacing, shadows }) => ({
+    background: colors.secondary,
+    color: colors.white,
+    borderWidth: '1px',
+    borderColor: colors.shadow,
+    padding: `0 ${spacing.large}`,
+  }))
+  .createSelector();
+
+const Container = theme.connect(styled.header.withConfig({ displayName: 'NavigationContainer' })`
+  background: ${select('background')};
+  color: ${select('color')};
+  border-bottom: ${select('borderWidth')} solid ${select('borderColor')};
+  padding: ${select('padding')};
   display: flex;
   flex-shrink: 0;
   justify-content: space-between;
@@ -17,9 +27,9 @@ const Container = styled.header.withConfig({ displayName: 'NavigationContainer' 
 
   /* we don't want the nav to expand or collapse, just keep its natural size */
   flex: 0 0 auto;
-`;
+`);
 
-const Links = styled.div.withConfig({ displayName: 'NavigationLinks' })`
+const Links = theme.connect(styled.div.withConfig({ displayName: 'NavigationLinks' })`
   align-self: flex-end;
   display: flex;
   flex-direction: column;
@@ -27,11 +37,7 @@ const Links = styled.div.withConfig({ displayName: 'NavigationLinks' })`
   & > div {
     margin-top: auto;
   }
-
-  & > ${ItemsContainer}:nth-child(2) ${NavigationItems.Item} {
-    padding-top: 10px !important;
-  }
-`;
+`);
 
 
 class Navigation extends React.Component {
@@ -76,9 +82,7 @@ class Navigation extends React.Component {
         </RenderIf>
         <Links>
           <RenderIf val={topLinks}>
-            <ThemeProvider theme={theme.small}>
-              <NavigationItems links={topLinks} />
-            </ThemeProvider>
+            <NavigationItems.Small links={topLinks} />
           </RenderIf>
           <NavigationItems links={links} />
         </Links>
@@ -86,23 +90,5 @@ class Navigation extends React.Component {
     );
   }
 }
-
-Navigation.usage = `
-The header above a page which contains page title and navigation.
-
-\`\`\`
-<Navigation
-  title="Bandwidth App"
-  links={[
-    { to: '/cat', exact: true, content: 'Cat' },
-    { to: '/anotherCat', content: 'Another Cat' },
-  ]}
-  topLinks={[
-    { to: '/submitCat', content: 'Submit Cat' },
-    { to: '/logout', content: 'Log Out' },
-  ]}
-/>
-\`\`\`
-`;
 
 export default Navigation;

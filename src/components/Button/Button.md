@@ -9,5 +9,5 @@ Change the color with themes, not on the button itself!
 
 **Button with secondary theme applied**
 ```
-<Button.Example2 />
+<Button.Secondary>Secondary</Button.Secondary>
 ```

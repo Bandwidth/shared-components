@@ -1,33 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Header from '../Header';
+import Header from '../Heading';
 import Anchor from '../Anchor';
-import Icon from '../Icon';
+import BaseIcon from '../Icon';
+import theme from '../../theme';
 
-const Buttons = styled.div``;
+const select = theme
+  .register('TableControls', ({ spacing }) => ({
+    margin: `0 0 ${spacing.medium} 0`,
+    controlsMargin: `0 0 ${spacing.small} 0`,
+    controlSpacing: spacing.medium,
+  }))
+  .createSelector();
 
-const Container = styled.div`
-  margin-bottom: ${({ theme }) => theme.padding.medium};
-`;
+const Container = theme.connect(styled.div`
+  margin: ${select('margin')};
+`);
 
-const ControlsRow = styled.div`
+const ControlsRow = theme.connect(styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: ${({ theme }) => theme.padding.small};
+  margin: ${select('controlsMargin')};
 
-  & > ${Header.Styled} {
+  & > h1 {
     flex: 1;
     margin: 0;
   }
 
-  & > ${Buttons} {
+  & > div {
     flex: 0 0 auto;
     & > a {
-      margin-left: ${({ theme }) => theme.padding.medium};
+      margin-left: ${select('controlSpacing')};
     }
   }
-`;
+`);
+
+theme.registerVariant('Icon', 'tableControls', {
+  size: '21px',
+});
+
+const Icon = theme.variant('tableControls', true)(BaseIcon);
 
 class TableControls extends React.Component {
   static propTypes = {
@@ -108,46 +121,28 @@ class TableControls extends React.Component {
       <Container>
         <ControlsRow id={id} className={className}>
           <Header>{title}</Header>
-          <Buttons>
+          <div>
             {
               enableAdd ?
-                <Anchor onClick={onAdd} type="icon"><Icon size="21px" name="plusMath" /></Anchor> :
+                <Anchor onClick={onAdd} type="icon"><Icon name="plusMath" /></Anchor> :
                 null
             }
             {
               enableSearch ?
-                <Anchor onClick={onSearch} type="icon"><Icon size="21px" name="search" /></Anchor> :
+                <Anchor onClick={onSearch} type="icon"><Icon name="search" /></Anchor> :
                 null
             }
             {
               enableDelete ?
-                <Anchor onClick={onDelete} type="icon"><Icon size="21px" name="trash" /></Anchor> :
+                <Anchor onClick={onDelete} type="icon"><Icon name="trash" /></Anchor> :
                 null
             }
-          </Buttons>
+          </div>
         </ControlsRow>
         {children}
       </Container>
     )
   }
 }
-
-TableControls.usage = `
-Generally sits above a table. Standardized format of the table name and some common controls.
-
-\`\`\`
-<TableControls
-  title="Sample Table"
-  enableAdd
-  enableDelete
-  enableSearch
-  onAdd={...}
-  onDelete={...}
-  onSearch={...}
->
-  Some extra top row content
-</TableControls>
-\`\`\`
-`;
 
 export default TableControls;

@@ -2,10 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import formatMoney from '../../extensions/formatMoney';
+import theme from '../../theme';
 
-const Figure = styled.span`
-  color: ${({ positive, theme }) => positive ? theme.colors.positiveText : theme.colors.negativeText };
-`;
+const selector = theme
+  .register('Money', ({ colors }) => ({
+    positiveColor: colors.positiveText,
+    negativeColor: colors.negativeText,
+    neutralColor: 'inherit',
+  }))
+  .createSelector();
+
+const Figure = theme.connect(styled.span`
+  color: ${(props) => {
+    if (props.value > 0) {
+      return selector('positiveColor')(props);
+    } else if (props.value < 0) {
+      return selector('negativeColor')(props);
+    }
+
+    return selector('neutralColor')(props);
+  }};
+`);
 
 class Money extends React.Component {
   static propTypes = {
@@ -42,7 +59,7 @@ class Money extends React.Component {
   render() {
     const { value, showSign, id, className } = this.props;
     return (
-      <Figure positive={value >= 0} id={id} className={className}>
+      <Figure value={value} id={id} className={className}>
         {showSign ? this.getSign(value) : null}
         {/* sign is already present, so remove it from the formatted number */}
         ${formatMoney(value).replace('-', '')}

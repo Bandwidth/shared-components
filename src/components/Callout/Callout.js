@@ -1,6 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
+
+const select = theme
+  .register('Callout', ({ colors, spacing, shadows }) => ({
+    background: colors.white,
+    color: 'inherit',
+    padding: `${spacing.small} ${spacing.medium}`,
+    borderRadius: '3px',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: colors.border,
+    boxShadow: shadows.medium,
+    maxWidth: '300px',
+  }))
+  .createSelector();
 
 const Container = styled.div`
   position: relative;
@@ -17,15 +33,10 @@ const openAnimation = keyframes`
 `;
 
 const Flyout = styled.div`
+  ${spreadStyles(select)}
+
   position: absolute;
   z-index: 1;
-  max-width: ${({ theme }) => theme.callout.maxWidth};
-  background: ${({ theme }) => theme.callout.bg};
-  color: ${({ theme }) => theme.callout.fg};
-  padding: ${({ theme }) => theme.callout.padding};
-  border-radius: ${({ theme }) => theme.callout.borderRadius};
-  border: ${({ theme }) => theme.callout.border};
-  box-shadow: ${({ theme }) => theme.callout.shadow};
   left: 100%;
   top: 50%;
   transform: translateX(10px) translateY(-50%);

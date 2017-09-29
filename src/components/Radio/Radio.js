@@ -3,50 +3,70 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import icons from '../Icon/icons';
 import generateId from '../../extensions/generateId';
+import theme from '../../theme';
 
-const SIZE = '1.3em';
+const select = theme
+  .register('Radio', ({ colors, shadows }) => ({
+    bubbleBackground: colors.secondary,
+    bubbleActiveBackground: colors.primary,
+    checkColor: colors.white,
+    bubbleBorderColor: colors.secondary,
+    bubbleBorderWidth: '2px',
+    focusShadow: shadows.focusOutline,
+    disabledTextColor: colors.grayLightText,
+    disabledOpacity: '0.5',
+    bubbleSize: '1.3em',
+    textPadding: '0.2em 0 0.2em 2.1em',
+    lineHeight: '1.5em',
+  }))
+  .createSelector();
 
-const RadioInput = styled.input`
-  display: none;
+const RadioInput = theme.connect(styled.input`
+  opacity: 0;
+  position: absolute;
+  z-index: -1000000;
 
   &:active:not(:disabled) + label::after {
-    border-color: ${({ theme }) => theme.colors.primary};
+    border-color: ${select('bubbleBorderColor')};
+  }
+  &:checked:not(:disabled) + label::after {
+    background: ${select('bubbleBackground')};
   }
   &:checked:active:not(:disabled) + label::after {
-    background: ${({ theme }) => theme.colors.primary};
+    background: ${select('bubbleActiveBackground')};
   }
   &:focus:not(:hover) + label::after {
-    box-shadow: ${({ theme }) => theme.shadows.focusOutline};
+    box-shadow: ${select('focusShadow')};
   }
   &:disabled + label {
-    opacity: 0.5;
+    opacity: ${select('disabledOpacity')};
     cursor: default;
   }
   &:disabled + label::before {
-    color: ${({ theme }) => theme.colors.grayLightText};
+    color: ${select('disabledTextColor')};
   }
-`;
+`);
 
-const RadioLabel = styled.label`
+const RadioLabel = theme.connect(styled.label`
   display: block;
   cursor: pointer;
   position: relative;
-  padding: 0.2em 0 0.2em 2.1em;
-  line-height: 1.5em;
+  padding: ${select('textPadding')};
+  line-height: ${select('lineHeight')};
 
   /* the check */
 
   &::before {
     content: ${({ checked }) => checked ? `"${icons('checkmark')}"` : '""'};
-    color: ${({ theme }) => theme.colors.white};
+    color: ${select('checkColor')};
     font-family: "Bandwidth";
     text-align: center;
-    width: ${SIZE};
-    height: ${SIZE};
+    width: ${select('bubbleSize')};
+    height: ${select('bubbleSize')};
     display: block;
     position: absolute;
     top: 50%;
-    left: calc(${SIZE} / 2);
+    left: calc(${select('bubbleSize')} / 2);
     transform: translate(-50%, -50%);
     z-index: 1;
   }
@@ -55,19 +75,18 @@ const RadioLabel = styled.label`
 
   &::after {
     content: "";
-    background: ${({ checked, theme }) => checked ? theme.colors.secondary : theme.colors.white};
-    border: 2px solid ${({ theme }) => theme.colors.secondary};
+    border: ${select('bubbleBorderWidth')} solid ${select('bubbleBorderColor')};
     border-radius: 100%;
-    width: ${SIZE};
-    height: ${SIZE};
+    width: ${select('bubbleSize')};
+    height: ${select('bubbleSize')};
     display: block;
     position: absolute;
     top: 50%;
-    left: calc(${SIZE} / 2);
+    left: calc(${select('bubbleSize')} / 2);
     transform: translate(-50%, -50%);
     transition: all 0.2s ease;
   }
-`;
+`);
 
 const Container = styled.div`
   display: block;

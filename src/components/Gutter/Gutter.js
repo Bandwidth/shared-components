@@ -1,10 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../theme';
 
-const GutterImpl = styled.div.withConfig({ displayName: 'Gutter' })`
-  background: ${({ theme }) => theme.colors.gutter};
-`;
+const select = theme
+  .register('Gutter', ({ colors }) => ({
+    background: colors.grayLight,
+  }))
+  .createSelector();
+
+const GutterImpl = theme.connect(styled.div.withConfig({ displayName: 'Gutter' })`
+  background: ${select('background')};
+`);
 
 const Gutter = ({children, ...rest}) => (
   <GutterImpl {...rest}>{children}</GutterImpl>

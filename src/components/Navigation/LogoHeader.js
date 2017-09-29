@@ -2,24 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Logo from '../Logo';
 import styled from 'styled-components';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
 
-const Container = styled.div`
+const select = theme
+  .register('LogoHeader', ({ fonts }) => ({
+    fontFamily: fonts.brand,
+    fontSize: '22px',
+    fontWeight: 100,
+    lineWidth: '1px',
+    lineSpacing: '0.5em',
+    height: '30px',
+    lineHeight: '30px',
+  }))
+  .createSelector();
+
+const Container = theme.connect(styled.div`
   margin: auto 0;
   display: flex;
   flex-direction: row;
-`;
+`);
 
-const Text = styled.span`
-  font-size: 22px;
-  font-weight: 100;
-  line-height: 30px;
-  border-left: 1px solid;
-  margin-left: 0.5em;
-  padding-left: 0.5em;
-  height: 30px;
+const Text = theme.connect(styled.span`
+  ${spreadStyles(select)}
+  border-left: ${select('lineWidth')} solid;
+  margin-left: ${select('lineSpacing')};
+  padding-left: ${select('lineSpacing')};
   display: inline-block;
-  font-family: ${({ theme }) => theme.fonts.brand};
-`;
+`);
 
 class LogoHeader extends React.Component {
   static propTypes = {

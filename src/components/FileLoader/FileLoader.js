@@ -3,24 +3,23 @@ import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
 import styled from 'styled-components';
 import Icon from '../Icon';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
 
-const DropArea = styled.div`
-  border: ${({ theme }) => theme.input.border};
-  padding: ${({ theme }) => theme.input.padding};
-  font-size: ${({ theme }) => theme.input.fontSize};
-  font-family: ${({ theme }) => theme.input.fontFamily};
-  line-height: ${({ theme }) => theme.input.lineHeight};
-  background: ${({ theme }) => theme.input.bg};
-  color: ${({ theme }) => theme.input.fg};
+const select = theme.createSelector('Input');
+
+const DropArea = theme.connect(styled.div`
+  ${spreadStyles(select)}
+
   width: 100%;
   display: flex;
   flex-direction: row;
   cursor: pointer;
-`;
+`);
 
-const Preview = styled.div`
+const Preview = theme.connect(styled.div`
   margin: auto auto auto 16px;
-`;
+`);
 
 class FileLoader extends React.Component {
   static propTypes = {

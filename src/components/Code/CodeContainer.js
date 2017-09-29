@@ -1,23 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { CodeWrapper } from './CodeBlock';
+import CodeBlock from './CodeBlock';
+import theme from '../../theme';
 
-const Container = styled.div`
+const select = theme
+  .register('CodeContainer', ({ colors }) => ({
+    layoutDirection: 'column',
+    background: colors.grayDark,
+    padding: '2em',
+    color: colors.white,
+  }))
+  .createSelector();
+
+const Container = theme.connect(styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${select('layoutDirection')};
   padding: 0;
-`;
+`);
 
-const Content = styled.div`
-  background: ${({ theme }) => theme.code.bg};
-  padding: ${({ theme }) => theme.code.padding};
-  color: ${({ theme }) => theme.code.fg};
+const Content = theme.connect(styled.div`
+  background: ${select('background')};
+  padding: ${select('padding')};
+  color: ${select('color')};
+`);
 
-  & > ${CodeWrapper} {
-    padding: 0;
-  }
-`;
+// defining a variant of codeblock without padding to use inside the container
+theme.registerVariant('CodeBlock', 'disablePadding', { padding: '0' });
 
 class CodeContainer extends React.Component {
   static propTypes = {
@@ -59,4 +68,4 @@ class CodeContainer extends React.Component {
 }
 
 
-export default CodeContainer;
+export default theme.variant('disablePadding')(CodeContainer);

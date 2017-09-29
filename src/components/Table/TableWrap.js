@@ -2,31 +2,43 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import _ from 'lodash';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
+
+const select = theme
+  .register('TableWrap', ({ colors }) => ({
+    background: colors.white,
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: colors.border,
+    borderRadius: '5px 5px 0 0',
+    fontSize: '1em',
+    shadowColor: colors.shadow,
+  }))
+  .createSelector();
 
 const WrapStyles = styled.div`
+  ${spreadStyles(select)}
   width: 100%;
-  background: ${({ theme }) => theme.table.bg};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: 5px 5px 0 0;
   overflow-x: auto;
   position: relative;
-  font-size: ${({ theme }) => theme.table.fontSize};
 
-  ${({ shadow }) => {
-    switch (shadow) {
+  ${(props) => {
+    const shadowColor = select('shadowColor')(props);
+    switch (props.shadow) {
       case 'left':
-        return 'box-shadow: inset 15px 0 10px -10px rgba(0,0,0,0.2);';
+        return `box-shadow: inset 15px 0 10px -10px ${shadowColor}};`;
       case 'right':
-        return 'box-shadow: inset -15px 0 10px -10px rgba(0,0,0,0.2);';
+        return `box-shadow: inset -15px 0 10px -10px ${shadowColor};`;
       case 'both':
-        return 'box-shadow: inset -15px 0 10px -10px rgba(0,0,0,.2), inset 15px 0 10px -10px rgba(0,0,0,.2);';
+        return `box-shadow: inset -15px 0 10px -10px ${shadowColor}, inset 15px 0 10px -10px ${shadowColor};`;
       default:
         return '';
     }
   }}
 `;
 
-class Wrap extends React.Component {
+class TableWrap extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
   };
@@ -93,4 +105,4 @@ class Wrap extends React.Component {
   }
 }
 
-export default Wrap;
+export default TableWrap;

@@ -2,57 +2,76 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import Anchor from '../Anchor';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
 
-const StyledInput = styled.input`
-  color: ${({ theme }) => theme.colors.black};
-  background: ${({ theme }) => theme.colors.white};
-  letter-spacing: 0.02em;
-  line-height: ${({ theme }) => theme.input.lineHeight};
-  font-size: ${({ theme }) => theme.input.fontSize};
-  font-family: ${({ theme }) => theme.input.fontFamily};
-  transition: all 0.2s ease;
+const select = theme
+  .register('Input', ({ colors, fonts, spacing, shadows }) => ({
+    color: colors.black,
+    background: colors.white,
+    letterSpacing: '0.02em',
+    lineHeight: '1.5',
+    fontSize: '14px',
+    fontFamily: fonts.brand,
+    transition: 'all 0.2s ease',
+    padding: spacing.medium,
+    display: 'block',
+    borderColor: colors.borderLight,
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    focusBorderColor: colors.border,
+    validEffectColor: colors.primaryLight,
+    invalidEffectColor: colors.errorBackgroundLight,
+    invalidBorderColor: colors.errorBorder,
+    disabledBackground: colors.disabled,
+    disabledBorderColor: colors.border,
+    disabledColor: colors.black,
+    disabledOpacity: '0.5',
+    placeholderOpacity: '0.5',
+  }))
+  .addVariant('small', ({ spacing }) => ({ fontSize: '12px', padding: spacing.small }))
+  .createSelector();
+
+const StyledInput = theme.connect(styled.input`
+  ${spreadStyles(select)}
+
   outline: none;
   width: 100%;
-  padding: ${({ theme }) => theme.padding.medium};
-  display: block;
-  border: ${({ theme }) => theme.input.border};
 
 
   &:focus {
-    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.colors.primaryLight};
-    border: 1px solid ${({ theme }) => theme.colors.border};
-  }
-  &:focus + div {
-    opacity: 1;
+    box-shadow: inset 0 -5px 0 ${select('validEffectColor')};
+    border: 1px solid ${select('focusBorderColor')};
   }
 
   &:disabled {
-    background: ${({ theme }) => theme.colors.disabled};
-    border: 1px solid ${({ theme }) => theme.colors.border};
-    opacity: 0.5;
+    background: ${select('disabledBackground')};
+    border-color: ${select('disabledBorderColor')};
+    opacity: ${select('disabledOpacity')};
+    color: ${select('disabledColor')};
   }
 
   &::placeholder {
-    opacity: 0.5;
+    opacity: ${select('placeholderOpacity')};
   }
 
   ${({ visited, theme }) => visited ?
     css`
       &:invalid {
-        box-shadow: inset 0 -5px 0 ${theme.colors.errorBackgroundLight};
-        border: 1px solid ${theme.colors.errorBorder};
+        box-shadow: inset 0 -5px 0 ${select('invalidEffectColor')};
+        border-color: ${select('invalidBorderColor')};
       }
     ` : ''
   }
 
   ${({ invalid, error, theme }) => invalid || error ?
     `
-    box-shadow: inset 0 -5px ${theme.colors.errorBackgroundLight};
-    border: 1px solid ${theme.colors.errorBorder};
+    box-shadow: inset 0 -5px ${select('invalidEffectColor')};
+    border-color: ${select('invalidBorderColor')};
     ` :
     ''
   }
-`;
+`);
 
 const RevealPasswordContainer = styled.div`
   position: relative;
@@ -60,7 +79,7 @@ const RevealPasswordContainer = styled.div`
 
   div {
     position: absolute;
-    right: 10px; 
+    right: 10px;
     top: 25%;
     z-index: 10;
   }
@@ -187,7 +206,7 @@ class Input extends React.Component {
               {this.state._type === 'password' ? 'Show' : 'Hide'}
             </Anchor>
           </div>
-          {this.renderInputField()}          
+          {this.renderInputField()}
       </RevealPasswordContainer>
     )
   }
@@ -209,7 +228,7 @@ class Input extends React.Component {
     } = this.props;
 
     const { visited, _type:type } = this.state;
-    
+
     return (
       <StyledInput
           onBlur={this.onBlur}
@@ -229,10 +248,10 @@ class Input extends React.Component {
         />
         )
   }
-    
+
 
   render() {
-    
+
     const { type, disableShowPassword } = this.props;
 
     if ( type === 'password' && !disableShowPassword) {
@@ -242,5 +261,7 @@ class Input extends React.Component {
     return this.renderInputField();
   }
 }
+
+Input.Small = theme.variant('small')(Input);
 
 export default Input;
