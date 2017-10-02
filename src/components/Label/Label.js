@@ -18,7 +18,7 @@ const select = theme
   }))
   .createSelector();
 
-const LabelImpl = styled.label.withConfig({ displayName: 'Label' })`
+const LabelImpl = theme.connect(styled.label.withConfig({ displayName: 'Label' })`
   ${spreadStyles(select)}
   display: block;
 
@@ -37,13 +37,13 @@ const LabelImpl = styled.label.withConfig({ displayName: 'Label' })`
       ` :
       ''
   }
-`;
+`);
 
 const Label = ({children, ...rest}) => (
   <LabelImpl {...rest}>{children}</LabelImpl>
 )
 
-Label.propTypes = {
+Label.propTypes = LabelImpl.propTypes = {
   /**
    * Styles the label to indicate that the associated field is disabled.
    */
@@ -58,12 +58,12 @@ Label.propTypes = {
   id: PropTypes.string,
 };
 
-Label.defaultProps = {
+Label.defaultProps = LabelImpl.propTypes = {
   disabled: false,
   className: null,
   id: null,
 };
 
-Label.Styled = LabelImpl;
+LabelImpl.Styled = LabelImpl.WrappedComponent;
 
-export default Label;
+export default LabelImpl;

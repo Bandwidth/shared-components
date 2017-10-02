@@ -15,7 +15,7 @@ const select = theme
     textTransform: 'uppercase',
     background: colors.primary,
     borderColor: colors.primary,
-    borderThickness: '1px',
+    borderWidth: '1px',
     borderStyle: 'solid',
     color: colors.white,
     borderRadius: '3em',
@@ -136,6 +136,6 @@ Button.defaultProps = {
 
 Button.Submit = SubmitButton;
 Button.Secondary = theme.variant('secondary')(Button);
-Button.Styled = ButtonImpl;
+Button.Styled = ButtonImpl.WrappedComponent;
 
 export default Button;

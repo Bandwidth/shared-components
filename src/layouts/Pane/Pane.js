@@ -1,22 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Header from '../../components/Header';
+import Heading from '../../components/Heading';
 import Column from './PaneColumn';
 import Content from './PaneContent';
 import Layout from './PaneLayout';
 import Row from './PaneRow';
 import Section from './PaneSection';
+import theme from '../../theme';
 
-const Container = styled.article`
+const select = theme
+  .register('Pane', ({ spacing }) => ({
+    headerPadding: `0 ${spacing.large} ${spacing.large} ${spacing.large}`,
+  }))
+  .createSelector();
+
+const Container = theme.connect(styled.article`
   display: flex;
   flex-direction: column;
   flex: 1 1;
-`;
 
-const PaddedHeader = styled(Header)`
-  padding: 0 30px 30px 30px;
-`;
+  & > h1, & > h2, & > h3, & > h4, & > h5 {
+    padding: ${select('headerPadding')};
+  }
+`);
 
 class Pane extends React.Component {
   static propTypes = {
@@ -49,7 +56,7 @@ class Pane extends React.Component {
 
     return (
       <Container className={className} id={id}>
-        {title ? <PaddedHeader>{title}</PaddedHeader> : null}
+        {title ? <Heading>{title}</Heading> : null}
         {children}
       </Container>
     );

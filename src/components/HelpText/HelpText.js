@@ -24,7 +24,7 @@ const HelpText = ({children, ...rest}) => (
   <HelpTextImpl {...rest}>{children}</HelpTextImpl>
 )
 
-HelpText.propTypes = {
+HelpText.propTypes = HelpTextImpl.propTypes = {
   /**
    * Adds a class name to the element.
    */
@@ -39,11 +39,11 @@ HelpText.propTypes = {
   error: PropTypes.bool,
 };
 
-HelpText.defaultProps = {
+HelpText.defaultProps = HelpTextImpl.defaultProps = {
   className: null,
   id: null,
 };
 
-HelpText.Styled = HelpTextImpl;
+HelpTextImpl.Styled = HelpTextImpl.WrappedComponent;
 
-export default HelpText;
+export default HelpTextImpl;
