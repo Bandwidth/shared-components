@@ -1,1 +1,2 @@
-// Tabs is not yet implemented. Create it and submit a PR!
+export default from './Tabs';
+export Tab from './Tab';

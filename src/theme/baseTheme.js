@@ -383,4 +383,10 @@ export default {
     border: `1px solid ${colors.border}`,
     shadow: shadows.default,
   },
+
+  tabs: {
+    bg: colors.white,
+    border: `1px solid ${colors.border}`,
+    padding: '1em 1.4em',
+  },
 };
