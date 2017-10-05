@@ -66,7 +66,7 @@ class SubmitButton extends React.Component {
       return <span>{pristineContents}</span>;
     }
     if (loading) {
-      return <Loader size="1em" />
+      return <Loader size="14px" />
     }
 
     return children;
@@ -89,9 +89,5 @@ class SubmitButton extends React.Component {
     )
   }
 }
-
-SubmitButton.usage = `
-
-`;
 
 export default SubmitButton;

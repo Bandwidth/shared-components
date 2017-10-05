@@ -1,3 +1,8 @@
+```
+const theme = require('../../theme').default;
+theme.renderDocumentation('OrderedList');
+```
+
 A basic numbered list. Fill with `Item` elements.
 
 ```javascript

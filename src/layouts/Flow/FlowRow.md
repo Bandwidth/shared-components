@@ -1,5 +1,9 @@
-Flow.Row is designed to be used with 2 children:
+```
+const theme = require('../../theme').default;
+theme.renderDocumentation('FlowRow');
+```
 
+Flow.Row is designed to be used with 2 children:
 
 ```
 const Flow = require('./index').default;

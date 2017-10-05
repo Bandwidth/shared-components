@@ -6,19 +6,27 @@ import theme from '../../theme';
 const select = theme
   .register('RadioGroupButton', ({ colors }) => ({
     cornerRadius: '3px',
-    color: colors.black,
-    activeColor: colors.primary,
-    effectColor: colors.primary,
-    borderColor: colors.border,
-    activeBorderColor: colors.primary,
-    opacity: '0.5',
-    selectedOpacity: '1',
+    colors: {
+      default: colors.black,
+      selected: colors.primary,
+      hover: colors.black,
+    },
+    borderColors: {
+      default: colors.border,
+      hover: colors.primary,
+      selected: colors.primary,
+      hover: colors.primary,
+      selectedHover: colors.borderLight,
+    },
+    opacities: {
+      default: 0.5,
+      selected: 1,
+    },
     padding: '1em 1.4em',
     background: colors.white,
+    effectColor: colors.primary,
     effectHeight: '5px',
     borderWidth: '1px',
-    hoverBorderColor: colors.primary,
-    activeHoverBorderColor: colors.borderLight,
     fontSize: '1em',
     fontWeight: 'bold',
     textTransform: 'uppercase',
@@ -62,23 +70,23 @@ const Input = theme.connect(styled.input`
   opacity: 0;
 
   &:hover + label {
-    border-color: ${select('hoverBorderColor')};
+    border-color: ${select('borderColors.hover')};
     &::after {
       height: ${select('effectHeight')};
-      opacity: ${select('opacity')};
+      opacity: ${select('opacities.default')};
     }
   }
 
   &:focus + label {
-    border-color: ${select('activeBorderColor')};
+    border-color: ${select('borderColors.focus')};
   }
 
   &:checked:hover + label {
-    border-color: ${select('activeHoverBorderColor')};
+    border-color: ${select('borderColors.selected')};
   }
 
   &:checked + label {
-    opacity: ${select('selectedOpacity')};
+    opacity: ${select('opacities.selected')};
     &::after {
       height: ${select('effectHeight')};
     }
@@ -86,10 +94,10 @@ const Input = theme.connect(styled.input`
 `);
 
 const Label = theme.connect(styled.label`
-  opacity: ${select('opacity')};
+  opacity: ${select('opacities.default')};
   border-width: ${select('borderWidth')};
   border-style: solid;
-  border-color: ${select('borderColor')};
+  border-color: ${select('borderColors.default')};
   margin-right: -1px;
   padding: ${select('padding')};
   cursor: pointer;
@@ -98,7 +106,7 @@ const Label = theme.connect(styled.label`
   flex-direction: column;
   align-content: flex-start;
   background: ${select('background')};
-  color: ${select('color')};
+  color: ${select('colors.default')};
   transition: opacity 0.2s ease;
   text-transform: ${select('textTransform')};
   font-weight: ${select('fontWeight')};

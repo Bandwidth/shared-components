@@ -1,3 +1,8 @@
+```
+const theme = require('../../theme').default;
+theme.renderDocumentation('FlowItem');
+```
+
 Flow.Item can be used without any customization just for its layout benefits in the Flow system:
 
 ```

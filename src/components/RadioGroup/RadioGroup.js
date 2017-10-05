@@ -55,13 +55,6 @@ class RadioGroup extends React.Component {
      * Adds an id to the group container element.
      */
     id: PropTypes.string,
-    /**
-     * Deprecated: see options
-     */
-    choices: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.string),
-      PropTypes.objectOf(PropTypes.node),
-    ]),
   };
 
   static defaultProps = {
@@ -75,7 +68,7 @@ class RadioGroup extends React.Component {
   getOptions = () => this.props.options || this.props.choices;
 
   optionsToButtons = () => {
-    const { value, onChange, disabled, required } = this.props;
+    const { value, onChange, disabled, required, name } = this.props;
     const options = this.getOptions();
     if (options instanceof Array) {
       return options.map((choice) => (

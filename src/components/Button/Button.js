@@ -7,39 +7,81 @@ import theme from '../../theme';
 import { spreadStyles } from 'react-studs';
 
 const select = theme
-  .register('Button', ({ colors, fonts, spacing, shadows }) => ({
+  .register('Button', ({ colors, fonts, shadows }) => ({
     fontSize: '0.8em',
     textDecoration: 'none',
     fontWeight: 700,
     fontFamily: fonts.brand,
     textTransform: 'uppercase',
-    background: colors.primary,
-    borderColor: colors.primary,
     borderWidth: '1px',
     borderStyle: 'solid',
-    color: colors.white,
     borderRadius: '3em',
-    padding: '12px 40px',
+    backgrounds: {
+      default: colors.primary,
+      hover: colors.primaryDark,
+      focus: colors.primaryDark,
+      disabled: colors.disabled,
+    },
+    colors: {
+      default: colors.white,
+      hover: colors.white,
+      focus: colors.white,
+      disabled: colors.black,
+    },
+    borderColors: {
+      default: colors.primary,
+      hover: colors.primaryDark,
+      focus: colors.primaryDark,
+      disabled: colors.disabled,
+    },
+    // these are 2px less than design system values because
+    // all buttons in the SCL have a 1px border for consistency
+    padding: '11px 38px',
     display: 'inline-block',
     lineHeight: 'normal',
     whiteSpace: 'nowrap',
-    activeBackground: colors.primaryDark,
-    activeColor: colors.white,
-    activeShadow: shadows.short,
-    disabledBackground: colors.disabled,
-    disabledColor: colors.black,
-    disabledBorderColor: colors.disabled,
+    hoverShadow: shadows.short,
   }))
   .addVariant('secondary', ({ colors }) => ({
-    borderColor: colors.secondary,
-    background: 'transparent',
-    color: colors.secondary,
-    activeBackground: colors.secondary,
+    borderColors: {
+      default: colors.secondary,
+      hover: colors.secondary,
+    },
+    backgrounds: {
+      default: 'transparent',
+      hover: colors.secondary,
+    },
+    colors: {
+      default: colors.secondary,
+    },
+  }))
+  .addVariant('danger', ({ colors }) => ({
+    borderColors: {
+      default: colors.error,
+      hover: colors.errorBackground,
+      focus: colors.errorBackground,
+    },
+    backgrounds: {
+      default: colors.error,
+      hover: colors.errorBackground,
+      focus: colors.errorBackground,
+    },
+  }))
+  .addVariant('small', {
+    padding: '9px 28px',
+    fontSize: '0.6em',
+  })
+  .addVariant('large', ({ spacing }) => ({
+    padding: `${spacing.medium} ${spacing.extraLarge}`,
+    fontSize: '0.8em',
   }))
   .createSelector();
 
 const ButtonImpl = theme.connect(styled.button`
   ${spreadStyles(select)}
+  background: ${select('backgrounds.default')};
+  color: ${select('colors.default')};
+  border-color: ${select('borderColors.default')};
 
   vertical-align: middle;
   text-align: center;
@@ -53,19 +95,23 @@ const ButtonImpl = theme.connect(styled.button`
   position: relative;
   overflow: hidden;
 
-  &:hover:not(:disabled), &:focus {
-    background-color: ${select('activeBackground')};
-    border-color: ${select('activeBackground')};
-    color: ${select('activeColor')};
-    box-shadow: ${select('activeShadow')};
+  &:hover:not(:disabled) {
+    background-color: ${select('backgrounds.hover')};
+    border-color: ${select('backgrounds.hover')};
+    color: ${select('colors.hover')};
+    box-shadow: ${select('hoverShadow')};
+  }
+
+  &:focus:not(:disabled) {
+    background-color: ${select('backgrounds.focus')};
+    border-color: ${select('backgrounds.focus')};
+    color: ${select('colors.focus')};
   }
 
   &:disabled {
-    background: ${select('disabledBackground')};
-    color: ${select('disabledColor')};
-    border-width: ${select('borderWidth')};
-    border-style: ${select('borderStyle')};
-    border-color: ${select('disabledBorderColor')};
+    background: ${select('backgrounds.disabled')};
+    color: ${select('colors.disabled')};
+    border-color: ${select('borderColors.disabled')};
     cursor: default;
   }
 
@@ -136,6 +182,9 @@ Button.defaultProps = {
 
 Button.Submit = SubmitButton;
 Button.Secondary = theme.variant('secondary')(Button);
+Button.Small = theme.variant('small')(Button);
+Button.Large = theme.variant('large')(Button);
+Button.Danger = theme.variant('danger')(Button);
 Button.Styled = ButtonImpl.WrappedComponent;
 
 export default Button;

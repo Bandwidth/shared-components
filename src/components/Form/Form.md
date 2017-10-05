@@ -1,3 +1,8 @@
+```
+const theme = require('../../theme').default;
+theme.renderDocumentation('Form');
+```
+
 The primary purpose of the `Form` is to style contained components based on validation state.
 
 Using a `Form` also allows usage of the `Form.Column` component inside with proper styling.

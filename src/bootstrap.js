@@ -24,6 +24,7 @@ injectGlobal`
     font-size: 14px;
     letter-spacing: 0.28px;
     margin: 0;
+    line-height: 1.5;
   }
 
   #main {
@@ -44,5 +45,20 @@ injectGlobal`
         url(${svg}) format('svg');
     font-weight: normal;
     font-style: normal;
+  }
+
+  /* scrollbars */
+
+  ::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.25);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f3f3f3;
   }
 `;

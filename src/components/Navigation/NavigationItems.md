@@ -1,3 +1,8 @@
+```
+const theme = require('../../theme').default;
+theme.renderDocumentation('NavigationItems');
+```
+
 ```javascript
 <NavigationItems
   links={[

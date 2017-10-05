@@ -10,6 +10,9 @@ const select = theme.createSelector('Input');
 
 const DropArea = theme.connect(styled.div`
   ${spreadStyles(select)}
+  color: ${select('colors.default')};
+  border-color: ${select('borderColors.default')};
+  background: ${select('backgrounds.default')};
 
   width: 100%;
   display: flex;

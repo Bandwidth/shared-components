@@ -1,3 +1,8 @@
+```
+const theme = require('../../theme').default;
+theme.renderDocumentation('FormBox');
+```
+
 `FormBox` (accessible from `Form.Box`) is the styled border around a standalone form.
 
 ```javascript

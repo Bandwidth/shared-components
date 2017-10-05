@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ScrollBox from '../../behaviors/ScrollBox';
 import theme from '../../theme';
+import { DefaultVariant } from 'react-studs';
 
 const select = theme
-  .register('Modal', ({ colors, shadows, fonts }) => ({
+  .register('Modal', ({ colors, shadows, fonts, spacing }) => ({
     overlayBackground: colors.shadow,
     background: colors.white,
     width: 'auto',
@@ -16,15 +17,27 @@ const select = theme
     distanceFromTop: '180px',
     borderRadius: '5px',
     boxShadow: shadows.long,
-    titleBackground: colors.grayLight,
-    titleColor: colors.black,
-    titleFont: fonts.brand,
-    titleFontWeight: 600,
-    titleFontSize: '0.9em',
-    titleTextTransform: 'uppercase',
-    titlePadding: '0.95em 1em 0.95em 1.5em',
+    title: {
+      background: colors.grayLight,
+      color: colors.black,
+      fontFamily: fonts.brand,
+      fontWeight: 600,
+      fontSize: '0.9em',
+      textTransform: 'uppercase',
+      padding: '0.95em 1em 0.95em 1.5em',
+    },
+    actionContent: {
+      borderColor: colors.borderLight,
+      borderWidth: '1px',
+      borderStyle: 'solid',
+      padding: `${spacing.large} 0`,
+      margin: `0 ${spacing.large}`,
+    },
+    contentPadding: spacing.large,
   }))
   .createSelector();
+const titleSelect = (val) => select('title.' + val);
+const actionSelect = (val) => select('actionContent.' + val);
 
 const Blocker = styled.div`
   background: ${select('overlayBackground')};
@@ -56,26 +69,37 @@ const Content = styled.div`
   position: relative;
 `;
 
+const InnerContent = styled.div`
+  overflow-y: auto;
+  padding: ${select('contentPadding')};
+`;
+
 const Title = styled.h3`
   display: block;
   margin: 0;
-  background: ${select('titleBackground')};
-  color: ${select('titleColor')};
-  padding: ${select('titlePadding')};
-  font-family: ${select('titleFontFamily')};
-  font-size: ${select('titleFontSize')};
-  font-weight: ${select('titleFontWeight')};
-  text-transform: ${select('titleTextTransform')};
+  background: ${titleSelect('background')};
+  color: ${titleSelect('color')};
+  padding: ${titleSelect('padding')};
+  font-family: ${titleSelect('fontFamily')};
+  font-size: ${titleSelect('fontSize')};
+  font-weight: ${titleSelect('fontWeight')};
+  text-transform: ${titleSelect('textTransform')};
 `;
 
 const ActionContent = styled.div`
   position: relative;
+  padding: ${actionSelect('padding')};
+  margin: ${actionSelect('margin')};
+
   &::before {
     position: absolute;
     content: '';
-    left: ${({ theme }) => theme.padding.large};
-    right: ${({ theme }) => theme.padding.large};
-    border-top: 1px solid ${({ theme }) => theme.colors.borderLight};
+    left: 0;
+    right: 0;
+    top: 0;
+    border-top-width: ${actionSelect('borderWidth')};
+    border-top-style: ${actionSelect('borderStyle')};
+    border-top-color: ${actionSelect('borderColor')};
   }
 `;
 
@@ -136,9 +160,13 @@ class Modal extends React.Component {
           className={className}
         >
           {title ? <Title>{title}</Title> : null}
-          <ScrollBox>
-            {children}
-          </ScrollBox>
+          <InnerContent>
+            <DefaultVariant>
+              <div>
+                {children}
+              </div>
+            </DefaultVariant>
+          </InnerContent>
           <ActionContent>{actionContent}</ActionContent>
         </Content>
       </Blocker>

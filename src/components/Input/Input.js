@@ -7,8 +7,28 @@ import { spreadStyles } from 'react-studs';
 
 const select = theme
   .register('Input', ({ colors, fonts, spacing, shadows }) => ({
-    color: colors.black,
-    background: colors.white,
+    colors: {
+      default: colors.black,
+      disabled: colors.black,
+    },
+    backgrounds: {
+      default: colors.white,
+      disabled: colors.disabled,
+    },
+    borderColors: {
+      default: colors.borderLight,
+      invalid: colors.errorBorder,
+      focus: colors.border,
+      disabled: colors.border,
+    },
+    effectColors: {
+      valid: colors.primaryLight,
+      invalid: colors.errorBackgroundLight,
+    },
+    opacities: {
+      default: 1,
+      disabled: 0.5,
+    },
     letterSpacing: '0.02em',
     lineHeight: '1.5',
     fontSize: '14px',
@@ -16,39 +36,34 @@ const select = theme
     transition: 'all 0.2s ease',
     padding: spacing.medium,
     display: 'block',
-    borderColor: colors.borderLight,
     borderWidth: '1px',
     borderStyle: 'solid',
-    focusBorderColor: colors.border,
-    validEffectColor: colors.primaryLight,
-    invalidEffectColor: colors.errorBackgroundLight,
-    invalidBorderColor: colors.errorBorder,
-    disabledBackground: colors.disabled,
-    disabledBorderColor: colors.border,
-    disabledColor: colors.black,
-    disabledOpacity: '0.5',
     placeholderOpacity: '0.5',
+    showPasswordPadding: `${spacing.medium} ${spacing.extraLarge} ${spacing.medium} ${spacing.medium}`,
   }))
   .addVariant('small', ({ spacing }) => ({ fontSize: '12px', padding: spacing.small }))
   .createSelector();
 
 const StyledInput = theme.connect(styled.input`
   ${spreadStyles(select)}
+  color: ${select('colors.default')};
+  background: ${select('backgrounds.default')};
+  opacity: ${select('opacities.default')};
+  border-color: ${select('borderColors.default')};
 
   outline: none;
   width: 100%;
 
-
   &:focus {
-    box-shadow: inset 0 -5px 0 ${select('validEffectColor')};
-    border: 1px solid ${select('focusBorderColor')};
+    box-shadow: inset 0 -5px 0 ${select('effectColors.valid')};
+    border-color: ${select('borderColors.focus')};
   }
 
   &:disabled {
-    background: ${select('disabledBackground')};
-    border-color: ${select('disabledBorderColor')};
-    opacity: ${select('disabledOpacity')};
-    color: ${select('disabledColor')};
+    background: ${select('backgrounds.disabled')};
+    border-color: ${select('borderColors.disabled')};
+    opacity: ${select('opacities.disabled')};
+    color: ${select('colors.disabled')};
   }
 
   &::placeholder {
@@ -58,16 +73,16 @@ const StyledInput = theme.connect(styled.input`
   ${({ visited, theme }) => visited ?
     css`
       &:invalid {
-        box-shadow: inset 0 -5px 0 ${select('invalidEffectColor')};
-        border-color: ${select('invalidBorderColor')};
+        box-shadow: inset 0 -5px 0 ${select('effectColors.invalid')};
+        border-color: ${select('borderColors.invalid')};
       }
     ` : ''
   }
 
   ${({ invalid, error, theme }) => invalid || error ?
     `
-    box-shadow: inset 0 -5px ${select('invalidEffectColor')};
-    border-color: ${select('invalidBorderColor')};
+    box-shadow: inset 0 -5px ${select('effectColors.invalid')};
+    border-color: ${select('borderColors.invalid')};
     ` :
     ''
   }
@@ -86,7 +101,7 @@ const RevealPasswordContainer = styled.div`
 
   input[type="password"],
   input[type="text"] {
-    padding-right: ${({theme}) => theme.padding.extraLarge} !important;
+    padding: ${select('showPasswordPadding')} !important;
   }
 
 `

@@ -20,9 +20,10 @@ const select = theme
     inactiveSortArrowColor: colors.grayLightText,
     activeSortArrowColor: colors.white,
   }))
+  .addVariant('small', { padding: '3px 8px' })
   .createSelector();
 
-const TH = styled.th`
+const TH = theme.connect(styled.th`
   ${spreadStyles(select)}
 
   cursor: ${({ sortable }) => sortable ? 'pointer' : 'default' };
@@ -36,7 +37,7 @@ const TH = styled.th`
   &>a::after {
     background: ${select('color')};
   }
-`;
+`);
 
 const ColumnName = styled.span`
   display: inline;

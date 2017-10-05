@@ -13,9 +13,10 @@ const select = theme
     whiteSpace: 'nowrap',
     padding: `${spacing.small} ${spacing.medium}`,
   }))
+  .addVariant('small', { padding: '3px 8px' })
   .createSelector();
 
-const TD = styled.td`
+const TD = theme.connect(styled.td`
   background: ${select('background')};
   text-align: ${select('textAlign')};
   border-right: ${select('borderWidth')} ${select('borderStyle')} ${select('borderColor')};
@@ -26,7 +27,7 @@ const TD = styled.td`
   &:last-child {
     border-right: none;
   }
-`;
+`);
 
 export default class TableCell extends React.Component {
   static propTypes = {

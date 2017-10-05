@@ -13,6 +13,10 @@ const select = theme
     borderColor: colors.shadow,
     padding: `0 ${spacing.large}`,
   }))
+  .addVariant('sub', ({ colors }) => ({
+    background: colors.grayLight,
+    color: colors.black,
+  }))
   .createSelector();
 
 const Container = theme.connect(styled.header.withConfig({ displayName: 'NavigationContainer' })`
@@ -90,5 +94,7 @@ class Navigation extends React.Component {
     );
   }
 }
+
+Navigation.Sub = theme.variant('sub')(Navigation);
 
 export default Navigation;

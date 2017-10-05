@@ -5,6 +5,7 @@ import ExpandToggle from '../../behaviors/ExpandToggle';
 import Icon from '../Icon';
 import Group from './AccordionGroup';
 import theme from '../../theme';
+import { DefaultVariant } from 'react-studs';
 
 const select = theme
   .register('Accordion', ({ colors, fonts, spacing }) => ({
@@ -146,7 +147,13 @@ class Accordion extends React.Component {
           toggleContent={this.renderLabel}
           isExpanded={this.coalesceIsExpandedProps()}
         >
-          <ContentPadding>{children}</ContentPadding>
+          <ContentPadding>
+            <DefaultVariant>
+              <div>
+                {children}
+              </div>
+            </DefaultVariant>
+          </ContentPadding>
         </ExpandToggle>
       </Container>
     )

@@ -7,24 +7,35 @@ import theme from '../../theme';
 const select = theme
   .register('Toggle', ({ colors, shadows, spacing, fonts }) => ({
     focusShadow: shadows.focusOutline,
-    onBackground: colors.secondary,
-    offBackground: colors.white,
-    borderColor: colors.secondary,
     borderWidth: '2px',
     borderStyle: 'solid',
-    hoverBackground: colors.primaryDark,
-    hoverBorderColor: colors.primaryDark,
-    offColor: colors.white,
-    onColor: colors.white,
     size: '24px',
-    descriptionPadding: `${spacing.extraSmall} 0 ${spacing.extraSmall} ${spacing.extraLarge}`,
-    descriptionFontFamily: fonts.brand,
-    descriptionColor: colors.black,
-    descriptionFontWeight: 300,
-    disabledBorderColor: colors.grayMed,
-    disabledBackground: colors.grayLight,
+    description: {
+      padding: `${spacing.extraSmall} 0 ${spacing.extraSmall} ${spacing.extraLarge}`,
+      fontFamily: fonts.brand,
+      color: colors.black,
+      fontWeight: 300,
+    },
+    backgrounds: {
+      on: colors.secondary,
+      off: colors.white,
+      hover: colors.primaryDark,
+      disabled: colors.grayLight,
+    },
+    colors: {
+      on: colors.white,
+      off: colors.white,
+      disabled: colors.grayLight,
+    },
+    borderColors: {
+      disabled: colors.grayMedium,
+      on: colors.secondary,
+      off: colors.secondary,
+      hover: colors.primaryDark,
+    },
   }))
   .createSelector();
+const descriptionSelect = (val) => select('description.' + val);
 
 export const HiddenInput = theme.connect(styled.input`
   opacity: 0;
@@ -36,49 +47,52 @@ export const HiddenInput = theme.connect(styled.input`
   }
 
   & + label::before {
-    background: ${select('offBackground')};
-    border-color: ${select('borderColor')};
+    background: ${select('backgrounds.off')};
+    border-color: ${select('borderColors.off')};
   }
 
   & + label::after {
-    background: ${select('offColor')};
-    border-color: ${select('borderColor')};
+    background: ${select('colors.off')};
+    border-color: ${select('borderColors.off')};
   }
 
-  & + label:hover::before {
-    border-color: ${select('hoverBorderColor')};
-  }
-
-  & + label:hover::after {
-    border-color: ${select('hoverBorderColor')};
+  & + label:hover::before, & + label:hover::after {
+    border-color: ${select('borderColors.hover')};
   }
 
   &:checked + label {
     &::before {
-      background: ${select('onBackground')};
-      border-color: ${select('borderColor')};
+      background: ${select('backgrounds.on')};
+      border-color: ${select('borderColors.on')};
     }
 
     &::after {
       left: ${select('size')};
-      background: ${select('onColor')};
-      border-color: ${select('borderColor')};
+      background: ${select('colors.on')};
+      border-color: ${select('borderColors.on')};
     }
 
     &:hover {
       &::before {
-        background: ${select('hoverBackground')};
+        background: ${select('backgrounds.hover')};
       }
       &::before, &::after {
-        border-color: ${select('hoverBorderColor')};
+        border-color: ${select('borderColors.hover')};
       }
     }
   }
 
   &:disabled + label {
     &::before, &::after {
-      border-color: ${select('disabledBorderColor')};
-      background: ${select('disabledBackground')};
+      border-color: ${select('borderColors.disabled')};
+    }
+
+    &::before {
+      background: ${select('backgrounds.disabled')};
+    }
+
+    &::after {
+      background: ${select('colors.disabled')};
     }
   }
 `);
@@ -86,13 +100,13 @@ export const HiddenInput = theme.connect(styled.input`
 const ToggleLabel = theme.connect(styled.label`
   cursor: pointer;
   position: relative;
-  padding: ${select('descriptionPadding')};
+  padding: ${descriptionSelect('padding')};
   user-select: none;
   transition: all 0.2s ease;
   line-height: calc(${select('size')} * 1.5);
-  font-family: ${select('descriptionFontFamily')};
-  font-weight: ${select('descriptionFontWeight')};
-  color: ${select('descriptionColor')};
+  font-family: ${descriptionSelect('fontFamily')};
+  font-weight: ${descriptionSelect('fontWeight')};
+  color: ${descriptionSelect('color')};
   display: inline;
 
   &::before {

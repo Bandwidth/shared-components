@@ -13,7 +13,7 @@ const select = theme
   })
   .createSelector();
 
-const Flow = theme.connect(styled.div.withConfig({ displayName: 'Flow' })`
+const FlowImpl = theme.connect(styled.div.withConfig({ displayName: 'Flow' })`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -45,9 +45,11 @@ const Flow = theme.connect(styled.div.withConfig({ displayName: 'Flow' })`
   }
 `);
 
-Flow.Row = FlowRow;
-Flow.fields = fields;
-Flow.createField = field;
-Flow.Item = FlowItem;
+export const Flow = (props) => <FlowImpl {...props} />;
 
-export default Flow;
+FlowImpl.Row = FlowRow;
+FlowImpl.fields = fields;
+FlowImpl.createField = field;
+FlowImpl.Item = FlowItem;
+
+export default FlowImpl;

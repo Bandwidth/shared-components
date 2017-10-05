@@ -1,3 +1,8 @@
+```
+const theme = require('../../theme').default;
+theme.renderDocumentation('Navigation');
+```
+
 The header above a page which contains page title and navigation.
 
 ```javascript
@@ -19,8 +24,8 @@ _Themed Navigation_
 const theme = require('../../theme').default.extend({});
 const createThemeProvider = require('react-studs').createThemeProvider;
 
-theme.registerVariant('Navigation', 'custom', { background: '#AA512F', color: 'black' });
-theme.registerVariant('NavigationItem', 'custom', { effectColor: '#DDBC89', activeColor: '#DDBC89' });
+theme.registerVariant('Navigation', 'custom', { background: '#651f45', color: '#fffff2' });
+theme.registerVariant('NavigationItem', 'custom', { effectColor: '#00fbb9', activeColor: '#00fbb9' });
 const CustomNavigation = theme.variant('custom')(Navigation);
 
 const ThemeProvider = createThemeProvider(theme);
@@ -37,4 +42,15 @@ const ThemeProvider = createThemeProvider(theme);
     ]}
   />
 </ThemeProvider>
+```
+
+_Sub-Nav_
+
+```javascript
+<Navigation.Sub
+  links={[
+    { to: '/foo', content: 'One' },
+    { to: '/bar', content: 'Two' },
+  ]}
+/>
 ```

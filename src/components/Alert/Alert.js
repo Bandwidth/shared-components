@@ -14,6 +14,7 @@ const select = theme
     width: 'auto',
     lineHeight: '1em',
     position: 'relative',
+    display: 'inline-block',
     iconBackground: colors.white,
     colors: {
       success: colors.successText,
@@ -35,8 +36,6 @@ const select = theme
 
 const AlertContainer = theme.connect(styled.div`
   ${spreadStyles(select)}
-
-  display: inline-block;
 
   a {
     color: inherit;

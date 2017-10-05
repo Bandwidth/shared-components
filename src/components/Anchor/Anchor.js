@@ -12,7 +12,7 @@ const select = theme.register('Anchor', ({ colors, fonts }) => ({
   bubbleBorderRadius: '2em',
 })).createSelector();
 
-export const TextAnchorImpl = styled.a`
+export const TextAnchorImpl = theme.connect(styled.a`
   ${spreadStyles(select)}
 
   text-decoration: none;
@@ -52,7 +52,7 @@ export const TextAnchorImpl = styled.a`
     opacity: 0.125;
     transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0s ease;
   }
-`;
+`);
 const TextAnchor = theme.connect(TextAnchorImpl);
 
 export const IconAnchor = theme.connect(styled(TextAnchorImpl)`
@@ -68,7 +68,7 @@ export const WrapAnchor = theme.connect(styled.a`
   text-decoration: none;
 `);
 
-export const ReactTextAnchorImpl = styled(ReactLink)`
+export const ReactTextAnchorImpl = theme.connect(styled(ReactLink)`
   ${spreadStyles(select)}
 
   text-decoration: none;
@@ -107,7 +107,7 @@ export const ReactTextAnchorImpl = styled(ReactLink)`
     opacity: 0.125;
     transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0s ease;
   }
-`;
+`);
 
 const ReactTextAnchor = theme.connect(ReactTextAnchorImpl);
 

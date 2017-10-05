@@ -1,3 +1,8 @@
+```
+const theme = require('../../theme').default;
+theme.renderDocumentation('Input');
+```
+
 Provides all of the standard input fields
 
 

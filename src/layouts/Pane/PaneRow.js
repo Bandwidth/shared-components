@@ -1,7 +1,16 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../theme';
 
-const PaneRow = styled.div.withConfig({ displayName: 'PaneRow' })`
+const select = theme
+  .register('PaneRow', ({ colors }) => ({
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: colors.borderLight,
+  }))
+  .createSelector();
+
+const PaneRowImpl = styled.div.withConfig({ displayName: 'PaneRow' })`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -9,9 +18,9 @@ const PaneRow = styled.div.withConfig({ displayName: 'PaneRow' })`
 
   & > * {
     flex: 1;
-    border-right: 1px solid #e1e1e1;
-    border-left: 1px solid #e1e1e1;
-    margin-left: -1px;
+    border-right: ${select('borderWidth')} ${select('borderStyle')} ${select('borderColor')};
+    border-left: ${select('borderWidth')} ${select('borderStyle')} ${select('borderColor')};
+    margin-left: -${select('borderWidth')};
   }
 
   & > *:first-child {
@@ -24,7 +33,9 @@ const PaneRow = styled.div.withConfig({ displayName: 'PaneRow' })`
   }
 `;
 
-PaneRow.propTypes = {
+export const PaneRow = (props) => <PaneRowImpl {...props} />;
+
+PaneRow.propTypes = PaneRowImpl.propTypes = {
   /**
    * Adds an id to the element.
    */
@@ -35,22 +46,9 @@ PaneRow.propTypes = {
   className: PropTypes.string,
 };
 
-PaneRow.defaultProps = {
+PaneRow.defaultProps = PaneRowImpl.defaultProps = {
   id: null,
   className: null,
 };
 
-PaneRow.usage = `
-# PaneRow
-
-A composeable column. Lays out children horizontally. Applies a divider between children.
-
-\`\`\`
-<PaneRow>
-  <Pane>Content</Pane>
-  <Pane>Content</Pane>
-</PaneRow>
-\`\`\`
-`;
-
-export default PaneRow;
+export default PaneRowImpl;

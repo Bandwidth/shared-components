@@ -1,25 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../theme';
+
+const select = theme
+  .register('PaneSection', ({ spacing, colors }) => ({
+    titleMargin: `0 -${spacing.large}`,
+    titleBackground: colors.grayMedium,
+    titleColor: colors.black,
+    titlePadding: `${spacing.extraSmall} ${spacing.large}`,
+    titleFontSize: '0.9em',
+    titleFontWeight: 600,
+    titleLineHeight: '1.5em',
+    titleTextTransform: 'uppercase',
+    contentPadding: `${spacing.large} 0`,
+  }))
+  .createSelector();
 
 const Wrap = styled.section`
 
 `;
 
 const Content = styled.div`
-  padding: 0;
+  padding: ${select('contentPadding')};
   margin: 0;
 `;
 
 const Title = styled.h3`
-  background: #dedede;
+  background: ${select('titleBackground')};
+  color: ${select('titleColor')};
   display: block;
-  padding: ${({ theme }) => `${theme.padding.extraSmall} ${theme.padding.large}`};
-  margin: 0;
-  font-size: 0.9em;
-  font-weight: 600;
-  line-height: 1.5em;
-  text-transform: uppercase;
+  padding: ${select('titlePadding')};
+  margin: ${select('titleMargin')};
+  font-size: ${select('titleFontSize')};
+  font-weight: ${select('titleFontWeight')};
+  line-height: ${select('titleLineHeight')};
+  text-transform: ${select('titleTextTransform')};
 `;
 
 class PaneSection extends React.Component {

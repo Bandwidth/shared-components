@@ -10,26 +10,40 @@ const NONE_KEY = 'BW_SHARED_SELECT_NONE';
 
 const select = theme.register('Select', ({ spacing, colors, fonts }) => ({
   padding: spacing.medium,
-  borderColor: colors.borderLight,
+  borderColors: {
+    default: colors.borderLight,
+    focus: colors.border,
+    hover: colors.border,
+    disabled: colors.black,
+  },
+  colors: {
+    default: colors.black,
+    disabled: colors.black,
+  },
+  opacities: {
+    default: 1,
+    disabled: 0.5,
+  },
+  backgrounds: {
+    default: colors.white,
+    disabled: colors.disabled,
+  },
   borderWidth: '1px',
   borderStyle: 'solid',
-  background: colors.white,
-  color: colors.black,
   fontFamily: fonts.brand,
   fontSize: '14px',
   letterSpacing: '0.02em',
   lineHeight: '1.5',
   arrowSize: '35px',
-  focusBorderColor: colors.border,
   validEffectColor: colors.primaryLight,
-  disabledBackground: colors.disabled,
-  disabledBorderColor: colors.border,
-  disabledColor: colors.black,
-  disabledOpacity: '0.5',
 })).createSelector();
 
 const Styles = theme.connect(styled.select`
   ${spreadStyles(select)}
+  color: ${select('colors.default')};
+  background: ${select('backgrounds.default')};
+  border-color: ${select('borderColors.default')};
+  opacity: ${select('opacities.default')};
   border-radius: 0;
   width: 100%;
   cursor: pointer;
@@ -44,17 +58,21 @@ const Styles = theme.connect(styled.select`
 
   transition: 0.2s ease all;
 
+  &:hover {
+    border-color: ${select('borderColors.hover')};
+  }
+
   &:focus {
     box-shadow: inset 0 -5px 0 ${select('validEffectColor')};
-    border-color: ${select('focusBorderColor')};
+    border-color: ${select('borderColors.focus')};
     outline: none;
   }
 
   &:disabled {
-    background: ${select('disabledBackground')};
-    border-color: ${select('disabledBorderColor')};
-    color: ${select('disabledColor')};
-    opacity: ${select('disabledOpacity')};
+    background: ${select('backgrounds.disabled')};
+    border-color: ${select('borderColors.disabled')};
+    color: ${select('colors.disabled')};
+    opacity: ${select('opacities.disabled')};
   }
 `);
 

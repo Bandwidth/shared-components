@@ -1,3 +1,8 @@
+```
+const theme = require('../../theme').default;
+theme.renderDocumentation('UnorderedList');
+```
+
 A basic bulletted list. Fill with `Item` elements.
 
 ```javascript

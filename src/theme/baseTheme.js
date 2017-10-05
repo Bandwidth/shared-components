@@ -17,8 +17,8 @@ export const colors = {
   greyLightText: '#7f8897',
   grayLight: '#f3f3f3',
   greyLight: '#f3f3f3',
-  grayMed: '#666',
-  greyMed: '#666',
+  grayMedium: '#dedede',
+  greyMedium: '#dedede',
   grayDark: '#272b2d',
   greyDark: '#272b2d',
 

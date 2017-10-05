@@ -1,3 +1,8 @@
+```
+const theme = require('../../theme').default;
+theme.renderDocumentation('Radio');
+```
+
 ```javascript
 <div>
   <Radio description="Check me"/>

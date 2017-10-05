@@ -10,7 +10,7 @@ import theme from '../../theme';
 const COLSPAN = 1000;
 
 const select = theme
-  .register('TableRowDetails', ({ colors }) => ({
+  .register('TableRowDetails', ({ colors, spacing }) => ({
     textAlign: 'left',
     zebraLightStripeColor: 'transparent',
     zebraDarkStripColor: colors.shadowExtraLight,
@@ -19,7 +19,9 @@ const select = theme
     borderStyle: 'solid',
     effectColor: colors.shadowLight,
     effectWidth: '5px',
+    padding: `${spacing.small} ${spacing.meium} ${spacing.small} 20px`,
   }))
+  .addVariant('small', { padding: '3px 8px 3px 13px' })
   .createSelector();
 
 const TableRowDetailContainer = theme.connect(styled.tr`

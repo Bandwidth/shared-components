@@ -3,7 +3,20 @@ const path = require('path');
 module.exports = {
   title: 'Bandwidth Shared React Components',
   styleguideDir: "docs",
-  components: 'src/*(components|layouts)**/**/*.js',
+  sections: [
+    {
+      name: 'Components',
+      components: 'src/components/**/[A-Z]*.js',
+    },
+    {
+      name: 'Flow',
+      components: 'src/layouts/Flow/**/[A-Z]*.js',
+    },
+    {
+      name: 'Panes',
+      components: 'src/layouts/Pane/**/[A-Z]*.js',
+    },
+  ],
   theme: {
     fontSize :{
       base: 14
@@ -12,12 +25,8 @@ module.exports = {
       base: ['Bandwidth']
     }
   },
-  components: 'src/components/**/*.js',
-  ignore: [
-      'src/components/**/index.js',
-  ],
   require: [
-  'styled-components'
+    'styled-components'
   ],
   styleguideComponents: {
     Logo: path.join(__dirname, 'tools/styleguide/Logo'),

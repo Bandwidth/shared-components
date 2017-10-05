@@ -1,7 +1,16 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../theme';
 
-const PaneColumn = styled.div.withConfig({ displayName: 'PaneColumn' })`
+const select = theme
+  .register('PaneColumn', ({ colors }) => ({
+    borderColor: colors.borderLight,
+    borderWidth: '1px',
+    borderStyle: 'solid',
+  }))
+  .createSelector();
+
+const PaneColumnImpl = theme.connect(styled.div.withConfig({ displayName: 'PaneColumn' })`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -9,15 +18,17 @@ const PaneColumn = styled.div.withConfig({ displayName: 'PaneColumn' })`
 
   & > * {
     flex: 1 0 auto;
-    border-bottom: 1px solid #e1e1e1;
+    border-bottom: ${select('borderWidth')} ${select('borderStyle')} ${select('borderColor')};
   }
 
   & > *:last-child {
     border-bottom: none;
   }
-`;
+`);
 
-PaneColumn.propTypes = {
+export const PaneColumn = (props) => <PaneColumnImpl {...props} />;
+
+PaneColumn.propsTypes = PaneColumnImpl.propTypes = {
   /**
    * Adds an id to the element.
    */
@@ -28,22 +39,9 @@ PaneColumn.propTypes = {
   className: PropTypes.string,
 };
 
-PaneColumn.defaultProps = {
+PaneColumn.defaultProps = PaneColumnImpl.defaultProps = {
   id: null,
   className: null,
 };
 
-PaneColumn.usage = `
-# PaneColumn
-
-A composeable column. Lays out children vertically. Applies a divider between children.
-
-\`\`\`
-<PaneColumn>
-  <Pane>Content</Pane>
-  <Pane>Content</Pane>
-</PaneColumn>
-\`\`\`
-`;
-
-export default PaneColumn;
+export default PaneColumnImpl;

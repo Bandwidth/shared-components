@@ -1,3 +1,8 @@
+```
+const theme = require('../../theme').default;
+theme.renderDocumentation('TableControls');
+```
+
 Generally sits above a table. Standardized format of the table name and some common controls.
 
 ```javascript

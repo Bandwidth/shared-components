@@ -3,15 +3,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Heading from '../../components/Heading';
 import Column from './PaneColumn';
-import Content from './PaneContent';
-import Layout from './PaneLayout';
 import Row from './PaneRow';
 import Section from './PaneSection';
 import theme from '../../theme';
 
 const select = theme
   .register('Pane', ({ spacing }) => ({
-    headerPadding: `0 ${spacing.large} ${spacing.large} ${spacing.large}`,
+    headerMargin: 0,
+    padding: spacing.large,
   }))
   .createSelector();
 
@@ -19,9 +18,10 @@ const Container = theme.connect(styled.article`
   display: flex;
   flex-direction: column;
   flex: 1 1;
+  padding: ${select('padding')};
 
   & > h1, & > h2, & > h3, & > h4, & > h5 {
-    padding: ${select('headerPadding')};
+    margin: ${select('headerMargin')};
   }
 `);
 
@@ -74,8 +74,6 @@ A section of display content with a title. Arranges children vertically.
 `;
 
 Pane.Column = Column;
-Pane.Content = Content;
-Pane.Layout = Layout;
 Pane.Row = Row;
 Pane.Section = Section;
 export default Pane;

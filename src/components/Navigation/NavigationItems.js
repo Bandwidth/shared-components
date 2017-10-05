@@ -12,6 +12,7 @@ const select = theme
     fontSize: '1em',
     marginBottom: 'auto',
     itemSpacing: spacing.large,
+    justifyContent: 'flex-end',
   }))
   .addVariant('small', { fontSize: '0.8em' })
   .createSelector();
@@ -19,7 +20,7 @@ const select = theme
 export const Container = theme.connect(styled.div.withConfig({ displayName: 'NavigationItemsContainer' })`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: ${select('justify-content')};
 
   background: ${select('background')};
   color: ${select('color')};

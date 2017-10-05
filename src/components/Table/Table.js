@@ -17,12 +17,15 @@ import TableBody from './TableBody';
 const select = theme
   .register('Table', ({ colors }) => ({
     overlayBackground: colors.whiteShadow,
+    fontSize: '1em',
   }))
+  .addVariant('small', { fontSize: '0.8em' })
   .createSelector();
 
 const BaseTable = styled.table`
   min-width: 100%;
   border-collapse: collapse;
+  font-size: ${select('fontSize')};
 
   & > tbody, & > thead {
     background: transparent;
@@ -115,5 +118,7 @@ Table.Simple = Simple;
 Table.RowDetails = RowDetails;
 Table.Wrap = Wrap;
 Table.Body = TableBody;
+
+Table.Small = theme.variant('small')(Table);
 
 export default Table;
