@@ -7,12 +7,12 @@ import { createMemoryHistory } from 'history';
 import XRay from 'react-x-ray';
 import styled from 'styled-components';
 
-
 const history  = createMemoryHistory('/');
 
 const Container = styled.div`
   position: relative;
   margin-top: 30px;
+  background: ${({ theme }) => theme['bandwidth-shared-components'].colors.white};
 `;
 
 const FloatButton = styled(Anchor)`
@@ -52,15 +52,15 @@ class OptXRay extends React.Component {
 export default class Wrapper extends React.Component {
     render() {
       return (
-        <BandwidthThemeProvider>
+        <BandwidthThemeProvider.AmoebaThemeProvider>
           <Router history={history}>
             <Container>
-            <OptXRay>
-              {this.props.children}
-            </OptXRay>
+              <OptXRay>
+                {this.props.children}
+              </OptXRay>
             </Container>
           </Router>
-        </BandwidthThemeProvider>
+        </BandwidthThemeProvider.AmoebaThemeProvider>
       );
     }
   }

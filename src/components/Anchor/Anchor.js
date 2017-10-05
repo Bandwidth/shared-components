@@ -6,7 +6,7 @@ import theme from '../../theme';
 import { spreadStyles } from 'react-studs';
 
 const select = theme.register('Anchor', ({ colors, fonts }) => ({
-  color: colors.primaryText,
+  color: colors.primaryDark,
   fontFamily: fonts.brand,
   activeColor: colors.primary,
   bubbleBorderRadius: '2em',

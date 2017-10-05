@@ -9,7 +9,7 @@ import { spreadStyles } from 'react-studs';
 
 const select = theme
   .register('TableHeader', ({ colors, fonts, spacing }) => ({
-    background: colors.secondaryFaded,
+    background: colors.secondaryDark,
     color: colors.white,
     textTransform: 'uppercase',
     fontWeight: 300,

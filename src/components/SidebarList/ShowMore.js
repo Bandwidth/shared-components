@@ -5,7 +5,7 @@ import theme from '../../theme';
 const select = theme
   .register('ShowMore', ({ colors, spacing }) => ({
     background: colors.primaryLight,
-    color: colors.primaryText,
+    color: colors.primaryDark,
     padding: `${spacing.medium} ${spacing.large}`,
     borderColor: colors.borderLight,
     borderWidth: '1px',

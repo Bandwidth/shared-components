@@ -5,13 +5,11 @@ export const colors = {
   white: '#fff',
 
   primary: '#00bcec',
-  primaryText: '#008db1',
   primaryLight: '#d9f5fc',
   primaryDark: '#008db1',
 
   secondary: '#1f2a44',
-  secondaryText: '#3a455c',
-  secondaryFaded: '#3a455c',
+  secondaryDark: '#3a455c',
 
   grayLightText: '#7f8897',
   greyLightText: '#7f8897',
