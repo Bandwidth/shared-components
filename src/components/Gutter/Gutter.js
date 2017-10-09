@@ -2,15 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
 
 const select = theme
   .register('Gutter', ({ colors }) => ({
     background: colors.grayLight,
+    padding: 0,
+    margin: 0,
   }))
   .createSelector();
 
 const GutterImpl = theme.connect(styled.div.withConfig({ displayName: 'Gutter' })`
+  ${spreadStyles(select)}
   background: ${select('background')};
+  padding: ${select('padding')};
+  margin: ${select('margin')};
 `);
 
 const Gutter = ({children, ...rest}) => (

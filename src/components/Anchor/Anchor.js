@@ -5,12 +5,17 @@ import { Link as ReactLink, Route } from 'react-router-dom';
 import theme from '../../theme';
 import { spreadStyles } from 'react-studs';
 
-const select = theme.register('Anchor', ({ colors, fonts }) => ({
-  color: colors.primaryDark,
-  fontFamily: fonts.brand,
-  activeColor: colors.primary,
-  bubbleBorderRadius: '2em',
-})).createSelector();
+const select = theme
+  .register('Anchor', ({ colors, fonts }) => ({
+    color: colors.primaryDark,
+    fontFamily: fonts.brand,
+    activeColor: colors.primary,
+    bubbleBorderRadius: '2em',
+  }))
+  .addVariant('error', ({ colors }) => ({
+    color: colors.errorText,
+  }))
+  .createSelector();
 
 export const TextAnchorImpl = theme.connect(styled.a`
   ${spreadStyles(select)}
@@ -264,5 +269,7 @@ class Anchor extends React.Component {
     );
   }
 }
+
+Anchor.Error = theme.variant('error')(Anchor);
 
 export default Anchor;
