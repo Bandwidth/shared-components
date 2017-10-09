@@ -182,12 +182,12 @@ class Input extends React.Component {
 
     return (
       <RevealPasswordContainer>
-          <div>
-            <Anchor href="" onClick={handleClick}>
-              {this.state._type === 'password' ? 'Show' : 'Hide'}
-            </Anchor>
-          </div>
-          {this.renderInputField()}          
+        {this.renderInputField()}
+        <div>
+          <Anchor href="" onClick={handleClick}>
+            {this.state._type === 'password' ? 'Show' : 'Hide'}
+          </Anchor>
+        </div>
       </RevealPasswordContainer>
     )
   }
