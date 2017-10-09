@@ -61,7 +61,7 @@ const RevealPasswordContainer = styled.div`
   div {
     position: absolute;
     right: 10px; 
-    top: 25%;
+    top: 30%;
     z-index: 10;
   }
 
