@@ -12,6 +12,7 @@ const select = theme
     fontSize: '1.75em',
     lineHeight: '1em',
   }))
+  .addVariant('primary', ({ colors }) => ({ color: colors.primary }))
   .createSelector();
 
 const Heading3Impl = theme.connect(styled.h3.withConfig({ displayName: 'Heading3' })`
@@ -39,5 +40,7 @@ Heading3.defaultProps = {
   className: null,
   id: null,
 };
+
+Heading3.Primary = theme.variant('primary')(Heading3);
 
 export default Heading3;

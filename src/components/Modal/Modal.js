@@ -18,7 +18,7 @@ const select = theme
     borderRadius: '5px',
     boxShadow: shadows.long,
     title: {
-      background: colors.grayLight,
+      background: colors.grayMedium,
       color: colors.black,
       fontFamily: fonts.brand,
       fontWeight: 600,
@@ -35,11 +35,14 @@ const select = theme
     },
     contentPadding: spacing.large,
   }))
+  .addVariant('wide', {
+    width: '100%',
+  })
   .createSelector();
 const titleSelect = (val) => select('title.' + val);
 const actionSelect = (val) => select('actionContent.' + val);
 
-const Blocker = styled.div`
+const Blocker = theme.connect(styled.div`
   background: ${select('overlayBackground')};
   position: fixed;
   top: 0;
@@ -49,11 +52,11 @@ const Blocker = styled.div`
   display: flex;
   flex-direction: column;
   z-index: 100000;
-`;
+`);
 
 // content flex is `0 1 auto`: it won't grow beyond the content size, but can shrink if the window is too small
 // to show everything.
-const Content = styled.div`
+const Content = theme.connect(styled.div`
   background: ${select('background')};
   width: ${select('width')};
   max-width: ${select('maxWidth')};
@@ -65,16 +68,16 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: ${select('borderRadius')};
-  box-shadow: ${select('shadow')};
+  box-shadow: ${select('boxShadow')};
   position: relative;
-`;
+`);
 
-const InnerContent = styled.div`
+const InnerContent = theme.connect(styled.div`
   overflow-y: auto;
   padding: ${select('contentPadding')};
-`;
+`);
 
-const Title = styled.h3`
+const Title = theme.connect(styled.h3`
   display: block;
   margin: 0;
   background: ${titleSelect('background')};
@@ -84,9 +87,9 @@ const Title = styled.h3`
   font-size: ${titleSelect('fontSize')};
   font-weight: ${titleSelect('fontWeight')};
   text-transform: ${titleSelect('textTransform')};
-`;
+`);
 
-const ActionContent = styled.div`
+const ActionContent = theme.connect(styled.div`
   position: relative;
   padding: ${actionSelect('padding')};
   margin: ${actionSelect('margin')};
@@ -101,7 +104,7 @@ const ActionContent = styled.div`
     border-top-style: ${actionSelect('borderStyle')};
     border-top-color: ${actionSelect('borderColor')};
   }
-`;
+`);
 
 class Modal extends React.Component {
   static propTypes = {
@@ -137,7 +140,6 @@ class Modal extends React.Component {
 
   static defaultProps = {
     title: null,
-    naturalWidth: 'auto',
     onBlockerClicked: () => null,
     className: null,
     id: null,
@@ -150,11 +152,10 @@ class Modal extends React.Component {
   };
 
   render() {
-    const { id, className, onBlockerClicked, naturalWidth, title, children, actionContent } = this.props;
+    const { id, className, onBlockerClicked, title, children, actionContent } = this.props;
     return (
       <Blocker onClick={onBlockerClicked}>
         <Content
-          naturalWidth={naturalWidth}
           onClick={this.handleModalClicked}
           id={id}
           className={className}
@@ -167,11 +168,15 @@ class Modal extends React.Component {
               </div>
             </DefaultVariant>
           </InnerContent>
-          <ActionContent>{actionContent}</ActionContent>
+          {actionContent &&
+            <ActionContent>{actionContent}</ActionContent>
+          }
         </Content>
       </Blocker>
     );
   }
 }
+
+Modal.Wide = theme.variant('wide')(Modal);
 
 export default Modal;

@@ -1,7 +1,16 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../theme';
 
-const SidebarLayout = styled.div.withConfig({ displayName: 'SidebarLayout' })`
+const select = theme
+  .register('SidebarLayout', ({ colors }) => ({
+    contentBackground: colors.grayLight,
+    borderColor: colors.borderLight,
+    borderWidth: '1px',
+  }))
+  .createSelector();
+
+const SidebarLayout = theme.connect(styled.div.withConfig({ displayName: 'SidebarLayout' })`
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -14,11 +23,13 @@ const SidebarLayout = styled.div.withConfig({ displayName: 'SidebarLayout' })`
 
   & > *:last-child {
     flex: 6;
-    background: ${({ theme }) => theme.colors.gutter};
-    border-left: 1px solid ${({ theme }) => theme.colors.borderLight};
+    background: ${select('contentBackground')};
+    border-left-width: ${select('borderWidth')};
+    border-left-style: solid;
+    border-left-color: ${select('borderColor')};
     margin-left: -1px;
   }
-`;
+`);
 
 SidebarLayout.propTypes = {
   /**

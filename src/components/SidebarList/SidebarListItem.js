@@ -31,7 +31,7 @@ const ListItemContainer = theme.connect(styled.li`
   };
   position: relative;
   overflow-x: visible;
-`);
+`, { pure: false });
 
 const ListLabel = theme.connect(styled.h3`
   text-transform: ${select('labelTextTransform')};

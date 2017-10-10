@@ -18,7 +18,7 @@ const HelpTextImpl = theme.connect(styled.div.withConfig({ displayName: 'HelpTex
   font-style: ${select('fontStyle')};
   font-weight: ${select('fontWeight')};
   font-family: ${select('fontFamily')};
-`);
+`, { pure: false });
 
 const HelpText = ({children, ...rest}) => (
   <HelpTextImpl {...rest}>{children}</HelpTextImpl>

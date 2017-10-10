@@ -20,7 +20,7 @@ const select = theme
 export const Container = theme.connect(styled.div.withConfig({ displayName: 'NavigationItemsContainer' })`
   display: flex;
   flex-direction: row;
-  justify-content: ${select('justify-content')};
+  justify-content: ${select('justifyContent')};
 
   background: ${select('background')};
   color: ${select('color')};

@@ -17,7 +17,7 @@ const select = theme
   }))
   .createSelector();
 
-const WrapStyles = styled.div`
+const WrapStyles = theme.connect(styled.div`
   ${spreadStyles(select)}
   width: 100%;
   overflow-x: auto;
@@ -36,7 +36,7 @@ const WrapStyles = styled.div`
         return '';
     }
   }}
-`;
+`, { pure: false });
 
 class TableWrap extends React.Component {
   static propTypes = {

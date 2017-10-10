@@ -38,7 +38,7 @@ const MethodTagImpl = theme.connect(styled.pre`
   margin: 0;
   width: auto;
   display: inline-block;
-`);
+`, { pure: false });
 
 export const MethodTag = (props) => (<MethodTagImpl {...props} />);
 

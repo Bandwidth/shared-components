@@ -49,6 +49,11 @@ export const colors = {
     '#e8562e',
   ],
 
+  graphics: [
+    '#41d3bd',
+    '#a95adf',
+  ],
+
   shadow: 'rgba(0, 0, 0, 0.3)',
   shadowLight: 'rgba(0, 0, 0, 0.12)',
   shadowExtraLight: 'rgba(0, 0, 0, 0.05)',

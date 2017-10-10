@@ -44,7 +44,7 @@ const SpacingImpl = theme.connect(styled.div`
   ${(props) => props.bottom ? `padding-bottom: ${getSpacing(props, props.bottom)};` : ''}
   ${(props) => props.left ? `padding-left: ${getSpacing(props, props.left)};` : ''}
   ${(props) => props.right ? `padding-right: ${getSpacing(props, props.right)};` : ''}
-`);
+`, { pure: false });
 
 export const Spacing = (props) => <SpacingImpl {...props} />;
 

@@ -9,8 +9,9 @@ import theme from '../../theme';
 
 const select = theme
   .register('Pane', ({ spacing }) => ({
-    headerMargin: 0,
-    padding: spacing.large,
+    headerMargin: `${spacing.medium} 0`,
+    padding: `0 ${spacing.large}`,
+    sectionSpacing: spacing.large,
   }))
   .createSelector();
 
@@ -22,6 +23,17 @@ const Container = theme.connect(styled.article`
 
   & > h1, & > h2, & > h3, & > h4, & > h5 {
     margin: ${select('headerMargin')};
+  }
+
+  & > section {
+    margin: ${select('sectionSpacing')} 0 0 0;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+    &:last-of-type {
+      margin-bottom: ${select('sectionSpacing')};
+    }
   }
 `);
 

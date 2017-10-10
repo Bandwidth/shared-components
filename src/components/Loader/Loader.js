@@ -32,13 +32,13 @@ const grow = keyframes`
   }
 `;
 
-export const Dot = styled.div.withConfig({ displayName: 'LoaderDot' })`
+export const Dot = theme.connect(styled.div.withConfig({ displayName: 'LoaderDot' })`
   height: ${({ size }) => size};
   width: ${({ size }) => size};
 
   border-width: ${select('ringThickness')};
   border-style: ${select('ringLineStyle')};
-  border-color: ${(props) => props.color ? props.color : select('color')(props)};
+  border-color: ${select('color')};
   border-radius: 50%;
   margin: 0 5px;
   transform: scale(0);
@@ -57,7 +57,7 @@ export const Dot = styled.div.withConfig({ displayName: 'LoaderDot' })`
   &:last-child {
     margin-right: 0;
   }
-`;
+`);
 
 Dot.defaultProps = {
   size: '20px',

@@ -74,7 +74,7 @@ const Item = theme.connect(styled.li`
     border-radius: 0px ${select('cornerRadius')} ${select('cornerRadius')} 0px;
     border-right: ${select('borderWidth')} solid ${select('borderColor')};
   }
-`);
+`, { pure: false });
 
 const ItemPlaceholder = theme.connect(styled.li`
   float: left;

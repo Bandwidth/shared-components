@@ -26,6 +26,7 @@ const ControlsRow = theme.connect(styled.div`
   & > h1 {
     flex: 1;
     margin: 0;
+    line-height: 1;
   }
 
   & > div {

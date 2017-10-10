@@ -9,6 +9,7 @@ import theme from '../../theme';
 
 const select = theme
   .register('FlowItem', {
+    fontSize: '1em',
     labelHeight: '21px',
     labelMargin: `0 0 5.6px 0`,
     minContentHeight: '53px',
@@ -16,15 +17,24 @@ const select = theme
     helpTextMargin: `5.6px 0 0 0`,
     horizontalContentSpacing: HORIZONTAL_SPACING + 'px',
   })
+  .addVariant('small', {
+    fontSize: '0.75em',
+    labelHeight: 'auto',
+    minContentHeight: '20px',
+    minHelpTextHeight: '14px',
+    helpTextMargin: '0',
+    labelMargin: '0',
+  })
   .createSelector();
 
 const Content = styled.div.withConfig({ displayName: 'FlowItemContent' })``;
 const FlexibleContent = styled.div.withConfig({ displayName: 'FlowItemContentFlexible' })``;
 const MoreContent = styled.div.withConfig({ displayName: 'FlowItemMoreContent' })``;
 
-const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
+const Container = theme.connect(styled.div.withConfig({ displayName: 'FlowItemContainer' })`
   display: flex;
   flex-direction: column;
+  font-size: ${select('fontSize')};
   align-items: ${({ alignment }) => {
     switch (alignment) {
       case 'left':
@@ -80,7 +90,7 @@ const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
   & > ${MoreContent} {
     flex: 1 0 0;
   }
-`;
+`, { pure: false });
 
 /**
  * Flow.Item is an individual element in the Flow system. It annotates the provided
@@ -192,9 +202,11 @@ class FlowItem extends React.Component {
   }
 }
 
-FlowItem.Container = Container;
+FlowItem.Container = Container.WrappedComponent;
 FlowItem.Content = Content;
 FlowItem.FlexibleContent = FlexibleContent;
 FlowItem.MoreContent = MoreContent;
+
+FlowItem.Small = theme.variant('small')(FlowItem);
 
 export default FlowItem;

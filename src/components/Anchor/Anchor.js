@@ -11,8 +11,9 @@ const select = theme
     fontFamily: fonts.brand,
     activeColor: colors.primary,
     bubbleBorderRadius: '2em',
+    display: 'inline',
   }))
-  .addVariant('error', ({ colors }) => ({
+  .addVariant('danger', ({ colors }) => ({
     color: colors.errorText,
   }))
   .createSelector();
@@ -27,7 +28,6 @@ export const TextAnchorImpl = theme.connect(styled.a`
   position: relative;
   height: auto;
   margin: auto;
-  display: inline-block;
 
   &:focus {
     outline: none;
@@ -270,6 +270,6 @@ class Anchor extends React.Component {
   }
 }
 
-Anchor.Error = theme.variant('error')(Anchor);
+Anchor.Danger = theme.variant('danger')(Anchor);
 
 export default Anchor;

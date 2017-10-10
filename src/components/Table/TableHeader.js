@@ -37,13 +37,13 @@ const TH = theme.connect(styled.th`
   &>a::after {
     background: ${select('color')};
   }
-`);
+`, { pure: false });
 
 const ColumnName = styled.span`
   display: inline;
 `;
 
-const SortArrows = styled.span`
+const SortArrows = theme.connect(styled.span`
   margin-left: 8px;
   white-space: nowrap;
 
@@ -64,7 +64,7 @@ const SortArrows = styled.span`
       return css`&>*:last-child { color: ${select('activeSortArrowColor')(props)}; }`;
     }
   }}
-`;
+`, { pure: false });
 
 export default class TableHeader extends React.Component {
   static propTypes = {

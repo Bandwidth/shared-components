@@ -2,10 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BandwidthThemeProvider from '../../src/components/BandwidthThemeProvider';
 import Anchor from '../../src/components/Anchor';
+import bootstrap from '../../src/bootstrap';
 import {Router} from 'react-router';
 import { createMemoryHistory } from 'history';
 import XRay from 'react-x-ray';
 import styled from 'styled-components';
+
+bootstrap.amoeba();
 
 const history  = createMemoryHistory('/');
 

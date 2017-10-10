@@ -34,7 +34,8 @@ const appendExports = (dir, subDirs, files) => {
     if ((
         _.upperFirst(fileName) === fileName ||
         ['theme', 'extensions'].includes(dirName) ||
-        name === 'icons'
+        name === 'icons' ||
+        name === 'bootstrap'
       ) &&
       name !== dirName
     ) {

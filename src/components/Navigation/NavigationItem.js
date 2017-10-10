@@ -15,6 +15,7 @@ const select = theme
     effectTop: 'auto',
     hoverOpacity: '0.5',
     margin: '0',
+    lineHeight: '1',
   }))
   .addVariant('small', ({ spacing }) => ({
     effectTop: 'calc(100% + 10px)',
@@ -27,6 +28,7 @@ const select = theme
 const NavigationItemImpl = theme.connect(styled.div.withConfig({ displayName: 'NavigationItem' })`
   border: ${select('border')};
   padding: ${select('padding')};
+  line-height: ${select('lineHeight')};
   opacity: 1;
   transition: ${select('transition')};
   position: relative;
@@ -52,7 +54,7 @@ const NavigationItemImpl = theme.connect(styled.div.withConfig({ displayName: 'N
     opacity: ${select('hoverOpacity')};
     height: ${select('effectHeight')};
   }
-`);
+`, { pure: false });
 
 export const NavigationItem = (props) => <NavigationItemImpl {...props} />;
 

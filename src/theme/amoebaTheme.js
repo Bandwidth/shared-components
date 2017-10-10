@@ -89,7 +89,7 @@ const colors = {
 
   primary: palette.blue.main,
   primaryLight: palette.blue.faded,
-  primaryDark: palette.blue.darkest,
+  primaryDark: '#008db1',
 
   secondary: palette.deepBlue.main,
   secondaryDark: palette.deepBlue.darker,
@@ -104,7 +104,7 @@ const colors = {
   greyDark: palette.black.main,
 
   border: palette.gray.darkest,
-  borderLight: palette.gray.lighter,
+  borderLight: palette.gray.darker,
 
   disabled: palette.gray.lighter,
 
@@ -131,6 +131,11 @@ const colors = {
     palette.green.main,
     palette.purple.main,
     palette.orange.main,
+  ],
+
+  graphics: [
+    palette.green.main,
+    palette.purple.main,
   ],
 };
 

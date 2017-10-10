@@ -5,7 +5,7 @@ import RadioButton from './RadioButton';
 import theme from '../../theme';
 
 const select = theme
-  .register('RadioGroup', { alignItems: 'stretch', minHeight: '53px', flowDirection: 'row' })
+  .register('RadioGroup', { alignItems: 'stretch', minHeight: '53px', flowDirection: 'row', itemFlex: '0 1 auto' })
   .addVariant('vertical', { flowDirection: 'column' })
   .addVariant('small', { minHeight: '0' })
   .createSelector();

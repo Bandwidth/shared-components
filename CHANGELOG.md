@@ -1,3 +1,25 @@
+# v3.0.0
+
+Major feature: added the `react-studs` themeing system. Reference documentation to see all the properties you can customize on components by creating variants.
+
+* All `themes` have been removed.
+  * Different sizes of components must now be accessed via `small` and `large` variants within `react-studs`. Usually these will be exposed as `.Small`, etc, on the components themselves.
+  * Error components, secondary components, and other visual modifications are also accessed via variants or subcomponents.
+* All `Field` components have been removed. These components were deprecated in `v1.1.0`.
+* `Pane.Layout` has been removed. Use `<Spacing>` instead.
+* `Summary` experimental component removed.
+* `Header` has been renamed to `Heading1` for consistency with the design system.
+* `SubHeader` has been renamed to `Heading2` for consistency with the design system.
+* `Heading3`, `Heading4`, and `Heading5` introduced.
+* `BulkSelect` introduced as an experimental component. The name may change.
+* `Modal`, `Pane` components now provide default padding. Be sure to check the padding of contained elements and remove any spacing you manually applied (or create a varian to customize padding).
+* `Modal` no longer supports the `naturalWidth` prop. Use variants to specify a new `width` value or use a prebuilt `Wide` variant.
+* `Pane` children *must* be `Pane.Section`s to layout properly now. Otherwise, spacing will not be correct.
+
+# v2.0.0
+
+Any clients using components directly within `styled-component` (i.e. including a component class directly as a templated parameter inside a `styled-components` template string) must now reference an exposed `.Styled` class instead. All exported components have been wrapped with transparent functional components in order to provide more useful automated documentation.
+
 # v1.1.0
 
 ### Flow System

@@ -22,7 +22,7 @@ const Figure = theme.connect(styled.span`
 
     return selector('neutralColor')(props);
   }};
-`);
+`, { pure: false });
 
 class Money extends React.Component {
   static propTypes = {
