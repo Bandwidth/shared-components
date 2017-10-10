@@ -16,6 +16,8 @@ export { default as Alert } from './components/Alert';
 export { default as Anchor } from './components/Anchor';
 export { default as BandwidthThemeProvider } from './components/BandwidthThemeProvider';
 export { default as Breadcrumb } from './components/Breadcrumb';
+export { default as BulkSelect } from './components/BulkSelect';
+export { default as BulkSelectItem } from './components/BulkSelect/BulkSelectItem';
 export { default as Button } from './components/Button';
 export { default as SubmitButton } from './components/Button/SubmitButton';
 export { default as Callout } from './components/Callout';
