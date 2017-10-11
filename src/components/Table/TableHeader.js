@@ -47,9 +47,9 @@ const SortArrows = styled.span`
   }
 
   ${({ theme, sortOrder }) => {
-    if (sortOrder > 0) {
+    if (sortOrder < 0) {
       return css`&>*:first-child { color: ${theme.colors.white}; }`;
-    } else if (sortOrder < 0) {
+    } else if (sortOrder > 0) {
       return css`&>*:last-child { color: ${theme.colors.white}; }`;
     }
   }}
@@ -121,8 +121,8 @@ export default class Header extends React.Component {
         {this.renderColumnName()}
         {sortable &&
           <SortArrows sortOrder={sortOrder}>
-            <Anchor type="icon" onClick={this.createClickHandler(1)}><Icon name="down" /></Anchor>
-            <Anchor type="icon" onClick={this.createClickHandler(-1)}><Icon name="up" /></Anchor>
+            <Anchor type="icon" onClick={this.createClickHandler(-1)}><Icon name="down" /></Anchor>
+            <Anchor type="icon" onClick={this.createClickHandler(1)}><Icon name="up" /></Anchor>
           </SortArrows>
         }
       </TH>
