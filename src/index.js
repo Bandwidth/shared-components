@@ -1,10 +1,12 @@
 
-  /**
-   * THIS IS A GENERATED FILE
-   *
-   * Please see /tools/generateIndices.js to regenerate after structural changes or component additions / deletions
-   */
-  
+/**
+ * THIS IS A GENERATED FILE
+ *
+ * Please see /tools/generateIndices.js to regenerate after structural changes or component additions / deletions
+ */
+
+
+export { default as bootstrap } from './bootstrap';
 export { default as animations } from './animations';
 export { default as Expand } from './animations/Expand';
 export { default as behaviors } from './behaviors';
