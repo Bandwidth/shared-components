@@ -6,9 +6,28 @@ import Input from '../Input';
 import Suggestion from './Suggestion';
 import SuggestionsContainer from './SuggestionsContainer';
 import SuggestionsSectionTitle from './SuggestionsSectionTitle';
+import SearchButton from './SearchButton';
 import _ from 'lodash';
 
-class SuggestInput extends React.Component {
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  & > .react-autosuggest__container {
+    width: 100%;
+
+    & input {
+      padding-right: 2em;
+    }
+  }
+
+  & > button {
+    margin: 0 0 auto 0;
+  }
+`;
+
+class SearchBox extends React.Component {
   static propTypes = {
     suggestions: PropTypes.array.isRequired,
     onSuggestionsFetchRequested: PropTypes.func.isRequired,
@@ -29,6 +48,9 @@ class SuggestInput extends React.Component {
      * knows which part of the string to highlight.
      */
     matchSuggestionContent: PropTypes.func,
+    showSubmitButton: PropTypes.bool,
+    onSubmit: PropTypes.func,
+    enableSubmit: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -39,6 +61,9 @@ class SuggestInput extends React.Component {
     inputProps: {},
     onSuggestionSelected: null,
     matchSuggestionContent: undefined,
+    showSubmitButton: false,
+    onSubmit: () => null,
+    enableSubmit: false,
   };
 
   state = {
@@ -82,46 +107,63 @@ class SuggestInput extends React.Component {
   );
 
   render() {
-    const { inputProps, onChange, value, alwaysRenderSuggestions } = this.props;
+    const {
+      inputProps,
+      onChange,
+      value,
+      alwaysRenderSuggestions,
+      showSubmitButton,
+      onSubmit,
+      enableSubmit,
+    } = this.props;
     const { forceShowSuggestions } = this.state;
 
     return (
-      <Autosuggest
-        {...this.props}
-        inputProps={{
-          ...inputProps,
-          onChange,
-          value,
-          onFocus: (a, b, c, d, e) => {
-            console.log('focus');
-            if (inputProps.onFocus) {
-              inputProps.onFocus(a, b, c, d, e);
+      <Wrapper>
+        <Autosuggest
+          {...this.props}
+          inputProps={{
+            ...inputProps,
+            onChange,
+            value,
+            onFocus: (a, b, c, d, e) => {
+              console.log('focus');
+              if (inputProps.onFocus) {
+                inputProps.onFocus(a, b, c, d, e);
+              }
+              if (this.props.showSuggestionsOnFocus) {
+                this.setState({ forceShowSuggestions: true });
+              }
+            },
+            onBlur: (a, b, c, d, e) => {
+              console.log('blur');
+              if (inputProps.onBlur) {
+                inputProps.onBlur(a, b, c, d, e);
+              }
+              this.setState({ forceShowSuggestions: false });
             }
-            if (this.props.showSuggestionsOnFocus) {
-              this.setState({ forceShowSuggestions: true });
-            }
-          },
-          onBlur: (a, b, c, d, e) => {
-            console.log('blur');
-            if (inputProps.onBlur) {
-              inputProps.onBlur(a, b, c, d, e);
-            }
-            this.setState({ forceShowSuggestions: false });
-          }
-        }}
-        renderInputComponent={this.renderInput}
-        renderSuggestion={this.renderSuggestion}
-        renderSuggestionsContainer={this.renderSuggestionsContainer}
-        renderSectionTitle={this.renderSectionTitle}
-        alwaysRenderSuggestions={forceShowSuggestions || alwaysRenderSuggestions}
-        onSuggestionSelected={this.handleSuggestionSelected}
-      />
+          }}
+          renderInputComponent={this.renderInput}
+          renderSuggestion={this.renderSuggestion}
+          renderSuggestionsContainer={this.renderSuggestionsContainer}
+          renderSectionTitle={this.renderSectionTitle}
+          alwaysRenderSuggestions={forceShowSuggestions || alwaysRenderSuggestions}
+          onSuggestionSelected={this.handleSuggestionSelected}
+        />
+        {
+          /* Using the button as a glyph if submit is disabled */
+          showSubmitButton ?
+            <SearchButton onClick={onSubmit} disabled={!enableSubmit} /> :
+            <SearchButton disabled />
+        }
+      </Wrapper>
     );
   }
 }
 
-SuggestInput.Suggestion = Suggestion;
-SuggestInput.SuggestionsContainer = SuggestionsContainer;
-SuggestInput.SuggestionsSectionTitle = SuggestionsSectionTitle;
+SearchBox.Suggestion = Suggestion;
+SearchBox.SuggestionsContainer = SuggestionsContainer;
+SearchBox.SuggestionsSectionTitle = SuggestionsSectionTitle;
+SearchBox.Button = SearchButton;
 
-export default SuggestInput;
+export default SearchBox;

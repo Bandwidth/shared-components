@@ -16,7 +16,7 @@ class Wrap extends React.Component {
 
   render() {
     return (
-      <SuggestInput
+      <SearchBox
         suggestions={suggestions}
         renderSuggestionContent={(sugg) => sugg}
         getSuggestionValue={(sugg) => sugg}
@@ -25,6 +25,47 @@ class Wrap extends React.Component {
         onSuggestionsFetchRequested={() => null}
         onSuggestionsClearRequested={() => null}
         inputProps={{ placeholder: 'Start typing...' }}
+      />
+    );
+  }
+}
+
+<Wrap />
+```
+
+### With a Button
+
+Use the `showSubmitButton` prop to add a submit button to the field. Use `onSubmit` to handle submissions and `enableSubmit` to control when the button is enabled.
+
+```javascript
+const suggestions = [
+  'Calico',
+  'Tabby',
+  'Tuxedo',
+  'Persian',
+];
+
+class Wrap extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { val: '' };
+  }
+
+  render() {
+    return (
+      <SearchBox
+        suggestions={suggestions}
+        renderSuggestionContent={(sugg) => sugg}
+        getSuggestionValue={(sugg) => sugg}
+        value={this.state.val}
+        onChange={(_, { newValue }) => this.setState({ val: newValue })}
+        onSuggestionsFetchRequested={() => null}
+        onSuggestionsClearRequested={() => null}
+        inputProps={{ placeholder: 'Type at least 3 characters' }}
+
+        showSubmitButton
+        onSubmit={() => { alert(this.state.val) }}
+        enableSubmit={this.state.val.length > 2}
       />
     );
   }
@@ -51,7 +92,7 @@ class Wrap extends React.Component {
 
   render() {
     return (
-      <SuggestInput
+      <SearchBox
         suggestions={suggestions}
         renderSuggestionContent={(sugg) => sugg}
         getSuggestionValue={(sugg) => sugg}
@@ -121,7 +162,7 @@ class Wrap extends React.Component {
 
   render() {
     return (
-      <SuggestInput
+      <SearchBox
         suggestions={this.state.suggestions}
         renderSuggestionContent={(sugg) => sugg.label}
         getSuggestionValue={(sugg) => sugg.value}
@@ -171,7 +212,7 @@ class Wrap extends React.Component {
 
   render() {
     return (
-      <SuggestInput
+      <SearchBox
         multiSection
         suggestions={suggestions}
         getSectionSuggestions={(sec) => sec.suggestions}
