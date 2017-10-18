@@ -32,7 +32,7 @@ class SearchBox extends React.Component {
     suggestions: PropTypes.array.isRequired,
     onSuggestionsFetchRequested: PropTypes.func.isRequired,
     onSuggestionsClearRequested: PropTypes.func.isRequired,
-    getSuggestionValue: PropTypes.func.isRequired,
+    getSuggestionValue: PropTypes.func,
     renderSuggestionContent: PropTypes.func,
     onChange: PropTypes.func.isRequired,
     value: PropTypes.any.isRequired,
@@ -64,6 +64,7 @@ class SearchBox extends React.Component {
     showSubmitButton: false,
     onSubmit: () => null,
     enableSubmit: false,
+    getSuggestionValue: _.identity,
   };
 
   state = {
@@ -126,19 +127,17 @@ class SearchBox extends React.Component {
             ...inputProps,
             onChange,
             value,
-            onFocus: (a, b, c, d, e) => {
-              console.log('focus');
+            onFocus: (ev, details) => {
               if (inputProps.onFocus) {
-                inputProps.onFocus(a, b, c, d, e);
+                inputProps.onFocus(ev, details);
               }
               if (this.props.showSuggestionsOnFocus) {
                 this.setState({ forceShowSuggestions: true });
               }
             },
-            onBlur: (a, b, c, d, e) => {
-              console.log('blur');
+            onBlur: (ev, details) => {
               if (inputProps.onBlur) {
-                inputProps.onBlur(a, b, c, d, e);
+                inputProps.onBlur(ev, details);
               }
               this.setState({ forceShowSuggestions: false });
             }
