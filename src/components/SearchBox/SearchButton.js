@@ -29,7 +29,7 @@ const SearchButtonImpl = styled.button`
     cursor: pointer;
   }
 
-  &:hover::before {
+  &:not(:disabled):hover::before {
     background: ${({ theme }) => theme.colors.primaryDark};
     box-shadow: ${({ theme }) => theme.shadows.short};
   }

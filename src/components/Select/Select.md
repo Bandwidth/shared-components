@@ -28,7 +28,7 @@ const complexOptions = [
 class Wrapper extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = { value: null };
   }
 
   render() {
@@ -57,8 +57,10 @@ class Wrapper extends React.Component {
   <div>A select with complex options:</div>
   <Wrapper
     options={complexOptions}
-    selectOptionValue={(opt) => opt.id}
+    getOptionValue={(opt) => opt.id}
     renderOption={(opt) => `${opt.name} (${opt.count})`}
   />
+  <div>Loading state:</div>
+  <Wrapper options={options} loading/>
 </div>
 ```

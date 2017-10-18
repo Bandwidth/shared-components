@@ -29,54 +29,92 @@ const Wrapper = styled.div`
 
 class SearchBox extends React.Component {
   static propTypes = {
+    /**
+     * An array of suggestions. Suggestions can be any shape you like.
+     */
     suggestions: PropTypes.array.isRequired,
+    /**
+     * Called when the component needs to refresh suggestions. ({ value, reson }) => {}
+     */
     onSuggestionsFetchRequested: PropTypes.func.isRequired,
+    /**
+     * Called when suggestions need to be reset.
+     */
     onSuggestionsClearRequested: PropTypes.func.isRequired,
-    getSuggestionValue: PropTypes.func,
+    /**
+     * Computes a value from a single suggestion item. (suggestion) => value
+     */
+    getSuggestionValue: PropTypes.func.isRequired,
+    /**
+     * Turns a suggestion into a renderable item. Can be a string or a node.
+     * (suggestion, filterValue) => node
+     */
     renderSuggestionContent: PropTypes.func,
+    /**
+     * Called when the value changes. (event, { newValue, method }) => {}
+     */
     onChange: PropTypes.func.isRequired,
+    /**
+     * The current value in the search field.
+     */
     value: PropTypes.any.isRequired,
-    showSuggestionsOnFocus: PropTypes.bool,
+    /**
+     * Whether suggestions should always be shown
+     */
     alwaysRenderSuggestions: PropTypes.bool,
+    /**
+     * Computes a title from a section object. Has a default (section) => seciton.title
+     */
     getSectionTitle: PropTypes.func,
+    /**
+     * Computes the suggestions for a section. Has a default (section) => section.suggestions
+     */
+    getSectionSuggestions: PropTypes.func,
+    /**
+     * Additional props to pass to the input element
+     */
     inputProps: PropTypes.object,
+    /**
+     * Called when the user selects something
+     */
     onSuggestionSelected: PropTypes.func,
     /**
      * Invoked with the current input value and the content of a suggestion
      * as parameters. Must return an array [startIndex, endIndex] where
      * the value matches the suggestion content, so that the suggestion
      * knows which part of the string to highlight.
+     *
+     * Example, matchSuggestionContent('rg', 'corgi') = [2,4]
+     *
+     * The default for this will match case-insensitive
      */
     matchSuggestionContent: PropTypes.func,
+    /**
+     * Whether to render a button for submitting the search
+     */
     showSubmitButton: PropTypes.bool,
+    /**
+     * Called when the user activates the search button
+     */
     onSubmit: PropTypes.func,
-    enableSubmit: PropTypes.bool,
+    /**
+     * Passed the current search value, calculates whether the submit button
+     * should be enabled.
+     */
+    shouldShowSubmitButton: PropTypes.bool,
   };
 
   static defaultProps = {
     renderSuggestionContent: _.identity,
-    showSuggestionsOnFocus: false,
     alwaysRenderSuggestions: false,
     getSectionTitle: (sec) => sec.title,
+    getSectionSuggestions: (sec) => sec.suggestions,
     inputProps: {},
     onSuggestionSelected: null,
     matchSuggestionContent: undefined,
     showSubmitButton: false,
     onSubmit: () => null,
-    enableSubmit: false,
-    getSuggestionValue: _.identity,
-  };
-
-  state = {
-    forceShowSuggestions: false,
-  };
-
-  handleSuggestionSelected = (event, details) => {
-    if (this.props.onSuggestionSelected) {
-      this.props.onSuggestionSelected(event, details);
-    }
-
-    this.setState({ forceShowSuggestions: false });
+    shouldShowSubmitButton: false,
   };
 
   renderInput = ({ ref, ...inputProps }) => {
@@ -95,7 +133,7 @@ class SearchBox extends React.Component {
       isHighlighted={isHighlighted}
       matchSuggestionContent={this.props.matchSuggestionContent}
     >
-      {this.props.renderSuggestionContent(suggestion)}
+      {this.props.renderSuggestionContent(suggestion, query)}
     </Suggestion>
   );
 
@@ -112,12 +150,10 @@ class SearchBox extends React.Component {
       inputProps,
       onChange,
       value,
-      alwaysRenderSuggestions,
       showSubmitButton,
       onSubmit,
-      enableSubmit,
+      shouldShowSubmitButton,
     } = this.props;
-    const { forceShowSuggestions } = this.state;
 
     return (
       <Wrapper>
@@ -127,32 +163,16 @@ class SearchBox extends React.Component {
             ...inputProps,
             onChange,
             value,
-            onFocus: (ev, details) => {
-              if (inputProps.onFocus) {
-                inputProps.onFocus(ev, details);
-              }
-              if (this.props.showSuggestionsOnFocus) {
-                this.setState({ forceShowSuggestions: true });
-              }
-            },
-            onBlur: (ev, details) => {
-              if (inputProps.onBlur) {
-                inputProps.onBlur(ev, details);
-              }
-              this.setState({ forceShowSuggestions: false });
-            }
           }}
           renderInputComponent={this.renderInput}
           renderSuggestion={this.renderSuggestion}
           renderSuggestionsContainer={this.renderSuggestionsContainer}
           renderSectionTitle={this.renderSectionTitle}
-          alwaysRenderSuggestions={forceShowSuggestions || alwaysRenderSuggestions}
-          onSuggestionSelected={this.handleSuggestionSelected}
         />
         {
           /* Using the button as a glyph if submit is disabled */
           showSubmitButton ?
-            <SearchButton onClick={onSubmit} disabled={!enableSubmit} /> :
+            <SearchButton onClick={onSubmit} disabled={!shouldShowSubmitButton(value)} /> :
             <SearchButton disabled />
         }
       </Wrapper>

@@ -5,6 +5,7 @@ import LibSelect from 'react-select';
 import arrowImage from './arrow.png';
 import _ from 'lodash';
 import selectOptionPrimaryValue from '../../extensions/selectItemPrimaryValue';
+import Loader from '../Loader';
 
 const fadeIn = keyframes`
   from {
@@ -153,18 +154,21 @@ const Container = styled.div`
     transform: translateY(-50%);
   }
   .Select-loading {
-    box-sizing: border-box;
-    animation: ${spin} 400ms infinite linear;
-    width: 16px;
-    height: 16px;
-    display: block;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    border-right-color: ${({ theme }) => theme.colors.primary};
+    width: 0;
+    height: 0;
   }
+  .is-loading .Select-placeholder {
+    width: 100%;
+    display: flex;
+
+    & > * {
+      margin: auto;
+    }
+  }
+
   .Select-clear-zone {
     animation: ${fadeIn} 200ms;
-    color: ${({ theme }) => theme.colors.gray};
+    color: ${({ theme }) => theme.colors.grayLightText};
     cursor: pointer;
     position: absolute;
     text-align: center;
@@ -177,9 +181,9 @@ const Container = styled.div`
     color: ${({ theme }) => theme.colors.primaryText};
   }
   .Select-clear {
-    display: inline-block;
-    font-size: 18px;
-    line-height: 1;
+    font-size: 20px;
+    display: block;
+    height: 18px;
   }
   .Select--multi .Select-clear-zone {
     width: 17px;
@@ -455,20 +459,36 @@ class Select extends React.Component {
      * A function which takes an option and computes a single string value to
      * represent it. Has a sane default.
      */
-    selectOptionValue: PropTypes.func,
+    getOptionValue: PropTypes.func,
     /**
      * The currently selected value.
      */
     value: PropTypes.any.isRequired,
     /**
      * Handler for change events on the select. It will be called with the new value
-     * computed from selectOptionValue.
+     * computed from getOptionValue.
      */
     onChange: PropTypes.func.isRequired,
     /**
      * Whether to enable searching to filter to the desired item.
      */
     searchable: PropTypes.bool,
+    /**
+     * Alias for isLoading
+     */
+    loading: PropTypes.bool,
+    /**
+     * DEPRECATED: use getOptionValue
+     */
+    selectOptionValue: PropTypes.func,
+    /**
+     * DEPRECATED: use required to prevent None, or omit it to allow None
+     */
+    allowNone: PropTypes.bool,
+    /**
+     * DEPRECATED: use placeholder
+     */
+    noneText: PropTypes.string,
   };
 
   static defaultProps = {
@@ -476,9 +496,10 @@ class Select extends React.Component {
     id: null,
     disabled: false,
     required: false,
+    allowNone: false,
     placeholder: 'None',
     renderOption: selectOptionPrimaryValue,
-    selectOptionValue: selectOptionPrimaryValue,
+    getOptionValue: selectOptionPrimaryValue,
     searchable: false,
   };
 
@@ -493,12 +514,13 @@ class Select extends React.Component {
     const {
       options,
       renderOption,
+      getOptionValue,
       selectOptionValue,
     } = this.props;
 
     return options.map((opt) => ({
       label: renderOption(opt),
-      value: selectOptionValue(opt),
+      value: (getOptionValue || selectOptionValue)(opt),
     }));
   };
 
@@ -519,14 +541,19 @@ class Select extends React.Component {
   };
 
   render() {
-    const { required } = this.props;
+    const { required, placeholder, noneText, allowNone, isLoading, loading } = this.props;
+    const combinedLoading = loading || isLoading;
+    const combinedPlaceholder = placeholder || noneText;
+
     return (
       <Container>
         <LibSelect
           {...this.props}
           options={this.convertOptions()}
           onChange={this.handleChange}
-          clearable={!required}
+          clearable={!required || allowNone}
+          placeholder={combinedLoading ? <Loader size="14px" /> : combinedPlaceholder}
+          isLoading={combinedLoading}
         />
       </Container>
     );
