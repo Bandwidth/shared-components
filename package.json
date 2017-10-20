@@ -32,6 +32,7 @@
     "prop-types": "^15.5.8",
     "provinces": "^1.11.0",
     "react": "^15.5.4",
+    "react-autosuggest": "^9.3.2",
     "react-collapse": "^4.0.3",
     "react-dom": "^15.5.4",
     "react-dropzone": "^3.13.1",

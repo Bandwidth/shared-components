@@ -12,7 +12,6 @@ A prebuilt \`Flow.Item\` with a \`Select\` component inside, designed for use wi
     component={Flow.fields.Select}
     options={['foo', 'bar', 'baz']}
     renderOption={(option) => option.name}
-    allowNone={false}
     name="foo"
     label="Select one"
     required
