@@ -49,9 +49,8 @@ module.exports = {
                   localIdentName: 'cat__[local]_[path]',
                 },
               },
-              'postcss-loader',
             ],
-          },          
+          },
           {
             test: /\.(jpg|jpeg|png|webp|ico)$/,
             use: 'file-loader',
