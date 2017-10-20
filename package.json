@@ -38,6 +38,7 @@
     "react-dropzone": "^3.13.1",
     "react-motion": "^0.5.1",
     "react-router-dom": "^4.1.1",
+    "react-select": "^1.0.0-rc.10",
     "react-syntax-highlighter": "^5.5.0",
     "styled-components": "^2.1.2",
     "warning": "^3.0.0"
