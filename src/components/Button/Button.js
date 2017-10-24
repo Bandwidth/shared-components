@@ -36,7 +36,7 @@ const ButtonImpl = styled.button`
     background-color: ${({ theme }) => theme.button.activeBG};
     border-color: ${({ theme }) => theme.button.activeBG};
     color: ${({ theme }) => theme.button.activeFG};
-    box-shadow: 0 2px 4px ${({ theme }) => theme.shadow.color};
+    box-shadow: ${({ theme }) => theme.shadows.short};
   }
 
   &:disabled {

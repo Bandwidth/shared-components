@@ -60,8 +60,8 @@ const RevealPasswordContainer = styled.div`
 
   div {
     position: absolute;
-    right: 10px; 
-    top: 25%;
+    right: 10px;
+    top: 30%;
     z-index: 10;
   }
 
@@ -116,7 +116,7 @@ class Input extends React.Component {
     type: PropTypes.oneOf([
       'search', 'email', 'url', 'tel', 'number', 'range', 'date',
       'month', 'week', 'time', 'datetime', 'datetime-local', 'color',
-      'password'
+      'password', 'text',
     ]),
     /**
      * Styles this input as being invalid
@@ -134,7 +134,10 @@ class Input extends React.Component {
      * Disables the ability to show a password
      */
     disableShowPassword: PropTypes.bool,
-
+    /**
+     * Provides a reference to the input element
+     */
+    inputRef: PropTypes.func,
   };
 
   componentDidMount () {
@@ -182,12 +185,12 @@ class Input extends React.Component {
 
     return (
       <RevealPasswordContainer>
-          <div>
-            <Anchor href="" onClick={handleClick}>
-              {this.state._type === 'password' ? 'Show' : 'Hide'}
-            </Anchor>
-          </div>
-          {this.renderInputField()}          
+        {this.renderInputField()}
+        <div>
+          <Anchor href="" onClick={handleClick}>
+            {this.state._type === 'password' ? 'Show' : 'Hide'}
+          </Anchor>
+        </div>
       </RevealPasswordContainer>
     )
   }
@@ -206,33 +209,36 @@ class Input extends React.Component {
       required,
       error,
       placeholder,
+      inputRef,
+      onBlur,
     } = this.props;
 
     const { visited, _type:type } = this.state;
-    
+
     return (
       <StyledInput
-          onBlur={this.onBlur}
-          onKeyDown={onKeyDown}
-          onFocus={onFocus}
-          visited={visited}
-          id={id}
-          className={className}
-          invalid={invalid}
-          onChange={onChange}
-          value={value}
-          required={required}
-          type={type}
-          error={error}
-          disabled={disabled}
-          placeholder={placeholder}
-        />
-        )
+        onBlur={this.onBlur}
+        onKeyDown={onKeyDown}
+        onFocus={onFocus}
+        visited={visited}
+        id={id}
+        className={className}
+        invalid={invalid}
+        onChange={onChange}
+        value={value}
+        required={required}
+        type={type}
+        error={error}
+        disabled={disabled}
+        placeholder={placeholder}
+        innerRef={inputRef}
+        onBlur={onBlur}
+      />
+    );
   }
-    
+
 
   render() {
-    
     const { type, disableShowPassword } = this.props;
 
     if ( type === 'password' && !disableShowPassword) {
