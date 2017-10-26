@@ -11,6 +11,7 @@ const ListItemContainer = styled.li`
   border-right: 1px solid ${({ theme, active }) => active ? theme.colors.gutter : theme.colors.borderLight};
   position: relative;
   overflow-x: visible;
+  z-index: 100;
 `;
 
 const ListLabel = styled.h3`
