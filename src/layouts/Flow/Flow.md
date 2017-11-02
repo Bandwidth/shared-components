@@ -6,15 +6,13 @@ Flow is a layout system which is intended to capture the rules which have surfac
 
 Flow Items have a distinctive layout and appearance. When you see one in a design mockup, use the Flow system.
 
-![A Flow Item](../images/flow/item.png)
+![A Flow Item](https://github.com/Bandwidth/shared-components/blob/master/src/layouts/Flow/FlowItem.md)
 
 Flow Items have a label, help text, and content which has a fixed height. Sometimes they might be missing a label, or help text, or both. As a rule of thumb, though, anything which is on the same horizontal level as another Flow Item should also be a Flow Item.
 
 ### Flow Recipes
 
 #### Simple Row
-
-![Simple Recipe](../images/flow/simpleRecipe.png)
 
 ```
 <Flow>
@@ -29,9 +27,7 @@ Flow Items have a label, help text, and content which has a fixed height. Someti
 
 #### Precise Field Alignment
 
-Sometimes you need to use nesting to achieve a precise alignment of various rows of fields. Particularly, if you want to break one column down into two columns on a certain row, you need to use nesting to line them up prefectly.
-
-![Alignment Recipe](../images/flow/alignmentRecipe.png)
+Sometimes you need to use nesting to achieve a precise alignment of various rows of fields. Particularly, if you want to break one column down into two columns on a certain row, you need to use nesting to line them up perfectly.
 
 (Item contents omitted for brevity)
 
@@ -54,8 +50,6 @@ Sometimes you need to use nesting to achieve a precise alignment of various rows
 #### Redux Form
 
 Flow includes built-in Redux Form fields for all our Input types. Reference them from \`Flow.fields\`. These components will take care of all transformations necessary for Redux Form Field usage.
-
-![Form Recipe](../images/flow/formRecipe.png)
 
 ```
 // in a redux-form HOC
@@ -100,7 +94,7 @@ Flow includes built-in Redux Form fields for all our Input types. Reference them
 
 Usually in a form, submit buttons and other controls lay out differently. There are a variety of possibilities, but all are possible with Flow! Here are some examples:
 
-![Left Recipe](../images/flow/leftRecipe.png)
+##### Align left
 
 ```
 <Flow>
@@ -115,7 +109,7 @@ Usually in a form, submit buttons and other controls lay out differently. There 
 </Flow>
 ```
 
-![Spaced Recipe](../images/flow/spacedRecipe.png)
+##### Space in between
 
 ```
 <Flow>
