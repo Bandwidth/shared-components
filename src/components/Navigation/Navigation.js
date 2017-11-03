@@ -4,6 +4,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import NavigationItems, { Container as ItemsContainer, linksPropType } from './NavigationItems';
 import LogoHeader from './LogoHeader';
 import theme from '../../theme';
+import Anchor from '../Anchor/Anchor';
 
 const Container = styled.header.withConfig({ displayName: 'NavigationContainer' })`
   background: ${({ theme }) => theme.topNav.bg};
@@ -33,6 +34,14 @@ const Links = styled.div.withConfig({ displayName: 'NavigationLinks' })`
   }
 `;
 
+const AnchoredLogoHeader = styled(LogoHeader)`
+  color: ${({ theme }) => theme.topNav.fg};
+`;
+
+const CenteredAnchor = styled(Anchor)`
+  align-self: center;
+  height: 30px;
+`;
 
 class Navigation extends React.Component {
   static propTypes = {
@@ -56,6 +65,10 @@ class Navigation extends React.Component {
      * Adds an id to the element.
      */
     id: PropTypes.string,
+    /**
+     * A location url when logo is clicked.
+     */
+    logoLocation: PropTypes.string,
   };
 
   static defaultProps = {
@@ -66,14 +79,22 @@ class Navigation extends React.Component {
   };
 
   render() {
-    const { title, links, topLinks, id, className } = this.props;
+    const { title, links, topLinks, id, className, logoLocation } = this.props;
     const RenderIf = ({ children, val }) => (val ? children : null);
-
-    return (
-      <Container id={id} className={className}>
+    const RenderLocation = ({ location }) =>
+      (location?
+        <RenderIf val={title}>
+          <CenteredAnchor to={logoLocation}><AnchoredLogoHeader>{title}</AnchoredLogoHeader></CenteredAnchor>
+        </RenderIf>
+        :
         <RenderIf val={title}>
           <LogoHeader>{title}</LogoHeader>
         </RenderIf>
+      );
+
+    return (
+      <Container id={id} className={className}>
+        <RenderLocation location={logoLocation} />
         <Links>
           <RenderIf val={topLinks}>
             <ThemeProvider theme={theme.small}>
