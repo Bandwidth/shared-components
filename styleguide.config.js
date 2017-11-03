@@ -3,7 +3,58 @@ const path = require('path');
 module.exports = {
   title: 'Bandwidth Shared React Components',
   styleguideDir: "docs",
-  components: 'src/*(components|layouts)**/**/*.js',
+  sections: [
+    {
+      name: 'Introduction',
+      content: 'docs/introduction.md',
+    },
+    {
+      name: 'Design',
+      sections: [
+        {
+          name: 'Animation',
+          content: 'docs/design/animation.md',
+        },
+        {
+          name: 'Brand',
+          content: 'docs/design/brand.md',
+        },
+        {
+          name: 'Color',
+          content: 'docs/design/color.md',
+        },
+        {
+          name: 'Layout',
+          content: 'docs/design/layout.md',
+        },
+        {
+          name: 'Typography',
+          content: 'docs/design/typography.md',
+        },
+      ],
+    },
+    {
+      name: 'Components',
+      sections: [
+        {
+          name: 'Elements',
+          components: 'src/components/**/[A-Z]*.js',
+        },
+        {
+          name: 'Layouts',
+          components: 'src/layouts/**/**/[A-Z]*.js',
+        },
+        {
+          name: 'Behaviors',
+          components: 'src/behaviors/**/**/[A-Z]*.js',
+        },
+        {
+          name: 'Animations',
+          components: 'src/animations/**/**/[A-Z]*.js',
+        },
+      ],
+    },
+  ],
   theme: {
     fontSize :{
       base: 14
@@ -12,54 +63,55 @@ module.exports = {
       base: ['Bandwidth']
     }
   },
-    ignore: [
-        'src/components/**/index.js',
-    ],
-    require: [
+  ignore: [
+    'src/components/**/index.js',
+  ],
+  require: [
     'styled-components'
-    ],
-    styleguideComponents: {
-      Logo: path.join(__dirname, 'tools/styleguide/Logo'),
-      Wrapper: path.join(__dirname, 'tools/styleguide/Wrapper')
-    },
-    webpackConfig: {
-      devtool: 'cheap-module-eval-source-map',
-      module: {
-        rules: [
-          // Babel loader, will use your project’s .babelrc
-          {
-            test: /\.js?$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                  presets: ['es2015', 'react', 'stage-0']
-                }
+  ],
+  styleguideComponents: {
+    Logo: path.join(__dirname, 'tools/styleguide/Logo'),
+    Wrapper: path.join(__dirname, 'tools/styleguide/Wrapper'),
+    ComponentsList: path.join(__dirname, 'tools/styleguide/ComponentsList'),
+  },
+  webpackConfig: {
+    devtool: 'cheap-module-eval-source-map',
+    module: {
+      rules: [
+        // Babel loader, will use your project’s .babelrc
+        {
+          test: /\.js?$/,
+          exclude: /node_modules/,
+          use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['es2015', 'react', 'stage-0']
               }
-          },
-          {
-            test: /\.css$/,
-            use: [
-              'style-loader',
-              {
-                loader: 'css-loader',
-                options: {
-                  modules: true,
-                  importLoaders: 1,
-                  localIdentName: 'cat__[local]_[path]',
-                },
+            }
+        },
+        {
+          test: /\.css$/,
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                importLoaders: 1,
+                localIdentName: 'cat__[local]_[path]',
               },
-            ],
-          },
-          {
-            test: /\.(jpg|jpeg|png|webp|ico)$/,
-            use: 'file-loader',
-          },
-          {
-            test: /\.(svg|woff|woff2|eot|otf|ttf)$/,
-            use: 'file-loader',
-          },
-        ]
-      }
+            },
+          ],
+        },
+        {
+          test: /\.(jpg|jpeg|png|webp|ico)$/,
+          use: 'file-loader',
+        },
+        {
+          test: /\.(svg|woff|woff2|eot|otf|ttf)$/,
+          use: 'file-loader',
+        },
+      ]
     }
-  };
+  }
+};
