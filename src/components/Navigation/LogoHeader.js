@@ -12,7 +12,7 @@ const Container = styled.div`
 const Text = styled.span`
   font-size: 22px;
   font-weight: 100;
-  line-height: 30px;
+  line-height: 33px;
   border-left: 1px solid;
   margin-left: 0.5em;
   padding-left: 0.5em;
