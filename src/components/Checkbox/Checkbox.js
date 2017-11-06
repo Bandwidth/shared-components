@@ -9,9 +9,9 @@ const select = theme
   .register('Checkbox', ({ colors, shadows }) => ({
     labelColor: colors.text.default,
     checkColor: colors.text.inverted,
-    boxCheckedBackground: colors.primary.alternate,
+    boxCheckedBackground: colors.primary.dark,
     boxUncheckedBackground: colors.background.default,
-    boxBorderColor: colors.primary.alternate,
+    boxBorderColor: colors.primary.dark,
     boxBorderWidth: '2px',
     boxBorderStyle: 'solid',
     checkSize: '1em',

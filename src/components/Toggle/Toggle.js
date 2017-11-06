@@ -17,7 +17,7 @@ const select = theme
       fontWeight: 300,
     },
     backgrounds: {
-      on: colors.primary.alternate,
+      on: colors.primary.dark,
       off: colors.background.default,
       hover: colors.primary.dark,
       disabled: colors.background.disabled,
@@ -29,8 +29,8 @@ const select = theme
     },
     borderColors: {
       disabled: colors.gray.default,
-      on: colors.primary.alternate,
-      off: colors.primary.alternate,
+      on: colors.primary.dark,
+      off: colors.primary.dark,
       hover: colors.primary.dark,
     },
   }))
