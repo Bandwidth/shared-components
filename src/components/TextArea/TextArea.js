@@ -16,6 +16,7 @@ const TextArea = styled.textarea`
   outline: none;
   width: 100%;
   min-height: 100px;
+  height: ${ props => props.height };
 `;
 
 TextArea.propTypes = {
@@ -27,11 +28,16 @@ TextArea.propTypes = {
    * Adds an id to the element.
    */
   id: PropTypes.string,
+  /**
+   * Specifies the height of the element.
+   */
+  height: PropTypes.string,
 };
 
 TextArea.defaultProps = {
   className: null,
   id: null,
+  height: '100px',
 };
 
 TextArea.usage = `
