@@ -13,11 +13,11 @@ const select = theme
   .register('TableRowDetails', ({ colors, spacing }) => ({
     textAlign: 'left',
     zebraLightStripeColor: 'transparent',
-    zebraDarkStripColor: colors.shadowExtraLight,
-    borderColor: colors.border,
+    zebraDarkStripColor: colors.shadow.extraLight,
+    borderColor: colors.gray.border,
     borderWidth: '1px',
     borderStyle: 'solid',
-    effectColor: colors.shadowLight,
+    effectColor: colors.shadow.light,
     effectWidth: '5px',
     padding: `${spacing.small} ${spacing.meium} ${spacing.small} 20px`,
   }))

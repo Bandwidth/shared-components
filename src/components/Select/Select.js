@@ -11,22 +11,22 @@ const NONE_KEY = 'BW_SHARED_SELECT_NONE';
 const select = theme.register('Select', ({ spacing, colors, fonts }) => ({
   padding: spacing.medium,
   borderColors: {
-    default: colors.borderLight,
-    focus: colors.border,
-    hover: colors.border,
-    disabled: colors.black,
+    default: colors.gray.borderLight,
+    focus: colors.gray.border,
+    hover: colors.gray.border,
+    disabled: colors.gray.default,
   },
   colors: {
-    default: colors.black,
-    disabled: colors.black,
+    default: colors.text.default,
+    disabled: colors.text.default,
   },
   opacities: {
     default: 1,
     disabled: 0.5,
   },
   backgrounds: {
-    default: colors.white,
-    disabled: colors.disabled,
+    default: colors.background.default,
+    disabled: colors.background.disabled,
   },
   borderWidth: '1px',
   borderStyle: 'solid',
@@ -35,7 +35,7 @@ const select = theme.register('Select', ({ spacing, colors, fonts }) => ({
   letterSpacing: '0.02em',
   lineHeight: '1.5',
   arrowSize: '35px',
-  validEffectColor: colors.primaryLight,
+  validEffectColor: colors.primary.light,
 })).createSelector();
 
 const Styles = theme.connect(styled.select`

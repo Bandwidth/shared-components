@@ -7,13 +7,13 @@ import { spreadStyles } from 'react-studs';
 
 const select = theme
   .register('TableWrap', ({ colors }) => ({
-    background: colors.white,
+    background: colors.background.default,
     borderWidth: '1px',
     borderStyle: 'solid',
-    borderColor: colors.border,
+    borderColor: colors.gray.border,
     borderRadius: '5px 5px 0 0',
     fontSize: '1em',
-    shadowColor: colors.shadow,
+    shadowColor: colors.shadow.default,
   }))
   .createSelector();
 

@@ -40,7 +40,7 @@
     "react-router-dom": "^4.1.1",
     "react-syntax-highlighter": "^5.5.0",
     "styled-components": "^2.1.2",
-    "react-studs": "^1.1.0",
+    "react-studs": "^2.0.0",
     "warning": "^3.0.0"
   },
   "devDependencies": {

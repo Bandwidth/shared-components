@@ -11,7 +11,7 @@ import H5 from './Heading5';
 
 const select = theme
   .register('Heading1', ({ colors, fonts }) => ({
-    color: colors.primary,
+    color: colors.primary.default,
     fontWeight: 100,
     fontFamily: fonts.brand,
     fontSize: '2.5em',

@@ -6,8 +6,8 @@ import theme from '../../theme';
 const select = theme
   .register('PaneSection', ({ spacing, colors }) => ({
     titleMargin: `0 -${spacing.large} ${spacing.small} -${spacing.large}`,
-    titleBackground: colors.grayMedium,
-    titleColor: colors.black,
+    titleBackground: colors.gray.mediumLight,
+    titleColor: colors.text.default,
     titlePadding: `${spacing.extraSmall} ${spacing.large}`,
     titleFontSize: '0.9em',
     titleFontWeight: 600,

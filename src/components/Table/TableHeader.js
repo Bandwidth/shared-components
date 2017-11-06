@@ -9,16 +9,16 @@ import { spreadStyles } from 'react-studs';
 
 const select = theme
   .register('TableHeader', ({ colors, fonts, spacing }) => ({
-    background: colors.secondaryDark,
-    color: colors.white,
+    background: colors.primary.dark,
+    color: colors.text.inverted,
     textTransform: 'uppercase',
     fontWeight: 300,
     fontFamily: fonts.brand,
     padding: `${spacing.small} ${spacing.medium}`,
     textAlign: 'left',
     whiteSpace: 'nowrap',
-    inactiveSortArrowColor: colors.grayLightText,
-    activeSortArrowColor: colors.white,
+    inactiveSortArrowColor: colors.gray.medium,
+    activeSortArrowColor: colors.text.inverted,
   }))
   .addVariant('small', { padding: '3px 8px' })
   .createSelector();

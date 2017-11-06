@@ -11,9 +11,9 @@ const select = theme
   .register('Code', ({ colors, fonts }) => ({
     fontFamily: fonts.monospace,
     fontSize: '0.85em',
-    background: colors.grayLight,
-    color: colors.black,
-    borderColor: colors.border,
+    background: colors.gray.light,
+    color: colors.text.default,
+    borderColor: colors.gray.border,
     borderWidth: '1px',
     borderStyle: 'solid',
     borderRadius: '3px',

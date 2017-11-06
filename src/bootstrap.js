@@ -4,8 +4,8 @@
 
 import { injectGlobal } from 'styled-components';
 
-import theme from './theme';
-import amoebaTheme from './theme/amoebaTheme';
+import catapultTheme from './theme/catapultTheme';
+import irisTheme from './theme/irisTheme';
 
 import eot from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.eot';
 import woff2 from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.woff2';
@@ -28,8 +28,8 @@ const bootstrapFromTheme = (theme) => {
       letter-spacing: 0.28px;
       margin: 0;
       line-height: 1.5;
-      background: ${theme.globals.colors.white};
-      color: ${theme.globals.colors.black};
+      background: ${theme.globals.colors.background.default};
+      color: ${theme.globals.colors.text.default};
     }
 
     #main {
@@ -69,7 +69,7 @@ const bootstrapFromTheme = (theme) => {
   `;
 };
 
-const base = () => bootstrapFromTheme(theme);
-base.amoeba = () => bootstrapFromTheme(amoebaTheme);
+const base = () => bootstrapFromTheme(irisTheme);
+base.catapult = () => bootstrapFromTheme(catapultTheme);
 
 export default base;

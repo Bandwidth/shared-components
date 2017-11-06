@@ -6,13 +6,13 @@ import theme from '../../theme';
 
 const select = theme
   .register('SidebarListItem', ({ colors, spacing }) => ({
-    background: colors.white,
-    activeBackground: colors.grayLight,
-    color: colors.black,
-    activeColor: colors.primary,
+    background: colors.background.default,
+    activeBackground: colors.gray.light,
+    color: colors.text.default,
+    activeColor: colors.primary.default,
     padding: `${spacing.medium} ${spacing.large}`,
-    borderColor: colors.borderLight,
-    activeBorderColor: colors.grayLight,
+    borderColor: colors.gray.borderLight,
+    activeBorderColor: colors.gray.light,
     borderWidth: '1px',
     labelTextTransform: 'uppercase',
     labelFontWeight: 'bold',

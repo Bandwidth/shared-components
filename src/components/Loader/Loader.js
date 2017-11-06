@@ -7,7 +7,7 @@ const select = theme
   .register('Loader', ({ colors }) => ({
     ringThickness: '2px',
     ringLineStyle: 'solid',
-    color: colors.primary,
+    color: colors.primary.default,
   }))
   .createSelector();
 

@@ -6,7 +6,7 @@ import { spreadStyles } from 'react-studs';
 
 const select = theme
   .register('Gutter', ({ colors }) => ({
-    background: colors.grayLight,
+    background: colors.gray.light,
     padding: 0,
     margin: 0,
   }))

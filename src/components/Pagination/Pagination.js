@@ -7,15 +7,15 @@ import theme from '../../theme';
 const select = theme
   .register('Pagination', ({ colors }) => ({
     size: '30px',
-    background: colors.white,
-    selectedBackground: colors.primary,
-    borderColor: colors.border,
-    selectedBorderColor: colors.primary,
-    hoverBackground: colors.primaryLight,
-    color: colors.black,
-    selectedColor: colors.white,
+    background: colors.background.default,
+    selectedBackground: colors.primary.default,
+    borderColor: colors.gray.border,
+    selectedBorderColor: colors.primary.default,
+    hoverBackground: colors.primary.light,
+    color: colors.text.default,
+    selectedColor: colors.text.inverted,
     borderWidth: '1px',
-    activeBackground: colors.lightGray,
+    activeBackground: colors.gray.light,
     cornerRadius: '3px',
   }))
   .createSelector();

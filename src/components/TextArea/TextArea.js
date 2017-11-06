@@ -5,13 +5,13 @@ import { spreadStyles } from 'react-studs';
 
 const select = theme
   .register('TextArea', ({ colors, spacing, fonts }) => ({
-    background: colors.white,
-    color: colors.black,
+    background: colors.background.default,
+    color: colors.text.default,
     fontSize: '14px',
     fontWeight: 400,
     fontFamily: fonts.brand,
     letterSpacing: '0.02em',
-    borderColor: colors.borderLight,
+    borderColor: colors.gray.borderLight,
     borderWidth: '1px',
     borderStyle: 'solid',
     lineHeight: '1.5',

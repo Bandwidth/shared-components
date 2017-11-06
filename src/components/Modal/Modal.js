@@ -7,8 +7,8 @@ import { DefaultVariant } from 'react-studs';
 
 const select = theme
   .register('Modal', ({ colors, shadows, fonts, spacing }) => ({
-    overlayBackground: colors.shadow,
-    background: colors.white,
+    overlayBackground: colors.shadow.default,
+    background: colors.background.default,
     width: 'auto',
     maxWidth: '70%',
     minWidth: '20%',
@@ -18,8 +18,8 @@ const select = theme
     borderRadius: '5px',
     boxShadow: shadows.long,
     title: {
-      background: colors.grayMedium,
-      color: colors.black,
+      background: colors.gray.mediumLight,
+      color: colors.text.default,
       fontFamily: fonts.brand,
       fontWeight: 600,
       fontSize: '0.9em',
@@ -27,7 +27,7 @@ const select = theme
       padding: '0.95em 1em 0.95em 1.5em',
     },
     actionContent: {
-      borderColor: colors.borderLight,
+      borderColor: colors.gray.borderLight,
       borderWidth: '1px',
       borderStyle: 'solid',
       padding: `${spacing.large} 0`,

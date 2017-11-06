@@ -7,8 +7,8 @@ import theme from '../../theme';
 
 const select = theme
   .register('ListContainer', ({ colors }) => ({
-    scrollbarTrackColor: colors.grayDark,
-    scrollbarColor: colors.grayLight,
+    scrollbarTrackColor: colors.gray.dark,
+    scrollbarColor: colors.gray.light,
   }))
   .createSelector();
 

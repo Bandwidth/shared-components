@@ -5,14 +5,14 @@ import { spreadStyles } from 'react-studs';
 
 const select = theme
   .register('Toast', ({ colors, spacing }) => ({
-    background: colors.white,
+    background: colors.background.default,
     width: '400px',
     padding: spacing.small,
     textAlign: 'center',
     top: '120px',
     borderWidth: '1px',
     borderStyle: 'solid',
-    borderColor: colors.border,
+    borderColor: colors.gray.border,
     borderRadius: '3px',
   }))
   .createSelector();

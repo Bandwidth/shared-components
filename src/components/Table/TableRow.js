@@ -5,7 +5,7 @@ import theme from '../../theme';
 
 const select = theme
   .register('TableRow', ({ colors }) => ({
-    borderColor: colors.border,
+    borderColor: colors.gray.border,
     borderWidth: '1px',
     borderStyle: 'solid',
   }))

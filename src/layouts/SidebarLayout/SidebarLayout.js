@@ -4,8 +4,8 @@ import theme from '../../theme';
 
 const select = theme
   .register('SidebarLayout', ({ colors }) => ({
-    contentBackground: colors.grayLight,
-    borderColor: colors.borderLight,
+    contentBackground: colors.gray.light,
+    borderColor: colors.gray.borderLight,
     borderWidth: '1px',
   }))
   .createSelector();

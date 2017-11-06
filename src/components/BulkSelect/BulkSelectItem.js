@@ -7,18 +7,18 @@ const select = theme
   .register('BulkSelectItem', ({ spacing, colors }) => ({
     padding: `${spacing.small} ${spacing.medium}`,
     backgrounds: {
-      default: colors.white,
-      selected: colors.primary,
-      hover: colors.primaryLight,
+      default: colors.background.default,
+      selected: colors.primary.default,
+      hover: colors.primary.light,
     },
     colors: {
-      default: colors.black,
-      selected: colors.white,
-      hover: colors.black,
+      default: colors.text.default,
+      selected: colors.text.inverted,
+      hover: colors.text.default,
     },
     borderColors: {
-      default: colors.borderLight,
-      selected: colors.primary,
+      default: colors.gray.borderLight,
+      selected: colors.primary.default,
     },
     borderRadius: '3px',
     borderWidth: '1px',

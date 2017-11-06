@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { createThemeProvider } from 'react-studs';
+import { withCompiledTheme } from 'react-studs';
 import theme from '../../theme';
-import amoebaTheme from '../../theme/amoebaTheme';
+import { ThemeProvider } from 'styled-components';
+import irisTheme, { catapult as catapultTheme } from '../../theme';
 import '../../bootstrap'; // sets base CSS
 
-const DefaultThemeProvider = createThemeProvider(theme);
-DefaultThemeProvider.AmoebaThemeProvider = createThemeProvider(amoebaTheme);
+const DefaultThemeProvider = withCompiledTheme(irisTheme)(ThemeProvider);
+DefaultThemeProvider.Catapult = withCompiledTheme(catapultTheme)(ThemeProvider);
 export default DefaultThemeProvider;

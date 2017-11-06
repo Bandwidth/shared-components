@@ -6,7 +6,7 @@ import { spreadStyles } from 'react-studs';
 
 const select = theme
   .register('Heading5', ({ colors, fonts }) => ({
-    color: colors.black,
+    color: colors.text.default,
     fontWeight: 800,
     fontFamily: fonts.brand,
     fontSize: '1.15em',

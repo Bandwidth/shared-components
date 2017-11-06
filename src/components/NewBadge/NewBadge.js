@@ -5,7 +5,7 @@ import { spreadStyles } from 'react-studs';
 
 const select = theme
   .register('NewBadge', ({ colors }) => ({
-    color: colors.primary,
+    color: colors.primary.default,
     fontWeight: 'bold',
     fontSize: '0.85em',
     margin: '0 0 0 1em',

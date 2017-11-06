@@ -15,21 +15,21 @@ const select = theme
     lineHeight: '1em',
     position: 'relative',
     display: 'inline-block',
-    iconBackground: colors.white,
+    iconBackground: colors.background.default,
     colors: {
-      success: colors.successText,
-      info: colors.infoText,
-      error: colors.errorText,
+      success: colors.positive.default,
+      info: colors.primary.dark,
+      error: colors.negative.default,
     },
     backgrounds: {
-      success: colors.successBackgroundLight,
-      info: colors.infoBackgroundLight,
-      error: colors.errorBackgroundLight,
+      success: colors.positive.light,
+      info: colors.primary.light,
+      error: colors.negative.light,
     },
     borderColors: {
-      success: colors.successBorder,
-      info: colors.infoBorder,
-      error: colors.errorBorder,
+      success: colors.positive.border,
+      info: colors.primary.border,
+      error: colors.negative.border,
     },
   }))
   .createSelector();

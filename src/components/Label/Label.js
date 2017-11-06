@@ -10,7 +10,7 @@ const select = theme
     letterSpacing: '0.02em',
     fontWeight: 600,
     fontFamily: fonts.brand,
-    color: colors.black,
+    color: colors.text.default,
     background: 'transparent',
     disabledOpacity: '0.5',
     lineHeight: '1.5em',

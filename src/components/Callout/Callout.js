@@ -6,13 +6,13 @@ import { spreadStyles } from 'react-studs';
 
 const select = theme
   .register('Callout', ({ colors, spacing, shadows }) => ({
-    background: colors.white,
+    background: colors.background.default,
     color: 'inherit',
     padding: `${spacing.small} ${spacing.medium}`,
     borderRadius: '3px',
     borderWidth: '1px',
     borderStyle: 'solid',
-    borderColor: colors.border,
+    borderColor: colors.gray.border,
     boxShadow: shadows.medium,
     maxWidth: '300px',
   }))

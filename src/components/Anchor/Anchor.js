@@ -7,14 +7,14 @@ import { spreadStyles } from 'react-studs';
 
 const select = theme
   .register('Anchor', ({ colors, fonts }) => ({
-    color: colors.primaryDark,
+    color: colors.primary.alternate,
     fontFamily: fonts.brand,
-    activeColor: colors.primary,
+    activeColor: colors.primary.default,
     bubbleBorderRadius: '2em',
     display: 'inline',
   }))
   .addVariant('danger', ({ colors }) => ({
-    color: colors.errorText,
+    color: colors.negative.default,
   }))
   .createSelector();
 

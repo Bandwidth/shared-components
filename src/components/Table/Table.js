@@ -16,7 +16,7 @@ import TableBody from './TableBody';
 
 const select = theme
   .register('Table', ({ colors }) => ({
-    overlayBackground: colors.whiteShadow,
+    overlayBackground: colors.shadow.white,
     fontSize: '1em',
   }))
   .addVariant('small', { fontSize: '0.8em' })

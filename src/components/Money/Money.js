@@ -6,8 +6,8 @@ import theme from '../../theme';
 
 const selector = theme
   .register('Money', ({ colors }) => ({
-    positiveColor: colors.positiveText,
-    negativeColor: colors.negativeText,
+    positiveColor: colors.positive.default,
+    negativeColor: colors.negative.default,
     neutralColor: 'inherit',
   }))
   .createSelector();

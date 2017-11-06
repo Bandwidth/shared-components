@@ -13,25 +13,25 @@ const select = theme
     description: {
       padding: `${spacing.extraSmall} 0 ${spacing.extraSmall} ${spacing.extraLarge}`,
       fontFamily: fonts.brand,
-      color: colors.black,
+      color: colors.text.default,
       fontWeight: 300,
     },
     backgrounds: {
-      on: colors.secondary,
-      off: colors.white,
-      hover: colors.primaryDark,
-      disabled: colors.grayLight,
+      on: colors.primary.alternate,
+      off: colors.background.default,
+      hover: colors.primary.dark,
+      disabled: colors.background.disabled,
     },
     colors: {
-      on: colors.white,
-      off: colors.white,
-      disabled: colors.grayLight,
+      on: colors.text.inverted,
+      off: colors.text.inverted,
+      disabled: colors.background.disabled,
     },
     borderColors: {
-      disabled: colors.grayMedium,
-      on: colors.secondary,
-      off: colors.secondary,
-      hover: colors.primaryDark,
+      disabled: colors.gray.default,
+      on: colors.primary.alternate,
+      off: colors.primary.alternate,
+      hover: colors.primary.dark,
     },
   }))
   .createSelector();

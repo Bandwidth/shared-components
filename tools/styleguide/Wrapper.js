@@ -8,7 +8,7 @@ import { createMemoryHistory } from 'history';
 import XRay from 'react-x-ray';
 import styled from 'styled-components';
 
-bootstrap.amoeba();
+bootstrap();
 
 const history  = createMemoryHistory('/');
 
@@ -55,7 +55,7 @@ class OptXRay extends React.Component {
 export default class Wrapper extends React.Component {
     render() {
       return (
-        <BandwidthThemeProvider.AmoebaThemeProvider>
+        <BandwidthThemeProvider>
           <Router history={history}>
             <Container>
               <OptXRay>
@@ -63,7 +63,7 @@ export default class Wrapper extends React.Component {
               </OptXRay>
             </Container>
           </Router>
-        </BandwidthThemeProvider.AmoebaThemeProvider>
+        </BandwidthThemeProvider>
       );
     }
   }

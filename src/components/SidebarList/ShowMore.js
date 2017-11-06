@@ -4,10 +4,10 @@ import theme from '../../theme';
 
 const select = theme
   .register('ShowMore', ({ colors, spacing }) => ({
-    background: colors.primaryLight,
-    color: colors.primaryDark,
+    background: colors.primary.light,
+    color: colors.primary.alternate,
     padding: `${spacing.medium} ${spacing.large}`,
-    borderColor: colors.borderLight,
+    borderColor: colors.gray.borderLight,
     borderWidth: '1px',
   }))
   .createSelector();

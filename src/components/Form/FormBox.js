@@ -4,10 +4,10 @@ import theme from '../../theme';
 
 const select = theme
   .register('FormBox', ({ colors, spacing }) => ({
-    background: colors.white,
+    background: colors.background.default,
     borderWidth: '1px',
     borderStyle: 'solid',
-    borderColor: colors.border,
+    borderColor: colors.gray.border,
     padding: spacing.large,
   }))
   .createSelector();

@@ -4,7 +4,7 @@ import theme from '../../theme';
 const select = theme
   .register('TableBody', ({ colors }) => ({
     zebraLightStripeColor: 'transparent',
-    zebraDarkStripeColor: colors.shadowExtraLight,
+    zebraDarkStripeColor: colors.shadow.extraLight,
   }))
   .createSelector();
 

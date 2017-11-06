@@ -7,11 +7,11 @@ import theme from '../../theme';
 
 const select = theme
   .register('Checkbox', ({ colors, shadows }) => ({
-    labelColor: colors.black,
-    checkColor: colors.white,
-    boxCheckedBackground: colors.secondary,
-    boxUncheckedBackground: colors.white,
-    boxBorderColor: colors.secondary,
+    labelColor: colors.text.default,
+    checkColor: colors.text.inverted,
+    boxCheckedBackground: colors.primary.alternate,
+    boxUncheckedBackground: colors.background.default,
+    boxBorderColor: colors.primary.alternate,
     boxBorderWidth: '2px',
     boxBorderStyle: 'solid',
     checkSize: '1em',

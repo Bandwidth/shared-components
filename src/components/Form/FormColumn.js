@@ -7,7 +7,7 @@ const select = theme
     innerPadding: spacing.large,
     borderWidth: '1px',
     borderStyle: 'solid',
-    borderColor: colors.borderLight,
+    borderColor: colors.gray.borderLight,
   }))
   .createSelector();
 

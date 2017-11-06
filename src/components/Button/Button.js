@@ -17,22 +17,22 @@ const select = theme
     borderStyle: 'solid',
     borderRadius: '3em',
     backgrounds: {
-      default: colors.primary,
-      hover: colors.primaryDark,
-      focus: colors.primaryDark,
-      disabled: colors.disabled,
+      default: colors.primary.default,
+      hover: colors.primary.alternate,
+      focus: colors.primary.alternate,
+      disabled: colors.gray.disabled,
     },
     colors: {
-      default: colors.white,
-      hover: colors.white,
-      focus: colors.white,
-      disabled: colors.black,
+      default: colors.text.inverted,
+      hover: colors.text.inverted,
+      focus: colors.text.inverted,
+      disabled: colors.text.default,
     },
     borderColors: {
-      default: colors.primary,
-      hover: colors.primaryDark,
-      focus: colors.primaryDark,
-      disabled: colors.disabled,
+      default: colors.primary.default,
+      hover: colors.primary.alternate,
+      focus: colors.primary.alternate,
+      disabled: colors.gray.disabled,
     },
     // these are 2px less than design system values because
     // all buttons in the SCL have a 1px border for consistency
@@ -44,27 +44,27 @@ const select = theme
   }))
   .addVariant('secondary', ({ colors }) => ({
     borderColors: {
-      default: colors.secondary,
-      hover: colors.secondary,
+      default: colors.primary.dark,
+      hover: colors.primary.dark,
     },
     backgrounds: {
       default: 'transparent',
-      hover: colors.secondary,
+      hover: colors.primary.dark,
     },
     colors: {
-      default: colors.secondary,
+      default: colors.primary.dark,
     },
   }))
   .addVariant('danger', ({ colors }) => ({
     borderColors: {
-      default: colors.error,
-      hover: colors.errorBackground,
-      focus: colors.errorBackground,
+      default: colors.negative.default,
+      hover: colors.negative.dark,
+      focus: colors.negative.dark,
     },
     backgrounds: {
-      default: colors.error,
-      hover: colors.errorBackground,
-      focus: colors.errorBackground,
+      default: colors.negative.default,
+      hover: colors.negative.dark,
+      focus: colors.negative.dark,
     },
   }))
   .addVariant('small', {

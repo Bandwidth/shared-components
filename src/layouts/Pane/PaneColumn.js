@@ -4,7 +4,7 @@ import theme from '../../theme';
 
 const select = theme
   .register('PaneColumn', ({ colors }) => ({
-    borderColor: colors.borderLight,
+    borderColor: colors.gray.borderLight,
     borderWidth: '1px',
     borderStyle: 'solid',
   }))

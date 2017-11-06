@@ -1,1 +1,3 @@
-export default from './baseTheme';
+export { default } from './irisTheme';
+export catapult from './catapultTheme';
+export iris from './irisTheme';

@@ -7,15 +7,18 @@ import theme from '../../theme';
 
 const select = theme
   .register('Navigation', ({ colors, spacing, shadows }) => ({
-    background: colors.secondary,
-    color: colors.white,
+    background: colors.primary.default,
+    color: colors.text.inverted,
     borderWidth: '1px',
-    borderColor: colors.shadow,
+    borderColor: colors.shadow.default,
     padding: `0 ${spacing.large}`,
   }))
   .addVariant('sub', ({ colors }) => ({
-    background: colors.grayLight,
-    color: colors.black,
+    background: colors.gray.light,
+    color: colors.text.default,
+  }))
+  .addVariant('dark', ({ colors }) => ({
+    background: colors.primary.dark,
   }))
   .createSelector();
 
@@ -96,5 +99,6 @@ class Navigation extends React.Component {
 }
 
 Navigation.Sub = theme.variant('sub')(Navigation);
+Navigation.Dark = theme.variant('dark')(Navigation);
 
 export default Navigation;

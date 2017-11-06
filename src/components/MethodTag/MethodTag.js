@@ -7,12 +7,12 @@ import { spreadStyles } from 'react-studs';
 const select = theme
   .register('MethodTag', ({ colors }) => ({
     backgrounds: {
-      post: colors.primary,
-      get: colors.accents[0],
+      post: colors.primary.default,
+      get: colors.positive.default,
       put: colors.accents[1],
-      del: colors.accents[2],
+      del: colors.negative.default,
     },
-    color: colors.white,
+    color: colors.text.inverted,
     fontSize: '1em',
     lineHeight: '1em',
     padding: '0.5em 1em',

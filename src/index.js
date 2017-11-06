@@ -6,7 +6,7 @@
  */
 
 
-export { default as bootstrap } from './bootstrap';
+export { default as bootstrap } from './/bootstrap';
 export { default as animations } from './animations';
 export { default as Expand } from './animations/Expand';
 export { default as behaviors } from './behaviors';
@@ -108,6 +108,6 @@ export { default as PaneRow } from './layouts/Pane/PaneRow';
 export { default as PaneSection } from './layouts/Pane/PaneSection';
 export { default as SidebarLayout } from './layouts/SidebarLayout';
 export { default as theme } from './theme';
-export { default as amoebaTheme } from './theme/amoebaTheme';
-export { default as baseTheme } from './theme/baseTheme';
+export { default as catapultTheme } from './theme/catapultTheme';
 export { default as index } from './theme/index';
+export { default as irisTheme } from './theme/irisTheme';

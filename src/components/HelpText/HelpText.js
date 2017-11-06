@@ -5,8 +5,8 @@ import theme from '../../theme';
 
 const select = theme
   .register('HelpText', ({ colors, fonts }) => ({
-    color: colors.grayLightText,
-    errorColor: colors.errorText,
+    color: colors.gray.medium,
+    errorColor: colors.negative.default,
     fontWeight: 300,
     fontFamily: fonts.brand,
     fontStyle: 'italic',

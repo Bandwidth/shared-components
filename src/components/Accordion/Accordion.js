@@ -9,20 +9,20 @@ import { DefaultVariant } from 'react-studs';
 
 const select = theme
   .register('Accordion', ({ colors, fonts, spacing }) => ({
-    border: `1px solid ${colors.border}`,
+    border: `1px solid ${colors.gray.border}`,
     labelPadding: spacing.large,
-    labelColor: colors.primary,
+    labelColor: colors.primary.default,
     labelFont: fonts.brand,
     labelFontSize: '1.5em',
     labelFontWeight: 400,
     labelTextTransform: 'none',
-    iconColor: colors.black,
+    iconColor: colors.gray.default,
     iconFontWeight: 100,
     iconSize: '1.5em',
     contentPadding: spacing.large,
   })).addVariant('small', ({ spacing, colors }) => ({
     labelPadding: spacing.medium,
-    labelColor: colors.black,
+    labelColor: colors.text.default,
     labelFontSize: '1em',
     labelFontWeight: 600,
     labelTextTransform: 'uppercase',

@@ -7,13 +7,13 @@ import theme from '../../theme';
 
 const select = theme
   .register('Radio', ({ colors, shadows }) => ({
-    bubbleBackground: colors.secondary,
-    bubbleActiveBackground: colors.primary,
-    checkColor: colors.white,
-    bubbleBorderColor: colors.secondary,
+    bubbleBackground: colors.primary.alternate,
+    bubbleActiveBackground: colors.primary.default,
+    checkColor: colors.text.inverted,
+    bubbleBorderColor: colors.primary.alternate,
     bubbleBorderWidth: '2px',
     focusShadow: shadows.focusOutline,
-    disabledTextColor: colors.grayLightText,
+    disabledTextColor: colors.gray.medium,
     disabledOpacity: '0.5',
     bubbleSize: '1.3em',
     textPadding: '0.2em 0 0.2em 2.1em',

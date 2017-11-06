@@ -7,7 +7,7 @@ const select = theme
   .register('TableCell', ({ colors, spacing }) =>({
     background: 'transparent',
     textAlign: 'left',
-    borderColor: colors.shadow,
+    borderColor: colors.shadow.default,
     borderWidth: '1px',
     borderStyle: 'solid',
     whiteSpace: 'nowrap',

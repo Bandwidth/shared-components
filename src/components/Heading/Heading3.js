@@ -6,13 +6,13 @@ import { spreadStyles } from 'react-studs';
 
 const select = theme
   .register('Heading3', ({ colors, fonts }) => ({
-    color: colors.black,
+    color: colors.text.default,
     fontWeight: 300,
     fontFamily: fonts.brand,
     fontSize: '1.75em',
     lineHeight: '1em',
   }))
-  .addVariant('primary', ({ colors }) => ({ color: colors.primary }))
+  .addVariant('primary', ({ colors }) => ({ color: colors.primary.default }))
   .createSelector();
 
 const Heading3Impl = theme.connect(styled.h3.withConfig({ displayName: 'Heading3' })`

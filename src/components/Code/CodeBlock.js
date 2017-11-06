@@ -10,8 +10,8 @@ const select = theme
   .register('CodeBlock', ({ colors, fonts }) => ({
     fontFamily: fonts.monospace,
     fontSize: '1em',
-    background: colors.grayDark,
-    color: colors.white,
+    background: colors.background.inverted,
+    color: colors.text.inverted,
     padding: '2em',
     margin: '0',
   }))

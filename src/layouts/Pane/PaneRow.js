@@ -6,7 +6,7 @@ const select = theme
   .register('PaneRow', ({ colors }) => ({
     borderWidth: '1px',
     borderStyle: 'solid',
-    borderColor: colors.borderLight,
+    borderColor: colors.gray.borderLight,
   }))
   .createSelector();
 

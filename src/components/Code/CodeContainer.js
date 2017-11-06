@@ -7,9 +7,9 @@ import theme from '../../theme';
 const select = theme
   .register('CodeContainer', ({ colors }) => ({
     layoutDirection: 'column',
-    background: colors.grayDark,
+    background: colors.background.inverted,
     padding: '2em',
-    color: colors.white,
+    color: colors.text.inverted,
   }))
   .createSelector();
 

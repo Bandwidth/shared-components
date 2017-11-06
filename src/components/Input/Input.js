@@ -8,22 +8,22 @@ import { spreadStyles } from 'react-studs';
 const select = theme
   .register('Input', ({ colors, fonts, spacing, shadows }) => ({
     colors: {
-      default: colors.black,
-      disabled: colors.black,
+      default: colors.text.default,
+      disabled: colors.text.default,
     },
     backgrounds: {
-      default: colors.white,
-      disabled: colors.disabled,
+      default: colors.background.default,
+      disabled: colors.gray.disabled,
     },
     borderColors: {
-      default: colors.borderLight,
-      invalid: colors.errorBorder,
-      focus: colors.border,
-      disabled: colors.border,
+      default: colors.gray.borderLight,
+      invalid: colors.negative.border,
+      focus: colors.gray.border,
+      disabled: colors.gray.border,
     },
     effectColors: {
-      valid: colors.primaryLight,
-      invalid: colors.errorBackgroundLight,
+      valid: colors.primary.light,
+      invalid: colors.negative.light,
     },
     opacities: {
       default: 1,
