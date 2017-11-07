@@ -58,7 +58,7 @@ Label.propTypes = LabelImpl.propTypes = {
   id: PropTypes.string,
 };
 
-Label.defaultProps = LabelImpl.propTypes = {
+Label.defaultProps = LabelImpl.defaultProps = {
   disabled: false,
   className: null,
   id: null,

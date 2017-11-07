@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
 import icons from '../Icon/icons';
 
-export default css`
-  font-family: ${({ theme }) => theme.fonts.brand};
-  color: ${({ theme }) => theme.colors.black};
+export default select => css`
+  font-family: ${select('fontFamily')};
+  color: ${select('colors.default')};
   box-sizing: border-box;
 
   .DateRangePicker {
@@ -31,8 +31,8 @@ export default css`
     background: transparent;
 
     & > .DateInput {
-      background: ${({ theme }) => theme.colors.disabled};
-      border-color: ${({ theme }) => theme.colors.border};
+      background: ${select('input.backgrounds.disabled')};
+      border-color: ${select('input.borderColors.disabled')};
     }
   }
   .DateRangePicker_picker__openDown,
@@ -45,7 +45,9 @@ export default css`
   }
 
   .DateInput {
-    border: 1px solid ${({ theme }) => theme.colors.borderLight};
+    border-width: ${select('input.borderWidth')};
+    border-style: ${select('input.borderStyle')};
+    border-color: ${select('input.borderColors.default')};
     width: auto;
 
     &::before, &::after {
@@ -61,15 +63,15 @@ export default css`
   }
   .DateInput__openDown,
   .DateInput__openUp {
-    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.colors.primaryLight};
-    border-color: ${({ theme }) => theme.colors.border};
+    box-shadow: inset 0 -5px 0 ${select('input.effectColor')};
+    border-color: ${select('input.borderColors.focus')};
   }
 
   .DateInput_displayText {
-    font-family: ${({ theme }) => theme.fonts.brand};
-    font-size: ${({ theme }) => theme.input.fontSize};
+    font-family: ${select('fontFamily')};
+    font-size: ${select('input.fontSize')};
     font-weight: normal;
-    color: ${({ theme }) => theme.colors.black};
+    color: ${select('colors.default')};
     position: relative;
     padding-right: 2.5em;
     z-index: 0;
@@ -78,8 +80,8 @@ export default css`
       content: "${icons('calendar')}";
       font-family: "Bandwidth";
       font-size: 1.5em;
-      color: ${({ theme }) => theme.colors.grayLightText};
-      padding: 0 0 0 ${({ theme }) => theme.padding.small};
+      color: ${select('icon.colors.default')};
+      padding: ${select('icon.padding')};
       position: absolute;
       right: 0;
       top: 3px;
@@ -90,7 +92,7 @@ export default css`
     background: transparent;
 
     &::after {
-      color: ${({ theme }) => theme.colors.primary};
+      color: ${select('icon.colors.focused')};
     }
   }
   .DateInput_displayText__disabled {
@@ -99,22 +101,24 @@ export default css`
 
   .DayPicker {
     box-shadow: none;
-    border: 1px solid ${({ theme }) => theme.colors.border};
+    border-width: ${select('picker.borderWidth')};
+    border-style: ${select('picker.borderStyle')};
+    border-color: ${select('picker.borderColor')};
     border-radius: 0;
     width: auto !important;
   }
 
   .CalendarMonth {
-    background: ${({ theme }) => theme.colors.white};
-    padding: 0 ${({ theme }) => theme.padding.large} 0 0;
-    color: ${({ theme }) => theme.colors.black};
+    background: ${select('month.background')};
+    padding: ${select('month.padding')};
+    color: ${select('month.color')};
   }
 
   .CalendarMonth_caption {
-    font-size: 14px;
-    margin-bottom: ${({ theme }) => theme.padding.large};
-    color: ${({ theme }) => theme.colors.black};
-    padding: ${({ theme }) => theme.padding.small};
+    font-size: ${select('monthCaption.fontSize')};
+    margin: ${select('monthCaption.margin')};
+    color: ${select('monthCaption.color')};
+    padding: ${select('monthCaption.padding')};
   }
 
   .CalendarMonthGrid__horizontal {
@@ -122,33 +126,33 @@ export default css`
   }
 
   .CalendarDay_container {
-    border-color: ${({ theme }) => theme.colors.borderLight};
-    background: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.black};
+    border-color: ${select('day.borderColors.default')};
+    background: ${select('day.backgrounds.default')};
+    color: ${select('day.colors.default')};
 
     &:hover {
-      background: ${({ theme }) => theme.colors.primaryLight};
+      background: ${select('day.backgrounds.hover')};
     }
   }
 
   .CalendarDay__selected_span {
-    background: ${({ theme }) => theme.colors.primaryLight};
+    background: ${select('day.backgrounds.range')};
   }
 
   .CalendarDay__selected,
   .CalendarDay__selected:active,
   .CalendarDay__selected:hover {
-    background: ${({ theme }) => theme.colors.primary};
-    color: ${({ theme }) => theme.colors.white};
+    background: ${select('day.backgrounds.selected')};
+    color: ${select('day.colors.selected')};
   }
 
   .CalendarDay__blocked_out_of_range {
-    color: ${({ theme }) => theme.colors.disabled};
+    color: ${select('day.colors.disabled')};
     cursor: normal;
 
     &:hover {
       background: transparent;
-      color: ${({ theme }) => theme.colors.disabled};
+      color: ${select('day.colors.disabled')};
     }
   }
 
@@ -159,7 +163,7 @@ export default css`
   .DayPickerNavigation_button {
     background: transparent;
     border: none;
-    color: ${({ theme }) => theme.colors.black};
+    color: ${select('navigation.colors.default')};
   }
 
   .DayPickerNavigation_leftButton__horizontal {

@@ -143,12 +143,13 @@ class RadioButton extends React.Component {
   static propTypes = {
     /**
      * Whether or not the button is currently selected.
+     * Use undefined to make this an 'uncontrolled' component
      */
-    checked: PropTypes.bool.isRequired,
+    checked: PropTypes.bool,
     /**
      * Called when the checked state of the button changes.
      */
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     /**
      * Text to render inside the button's label.
      */

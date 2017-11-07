@@ -2,19 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import _ from 'lodash';
+import theme from '../../theme';
 
-const Container = styled.div`
-  background: ${({ theme, isHighlighted }) => isHighlighted ? theme.colors.primaryLight : theme.colors.white};
-  color: ${({ theme }) => theme.colors.black};
+const select = theme
+  .register('SearchSuggestion', ({ colors, spacing }) => ({
+    backgrounds: {
+      default: colors.background.default,
+      active: colors.primary.light,
+    },
+    colors: {
+      default: colors.text.default,
+      matched: colors.primary.default,
+    },
+    padding: spacing.small,
+    matchedFontWeight: 'bold',
+  }))
+  .createSelector();
+
+const Container = theme.connect(styled.div`
+  background: ${(props) => props.isHighlighted ?
+    select('backgrounds.active')(props) :
+    select('backgrounds.default')(props)
+  };
+  color: ${select('colors.default')};
   display: block;
-  padding: ${({ theme }) => theme.padding.small};
+  padding: ${select('padding')};
   cursor: pointer;
-`;
+`, { pure: false });
 
-const Highlight = styled.span`
-  color: ${({ theme }) => theme.colors.primaryText};
-  font-weight: bold;
-`;
+const Highlight = theme.connect(styled.span`
+  color: ${select('colors.matched')};
+  font-weight: ${select('matchedFontWeight')};
+`);
 
 const defaultMatcher = (query, content) => {
   const lowerQuery = query.toLowerCase();

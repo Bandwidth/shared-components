@@ -5,14 +5,18 @@ import baseCss from './reactDatesCss';
 import overridesCss from './overridesCss';
 import styled from 'styled-components';
 import Icon from '../Icon';
+import theme from '../../theme';
 
 import DateRangePicker from './DateRangePicker';
 
 const WIDTH = 260;
 
+// reusing the same styles
+const select = theme.createSelector('DateRangePicker');
+
 const Wrapper = styled.div`
   ${baseCss}
-  ${overridesCss}
+  ${overridesCss(select)}
 
   .SingleDatePicker {
     width: ${WIDTH}px;

@@ -1,10 +1,17 @@
 import styled from 'styled-components';
+import theme from '../../theme';
+import { spreadStyles } from 'react-studs';
 
-export default styled.h5`
-  font-size: 0.95em;
-  font-weight: 800;
-  color: ${({ theme }) => theme.colors.black};
-  margin: 0;
-  padding: ${({ theme }) => theme.padding.extraSmall} ${({ theme }) => theme.padding.small};
-  background: ${({ theme }) => theme.colors.gutter};
-`;
+const select = theme.register('SearchSuggestionsSectionTitle', ({ colors, spacing }) => ({
+    color: colors.text.default,
+    padding: `${spacing.extraSmall} ${spacing.small}`,
+    margin: 0,
+    fontWeight: 800,
+    fontSize: '0.95em',
+    background: colors.gray.light,
+  }))
+  .createSelector();
+
+export default theme.connect(styled.h5`
+  ${spreadStyles(select)}
+`);

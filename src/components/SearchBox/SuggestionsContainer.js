@@ -1,9 +1,18 @@
+import React from 'react';
 import styled from 'styled-components';
+import theme from '../../theme';
 
-const Container = styled.div`
-  border-color: ${({ theme }) => theme.colors.border};
-  border-style: ${({ children }) => !!children ? 'solid' : 'none'};
-  border-width: 1px;
+const select = theme.register('SearchSuggestionsContainer', ({ colors }) => ({
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    borderColor: colors.gray.border,
+  }))
+  .createSelector();
+
+const Container = theme.connect(styled.div`
+  border-style: ${select('borderStyle')};
+  border-color: ${select('borderColor')};
+  border-width: ${select('borderWidth')};
   margin-top: -1px;
 
   & ul {
@@ -17,6 +26,6 @@ const Container = styled.div`
       margin: 0;
     }
   }
-`;
+`);
 
 export default Container;

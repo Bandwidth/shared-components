@@ -9,7 +9,7 @@ const select = theme
     backgrounds: {
       post: colors.primary.default,
       get: colors.positive.default,
-      put: colors.accents[1],
+      put: colors.accents[0].default,
       del: colors.negative.default,
     },
     color: colors.text.inverted,

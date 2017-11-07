@@ -18,6 +18,12 @@ const fadeIn = keyframes`
   }
 `;
 
+const spin = keyframes`
+  to {
+    transform: rotate(1turn);
+  }
+`;
+
 const select = theme.register('Select', ({ spacing, colors, fonts, shadows }) => ({
   padding: spacing.medium,
   borderColors: {
@@ -47,7 +53,7 @@ const select = theme.register('Select', ({ spacing, colors, fonts, shadows }) =>
   fontFamily: fonts.brand,
   fontSize: '14px',
   letterSpacing: '0.02em',
-  lineHeight: '1.5',
+  lineHeight: '1',
   arrowSize: '35px',
   validEffectColor: colors.primary.light,
   clearButtonColor: colors.gray.medium,
@@ -68,12 +74,6 @@ const select = theme.register('Select', ({ spacing, colors, fonts, shadows }) =>
     padding: spacing.extraSmall,
   },
 })).createSelector();
-
-const spin = keyframes`
-  to {
-    transform: rotate(1turn);
-  }
-`;
 
 const Container = styled.div`
   width: 100%;
@@ -177,6 +177,7 @@ const Container = styled.div`
     vertical-align: middle;
   }
   .Select-input > input {
+    padding: 0;
     width: 100%;
     background: none transparent;
     border: 0 none;
@@ -523,7 +524,7 @@ class Select extends React.Component {
     /**
      * The currently selected value.
      */
-    value: PropTypes.any.isRequired,
+    value: PropTypes.any,
     /**
      * Handler for change events on the select. It will be called with the new value
      * computed from getOptionValue.

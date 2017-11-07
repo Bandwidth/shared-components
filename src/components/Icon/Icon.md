@@ -20,7 +20,7 @@ const IconList = () => (
   <div>
   {
     Object.keys(icons).map((icon) => (
-      <span style={iconItemStyle}>{icon}&nbsp;<Icon name={icon} /></span>
+      <span key={icon} style={iconItemStyle}>{icon}&nbsp;<Icon name={icon} /></span>
     ))
   }
   </div>

@@ -8,7 +8,7 @@ const select = theme.register('BulkSelect', (values) => ({
   borderWidth: '1px',
   borderStyle: 'solid',
   borderColor: values.colors.gray.border,
-  background: values.colors.gray.default,
+  background: values.colors.gray.light,
   padding: values.spacing.medium,
   itemsPerRow: 5,
   itemSpacing: '5px',

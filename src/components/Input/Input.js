@@ -202,6 +202,7 @@ class Input extends React.Component {
   }
 
   onBlur = (event) => {
+    console.log(event);
     this.setState({ visited: true });
     if (this.props.onBlur) {
       this.props.onBlur(event);

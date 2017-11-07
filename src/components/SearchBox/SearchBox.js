@@ -101,7 +101,7 @@ class SearchBox extends React.Component {
      * Passed the current search value, calculates whether the submit button
      * should be enabled.
      */
-    shouldShowSubmitButton: PropTypes.bool,
+    shouldShowSubmitButton: PropTypes.func,
   };
 
   static defaultProps = {
@@ -114,7 +114,7 @@ class SearchBox extends React.Component {
     matchSuggestionContent: undefined,
     showSubmitButton: false,
     onSubmit: () => null,
-    shouldShowSubmitButton: false,
+    shouldShowSubmitButton: () => false,
   };
 
   renderInput = ({ ref, ...inputProps }) => {
@@ -137,9 +137,9 @@ class SearchBox extends React.Component {
     </Suggestion>
   );
 
-  renderSuggestionsContainer = ({ containerProps, children }) => (
+  renderSuggestionsContainer = ({ containerProps, children }) => children ? (
     <SuggestionsContainer {...containerProps}>{children}</SuggestionsContainer>
-  );
+  ) : null;
 
   renderSectionTitle = (section) => (
     <SuggestionsSectionTitle>{this.props.getSectionTitle(section)}</SuggestionsSectionTitle>

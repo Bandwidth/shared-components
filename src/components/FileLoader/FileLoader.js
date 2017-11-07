@@ -28,12 +28,13 @@ class FileLoader extends React.Component {
   static propTypes = {
     /**
      * A FileList object to use as the value of the input.
+     * Using undefined makes this an 'uncontrolled' input
      */
-    value: PropTypes.instanceOf(FileList).isRequired,
+    value: PropTypes.instanceOf(FileList),
     /**
      * Handler for the onChange event on the input.
      */
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     /**
      * Marks that this input is required for form submission.
      */
