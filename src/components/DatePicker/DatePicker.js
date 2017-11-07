@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import 'react-dates/initialize';
 import { SingleDatePicker as LibDatePicker, SingleDatePickerShape } from 'react-dates';
 import baseCss from './reactDatesCss';
@@ -49,6 +50,7 @@ const DatePicker = (props) => (
 
 DatePicker.propTypes = {
   ...SingleDatePickerShape,
+  id: PropTypes.string,
 };
 
 DatePicker.Range = DateRangePicker;

@@ -10,7 +10,7 @@ Accepts \`label\` to define what's rendered in the label.
 Also exports \`ContentPadding\`, which you can use on any content contained inside the accordion to achieve consistent padding.
 ```javascript
 <Accordion label="Hello">
-  Some content
+  <p>Some content</p>
 </Accordion>
 ```
 

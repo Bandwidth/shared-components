@@ -18,7 +18,7 @@ class AccordionGroup extends React.Component {
     /**
      * The key of the accordion (if any) to start in the expanded state.
      */
-    startExpandedKey: PropTypes.string,
+    startExpandedKey: PropTypes.any,
     /**
      * A class name to pass to the accordion group container.
      */

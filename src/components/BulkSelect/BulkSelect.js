@@ -83,13 +83,15 @@ class BulkSelect extends React.Component {
     })),
     renderItem: PropTypes.func.isRequired,
     computeItemKey: PropTypes.func,
-    onItemSelected: PropTypes.func.isRequired,
-    onItemDeselected: PropTypes.func.isRequired,
+    onItemSelected: PropTypes.func,
+    onItemDeselected: PropTypes.func,
   };
 
   static defaultProps = {
     sections: [],
     computeItemKey: (item) => item.get ? item.get('id') : item.id || JSON.stringify(item),
+    onItemSelected: () => null,
+    onItemDeselected: () => null,
   };
 
   createItemClickHandler = (item) => () => {

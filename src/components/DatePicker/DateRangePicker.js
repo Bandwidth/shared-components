@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import 'react-dates/initialize';
 import { DateRangePicker as LibDateRangePicker, DateRangePickerShape } from 'react-dates';
 import baseCss from './reactDatesCss';
@@ -117,6 +118,8 @@ const DateRangePicker = (props) => (
 
 DateRangePicker.propTypes = {
   ...DateRangePickerShape,
+  startDateId: PropTypes.string,
+  endDateId: PropTypes.string,
 };
 
 export default DateRangePicker;
