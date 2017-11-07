@@ -89,7 +89,6 @@ export default (FieldComponent) => class FlowField extends React.Component {
       choices,
       description,
       type,
-      height,
       extraProps,
     } = this.props;
 
@@ -106,7 +105,6 @@ export default (FieldComponent) => class FlowField extends React.Component {
       choices,
       description,
       type,
-      height,
     };
      
     return <FieldComponent {...passedProps} />;
