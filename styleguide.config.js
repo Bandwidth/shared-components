@@ -5,16 +5,54 @@ module.exports = {
   styleguideDir: "docs",
   sections: [
     {
+      name: 'Introduction',
+      content: 'docs/introduction.md',
+    },
+    {
+      name: 'Design',
+      sections: [
+        {
+          name: 'Animation',
+          content: 'docs/design/animation.md',
+        },
+        {
+          name: 'Brand',
+          content: 'docs/design/brand.md',
+        },
+        {
+          name: 'Color',
+          content: 'docs/design/color.md',
+        },
+        {
+          name: 'Layout',
+          content: 'docs/design/layout.md',
+        },
+        {
+          name: 'Typography',
+          content: 'docs/design/typography.md',
+        },
+      ],
+    },
+    {
       name: 'Components',
-      components: 'src/components/**/[A-Z]*.js',
-    },
-    {
-      name: 'Flow',
-      components: 'src/layouts/Flow/**/[A-Z]*.js',
-    },
-    {
-      name: 'Panes',
-      components: 'src/layouts/Pane/**/[A-Z]*.js',
+      sections: [
+        {
+          name: 'Elements',
+          components: 'src/components/**/[A-Z]*.js',
+        },
+        {
+          name: 'Layouts',
+          components: 'src/layouts/**/**/[A-Z]*.js',
+        },
+        {
+          name: 'Behaviors',
+          components: 'src/behaviors/**/**/[A-Z]*.js',
+        },
+        {
+          name: 'Animations',
+          components: 'src/animations/**/**/[A-Z]*.js',
+        },
+      ],
     },
   ],
   theme: {
@@ -25,12 +63,16 @@ module.exports = {
       base: ['Bandwidth']
     }
   },
+  ignore: [
+    'src/components/**/index.js',
+  ],
   require: [
     'styled-components'
   ],
   styleguideComponents: {
     Logo: path.join(__dirname, 'tools/styleguide/Logo'),
-    Wrapper: path.join(__dirname, 'tools/styleguide/Wrapper')
+    Wrapper: path.join(__dirname, 'tools/styleguide/Wrapper'),
+    ComponentsList: path.join(__dirname, 'tools/styleguide/ComponentsList'),
   },
   webpackConfig: {
     devtool: 'cheap-module-eval-source-map',

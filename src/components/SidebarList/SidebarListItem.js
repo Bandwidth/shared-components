@@ -31,6 +31,7 @@ const ListItemContainer = theme.connect(styled.li`
   };
   position: relative;
   overflow-x: visible;
+  z-index: 100;
 `, { pure: false });
 
 const ListLabel = theme.connect(styled.h3`
