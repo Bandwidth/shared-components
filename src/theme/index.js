@@ -1,3 +1,3 @@
 export { default } from './irisTheme';
-export catapult from './catapultTheme';
-export iris from './irisTheme';
+export { default as catapult } from './catapultTheme';
+export { default as iris } from './irisTheme';
