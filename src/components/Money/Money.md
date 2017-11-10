@@ -9,3 +9,28 @@ The Money component renders a monetary value with a color and sign to indicate p
 ```
 <Money value="-0.33224" />
 ```
+
+**Trailing Zeroes String**
+```
+<Money value="-0.8943424000" />
+```
+
+**Round Value**
+```
+<Money value="3" />
+```
+
+**Semi-Round Value**
+```
+<Money value="3.2" />
+```
+
+**Number Value**
+```
+<Money value={3.044688238111120000} />
+```
+
+**Round Number Value**
+```
+<Money value={-2} />
+```
