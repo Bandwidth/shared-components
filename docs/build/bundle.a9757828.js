@@ -4951,7 +4951,7 @@
   function(e, t, n) {
     'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 });
-    var r = n(28),
+    var r = n(24),
       o = n(36);
     t.default = function(e) {
       return function(t) {
@@ -6425,233 +6425,6 @@ object-assign
         return e;
       }),
       (e.exports = r);
-  },
-  function(e, t, n) {
-    function _interopRequireDefault(e) {
-      return e && e.__esModule ? e : { default: e };
-    }
-    function _defineProperty(e, t, n) {
-      return (
-        t in e
-          ? Object.defineProperty(e, t, {
-              value: n,
-              enumerable: !0,
-              configurable: !0,
-              writable: !0,
-            })
-          : (e[t] = n),
-        e
-      );
-    }
-    function withStyles(e) {
-      var t =
-          arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
-        n = t.stylesPropName,
-        i = void 0 === n ? 'styles' : n,
-        c = t.themePropName,
-        p = void 0 === c ? 'theme' : c,
-        f = t.flushBefore,
-        h = void 0 !== f && f,
-        m = t.pureComponent,
-        y = void 0,
-        g = (function baseClass(e) {
-          if (e) {
-            if (!a.default.PureComponent)
-              throw new ReferenceError(
-                'withStyles() pureComponent option requires React 15.3.0 or later',
-              );
-            return a.default.PureComponent;
-          }
-          return a.default.Component;
-        })(void 0 !== m && m);
-      return (function() {
-        function withStylesHOC(t) {
-          var n = (function(n) {
-              function WithStyles() {
-                return (
-                  (function _classCallCheck(e, t) {
-                    if (!(e instanceof t))
-                      throw new TypeError('Cannot call a class as a function');
-                  })(this, WithStyles),
-                  (function _possibleConstructorReturn(e, t) {
-                    if (!e)
-                      throw new ReferenceError(
-                        "this hasn't been initialised - super() hasn't been called",
-                      );
-                    return !t ||
-                      ('object' != typeof t && 'function' != typeof t)
-                      ? e
-                      : t;
-                  })(
-                    this,
-                    (
-                      WithStyles.__proto__ || Object.getPrototypeOf(WithStyles)
-                    ).apply(this, arguments),
-                  )
-                );
-              }
-              return (
-                (function _inherits(e, t) {
-                  if ('function' != typeof t && null !== t)
-                    throw new TypeError(
-                      'Super expression must either be null or a function, not ' +
-                        typeof t,
-                    );
-                  (e.prototype = Object.create(t && t.prototype, {
-                    constructor: {
-                      value: e,
-                      enumerable: !1,
-                      writable: !0,
-                      configurable: !0,
-                    },
-                  })),
-                    t &&
-                      (Object.setPrototypeOf
-                        ? Object.setPrototypeOf(e, t)
-                        : (e.__proto__ = t));
-                })(WithStyles, g),
-                o(WithStyles, [
-                  {
-                    key: 'componentWillMount',
-                    value: (function() {
-                      return function componentWillMount() {
-                        y || (y = e ? l.default.create(e) : d);
-                      };
-                    })(),
-                  },
-                  {
-                    key: 'render',
-                    value: (function() {
-                      return function render() {
-                        var e;
-                        return (
-                          h && l.default.flush(),
-                          a.default.createElement(
-                            t,
-                            r(
-                              {},
-                              this.props,
-                              ((e = {}),
-                              _defineProperty(e, p, l.default.get()),
-                              _defineProperty(e, i, y()),
-                              e),
-                            ),
-                          )
-                        );
-                      };
-                    })(),
-                  },
-                ]),
-                WithStyles
-              );
-            })(),
-            c = t.displayName || t.name || 'Component';
-          return (
-            (n.WrappedComponent = t),
-            (n.displayName = 'withStyles(' + String(c) + ')'),
-            t.propTypes &&
-              ((n.propTypes = (0, s.default)({}, t.propTypes)),
-              delete n.propTypes[i],
-              delete n.propTypes[p]),
-            t.defaultProps &&
-              (n.defaultProps = (0, s.default)({}, t.defaultProps)),
-            (0, u.default)(n, t)
-          );
-        }
-        return withStylesHOC;
-      })();
-    }
-    Object.defineProperty(t, '__esModule', { value: !0 }),
-      (t.withStylesPropTypes = t.cssNoRTL = t.css = void 0);
-    var r =
-        Object.assign ||
-        function(e) {
-          for (var t = 1; t < arguments.length; t++) {
-            var n = arguments[t];
-            for (var r in n)
-              Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
-          }
-          return e;
-        },
-      o = (function() {
-        function defineProperties(e, t) {
-          for (var n = 0; n < t.length; n++) {
-            var r = t[n];
-            (r.enumerable = r.enumerable || !1),
-              (r.configurable = !0),
-              'value' in r && (r.writable = !0),
-              Object.defineProperty(e, r.key, r);
-          }
-        }
-        return function(e, t, n) {
-          return (
-            t && defineProperties(e.prototype, t),
-            n && defineProperties(e, n),
-            e
-          );
-        };
-      })();
-    t.withStyles = withStyles;
-    var a = _interopRequireDefault(n(0)),
-      i = _interopRequireDefault(n(734)),
-      u = _interopRequireDefault(n(739)),
-      s = _interopRequireDefault(n(740)),
-      l = _interopRequireDefault(n(359)),
-      c = ((t.css = l.default.resolve),
-      (t.cssNoRTL = l.default.resolveNoRTL),
-      (t.withStylesPropTypes = {
-        styles: i.default.object.isRequired,
-        theme: i.default.object.isRequired,
-      }),
-      {}),
-      d = function EMPTY_STYLES_FN() {
-        return c;
-      };
-  },
-  function(e, t, n) {
-    var r = n(519),
-      o = 'object' == typeof self && self && self.Object === Object && self,
-      a = r || o || Function('return this')();
-    e.exports = a;
-  },
-  function(e, t, n) {
-    var r,
-      o; /*!
-  Copyright (c) 2016 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-    !(function() {
-      'use strict';
-      function classNames() {
-        for (var e = [], t = 0; t < arguments.length; t++) {
-          var r = arguments[t];
-          if (r) {
-            var o = typeof r;
-            if ('string' === o || 'number' === o) e.push(r);
-            else if (Array.isArray(r)) e.push(classNames.apply(null, r));
-            else if ('object' === o)
-              for (var a in r) n.call(r, a) && r[a] && e.push(a);
-          }
-        }
-        return e.join(' ');
-      }
-      var n = {}.hasOwnProperty;
-      void 0 !== e && e.exports
-        ? (e.exports = classNames)
-        : void 0 !==
-            (o = function() {
-              return classNames;
-            }.apply(t, (r = []))) && (e.exports = o);
-    })();
-  },
-  function(e, t, n) {
-    'use strict';
-    e.exports = function whitespace(e) {
-      return o.test('number' == typeof e ? r(e) : e.charAt(0));
-    };
-    var r = String.fromCharCode,
-      o = /\s/;
   },
   function(e, t, n) {
     (function(e, r) {
@@ -11826,6 +11599,233 @@ object-assign
     }.call(t, n(22), n(45)(e)));
   },
   function(e, t, n) {
+    function _interopRequireDefault(e) {
+      return e && e.__esModule ? e : { default: e };
+    }
+    function _defineProperty(e, t, n) {
+      return (
+        t in e
+          ? Object.defineProperty(e, t, {
+              value: n,
+              enumerable: !0,
+              configurable: !0,
+              writable: !0,
+            })
+          : (e[t] = n),
+        e
+      );
+    }
+    function withStyles(e) {
+      var t =
+          arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+        n = t.stylesPropName,
+        i = void 0 === n ? 'styles' : n,
+        c = t.themePropName,
+        p = void 0 === c ? 'theme' : c,
+        f = t.flushBefore,
+        h = void 0 !== f && f,
+        m = t.pureComponent,
+        y = void 0,
+        g = (function baseClass(e) {
+          if (e) {
+            if (!a.default.PureComponent)
+              throw new ReferenceError(
+                'withStyles() pureComponent option requires React 15.3.0 or later',
+              );
+            return a.default.PureComponent;
+          }
+          return a.default.Component;
+        })(void 0 !== m && m);
+      return (function() {
+        function withStylesHOC(t) {
+          var n = (function(n) {
+              function WithStyles() {
+                return (
+                  (function _classCallCheck(e, t) {
+                    if (!(e instanceof t))
+                      throw new TypeError('Cannot call a class as a function');
+                  })(this, WithStyles),
+                  (function _possibleConstructorReturn(e, t) {
+                    if (!e)
+                      throw new ReferenceError(
+                        "this hasn't been initialised - super() hasn't been called",
+                      );
+                    return !t ||
+                      ('object' != typeof t && 'function' != typeof t)
+                      ? e
+                      : t;
+                  })(
+                    this,
+                    (
+                      WithStyles.__proto__ || Object.getPrototypeOf(WithStyles)
+                    ).apply(this, arguments),
+                  )
+                );
+              }
+              return (
+                (function _inherits(e, t) {
+                  if ('function' != typeof t && null !== t)
+                    throw new TypeError(
+                      'Super expression must either be null or a function, not ' +
+                        typeof t,
+                    );
+                  (e.prototype = Object.create(t && t.prototype, {
+                    constructor: {
+                      value: e,
+                      enumerable: !1,
+                      writable: !0,
+                      configurable: !0,
+                    },
+                  })),
+                    t &&
+                      (Object.setPrototypeOf
+                        ? Object.setPrototypeOf(e, t)
+                        : (e.__proto__ = t));
+                })(WithStyles, g),
+                o(WithStyles, [
+                  {
+                    key: 'componentWillMount',
+                    value: (function() {
+                      return function componentWillMount() {
+                        y || (y = e ? l.default.create(e) : d);
+                      };
+                    })(),
+                  },
+                  {
+                    key: 'render',
+                    value: (function() {
+                      return function render() {
+                        var e;
+                        return (
+                          h && l.default.flush(),
+                          a.default.createElement(
+                            t,
+                            r(
+                              {},
+                              this.props,
+                              ((e = {}),
+                              _defineProperty(e, p, l.default.get()),
+                              _defineProperty(e, i, y()),
+                              e),
+                            ),
+                          )
+                        );
+                      };
+                    })(),
+                  },
+                ]),
+                WithStyles
+              );
+            })(),
+            c = t.displayName || t.name || 'Component';
+          return (
+            (n.WrappedComponent = t),
+            (n.displayName = 'withStyles(' + String(c) + ')'),
+            t.propTypes &&
+              ((n.propTypes = (0, s.default)({}, t.propTypes)),
+              delete n.propTypes[i],
+              delete n.propTypes[p]),
+            t.defaultProps &&
+              (n.defaultProps = (0, s.default)({}, t.defaultProps)),
+            (0, u.default)(n, t)
+          );
+        }
+        return withStylesHOC;
+      })();
+    }
+    Object.defineProperty(t, '__esModule', { value: !0 }),
+      (t.withStylesPropTypes = t.cssNoRTL = t.css = void 0);
+    var r =
+        Object.assign ||
+        function(e) {
+          for (var t = 1; t < arguments.length; t++) {
+            var n = arguments[t];
+            for (var r in n)
+              Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
+          }
+          return e;
+        },
+      o = (function() {
+        function defineProperties(e, t) {
+          for (var n = 0; n < t.length; n++) {
+            var r = t[n];
+            (r.enumerable = r.enumerable || !1),
+              (r.configurable = !0),
+              'value' in r && (r.writable = !0),
+              Object.defineProperty(e, r.key, r);
+          }
+        }
+        return function(e, t, n) {
+          return (
+            t && defineProperties(e.prototype, t),
+            n && defineProperties(e, n),
+            e
+          );
+        };
+      })();
+    t.withStyles = withStyles;
+    var a = _interopRequireDefault(n(0)),
+      i = _interopRequireDefault(n(734)),
+      u = _interopRequireDefault(n(739)),
+      s = _interopRequireDefault(n(740)),
+      l = _interopRequireDefault(n(359)),
+      c = ((t.css = l.default.resolve),
+      (t.cssNoRTL = l.default.resolveNoRTL),
+      (t.withStylesPropTypes = {
+        styles: i.default.object.isRequired,
+        theme: i.default.object.isRequired,
+      }),
+      {}),
+      d = function EMPTY_STYLES_FN() {
+        return c;
+      };
+  },
+  function(e, t, n) {
+    var r = n(519),
+      o = 'object' == typeof self && self && self.Object === Object && self,
+      a = r || o || Function('return this')();
+    e.exports = a;
+  },
+  function(e, t, n) {
+    var r,
+      o; /*!
+  Copyright (c) 2016 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+    !(function() {
+      'use strict';
+      function classNames() {
+        for (var e = [], t = 0; t < arguments.length; t++) {
+          var r = arguments[t];
+          if (r) {
+            var o = typeof r;
+            if ('string' === o || 'number' === o) e.push(r);
+            else if (Array.isArray(r)) e.push(classNames.apply(null, r));
+            else if ('object' === o)
+              for (var a in r) n.call(r, a) && r[a] && e.push(a);
+          }
+        }
+        return e.join(' ');
+      }
+      var n = {}.hasOwnProperty;
+      void 0 !== e && e.exports
+        ? (e.exports = classNames)
+        : void 0 !==
+            (o = function() {
+              return classNames;
+            }.apply(t, (r = []))) && (e.exports = o);
+    })();
+  },
+  function(e, t, n) {
+    'use strict';
+    e.exports = function whitespace(e) {
+      return o.test('number' == typeof e ? r(e) : e.charAt(0));
+    };
+    var r = String.fromCharCode,
+      o = /\s/;
+  },
+  function(e, t, n) {
     'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 });
     var r = (t.map = {
@@ -12784,7 +12784,7 @@ object-assign
       })(),
       o = _interopRequireDefault(n(0)),
       a = _interopRequireDefault(n(1)),
-      i = _interopRequireDefault(n(28)),
+      i = _interopRequireDefault(n(24)),
       u = n(19),
       s = _interopRequireDefault(n(75)),
       l = _interopRequireDefault(n(546)),
@@ -16643,7 +16643,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(25).Symbol;
+    var r = n(26).Symbol;
     e.exports = r;
   },
   function(e, t, n) {
@@ -17341,7 +17341,7 @@ object-assign
       })(),
       o = _interopRequireDefault(n(0)),
       a = _interopRequireDefault(n(1)),
-      i = (_interopRequireDefault(n(2)), _interopRequireDefault(n(28))),
+      i = (_interopRequireDefault(n(2)), _interopRequireDefault(n(24))),
       u = _interopRequireDefault(n(252)),
       s = _interopRequireDefault(n(253)),
       l = (function(e) {
@@ -17512,7 +17512,7 @@ object-assign
       u = _interopRequireDefault(n(1)),
       s = _interopRequireDefault(n(114)),
       l = _interopRequireDefault(n(870)),
-      c = _interopRequireDefault(n(26)),
+      c = _interopRequireDefault(n(27)),
       d = _interopRequireDefault(n(871)),
       p = _interopRequireDefault(n(565)),
       f = _interopRequireDefault(n(567)),
@@ -19575,7 +19575,7 @@ object-assign
       })(),
       a = _interopRequireDefault(n(0)),
       i = _interopRequireDefault(n(1)),
-      u = _interopRequireDefault(n(28)),
+      u = _interopRequireDefault(n(24)),
       s = _interopRequireDefault(n(142)),
       l = (function(e) {
         function SimpleTable() {
@@ -20826,7 +20826,7 @@ object-assign
   function(e, t, n) {
     'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.colors = void 0);
-    var r = n(28),
+    var r = n(24),
       o = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
       })(n(96)),
@@ -23038,7 +23038,7 @@ object-assign
         e.exports = n(17);
       },
       function(e, t) {
-        e.exports = n(24);
+        e.exports = n(25);
       },
       function(e, t) {
         e.exports = n(21);
@@ -25698,7 +25698,7 @@ object-assign
       })(),
       o = _interopRequireDefault(n(0)),
       a = _interopRequireDefault(n(1)),
-      i = _interopRequireDefault(n(28)),
+      i = _interopRequireDefault(n(24)),
       u = _interopRequireDefault(n(278)),
       s = (function(e) {
         function TableWrap() {
@@ -26408,7 +26408,7 @@ object-assign
       (e.exports = Stack);
   },
   function(e, t, n) {
-    var r = n(51)(n(25), 'Map');
+    var r = n(51)(n(26), 'Map');
     e.exports = r;
   },
   function(e, t, n) {
@@ -26477,7 +26477,7 @@ object-assign
   },
   function(e, t, n) {
     (function(e) {
-      var r = n(25),
+      var r = n(26),
         o = n(954),
         a = 'object' == typeof t && t && !t.nodeType && t,
         i = a && 'object' == typeof e && e && !e.nodeType && e,
@@ -27339,7 +27339,7 @@ object-assign
       o = _interopRequireDefault(n(0)),
       a = _interopRequireDefault(n(1)),
       i = _interopRequireDefault(n(2)),
-      u = _interopRequireDefault(n(28)),
+      u = _interopRequireDefault(n(24)),
       s = n(665),
       l = n(669),
       c = i.default.div.withConfig({ displayName: 'Expand__Container' })([
@@ -27568,7 +27568,7 @@ object-assign
       })(),
       o = _interopRequireDefault(n(0)),
       a = _interopRequireDefault(n(1)),
-      i = _interopRequireDefault(n(28)),
+      i = _interopRequireDefault(n(24)),
       u = n(672),
       s = (function(e) {
         function ExpandToggle(e) {
@@ -41963,7 +41963,7 @@ object-assign
         e.exports = n(17);
       },
       6: function(e, t) {
-        e.exports = n(24);
+        e.exports = n(25);
       },
       67: function(e, t, n) {
         function _interopRequireDefault(e) {
@@ -42373,7 +42373,7 @@ object-assign
         e.exports = n(11);
       },
       6: function(e, t) {
-        e.exports = n(24);
+        e.exports = n(25);
       },
       65: function(e, t, n) {
         function _interopRequireDefault(e) {
@@ -44333,7 +44333,7 @@ object-assign
         e.exports = n(17);
       },
       function(e, t) {
-        e.exports = n(24);
+        e.exports = n(25);
       },
       function(e, t) {
         e.exports = n(21);
@@ -44927,7 +44927,7 @@ object-assign
         e.exports = n(17);
       },
       function(e, t) {
-        e.exports = n(24);
+        e.exports = n(25);
       },
       function(e, t) {
         e.exports = n(21);
@@ -45457,7 +45457,7 @@ object-assign
         e.exports = n(17);
       },
       6: function(e, t) {
-        e.exports = n(24);
+        e.exports = n(25);
       },
       62: function(e, t, n) {
         function _interopRequireDefault(e) {
@@ -47330,7 +47330,7 @@ object-assign
         e.exports = n(17);
       },
       6: function(e, t) {
-        e.exports = n(24);
+        e.exports = n(25);
       },
       7: function(e, t) {
         e.exports = n(21);
@@ -48536,44 +48536,53 @@ object-assign
     'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 });
     var r = (function() {
-      return function(e, t) {
-        if (Array.isArray(e)) return e;
-        if (Symbol.iterator in Object(e))
-          return (function sliceIterator(e, t) {
-            var n = [],
-              r = !0,
-              o = !1,
-              a = void 0;
-            try {
-              for (
-                var i, u = e[Symbol.iterator]();
-                !(r = (i = u.next()).done) &&
-                (n.push(i.value), !t || n.length !== t);
-                r = !0
-              );
-            } catch (e) {
-              (o = !0), (a = e);
-            } finally {
+        return function(e, t) {
+          if (Array.isArray(e)) return e;
+          if (Symbol.iterator in Object(e))
+            return (function sliceIterator(e, t) {
+              var n = [],
+                r = !0,
+                o = !1,
+                a = void 0;
               try {
-                !r && u.return && u.return();
+                for (
+                  var i, u = e[Symbol.iterator]();
+                  !(r = (i = u.next()).done) &&
+                  (n.push(i.value), !t || n.length !== t);
+                  r = !0
+                );
+              } catch (e) {
+                (o = !0), (a = e);
               } finally {
-                if (o) throw a;
+                try {
+                  !r && u.return && u.return();
+                } finally {
+                  if (o) throw a;
+                }
               }
-            }
-            return n;
-          })(e, t);
-        throw new TypeError(
-          'Invalid attempt to destructure non-iterable instance',
-        );
-      };
-    })();
+              return n;
+            })(e, t);
+          throw new TypeError(
+            'Invalid attempt to destructure non-iterable instance',
+          );
+        };
+      })(),
+      o = n(24);
     t.default = function(e) {
-      if ('string' == typeof e) {
-        var t = e.split('.'),
+      if ('string' == typeof e || 'number' == typeof e) {
+        var t = ('' + e).split('.'),
           n = r(t, 2);
-        return n[0] + '.' + ((n[1] || '00') + '00').substr(0, 2);
+        return (
+          n[0] +
+          '.' +
+          (function trimZeroes(e) {
+            return '0' === e[e.length - 1]
+              ? trimZeroes(e.slice(0, -1))
+              : (e.indexOf('.'), e.length, (0, o.padEnd)(e, 2, '0'));
+          })((n[1] || '00') + '00')
+        );
       }
-      return 'number' == typeof e ? parseFloat(e).toFixed(2) : e;
+      return e;
     };
   },
   function(e, t, n) {
@@ -49321,7 +49330,7 @@ object-assign
       d = _interopRequireDefault(n(256)),
       p = _interopRequireDefault(n(257)),
       f = _interopRequireDefault(n(258)),
-      h = _interopRequireDefault(n(28)),
+      h = _interopRequireDefault(n(24)),
       m = (function(e) {
         function SearchBox() {
           var e,
@@ -49561,7 +49570,7 @@ object-assign
       u = _interopRequireDefault(n(869)),
       s = (_interopRequireDefault(n(571)),
       _interopRequireDefault(n(36)),
-      _interopRequireDefault(n(28)),
+      _interopRequireDefault(n(24)),
       _interopRequireDefault(n(572))),
       l = _interopRequireDefault(n(108)),
       c = _interopRequireDefault(n(259)),
@@ -49987,7 +49996,7 @@ object-assign
       return e && e.__esModule ? e : { default: e };
     }
     Object.defineProperty(t, '__esModule', { value: !0 });
-    var r = _interopRequireDefault(n(26)),
+    var r = _interopRequireDefault(n(27)),
       o = _interopRequireDefault(n(0));
     t.default = function menuRenderer(e) {
       var t = e.focusedOption,
@@ -50059,7 +50068,7 @@ object-assign
       })(),
       o = _interopRequireDefault(n(0)),
       a = _interopRequireDefault(n(1)),
-      i = _interopRequireDefault(n(26)),
+      i = _interopRequireDefault(n(27)),
       u = (function(e) {
         function Value(e) {
           !(function _classCallCheck(e, t) {
@@ -51076,16 +51085,24 @@ object-assign
           ';font-size:14px;font-weight:400;font-family:',
           ';letter-spacing:0.02em;border-color:',
           ';border-width:',
-          ';border-style:solid;line-height:1.5;min-height:100px;box-shadow:none;transition:all 0.2s ease;outline:none;width:100%;',
+          ';border-style:solid;line-height:1.5;min-height:100px;box-shadow:none;transition:all 0.2s ease;outline:none;width:100%;height:',
+          ';',
         ],
         (0, a.default)('colors.background.default'),
         (0, a.default)('colors.text.default'),
         (0, a.default)('fonts.brand'),
         (0, a.default)('colors.border.light'),
         (0, a.default)('thicknesses.normal'),
+        function(e) {
+          return e.height;
+        },
       );
-    (i.propTypes = { className: r.default.string, id: r.default.string }),
-      (i.defaultProps = { className: null, id: null }),
+    (i.propTypes = {
+      className: r.default.string,
+      id: r.default.string,
+      height: r.default.string,
+    }),
+      (i.defaultProps = { className: null, id: null, height: '100px' }),
       (t.default = i);
   },
   function(e, t, n) {
@@ -51534,7 +51551,7 @@ object-assign
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(25).Uint8Array;
+    var r = n(26).Uint8Array;
     e.exports = r;
   },
   function(e, t, n) {
@@ -59892,7 +59909,7 @@ object-assign
         e.exports = n(17);
       },
       function(e, t) {
-        e.exports = n(24);
+        e.exports = n(25);
       },
       ,
       function(e, t) {
@@ -65714,7 +65731,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(25);
+    var r = n(26);
     e.exports = function() {
       return r.Date.now();
     };
@@ -66026,7 +66043,7 @@ object-assign
         e.exports = n(17);
       },
       6: function(e, t) {
-        e.exports = n(24);
+        e.exports = n(25);
       },
       60: function(e, t) {
         e.exports = n(833);
@@ -66523,7 +66540,7 @@ object-assign
         e.exports = n(1);
       },
       6: function(e, t) {
-        e.exports = n(24);
+        e.exports = n(25);
       },
       74: function(e, t, n) {
         function _interopRequireDefault(e) {
@@ -67080,7 +67097,7 @@ object-assign
         e.exports = n(17);
       },
       6: function(e, t) {
-        e.exports = n(24);
+        e.exports = n(25);
       },
       7: function(e, t) {
         e.exports = n(21);
@@ -67955,7 +67972,7 @@ object-assign
         e.exports = n(538);
       },
       6: function(e, t) {
-        e.exports = n(24);
+        e.exports = n(25);
       },
       61: function(e, t) {
         e.exports = n(539);
@@ -71926,7 +71943,7 @@ object-assign
       })(),
       o = _interopRequireDefault(n(0)),
       a = _interopRequireDefault(n(1)),
-      i = _interopRequireDefault(n(26)),
+      i = _interopRequireDefault(n(27)),
       u = (function(e) {
         function Option(e) {
           !(function _classCallCheck(e, t) {
@@ -72398,7 +72415,7 @@ object-assign
       o = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
       })(n(0)),
-      a = n(28);
+      a = n(24);
     t.default = function(e, t) {
       return o.default.Children.map(e.children, function(n) {
         return o.default.cloneElement(n, r({}, (0, a.omit)(e, 'children'), t));
@@ -74759,7 +74776,7 @@ object-assign
   },
   function(e, t) {},
   function(e, t, n) {
-    var r = n(25).isFinite;
+    var r = n(26).isFinite;
     e.exports = function isFinite(e) {
       return 'number' == typeof e && r(e);
     };
@@ -75194,7 +75211,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(25)['__core-js_shared__'];
+    var r = n(26)['__core-js_shared__'];
     e.exports = r;
   },
   function(e, t) {
@@ -75374,7 +75391,7 @@ object-assign
   },
   function(e, t, n) {
     (function(e) {
-      var r = n(25),
+      var r = n(26),
         o = 'object' == typeof t && t && !t.nodeType && t,
         a = o && 'object' == typeof e && e && !e.nodeType && e,
         i = a && a.exports === o ? r.Buffer : void 0,
@@ -83147,7 +83164,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(27);
+    var r = n(28);
     e.exports = function newline(e, t, n) {
       var o,
         a,
@@ -83952,7 +83969,7 @@ object-assign
         }
       }
     }
-    var r = n(27),
+    var r = n(28),
       o = n(315);
     (e.exports = footnoteDefinition),
       (footnoteDefinition.notInList = !0),
@@ -84078,7 +84095,7 @@ object-assign
     function isEnclosedURLCharacter(e) {
       return e !== g && e !== d && e !== p;
     }
-    var r = n(27),
+    var r = n(28),
       o = n(315);
     (e.exports = definition),
       (definition.notInList = !0),
@@ -84100,7 +84117,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(27);
+    var r = n(28);
     e.exports = function table(e, t, n) {
       var _,
         b,
@@ -84388,7 +84405,7 @@ object-assign
         }
       }
     }
-    var r = n(27),
+    var r = n(28),
       o = n(311),
       a = n(613);
     (e.exports = autoLink), (autoLink.locator = a), (autoLink.notInLink = !0);
@@ -84444,7 +84461,7 @@ object-assign
       }
     }
     var r = n(311),
-      o = n(27),
+      o = n(28),
       a = n(1066);
     (e.exports = url), (url.locator = a), (url.notInLink = !0);
     var i = '[',
@@ -84637,7 +84654,7 @@ object-assign
         }
       }
     }
-    var r = n(27),
+    var r = n(28),
       o = n(614);
     (e.exports = link), (link.locator = o);
     var a = {}.hasOwnProperty,
@@ -84740,7 +84757,7 @@ object-assign
         }
       }
     }
-    var r = n(27),
+    var r = n(28),
       o = n(614),
       a = n(315);
     (e.exports = reference), (reference.locator = o);
@@ -84807,7 +84824,7 @@ object-assign
         }
     }
     var r = n(67),
-      o = n(27),
+      o = n(28),
       a = n(1071);
     (e.exports = strong), (strong.locator = a);
     var i = '*',
@@ -84873,7 +84890,7 @@ object-assign
     }
     var r = n(67),
       o = n(1073),
-      a = n(27),
+      a = n(28),
       i = n(1074);
     (e.exports = emphasis), (emphasis.locator = i);
     var u = '*',
@@ -84925,7 +84942,7 @@ object-assign
           (f += d), (p = d), (d = c);
         }
     }
-    var r = n(27),
+    var r = n(28),
       o = n(1076);
     (e.exports = strikethrough), (strikethrough.locator = o);
     var a = '~',
@@ -84973,7 +84990,7 @@ object-assign
         return e(l)({ type: 'inlineCode', value: o });
       }
     }
-    var r = n(27),
+    var r = n(28),
       o = n(1078);
     (e.exports = inlineCode), (inlineCode.locator = o);
     var a = '`';
@@ -85409,19 +85426,19 @@ object-assign
       (e.exports = m);
   },
   function(e, t, n) {
-    var r = n(51)(n(25), 'DataView');
+    var r = n(51)(n(26), 'DataView');
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(51)(n(25), 'Promise');
+    var r = n(51)(n(26), 'Promise');
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(51)(n(25), 'Set');
+    var r = n(51)(n(26), 'Set');
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(51)(n(25), 'WeakMap');
+    var r = n(51)(n(26), 'WeakMap');
     e.exports = r;
   },
   function(e, t, n) {
@@ -85595,7 +85612,7 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(26),
+      u = n(27),
       s = n.n(u),
       l = n(12),
       c =
@@ -85712,7 +85729,7 @@ object-assign
       i = n.n(a),
       u = n(320),
       s = n(12),
-      l = n(26),
+      l = n(27),
       c = n.n(l);
     (NameRenderer.propTypes = {
       classes: i.a.object.isRequired,
@@ -85934,7 +85951,7 @@ object-assign
       a = n(1),
       i = n.n(a),
       u = n(12),
-      s = n(26),
+      s = n(27),
       l = n.n(s),
       c =
         Object.assign ||
@@ -86307,7 +86324,7 @@ object-assign
       a = n(1),
       i = n.n(a),
       u = n(12),
-      s = n(26),
+      s = n(27),
       l = n.n(s);
     (ToolbarButtonRenderer.propTypes = {
       classes: i.a.object.isRequired,
@@ -86456,7 +86473,7 @@ object-assign
       a = n(1),
       i = n.n(a),
       u = n(12),
-      s = n(26),
+      s = n(27),
       l = n.n(s);
     (TabButtonRenderer.propTypes = {
       classes: i.a.object.isRequired,
@@ -87092,7 +87109,7 @@ object-assign
       s = n.n(u),
       l = n(44),
       c = n(12),
-      d = n(26),
+      d = n(27),
       p = n.n(d);
     (StyleGuideRenderer.propTypes = {
       classes: i.a.object.isRequired,
@@ -103575,7 +103592,7 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(26),
+      u = n(27),
       s = n.n(u),
       l = n(12),
       c =
@@ -103940,7 +103957,7 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(26),
+      u = n(27),
       s = n.n(u),
       l = n(12);
     (SectionHeadingRenderer.propTypes = {
@@ -108787,8 +108804,49 @@ object-assign
       },
       {
         type: 'code',
-        content:
-          '<div>\n  <Money value="0.33224" />\n  <Money value="-2.38" />\n  <Money value="0" />\n</div>',
+        content: '<Money value="0.33224" />',
+        settings: {},
+        evalInContext: a,
+      },
+      { type: 'markdown', content: '**Negative Value**' },
+      {
+        type: 'code',
+        content: '<Money value="-0.33224" />',
+        settings: {},
+        evalInContext: a,
+      },
+      { type: 'markdown', content: '**Trailing Zeroes String**' },
+      {
+        type: 'code',
+        content: '<Money value="-0.8943424000" />',
+        settings: {},
+        evalInContext: a,
+      },
+      { type: 'markdown', content: '**Round Value**' },
+      {
+        type: 'code',
+        content: '<Money value="3" />',
+        settings: {},
+        evalInContext: a,
+      },
+      { type: 'markdown', content: '**Semi-Round Value**' },
+      {
+        type: 'code',
+        content: '<Money value="3.2" />',
+        settings: {},
+        evalInContext: a,
+      },
+      { type: 'markdown', content: '**Number Value**' },
+      {
+        type: 'code',
+        content: '<Money value={3.044688238111120000} />',
+        settings: {},
+        evalInContext: a,
+      },
+      { type: 'markdown', content: '**Round Number Value**' },
+      {
+        type: 'code',
+        content: '<Money value={-2} />',
         settings: {},
         evalInContext: a,
       },
@@ -111091,6 +111149,13 @@ object-assign
           required: !1,
           description: 'Adds an id to the element.',
           defaultValue: { value: 'null', computed: !1 },
+          tags: {},
+        },
+        height: {
+          type: { name: 'string' },
+          required: !1,
+          description: 'Specifies the height of the element.',
+          defaultValue: { value: "'100px'", computed: !1 },
           tags: {},
         },
       },
