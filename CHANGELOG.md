@@ -1,20 +1,23 @@
 # v3.0.0
 
-Major feature: added the `react-studs` themeing system. Reference documentation to see all the properties you can customize on components by creating variants.
+Major feature: Totally reworked the structure of components to create a clear divide between presentational and behavioral components. All sub-components of a component are now exposed as configurable props.
 
 * All `themes` have been removed.
-  * Different sizes of components must now be accessed via `small` and `large` variants within `react-studs`. Usually these will be exposed as `.Small`, etc, on the components themselves.
-  * Error components, secondary components, and other visual modifications are also accessed via variants or subcomponents.
+  * Different sizes of components must now be accessed via attached 'variant' components, like `Accordion.Small`.
+  * Error components, secondary components, and other visual modifications are also accessed via variants.
 * All `Field` components have been removed. These components were deprecated in `v1.1.0`.
 * `Pane.Layout` has been removed. Use `<Spacing>` instead.
-* `Summary` experimental component removed.
-* `Header` has been renamed to `Heading1` for consistency with the design system.
-* `SubHeader` has been renamed to `Heading2` for consistency with the design system.
-* `Heading3`, `Heading4`, and `Heading5` introduced.
+* `Summary` experimental component removed. Use a Small FlowItem.
+* `Header` has been renamed to `H1` for consistency with the design system.
+* `SubHeader` has been renamed to `H2` for consistency with the design system.
+* `H3`, `H4`, and `H5` introduced.
 * `BulkSelect` introduced as an experimental component. The name may change.
 * `Modal`, `Pane` components now provide default padding. Be sure to check the padding of contained elements and remove any spacing you manually applied (or create a varian to customize padding).
-* `Modal` no longer supports the `naturalWidth` prop. Use variants to specify a new `width` value or use a prebuilt `Wide` variant.
+* `Modal` no longer supports the `naturalWidth` prop. Use customized style component props to specify a new `width` value.
 * `Pane` children *must* be `Pane.Section`s to layout properly now. Otherwise, spacing will not be correct.
+* `CodeBlock` no longer performs syntax highlighting. Syntax highlighting was inflating the library size. Handle syntax in your own app.
+* `CodeWrapper` is gone. Use `CodeBlock`.
+* A Catapult theme is now available. Theme will default to Iris. Use `BandwidthThemeProvider.Catapult` to provide the Catpault theme.
 
 # v2.0.0
 
