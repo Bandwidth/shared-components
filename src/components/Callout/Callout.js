@@ -43,10 +43,7 @@ class Callout extends React.Component {
   }
 
   trigger = () => {
-    this._timer = setTimeout(
-      this.show,
-      this.props.delay,
-    );
+    this._timer = setTimeout(this.show, this.props.delay);
   };
 
   show = () => {
@@ -71,7 +68,7 @@ class Callout extends React.Component {
         {this.props.children}
         {this.state.show ? <Tag>{this.props.content}</Tag> : null}
       </div>
-    )
+    );
   }
 }
 

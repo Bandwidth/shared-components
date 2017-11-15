@@ -68,4 +68,4 @@ export default Label.extend`
   ${Input}:checked + &::before {
     content: "${icons('checkmark')}";
   }
-`
+`;

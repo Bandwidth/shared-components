@@ -125,11 +125,19 @@ class FlowItem extends React.Component {
     const { helpText, error, HelpText } = this.props;
 
     if (_.isString(helpText)) {
-      return <HelpText className="FlowItem-helpText" error={error}>{helpText}</HelpText>;
+      return (
+        <HelpText className="FlowItem-helpText" error={error}>
+          {helpText}
+        </HelpText>
+      );
     } else if (helpText && helpText.props) {
       return React.cloneElement(helpText, { error: error });
     } else if (!helpText && error) {
-      return <HelpText className="FlowItem-helpText" error>{error}</HelpText>;
+      return (
+        <HelpText className="FlowItem-helpText" error>
+          {error}
+        </HelpText>
+      );
     }
 
     return helpText || null;

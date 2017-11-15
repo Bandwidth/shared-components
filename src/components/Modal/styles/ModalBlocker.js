@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
-
-
-
 export default styled.div`
   background: ${get('colors.shadow.default')};
   position: fixed;

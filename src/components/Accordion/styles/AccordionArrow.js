@@ -5,7 +5,8 @@ import get from 'extensions/themeGet';
 const AccordionArrow = styled(Icon)`
   color: ${get('colors.gray.default')};
   margin: auto 1em auto auto;
-  transform: ${({ isExpanded }) => isExpanded ? 'rotate(90deg)' : 'rotate(0)'};
+  transform: ${({ isExpanded }) =>
+    isExpanded ? 'rotate(90deg)' : 'rotate(0)'};
   transition: 0.2s all ease;
   font-weight: 100;
 
@@ -14,7 +15,7 @@ const AccordionArrow = styled(Icon)`
     padding-bottom: 0;
     font-size: 1.5em;
   }
-`
+`;
 
 AccordionArrow.Small = AccordionArrow.extend`
   color: ${get('colors.text.default')};

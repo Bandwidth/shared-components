@@ -3,9 +3,6 @@ import get from 'extensions/themeGet';
 
 const shadowColor = get('colors.shadow.default');
 
-
-
-
 export default styled.div`
   background: ${get('colors.background.default')};
   border-width: ${get('thicknesses.normal')};
@@ -17,7 +14,7 @@ export default styled.div`
   overflow-x: auto;
   position: relative;
 
-  ${(props) => {
+  ${props => {
     switch (props.shadow) {
       case 'left':
         return `box-shadow: inset 15px 0 10px -10px ${shadowColor(props)}};`;
@@ -29,5 +26,5 @@ export default styled.div`
       default:
         return '';
     }
-  }}
+  }};
 `;

@@ -35,13 +35,19 @@ class FlowRow extends React.Component {
      */
     alignment: (props, propName, componentName) => {
       if (props.sizes.length > 0 && props[propName] !== 'stretch') {
-        return new Error(`Using ${propName} with sizes is invalid in ${componentName}.
-        ${propName} is ${JSON.stringify(props[propName])}, sizes is ${JSON.stringify(props.sizes)}`);
+        return new Error(`Using ${propName} with sizes is invalid in ${
+          componentName
+        }.
+        ${propName} is ${JSON.stringify(
+          props[propName],
+        )}, sizes is ${JSON.stringify(props.sizes)}`);
       }
 
       if (!['left', 'right', 'stretch', 'center'].includes(props[propName])) {
         return new Error(
-          `Invalid prop ${propName} supplied to ${componentName}: must be one of [left, right, center, stretch].`
+          `Invalid prop ${propName} supplied to ${
+            componentName
+          }: must be one of [left, right, center, stretch].`,
         );
       }
     },
@@ -65,12 +71,9 @@ class FlowRow extends React.Component {
    * @memberof FlowRow
    */
   shouldSuppressLabels = () => {
-    const atLeastOneChildHasLabel =
-      React.Children.toArray(this.props.children)
-      .reduce((hasLabel, child) =>
-        hasLabel || !!child.props.label,
-        false
-      );
+    const atLeastOneChildHasLabel = React.Children.toArray(
+      this.props.children,
+    ).reduce((hasLabel, child) => hasLabel || !!child.props.label, false);
     return !atLeastOneChildHasLabel;
   };
 

@@ -40,17 +40,17 @@ export default class AccordionGroup extends React.Component {
     };
   }
 
-  createToggleHandler = (key) => (isAlreadyExpanded) => {
+  createToggleHandler = key => isAlreadyExpanded => {
     // current state is open, it will close
     if (!isAlreadyExpanded) {
       this.setState({ expandedKey: key });
-    // close already open accordion
+      // close already open accordion
     } else {
       this.setState({ expandedKey: null });
     }
   };
 
-  renderAccordion = (accordion) => {
+  renderAccordion = accordion => {
     const { expandedKey } = this.state;
     if (!accordion.key) {
       throw new Error('All AccordionGroup accordion children must have a key');
@@ -64,7 +64,7 @@ export default class AccordionGroup extends React.Component {
   renderAccordions = () => {
     const { children } = this.props;
     return React.Children.map(children, this.renderAccordion);
-  }
+  };
 
   render() {
     const { className, id, Container } = this.props;

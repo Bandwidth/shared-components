@@ -114,8 +114,8 @@ class SearchBox extends React.Component {
   static defaultProps = {
     renderSuggestionContent: _.identity,
     alwaysRenderSuggestions: false,
-    getSectionTitle: (sec) => sec.title,
-    getSectionSuggestions: (sec) => sec.suggestions,
+    getSectionTitle: sec => sec.title,
+    getSectionSuggestions: sec => sec.suggestions,
     inputProps: {},
     onSuggestionSelected: null,
     matchSuggestionContent: undefined,
@@ -132,12 +132,7 @@ class SearchBox extends React.Component {
 
   renderInput = ({ ref, ...inputProps }) => {
     const self = this;
-    return (
-      <this.props.Input
-        {...inputProps}
-        inputRef={ref}
-      />
-    );
+    return <this.props.Input {...inputProps} inputRef={ref} />;
   };
 
   renderSuggestion = (suggestion, { query, isHighlighted }) => (
@@ -150,12 +145,17 @@ class SearchBox extends React.Component {
     </this.props.Suggestion>
   );
 
-  renderSuggestionsContainer = ({ containerProps, children }) => children ? (
-    <this.props.SuggestionsList {...containerProps}>{children}</this.props.SuggestionsList>
-  ) : null;
+  renderSuggestionsContainer = ({ containerProps, children }) =>
+    children ? (
+      <this.props.SuggestionsList {...containerProps}>
+        {children}
+      </this.props.SuggestionsList>
+    ) : null;
 
-  renderSectionTitle = (section) => (
-    <this.props.SuggestionsSectionTitle>{this.props.getSectionTitle(section)}</this.props.SuggestionsSectionTitle>
+  renderSectionTitle = section => (
+    <this.props.SuggestionsSectionTitle>
+      {this.props.getSectionTitle(section)}
+    </this.props.SuggestionsSectionTitle>
   );
 
   render() {
@@ -184,12 +184,15 @@ class SearchBox extends React.Component {
           renderSuggestionsContainer={this.renderSuggestionsContainer}
           renderSectionTitle={this.renderSectionTitle}
         />
-        {
-          /* Using the button as a glyph if submit is disabled */
-          showSubmitButton ?
-            <SearchButton onClick={onSubmit} disabled={!shouldShowSubmitButton(value)} /> :
-            <SearchButton disabled />
-        }
+        {/* Using the button as a glyph if submit is disabled */
+        showSubmitButton ? (
+          <SearchButton
+            onClick={onSubmit}
+            disabled={!shouldShowSubmitButton(value)}
+          />
+        ) : (
+          <SearchButton disabled />
+        )}
       </Wrapper>
     );
   }

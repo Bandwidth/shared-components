@@ -10,9 +10,6 @@ const RadioGroupButtonInput = styled.input`
   border: none;
   position: absolute;
   opacity: 0;
-`
-
-
-
+`;
 
 export default RadioGroupButtonInput;

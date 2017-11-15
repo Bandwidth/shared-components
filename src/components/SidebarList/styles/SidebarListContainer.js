@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
-
-
-
 export default styled.ul`
   display: flex;
   flex-direction: column;
@@ -18,4 +15,4 @@ export default styled.ul`
   &::-webkit-scrollbar-track {
     background: ${get('colors.gray.dark')};
   }
-`
+`;

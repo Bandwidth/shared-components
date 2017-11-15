@@ -19,7 +19,8 @@ export default styled.pre`
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 
-  & pre, & code {
+  & pre,
+  & code {
     background: transparent !important;
     word-wrap: inherit;
     white-space: inherit;

@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-
-
-
 export default styled.div`
   flex: 1 1 auto;
   position: relative;
@@ -22,4 +19,4 @@ export default styled.div`
   &:last-of-type > label::after {
     border-radius: 0 0 3px 0;
   }
-`
+`;

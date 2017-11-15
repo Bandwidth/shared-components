@@ -109,26 +109,26 @@ class TableControls extends React.Component {
         <ControlsRow id={id} className={className}>
           <H1>{title}</H1>
           <div>
-            {
-              enableAdd ?
-                <Anchor onClick={onAdd} type="icon"><Icon name="plusMath" /></Anchor> :
-                null
-            }
-            {
-              enableSearch ?
-                <Anchor onClick={onSearch} type="icon"><Icon name="search" /></Anchor> :
-                null
-            }
-            {
-              enableDelete ?
-                <Anchor onClick={onDelete} type="icon"><Icon name="trash" /></Anchor> :
-                null
-            }
+            {enableAdd ? (
+              <Anchor onClick={onAdd} type="icon">
+                <Icon name="plusMath" />
+              </Anchor>
+            ) : null}
+            {enableSearch ? (
+              <Anchor onClick={onSearch} type="icon">
+                <Icon name="search" />
+              </Anchor>
+            ) : null}
+            {enableDelete ? (
+              <Anchor onClick={onDelete} type="icon">
+                <Icon name="trash" />
+              </Anchor>
+            ) : null}
           </div>
         </ControlsRow>
         {children}
       </Container>
-    )
+    );
   }
 }
 

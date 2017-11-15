@@ -73,7 +73,10 @@ class SidebarListItem extends React.Component {
 
     return (
       <Container active={active} className={className} id={id}>
-        <Label>{isNew ? <NewBadge /> : null}{label}</Label>
+        <Label>
+          {isNew ? <NewBadge /> : null}
+          {label}
+        </Label>
         <Details>{details}</Details>
       </Container>
     );

@@ -72,7 +72,7 @@ class Modal extends React.Component {
     Window: ModalWindow,
   };
 
-  handleModalClicked = (event) => {
+  handleModalClicked = event => {
     // prevents click event bubbling to blocker and triggering blockerclicked callback
     event.stopPropagation();
   };
@@ -94,18 +94,10 @@ class Modal extends React.Component {
 
     return (
       <Blocker onClick={onBlockerClicked}>
-        <Window
-          onClick={this.handleModalClicked}
-          id={id}
-          className={className}
-        >
+        <Window onClick={this.handleModalClicked} id={id} className={className}>
           {title ? <Title>{title}</Title> : null}
-          <Content>
-            {children}
-          </Content>
-          {actionContent &&
-            <ActionContent>{actionContent}</ActionContent>
-          }
+          <Content>{children}</Content>
+          {actionContent && <ActionContent>{actionContent}</ActionContent>}
         </Window>
       </Blocker>
     );

@@ -9,7 +9,7 @@ const TableRow = styled.tr`
     border-top: none;
   }
 
-  ${({ onClick }) => !!onClick ? 'cursor: pointer;' : ''}
+  ${({ onClick }) => (!!onClick ? 'cursor: pointer;' : '')};
 `;
 
 export default TableRow;

@@ -1,5 +1,5 @@
-const propTypesToMarkdown = (propTypes) => {
-  Object.keys(propTypes).forEach((key) => {
+const propTypesToMarkdown = propTypes => {
+  Object.keys(propTypes).forEach(key => {
     const type = propTypes[key];
 
     console.log(type);

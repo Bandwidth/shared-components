@@ -35,16 +35,30 @@ class TableWrap extends React.Component {
   updateAndSubscribeWrapShadowChanges = () => {
     this.setWrapShadow(this.computeWrapShadow());
 
-    this._wrap.addEventListener('scroll', _.debounce(() => {
-      this.setWrapShadow(this.computeWrapShadow());
-    }, 300, { leading: true }));
+    this._wrap.addEventListener(
+      'scroll',
+      _.debounce(
+        () => {
+          this.setWrapShadow(this.computeWrapShadow());
+        },
+        300,
+        { leading: true },
+      ),
+    );
 
-    window.addEventListener('resize', _.debounce(() =>{
-      this.setWrapShadow(this.computeWrapShadow());
-    }, 300, { leading: true }));
-  }
+    window.addEventListener(
+      'resize',
+      _.debounce(
+        () => {
+          this.setWrapShadow(this.computeWrapShadow());
+        },
+        300,
+        { leading: true },
+      ),
+    );
+  };
 
-  setWrapShadow = (shadow) => {
+  setWrapShadow = shadow => {
     if (this.state.shadow === shadow) {
       return;
     }
@@ -77,10 +91,10 @@ class TableWrap extends React.Component {
     const { children, Styles } = this.props;
 
     return (
-      <Styles innerRef={(el) => this._wrap = el} shadow={this.state.shadow}>
+      <Styles innerRef={el => (this._wrap = el)} shadow={this.state.shadow}>
         {children}
       </Styles>
-    )
+    );
   }
 }
 

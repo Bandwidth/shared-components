@@ -4,7 +4,7 @@ import { withProps } from 'recompose';
 import LogoImage from './styles/LogoImage';
 import logo from './logo.png';
 
-const Logo =  ({ id, className, Image }) => (
+const Logo = ({ id, className, Image }) => (
   <Image src={logo} id={id} className={className} />
 );
 

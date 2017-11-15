@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-
-
-
 export default styled.div.withConfig({ displayName: 'NavigationLinks' })`
   display: flex;
   flex-direction: column;
@@ -10,4 +7,4 @@ export default styled.div.withConfig({ displayName: 'NavigationLinks' })`
   & > div {
     margin-top: auto;
   }
-`
+`;

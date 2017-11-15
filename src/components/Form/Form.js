@@ -14,17 +14,17 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
     flex: 1;
   }
 
-  &:invalid button[type="submit"] {
+  &:invalid button[type='submit'] {
     background: ${get('colors.background.disabled')};
     color: ${get('colors.text.disabled')};
     border-color: ${get('colors.background.disabled')};
     cursor: default;
     box-shadow: none;
   }
-  &:invalid button[type="submit"]::after {
+  &:invalid button[type='submit']::after {
     left: 160%;
   }
-  &:invalid button[type="submit"]::before {
+  &:invalid button[type='submit']::before {
     left: -60%;
   }
 `;

@@ -25,8 +25,8 @@ class Input extends React.Component {
      */
     onFocus: PropTypes.func,
     /**
-       * Handler for the onkeydown event.
-       */
+     * Handler for the onkeydown event.
+     */
     onKeyDown: PropTypes.func,
     /**
      * Controls whether the user can change this element.
@@ -48,9 +48,21 @@ class Input extends React.Component {
      * Sets the type of data expected for this input.
      */
     type: PropTypes.oneOf([
-      'search', 'email', 'url', 'tel', 'number', 'range', 'date',
-      'month', 'week', 'time', 'datetime', 'datetime-local', 'color',
-      'password', 'text',
+      'search',
+      'email',
+      'url',
+      'tel',
+      'number',
+      'range',
+      'date',
+      'month',
+      'week',
+      'time',
+      'datetime',
+      'datetime-local',
+      'color',
+      'password',
+      'text',
     ]),
     /**
      * Styles this input as being invalid
@@ -101,10 +113,10 @@ class Input extends React.Component {
     RevealPasswordWrapper: InputRevealPasswordWrapper,
   };
 
-  componentDidMount () {
+  componentDidMount() {
     this.setState({
-      _type: this.props.type
-    })
+      _type: this.props.type,
+    });
   }
 
   constructor(props) {
@@ -112,7 +124,7 @@ class Input extends React.Component {
     this.state = { visited: false };
   }
 
-  onBlur = (event) => {
+  onBlur = event => {
     console.log(event);
     this.setState({ visited: true });
     if (this.props.onBlur) {
@@ -122,13 +134,14 @@ class Input extends React.Component {
 
   renderPasswordField = () => {
     const { RevealPasswordWrapper } = this.props;
-    const toggleState = () => this.state._type === 'password' ? 'text' : 'password';
-    const handleClick = (evt) => {
+    const toggleState = () =>
+      this.state._type === 'password' ? 'text' : 'password';
+    const handleClick = evt => {
       evt.preventDefault();
       this.setState({
-        _type: toggleState(this.state._type)
+        _type: toggleState(this.state._type),
       });
-    }
+    };
 
     return (
       <RevealPasswordWrapper>
@@ -139,11 +152,10 @@ class Input extends React.Component {
           </Anchor>
         </div>
       </RevealPasswordWrapper>
-    )
-  }
+    );
+  };
 
   renderInputField = () => {
-
     const {
       disabled,
       id,
@@ -161,7 +173,7 @@ class Input extends React.Component {
       Styles,
     } = this.props;
 
-    const { visited, _type:type } = this.state;
+    const { visited, _type: type } = this.state;
 
     return (
       <Styles
@@ -183,13 +195,12 @@ class Input extends React.Component {
         onBlur={onBlur}
       />
     );
-  }
-
+  };
 
   render() {
     const { type, disableShowPassword } = this.props;
 
-    if ( type === 'password' && !disableShowPassword) {
+    if (type === 'password' && !disableShowPassword) {
       return this.renderPasswordField();
     }
 

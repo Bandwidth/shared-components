@@ -71,7 +71,7 @@ class RadioGroup extends React.Component {
     const options = this.getOptions();
     const name = this.getName();
     if (options instanceof Array) {
-      return options.map((choice) => (
+      return options.map(choice => (
         <Button
           checked={choice === value}
           name={name}
@@ -84,7 +84,7 @@ class RadioGroup extends React.Component {
         />
       ));
     } else if (typeof options === 'object') {
-      return Object.keys(options).map((key) => {
+      return Object.keys(options).map(key => {
         const choice = options[key];
 
         return (

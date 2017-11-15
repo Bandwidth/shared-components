@@ -10,7 +10,7 @@ const defaultMatcher = (query, content) => {
   const lowerContent = content.toLowerCase();
   return [
     lowerContent.indexOf(lowerQuery),
-    lowerContent.indexOf(lowerQuery) + lowerQuery.length
+    lowerContent.indexOf(lowerQuery) + lowerQuery.length,
   ];
 };
 
@@ -48,20 +48,22 @@ export default class Suggestion extends React.Component {
       const parts = [
         children.substring(0, indices[0]),
         children.substring(indices[0], indices[1]),
-        children.substring(indices[1])
+        children.substring(indices[1]),
       ];
 
       return (
         <span>
           {parts[0]}
-          {(parts[1] || children === query) && <Highlight>{parts[1]}</Highlight>}
+          {(parts[1] || children === query) && (
+            <Highlight>{parts[1]}</Highlight>
+          )}
           {parts[2]}
         </span>
       );
     }
 
     return children;
-  }
+  };
 
   render() {
     const { isHighlighted, Container } = this.props;

@@ -68,28 +68,28 @@ class Table extends React.Component {
   };
 
   render() {
-    const { children, headers, loading, className, id, wrapBody, Wrap, Styles, Overlay } = this.props;
+    const {
+      children,
+      headers,
+      loading,
+      className,
+      id,
+      wrapBody,
+      Wrap,
+      Styles,
+      Overlay,
+    } = this.props;
     return (
       <Wrap>
-        <Styles
-          cellPadding={0}
-          cellSpacing={0}
-          className={className}
-          id={id}
-        >
-          <thead>
-            {headers}
-          </thead>
-          {wrapBody?
-            <TableBody>
-              {children}
-            </TableBody> :
-            children
-          }
+        <Styles cellPadding={0} cellSpacing={0} className={className} id={id}>
+          <thead>{headers}</thead>
+          {wrapBody ? <TableBody>{children}</TableBody> : children}
         </Styles>
-        {loading &&
-          <Overlay><Loader /></Overlay>
-        }
+        {loading && (
+          <Overlay>
+            <Loader />
+          </Overlay>
+        )}
       </Wrap>
     );
   }

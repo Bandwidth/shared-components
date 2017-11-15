@@ -13,13 +13,14 @@ export default styled.div`
   margin: ${get('spacing.small')} calc(${get('spacing.small')} / 2);
   display: flex;
 
-  ${({ selected }) => selected ? css`
-    background: ${get('colors.primary.default')};
-    color: ${get('colors.text.inverted')};
-    border-color: ${get('colors.primary.default')};
-  ` : ''}
-
-  &:hover {
+  ${({ selected }) =>
+    selected
+      ? css`
+          background: ${get('colors.primary.default')};
+          color: ${get('colors.text.inverted')};
+          border-color: ${get('colors.primary.default')};
+        `
+      : ''} &:hover {
     background: ${get('colors.primary.light')};
     color: ${get('colors.text.default')};
   }

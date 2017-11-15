@@ -72,7 +72,7 @@ class RadioButton extends React.Component {
     Content: RadioGroupButtonContent,
     Input: RadioGroupButtonInput,
     Label: RadioGroupButtonLabel,
-    LabelText: RadioGroupButtonLabelText
+    LabelText: RadioGroupButtonLabelText,
   };
 
   render() {
@@ -106,7 +106,9 @@ class RadioButton extends React.Component {
         />
         <Label htmlFor={id} active={checked}>
           <LabelText>{label}</LabelText>
-          {content !== null ? <Content active={checked}>{content}</Content> : null}
+          {content !== null ? (
+            <Content active={checked}>{content}</Content>
+          ) : null}
         </Label>
       </Container>
     );

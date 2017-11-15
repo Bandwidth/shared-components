@@ -6,11 +6,7 @@ import irisTheme, { catapult as catapultTheme, NAMESPACE } from '../../theme';
 import '../../bootstrap'; // sets base CSS
 
 const BandwidthThemeProvider = ({ children, theme }) => (
-  <ThemeProvider
-    theme={{ [NAMESPACE]: theme }}
-  >
-    {children}
-  </ThemeProvider>
+  <ThemeProvider theme={{ [NAMESPACE]: theme }}>{children}</ThemeProvider>
 );
 
 BandwidthThemeProvider.defaultProps = {

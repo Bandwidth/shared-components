@@ -16,7 +16,4 @@ LogoImage.Large = LogoImage.extend`
   height: 60px;
 `;
 
-
-
-
 export default LogoImage;

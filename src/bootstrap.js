@@ -13,7 +13,7 @@ import woff from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.woff';
 import ttf from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.ttf';
 import svg from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.svg';
 
-const bootstrapFromTheme = (theme) => {
+const bootstrapFromTheme = theme => {
   /* eslint-disable no-unused-expressions */
   injectGlobal`
     * {

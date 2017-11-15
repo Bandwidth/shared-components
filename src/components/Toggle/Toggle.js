@@ -88,9 +88,7 @@ class Toggle extends React.Component {
           required={required}
           onChange={onChange}
         />
-        <Label htmlFor={id}>
-          {description}
-        </Label>
+        <Label htmlFor={id}>{description}</Label>
       </Container>
     );
   }

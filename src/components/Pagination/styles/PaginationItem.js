@@ -3,9 +3,6 @@ import get from 'extensions/themeGet';
 
 export const SIZE = '30px';
 
-
-
-
 export default styled.li`
   float: left;
   margin: 0;
@@ -23,8 +20,9 @@ export default styled.li`
   background: ${get('colors.background.default')};
   color: ${get('colors.text.default')};
 
-  ${(props) => props.selected ?
-    `
+  ${props =>
+    props.selected
+      ? `
       background: ${get('colors.primary.default')(props)};
       border-color: ${get('colors.primary.default')(props)};
       color: ${get('colors.text.inverted')(props)};
@@ -32,15 +30,12 @@ export default styled.li`
       & + li {
         border-left-color: ${get('colors.primary.default')(props)};
       }
-    ` :
     `
+      : `
       &:hover {
         background: ${get('colors.primary.light')(props)};
       }
-    `
-  }
-
-  &:active {
+    `} &:active {
     background: ${get('colors.primary.default')};
   }
 
@@ -50,6 +45,7 @@ export default styled.li`
 
   &:last-of-type {
     border-radius: 0px 3px 3px 0px;
-    border-right: ${get('thicknesses.normal')} solid ${get('colors.border.medium')};
+    border-right: ${get('thicknesses.normal')} solid
+      ${get('colors.border.medium')};
   }
-`
+`;

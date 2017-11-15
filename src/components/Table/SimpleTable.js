@@ -3,14 +3,12 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import Table from './Table';
 
-const defaultValueRenderer = (val) =>
-  _.isString(val) ?
-    val :
-    (
-      _.isArray(val) ?
-        `[${val.map(defaultValueRenderer).join(',')}]` :
-        JSON.stringify(val)
-    );
+const defaultValueRenderer = val =>
+  _.isString(val)
+    ? val
+    : _.isArray(val)
+      ? `[${val.map(defaultValueRenderer).join(',')}]`
+      : JSON.stringify(val);
 
 /**
  * This is a helper behavioral implementation of a table.
@@ -38,11 +36,13 @@ class SimpleTable extends React.Component {
     /**
      * An array of column descriptions. Column name should correspond to a key in the data items. displayName is what is actually rendered (defaults to name).
      */
-    columns: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      displayName: PropTypes.string,
-      sortable: PropTypes.bool,
-    })),
+    columns: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        displayName: PropTypes.string,
+        sortable: PropTypes.bool,
+      }),
+    ),
     /**
      * Called when the user changes the sort state of a column. Column name and sort order are passed as params.
      * (columnName, sortOrder) => void
@@ -53,21 +53,23 @@ class SimpleTable extends React.Component {
      */
     loading: PropTypes.bool,
     /**
-    * A function that provides an unique id for a row item.
-    */
+     * A function that provides an unique id for a row item.
+     */
     getId: PropTypes.func,
   };
 
   static defaultProps = {
-    renderRow: (item) => (
+    renderRow: item => (
       <Table.Row key={JSON.stringify(item)}>
-        {Object.values(item).map((val) => <Table.Cell>{defaultValueRenderer(val)}</Table.Cell>)}
+        {Object.values(item).map(val => (
+          <Table.Cell>{defaultValueRenderer(val)}</Table.Cell>
+        ))}
       </Table.Row>
     ),
     renderDetails: null,
     columns: null,
     onSortChanged: () => null,
-    getId: (item) => {
+    getId: item => {
       if (_.isString(item)) {
         return item;
       }
@@ -84,30 +86,33 @@ class SimpleTable extends React.Component {
     detailsItemId: null,
   };
 
-  blankSortOrders = () => this.props.columns.reduce(
-    (orders, { name }) => ({ ...orders, [name]: 0 }),
-    {}
-  );
+  blankSortOrders = () =>
+    this.props.columns.reduce(
+      (orders, { name }) => ({ ...orders, [name]: 0 }),
+      {},
+    );
 
-  indexOfDetailsItem = () => this.props.items.findIndex(
-    (item) => this.props.getId(item) === this.state.detailsItemId
-  );
+  indexOfDetailsItem = () =>
+    this.props.items.findIndex(
+      item => this.props.getId(item) === this.state.detailsItemId,
+    );
 
-  createHeaderClickHandler = (headerName) =>
-    this.props.onSortChanged ?
-      (sortOrder) => {
-        const newSortOrder = sortOrder || -this.state.sortOrders[headerName] || 1;
-        this.setState({
-          sortOrders: {
-            ...this.blankSortOrders(),
-            [headerName]: newSortOrder,
-          },
-        });
-        this.props.onSortChanged(headerName, newSortOrder);
-      } :
-      null;
+  createHeaderClickHandler = headerName =>
+    this.props.onSortChanged
+      ? sortOrder => {
+          const newSortOrder =
+            sortOrder || -this.state.sortOrders[headerName] || 1;
+          this.setState({
+            sortOrders: {
+              ...this.blankSortOrders(),
+              [headerName]: newSortOrder,
+            },
+          });
+          this.props.onSortChanged(headerName, newSortOrder);
+        }
+      : null;
 
-  createRowClickHandler = (item) => () => {
+  createRowClickHandler = item => () => {
     if (!this.props.renderDetails) {
       return;
     }
@@ -119,12 +124,10 @@ class SimpleTable extends React.Component {
     }
   };
 
-  renderDetails = (item) => {
+  renderDetails = item => {
     const { renderDetails } = this.props;
     return (
-      <Table.RowDetails key="details">
-        {renderDetails(item)}
-      </Table.RowDetails>
+      <Table.RowDetails key="details">{renderDetails(item)}</Table.RowDetails>
     );
   };
 
@@ -133,13 +136,14 @@ class SimpleTable extends React.Component {
     const detailsItemIndex = this.indexOfDetailsItem();
     return (
       <Table.Body key="upperSection">
-        {
-          items.slice(0, detailsItemIndex >= 0 ? detailsItemIndex + 1 : undefined)
-            .map((item) => React.cloneElement(renderRow(item), {
+        {items
+          .slice(0, detailsItemIndex >= 0 ? detailsItemIndex + 1 : undefined)
+          .map(item =>
+            React.cloneElement(renderRow(item), {
               onClick: this.createRowClickHandler(item),
               key: JSON.stringify(item),
-            }))
-        }
+            }),
+          )}
       </Table.Body>
     );
   };
@@ -147,7 +151,7 @@ class SimpleTable extends React.Component {
   renderRowDetails = () => {
     const itemIdx = this.indexOfDetailsItem();
 
-    if (!this.props.renderDetails || itemIdx === -1 ) {
+    if (!this.props.renderDetails || itemIdx === -1) {
       return null;
     }
 
@@ -169,22 +173,21 @@ class SimpleTable extends React.Component {
 
     return (
       <Table.Body startIndex={itemIdx + 1} key="lowerSection">
-        {
-          items.slice(itemIdx + 1)
-            .map((item) => React.cloneElement(renderRow(item), {
-              onClick: this.createRowClickHandler(item),
-              key: JSON.stringify(item),
-            }))
-        }
+        {items.slice(itemIdx + 1).map(item =>
+          React.cloneElement(renderRow(item), {
+            onClick: this.createRowClickHandler(item),
+            key: JSON.stringify(item),
+          }),
+        )}
       </Table.Body>
     );
   };
 
-  renderRows = () => ([
+  renderRows = () => [
     this.renderUpperSection(),
     this.renderRowDetails(),
-    this.renderLowerSection()
-  ]);
+    this.renderLowerSection(),
+  ];
 
   renderColumnHeaders = () => {
     const { columns, onSortChanged } = this.props;
@@ -198,7 +201,9 @@ class SimpleTable extends React.Component {
         {columns.map((column, idx) => (
           <Table.Header
             key={column.name}
-            onClick={column.sortable && this.createHeaderClickHandler(column.name)}
+            onClick={
+              column.sortable && this.createHeaderClickHandler(column.name)
+            }
             sortable={column.sortable}
             sortOrder={sortOrders[column.name]}
           >
@@ -207,11 +212,15 @@ class SimpleTable extends React.Component {
         ))}
       </Table.Row>
     );
-  }
+  };
 
   render() {
     return (
-      <Table headers={this.renderColumnHeaders()} loading={this.props.loading} wrapBody={false}>
+      <Table
+        headers={this.renderColumnHeaders()}
+        loading={this.props.loading}
+        wrapBody={false}
+      >
         {this.renderRows()}
       </Table>
     );

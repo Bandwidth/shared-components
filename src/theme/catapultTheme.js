@@ -18,7 +18,10 @@ export const colors = {
   ],
 };
 
-export default defaultsDeep({
-  name: 'catapult',
-  colors,
-}, baseTheme);
+export default defaultsDeep(
+  {
+    name: 'catapult',
+    colors,
+  },
+  baseTheme,
+);

@@ -11,7 +11,7 @@ import WrapperControls from './WrapperControls';
 
 bootstrap();
 
-const history  = createMemoryHistory('/');
+const history = createMemoryHistory('/');
 
 const Container = styled.div`
   position: relative;
@@ -35,11 +35,11 @@ export default class Wrapper extends React.Component {
     this.state = { theme: 'iris', xray: false };
   }
 
-  setXRay = (val) => {
+  setXRay = val => {
     console.log(val);
     this.setState({ xray: val });
   };
-  setTheme = (val) => {
+  setTheme = val => {
     this.setState({ theme: val });
   };
 
@@ -50,11 +50,14 @@ export default class Wrapper extends React.Component {
       <Router history={history}>
         <BandwidthThemeProvider theme={themes[theme]}>
           <Container>
-            <WrapperControls theme={theme} xray={xray} setTheme={this.setTheme} setXRay={this.setXRay} />
+            <WrapperControls
+              theme={theme}
+              xray={xray}
+              setTheme={this.setTheme}
+              setXRay={this.setXRay}
+            />
             <Content>
-              <XRay disabled={!xray}>
-                {this.props.children}
-              </XRay>
+              <XRay disabled={!xray}>{this.props.children}</XRay>
             </Content>
           </Container>
         </BandwidthThemeProvider>

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import get from 'extensions/themeGet';
 
-const normalize = (size) => {
+const normalize = size => {
   if (!size) {
     return 'large';
   }
@@ -26,18 +26,23 @@ const normalize = (size) => {
     default:
       return size;
   }
-}
+};
 
 const getSpacing = (props, size) =>
   get(`spacing.${normalize(size)}`)(props) || size;
 
 const Spacing = styled.div`
-  ${(props) => `padding: ${getSpacing(props, props.size)};`}
-
-  ${(props) => props.top ? `padding-top: ${getSpacing(props, props.top)};` : ''}
-  ${(props) => props.bottom ? `padding-bottom: ${getSpacing(props, props.bottom)};` : ''}
-  ${(props) => props.left ? `padding-left: ${getSpacing(props, props.left)};` : ''}
-  ${(props) => props.right ? `padding-right: ${getSpacing(props, props.right)};` : ''}
+  ${props => `padding: ${getSpacing(props, props.size)};`} ${props =>
+      props.top
+        ? `padding-top: ${getSpacing(props, props.top)};`
+        : ''} ${props =>
+      props.bottom
+        ? `padding-bottom: ${getSpacing(props, props.bottom)};`
+        : ''} ${props =>
+      props.left
+        ? `padding-left: ${getSpacing(props, props.left)};`
+        : ''} ${props =>
+      props.right ? `padding-right: ${getSpacing(props, props.right)};` : ''};
 `;
 
 Spacing.propTypes = {

@@ -2,9 +2,16 @@ import styled from 'styled-components';
 import Content from './FlowItemContent';
 import FlexibleContent from './FlowItemFlexibleContent';
 import MoreContent from './FlowItemMoreContent';
-import { LABEL_HEIGHT, MIN_HELP_TEXT_HEIGHT, MIN_CONTENT_HEIGHT, HORIZONTAL_CONTENT_SPACING } from '../constants';
+import {
+  LABEL_HEIGHT,
+  MIN_HELP_TEXT_HEIGHT,
+  MIN_CONTENT_HEIGHT,
+  HORIZONTAL_CONTENT_SPACING,
+} from '../constants';
 
-const FlowItemContainer = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
+const FlowItemContainer = styled.div.withConfig({
+  displayName: 'FlowItemContainer',
+})`
   display: flex;
   flex-direction: column;
   font-size: 1em;

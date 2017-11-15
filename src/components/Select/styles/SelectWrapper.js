@@ -99,18 +99,33 @@ export default styled.div`
     left: 0;
   }
   .has-value.Select--single > .Select-control .Select-value .Select-value-label,
-  .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label {
+  .has-value.is-pseudo-focused.Select--single
+    > .Select-control
+    .Select-value
+    .Select-value-label {
     color: ${get('colors.text.default')};
     cursor: pointer;
     text-decoration: none;
   }
-  .has-value.Select--single > .Select-control .Select-value a.Select-value-label:hover,
-  .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value a.Select-value-label:hover {
+  .has-value.Select--single
+    > .Select-control
+    .Select-value
+    a.Select-value-label:hover,
+  .has-value.is-pseudo-focused.Select--single
+    > .Select-control
+    .Select-value
+    a.Select-value-label:hover {
     color: ${get('colors.primary.default')};
     outline: none;
   }
-  .has-value.Select--single > .Select-control .Select-value a.Select-value-label:focus,
-  .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value a.Select-value-label:focus {
+  .has-value.Select--single
+    > .Select-control
+    .Select-value
+    a.Select-value-label:focus,
+  .has-value.is-pseudo-focused.Select--single
+    > .Select-control
+    .Select-value
+    a.Select-value-label:focus {
     color: ${get('colors.primary.default')};
     outline: none;
   }

@@ -4,14 +4,8 @@ import overridesCss from './overridesCss';
 
 const WIDTH = 260;
 
-
-
-
 export default styled.div`
-  ${baseCss}
-  ${overridesCss}
-
-  .SingleDatePicker {
+  ${baseCss} ${overridesCss} .SingleDatePicker {
     width: ${WIDTH}px;
   }
 

@@ -11,15 +11,15 @@ const TableHeaderStyles = styled.th`
   text-align: left;
   white-space: nowrap;
 
-  cursor: ${({ sortable }) => sortable ? 'pointer' : 'default' };
+  cursor: ${({ sortable }) => (sortable ? 'pointer' : 'default')};
 
-  &>a {
+  & > a {
     color: inherit;
   }
-  &>a:focus {
+  & > a:focus {
     color: inherit;
   }
-  &>a::after {
+  & > a::after {
     background: ${get('colors.text.inverted')};
   }
 `;

@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'react-dates/initialize';
-import { DateRangePicker as LibDateRangePicker, DateRangePickerShape } from 'react-dates';
+import {
+  DateRangePicker as LibDateRangePicker,
+  DateRangePickerShape,
+} from 'react-dates';
 import Icon from '../Icon';
 import DateRangePickerWrapper from './styles/DateRangePickerWrapper';
 import DateRangePickerLineSeparator from './styles/DateRangePickerLineSeparator';
@@ -38,6 +41,6 @@ DateRangePicker.propTypes = {
 DateRangePicker.defaultProps = {
   Wrapper: DateRangePickerWrapper,
   LineSeparator: DateRangePickerLineSeparator,
-}
+};
 
 export default DateRangePicker;

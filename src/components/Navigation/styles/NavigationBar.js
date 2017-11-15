@@ -3,10 +3,13 @@ import get from 'extensions/themeGet';
 import NavigationLinkArea from './NavigationLinkArea';
 import NavigationLogoPairWrapper from './NavigationLogoPairWrapper';
 
-const NavigationBar = styled.header.withConfig({ displayName: 'NavigationBar' })`
+const NavigationBar = styled.header.withConfig({
+  displayName: 'NavigationBar',
+})`
   background: ${get('colors.primary.default')};
   color: ${get('colors.text.inverted')};
-  border-bottom: ${get('thicknesses.normal')} solid ${get('colors.shadow.default')};
+  border-bottom: ${get('thicknesses.normal')} solid
+    ${get('colors.shadow.default')};
   padding: 0 ${get('spacing.large')};
   display: flex;
   flex-shrink: 0;
@@ -33,8 +36,5 @@ NavigationBar.Sub = NavigationBar.extend`
 NavigationBar.Dark = NavigationBar.extend`
   background: ${get('colors.primary.dark')};
 `;
-
-
-
 
 export default NavigationBar;

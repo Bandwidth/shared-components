@@ -83,14 +83,16 @@ export default styled.label`
       &::before {
         background: ${get('colors.primary.dark')};
       }
-      &::before, &::after {
+      &::before,
+      &::after {
         border-color: ${get('colors.primary.dark')};
       }
     }
   }
 
   ${Input}:disabled + & {
-    &::before, &::after {
+    &::before,
+    &::after {
       border-color: ${get('colors.gray.medium')};
     }
 

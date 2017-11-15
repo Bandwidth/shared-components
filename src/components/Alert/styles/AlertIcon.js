@@ -24,7 +24,7 @@ const AlertIcon = styled.i`
 
     border-width: ${get('thicknesses.normal')};
     border-style: solid;
-    border-color: ${(props) => {
+    border-color: ${props => {
       switch (props.type) {
         case 'success':
           return get('colors.positive.default')(props);

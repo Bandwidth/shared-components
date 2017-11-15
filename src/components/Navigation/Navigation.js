@@ -64,17 +64,24 @@ class Navigation extends React.Component {
   };
 
   render() {
-    const { title, links, topLinks, id, className, logoLocation, Bar, LinksArea, LogoHeader, Items } = this.props;
+    const {
+      title,
+      links,
+      topLinks,
+      id,
+      className,
+      logoLocation,
+      Bar,
+      LinksArea,
+      LogoHeader,
+      Items,
+    } = this.props;
 
     return (
       <Bar id={id} className={className}>
-        {title &&
-          <LogoHeader linkTo={logoLocation}>{title}</LogoHeader>
-        }
+        {title && <LogoHeader linkTo={logoLocation}>{title}</LogoHeader>}
         <LinksArea>
-          {topLinks &&
-            <Items.Small links={topLinks} />
-          }
+          {topLinks && <Items.Small links={topLinks} />}
           <Items links={links} />
         </LinksArea>
       </Bar>

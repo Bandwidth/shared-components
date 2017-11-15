@@ -88,9 +88,9 @@ class Accordion extends React.Component {
       return !isCollapsed;
     }
     return isExpanded;
-  }
+  };
 
-  renderLabel = (isExpanded) => (
+  renderLabel = isExpanded => (
     <this.props.Label onClick={this.handleToggle}>
       <this.props.Arrow isExpanded={isExpanded} name="forward" size={21} />
       <this.props.LabelText>{this.props.label}</this.props.LabelText>
@@ -109,12 +109,10 @@ class Accordion extends React.Component {
           toggleContent={this.renderLabel}
           isExpanded={this.coalesceIsExpandedProps()}
         >
-          <Content>
-            {children}
-          </Content>
+          <Content>{children}</Content>
         </ExpandToggle>
       </Border>
-    )
+    );
   }
 }
 

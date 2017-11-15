@@ -24,8 +24,7 @@ const Flow = styled.div.withConfig({ displayName: 'Flow' })`
     flex-shrink: 0;
   }
 
-  & > ${FlowRowStyles},
-  & > ${FlowItemContainer} {
+  & > ${FlowRowStyles}, & > ${FlowItemContainer} {
     margin-top: calc(${VERTICAL_SPACING}px / 2);
     margin-bottom: calc(${VERTICAL_SPACING}px / 2);
 

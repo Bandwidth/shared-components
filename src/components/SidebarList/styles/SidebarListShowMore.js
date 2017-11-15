@@ -6,8 +6,10 @@ const ShowMore = styled.div`
   background: ${get('colors.primary.light')};
   color: ${get('colors.primary.alternate')};
   padding: ${get('spacing.medium')} ${get('spacing.large')};
-  border-bottom: ${get('thicknesses.normal')} solid ${get('colors.gray.borderLight')};
-  border-right: ${get('thicknesses.normal')} solid ${get('colors.gray.borderLight')};
+  border-bottom: ${get('thicknesses.normal')} solid
+    ${get('colors.gray.borderLight')};
+  border-right: ${get('thicknesses.normal')} solid
+    ${get('colors.gray.borderLight')};
   cursor: pointer;
 `;
 

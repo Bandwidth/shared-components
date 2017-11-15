@@ -19,8 +19,7 @@ const FormColumn = styled.section`
   }
 `;
 
-
-FormColumn.propTypes =  {
+FormColumn.propTypes = {
   /**
    * Adds an id to the element.
    */

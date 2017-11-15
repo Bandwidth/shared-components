@@ -188,7 +188,7 @@ class Select extends React.Component {
       selectOptionValue,
     } = this.props;
 
-    return options.map((opt) => ({
+    return options.map(opt => ({
       label: renderOption(opt),
       value: (getOptionValue || selectOptionValue)(opt),
     }));
@@ -200,18 +200,26 @@ class Select extends React.Component {
    *
    * @memberof Select
    */
-  handleChange = (newValue) => {
+  handleChange = newValue => {
     if (!newValue) {
       this.props.onChange(newValue);
     } else if (this.props.multi) {
-      this.props.onChange(newValue.map((item) => item.value));
+      this.props.onChange(newValue.map(item => item.value));
     } else {
       this.props.onChange(newValue.value);
     }
   };
 
   render() {
-    const { required, placeholder, noneText, allowNone, isLoading, loading, Wrapper } = this.props;
+    const {
+      required,
+      placeholder,
+      noneText,
+      allowNone,
+      isLoading,
+      loading,
+      Wrapper,
+    } = this.props;
     const combinedLoading = loading || isLoading;
     const combinedPlaceholder = placeholder || noneText;
 
@@ -222,7 +230,9 @@ class Select extends React.Component {
           options={this.convertOptions()}
           onChange={this.handleChange}
           clearable={!required || allowNone}
-          placeholder={combinedLoading ? <Loader size="14px" /> : combinedPlaceholder}
+          placeholder={
+            combinedLoading ? <Loader size="14px" /> : combinedPlaceholder
+          }
           isLoading={combinedLoading}
         />
       </Wrapper>

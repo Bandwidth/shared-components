@@ -10,7 +10,7 @@ const iconStyles = css`
 `;
 
 const ExternalIconAnchor = ExternalTextAnchor.extend`
-  ${iconStyles}
+  ${iconStyles};
 `;
 
 ExternalIconAnchor.Danger = ExternalTextAnchor.Danger.extend`

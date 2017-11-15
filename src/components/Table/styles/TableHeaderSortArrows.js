@@ -5,21 +5,29 @@ export default styled.span`
   margin-left: 8px;
   white-space: nowrap;
 
-  &>a {
+  & > a {
     color: ${get('colors.gray.medium')};
   }
-  &>a:focus {
+  & > a:focus {
     color: ${get('colors.text.inverted')};
   }
-  &>a::after {
+  & > a::after {
     background: ${get('colors.gray.medium')};
   }
 
-  ${(props) => {
+  ${props => {
     if (props.sortOrder > 0) {
-      return css`&>*:first-child { color: ${get('colors.text.inverted')(props)}; }`;
+      return css`
+        & > *:first-child {
+          color: ${get('colors.text.inverted')(props)};
+        }
+      `;
     } else if (props.sortOrder < 0) {
-      return css`&>*:last-child { color: ${get('colors.text.inverted')(props)}; }`;
+      return css`
+        & > *:last-child {
+          color: ${get('colors.text.inverted')(props)};
+        }
+      `;
     }
-  }}
+  }};
 `;

@@ -3,7 +3,12 @@ import React from 'react';
 import styled from 'styled-components';
 import get from '../../src/extensions/themeGet';
 import { Toggle, RadioGroup, Flow, Accordion } from '../../src';
-import { AccordionBorder, AccordionLabel, AccordionContent, AccordionArrow } from '../../src/components/Accordion';
+import {
+  AccordionBorder,
+  AccordionLabel,
+  AccordionContent,
+  AccordionArrow,
+} from '../../src/components/Accordion';
 
 const Container = styled.div`
   margin: -17px;
@@ -50,10 +55,13 @@ export default class WrapperControls extends React.Component {
     return (
       <Container>
         <Accordion
-          label={expanded ? 'Controls' : `Theme: ${theme}, X-Ray ${xray ? 'on' : 'off'}`}
+          label={
+            expanded
+              ? 'Controls'
+              : `Theme: ${theme}, X-Ray ${xray ? 'on' : 'off'}`
+          }
           onToggle={isCollapsed => this.setState({ expanded: !isCollapsed })}
           isExpanded={expanded}
-
           Border={ControlsAccordionBorder}
           Label={ControlsAccordionLabel}
           Content={ControlsAccordionContent}
@@ -83,6 +91,6 @@ export default class WrapperControls extends React.Component {
           </ControlsArea>
         </Accordion>
       </Container>
-    )
+    );
   }
 }

@@ -24,7 +24,7 @@ const ExternalTextAnchor = styled.a`
   }
 
   &::after {
-    content: "";
+    content: '';
     background: ${color};
     border-radius: 2em;
     height: 1px;
@@ -32,10 +32,7 @@ const ExternalTextAnchor = styled.a`
     position: absolute;
     bottom: -0.1em;
     left: 0;
-    transition:
-      height 0.15s ease,
-      width 0.15s ease,
-      left 0.15s ease,
+    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
       opacity 0.25s ease;
   }
 
@@ -45,10 +42,7 @@ const ExternalTextAnchor = styled.a`
     width: calc(100% + 0.6em);
     left: -0.3em;
     opacity: 0.125;
-    transition:
-      height 0.15s ease,
-      width 0.15s ease,
-      left 0.15s ease,
+    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
       opacity 0s ease;
   }
 `;

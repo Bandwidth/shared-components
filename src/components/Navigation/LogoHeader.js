@@ -48,7 +48,15 @@ class LogoHeader extends React.Component {
   };
 
   render() {
-    const { children, id, className, LogoPairWrapper, Heading, linkTo, Anchor } = this.props;
+    const {
+      children,
+      id,
+      className,
+      LogoPairWrapper,
+      Heading,
+      linkTo,
+      Anchor,
+    } = this.props;
 
     return (
       <Anchor linkTo={linkTo} exact type="content">

@@ -35,30 +35,26 @@ const InputStyles = styled.input`
     opacity: 0.5;
   }
 
-  ${({ visited, theme }) => visited ?
-    css`
-      &:invalid {
-        box-shadow: inset 0 -5px 0 ${get('colors.negative.light')};
-        border-color: ${get('colors.negative.border')};
-      }
-    ` : ''
-  }
-
-  ${({ invalid, error, theme }) => invalid || error ?
-    `
+  ${({ visited, theme }) =>
+    visited
+      ? css`
+          &:invalid {
+            box-shadow: inset 0 -5px 0 ${get('colors.negative.light')};
+            border-color: ${get('colors.negative.border')};
+          }
+        `
+      : ''} ${({ invalid, error, theme }) =>
+      invalid || error
+        ? `
     box-shadow: inset 0 -5px ${get('colors.negative.light')};
     border-color: ${get('colors.negative.border')};
-    ` :
-    ''
-  }
-`
+    `
+        : ''};
+`;
 
 InputStyles.Small = InputStyles.extend`
   font-size: 12px;
   padding: ${get('spacing.small')};
 `;
-
-
-
 
 export default InputStyles;

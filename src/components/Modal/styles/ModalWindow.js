@@ -4,9 +4,6 @@ import get from 'extensions/themeGet';
 // content flex is `0 1 auto`: it won't grow beyond the content size, but can shrink if the window is too small
 // to show everything.
 
-
-
-
 export default styled.div`
   background: ${get('colors.background.default')};
   width: auto;

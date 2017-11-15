@@ -68,7 +68,7 @@ export default class FileLoader extends React.Component {
         </DropArea>
       );
     }
-  }
+  };
 
   render() {
     const { onChange, value, required, disabled, className, id } = this.props;
@@ -76,7 +76,7 @@ export default class FileLoader extends React.Component {
     return (
       <Dropzone
         multiple={false}
-        onDrop={(files) => onChange(files)}
+        onDrop={files => onChange(files)}
         style={{ width: '100%' }}
         activeStyle={{ color: '#00bcec' }}
         rejectStyle={{}}

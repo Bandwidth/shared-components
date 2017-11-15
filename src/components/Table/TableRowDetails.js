@@ -13,9 +13,7 @@ const COLSPAN = 1000;
 const TableRowDetails = ({ children, rowIndex = 0, Row, Styles }) => (
   <TableBody startIndex={rowIndex}>
     <Row>
-      <Styles colSpan={COLSPAN}>
-        {children}
-      </Styles>
+      <Styles colSpan={COLSPAN}>{children}</Styles>
     </Row>
   </TableBody>
 );

@@ -48,7 +48,4 @@ LoaderRing.defaultProps = {
   color: null,
 };
 
-
-
-
 export default LoaderRing;

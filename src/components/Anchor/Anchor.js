@@ -10,7 +10,7 @@ import DefaultInternalContentAnchor from './styles/InternalContentAnchor';
 import DefaultInternalTextAnchor from './styles/InternalTextAnchor';
 import DefaultInternalIconAnchor from './styles/InternalIconAnchor';
 
-const inferType = (children) => {
+const inferType = children => {
   if (children === null) {
     return 'wrap';
   }
@@ -115,7 +115,7 @@ class Anchor extends React.Component {
       return external;
     }
     return /^(https?:)*\/\//.test(to);
-  }
+  };
 
   getComponentType = () => {
     const {
@@ -141,9 +141,9 @@ class Anchor extends React.Component {
       default:
         return finalExternal ? ExternalTextAnchor : InternalTextAnchor;
     }
-  }
+  };
 
-  handleClick = (event) => {
+  handleClick = event => {
     const { onClick, to } = this.props;
     // if the user isn't using this link to navigate,
     // prevent default navigation
@@ -154,10 +154,10 @@ class Anchor extends React.Component {
       // still do onClick event if navigation occurs
       onClick(event);
     }
-  }
+  };
 
   // adds all non-children props to children
-  childrenWithProps = (extraProps) => {
+  childrenWithProps = extraProps => {
     const { children } = this.props;
     if (!children) {
       return null;
@@ -165,9 +165,9 @@ class Anchor extends React.Component {
     if (typeof children === 'string') {
       return children;
     }
-    return React.Children.map(children, (child) => (
-      React.cloneElement(child, extraProps)
-    ));
+    return React.Children.map(children, child =>
+      React.cloneElement(child, extraProps),
+    );
   };
 
   // provides extra properties based on certain factors to the underlying element

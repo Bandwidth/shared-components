@@ -75,36 +75,55 @@ class TableHeader extends React.Component {
     ColumnName: TableHeaderColumnName,
   };
 
-  createClickHandler = (naturalOrder) => () =>
-    this.props.onClick ? this.props.onClick(naturalOrder) :
-    this.props.handleClick(naturalOrder);
+  createClickHandler = naturalOrder => () =>
+    this.props.onClick
+      ? this.props.onClick(naturalOrder)
+      : this.props.handleClick(naturalOrder);
 
   renderColumnName = () => {
     const { sortable, children, sortOrder, Anchor, ColumnName } = this.props;
 
     if (sortable) {
       return (
-        <Anchor type="text" onClick={this.createClickHandler(sortOrder === 0 ? 1 : -sortOrder)}>
+        <Anchor
+          type="text"
+          onClick={this.createClickHandler(sortOrder === 0 ? 1 : -sortOrder)}
+        >
           <ColumnName sortable>{children}</ColumnName>
         </Anchor>
       );
     }
 
     return <ColumnName>{children}</ColumnName>;
-  }
+  };
 
   render() {
-    const { sortable, sortOrder, handleClick, onClick, id, className, Styles, SortArrows, Anchor, Icon } = this.props;
+    const {
+      sortable,
+      sortOrder,
+      handleClick,
+      onClick,
+      id,
+      className,
+      Styles,
+      SortArrows,
+      Anchor,
+      Icon,
+    } = this.props;
 
     return (
       <Styles sortable={sortable} className={className} id={id}>
         {this.renderColumnName()}
-        {sortable &&
+        {sortable && (
           <SortArrows sortOrder={sortOrder}>
-            <Anchor type="icon" onClick={this.createClickHandler(1)}><Icon name="up" /></Anchor>
-            <Anchor type="icon" onClick={this.createClickHandler(-1)}><Icon name="down" /></Anchor>
+            <Anchor type="icon" onClick={this.createClickHandler(1)}>
+              <Icon name="up" />
+            </Anchor>
+            <Anchor type="icon" onClick={this.createClickHandler(-1)}>
+              <Icon name="down" />
+            </Anchor>
           </SortArrows>
-        }
+        )}
       </Styles>
     );
   }

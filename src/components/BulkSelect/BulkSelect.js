@@ -9,13 +9,17 @@ import BulkSelectItemContainer from './styles/BulkSelectItemContainer';
 
 class BulkSelect extends React.Component {
   static propTypes = {
-    sections: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string,
-      items: PropTypes.arrayOf(PropTypes.shape({
-        selected: PropTypes.bool.isRequired,
-        data: PropTypes.any.isRequired,
-      })).isRequired,
-    })),
+    sections: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string,
+        items: PropTypes.arrayOf(
+          PropTypes.shape({
+            selected: PropTypes.bool.isRequired,
+            data: PropTypes.any.isRequired,
+          }),
+        ).isRequired,
+      }),
+    ),
     /**
      * DEPRECATED: see renderItemContents
      */
@@ -50,7 +54,8 @@ class BulkSelect extends React.Component {
 
   static defaultProps = {
     sections: [],
-    computeItemKey: (item) => item.get ? item.get('id') : item.id || JSON.stringify(item),
+    computeItemKey: item =>
+      item.get ? item.get('id') : item.id || JSON.stringify(item),
     onItemSelected: () => null,
     onItemDeselected: () => null,
     Item: BulkSelectItem,
@@ -59,7 +64,7 @@ class BulkSelect extends React.Component {
     ItemContainer: BulkSelectItemContainer,
   };
 
-  createItemClickHandler = (item) => () => {
+  createItemClickHandler = item => () => {
     if (item.selected) {
       this.props.onItemDeselected(item.data);
     } else {
@@ -67,7 +72,7 @@ class BulkSelect extends React.Component {
     }
   };
 
-  renderSection = (section) => {
+  renderSection = section => {
     const {
       Divider,
       Item,
@@ -81,14 +86,14 @@ class BulkSelect extends React.Component {
 
     return (
       <div key={section.title || 'all'}>
-        {section.title &&
+        {section.title && (
           <Divider>
             <h3>{section.title}</h3>
             <span />
           </Divider>
-        }
+        )}
         <ItemContainer>
-          {section.items.map((item) => (
+          {section.items.map(item => (
             <Item
               key={computeItemKey(item.data)}
               selected={item.selected}
@@ -105,11 +110,7 @@ class BulkSelect extends React.Component {
   render() {
     const { sections, Border } = this.props;
 
-    return (
-      <Border>
-        {sections.map(this.renderSection)}
-      </Border>
-    );
+    return <Border>{sections.map(this.renderSection)}</Border>;
   }
 }
 

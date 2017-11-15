@@ -52,10 +52,7 @@ export const colors = {
     extraLight: 'rgba(0, 0, 0, 0.05)',
     white: 'rgba(255, 255, 255, 0.3)',
   },
-  graphics: [
-    '#41d3bd',
-    '#a95adf',
-  ],
+  graphics: ['#41d3bd', '#a95adf'],
   border: {
     medium: '#c2c2c2',
     light: '#e1e1e1',

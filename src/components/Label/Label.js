@@ -13,23 +13,20 @@ const Label = styled.label.withConfig({ displayName: 'Label' })`
   line-height: 1.5;
   display: block;
 
-  ${({ disabled }) => disabled ? 'opacity: 0.5;' : ''}
-
-  &:disabled {
+  ${({ disabled }) => (disabled ? 'opacity: 0.5;' : '')} &:disabled {
     opacity: 0.5;
   }
 
   ${({ required }) =>
-    required ?
-      css`
-        &::after {
-          content: '*';
-          color: #e8562e;
-          padding-left: 0.3em;
-        }
-      ` :
-      ''
-  }
+    required
+      ? css`
+          &::after {
+            content: '*';
+            color: #e8562e;
+            padding-left: 0.3em;
+          }
+        `
+      : ''};
 `;
 
 Label.propTypes = {

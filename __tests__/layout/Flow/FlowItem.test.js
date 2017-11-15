@@ -1,10 +1,6 @@
 import React from 'react';
 import toJSON from 'enzyme-to-json';
-import {
-  FlowItem,
-  Label,
-  HelpText,
-} from '../../../src';
+import { FlowItem, Label, HelpText } from '../../../src';
 
 describe('the FlowItem component', () => {
   describe('renders with no properties', () => {
@@ -102,7 +98,9 @@ describe('the FlowItem component', () => {
     const content = <div style={{ height: '300px' }} />;
 
     beforeEach(() => {
-      wrapper = shallowWithTheme(<FlowItem flexibleContent>{content}</FlowItem>);
+      wrapper = shallowWithTheme(
+        <FlowItem flexibleContent>{content}</FlowItem>,
+      );
     });
 
     test('renders flexible content', () => {
@@ -130,15 +128,27 @@ describe('the FlowItem component', () => {
 
 describe('the FlowItem component styling', () => {
   test('with content, label, and helpText', () => {
-    const wrapper = mountWithTheme(<FlowItem helpText="foo" label="bar">baz</FlowItem>);
+    const wrapper = mountWithTheme(
+      <FlowItem helpText="foo" label="bar">
+        baz
+      </FlowItem>,
+    );
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
   test('with flexible content', () => {
-    const wrapper = mountWithTheme(<FlowItem flexibleContent><div style={{ height: '300px' }} /></FlowItem>);
+    const wrapper = mountWithTheme(
+      <FlowItem flexibleContent>
+        <div style={{ height: '300px' }} />
+      </FlowItem>,
+    );
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
   test('with error', () => {
-    const wrapper = mountWithTheme(<FlowItem error helpText="bar">foo</FlowItem>);
+    const wrapper = mountWithTheme(
+      <FlowItem error helpText="bar">
+        foo
+      </FlowItem>,
+    );
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
   test('with more content', () => {
@@ -146,11 +156,19 @@ describe('the FlowItem component styling', () => {
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
   test('with left align', () => {
-    const wrapper = mountWithTheme(<FlowItem alignment="left" helpText="bar" label="baz">foo</FlowItem>);
+    const wrapper = mountWithTheme(
+      <FlowItem alignment="left" helpText="bar" label="baz">
+        foo
+      </FlowItem>,
+    );
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
   test('with right align', () => {
-    const wrapper = mountWithTheme(<FlowItem alignment="right" helpText="bar" label="baz">foo</FlowItem>);
+    const wrapper = mountWithTheme(
+      <FlowItem alignment="right" helpText="bar" label="baz">
+        foo
+      </FlowItem>,
+    );
     expect(toJSON(wrapper)).toMatchStyledComponentsSnapshot();
   });
 });

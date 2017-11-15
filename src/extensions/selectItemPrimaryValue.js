@@ -1,4 +1,4 @@
-export default (item) => {
+export default item => {
   if (_.isString(item)) {
     return item;
   }

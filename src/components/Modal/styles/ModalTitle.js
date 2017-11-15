@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
-
-
-
 export default styled.h3`
   display: block;
   margin: 0;

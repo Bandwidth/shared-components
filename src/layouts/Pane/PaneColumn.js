@@ -10,7 +10,8 @@ const PaneColumn = styled.div.withConfig({ displayName: 'PaneColumn' })`
 
   & > * {
     flex: 1 0 auto;
-    border-bottom: ${get('thicknesses.normal')} solid ${get('colors.border.light')};
+    border-bottom: ${get('thicknesses.normal')} solid
+      ${get('colors.border.light')};
   }
 
   & > *:last-child {

@@ -5,17 +5,19 @@ import Anchor from '../Anchor';
 import NavigationItem from './styles/NavigationItem';
 import NavigationItemList from './styles/NavigationItemList';
 
-export const linksPropType = PropTypes.arrayOf(PropTypes.shape({
-  to: PropTypes.string,
-  onClick: PropTypes.func,
-  content: PropTypes.node.isRequired,
-  exact: PropTypes.bool,
-  newTab: PropTypes.bool,
-}));
+export const linksPropType = PropTypes.arrayOf(
+  PropTypes.shape({
+    to: PropTypes.string,
+    onClick: PropTypes.func,
+    content: PropTypes.node.isRequired,
+    exact: PropTypes.bool,
+    newTab: PropTypes.bool,
+  }),
+);
 
 const NavigationItems = ({ links, className, id, List, Item }) => (
   <List id={id} className={className}>
-    {links.map((link) => (
+    {links.map(link => (
       <Anchor
         key={`${link.content}_${link.to}`}
         to={link.to}

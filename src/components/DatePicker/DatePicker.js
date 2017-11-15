@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'react-dates/initialize';
-import { SingleDatePicker as LibDatePicker, SingleDatePickerShape } from 'react-dates';
+import {
+  SingleDatePicker as LibDatePicker,
+  SingleDatePickerShape,
+} from 'react-dates';
 import Icon from '../Icon';
 import DatePickerWrapper from './styles/DatePickerWrapper';
 

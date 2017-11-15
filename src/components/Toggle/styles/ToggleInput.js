@@ -5,4 +5,4 @@ export default styled.input`
   opacity: 0;
   position: absolute;
   z-index: -100000;
-`
+`;

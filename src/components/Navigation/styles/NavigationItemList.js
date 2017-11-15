@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
-
-
-
-export default styled.div.withConfig({ displayName: 'NavigationItemsContainer' })`
+export default styled.div.withConfig({
+  displayName: 'NavigationItemsContainer',
+})`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

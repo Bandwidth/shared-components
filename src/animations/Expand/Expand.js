@@ -5,8 +5,16 @@ import _ from 'lodash';
 import { AnimationTimer } from 'animation-timer';
 import { Easer } from 'functional-easing';
 
-const Container = styled.div`overflow: hidden; width: 100%; height: 100%;`;
-const Content = styled.div`overflow: hidden; width: 100%; height: 100%;`;
+const Container = styled.div`
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+`;
+const Content = styled.div`
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+`;
 
 /**
  * FIXME: migrate this to use react-movement!
@@ -50,9 +58,7 @@ class Expand extends React.Component {
   componentDidMount() {
     this.updateSize();
 
-    window.addEventListener('resize',
-      _.debounce(this.updateSize, 300),
-    );
+    window.addEventListener('resize', _.debounce(this.updateSize, 300));
   }
 
   componentDidUpdate() {
@@ -82,26 +88,33 @@ class Expand extends React.Component {
 
     new AnimationTimer()
       .duration(duration)
-      .on('tick', easer((percent) => {
-        if (direction === 'vertical' || direction === 'both') {
-          content.style.height = `${naturalHeight * percent}px`;
-        }
-        if (direction === 'horizontal' || direction === 'both') {
-          content.style.width = `${naturalWidth * percent}px`;
-        }
-      }))
+      .on(
+        'tick',
+        easer(percent => {
+          if (direction === 'vertical' || direction === 'both') {
+            content.style.height = `${naturalHeight * percent}px`;
+          }
+          if (direction === 'horizontal' || direction === 'both') {
+            content.style.width = `${naturalWidth * percent}px`;
+          }
+        }),
+      )
       .on('stop', () => {
         content.style.width = '';
         content.style.height = '';
       })
       .play();
-  }
+  };
 
   render() {
     const { children, id, className } = this.props;
     return (
       <Container id={id} className={className}>
-        <Content innerRef={(el) => { this._content = el; }}>
+        <Content
+          innerRef={el => {
+            this._content = el;
+          }}
+        >
           {children}
         </Content>
       </Container>

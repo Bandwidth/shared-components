@@ -8,7 +8,7 @@ import AlertText from './styles/AlertText';
 import icons from 'components/Icon/icons';
 
 const getIcon = type => {
-  switch(type) {
+  switch (type) {
     case 'error':
       return '!';
     case 'success':
@@ -16,14 +16,14 @@ const getIcon = type => {
     default:
       return 'i';
   }
-}
+};
 
-const Alert = (props) => (
+const Alert = props => (
   <props.Border type={props.type}>
     {!props.textOnly && <props.Icon type={props.type} />}
     <props.Text>{props.children}</props.Text>
   </props.Border>
-)
+);
 
 Alert.propTypes = {
   /**

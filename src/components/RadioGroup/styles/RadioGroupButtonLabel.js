@@ -23,7 +23,7 @@ const RadioGroupButtonLabel = styled.label`
   height: 100%;
 
   &::after {
-    content: "";
+    content: '';
     background: ${get('colors.primary.default')};
     width: calc(100% + 2px);
     height: 0;
@@ -56,7 +56,7 @@ const RadioGroupButtonLabel = styled.label`
       height: 5px;
     }
   }
-`
+`;
 
 RadioGroupButtonLabel.Small = RadioGroupButtonLabel.extend`
   font-size: 0.8em;
@@ -72,8 +72,5 @@ RadioGroupButtonLabel.Small = RadioGroupButtonLabel.extend`
 RadioGroupButtonLabel.Large = RadioGroupButtonLabel.extend`
   padding: ${get('spacing.large')};
 `;
-
-
-
 
 export default RadioGroupButtonLabel;

@@ -5,9 +5,6 @@ import icons from 'components/Icon/icons';
 const SIZE = '1.3em';
 const PADDING = '0.2em';
 
-
-
-
 export default styled.label`
   display: block;
   cursor: pointer;
@@ -18,7 +15,7 @@ export default styled.label`
   /* the check */
 
   &::before {
-    content: ${({ checked }) => checked ? `"${icons('checkmark')}"` : '""'};
+    content: ${({ checked }) => (checked ? `"${icons('checkmark')}"` : '""')};
     color: ${get('colors.text.inverted')};
     font-family: ${get('fonts.icon')};
     text-align: center;
@@ -35,7 +32,7 @@ export default styled.label`
   /* the bubble */
 
   &::after {
-    content: "";
+    content: '';
     border: ${get('thicknesses.wide')} solid ${get('colors.primary.dark')};
     border-radius: 100%;
     width: ${SIZE};

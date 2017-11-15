@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
-
-
-
 export default styled.div`
   position: relative;
   padding: ${get('spacing.large')} 0;

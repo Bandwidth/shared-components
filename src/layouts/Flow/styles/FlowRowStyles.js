@@ -8,10 +8,12 @@ const BaseStyles = styled.div`
   flex-direction: row;
 `;
 
-const grow = (alignment) => ['left', 'right', 'center'].includes(alignment) ? 0 : 1;
-const basis = (alignment) => ['left', 'right', 'center'].includes(alignment) ? 'auto' : 0;
+const grow = alignment =>
+  ['left', 'right', 'center'].includes(alignment) ? 0 : 1;
+const basis = alignment =>
+  ['left', 'right', 'center'].includes(alignment) ? 'auto' : 0;
 
-const justification = (alignment) => {
+const justification = alignment => {
   switch (alignment) {
     case 'left':
       return 'flex-start';
@@ -24,18 +26,18 @@ const justification = (alignment) => {
   }
 };
 
-
-const generateSizes = (sizes) =>
-  sizes.map((size, idx) =>
-    size !== undefined && size !== null ?
-      css`
-        & > ${FlowItemContainer}, & > ${BaseStyles} {
-          &:nth-child(${idx + 1}) {
-            flex-grow: ${size};
-          }
-        }
-      `
-      : ''
+const generateSizes = sizes =>
+  sizes.map(
+    (size, idx) =>
+      size !== undefined && size !== null
+        ? css`
+            & > ${FlowItemContainer}, & > ${BaseStyles} {
+              &:nth-child(${idx + 1}) {
+                flex-grow: ${size};
+              }
+            }
+          `
+        : '',
   );
 
 // immediately extend via wrap so that we can do nested Flows
@@ -60,9 +62,7 @@ export default styled(BaseStyles)`
     }
   }
 
-  ${({ sizes }) => generateSizes(sizes)}
-
-  & .FlowItem-label {
-    ${({ suppressLabels }) => suppressLabels && 'display: none;'}
+  ${({ sizes }) => generateSizes(sizes)} & .FlowItem-label {
+    ${({ suppressLabels }) => suppressLabels && 'display: none;'};
   }
 `;

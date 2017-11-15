@@ -5,7 +5,8 @@ const TableStyles = styled.table`
   border-collapse: collapse;
   font-size: 1em;
 
-  & > tbody, & > thead {
+  & > tbody,
+  & > thead {
     background: transparent;
   }
 `;

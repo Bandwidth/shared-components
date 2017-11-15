@@ -10,7 +10,4 @@ RadioGroupContainer.Vertical = RadioGroupContainer.extend`
   flex-direction: column;
 `;
 
-
-
-
 export default RadioGroupContainer;

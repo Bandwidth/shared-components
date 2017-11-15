@@ -12,20 +12,19 @@ const InputRevealPasswordContainer = styled.div`
     z-index: 10;
   }
 
-  input[type="password"],
-  input[type="text"] {
-    padding: ${get('spacing.medium')} ${get('spacing.extraLarge')} ${get('spacing.medium')} ${get('spacing.medium')} !important;
-  }
-`
-
-InputRevealPasswordContainer.Small = InputRevealPasswordContainer.extend`
-  input[type="password"],
-  input[type="text"] {
-    padding: ${get('spacing.small')} ${get('spacing.extraLarge')} ${get('spacing.small')} ${get('spacing.small')} !important;
+  input[type='password'],
+  input[type='text'] {
+    padding: ${get('spacing.medium')} ${get('spacing.extraLarge')}
+      ${get('spacing.medium')} ${get('spacing.medium')} !important;
   }
 `;
 
-
-
+InputRevealPasswordContainer.Small = InputRevealPasswordContainer.extend`
+  input[type='password'],
+  input[type='text'] {
+    padding: ${get('spacing.small')} ${get('spacing.extraLarge')}
+      ${get('spacing.small')} ${get('spacing.small')} !important;
+  }
+`;
 
 export default InputRevealPasswordContainer;
