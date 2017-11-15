@@ -1,8 +1,3 @@
-```
-const theme = require('../../theme').default;
-theme.renderDocumentation('Pane');
-```
-
 ### The Pane System
 
 ```javascript
@@ -50,10 +45,10 @@ theme.renderDocumentation('Pane');
       Going and going<br />
       Going and going<br />
       Going and going<br />
-      Going and going<br />
+      (Notice that the lines extend)
     </Pane>
     <Pane>
-      Or not. (Notice the lines)
+      Or not.
     </Pane>
   </Pane.Row>
 </Pane.Column>

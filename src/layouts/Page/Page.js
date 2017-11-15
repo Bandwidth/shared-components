@@ -43,4 +43,7 @@ Page just sets up some defaults for layout and sizing on an average page. Items 
 \`\`\`
 `;
 
+/**
+ * @component
+ */
 export default Page;

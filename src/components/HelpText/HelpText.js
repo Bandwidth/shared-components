@@ -1,30 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import theme from '../../theme';
+import get from 'extensions/themeGet';
 
-const select = theme
-  .register('HelpText', ({ colors, fonts }) => ({
-    color: colors.gray.medium,
-    errorColor: colors.negative.default,
-    fontWeight: 300,
-    fontFamily: fonts.brand,
-    fontStyle: 'italic',
-  }))
-  .createSelector();
+const HelpText = styled.div.withConfig({ displayName: 'HelpText' })`
+  color: ${(props) => props.error ? get('colors.negative.default') : get('colors.gray.medium')};
+  font-style: italic;
+  font-weight: 300;
+  font-family: ${get('fonts.brand')};
+`;
 
-const HelpTextImpl = theme.connect(styled.div.withConfig({ displayName: 'HelpText' })`
-  color: ${(props) => props.error ? select('errorColor') : select('color')};
-  font-style: ${select('fontStyle')};
-  font-weight: ${select('fontWeight')};
-  font-family: ${select('fontFamily')};
-`, { pure: false });
-
-const HelpText = ({children, ...rest}) => (
-  <HelpTextImpl {...rest}>{children}</HelpTextImpl>
-)
-
-HelpText.propTypes = HelpTextImpl.propTypes = {
+HelpText.propTypes = {
   /**
    * Adds a class name to the element.
    */
@@ -39,11 +25,12 @@ HelpText.propTypes = HelpTextImpl.propTypes = {
   error: PropTypes.bool,
 };
 
-HelpText.defaultProps = HelpTextImpl.defaultProps = {
+HelpText.defaultProps = {
   className: null,
   id: null,
 };
 
-HelpTextImpl.Styled = HelpTextImpl.WrappedComponent;
-
-export default HelpTextImpl;
+/**
+ * @component
+ */
+export default HelpText;

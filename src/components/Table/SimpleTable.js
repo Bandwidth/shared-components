@@ -12,6 +12,14 @@ const defaultValueRenderer = (val) =>
         JSON.stringify(val)
     );
 
+/**
+ * This is a helper behavioral implementation of a table.
+ * Note that this component is not designed to support all use cases, just very simple ones.
+ * This component may be moved out of the library in the future.
+ *
+ * @class SimpleTable
+ * @extends {React.Component}
+ */
 class SimpleTable extends React.Component {
   static propTypes = {
     /**

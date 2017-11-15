@@ -1,110 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ScrollBox from '../../behaviors/ScrollBox';
-import theme from '../../theme';
-import { DefaultVariant } from 'react-studs';
-
-const select = theme
-  .register('Modal', ({ colors, shadows, fonts, spacing }) => ({
-    overlayBackground: colors.shadow.default,
-    background: colors.background.default,
-    width: 'auto',
-    maxWidth: '70%',
-    minWidth: '20%',
-    minHeight: '0',
-    maxHeight: '70vh',
-    distanceFromTop: '180px',
-    borderRadius: '5px',
-    boxShadow: shadows.long,
-    title: {
-      background: colors.gray.mediumLight,
-      color: colors.text.default,
-      fontFamily: fonts.brand,
-      fontWeight: 600,
-      fontSize: '0.9em',
-      textTransform: 'uppercase',
-      padding: '0.95em 1em 0.95em 1.5em',
-    },
-    actionContent: {
-      borderColor: colors.gray.borderLight,
-      borderWidth: '1px',
-      borderStyle: 'solid',
-      padding: `${spacing.large} 0`,
-      margin: `0 ${spacing.large}`,
-    },
-    contentPadding: spacing.large,
-  }))
-  .addVariant('wide', {
-    width: '100%',
-  })
-  .createSelector();
-const titleSelect = (val) => select('title.' + val);
-const actionSelect = (val) => select('actionContent.' + val);
-
-const Blocker = theme.connect(styled.div`
-  background: ${select('overlayBackground')};
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  z-index: 100000;
-`);
-
-// content flex is `0 1 auto`: it won't grow beyond the content size, but can shrink if the window is too small
-// to show everything.
-const Content = theme.connect(styled.div`
-  background: ${select('background')};
-  width: ${select('width')};
-  max-width: ${select('maxWidth')};
-  min-width: ${select('minWidth')};
-  flex: 0 1 auto;
-  min-height: ${select('minHeight')};
-  max-height: ${select('maxHeight')};
-  margin: ${select('distanceFromTop')} auto auto auto;
-  display: flex;
-  flex-direction: column;
-  border-radius: ${select('borderRadius')};
-  box-shadow: ${select('boxShadow')};
-  position: relative;
-`);
-
-const InnerContent = theme.connect(styled.div`
-  overflow-y: auto;
-  padding: ${select('contentPadding')};
-`);
-
-const Title = theme.connect(styled.h3`
-  display: block;
-  margin: 0;
-  background: ${titleSelect('background')};
-  color: ${titleSelect('color')};
-  padding: ${titleSelect('padding')};
-  font-family: ${titleSelect('fontFamily')};
-  font-size: ${titleSelect('fontSize')};
-  font-weight: ${titleSelect('fontWeight')};
-  text-transform: ${titleSelect('textTransform')};
-`);
-
-const ActionContent = theme.connect(styled.div`
-  position: relative;
-  padding: ${actionSelect('padding')};
-  margin: ${actionSelect('margin')};
-
-  &::before {
-    position: absolute;
-    content: '';
-    left: 0;
-    right: 0;
-    top: 0;
-    border-top-width: ${actionSelect('borderWidth')};
-    border-top-style: ${actionSelect('borderStyle')};
-    border-top-color: ${actionSelect('borderColor')};
-  }
-`);
+import ModalActionContent from './styles/ModalActionContent';
+import ModalBlocker from './styles/ModalBlocker';
+import ModalContent from './styles/ModalContent';
+import ModalTitle from './styles/ModalTitle';
+import ModalWindow from './styles/ModalWindow';
 
 class Modal extends React.Component {
   static propTypes = {
@@ -136,6 +37,26 @@ class Modal extends React.Component {
      * Content to render in a fixed position at the bottom of the modal - meant for action buttons, like close.
      */
     actionContent: PropTypes.node,
+    /**
+     * A component to render the action content area
+     */
+    ActionContent: PropTypes.func,
+    /**
+     * A component to render the full-screen blocker behind the modal
+     */
+    Blocker: PropTypes.func,
+    /**
+     * A component to render the content inside the modal window
+     */
+    Content: PropTypes.func,
+    /**
+     * A component to render the title at the top of the modal
+     */
+    Title: PropTypes.func,
+    /**
+     * A component to render the window container of the modal
+     */
+    Window: PropTypes.func,
   };
 
   static defaultProps = {
@@ -144,6 +65,11 @@ class Modal extends React.Component {
     className: null,
     id: null,
     actionContent: null,
+    ActionContent: ModalActionContent,
+    Blocker: ModalBlocker,
+    Content: ModalContent,
+    Title: ModalTitle,
+    Window: ModalWindow,
   };
 
   handleModalClicked = (event) => {
@@ -152,31 +78,38 @@ class Modal extends React.Component {
   };
 
   render() {
-    const { id, className, onBlockerClicked, title, children, actionContent } = this.props;
+    const {
+      id,
+      className,
+      onBlockerClicked,
+      title,
+      children,
+      actionContent,
+      Blocker,
+      Content,
+      Window,
+      ActionContent,
+      Title,
+    } = this.props;
+
     return (
       <Blocker onClick={onBlockerClicked}>
-        <Content
+        <Window
           onClick={this.handleModalClicked}
           id={id}
           className={className}
         >
           {title ? <Title>{title}</Title> : null}
-          <InnerContent>
-            <DefaultVariant>
-              <div>
-                {children}
-              </div>
-            </DefaultVariant>
-          </InnerContent>
+          <Content>
+            {children}
+          </Content>
           {actionContent &&
             <ActionContent>{actionContent}</ActionContent>
           }
-        </Content>
+        </Window>
       </Blocker>
     );
   }
 }
-
-Modal.Wide = theme.variant('wide')(Modal);
 
 export default Modal;

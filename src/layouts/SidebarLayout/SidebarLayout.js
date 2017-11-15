@@ -1,16 +1,8 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import theme from '../../theme';
+import get from 'extensions/themeGet';
 
-const select = theme
-  .register('SidebarLayout', ({ colors }) => ({
-    contentBackground: colors.gray.light,
-    borderColor: colors.gray.borderLight,
-    borderWidth: '1px',
-  }))
-  .createSelector();
-
-const SidebarLayout = theme.connect(styled.div.withConfig({ displayName: 'SidebarLayout' })`
+const SidebarLayout = styled.div.withConfig({ displayName: 'SidebarLayout' })`
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -23,13 +15,13 @@ const SidebarLayout = theme.connect(styled.div.withConfig({ displayName: 'Sideba
 
   & > *:last-child {
     flex: 6;
-    background: ${select('contentBackground')};
-    border-left-width: ${select('borderWidth')};
+    background: ${get('colors.gray.light')};
+    border-left-width: ${get('thicknesses.normal')};
     border-left-style: solid;
-    border-left-color: ${select('borderColor')};
+    border-left-color: ${get('colors.border.light')};
     margin-left: -1px;
   }
-`);
+`;
 
 SidebarLayout.propTypes = {
   /**
@@ -47,17 +39,7 @@ SidebarLayout.defaultProps = {
   className: null,
 };
 
-SidebarLayout.usage = `
-# SidebarLayout
-
-Does some simple stuff with flexbox to layout two columns. Assumes that it only has two children. We could extend this with media queries at some point to make it more useful.
-
-\`\`\`
-<SidebarLayout>
-  <ASidebar/>
-  <SomeContent/>
-</SidebarLayout>
-\`\`\`
-`;
-
+/**
+ * @component
+ */
 export default SidebarLayout;

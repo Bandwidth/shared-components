@@ -2,30 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Autosuggest from 'react-autosuggest';
-import Input from '../Input';
-import Suggestion from './Suggestion';
-import SuggestionsContainer from './SuggestionsContainer';
-import SuggestionsSectionTitle from './SuggestionsSectionTitle';
-import SearchButton from './SearchButton';
+import DefaultInput from '../Input';
+import SearchBoxSuggestion from './Suggestion';
+import SearchBoxSuggestionsList from './styles/SearchBoxSuggestionsList';
+import SearchBoxSuggestionsSectionTitle from './styles/SearchBoxSuggestionsSectionTitle';
+import SearchBoxSearchButton from './styles/SearchBoxSearchButton';
+import SearchBoxWrapper from './styles/SearchBoxWrapper';
 import _ from 'lodash';
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-
-  & > .react-autosuggest__container {
-    width: 100%;
-
-    & input {
-      padding-right: 2em;
-    }
-  }
-
-  & > button {
-    margin: 0 0 auto 0;
-  }
-`;
 
 class SearchBox extends React.Component {
   static propTypes = {
@@ -102,6 +85,30 @@ class SearchBox extends React.Component {
      * should be enabled.
      */
     shouldShowSubmitButton: PropTypes.func,
+    /**
+     * A component to render a wrapper around the box
+     */
+    Wrapper: PropTypes.func,
+    /**
+     * A component to render the list of suggestions
+     */
+    SuggestionsList: PropTypes.func,
+    /**
+     * A component to render a search button integrated into the field
+     */
+    SearchButton: PropTypes.func,
+    /**
+     * A component to render a section title in the suggestions list
+     */
+    SuggestionsSectionTitle: PropTypes.func,
+    /**
+     * A component to render a suggestion item
+     */
+    Suggestion: PropTypes.func,
+    /**
+     * A component to render the input element (defaults Input)
+     */
+    Input: PropTypes.func,
   };
 
   static defaultProps = {
@@ -115,12 +122,18 @@ class SearchBox extends React.Component {
     showSubmitButton: false,
     onSubmit: () => null,
     shouldShowSubmitButton: () => false,
+    Wrapper: SearchBoxWrapper,
+    SuggestionsList: SearchBoxSuggestionsList,
+    SuggestionsSectionTitle: SearchBoxSuggestionsSectionTitle,
+    SearchButton: SearchBoxSearchButton,
+    Suggestion: SearchBoxSuggestion,
+    Input: DefaultInput,
   };
 
   renderInput = ({ ref, ...inputProps }) => {
     const self = this;
     return (
-      <Input
+      <this.props.Input
         {...inputProps}
         inputRef={ref}
       />
@@ -128,21 +141,21 @@ class SearchBox extends React.Component {
   };
 
   renderSuggestion = (suggestion, { query, isHighlighted }) => (
-    <Suggestion
+    <this.props.Suggestion
       query={query}
       isHighlighted={isHighlighted}
       matchSuggestionContent={this.props.matchSuggestionContent}
     >
       {this.props.renderSuggestionContent(suggestion, query)}
-    </Suggestion>
+    </this.props.Suggestion>
   );
 
   renderSuggestionsContainer = ({ containerProps, children }) => children ? (
-    <SuggestionsContainer {...containerProps}>{children}</SuggestionsContainer>
+    <this.props.SuggestionsList {...containerProps}>{children}</this.props.SuggestionsList>
   ) : null;
 
   renderSectionTitle = (section) => (
-    <SuggestionsSectionTitle>{this.props.getSectionTitle(section)}</SuggestionsSectionTitle>
+    <this.props.SuggestionsSectionTitle>{this.props.getSectionTitle(section)}</this.props.SuggestionsSectionTitle>
   );
 
   render() {
@@ -153,6 +166,8 @@ class SearchBox extends React.Component {
       showSubmitButton,
       onSubmit,
       shouldShowSubmitButton,
+      Wrapper,
+      SearchButton,
     } = this.props;
 
     return (
@@ -180,9 +195,9 @@ class SearchBox extends React.Component {
   }
 }
 
-SearchBox.Suggestion = Suggestion;
-SearchBox.SuggestionsContainer = SuggestionsContainer;
-SearchBox.SuggestionsSectionTitle = SuggestionsSectionTitle;
-SearchBox.Button = SearchButton;
+SearchBox.Suggestion = SearchBoxSuggestion;
+SearchBox.SuggestionsList = SearchBoxSuggestionsList;
+SearchBox.SuggestionsSectionTitle = SearchBoxSuggestionsSectionTitle;
+SearchBox.Button = SearchBoxSearchButton;
 
 export default SearchBox;

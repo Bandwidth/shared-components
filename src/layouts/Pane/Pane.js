@@ -1,41 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Heading from '../../components/Heading';
+import H1 from 'components/H';
 import Column from './PaneColumn';
 import Row from './PaneRow';
 import Section from './PaneSection';
 import theme from '../../theme';
-
-const select = theme
-  .register('Pane', ({ spacing }) => ({
-    headerMargin: `${spacing.medium} 0`,
-    padding: `0 ${spacing.large}`,
-    sectionSpacing: spacing.large,
-  }))
-  .createSelector();
-
-const Container = theme.connect(styled.article`
-  display: flex;
-  flex-direction: column;
-  flex: 1 1;
-  padding: ${select('padding')};
-
-  & > h1, & > h2, & > h3, & > h4, & > h5 {
-    margin: ${select('headerMargin')};
-  }
-
-  & > section {
-    margin: ${select('sectionSpacing')} 0 0 0;
-
-    &:first-of-type {
-      margin-top: 0;
-    }
-    &:last-of-type {
-      margin-bottom: ${select('sectionSpacing')};
-    }
-  }
-`);
+import PaneStyles from './styles/PaneStyles';
 
 class Pane extends React.Component {
   static propTypes = {
@@ -55,35 +26,30 @@ class Pane extends React.Component {
      * Adds a class name to the pane.
      */
     className: PropTypes.string,
+    /**
+     * A component to render the pane itself.
+     */
+    Styles: PropTypes.func,
   };
 
   static defaultProps = {
     title: null,
     className: null,
     id: null,
+    Styles: PaneStyles,
   };
 
   render() {
-    const { title, children, className, id } = this.props;
+    const { title, children, className, id, Styles } = this.props;
 
     return (
-      <Container className={className} id={id}>
-        {title ? <Heading>{title}</Heading> : null}
+      <Styles className={className} id={id}>
+        {title ? <H1>{title}</H1> : null}
         {children}
-      </Container>
+      </Styles>
     );
   }
 }
-
-Pane.usage = `
-# Pane
-
-A section of display content with a title. Arranges children vertically.
-
-\`\`\`
-<Pane title="Hello">Content</Pane>
-\`\`\`
-`;
 
 Pane.Column = Column;
 Pane.Row = Row;

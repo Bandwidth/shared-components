@@ -1,3 +1,4 @@
+import { defaultsDeep } from 'lodash';
 import baseTheme from './irisTheme';
 
 export const colors = {
@@ -17,6 +18,7 @@ export const colors = {
   ],
 };
 
-export default baseTheme.extend({
+export default defaultsDeep({
+  name: 'catapult',
   colors,
-});
+}, baseTheme);

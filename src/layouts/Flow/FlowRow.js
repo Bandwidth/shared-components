@@ -2,71 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import Item from './FlowItem';
-import Label from '../../components/Label';
+import Label from 'components/Label';
 import { HORIZONTAL_SPACING } from './constants';
-
-const grow = (alignment) => ['left', 'right', 'center'].includes(alignment) ? 0 : 1;
-const basis = (alignment) => ['left', 'right', 'center'].includes(alignment) ? 'auto' : 0;
-
-const justification = (alignment) => {
-  switch (alignment) {
-    case 'left':
-      return 'flex-start';
-    case 'right':
-      return 'flex-end';
-    case 'center':
-      return 'center';
-    default:
-      return 'space-between';
-  }
-};
-
-const generateSizes = (sizes) =>
-  sizes.map((size, idx) =>
-    size !== undefined && size !== null ?
-      css`
-        & > ${Item.Container}, & > ${BaseStyles} {
-          &:nth-child(${idx + 1}) {
-            flex-grow: ${size};
-          }
-        }
-      `
-      : ''
-  );
-
-const BaseStyles = styled.div`
-  /* Flow is a row */
-  display: flex;
-  flex-direction: row;
-`;
-
-// immediately extend via wrap so that we can do nested Flows
-const Styles = styled(BaseStyles)`
-  justify-content: ${({ alignment }) => justification(alignment)};
-
-  /* Flow is designed to be nestable */
-  & > ${Item.Container}, & > ${BaseStyles} {
-    flex-grow: ${({ alignment }) => grow(alignment)};
-    flex-shrink: 0;
-    margin-left: ${HORIZONTAL_SPACING / 2}px;
-    margin-right: ${HORIZONTAL_SPACING / 2}px;
-    flex-basis: ${({ alignment }) => basis(alignment)};
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  ${({ sizes }) => generateSizes(sizes)}
-
-  & ${Label.Styled} {
-    ${({ suppressLabels }) => suppressLabels && 'display: none;'}
-  }
-`;
+import FlowRowStyles from './styles/FlowRowStyles';
 
 /**
  * A Flow.Row defines a horizontal row of FlowItems. FlowRows belong within a Flow component.
@@ -106,12 +44,18 @@ class FlowRow extends React.Component {
           `Invalid prop ${propName} supplied to ${componentName}: must be one of [left, right, center, stretch].`
         );
       }
-    }
+    },
+
+    /**
+     * A component to render the row itself
+     */
+    Styles: PropTypes.func,
   };
 
   static defaultProps = {
     sizes: [],
     alignment: 'stretch',
+    Styles: FlowRowStyles,
   };
 
   /**
@@ -131,7 +75,7 @@ class FlowRow extends React.Component {
   };
 
   render() {
-    const { children, sizes, alignment } = this.props;
+    const { children, sizes, alignment, Styles } = this.props;
     const suppressLabel = this.shouldSuppressLabels();
 
     return (
@@ -146,7 +90,6 @@ class FlowRow extends React.Component {
   }
 }
 
-FlowRow.Container = Styles;
 FlowRow.Item = Item;
 
 export default FlowRow;

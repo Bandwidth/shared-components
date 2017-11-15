@@ -1,8 +1,3 @@
-```
-const theme = require('../../theme').default;
-theme.renderDocumentation('FormColumn');
-```
-
 `FormColumn` (accessible as `Form.Column`) is designed to create vertical column layouts inside `Form`.
 
 ```javascript

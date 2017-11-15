@@ -1,117 +1,58 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, {ThemeProvider} from 'styled-components';
+import styled from 'styled-components';
 import icons from '../Icon/icons';
 import SubmitButton from './SubmitButton';
-import theme from '../../theme';
-import { spreadStyles } from 'react-studs';
+import get from 'extensions/themeGet';
 
-const select = theme
-  .register('Button', ({ colors, fonts, shadows }) => ({
-    fontSize: '0.8em',
-    textDecoration: 'none',
-    fontWeight: 700,
-    fontFamily: fonts.brand,
-    textTransform: 'uppercase',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderRadius: '3em',
-    backgrounds: {
-      default: colors.primary.default,
-      hover: colors.primary.alternate,
-      focus: colors.primary.alternate,
-      disabled: colors.gray.disabled,
-    },
-    colors: {
-      default: colors.text.inverted,
-      hover: colors.text.inverted,
-      focus: colors.text.inverted,
-      disabled: colors.text.default,
-    },
-    borderColors: {
-      default: colors.primary.default,
-      hover: colors.primary.alternate,
-      focus: colors.primary.alternate,
-      disabled: colors.gray.disabled,
-    },
-    // these are 2px less than design system values because
-    // all buttons in the SCL have a 1px border for consistency
-    padding: '11px 38px',
-    display: 'inline-block',
-    lineHeight: 'normal',
-    whiteSpace: 'nowrap',
-    hoverShadow: shadows.short,
-  }))
-  .addVariant('secondary', ({ colors }) => ({
-    borderColors: {
-      default: colors.primary.dark,
-      hover: colors.primary.dark,
-    },
-    backgrounds: {
-      default: 'transparent',
-      hover: colors.primary.dark,
-    },
-    colors: {
-      default: colors.primary.dark,
-    },
-  }))
-  .addVariant('danger', ({ colors }) => ({
-    borderColors: {
-      default: colors.negative.default,
-      hover: colors.negative.dark,
-      focus: colors.negative.dark,
-    },
-    backgrounds: {
-      default: colors.negative.default,
-      hover: colors.negative.dark,
-      focus: colors.negative.dark,
-    },
-  }))
-  .addVariant('small', {
-    padding: '9px 28px',
-    fontSize: '0.6em',
-  })
-  .addVariant('large', ({ spacing }) => ({
-    padding: `${spacing.medium} ${spacing.extraLarge}`,
-    fontSize: '0.8em',
-  }))
-  .createSelector();
+const Button = styled.button`
+  font-size: 0.8em;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: ${get('fonts.brand')};
+  text-transform: uppercase;
 
-const ButtonImpl = theme.connect(styled.button`
-  ${spreadStyles(select)}
-  background: ${select('backgrounds.default')};
-  color: ${select('colors.default')};
-  border-color: ${select('borderColors.default')};
+  border-width: ${get('thicknesses.normal')};
+  border-style: solid;
+  border-radius: 3em;
+  border-color: ${get('colors.primary.default')};
+
+  color: ${get('colors.text.inverted')};
+  background: ${get('colors.primary.default')};
+
+  /* 2px less than design system values since we always render a 1px border */
+  padding: 11px 38px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  line-height: normal;
+  white-space: nowrap;
 
   vertical-align: middle;
   text-align: center;
+
   cursor: pointer;
   -webkit-user-drag: none;
   /* should get auto-prefixed */
   user-select: none;
+
   box-sizing: border-box;
+
   transition: all 0.25s ease;
+
   outline: none;
-  position: relative;
-  overflow: hidden;
 
-  &:hover:not(:disabled) {
-    background-color: ${select('backgrounds.hover')};
-    border-color: ${select('backgrounds.hover')};
-    color: ${select('colors.hover')};
-    box-shadow: ${select('hoverShadow')};
-  }
-
+  &:hover:not(:disabled),
   &:focus:not(:disabled) {
-    background-color: ${select('backgrounds.focus')};
-    border-color: ${select('backgrounds.focus')};
-    color: ${select('colors.focus')};
+    background-color: ${get('colors.primary.alternate')};
+    border-color: ${get('colors.primary.alternate')};
+    box-shadow: ${get('shadows.short')};
   }
 
   &:disabled {
-    background: ${select('backgrounds.disabled')};
-    color: ${select('colors.disabled')};
-    border-color: ${select('borderColors.disabled')};
+    background: ${get('colors.background.disabled')};
+    color: ${get('colors.text.disabled')};
+    border-color: ${get('colors.background.disabled')};
     cursor: default;
   }
 
@@ -122,7 +63,7 @@ const ButtonImpl = theme.connect(styled.button`
     color: inherit;
     transition: all 0.3s;
     speak: none;
-    font-family: 'Bandwidth';
+    font-family: ${get('fonts.icon')};
   }
 
   &::before {
@@ -142,11 +83,7 @@ const ButtonImpl = theme.connect(styled.button`
   &:hover:not(:disabled)::after {
     right: 10px;
   }
-`);
-
-const Button = ({children, ...rest}) => (
-  <ButtonImpl {...rest}>{children}</ButtonImpl>
-)
+`;
 
 Button.propTypes = {
   /**
@@ -181,10 +118,42 @@ Button.defaultProps = {
 };
 
 Button.Submit = SubmitButton;
-Button.Secondary = theme.variant('secondary')(Button);
-Button.Small = theme.variant('small')(Button);
-Button.Large = theme.variant('large')(Button);
-Button.Danger = theme.variant('danger')(Button);
-Button.Styled = ButtonImpl.WrappedComponent;
 
+Button.Secondary = Button.extend`
+  color: ${get('colors.primary.dark')};
+  border-color: ${get('colors.primary.dark')};
+  background: transparent;
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    color: ${get('colors.text.inverted')};
+    background: ${get('colors.primary.dark')};
+    border-color: ${get('colors.primary.dark')};
+  }
+`;
+
+Button.Small = Button.extend`
+  padding: 9px 28px;
+  font-size: 0.6em;
+`;
+
+Button.Large = Button.extend`
+  padding: 13px 58px;
+  font-size: 0.9em;
+`;
+
+Button.Danger = Button.extend`
+  border-color: ${get('colors.negative.default')};
+  background: ${get('colors.negative.default')};
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    background: ${get('colors.negative.dark')};
+    border-color: ${get('colors.negative.dark')};
+  }
+`;
+
+/**
+ * @component
+ */
 export default Button;

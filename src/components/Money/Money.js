@@ -1,28 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import formatMoney from '../../extensions/formatMoney';
-import theme from '../../theme';
-
-const selector = theme
-  .register('Money', ({ colors }) => ({
-    positiveColor: colors.positive.default,
-    negativeColor: colors.negative.default,
-    neutralColor: 'inherit',
-  }))
-  .createSelector();
-
-const Figure = theme.connect(styled.span`
-  color: ${(props) => {
-    if (props.value > 0) {
-      return selector('positiveColor')(props);
-    } else if (props.value < 0) {
-      return selector('negativeColor')(props);
-    }
-
-    return selector('neutralColor')(props);
-  }};
-`, { pure: false });
+import MoneyStyles from './styles/MoneyStyles';
 
 class Money extends React.Component {
   static propTypes = {
@@ -42,6 +21,10 @@ class Money extends React.Component {
      * Adds an id to the element.
      */
     id: PropTypes.string,
+    /**
+     * A component to render the text itself. Will be passed a `value` Number prop.
+     */
+    Styles: PropTypes.func,
   };
 
   static defaultProps = {
@@ -49,6 +32,7 @@ class Money extends React.Component {
     className: null,
     id: null,
     value: 0,
+    Styles: MoneyStyles,
   };
 
   getSign() {
@@ -57,13 +41,13 @@ class Money extends React.Component {
   }
 
   render() {
-    const { value, showSign, id, className } = this.props;
+    const { value, showSign, id, className, Styles } = this.props;
     return (
-      <Figure value={value} id={id} className={className}>
+      <Styles value={value} id={id} className={className}>
         {showSign ? this.getSign(value) : null}
         {/* sign is already present, so remove it from the formatted number */}
         ${formatMoney(value).replace('-', '')}
-      </Figure>
+      </Styles>
     );
   }
 }

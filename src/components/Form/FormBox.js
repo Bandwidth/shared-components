@@ -1,26 +1,16 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import theme from '../../theme';
+import get from 'extensions/themeGet';
 
-const select = theme
-  .register('FormBox', ({ colors, spacing }) => ({
-    background: colors.background.default,
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: colors.gray.border,
-    padding: spacing.large,
-  }))
-  .createSelector();
+const FormBox = styled.div.withConfig({ displayName: 'FormBox' })`
+  background: ${get('colors.background.default')};
+  border-width: ${get('thicknesses.normal')};
+  border-style: solid;
+  border-color: ${get('colors.border.medium')};
+  padding: ${get('spacing.large')};
+`;
 
-const FormBoxImpl = theme.connect(styled.div.withConfig({ displayName: 'FormBox' })`
-  background: ${select('background')};
-  border: ${select('borderWidth')} ${select('borderStyle')} ${select('borderColor')};
-  padding: ${select('padding')};
-`);
-
-export const FormBox = (props) => <FormBoxImpl {...props} />;
-
-FormBox.propTypes = FormBoxImpl.propTypes = {
+FormBox.propTypes = {
   /**
    * Adds an id to the element.
    */
@@ -31,9 +21,12 @@ FormBox.propTypes = FormBoxImpl.propTypes = {
   className: PropTypes.string,
 };
 
-FormBox.propTypes = FormBoxImpl.defaultProps = {
+FormBox.defaultProps = {
   id: null,
   className: null,
 };
 
-export default FormBoxImpl;
+/**
+ * @component
+ */
+export default FormBox;

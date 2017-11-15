@@ -1,20 +1,13 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import theme from '../../theme';
+import get from 'extensions/themeGet';
 
-const select = theme
-  .register('FormColumn', ({ colors, spacing }) => ({
-    innerPadding: spacing.large,
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: colors.gray.borderLight,
-  }))
-  .createSelector();
-
-const FormColumnImpl = styled.section`
-  padding-left: ${select('innerPadding')};
-  padding-right: ${select('innerPadding')};
-  border-right: ${select('borderWidth')} ${select('borderStyle')} ${select('borderColor')};
+const FormColumn = styled.section`
+  padding-left: ${get('spacing.large')};
+  padding-right: ${get('spacing.large')};
+  border-right-width: ${get('thicknesses.normal')};
+  border-right-style: solid;
+  border-right-color: ${get('colors.border.light')};
 
   &:first-of-type {
     padding-left: 0;
@@ -26,9 +19,8 @@ const FormColumnImpl = styled.section`
   }
 `;
 
-export const FormColumn = (props) => <FormColumnImpl {...props} />;
 
-FormColumn.propTypes = FormColumnImpl.propTypes = {
+FormColumn.propTypes =  {
   /**
    * Adds an id to the element.
    */
@@ -39,9 +31,12 @@ FormColumn.propTypes = FormColumnImpl.propTypes = {
   className: PropTypes.string,
 };
 
-FormColumn.defaultProps = FormColumnImpl.defaultProps = {
+FormColumn.defaultProps = {
   id: null,
   className: null,
 };
 
-export default FormColumnImpl;
+/**
+ * @component
+ */
+export default FormColumn;

@@ -1,30 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
-import styled from 'styled-components';
 import Icon from '../Icon';
-import theme from '../../theme';
-import { spreadStyles } from 'react-studs';
+import FileLoaderDropArea from './styles/FileLoaderDropArea';
+import FileLoaderPreview from './styles/FileLoaderPreview';
 
-const select = theme.createSelector('Input');
-
-const DropArea = theme.connect(styled.div`
-  ${spreadStyles(select)}
-  color: ${select('colors.default')};
-  border-color: ${select('borderColors.default')};
-  background: ${select('backgrounds.default')};
-
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  cursor: pointer;
-`);
-
-const Preview = theme.connect(styled.div`
-  margin: auto auto auto 16px;
-`);
-
-class FileLoader extends React.Component {
+export default class FileLoader extends React.Component {
   static propTypes = {
     /**
      * A FileList object to use as the value of the input.
@@ -51,6 +32,14 @@ class FileLoader extends React.Component {
      * Adds an id to the input element.
      */
     id: PropTypes.string,
+    /**
+     * A component to render the drop area
+     */
+    DropArea: PropTypes.func,
+    /**
+     * A component to render the preview container
+     */
+    Preview: PropTypes.func,
   };
 
   static defaultProps = {
@@ -58,10 +47,12 @@ class FileLoader extends React.Component {
     disabled: false,
     className: null,
     id: null,
+    DropArea: FileLoaderDropArea,
+    Preview: FileLoaderPreview,
   };
 
   renderFiles = () => {
-    const { value } = this.props;
+    const { value, DropArea, Preview } = this.props;
     if (value && value[0]) {
       return (
         <DropArea>
@@ -100,5 +91,3 @@ class FileLoader extends React.Component {
     );
   }
 }
-
-export default FileLoader;

@@ -1,39 +1,33 @@
 import styled from 'styled-components';
-import FlowRow from './FlowRow';
+import FlowRowStyles from './styles/FlowRowStyles';
 import field from './fields/flowField';
 import * as fields from './fields';
+import FlowItemContainer from './styles/FlowItemContainer';
 import FlowItem from './FlowItem';
+import FlowRow from './FlowRow';
 import { HORIZONTAL_SPACING, VERTICAL_SPACING } from './constants';
-import theme from '../../theme';
 
-const select = theme
-  .register('Flow', {
-    horizontalSpacing: HORIZONTAL_SPACING + 'px',
-    verticalSpacing: VERTICAL_SPACING + 'px',
-  })
-  .createSelector();
-
-const FlowImpl = theme.connect(styled.div.withConfig({ displayName: 'Flow' })`
+const Flow = styled.div.withConfig({ displayName: 'Flow' })`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 
-  & > ${FlowRow.Container} {
+  & > ${FlowRowStyles} {
     flex-basis: 100%;
     flex-shrink: 0;
   }
 
-  & > ${FlowItem.Container} {
-    flex-basis: calc(50% - ${select('horizontalSpacing')} / 2);
+  & > ${FlowItemContainer} {
+    flex-basis: calc(50% - ${HORIZONTAL_SPACING}px / 2);
     flex-grow: 0;
     flex-shrink: 0;
   }
 
-  & > ${FlowRow.Container},
-  & > ${FlowItem.Container} {
-    margin-top: calc(${select('verticalSpacing')} / 2);
-    margin-bottom: calc(${select('verticalSpacing')} / 2);
+  & > ${FlowRowStyles},
+  & > ${FlowItemContainer} {
+    margin-top: calc(${VERTICAL_SPACING}px / 2);
+    margin-bottom: calc(${VERTICAL_SPACING}px / 2);
 
     &:first-child {
       margin-top: 0;
@@ -43,13 +37,14 @@ const FlowImpl = theme.connect(styled.div.withConfig({ displayName: 'Flow' })`
       margin-bottom: 0;
     }
   }
-`);
+`;
 
-export const Flow = (props) => <FlowImpl {...props} />;
+Flow.Row = FlowRow;
+Flow.fields = fields;
+Flow.createField = field;
+Flow.Item = FlowItem;
 
-FlowImpl.Row = FlowRow;
-FlowImpl.fields = fields;
-FlowImpl.createField = field;
-FlowImpl.Item = FlowItem;
-
-export default FlowImpl;
+/**
+ * @component
+ */
+export default Flow;

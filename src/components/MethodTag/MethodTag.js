@@ -1,25 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import theme from '../../theme';
-import { spreadStyles } from 'react-studs';
-
-const select = theme
-  .register('MethodTag', ({ colors }) => ({
-    backgrounds: {
-      post: colors.primary.default,
-      get: colors.positive.default,
-      put: colors.accents[0].default,
-      del: colors.negative.default,
-    },
-    color: colors.text.inverted,
-    fontSize: '1em',
-    lineHeight: '1em',
-    padding: '0.5em 1em',
-    borderRadius: '5px',
-    textTransform: 'uppercase',
-  }))
-  .createSelector();
+import get from 'extensions/themeGet';
 
 const processMethod = (method) => {
   const normalized = method.toLowerCase();
@@ -29,20 +11,31 @@ const processMethod = (method) => {
   return normalized;
 }
 
-const MethodTagImpl = theme.connect(styled.pre`
-  ${spreadStyles(select)}
-  background: ${(props) => {
-    const method = processMethod(props.children);
-    return select(`backgrounds.${method}`)(props);
-  }};
+const methodColors = {
+  post: get('colors.primary.default'),
+  get: get('colors.positive.default'),
+  put: get('colors.accents[0].default'),
+  del: get('colors.negative.default'),
+};
+
+const MethodTag = styled.pre`
+  color: ${get('colors.text.inverted')};
+  font-size: 1em;
+  line-height: 1em;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  text-transform: uppercase;
   margin: 0;
   width: auto;
   display: inline-block;
-`, { pure: false });
 
-export const MethodTag = (props) => (<MethodTagImpl {...props} />);
+  background: ${(props) => {
+    const method = processMethod(props.children);
+    return methodColors[method](props);
+  }};
+`;
 
-MethodTagImpl.propTypes = MethodTag.propTypes = {
+MethodTag.propTypes = {
   /**
    * Adds a class name to the element.
    */
@@ -53,9 +46,12 @@ MethodTagImpl.propTypes = MethodTag.propTypes = {
   id: PropTypes.string,
 };
 
-MethodTagImpl.defaultProps = {
+MethodTag.defaultProps = {
   className: null,
   id: null,
 };
 
-export default MethodTagImpl;
+/**
+ * @component
+ */
+export default MethodTag;

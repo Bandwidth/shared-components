@@ -2,45 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import NewBadge from '../NewBadge';
-import theme from '../../theme';
-
-const select = theme
-  .register('SidebarListItem', ({ colors, spacing }) => ({
-    background: colors.background.default,
-    activeBackground: colors.gray.light,
-    color: colors.text.default,
-    activeColor: colors.primary.default,
-    padding: `${spacing.medium} ${spacing.large}`,
-    borderColor: colors.gray.borderLight,
-    activeBorderColor: colors.gray.light,
-    borderWidth: '1px',
-    labelTextTransform: 'uppercase',
-    labelFontWeight: 'bold',
-  }))
-  .createSelector();
-
-const ListItemContainer = theme.connect(styled.li`
-  background: ${(props) => props.active ? select('activeBackground')(props) : select('background')(props)};
-  color: ${(props) => props.active ? select('activeColor')(props) : select('color')(props)};
-  padding: ${select('padding')};
-  border-bottom: ${select('borderWidth')} solid ${select('borderColor')};
-  border-right: ${select('borderWidth')} solid ${(props) =>
-    props.active ?
-      select('activeBorderColor')(props) :
-      select('borderColor')(props)
-  };
-  position: relative;
-  overflow-x: visible;
-  z-index: 100;
-`, { pure: false });
-
-const ListLabel = theme.connect(styled.h3`
-  text-transform: ${select('labelTextTransform')};
-  font-weight: ${select('labelFontWeight')};
-  margin: 0;
-`);
-
-const ListDetails = styled.div``;
+import SidebarListItemContainer from './styles/SidebarListItemContainer';
+import SidebarListItemLabel from './styles/SidebarListItemLabel';
+import SidebarListItemDetails from './styles/SidebarListItemDetails';
 
 class SidebarListItem extends React.Component {
   static propTypes = {
@@ -68,6 +32,18 @@ class SidebarListItem extends React.Component {
      * Adds an id to the outer item element.
      */
     id: PropTypes.string,
+    /**
+     * A component for rendering a container of an item
+     */
+    Container: PropTypes.func,
+    /**
+     * A component for rendering an item label
+     */
+    Label: PropTypes.func,
+    /**
+     * A component for rendering the details container in the item
+     */
+    Details: PropTypes.func,
   };
 
   static defaultProps = {
@@ -77,34 +53,31 @@ class SidebarListItem extends React.Component {
     isNew: false,
     className: null,
     id: null,
+    Container: SidebarListItemContainer,
+    Details: SidebarListItemDetails,
+    Label: SidebarListItemLabel,
   };
 
   render() {
-    const { label, details, active, isNew, id, className } = this.props;
+    const {
+      label,
+      details,
+      active,
+      isNew,
+      id,
+      className,
+      Container,
+      Label,
+      Details,
+    } = this.props;
 
     return (
-      <ListItemContainer active={active} className={className} id={id}>
-        <ListLabel>{isNew ? <NewBadge /> : null}{label}</ListLabel>
-        <ListDetails>{details}</ListDetails>
-      </ListItemContainer>
+      <Container active={active} className={className} id={id}>
+        <Label>{isNew ? <NewBadge /> : null}{label}</Label>
+        <Details>{details}</Details>
+      </Container>
     );
   }
 }
-
-SidebarListItem.usage = `
-Renders a list item component. Use it inside a List for optimal effect.
-
-Props:
-
-* \`label\`: the main content
-* \`details\`: some extra info to render below the label
-* \`active\`: determines whether the item should render as active or not
-
-TODO: refactor this to use Card.
-
-\`\`\`
-<SidebarListItem label="hi" active={true} />
-\`\`\`
-`;
 
 export default SidebarListItem;

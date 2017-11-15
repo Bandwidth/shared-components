@@ -1,35 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import theme from '../../theme';
-import { spreadStyles } from 'react-studs';
+import get from 'extensions/themeGet';
 
 import Block from './CodeBlock';
-import Container from './CodeContainer';
 
-const select = theme
-  .register('Code', ({ colors, fonts }) => ({
-    fontFamily: fonts.monospace,
-    fontSize: '0.85em',
-    background: colors.gray.light,
-    color: colors.text.default,
-    borderColor: colors.gray.border,
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderRadius: '3px',
-    padding: '0.3em',
-    margin: '0',
-  }))
-  .createSelector();
+const Code = styled.pre.withConfig({ displayName: 'Code' })`
+  font-family: ${get('fonts.monospace')};
+  font-size: 0.85em;
 
-const CodeImpl = theme.connect(styled.pre.withConfig({ displayName: 'Code' })`
-  ${spreadStyles(select)}
+  background: ${get('colors.gray.light')};
+  color: ${get('colors.text.default')};
+  border-color: ${get('colors.border.medium')};
+  border-width: ${get('thicknesses.normal')};
+  border-style: solid;
+  border-radius: 3px;
+
+  padding: 0.3em;
+  margin: 0;
+
   display: inline-block;
-`);
-
-const Code = ({...rest, children}) => (
-  <CodeImpl {...rest}>{children}</CodeImpl>
-)
+`;
 
 Code.propTypes = {
   /**
@@ -48,7 +39,8 @@ Code.defaultProps = {
 };
 
 Code.Block = Block;
-Code.Container = Container;
-Code.Styled = CodeImpl;
 
+/**
+ * @component
+ */
 export default Code;

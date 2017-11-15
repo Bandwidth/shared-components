@@ -2,38 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import _ from 'lodash';
-import theme from '../../theme';
-
-const select = theme
-  .register('SearchSuggestion', ({ colors, spacing }) => ({
-    backgrounds: {
-      default: colors.background.default,
-      active: colors.primary.light,
-    },
-    colors: {
-      default: colors.text.default,
-      matched: colors.primary.default,
-    },
-    padding: spacing.small,
-    matchedFontWeight: 'bold',
-  }))
-  .createSelector();
-
-const Container = theme.connect(styled.div`
-  background: ${(props) => props.isHighlighted ?
-    select('backgrounds.active')(props) :
-    select('backgrounds.default')(props)
-  };
-  color: ${select('colors.default')};
-  display: block;
-  padding: ${select('padding')};
-  cursor: pointer;
-`, { pure: false });
-
-const Highlight = theme.connect(styled.span`
-  color: ${select('colors.matched')};
-  font-weight: ${select('matchedFontWeight')};
-`);
+import SearchBoxSuggestionContainer from './styles/SearchBoxSuggestionContainer';
+import SearchBoxSuggestionHighlightText from './styles/SearchBoxSuggestionHighlightText';
 
 const defaultMatcher = (query, content) => {
   const lowerQuery = query.toLowerCase();
@@ -50,14 +20,24 @@ export default class Suggestion extends React.Component {
     query: PropTypes.string.isRequired,
     isHighlighted: PropTypes.bool.isRequired,
     matchSuggestionContent: PropTypes.func,
+    /**
+     * A component to render the containing element
+     */
+    Container: PropTypes.func,
+    /**
+     * A component to render highlighted text
+     */
+    Highlight: PropTypes.func,
   };
 
   static defaultProps = {
     matchSuggestionContent: defaultMatcher,
+    Container: SearchBoxSuggestionContainer,
+    Highlight: SearchBoxSuggestionHighlightText,
   };
 
   renderContents = () => {
-    const { children, query, matchSuggestionContent } = this.props;
+    const { children, query, matchSuggestionContent, Highlight } = this.props;
     if (_.isString(children) && query) {
       const indices = matchSuggestionContent(query, children);
       if (indices[0] === -1) {
@@ -84,7 +64,7 @@ export default class Suggestion extends React.Component {
   }
 
   render() {
-    const { isHighlighted } = this.props;
+    const { isHighlighted, Container } = this.props;
 
     return (
       <Container isHighlighted={isHighlighted}>

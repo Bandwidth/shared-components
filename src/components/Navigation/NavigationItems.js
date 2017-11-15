@@ -1,46 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import NavigationItem from './NavigationItem';
+import { withProps } from 'recompose';
 import Anchor from '../Anchor';
-import theme from '../../theme';
-
-const select = theme
-  .register('NavigationItems', ({ spacing }) => ({
-    background: 'transparent',
-    color: 'inherit',
-    fontSize: '1em',
-    marginBottom: 'auto',
-    itemSpacing: spacing.large,
-    justifyContent: 'flex-end',
-  }))
-  .addVariant('small', { fontSize: '0.8em' })
-  .createSelector();
-
-export const Container = theme.connect(styled.div.withConfig({ displayName: 'NavigationItemsContainer' })`
-  display: flex;
-  flex-direction: row;
-  justify-content: ${select('justifyContent')};
-
-  background: ${select('background')};
-  color: ${select('color')};
-  font-size: ${select('fontSize')};
-  margin-bottom: ${select('marginBottom')};
-
-  & > * {
-    margin-right: ${select('itemSpacing')};
-  }
-
-  & > *:last-of-type {
-    margin: 0;
-    padding-right: 0;
-  }
-
-  & > a {
-    color: inherit;
-    text-decoration: none;
-  }
-`);
+import NavigationItem from './styles/NavigationItem';
+import NavigationItemList from './styles/NavigationItemList';
 
 export const linksPropType = PropTypes.arrayOf(PropTypes.shape({
   to: PropTypes.string,
@@ -50,8 +13,8 @@ export const linksPropType = PropTypes.arrayOf(PropTypes.shape({
   newTab: PropTypes.bool,
 }));
 
-const NavigationItems = ({ links, className, id }) => (
-  <Container id={id} className={className}>
+const NavigationItems = ({ links, className, id, List, Item }) => (
+  <List id={id} className={className}>
     {links.map((link) => (
       <Anchor
         key={`${link.content}_${link.to}`}
@@ -60,10 +23,10 @@ const NavigationItems = ({ links, className, id }) => (
         exact={link.exact}
         newTab={link.newTab}
       >
-        <NavigationItem>{link.content}</NavigationItem>
+        <Item>{link.content}</Item>
       </Anchor>
     ))}
-  </Container>
+  </List>
 );
 
 NavigationItems.propTypes = {
@@ -79,26 +42,33 @@ NavigationItems.propTypes = {
    * Adds an id to the link container element.
    */
   id: PropTypes.string,
+  /**
+   * A component to render the list container for the items
+   */
+  List: PropTypes.func,
+  /**
+   * A component to render an item
+   */
+  Item: PropTypes.func,
 };
 NavigationItems.defaultProps = {
   links: [],
   className: null,
   id: null,
+  List: NavigationItemList,
+  Item: NavigationItem,
 };
 
-NavigationItems.usage = `
-Helper to generate a list of navigation items.
-
-\`\`\`
-<NavigationItems
-  links={[
-    { to: '/cat', exact: true, content: 'Cat' },
-    { to: '/anotherCat', content: 'Another Cat' },
-  ]}
-/>
-\`\`\`
-`
-
 NavigationItems.Item = NavigationItem;
-NavigationItems.Small = theme.variant('small', true)(NavigationItems);
+NavigationItems.Small = withProps({
+  Item: NavigationItem.Small,
+})(NavigationItems);
+NavigationItems.Dark = withProps({
+  Item: NavigationItem.Dark,
+})(NavigationItems);
+NavigationItems.Small.Dark = withProps({
+  Item: NavigationItem.Small.Dark,
+})(NavigationItems);
+NavigationItems.Dark.Small = NavigationItems.Small.Dark;
+
 export default NavigationItems;

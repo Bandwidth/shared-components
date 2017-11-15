@@ -1,72 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withProps } from 'recompose';
 import styled, { css } from 'styled-components';
 import { sentence } from 'change-case';
-import Icon from '../Icon';
-import Anchor from '../Anchor';
-import theme from '../../theme';
-import { spreadStyles } from 'react-studs';
+import DefaultAnchor from '../Anchor';
+import TableHeaderSortArrowIcon from './styles/TableHeaderSortArrowIcon';
+import TableHeaderStyles from './styles/TableHeaderStyles';
+import TableHeaderSortArrows from './styles/TableHeaderSortArrows';
+import TableHeaderColumnName from './styles/TableHeaderColumnName';
 
-const select = theme
-  .register('TableHeader', ({ colors, fonts, spacing }) => ({
-    background: colors.primary.dark,
-    color: colors.text.inverted,
-    textTransform: 'uppercase',
-    fontWeight: 300,
-    fontFamily: fonts.brand,
-    padding: `${spacing.small} ${spacing.medium}`,
-    textAlign: 'left',
-    whiteSpace: 'nowrap',
-    inactiveSortArrowColor: colors.gray.medium,
-    activeSortArrowColor: colors.text.inverted,
-  }))
-  .addVariant('small', { padding: '3px 8px' })
-  .createSelector();
-
-const TH = theme.connect(styled.th`
-  ${spreadStyles(select)}
-
-  cursor: ${({ sortable }) => sortable ? 'pointer' : 'default' };
-
-  &>a {
-    color: inherit;
-  }
-  &>a:focus {
-    color: inherit;
-  }
-  &>a::after {
-    background: ${select('color')};
-  }
-`, { pure: false });
-
-const ColumnName = styled.span`
-  display: inline;
-`;
-
-const SortArrows = theme.connect(styled.span`
-  margin-left: 8px;
-  white-space: nowrap;
-
-  &>a {
-    color: ${select('inactiveSortArrowColor')};
-  }
-  &>a:focus {
-    color: ${select('activeSortArrowColor')};
-  }
-  &>a::after {
-    background: ${select('inactiveSortArrowColor')};
-  }
-
-  ${(props) => {
-    if (props.sortOrder > 0) {
-      return css`&>*:first-child { color: ${select('activeSortArrowColor')(props)}; }`;
-    } else if (props.sortOrder < 0) {
-      return css`&>*:last-child { color: ${select('activeSortArrowColor')(props)}; }`;
-    }
-  }}
-`, { pure: false });
-
-export default class TableHeader extends React.Component {
+class TableHeader extends React.Component {
   static propTypes = {
     /**
      * Contents of the header cell.
@@ -96,6 +39,26 @@ export default class TableHeader extends React.Component {
      * Adds an id to the element.
      */
     id: PropTypes.string,
+    /**
+     * A component for rendering an icon, used for sort arrows.
+     */
+    Icon: PropTypes.func,
+    /**
+     * An anchor component. Defaults Anchor
+     */
+    Anchor: PropTypes.func,
+    /**
+     * A component for rendering the th element styles
+     */
+    Styles: PropTypes.func,
+    /**
+     * A component for rendering the sort arrow container
+     */
+    SortArrows: PropTypes.func,
+    /**
+     * A component for rendering the column name text
+     */
+    ColumnName: PropTypes.func,
   };
 
   static defaultProps = {
@@ -105,6 +68,11 @@ export default class TableHeader extends React.Component {
     onClick: () => null,
     className: null,
     id: null,
+    Icon: TableHeaderSortArrowIcon,
+    Anchor: DefaultAnchor,
+    Styles: TableHeaderStyles,
+    SortArrows: TableHeaderSortArrows,
+    ColumnName: TableHeaderColumnName,
   };
 
   createClickHandler = (naturalOrder) => () =>
@@ -112,7 +80,7 @@ export default class TableHeader extends React.Component {
     this.props.handleClick(naturalOrder);
 
   renderColumnName = () => {
-    const { sortable, children, sortOrder } = this.props;
+    const { sortable, children, sortOrder, Anchor, ColumnName } = this.props;
 
     if (sortable) {
       return (
@@ -126,10 +94,10 @@ export default class TableHeader extends React.Component {
   }
 
   render() {
-    const { sortable, sortOrder, handleClick, onClick, id, className } = this.props;
+    const { sortable, sortOrder, handleClick, onClick, id, className, Styles, SortArrows, Anchor, Icon } = this.props;
 
     return (
-      <TH sortable={sortable} className={className} id={id}>
+      <Styles sortable={sortable} className={className} id={id}>
         {this.renderColumnName()}
         {sortable &&
           <SortArrows sortOrder={sortOrder}>
@@ -137,7 +105,11 @@ export default class TableHeader extends React.Component {
             <Anchor type="icon" onClick={this.createClickHandler(-1)}><Icon name="down" /></Anchor>
           </SortArrows>
         }
-      </TH>
+      </Styles>
     );
   }
 }
+
+TableHeader.Small = withProps({ Styles: TableHeaderStyles.Small })(TableHeader);
+
+export default TableHeader;

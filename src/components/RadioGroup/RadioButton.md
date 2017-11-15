@@ -1,8 +1,3 @@
-```
-const theme = require('../../theme').default;
-theme.renderDocumentation('RadioGroupButton');
-```
-
 `RadioButton` component is meant to be used in `RadioGroup`
 
 ```

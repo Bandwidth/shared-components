@@ -1,22 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import RadioButton from './RadioButton';
-import theme from '../../theme';
-
-const select = theme
-  .register('RadioGroup', { alignItems: 'stretch', minHeight: '53px', flowDirection: 'row', itemFlex: '0 1 auto' })
-  .addVariant('vertical', { flowDirection: 'column' })
-  .addVariant('small', { minHeight: '0' })
-  .createSelector();
-
-export const Container = theme.connect(styled.div`
-  display: flex;
-  flex-direction: ${select('flowDirection')};
-  align-items: ${select('alignItems')};
-  flex: 1 1 auto;
-  min-height: ${select('minHeight')};
-`);
+import { withProps } from 'recompose';
+import RadioGroupButton from './RadioButton';
+import RadioGroupContainer from './styles/RadioGroupContainer';
+import generateId from 'extensions/generateId';
 
 class RadioGroup extends React.Component {
   static propTypes = {
@@ -30,7 +17,7 @@ class RadioGroup extends React.Component {
     /**
      * A field name for this input.
      */
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     /**
      * The currently selected value.
      */
@@ -55,6 +42,14 @@ class RadioGroup extends React.Component {
      * Adds an id to the group container element.
      */
     id: PropTypes.string,
+    /**
+     * A component for rendering a container around the buttons
+     */
+    Container: PropTypes.func,
+    /**
+     * A component for rendering a button, defaults RadioGroup.Button
+     */
+    Button: PropTypes.func,
   };
 
   static defaultProps = {
@@ -63,16 +58,21 @@ class RadioGroup extends React.Component {
     className: null,
     id: null,
     choices: null,
+    Container: RadioGroupContainer,
+    Button: RadioGroupButton,
+    name: undefined,
   };
 
   getOptions = () => this.props.options || this.props.choices;
+  getName = () => this.props.name || generateId('radioGroup');
 
   optionsToButtons = () => {
-    const { value, onChange, disabled, required, name } = this.props;
+    const { value, onChange, disabled, required, Button } = this.props;
     const options = this.getOptions();
+    const name = this.getName();
     if (options instanceof Array) {
       return options.map((choice) => (
-        <RadioButton
+        <Button
           checked={choice === value}
           name={name}
           label={choice}
@@ -88,7 +88,7 @@ class RadioGroup extends React.Component {
         const choice = options[key];
 
         return (
-          <RadioButton
+          <Button
             checked={key === value}
             name={name}
             value={key}
@@ -107,7 +107,7 @@ class RadioGroup extends React.Component {
   };
 
   render() {
-    const { className, id } = this.props;
+    const { className, id, Container } = this.props;
     return (
       <Container className={className} id={id}>
         {this.optionsToButtons()}
@@ -116,7 +116,25 @@ class RadioGroup extends React.Component {
   }
 }
 
-RadioGroup.Vertical = theme.variant('vertical')(RadioGroup);
-RadioGroup.Small = theme.variant('small')(RadioGroup);
-RadioGroup.Button = RadioButton;
+RadioGroup.Vertical = withProps({
+  Container: RadioGroupContainer.Vertical,
+})(RadioGroup);
+RadioGroup.Small = withProps({
+  Button: RadioGroupButton.Small,
+})(RadioGroup);
+RadioGroup.Large = withProps({
+  Button: RadioGroupButton.Large,
+})(RadioGroup);
+
+RadioGroup.Vertical.Small = RadioGroup.Small.Vertical = withProps({
+  Container: RadioGroupContainer.Vertical,
+  Button: RadioGroupButton.Small,
+})(RadioGroup);
+RadioGroup.Vertical.Large = RadioGroup.Large.Vertical = withProps({
+  Container: RadioGroupContainer.Vertical,
+  Button: RadioGroupButton.Large,
+})(RadioGroup);
+
+RadioGroup.Button = RadioGroupButton;
+
 export default RadioGroup;

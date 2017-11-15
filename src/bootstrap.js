@@ -23,13 +23,13 @@ const bootstrapFromTheme = (theme) => {
     body, html {
       width: 100%;
       height: 100%;
-      font-family: ${theme.globals.fonts.brand};
+      font-family: ${theme.fonts.brand};
       font-size: 14px;
       letter-spacing: 0.28px;
       margin: 0;
       line-height: 1.5;
-      background: ${theme.globals.colors.background.default};
-      color: ${theme.globals.colors.text.default};
+      background: ${theme.colors.background.default};
+      color: ${theme.colors.text.default};
     }
 
     #main {

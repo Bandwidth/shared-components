@@ -1,7 +1,6 @@
 /*
   A theme that uses the new (circa 2017) 'amoeba' brand colors.
 */
-import Theme from 'react-studs';
 
 export const colors = {
   primary: {
@@ -57,6 +56,10 @@ export const colors = {
     '#41d3bd',
     '#a95adf',
   ],
+  border: {
+    medium: '#c2c2c2',
+    light: '#e1e1e1',
+  },
   background: {
     default: '#fff',
     inverted: '#272b2d',
@@ -73,6 +76,7 @@ export const fonts = {
   brand: '"Overpass", Raleway, "Open Sans", arial, sans-serif',
   default: '"Overpass", Raleway, "Open Sans", arial, sans-serif',
   monospace: '"Source Code Pro", monospace',
+  icon: 'Bandwidth',
 };
 
 export const shadows = {
@@ -93,9 +97,17 @@ export const spacing = {
   extraLarge: '60px',
 };
 
-export default new Theme('bandwidth-shared-components', {
+export const thicknesses = {
+  normal: '1px',
+  wide: '2px',
+  extraWide: '3px',
+};
+
+export default {
+  name: 'iris',
   colors,
   fonts,
   shadows,
   spacing,
-});
+  thicknesses,
+};

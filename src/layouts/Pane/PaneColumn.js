@@ -1,16 +1,8 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import theme from '../../theme';
+import get from 'extensions/themeGet';
 
-const select = theme
-  .register('PaneColumn', ({ colors }) => ({
-    borderColor: colors.gray.borderLight,
-    borderWidth: '1px',
-    borderStyle: 'solid',
-  }))
-  .createSelector();
-
-const PaneColumnImpl = theme.connect(styled.div.withConfig({ displayName: 'PaneColumn' })`
+const PaneColumn = styled.div.withConfig({ displayName: 'PaneColumn' })`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -18,17 +10,15 @@ const PaneColumnImpl = theme.connect(styled.div.withConfig({ displayName: 'PaneC
 
   & > * {
     flex: 1 0 auto;
-    border-bottom: ${select('borderWidth')} ${select('borderStyle')} ${select('borderColor')};
+    border-bottom: ${get('thicknesses.normal')} solid ${get('colors.border.light')};
   }
 
   & > *:last-child {
     border-bottom: none;
   }
-`);
+`;
 
-export const PaneColumn = (props) => <PaneColumnImpl {...props} />;
-
-PaneColumn.propsTypes = PaneColumnImpl.propTypes = {
+PaneColumn.propTypes = {
   /**
    * Adds an id to the element.
    */
@@ -39,9 +29,12 @@ PaneColumn.propsTypes = PaneColumnImpl.propTypes = {
   className: PropTypes.string,
 };
 
-PaneColumn.defaultProps = PaneColumnImpl.defaultProps = {
+PaneColumn.defaultProps = {
   id: null,
   className: null,
 };
 
-export default PaneColumnImpl;
+/**
+ * @component
+ */
+export default PaneColumn;

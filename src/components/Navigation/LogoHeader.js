@@ -1,35 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Logo from '../Logo';
-import styled from 'styled-components';
-import theme from '../../theme';
-import { spreadStyles } from 'react-studs';
-
-const select = theme
-  .register('LogoHeader', ({ fonts }) => ({
-    fontFamily: fonts.brand,
-    fontSize: '22px',
-    fontWeight: 100,
-    lineWidth: '1px',
-    lineSpacing: '0.5em',
-    height: '30px',
-    lineHeight: '30px',
-  }))
-  .createSelector();
-
-const Container = theme.connect(styled.div`
-  margin: auto 0;
-  display: flex;
-  flex-direction: row;
-`);
-
-const Text = theme.connect(styled.span`
-  ${spreadStyles(select)}
-  border-left: ${select('lineWidth')} solid;
-  margin-left: ${select('lineSpacing')};
-  padding-left: ${select('lineSpacing')};
-  display: inline-block;
-`);
+import NavigationLogoPairWrapper from './styles/NavigationLogoPairWrapper';
+import NavigationHeading from './styles/NavigationHeading';
+import DefaultAnchor from 'components/Anchor';
 
 class LogoHeader extends React.Component {
   static propTypes = {
@@ -45,34 +19,46 @@ class LogoHeader extends React.Component {
      * Adds an id to the whole containing header element.
      */
     id: PropTypes.string,
+    /**
+     * A location to navigate to when the header is clicked
+     */
+    linkTo: PropTypes.string,
+    /**
+     * A component to wrap the logo and heading text
+     */
+    LogoPairWrapper: PropTypes.func,
+    /**
+     * A component to render the heading text
+     */
+    Heading: PropTypes.func,
+    /**
+     * Allows overriding the default Anchor component
+     */
+    Anchor: PropTypes.func,
   };
 
   static defaultProps = {
     children: 'Bandwidth',
     className: null,
     id: null,
+    linkTo: '/',
+    LogoPairWrapper: NavigationLogoPairWrapper,
+    Heading: NavigationHeading,
+    Anchor: DefaultAnchor,
   };
 
   render() {
-    const { children, id, className } = this.props;
+    const { children, id, className, LogoPairWrapper, Heading, linkTo, Anchor } = this.props;
 
     return (
-      <Container id={id} className={className}>
-        <Logo />
-        <Text>{children}</Text>
-      </Container>
+      <Anchor linkTo={linkTo} exact type="content">
+        <LogoPairWrapper id={id} className={className}>
+          <Logo />
+          <Heading>{children}</Heading>
+        </LogoPairWrapper>
+      </Anchor>
     );
   }
 }
-
-LogoHeader.usage = `
-LogoHeader is mostly used for the top nav. It's just like Header, except it renders a logo before the text you supply.
-
-Bandwidth and the BW logo are trademarks of Bandwidth.com, Inc.  Bandwidth reserves all rights to these trademarks, as well as any others that may be included from time to time.
-
-\`\`\`
-<LogoHeader>Bandwidth</LogoHeader>
-\`\`\`
-`;
 
 export default LogoHeader;

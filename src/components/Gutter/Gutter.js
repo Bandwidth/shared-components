@@ -1,27 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import theme from '../../theme';
-import { spreadStyles } from 'react-studs';
+import get from 'extensions/themeGet';
 
-const select = theme
-  .register('Gutter', ({ colors }) => ({
-    background: colors.gray.light,
-    padding: 0,
-    margin: 0,
-  }))
-  .createSelector();
-
-const GutterImpl = theme.connect(styled.div.withConfig({ displayName: 'Gutter' })`
-  ${spreadStyles(select)}
-  background: ${select('background')};
-  padding: ${select('padding')};
-  margin: ${select('margin')};
-`);
-
-const Gutter = ({children, ...rest}) => (
-  <GutterImpl {...rest}>{children}</GutterImpl>
-)
+const Gutter = styled.div.withConfig({ displayName: 'Gutter' })`
+  background: ${get('colors.gray.light')};
+`;
 
 Gutter.propTypes = {
   /**
@@ -39,6 +23,7 @@ Gutter.defaultProps = {
   id: null,
 };
 
-Gutter.Styled = GutterImpl;
-
+/**
+ * @component
+ */
 export default Gutter;

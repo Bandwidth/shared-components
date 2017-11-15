@@ -2,106 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import 'react-dates/initialize';
 import { DateRangePicker as LibDateRangePicker, DateRangePickerShape } from 'react-dates';
-import baseCss from './reactDatesCss';
-import overridesCss from './overridesCss';
-import styled from 'styled-components';
 import Icon from '../Icon';
-import theme from '../../theme';
+import DateRangePickerWrapper from './styles/DateRangePickerWrapper';
+import DateRangePickerLineSeparator from './styles/DateRangePickerLineSeparator';
 
-const WIDTH = 550;
-
-const select = theme.register('DateRangePicker', ({ spacing, colors, fonts }) => ({
-  fontFamily: fonts.brand,
-  colors: {
-    default: colors.text.default,
-  },
-  input: {
-    backgrounds: {
-      default: colors.background.default,
-      disabled: colors.background.disabled,
-    },
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColors: {
-      default: colors.gray.borderLight,
-      focus: colors.gray.border,
-    },
-    effectColor: colors.primary.light,
-    fontSize: '14px',
-  },
-  icon: {
-    colors: {
-      default: colors.gray.medium,
-      focused: colors.primary.default,
-    },
-    padding: `0 0 0 ${spacing.small}`,
-  },
-  picker: {
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: colors.gray.border,
-  },
-  month: {
-    background: colors.background.default,
-    padding: `0 ${spacing.large} 0 0`,
-    color: colors.text.default,
-  },
-  monthCaption: {
-    fontSize: '14px',
-    margin: `0 0 ${spacing.large} 0`,
-    color: colors.text.default,
-    padding: spacing.small,
-  },
-  day: {
-    borderColors: {
-      default: colors.gray.borderLight,
-    },
-    backgrounds: {
-      default: colors.background.default,
-      hover: colors.primary.light,
-      range: colors.primary.light,
-      selected: colors.primary.default,
-    },
-    colors: {
-      default: colors.text.default,
-      selected: colors.text.inverted,
-      disabled: colors.text.disabled,
-    },
-  },
-  navigation: {
-    colors: {
-      default: colors.text.default,
-    },
-  },
-  lineSeparator: {
-    margin: `auto ${spacing.small}`,
-    color: colors.gray.border,
-    thickness: '1px',
-  },
-}))
-.createSelector();
-
-const Wrapper = theme.connect(styled.div`
-  ${baseCss}
-  ${overridesCss(select)}
-
-  .DateRangePicker {
-    width: ${WIDTH}px;
-  }
-
-  .DayPicker_transitionContainer {
-    width: ${WIDTH - 2}px !important;
-  }
-`);
-
-const LineSeparator = theme.connect(styled.div`
-  width: 10px;
-  margin: ${select('lineSeparator.margin')};
-  height: ${select('lineSeparator.thickness')};
-  background: ${select('lineSeparator.color')};
-`);
-
-const DateRangePicker = (props) => (
+const DateRangePicker = ({ Wrapper, LineSeparator, ...props }) => (
   <Wrapper>
     <LibDateRangePicker
       {...props}
@@ -120,6 +25,19 @@ DateRangePicker.propTypes = {
   ...DateRangePickerShape,
   startDateId: PropTypes.string,
   endDateId: PropTypes.string,
+  /**
+   * A component to wrap and control styles of the underlying react-dates DatePicker
+   */
+  Wrapper: PropTypes.func,
+  /**
+   * A component that renders the separator line between the two inputs
+   */
+  LineSeparator: PropTypes.func,
 };
+
+DateRangePicker.defaultProps = {
+  Wrapper: DateRangePickerWrapper,
+  LineSeparator: DateRangePickerLineSeparator,
+}
 
 export default DateRangePicker;

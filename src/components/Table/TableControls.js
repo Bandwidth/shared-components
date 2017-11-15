@@ -1,47 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Header from '../Heading';
+import H1 from '../H';
 import Anchor from '../Anchor';
 import BaseIcon from '../Icon';
-import theme from '../../theme';
+import TableControlsContainer from './styles/TableControlsContainer';
+import TableControlsRow from './styles/TableControlsRow';
 
-const select = theme
-  .register('TableControls', ({ spacing }) => ({
-    margin: `0 0 ${spacing.medium} 0`,
-    controlsMargin: `0 0 ${spacing.small} 0`,
-    controlSpacing: spacing.medium,
-  }))
-  .createSelector();
-
-const Container = theme.connect(styled.div`
-  margin: ${select('margin')};
-`);
-
-const ControlsRow = theme.connect(styled.div`
-  display: flex;
-  flex-direction: row;
-  margin: ${select('controlsMargin')};
-
-  & > h1 {
-    flex: 1;
-    margin: 0;
-    line-height: 1;
-  }
-
-  & > div {
-    flex: 0 0 auto;
-    & > a {
-      margin-left: ${select('controlSpacing')};
-    }
-  }
-`);
-
-theme.registerVariant('Icon', 'tableControls', {
-  size: '21px',
-});
-
-const Icon = theme.variant('tableControls', true)(BaseIcon);
+const TableControlsIcon = BaseIcon.extend`
+  font-size: 21px;
+`;
 
 class TableControls extends React.Component {
   static propTypes = {
@@ -85,6 +53,18 @@ class TableControls extends React.Component {
      * Adds an id to the container element.
      */
     id: PropTypes.string,
+    /**
+     * A component to render the containing element
+     */
+    Container: PropTypes.func,
+    /**
+     * A component to render the controls row
+     */
+    ControlsRow: PropTypes.func,
+    /**
+     * A component to render icons in the controls
+     */
+    Icon: PropTypes.func,
   };
 
   static defaultProps = {
@@ -98,6 +78,9 @@ class TableControls extends React.Component {
     onSearch: () => null,
     className: null,
     id: null,
+    Container: TableControlsContainer,
+    ControlsRow: TableControlsRow,
+    Icon: TableControlsIcon,
   };
 
   render() {
@@ -111,7 +94,10 @@ class TableControls extends React.Component {
       onAdd,
       id,
       className,
-      onSearch
+      onSearch,
+      Container,
+      ControlsRow,
+      Icon,
     } = this.props;
 
     if (!title && !enableAdd && !enableDelete && !enableSearch && !children) {
@@ -121,7 +107,7 @@ class TableControls extends React.Component {
     return (
       <Container>
         <ControlsRow id={id} className={className}>
-          <Header>{title}</Header>
+          <H1>{title}</H1>
           <div>
             {
               enableAdd ?

@@ -1,8 +1,3 @@
-```
-const theme = require('../../theme').default;
-theme.renderDocumentation('Checkbox');
-```
-
 A simple checkbox input.
 
 ***Checked checkbox***

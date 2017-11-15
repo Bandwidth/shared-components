@@ -1,46 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import _ from 'lodash';
-import theme from '../../theme';
-import { spreadStyles } from 'react-studs';
+import TableWrapShadow from './styles/TableWrapShadow';
 
-const select = theme
-  .register('TableWrap', ({ colors }) => ({
-    background: colors.background.default,
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: colors.gray.border,
-    borderRadius: '5px 5px 0 0',
-    fontSize: '1em',
-    shadowColor: colors.shadow.default,
-  }))
-  .createSelector();
-
-const WrapStyles = theme.connect(styled.div`
-  ${spreadStyles(select)}
-  width: 100%;
-  overflow-x: auto;
-  position: relative;
-
-  ${(props) => {
-    const shadowColor = select('shadowColor')(props);
-    switch (props.shadow) {
-      case 'left':
-        return `box-shadow: inset 15px 0 10px -10px ${shadowColor}};`;
-      case 'right':
-        return `box-shadow: inset -15px 0 10px -10px ${shadowColor};`;
-      case 'both':
-        return `box-shadow: inset -15px 0 10px -10px ${shadowColor}, inset 15px 0 10px -10px ${shadowColor};`;
-      default:
-        return '';
-    }
-  }}
-`, { pure: false });
+// FIXME: profiling suggests this component is inefficient with rendering.
 
 class TableWrap extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
+    /**
+     * A component to render as the wrapping component.
+     * Passed a prop, 'shadow'=['left'|'right'|'both'], to indicate
+     * the scroll position and what side of the wrapper should be shadowed.
+     */
+    Styles: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    Styles: TableWrapShadow,
   };
 
   state = {
@@ -97,10 +74,12 @@ class TableWrap extends React.Component {
   };
 
   render() {
+    const { children, Styles } = this.props;
+
     return (
-      <WrapStyles innerRef={(el) => this._wrap = el} shadow={this.state.shadow}>
-        {this.props.children}
-      </WrapStyles>
+      <Styles innerRef={(el) => this._wrap = el} shadow={this.state.shadow}>
+        {children}
+      </Styles>
     )
   }
 }

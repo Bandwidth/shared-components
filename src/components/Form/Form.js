@@ -2,32 +2,22 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FormColumn from './FormColumn';
 import FormBox from './FormBox';
-import theme from '../../theme';
+import get from 'extensions/themeGet';
 
-const select = theme
-  .register('Form', {
-    background: 'transparent',
-    color: 'inherit',
-    flexDirection: 'row',
-  })
-  .createSelector();
-
-const buttonSelect = theme.createSelector('Button');
-
-const FormImpl = styled.form.withConfig({ displayName: 'Form' })`
-  background: ${select('background')};
-  color: ${select('color')};
+const Form = styled.form.withConfig({ displayName: 'Form' })`
+  background: transparent;
+  color: inherit;
   display: flex;
-  flex-direction: ${select('flexDirection')};
+  flex-direction: row;
 
   & > * {
     flex: 1;
   }
 
   &:invalid button[type="submit"] {
-    background: ${buttonSelect('backgrounds.disabled')};
-    color: ${buttonSelect('colors.disabled')};
-    border-color: ${buttonSelect('borderColors.disabled')};
+    background: ${get('colors.background.disabled')};
+    color: ${get('colors.text.disabled')};
+    border-color: ${get('colors.background.disabled')};
     cursor: default;
     box-shadow: none;
   }
@@ -39,9 +29,7 @@ const FormImpl = styled.form.withConfig({ displayName: 'Form' })`
   }
 `;
 
-export const Form = (props) => <Form {...props} />;
-
-Form.propTypes = FormImpl.propTypes = {
+Form.propTypes = {
   /**
    * Adds an id to the element.
    */
@@ -52,12 +40,15 @@ Form.propTypes = FormImpl.propTypes = {
   className: PropTypes.string,
 };
 
-Form.defaultProps = FormImpl.defaultProps = {
+Form.defaultProps = {
   id: null,
   className: null,
 };
 
-FormImpl.Column = FormColumn;
-FormImpl.Box = FormBox;
+Form.Column = FormColumn;
+Form.Box = FormBox;
 
-export default FormImpl;
+/**
+ * @component
+ */
+export default Form;

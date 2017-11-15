@@ -1,28 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import theme from '../../theme';
 
-const select = theme
-  .register('ListItem', {
-    margin: '0 0 0.5em 2em',
-    padding: '0',
-    paragraphMargin: '0 0 0.5em',
-  })
-  .createSelector();
-
-const ListItemImpl = theme.connect(styled.li.withConfig({ displayName: 'ListItem' })`
-  margin: ${select('margin')};
-  padding: ${select('padding')};
+const ListItem = styled.li.withConfig({ displayName: 'ListItem' })`
+  margin: 0 0 0.5em 2em;
+  padding: 0;
 
   & p {
-    margin: ${select('paragraphMargin')};
+    margin: 0 0 0.5em;
   }
-`);
-
-const ListItem = ({children, ...rest}) => (
-  <ListItemImpl {...rest}>{children}</ListItemImpl>
-)
+`;
 
 ListItem.propTypes = {
   /**
@@ -40,4 +27,7 @@ ListItem.defaultProps = {
   id: null,
 };
 
+/**
+ * @component
+ */
 export default ListItem;

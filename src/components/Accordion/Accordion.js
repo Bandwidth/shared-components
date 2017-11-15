@@ -1,77 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { withProps } from 'recompose';
+
 import ExpandToggle from '../../behaviors/ExpandToggle';
-import Icon from '../Icon';
-import Group from './AccordionGroup';
-import theme from '../../theme';
-import { DefaultVariant } from 'react-studs';
-
-const select = theme
-  .register('Accordion', ({ colors, fonts, spacing }) => ({
-    border: `1px solid ${colors.gray.border}`,
-    labelPadding: spacing.large,
-    labelColor: colors.primary.default,
-    labelFont: fonts.brand,
-    labelFontSize: '1.5em',
-    labelFontWeight: 400,
-    labelTextTransform: 'none',
-    iconColor: colors.gray.default,
-    iconFontWeight: 100,
-    iconSize: '1.5em',
-    contentPadding: spacing.large,
-  })).addVariant('small', ({ spacing, colors }) => ({
-    labelPadding: spacing.medium,
-    labelColor: colors.text.default,
-    labelFontSize: '1em',
-    labelFontWeight: 600,
-    labelTextTransform: 'uppercase',
-    iconSize: '1em',
-    contentPadding: spacing.medium,
-  })).createSelector();
-
-export const Container = styled.div`
-  border: ${select('border')};
-`;
-
-const Label = theme.connect(styled.div`
-  padding: ${select('labelPadding')};
-  color: ${select('labelColor')};
-  font-family: ${select('labelFont')};
-  font-size: ${select('labelFontSize')};
-  text-transform: ${select('labelTextTransform')};
-  font-weight: ${select('labelFontWeight')};
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  user-select: none;
-`);
-
-const AccordionExpandIcon = theme.connect(styled(Icon)`
-  color: ${select('iconColor')};
-  margin: auto 1em auto auto;
-  transform: ${({ isExpanded }) => isExpanded ? 'rotate(90deg)' : 'rotate(0)'};
-  transition: 0.2s all ease;
-  font-weight: ${select('iconFontWeight')};
-
-  &:after {
-    padding-top: 0;
-    padding-bottom: 0;
-    font-size: ${select('iconSize')};
-  }
-`);
-
-const LabelText = theme.connect(styled.span`
-  margin: auto;
-  flex: 1;
-`);
-
-export const ContentPadding = theme.connect(styled.div`
-  padding: ${select('contentPadding')};
-  padding-top: 0;
-  display: flex;
-  flex-direction: column;
-`);
+import AccordionLabel from './styles/AccordionLabel';
+import AccordionArrow from './styles/AccordionArrow';
+import AccordionBorder from './styles/AccordionBorder';
+import AccordionLabelText from './styles/AccordionLabelText';
+import AccordionContent from './styles/AccordionContent';
+import AccordionGroup from './AccordionGroup';
 
 /**
  * Accordion works like a controllable component. Provide the
@@ -107,6 +44,26 @@ class Accordion extends React.Component {
      * Set an id for the accordion container element.
      */
     id: PropTypes.string,
+    /**
+     * A component to render the border
+     */
+    Border: PropTypes.func,
+    /**
+     * A component to render the label
+     */
+    Label: PropTypes.func,
+    /**
+     * A component to render the arrow
+     */
+    Arrow: PropTypes.func,
+    /**
+     * A component to render the text inside the label
+     */
+    LabelText: PropTypes.func,
+    /**
+     * A component to render the content area
+     */
+    Content: PropTypes.func,
   };
 
   static defaultProps = {
@@ -115,6 +72,11 @@ class Accordion extends React.Component {
     onToggle: null,
     className: null,
     id: null,
+    Border: AccordionBorder,
+    Label: AccordionLabel,
+    Arrow: AccordionArrow,
+    LabelText: AccordionLabelText,
+    Content: AccordionContent,
   };
 
   coalesceIsExpandedProps = () => {
@@ -129,17 +91,17 @@ class Accordion extends React.Component {
   }
 
   renderLabel = (isExpanded) => (
-    <Label onClick={this.handleToggle}>
-      <AccordionExpandIcon isExpanded={isExpanded} name="forward" size={21} />
-      <LabelText>{this.props.label}</LabelText>
-    </Label>
+    <this.props.Label onClick={this.handleToggle}>
+      <this.props.Arrow isExpanded={isExpanded} name="forward" size={21} />
+      <this.props.LabelText>{this.props.label}</this.props.LabelText>
+    </this.props.Label>
   );
 
   render() {
-    const { id, className, onToggle, children } = this.props;
+    const { id, className, onToggle, children, Border, Content } = this.props;
 
     return (
-      <Container>
+      <Border>
         <ExpandToggle
           id={id}
           className={className}
@@ -147,19 +109,21 @@ class Accordion extends React.Component {
           toggleContent={this.renderLabel}
           isExpanded={this.coalesceIsExpandedProps()}
         >
-          <ContentPadding>
-            <DefaultVariant>
-              <div>
-                {children}
-              </div>
-            </DefaultVariant>
-          </ContentPadding>
+          <Content>
+            {children}
+          </Content>
         </ExpandToggle>
-      </Container>
+      </Border>
     )
   }
 }
 
-Accordion.Group = Group;
-Accordion.Small = theme.variant('small')(Accordion);
+Accordion.Small = withProps({
+  Border: AccordionBorder.Small,
+  Arrow: AccordionArrow.Small,
+  Label: AccordionLabel.Small,
+  Content: AccordionContent.Small,
+})(Accordion);
+Accordion.Group = AccordionGroup;
+
 export default Accordion;

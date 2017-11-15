@@ -1,49 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import theme from '../../theme';
-import { spreadStyles } from 'react-studs';
+import get from 'extensions/themeGet';
 
-const select = theme
-  .register('Label', ({ colors, fonts }) => ({
-    fontSize: '1em',
-    letterSpacing: '0.02em',
-    fontWeight: 600,
-    fontFamily: fonts.brand,
-    color: colors.text.default,
-    background: 'transparent',
-    disabledOpacity: '0.5',
-    lineHeight: '1.5em',
-    requiredMarkColor: '#e8562e',
-  }))
-  .createSelector();
-
-const LabelImpl = theme.connect(styled.label.withConfig({ displayName: 'Label' })`
-  ${spreadStyles(select)}
+const Label = styled.label.withConfig({ displayName: 'Label' })`
+  font-size: 1em;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  font-family: ${get('fonts.brand')};
+  color: ${get('colors.text.default')};
+  background: transparent;
+  line-height: 1.5;
   display: block;
 
+  ${({ disabled }) => disabled ? 'opacity: 0.5;' : ''}
+
   &:disabled {
-    opacity: ${select('disabledOpacity')};
+    opacity: 0.5;
   }
 
-  ${({ required, theme }) =>
+  ${({ required }) =>
     required ?
       css`
         &::after {
           content: '*';
-          color: ${select('requiredMarkColor')};
+          color: #e8562e;
           padding-left: 0.3em;
         }
       ` :
       ''
   }
-`);
+`;
 
-const Label = ({children, ...rest}) => (
-  <LabelImpl {...rest}>{children}</LabelImpl>
-)
-
-Label.propTypes = LabelImpl.propTypes = {
+Label.propTypes = {
   /**
    * Styles the label to indicate that the associated field is disabled.
    */
@@ -58,12 +47,13 @@ Label.propTypes = LabelImpl.propTypes = {
   id: PropTypes.string,
 };
 
-Label.defaultProps = LabelImpl.defaultProps = {
+Label.defaultProps = {
   disabled: false,
   className: null,
   id: null,
 };
 
-LabelImpl.Styled = LabelImpl.WrappedComponent;
-
-export default LabelImpl;
+/**
+ * @component
+ */
+export default Label;

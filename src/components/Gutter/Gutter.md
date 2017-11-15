@@ -1,8 +1,3 @@
-```
-const theme = require('../../theme').default;
-theme.renderDocumentation('Gutter');
-```
-
 A simple container box which sets the background color. That's it!
 
 ```javascript

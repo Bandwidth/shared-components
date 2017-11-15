@@ -1,8 +1,3 @@
-```
-const theme = require('../../theme').default;
-theme.renderDocumentation('Icon');
-```
-
 Icons let you easily render some of our icons. Pass in the `name` prop to specify which one.
 
 The icon definition file is in `components/helpers/icons.js`

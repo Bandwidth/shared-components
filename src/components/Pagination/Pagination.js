@@ -1,88 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Icon from '../Icon';
-import theme from '../../theme';
-
-const select = theme
-  .register('Pagination', ({ colors }) => ({
-    size: '30px',
-    background: colors.background.default,
-    selectedBackground: colors.primary.default,
-    borderColor: colors.gray.border,
-    selectedBorderColor: colors.primary.default,
-    hoverBackground: colors.primary.light,
-    color: colors.text.default,
-    selectedColor: colors.text.inverted,
-    borderWidth: '1px',
-    activeBackground: colors.gray.light,
-    cornerRadius: '3px',
-  }))
-  .createSelector();
-
-const Container = styled.ul`
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  user-select: none;
-`;
-
-const Item = theme.connect(styled.li`
-  float: left;
-  margin: 0;
-  padding: 0;
-  width: ${select('size')};
-  height: ${select('size')};
-  line-height: ${select('size')};
-  text-align: center;
-  cursor: pointer;
-  border-width: ${select('borderWidth')};
-  border-style: solid;
-  border-color: ${select('borderColor')};
-  border-right: none;
-  user-select: none;
-  background: ${select('background')};
-  color: ${select('activeColor')};
-
-  ${(props) => props.selected ?
-    `
-      background: ${select('selectedBackground')(props)};
-      border-color: ${select('selectedBorderColor')(props)};
-      color: ${select('selectedColor')(props)};
-
-      & + li {
-        border-left-color: ${select('selectedBorderColor')(props)};
-      }
-    ` :
-    `
-      &:hover {
-        background: ${select('hoverBackground')(props)};
-      }
-    `
-  }
-
-  &:active {
-    background: ${select('activeBackground')};
-  }
-
-  &:first-of-type {
-    border-radius: ${select('cornerRadius')} 0px 0px ${select('cornerRadius')};
-  }
-
-  &:last-of-type {
-    border-radius: 0px ${select('cornerRadius')} ${select('cornerRadius')} 0px;
-    border-right: ${select('borderWidth')} solid ${select('borderColor')};
-  }
-`, { pure: false });
-
-const ItemPlaceholder = theme.connect(styled.li`
-  float: left;
-  margin: 0;
-  padding: 0;
-  width: ${select('size')};
-  height: ${select('size')};
-`);
+import PaginationContainer from './styles/PaginationContainer';
+import PaginationItem from './styles/PaginationItem';
+import PaginationItemPlaceholder from './styles/PaginationItemPlaceholder';
 
 class Pagination extends React.Component {
   static propTypes = {
@@ -106,6 +27,18 @@ class Pagination extends React.Component {
      * Adds an id to the pagination container element.
      */
     id: PropTypes.string,
+    /**
+     * A component to render a container for the pagination
+     */
+    Container: PropTypes.func,
+    /**
+     * A component to render a single pagination item
+     */
+    Item: PropTypes.func,
+    /**
+     * A component to render a placeholder space for a pagination item
+     */
+    ItemPlaceholder: PropTypes.func,
   };
 
   static defaultProps = {
@@ -113,6 +46,9 @@ class Pagination extends React.Component {
     currentPage: 0,
     className: null,
     id: null,
+    Container: PaginationContainer,
+    Item: PaginationItem,
+    ItemPlaceholder: PaginationItemPlaceholder,
   };
 
   createItemClickHandler = (index) => () => this.props.onPageSelected(index);
@@ -137,26 +73,26 @@ class Pagination extends React.Component {
   renderPrevious = () =>
     this.props.currentPage > 0 ?
       (
-        <Item
+        <this.props.Item
           onClick={this.handlePreviousClick}
         >
           <Icon name="back" />
-        </Item>
-      ) : <ItemPlaceholder />;
+        </this.props.Item>
+      ) : <this.props.ItemPlaceholder />;
 
 
   renderNext = () =>
     this.props.currentPage < this.props.pageCount - 1 ?
       (
-        <Item
+        <this.props.Item
           onClick={this.handleNextClick}
         >
           <Icon name="forward" />
-        </Item>
-      ) : <ItemPlaceholder />;
+        </this.props.Item>
+      ) : <this.props.ItemPlaceholder />;
 
   renderItems = () => {
-    const { pageCount, currentPage } = this.props;
+    const { pageCount, currentPage, Item } = this.props;
     const start = Math.max(0, Math.min(currentPage + 5, pageCount) - 10);
     const end = Math.min(start + 10, pageCount);
     return new Array(pageCount)
@@ -176,7 +112,7 @@ class Pagination extends React.Component {
   };
 
   render() {
-    const { id, className } = this.props;
+    const { id, className, Container } = this.props;
     return (
       <Container id={id} className={className}>
         {this.renderPrevious()}

@@ -1,110 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withProps } from 'recompose';
 import styled, { css } from 'styled-components';
 import Anchor from '../Anchor';
-import theme from '../../theme';
-import { spreadStyles } from 'react-studs';
-
-const select = theme
-  .register('Input', ({ colors, fonts, spacing, shadows }) => ({
-    colors: {
-      default: colors.text.default,
-      disabled: colors.text.default,
-    },
-    backgrounds: {
-      default: colors.background.default,
-      disabled: colors.gray.disabled,
-    },
-    borderColors: {
-      default: colors.gray.borderLight,
-      invalid: colors.negative.border,
-      focus: colors.gray.border,
-      disabled: colors.gray.border,
-    },
-    effectColors: {
-      valid: colors.primary.light,
-      invalid: colors.negative.light,
-    },
-    opacities: {
-      default: 1,
-      disabled: 0.5,
-    },
-    letterSpacing: '0.02em',
-    lineHeight: '1.5',
-    fontSize: '14px',
-    fontFamily: fonts.brand,
-    transition: 'all 0.2s ease',
-    padding: spacing.medium,
-    display: 'block',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    placeholderOpacity: '0.5',
-    showPasswordPadding: `${spacing.medium} ${spacing.extraLarge} ${spacing.medium} ${spacing.medium}`,
-  }))
-  .addVariant('small', ({ spacing }) => ({ fontSize: '12px', padding: spacing.small }))
-  .createSelector();
-
-const StyledInput = theme.connect(styled.input`
-  ${spreadStyles(select)}
-  color: ${select('colors.default')};
-  background: ${select('backgrounds.default')};
-  opacity: ${select('opacities.default')};
-  border-color: ${select('borderColors.default')};
-
-  outline: none;
-  width: 100%;
-
-  &:focus {
-    box-shadow: inset 0 -5px 0 ${select('effectColors.valid')};
-    border-color: ${select('borderColors.focus')};
-  }
-
-  &:disabled {
-    background: ${select('backgrounds.disabled')};
-    border-color: ${select('borderColors.disabled')};
-    opacity: ${select('opacities.disabled')};
-    color: ${select('colors.disabled')};
-  }
-
-  &::placeholder {
-    opacity: ${select('placeholderOpacity')};
-  }
-
-  ${({ visited, theme }) => visited ?
-    css`
-      &:invalid {
-        box-shadow: inset 0 -5px 0 ${select('effectColors.invalid')};
-        border-color: ${select('borderColors.invalid')};
-      }
-    ` : ''
-  }
-
-  ${({ invalid, error, theme }) => invalid || error ?
-    `
-    box-shadow: inset 0 -5px ${select('effectColors.invalid')};
-    border-color: ${select('borderColors.invalid')};
-    ` :
-    ''
-  }
-`);
-
-const RevealPasswordContainer = styled.div`
-  position: relative;
-  width: 100%;
-
-  div {
-    position: absolute;
-    right: 10px;
-    top: 30%;
-    z-index: 10;
-  }
-
-  input[type="password"],
-  input[type="text"] {
-    padding: ${select('showPasswordPadding')} !important;
-  }
-
-`
+import InputStyles from './styles/InputStyles';
+import InputRevealPasswordWrapper from './styles/InputRevealPasswordWrapper';
 
 class Input extends React.Component {
   static propTypes = {
@@ -172,13 +72,16 @@ class Input extends React.Component {
      * Provides a reference to the input element
      */
     inputRef: PropTypes.func,
+    /**
+     * A component that renders the internal input element
+     */
+    Styles: PropTypes.func,
+    /**
+     * A component that wraps the whole element and helps control spacing
+     * when reveal password is enabled
+     */
+    RevealPasswordWrapper: PropTypes.func,
   };
-
-  componentDidMount () {
-    this.setState({
-      _type: this.props.type
-    })
-  }
 
   static defaultProps = {
     disabled: false,
@@ -193,8 +96,16 @@ class Input extends React.Component {
     invalid: false,
     error: false,
     placeholder: '',
-    disableShowPassword: false
+    disableShowPassword: false,
+    Styles: InputStyles,
+    RevealPasswordWrapper: InputRevealPasswordWrapper,
   };
+
+  componentDidMount () {
+    this.setState({
+      _type: this.props.type
+    })
+  }
 
   constructor(props) {
     super(props);
@@ -210,6 +121,7 @@ class Input extends React.Component {
   };
 
   renderPasswordField = () => {
+    const { RevealPasswordWrapper } = this.props;
     const toggleState = () => this.state._type === 'password' ? 'text' : 'password';
     const handleClick = (evt) => {
       evt.preventDefault();
@@ -219,14 +131,14 @@ class Input extends React.Component {
     }
 
     return (
-      <RevealPasswordContainer>
+      <RevealPasswordWrapper>
         {this.renderInputField()}
         <div>
           <Anchor href="" onClick={handleClick}>
             {this.state._type === 'password' ? 'Show' : 'Hide'}
           </Anchor>
         </div>
-      </RevealPasswordContainer>
+      </RevealPasswordWrapper>
     )
   }
 
@@ -246,12 +158,13 @@ class Input extends React.Component {
       placeholder,
       inputRef,
       onBlur,
+      Styles,
     } = this.props;
 
     const { visited, _type:type } = this.state;
 
     return (
-      <StyledInput
+      <Styles
         onBlur={this.onBlur}
         onKeyDown={onKeyDown}
         onFocus={onFocus}
@@ -284,6 +197,8 @@ class Input extends React.Component {
   }
 }
 
-Input.Small = theme.variant('small')(Input);
+Input.Small = withProps({
+  Styles: InputStyles.Small,
+})(Input);
 
 export default Input;

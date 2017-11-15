@@ -1,150 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
 import generateId from '../../extensions/generateId';
-import theme from '../../theme';
-
-const select = theme
-  .register('Toggle', ({ colors, shadows, spacing, fonts }) => ({
-    focusShadow: shadows.focusOutline,
-    borderWidth: '2px',
-    borderStyle: 'solid',
-    size: '24px',
-    description: {
-      padding: `${spacing.extraSmall} 0 ${spacing.extraSmall} ${spacing.extraLarge}`,
-      fontFamily: fonts.brand,
-      color: colors.text.default,
-      fontWeight: 300,
-    },
-    backgrounds: {
-      on: colors.primary.dark,
-      off: colors.background.default,
-      hover: colors.primary.dark,
-      disabled: colors.background.disabled,
-    },
-    colors: {
-      on: colors.text.inverted,
-      off: colors.text.inverted,
-      disabled: colors.background.disabled,
-    },
-    borderColors: {
-      disabled: colors.gray.default,
-      on: colors.primary.dark,
-      off: colors.primary.dark,
-      hover: colors.primary.dark,
-    },
-  }))
-  .createSelector();
-const descriptionSelect = (val) => select('description.' + val);
-
-export const HiddenInput = theme.connect(styled.input`
-  opacity: 0;
-  position: absolute;
-  z-index: -100000;
-
-  &:focus + label::before {
-    box-shadow: ${select('focusShadow')};
-  }
-
-  & + label::before {
-    background: ${select('backgrounds.off')};
-    border-color: ${select('borderColors.off')};
-  }
-
-  & + label::after {
-    background: ${select('colors.off')};
-    border-color: ${select('borderColors.off')};
-  }
-
-  & + label:hover::before, & + label:hover::after {
-    border-color: ${select('borderColors.hover')};
-  }
-
-  &:checked + label {
-    &::before {
-      background: ${select('backgrounds.on')};
-      border-color: ${select('borderColors.on')};
-    }
-
-    &::after {
-      left: ${select('size')};
-      background: ${select('colors.on')};
-      border-color: ${select('borderColors.on')};
-    }
-
-    &:hover {
-      &::before {
-        background: ${select('backgrounds.hover')};
-      }
-      &::before, &::after {
-        border-color: ${select('borderColors.hover')};
-      }
-    }
-  }
-
-  &:disabled + label {
-    &::before, &::after {
-      border-color: ${select('borderColors.disabled')};
-    }
-
-    &::before {
-      background: ${select('backgrounds.disabled')};
-    }
-
-    &::after {
-      background: ${select('colors.disabled')};
-    }
-  }
-`);
-
-const ToggleLabel = theme.connect(styled.label`
-  cursor: pointer;
-  position: relative;
-  padding: ${descriptionSelect('padding')};
-  user-select: none;
-  transition: all 0.2s ease;
-  line-height: calc(${select('size')} * 1.5);
-  font-family: ${descriptionSelect('fontFamily')};
-  font-weight: ${descriptionSelect('fontWeight')};
-  color: ${descriptionSelect('color')};
-  display: inline;
-
-  &::before {
-    content: '';
-    border-width: ${select('borderWidth')};
-    border-style: ${select('borderStyle')};
-    border-radius: ${select('size')};
-    width: calc(${select('size')} * 2);
-    height: ${select('size')};
-    cursor: pointer;
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: all 0.2s ease;
-  }
-
-  &::after {
-    content: '';
-    border-width: ${select('borderWidth')};
-    border-style: ${select('borderStyle')};
-    border-radius: ${select('size')};
-    width: ${select('size')};
-    height: ${select('size')};
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
-    display: block;
-    transition: all 0.2s ease;
-  }
-`);
-
-const Container = styled.div`
-  position: relative;
-  display: block;
-`;
+import ToggleContainer from './styles/ToggleContainer';
+import ToggleInput from './styles/ToggleInput';
+import ToggleLabel from './styles/ToggleLabel';
 
 class Toggle extends React.Component {
   static propTypes = {
@@ -176,6 +35,18 @@ class Toggle extends React.Component {
      * Callback for the onChange event of the input.
      */
     onChange: PropTypes.func,
+    /**
+     * A component to render the container around the toggle and label
+     */
+    Container: PropTypes.func,
+    /**
+     * A component to render the input element, usually hidden
+     */
+    Input: PropTypes.func,
+    /**
+     * A component to render the label, which usually also renders the toggle itself
+     */
+    Label: PropTypes.func,
   };
 
   static defaultProps = {
@@ -186,14 +57,29 @@ class Toggle extends React.Component {
     disabled: false,
     description: null,
     onChange: () => null,
+    Container: ToggleContainer,
+    Input: ToggleInput,
+    Label: ToggleLabel,
   };
 
+  defaultId = generateId('toggle');
+
   render() {
-    const { className, disabled, value, required, description, onChange } = this.props;
-    const id = this.props.id || generateId('toggle');
+    const {
+      className,
+      disabled,
+      value,
+      required,
+      description,
+      onChange,
+      Container,
+      Input,
+      Label,
+    } = this.props;
+    const id = this.props.id || this.defaultId;
     return (
       <Container>
-        <HiddenInput
+        <Input
           id={id}
           className={className}
           type="checkbox"
@@ -202,9 +88,9 @@ class Toggle extends React.Component {
           required={required}
           onChange={onChange}
         />
-        <ToggleLabel htmlFor={id}>
+        <Label htmlFor={id}>
           {description}
-        </ToggleLabel>
+        </Label>
       </Container>
     );
   }

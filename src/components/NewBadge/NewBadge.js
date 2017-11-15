@@ -1,31 +1,22 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import theme from '../../theme';
-import { spreadStyles } from 'react-studs';
+import get from 'extensions/themeGet';
 
-const select = theme
-  .register('NewBadge', ({ colors }) => ({
-    color: colors.primary.default,
-    fontWeight: 'bold',
-    fontSize: '0.85em',
-    margin: '0 0 0 1em',
-    textTransform: 'uppercase',
-  }))
-  .createSelector();
-
-const NewBadgeImpl = theme.connect(styled.span`
+const NewBadge = styled.span`
   display: inline-block;
 
   &::after {
     content: 'New:';
     display: inline-block;
-    ${spreadStyles(select)}
+    color: ${get('colors.primary.default')};
+    font-weight: bold;
+    font-size: 0.85em;
+    margin: 0 0 0 1em;
+    text-transform: uppercase;
   }
-`);
+`;
 
-export const NewBadge = (props) => <NewBadge {...props} />;
-
-NewBadgeImpl.propTypes = NewBadge.propTypes = {
+NewBadge.propTypes = {
   /**
    * Adds a class name to the element.
    */
@@ -36,9 +27,12 @@ NewBadgeImpl.propTypes = NewBadge.propTypes = {
   id: PropTypes.string,
 };
 
-NewBadgeImpl.defaultProps = {
+NewBadge.defaultProps = {
   className: null,
   id: null,
 };
 
-export default NewBadgeImpl;
+/**
+ * @component
+ */
+export default NewBadge;

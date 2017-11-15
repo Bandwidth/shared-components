@@ -1,132 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Link as ReactLink, Route } from 'react-router-dom';
-import theme from '../../theme';
-import { spreadStyles } from 'react-studs';
-
-const select = theme
-  .register('Anchor', ({ colors, fonts }) => ({
-    color: colors.primary.alternate,
-    fontFamily: fonts.brand,
-    activeColor: colors.primary.default,
-    bubbleBorderRadius: '2em',
-    display: 'inline',
-  }))
-  .addVariant('danger', ({ colors }) => ({
-    color: colors.negative.default,
-  }))
-  .createSelector();
-
-export const TextAnchorImpl = theme.connect(styled.a`
-  ${spreadStyles(select)}
-
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2 ease;
-  white-space: nowrap;
-  position: relative;
-  height: auto;
-  margin: auto;
-
-  &:focus {
-    outline: none;
-  }
-
-  &:active {
-    color: ${select('activeColor')};
-  }
-
-  &::after {
-    content: "";
-    background: ${select('color')};
-    border-radius: ${select('bubbleBorderRadius')};
-    height: 1px;
-    width: 100%;
-    position: absolute;
-    bottom: -0.1em;
-    left: 0;
-    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0.15s ease 0.15s;
-  }
-
-  &:hover::after,
-  &:focus::after {
-    height: calc(100% + 0.2em);
-    width: calc(100% + 0.6em);
-    left: -0.3em;
-    opacity: 0.125;
-    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0s ease;
-  }
-`);
-const TextAnchor = theme.connect(TextAnchorImpl);
-
-export const IconAnchor = theme.connect(styled(TextAnchorImpl)`
-  text-decoration: none;
-  display: inline-block;
-  &::after {
-    opacity: 0;
-  }
-`);
-
-// notice: this goes back to regular link, not TextAnchor as above
-export const WrapAnchor = theme.connect(styled.a`
-  text-decoration: none;
-`);
-
-export const ReactTextAnchorImpl = theme.connect(styled(ReactLink)`
-  ${spreadStyles(select)}
-
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2 ease;
-  white-space: nowrap;
-  position: relative;
-  height: auto;
-  margin: auto;
-
-  &:focus {
-    outline: none;
-  }
-
-  &:active {
-    color: ${select('activeColor')};
-  }
-
-  &::after {
-    content: "";
-    background: ${select('color')};
-    border-radius: ${select('bubbleBorderRadius')};
-    height: 1px;
-    width: 100%;
-    position: absolute;
-    bottom: -0.1em;
-    left: 0;
-    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0.15s ease 0.15s;
-  }
-
-  &:hover::after,
-  &:focus::after {
-    height: calc(100% + 0.2em);
-    width: calc(100% + 0.6em);
-    left: -0.3em;
-    opacity: 0.125;
-    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease, opacity 0s ease;
-  }
-`);
-
-const ReactTextAnchor = theme.connect(ReactTextAnchorImpl);
-
-export const ReactIconAnchor = theme.connect(styled(ReactTextAnchorImpl)`
-  text-decoration: none;
-  display: inline-block;
-  &::after {
-    opacity: 0;
-  }
-`);
-
-export const ReactWrapAnchor = theme.connect(styled(ReactLink)`
-  text-decoration: none;
-`);
+import { withProps } from 'recompose';
+import { Route } from 'react-router-dom';
+import DefaultExternalContentAnchor from './styles/ExternalContentAnchor';
+import DefaultExternalIconAnchor from './styles/ExternalIconAnchor';
+import DefaultExternalTextAnchor from './styles/ExternalTextAnchor';
+// 'internal' anchors link to in-app pages, not external URLs
+import DefaultInternalContentAnchor from './styles/InternalContentAnchor';
+import DefaultInternalTextAnchor from './styles/InternalTextAnchor';
+import DefaultInternalIconAnchor from './styles/InternalIconAnchor';
 
 const inferType = (children) => {
   if (children === null) {
@@ -143,8 +25,6 @@ const inferType = (children) => {
 
   return 'wrap';
 };
-
-const isExternal = (to) => /^(https?:)*\/\//.test(to);
 
 class Anchor extends React.Component {
   static propTypes = {
@@ -165,9 +45,14 @@ class Anchor extends React.Component {
      */
     onClick: PropTypes.func,
     /**
-     * whether the contents should be treated as text (underlined), icon (has specific styling), or 'wrap' (no styling).
+     * whether the contents should be treated as text (underlined),
+     * icon (has specific styling), or 'content' (no styling).
      */
-    type: PropTypes.oneOf(['text', 'icon', 'wrap']),
+    type: PropTypes.oneOf(['text', 'icon', 'wrap', 'content']),
+    /**
+     * Use to override the automatic inference of whether the URL is external or internal
+     */
+    external: PropTypes.bool,
     /**
      * A class name to pass to the <a> element.
      */
@@ -180,6 +65,30 @@ class Anchor extends React.Component {
      * Opens the link in a new tab.
      */
     newTab: PropTypes.bool,
+    /**
+     * Renders a text anchor linking to an external site
+     */
+    ExternalTextAnchor: PropTypes.func,
+    /**
+     * Renders an icon anchor linking to an external site
+     */
+    ExternalIconAnchor: PropTypes.func,
+    /**
+     * Renders a content (image, element) anchor linking to an external site
+     */
+    ExternalContentAnchor: PropTypes.func,
+    /**
+     * Renders a text anchor linking to a page in-app
+     */
+    InternalTextAnchor: PropTypes.func,
+    /**
+     * Renders an icon anchor linking to a page in-app
+     */
+    InternalIconAnchor: PropTypes.func,
+    /**
+     * Renders a content (image, element) anchor linking to a page in-app
+     */
+    InternalContentAnchor: PropTypes.func,
   };
 
   static defaultProps = {
@@ -191,18 +100,46 @@ class Anchor extends React.Component {
     className: null,
     id: null,
     newTab: false,
+    external: undefined,
+    ExternalTextAnchor: DefaultExternalTextAnchor,
+    ExternalIconAnchor: DefaultExternalIconAnchor,
+    ExternalContentAnchor: DefaultExternalContentAnchor,
+    InternalTextAnchor: DefaultInternalTextAnchor,
+    InternalIconAnchor: DefaultInternalIconAnchor,
+    InternalContentAnchor: DefaultInternalContentAnchor,
   };
 
+  isExternal = () => {
+    const { external, to } = this.props;
+    if (external !== undefined) {
+      return external;
+    }
+    return /^(https?:)*\/\//.test(to);
+  }
+
   getComponentType = () => {
-    const type = this.props.type || inferType(this.props.children);
-    const external = isExternal(this.props.to);
-    switch (type) {
+    const {
+      type,
+      external,
+      children,
+      to,
+      ExternalTextAnchor,
+      ExternalIconAnchor,
+      ExternalContentAnchor,
+      InternalTextAnchor,
+      InternalIconAnchor,
+      InternalContentAnchor,
+    } = this.props;
+    const finalType = type || inferType(children);
+    const finalExternal = this.isExternal();
+    switch (finalType) {
       case 'wrap':
-        return external ? WrapAnchor : ReactWrapAnchor;
+      case 'content':
+        return finalExternal ? ExternalContentAnchor : InternalContentAnchor;
       case 'icon':
-        return external ? IconAnchor : ReactIconAnchor;
+        return finalExternal ? ExternalIconAnchor : InternalIconAnchor;
       default:
-        return external ? TextAnchor : ReactTextAnchor;
+        return finalExternal ? ExternalTextAnchor : InternalTextAnchor;
     }
   }
 
@@ -212,6 +149,9 @@ class Anchor extends React.Component {
     // prevent default navigation
     if (onClick && to === '#') {
       event.preventDefault();
+      onClick(event);
+    } else if (onClick) {
+      // still do onClick event if navigation occurs
       onClick(event);
     }
   }
@@ -234,7 +174,7 @@ class Anchor extends React.Component {
   extraProps = () => {
     const { to, newTab } = this.props;
     const newTabProps = newTab ? { rel: 'noopener', target: '_blank' } : {};
-    if (isExternal(to)) {
+    if (this.isExternal()) {
       return {
         href: to,
         ...newTabProps,
@@ -270,6 +210,11 @@ class Anchor extends React.Component {
   }
 }
 
-Anchor.Danger = theme.variant('danger')(Anchor);
+Anchor.Danger = withProps({
+  ExternalTextAnchor: DefaultExternalTextAnchor.Danger,
+  ExternalIconAnchor: DefaultExternalIconAnchor.Danger,
+  InternalTextAnchor: DefaultInternalTextAnchor.Danger,
+  InternalIconAnchor: DefaultInternalIconAnchor.Danger,
+})(Anchor);
 
 export default Anchor;

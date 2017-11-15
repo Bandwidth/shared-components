@@ -1,31 +1,24 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import theme from '../../theme';
-import { spreadStyles } from 'react-studs';
+import get from 'extensions/themeGet';
 
-const select = theme
-  .register('TextArea', ({ colors, spacing, fonts }) => ({
-    background: colors.background.default,
-    color: colors.text.default,
-    fontSize: '14px',
-    fontWeight: 400,
-    fontFamily: fonts.brand,
-    letterSpacing: '0.02em',
-    borderColor: colors.gray.borderLight,
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    lineHeight: '1.5',
-    minHeight: '100px',
-  }))
-  .createSelector();
-
-const TextArea = theme.connect(styled.textarea`
-  ${spreadStyles(select)}
+const TextArea = styled.textarea`
+  background: ${get('colors.background.default')};
+  color: ${get('colors.text.default')};
+  font-size: 14px;
+  font-weight: 400;
+  font-family: ${get('fonts.brand')};
+  letter-spacing: 0.02em;
+  border-color: ${get('colors.border.light')};
+  border-width: ${get('thicknesses.normal')};
+  border-style: solid;
+  line-height: 1.5;
+  min-height: 100px;
   box-shadow: none;
   transition: all 0.2s ease;
   outline: none;
   width: 100%;
-`);
+`;
 
 TextArea.propTypes = {
   /**
@@ -43,12 +36,7 @@ TextArea.defaultProps = {
   id: null,
 };
 
-TextArea.usage = `
-An input component that renders a large field for entering long text.
-
-\`\`\`
-<TextArea value="hi" required />
-\`\`\`
-`;
-
+/**
+ * @component
+ */
 export default TextArea;

@@ -1,15 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Container as AccordionContainer } from './Accordion';
+import AccordionGroupContainer from './styles/AccordionGroupContainer';
 
-const Container = styled.div`
-  & > ${AccordionContainer}:not(:first-child) {
-    border-top: none;
-  }
-`;
-
-class AccordionGroup extends React.Component {
+export default class AccordionGroup extends React.Component {
   static propTypes = {
     /**
      * Accordions to render in this group.
@@ -27,12 +20,17 @@ class AccordionGroup extends React.Component {
      * An id to pass to the accordion group container
      */
     id: PropTypes.string,
+    /**
+     * A component that wraps the accordions and defines layout and styling
+     */
+    Container: PropTypes.func,
   };
 
   static defaultProps = {
     startExpandedKey: null,
     className: null,
     id: null,
+    Container: AccordionGroupContainer,
   };
 
   constructor(props) {
@@ -69,7 +67,7 @@ class AccordionGroup extends React.Component {
   }
 
   render() {
-    const { className, id } = this.props;
+    const { className, id, Container } = this.props;
 
     return (
       <Container className={className} id={id}>
@@ -78,5 +76,3 @@ class AccordionGroup extends React.Component {
     );
   }
 }
-
-export default AccordionGroup;

@@ -1,16 +1,8 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import theme from '../../theme';
+import get from 'extensions/themeGet';
 
-const select = theme
-  .register('PaneRow', ({ colors }) => ({
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: colors.gray.borderLight,
-  }))
-  .createSelector();
-
-const PaneRowImpl = styled.div.withConfig({ displayName: 'PaneRow' })`
+const PaneRow = styled.div.withConfig({ displayName: 'PaneRow' })`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -18,9 +10,9 @@ const PaneRowImpl = styled.div.withConfig({ displayName: 'PaneRow' })`
 
   & > * {
     flex: 1;
-    border-right: ${select('borderWidth')} ${select('borderStyle')} ${select('borderColor')};
-    border-left: ${select('borderWidth')} ${select('borderStyle')} ${select('borderColor')};
-    margin-left: -${select('borderWidth')};
+    border-right: ${get('thicknesses.normal')} solid ${get('colors.border.light')};
+    border-left: ${get('thicknesses.normal')} solid ${get('colors.border.light')};
+    margin-left: -${get('thicknesses.normal')};
   }
 
   & > *:first-child {
@@ -33,9 +25,7 @@ const PaneRowImpl = styled.div.withConfig({ displayName: 'PaneRow' })`
   }
 `;
 
-export const PaneRow = (props) => <PaneRowImpl {...props} />;
-
-PaneRow.propTypes = PaneRowImpl.propTypes = {
+PaneRow.propTypes = {
   /**
    * Adds an id to the element.
    */
@@ -46,9 +36,12 @@ PaneRow.propTypes = PaneRowImpl.propTypes = {
   className: PropTypes.string,
 };
 
-PaneRow.defaultProps = PaneRowImpl.defaultProps = {
+PaneRow.defaultProps = {
   id: null,
   className: null,
 };
 
-export default PaneRowImpl;
+/**
+ * @component
+ */
+export default PaneRow;

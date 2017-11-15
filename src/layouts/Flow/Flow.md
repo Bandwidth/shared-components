@@ -1,8 +1,3 @@
-```
-const theme = require('../../theme').default;
-theme.renderDocumentation('Flow');
-```
-
 ## The Flow System
 
 Flow is a layout system which is intended to capture the rules which have surfaced in various UX mockups into tested, repeatable code. With Flow, each UI element is annotated with an optional label and help text component. Vertical spacing is kept consistent on every row. Horizontal alignment has sane defaults and a lot of options for fine-tuning. Flow is primarily designed for use inside forms to layout inputs, but it can be used anywhere you need it.
@@ -11,7 +6,15 @@ Flow is a layout system which is intended to capture the rules which have surfac
 
 Flow Items have a distinctive layout and appearance. When you see one in a design mockup, use the Flow system.
 
-![A Flow Item]((../../../docs/images/item.png))
+#### The anatomy of a Flow.Item
+
+```javascript
+<Flow>
+  <Flow.Item label="A label" helpText="Some help text">
+    <Input value="A content element" />
+  </Flow.Item>
+</Flow>
+```
 
 Flow Items have a label, help text, and content which has a fixed height. Sometimes they might be missing a label, or help text, or both. As a rule of thumb, though, anything which is on the same horizontal level as another Flow Item should also be a Flow Item.
 
@@ -19,7 +22,7 @@ Flow Items have a label, help text, and content which has a fixed height. Someti
 
 #### Simple Row
 
-```
+```javascript
 <Flow>
   <Flow.Row>
     <Flow.Item label="User ID:" helpText="A unique identifier">
@@ -36,7 +39,7 @@ Flow Items have a label, help text, and content which has a fixed height. Someti
 
 Sometimes you need to use nesting to achieve a precise alignment of various rows of fields. Particularly, if you want to break one column down into two columns on a certain row, you need to use nesting to line them up perfectly.
 
-```
+```javascript
 <Flow>
   <Flow.Row>
     <Flow.Item label="Company"><Input /></Flow.Item>
@@ -99,7 +102,7 @@ Flow includes built-in Redux Form fields for all our Input types. Reference them
 
 Usually in a form, submit buttons and other controls lay out differently. There are a variety of possibilities, but all are possible with Flow! Here are some examples:
 
-```
+```javascript
 <Flow>
   <Flow.Row alignment="left">
     <Flow.Item>
@@ -112,7 +115,7 @@ Usually in a form, submit buttons and other controls lay out differently. There 
 </Flow>
 ```
 
-```
+```javascript
 <Flow>
   <Flow.Row>
     <Flow.Item alignment="left">

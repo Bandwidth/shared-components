@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BandwidthThemeProvider from '../../src/components/BandwidthThemeProvider';
-import Anchor from '../../src/components/Anchor';
+import { irisTheme, catapultTheme, BandwidthThemeProvider } from '../../src';
 import bootstrap from '../../src/bootstrap';
-import {Router} from 'react-router';
+import { Router } from 'react-router';
 import { createMemoryHistory } from 'history';
 import XRay from 'react-x-ray';
 import styled from 'styled-components';
+import get from '../../src/extensions/themeGet';
+import WrapperControls from './WrapperControls';
 
 bootstrap();
 
@@ -14,56 +15,50 @@ const history  = createMemoryHistory('/');
 
 const Container = styled.div`
   position: relative;
-  margin-top: 30px;
-  background: ${({ theme }) => theme['bandwidth-shared-components'].colors.white};
+  margin: 0;
+  background: ${get('colors.background.default')};
+  color: ${get('colors.text.default')};
 `;
 
-const FloatButton = styled(Anchor)`
-  position: absolute;
-  top: -40px;
-  right: 0px;
+const Content = styled.div`
+  margin-top: ${get('spacing.medium')};
 `;
 
-class OptXRay extends React.Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-  }
-  state = {
-    disable: true,
+const themes = {
+  iris: irisTheme,
+  catapult: catapultTheme,
+};
+
+export default class Wrapper extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { theme: 'iris', xray: false };
   }
 
-  toggleState = () => {
-    this.setState({
-      disable: !this.state.disable
-    })
-  }
+  setXRay = (val) => {
+    console.log(val);
+    this.setState({ xray: val });
+  };
+  setTheme = (val) => {
+    this.setState({ theme: val });
+  };
 
-  render () {
-    const {children} = this.props;
-    const {disable} = this.state
+  render() {
+    const { theme, xray } = this.state;
+
     return (
-      <div>
-      <FloatButton onClick={this.toggleState}>X-RAY Component</FloatButton>
-      <XRay disabled={disable} grid={5}>
-        {children}
-      </XRay>
-      </div>
+      <Router history={history}>
+        <BandwidthThemeProvider theme={themes[theme]}>
+          <Container>
+            <WrapperControls theme={theme} xray={xray} setTheme={this.setTheme} setXRay={this.setXRay} />
+            <Content>
+              <XRay disabled={!xray}>
+                {this.props.children}
+              </XRay>
+            </Content>
+          </Container>
+        </BandwidthThemeProvider>
+      </Router>
     );
   }
 }
-
-export default class Wrapper extends React.Component {
-    render() {
-      return (
-        <BandwidthThemeProvider>
-          <Router history={history}>
-            <Container>
-              <OptXRay>
-                {this.props.children}
-              </OptXRay>
-            </Container>
-          </Router>
-        </BandwidthThemeProvider>
-      );
-    }
-  }

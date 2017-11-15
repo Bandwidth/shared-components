@@ -1,50 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { keyframes } from 'styled-components';
-import theme from '../../theme';
-import { spreadStyles } from 'react-studs';
-
-const select = theme
-  .register('Callout', ({ colors, spacing, shadows }) => ({
-    background: colors.background.default,
-    color: 'inherit',
-    padding: `${spacing.small} ${spacing.medium}`,
-    borderRadius: '3px',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: colors.gray.border,
-    boxShadow: shadows.medium,
-    maxWidth: '300px',
-  }))
-  .createSelector();
-
-const Container = styled.div`
-  position: relative;
-`;
-
-const openAnimation = keyframes`
-  from {
-    clip-path: circle(0% at 0% 0%);
-  }
-
-  to {
-    clip-path: circle(200% at 0% 50%);
-  }
-`;
-
-const Flyout = styled.div`
-  ${spreadStyles(select)}
-
-  position: absolute;
-  z-index: 1;
-  left: 100%;
-  top: 50%;
-  transform: translateX(10px) translateY(-50%);
-  white-space: nowrap;
-
-  animation: ${openAnimation} 0.2s ease-in-out;
-  animation-fill-mode: forwards;
-`;
+import CalloutTag from './styles/CalloutTag';
 
 class Callout extends React.Component {
   static propTypes = {
@@ -68,12 +24,17 @@ class Callout extends React.Component {
      * An id to pass to the callout activation area container.
      */
     id: PropTypes.string,
+    /**
+     * A component to render the flyout tag
+     */
+    Tag: PropTypes.func,
   };
 
   static defaultProps = {
     delay: 200,
     className: null,
     id: null,
+    Tag: CalloutTag,
   };
 
   constructor(props) {
@@ -98,12 +59,18 @@ class Callout extends React.Component {
   };
 
   render() {
-    const { className, id } = this.props;
+    const { className, id, Tag } = this.props;
     return (
-      <Container onMouseEnter={this.trigger} onMouseLeave={this.cancel} className={className} id={id}>
+      <div
+        onMouseEnter={this.trigger}
+        onMouseLeave={this.cancel}
+        className={className}
+        id={id}
+        style={{ position: 'relative' }}
+      >
         {this.props.children}
-        {this.state.show ? <Flyout>{this.props.content}</Flyout> : null}
-      </Container>
+        {this.state.show ? <Tag>{this.props.content}</Tag> : null}
+      </div>
     )
   }
 }

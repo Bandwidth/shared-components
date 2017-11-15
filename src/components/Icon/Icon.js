@@ -1,34 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import icons, { map } from './icons';
-import theme from '../../theme';
+import icons from './icons';
+import get from 'extensions/themeGet';
 
-const select = theme
-  .register('Icon', {
-    size: '16px',
-    color: 'inherit',
-    fontStyle: 'normal',
-    display: 'inline-block',
-  })
-  .createSelector();
-
-const IconImpl = theme.connect(styled.i.withConfig({ displayName: 'Icon' })`
-  font-family: 'Bandwidth';
-  font-size: ${select('size')};
-  color: ${select('color')};
-  font-style: ${select('fontStyle')};
-  display: ${select('display')};
+const Icon = styled.i.withConfig({ displayName: 'Icon' })`
+  font-family: ${get('fonts.icon')};
+  font-size: 16px;
+  color: inherit;
+  font-style: normal;
+  display: inline-block;
   &::before {
     content: "${({ name, iconsHelper }) => iconsHelper(name) || iconsHelper('help_2')}";
     display: block;
     color: inherit;
   }
-`);
-
-const Icon = ({children, ...rest}) => (
-  <IconImpl {...rest}>{children}</IconImpl>
-)
+`;
 
 Icon.propTypes = {
   /**
@@ -55,6 +42,7 @@ Icon.defaultProps = {
   iconsHelper: icons,
 };
 
-Icon.Styled = IconImpl;
-
+/**
+ * @component
+ */
 export default Icon;

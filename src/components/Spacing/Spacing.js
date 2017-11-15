@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import theme from '../../theme';
-
-const select = theme
-  .register('Spacing', ({ spacing }) => ({
-    ...spacing,
-  }))
-  .createSelector();
+import get from 'extensions/themeGet';
 
 const normalize = (size) => {
   if (!size) {
@@ -35,20 +29,18 @@ const normalize = (size) => {
 }
 
 const getSpacing = (props, size) =>
-  select(normalize(size))(props) || size;
+  get(`spacing.${normalize(size)}`)(props) || size;
 
-const SpacingImpl = theme.connect(styled.div`
+const Spacing = styled.div`
   ${(props) => `padding: ${getSpacing(props, props.size)};`}
 
   ${(props) => props.top ? `padding-top: ${getSpacing(props, props.top)};` : ''}
   ${(props) => props.bottom ? `padding-bottom: ${getSpacing(props, props.bottom)};` : ''}
   ${(props) => props.left ? `padding-left: ${getSpacing(props, props.left)};` : ''}
   ${(props) => props.right ? `padding-right: ${getSpacing(props, props.right)};` : ''}
-`, { pure: false });
+`;
 
-export const Spacing = (props) => <SpacingImpl {...props} />;
-
-Spacing.propTypes = SpacingImpl.propTypes = {
+Spacing.propTypes = {
   /**
    * The default size to be applied to all directions. [xs, sm, md, lg, xl] or a CSS dimension.
    */
@@ -79,7 +71,7 @@ Spacing.propTypes = SpacingImpl.propTypes = {
   id: PropTypes.string,
 };
 
-SpacingImpl.defaultProps = {
+Spacing.defaultProps = {
   size: 'lg',
   top: null,
   bottom: null,
@@ -89,4 +81,7 @@ SpacingImpl.defaultProps = {
   id: null,
 };
 
-export default SpacingImpl;
+/**
+ * @component
+ */
+export default Spacing;

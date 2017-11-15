@@ -1,60 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { ThemeProvider } from 'styled-components';
+import { withProps } from 'recompose';
 import NavigationItems, { linksPropType } from './NavigationItems';
-import LogoHeader from './LogoHeader';
+import DefaultLogoHeader from './LogoHeader';
 import theme from '../../theme';
 import Anchor from '../Anchor/Anchor';
-
-const select = theme
-  .register('Navigation', ({ colors, spacing, shadows }) => ({
-    background: colors.primary.default,
-    color: colors.text.inverted,
-    borderWidth: '1px',
-    borderColor: colors.shadow.default,
-    padding: `0 ${spacing.large}`,
-  }))
-  .addVariant('sub', ({ colors }) => ({
-    background: colors.gray.light,
-    color: colors.text.default,
-  }))
-  .addVariant('dark', ({ colors }) => ({
-    background: colors.primary.dark,
-  }))
-  .createSelector();
-
-const Container = theme.connect(styled.header.withConfig({ displayName: 'NavigationContainer' })`
-  background: ${select('background')};
-  color: ${select('color')};
-  border-bottom: ${select('borderWidth')} solid ${select('borderColor')};
-  padding: ${select('padding')};
-  display: flex;
-  flex-shrink: 0;
-  justify-content: space-between;
-  z-index: 1000;
-
-  /* we don't want the nav to expand or collapse, just keep its natural size */
-  flex: 0 0 auto;
-`);
-
-const Links = theme.connect(styled.div.withConfig({ displayName: 'NavigationLinks' })`
-  align-self: flex-end;
-  display: flex;
-  flex-direction: column;
-
-  & > div {
-    margin-top: auto;
-  }
-`);
-
-const AnchoredLogoHeader = styled(LogoHeader)`
-  color: ${({ theme }) => theme.topNav.fg};
-`;
-
-const CenteredAnchor = styled(Anchor)`
-  align-self: center;
-  height: 30px;
-`;
+import NavigationBar from './styles/NavigationBar';
+import NavigationLinksArea from './styles/NavigationLinkArea';
 
 class Navigation extends React.Component {
   static propTypes = {
@@ -82,6 +34,22 @@ class Navigation extends React.Component {
      * A location url when logo is clicked.
      */
     logoLocation: PropTypes.string,
+    /**
+     * A component for rendering the logo and link
+     */
+    LogoHeader: PropTypes.func,
+    /**
+     * A component for rendering the outer container of the navigation
+     */
+    Bar: PropTypes.func,
+    /**
+     * A component for rendering the container for links
+     */
+    LinksArea: PropTypes.func,
+    /**
+     * A component for rendering the nav items. Defaults NavigationItems. Must have a .Small variant.
+     */
+    Items: PropTypes.func,
   };
 
   static defaultProps = {
@@ -89,37 +57,38 @@ class Navigation extends React.Component {
     title: null,
     className: null,
     id: null,
+    LogoHeader: DefaultLogoHeader,
+    Bar: NavigationBar,
+    LinksArea: NavigationLinksArea,
+    Items: NavigationItems,
   };
 
   render() {
-    const { title, links, topLinks, id, className, logoLocation } = this.props;
-    const RenderIf = ({ children, val }) => (val ? children : null);
-    const RenderLocation = ({ location }) =>
-      (location?
-        <RenderIf val={title}>
-          <CenteredAnchor to={logoLocation}><AnchoredLogoHeader>{title}</AnchoredLogoHeader></CenteredAnchor>
-        </RenderIf>
-        :
-        <RenderIf val={title}>
-          <LogoHeader>{title}</LogoHeader>
-        </RenderIf>
-      );
+    const { title, links, topLinks, id, className, logoLocation, Bar, LinksArea, LogoHeader, Items } = this.props;
 
     return (
-      <Container id={id} className={className}>
-        <RenderLocation location={logoLocation} />
-        <Links>
-          <RenderIf val={topLinks}>
-            <NavigationItems.Small links={topLinks} />
-          </RenderIf>
-          <NavigationItems links={links} />
-        </Links>
-      </Container>
+      <Bar id={id} className={className}>
+        {title &&
+          <LogoHeader linkTo={logoLocation}>{title}</LogoHeader>
+        }
+        <LinksArea>
+          {topLinks &&
+            <Items.Small links={topLinks} />
+          }
+          <Items links={links} />
+        </LinksArea>
+      </Bar>
     );
   }
 }
 
-Navigation.Sub = theme.variant('sub')(Navigation);
-Navigation.Dark = theme.variant('dark')(Navigation);
+Navigation.Sub = withProps({
+  Bar: NavigationBar.Sub,
+  Items: NavigationItems.Dark,
+})(Navigation);
+Navigation.Dark = withProps({
+  Bar: NavigationBar.Dark,
+  Items: NavigationItems.Dark,
+})(Navigation);
 
 export default Navigation;
