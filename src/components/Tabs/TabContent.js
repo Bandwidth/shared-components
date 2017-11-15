@@ -28,7 +28,7 @@ export default class TabContent extends React.Component {
 
   static propTypes = {
     /**
-     * Tab elements within container
+     * Elements within container
      */
     children: PropTypes.node,
     /**
