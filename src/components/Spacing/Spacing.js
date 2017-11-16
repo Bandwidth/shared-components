@@ -28,8 +28,13 @@ const normalize = size => {
   }
 };
 
-const getSpacing = (props, size) =>
-  get(`spacing.${normalize(size)}`)(props) || size;
+const getSpacing = (props, size) => {
+  try {
+    return get(`spacing.${normalize(size)}`)(props);
+  } catch (err) {
+    return size;
+  }
+};
 
 const Spacing = styled.div`
   ${props => `padding: ${getSpacing(props, props.size)};`} ${props =>
