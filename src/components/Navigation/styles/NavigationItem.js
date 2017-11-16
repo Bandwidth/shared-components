@@ -4,14 +4,14 @@ import get from 'extensions/themeGet';
 
 const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
   border: 0;
-  padding: ${get('spacing.large')} 0;
+  padding: ${get('spacing.small')} 0 ${get('spacing.large')} 0;
   line-height: 1;
   opacity: 1;
   transition: all 0.2s ease;
   position: relative;
   cursor: pointer;
   color: ${props =>
-    props.active ? get('colors.primary.default')(props) : 'inherit'};
+    props.active ? get('colors.primary.dark')(props) : 'inherit'};
   margin: 0;
   font-size: 1em;
 
@@ -53,6 +53,8 @@ NavigationItem.defaultProps = {
 };
 
 const darkStyles = css`
+  color: ${props =>
+    props.active ? get('colors.primary.default')(props) : 'inherit'};
   &::before {
     background: ${get('colors.primary.default')};
   }

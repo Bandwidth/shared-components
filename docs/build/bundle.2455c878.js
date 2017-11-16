@@ -47,7 +47,7 @@
         'build/' +
         ({}[e] || e) +
         '.' +
-        { 0: 'f074a952' }[e] +
+        { 0: '9518c6af' }[e] +
         '.js');
     var i = setTimeout(onScriptComplete, 12e4);
     return (a.onerror = a.onload = onScriptComplete), o.appendChild(a), n;
@@ -50913,8 +50913,8 @@ object-assign
       o = _interopRequireDefault(n(1)),
       a = _interopRequireDefault(n(4)),
       i = function getSpacing(e, t) {
-        return (
-          (0, a.default)(
+        try {
+          return (0, a.default)(
             'spacing.' +
               (function normalize(e) {
                 if (!e) return 'large';
@@ -50938,8 +50938,10 @@ object-assign
                     return e;
                 }
               })(t),
-          )(e) || t
-        );
+          )(e);
+        } catch (e) {
+          return t;
+        }
       },
       u = r.default.div.withConfig({ displayName: 'Spacing' })(
         ['', ' ', ' ', ' ', ' ', ';'],

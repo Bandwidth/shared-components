@@ -14,10 +14,11 @@ export default styled.div.withConfig({
 
   & > * {
     margin-right: ${get('spacing.large')};
+    margin-top: auto;
   }
 
   & > *:last-of-type {
-    margin: 0;
+    margin: auto 0 0 0;
     padding-right: 0;
   }
 

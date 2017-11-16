@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import get from 'extensions/themeGet';
 
 export default styled.span`

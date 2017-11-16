@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
-import Anchor from '../Anchor';
+import DefaultAnchor from '../Anchor';
 import NavigationItem from './styles/NavigationItem';
 import NavigationItemList from './styles/NavigationItemList';
 
@@ -15,7 +15,7 @@ export const linksPropType = PropTypes.arrayOf(
   }),
 );
 
-const NavigationItems = ({ links, className, id, List, Item }) => (
+const NavigationItems = ({ links, className, id, List, Item, Anchor }) => (
   <List id={id} className={className}>
     {links.map(link => (
       <Anchor
@@ -52,6 +52,10 @@ NavigationItems.propTypes = {
    * A component to render an item
    */
   Item: PropTypes.func,
+  /**
+   * Allows overriding the default Anchor
+   */
+  Anchor: PropTypes.func,
 };
 NavigationItems.defaultProps = {
   links: [],
@@ -59,6 +63,7 @@ NavigationItems.defaultProps = {
   id: null,
   List: NavigationItemList,
   Item: NavigationItem,
+  Anchor: DefaultAnchor,
 };
 
 NavigationItems.Item = NavigationItem;

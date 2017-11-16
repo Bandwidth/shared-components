@@ -59,7 +59,7 @@ class LogoHeader extends React.Component {
     } = this.props;
 
     return (
-      <Anchor linkTo={linkTo} exact type="content">
+      <Anchor to={linkTo} exact type="content">
         <LogoPairWrapper id={id} className={className}>
           <Logo />
           <Heading>{children}</Heading>

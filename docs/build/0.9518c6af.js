@@ -881,44 +881,43 @@ webpackJsonp([0], {
         for (
           var a = n.state,
             s = function(r) {
-              n.baseTokens = i;
-              var s = e.state.overlays[r],
-                l = 1,
-                c = 0;
+              var a = e.state.overlays[r],
+                s = 1,
+                l = 0;
               (n.state = !0),
                 runMode(
                   e,
                   t.text,
-                  s.mode,
+                  a.mode,
                   n,
                   function(e, t) {
-                    for (var n = l; c < e; ) {
-                      var r = i[l];
-                      r > e && i.splice(l, 1, e, i[l + 1], r),
-                        (l += 2),
-                        (c = Math.min(e, r));
+                    for (var n = s; l < e; ) {
+                      var r = i[s];
+                      r > e && i.splice(s, 1, e, i[s + 1], r),
+                        (s += 2),
+                        (l = Math.min(e, r));
                     }
                     if (t)
-                      if (s.opaque)
-                        i.splice(n, l - n, e, 'overlay ' + t), (l = n + 2);
+                      if (a.opaque)
+                        i.splice(n, s - n, e, 'overlay ' + t), (s = n + 2);
                       else
-                        for (; n < l; n += 2) {
+                        for (; n < s; n += 2) {
                           var o = i[n + 1];
                           i[n + 1] = (o ? o + ' ' : '') + 'overlay ' + t;
                         }
                   },
                   o,
-                ),
-                (n.state = a),
-                (n.baseTokens = null),
-                (n.baseTokenPos = 1);
+                );
             },
             l = 0;
           l < e.state.overlays.length;
           ++l
         )
           s(l);
-        return { styles: i, classes: o.bgClass || o.textClass ? o : null };
+        return (
+          (n.state = a),
+          { styles: i, classes: o.bgClass || o.textClass ? o : null }
+        );
       }
       function getLineStyles(e, t, n) {
         if (!t.styles || t.styles[0] != e.state.modeGen) {
@@ -2049,11 +2048,16 @@ webpackJsonp([0], {
               if (u) {
                 var d = (e.options.lineWrapping
                   ? function coordsBidiPartWrapped(e, t, n, r, i, o, a) {
-                      var s = wrappedLineExtent(e, t, r, a),
-                        l = s.begin,
-                        c = s.end;
-                      /\s/.test(t.text.charAt(c - 1)) && c--;
-                      for (var u = null, d = null, p = 0; p < i.length; p++) {
+                      for (
+                        var s = wrappedLineExtent(e, t, r, a),
+                          l = s.begin,
+                          c = s.end,
+                          u = null,
+                          d = null,
+                          p = 0;
+                        p < i.length;
+                        p++
+                      ) {
                         var h = i[p];
                         if (!(h.from >= c || h.to <= l)) {
                           var f = 1 != h.level,
@@ -2364,24 +2368,13 @@ webpackJsonp([0], {
                     }
                     function drawForLine(t, n, r) {
                       function coords(n, r) {
-                        return charCoords(e, Pos(t, n), 'div', u, r);
-                      }
-                      function wrapX(t, n, r) {
-                        var i = wrappedLineExtentChar(e, u, null, t),
-                          o = ('ltr' == n) == ('after' == r) ? 'left' : 'right';
-                        return coords(
-                          'after' == r
-                            ? i.begin
-                            : i.end -
-                              (/\s/.test(u.text.charAt(i.end - 1)) ? 2 : 1),
-                          o,
-                        )[o];
+                        return charCoords(e, Pos(t, n), 'div', c, r);
                       }
                       var o,
                         a,
-                        u = getLine(i, t),
-                        d = u.text.length,
-                        p = getOrder(u, i.direction);
+                        c = getLine(i, t),
+                        u = c.text.length,
+                        d = getOrder(c, i.direction);
                       return (
                         (function iterateBidiSections(e, t, n, r) {
                           if (!e) return r(t, n, 'ltr', 0);
@@ -2398,33 +2391,44 @@ webpackJsonp([0], {
                               (i = !0));
                           }
                           i || r(t, n, 'ltr');
-                        })(p, n || 0, null == r ? d : r, function(e, t, i, u) {
-                          var h = 'ltr' == i,
-                            f = coords(e, h ? 'left' : 'right'),
-                            g = coords(t - 1, h ? 'right' : 'left'),
-                            m = null == n && 0 == e,
-                            v = null == r && t == d,
-                            y = 0 == u,
-                            b = !p || u == p.length - 1;
-                          if (g.top - f.top <= 3) {
-                            var x = (c ? v : m) && b,
-                              C = (c ? m : v) && y ? s : (h ? f : g).left,
-                              w = x ? l : (h ? g : f).right;
-                            add(C, f.top, w - C, f.bottom);
-                          } else {
-                            var S, k, L, M;
-                            h
-                              ? ((S = c && m && y ? s : f.left),
-                                (k = c ? l : wrapX(e, i, 'before')),
-                                (L = c ? s : wrapX(t, i, 'after')),
-                                (M = c && v && b ? l : g.right))
-                              : ((S = c ? wrapX(e, i, 'before') : s),
-                                (k = !c && m && y ? l : f.right),
-                                (L = !c && v && b ? s : g.left),
-                                (M = c ? wrapX(t, i, 'after') : l)),
-                              add(S, f.top, k - S, f.bottom),
-                              f.bottom < g.top && add(s, f.bottom, null, g.top),
-                              add(L, g.top, M - L, g.bottom);
+                        })(d, n || 0, null == r ? u : r, function(t, i, p, h) {
+                          var f = coords(t, 'ltr' == p ? 'left' : 'right'),
+                            g = coords(i - 1, 'ltr' == p ? 'right' : 'left');
+                          if ('ltr' == p) {
+                            var m = null == n && 0 == t ? s : f.left,
+                              v = null == r && i == u ? l : g.right;
+                            g.top - f.top <= 3
+                              ? add(m, g.top, v - m, g.bottom)
+                              : (add(m, f.top, null, f.bottom),
+                                f.bottom < g.top &&
+                                  add(s, f.bottom, null, g.top),
+                                add(s, g.top, g.right, g.bottom));
+                          } else if (t < i) {
+                            var y = null == n && 0 == t ? l : f.right,
+                              b = null == r && i == u ? s : g.left;
+                            if (g.top - f.top <= 3)
+                              add(b, g.top, y - b, g.bottom);
+                            else {
+                              var x = s;
+                              if (h) {
+                                var C = wrappedLineExtentChar(e, c, null, t)
+                                  .end;
+                                x = coords(
+                                  C - (/\s/.test(c.text.charAt(C - 1)) ? 2 : 1),
+                                  'left',
+                                ).left;
+                              }
+                              add(x, f.top, y - x, f.bottom),
+                                f.bottom < g.top &&
+                                  add(s, f.bottom, null, g.top);
+                              var w = null;
+                              if ((d.length, !0)) {
+                                var S = wrappedLineExtentChar(e, c, null, i)
+                                  .begin;
+                                w = coords(S, 'right').right - b;
+                              }
+                              add(b, g.top, w, g.bottom);
+                            }
                           }
                           (!o || cmpCoords(f, o) < 0) && (o = f),
                             cmpCoords(g, o) < 0 && (o = g),
@@ -2443,27 +2447,26 @@ webpackJsonp([0], {
                         Math.max(
                           r.sizerWidth,
                           displayWidth(e) - r.sizer.offsetLeft,
-                        ) - a.right,
-                      c = 'ltr' == i.direction;
-                    var u = t.from(),
-                      d = t.to();
-                    if (u.line == d.line) drawForLine(u.line, u.ch, d.ch);
+                        ) - a.right;
+                    var c = t.from(),
+                      u = t.to();
+                    if (c.line == u.line) drawForLine(c.line, c.ch, u.ch);
                     else {
-                      var p = getLine(i, u.line),
-                        h = getLine(i, d.line),
-                        f = visualLine(p) == visualLine(h),
-                        g = drawForLine(
-                          u.line,
-                          u.ch,
-                          f ? p.text.length + 1 : null,
+                      var d = getLine(i, c.line),
+                        p = getLine(i, u.line),
+                        h = visualLine(d) == visualLine(p),
+                        f = drawForLine(
+                          c.line,
+                          c.ch,
+                          h ? d.text.length + 1 : null,
                         ).end,
-                        m = drawForLine(d.line, f ? 0 : null, d.ch).start;
-                      f &&
-                        (g.top < m.top - 2
-                          ? (add(g.right, g.top, null, g.bottom),
-                            add(s, m.top, m.left, m.bottom))
-                          : add(g.right, g.top, m.left - g.right, g.bottom)),
-                        g.bottom < m.top && add(s, g.bottom, null, m.top);
+                        g = drawForLine(u.line, h ? 0 : null, u.ch).start;
+                      h &&
+                        (f.top < g.top - 2
+                          ? (add(f.right, f.top, null, f.bottom),
+                            add(s, g.top, g.left, g.bottom))
+                          : add(f.right, f.top, g.left - f.right, f.bottom)),
+                        f.bottom < g.top && add(s, f.bottom, null, g.top);
                     }
                     n.appendChild(o);
                   })(e, s, o);
@@ -4847,7 +4850,7 @@ webpackJsonp([0], {
             var a,
               s = i < 0 ? lst(o) : o[0],
               l = i < 0 == (1 == s.level) ? 'after' : 'before';
-            if (s.level > 0 || 'rtl' == t.doc.direction) {
+            if (s.level > 0) {
               var c = prepareMeasureForLine(t, n);
               a = i < 0 ? n.text.length - 1 : 0;
               var u = measureCharPrepared(t, c, a).top;
@@ -6376,15 +6379,14 @@ webpackJsonp([0], {
                 F < E && W.splice(B, 0, new BidiSpan(1, F, E));
               }
             return (
-              'ltr' == t &&
-                (1 == W[0].level &&
-                  (H = e.match(/^\s+/)) &&
-                  ((W[0].from = H[0].length),
-                  W.unshift(new BidiSpan(0, 0, H[0].length))),
-                1 == lst(W).level &&
-                  (H = e.match(/\s+$/)) &&
-                  ((lst(W).to -= H[0].length),
-                  W.push(new BidiSpan(0, l - H[0].length, l)))),
+              1 == W[0].level &&
+                (H = e.match(/^\s+/)) &&
+                ((W[0].from = H[0].length),
+                W.unshift(new BidiSpan(0, 0, H[0].length))),
+              1 == lst(W).level &&
+                (H = e.match(/\s+$/)) &&
+                ((lst(W).to -= H[0].length),
+                W.push(new BidiSpan(0, l - H[0].length, l))),
               'rtl' == t ? W.reverse() : W
             );
           };
@@ -6550,10 +6552,6 @@ webpackJsonp([0], {
         (Q.prototype.lookAhead = function(e) {
           var t = this.lineOracle;
           return t && t.lookAhead(e);
-        }),
-        (Q.prototype.baseToken = function() {
-          var e = this.lineOracle;
-          return e && e.baseToken(this.pos);
         });
       var J = function(e, t) {
           (this.state = e), (this.lookAhead = t);
@@ -6562,24 +6560,12 @@ webpackJsonp([0], {
           (this.state = t),
             (this.doc = e),
             (this.line = n),
-            (this.maxLookAhead = r || 0),
-            (this.baseTokens = null),
-            (this.baseTokenPos = 1);
+            (this.maxLookAhead = r || 0);
         };
       (ee.prototype.lookAhead = function(e) {
         var t = this.doc.getLine(this.line + e);
         return null != t && e > this.maxLookAhead && (this.maxLookAhead = e), t;
       }),
-        (ee.prototype.baseToken = function(e) {
-          var t = this;
-          if (!this.baseTokens) return null;
-          for (; this.baseTokens[this.baseTokenPos] <= e; ) t.baseTokenPos += 2;
-          var n = this.baseTokens[this.baseTokenPos + 1];
-          return {
-            type: n && n.replace(/( |^)overlay .*/, ''),
-            size: this.baseTokens[this.baseTokenPos] - e,
-          };
-        }),
         (ee.prototype.nextLine = function() {
           this.line++, this.maxLookAhead > 0 && this.maxLookAhead--;
         }),
@@ -9728,7 +9714,7 @@ webpackJsonp([0], {
             (e.rmClass = L),
             (e.keyNames = Me);
         })(CodeMirror$1),
-        (CodeMirror$1.version = '5.31.0'),
+        (CodeMirror$1.version = '5.30.0'),
         CodeMirror$1
       );
     });
@@ -10562,15 +10548,12 @@ webpackJsonp([0], {
                     })(e),
                     e.match(/^\b(([gimyu])(?![gimyu]*\2))+\b/),
                     ret('regexp', 'string-2'))
-                  : (e.eat('='), ret('operator', 'operator', e.current()));
+                  : (e.eatWhile(p), ret('operator', 'operator', e.current()));
           if ('`' == n) return (t.tokenize = tokenQuasi), tokenQuasi(e, t);
           if ('#' == n) return e.skipToEnd(), ret('error', 'error');
           if (p.test(n))
             return (
-              ('>' == n && t.lexical && '>' == t.lexical.type) ||
-                (e.eat('=')
-                  ? ('!' != n && '=' != n) || e.eat('=')
-                  : /[<>*+\-]/.test(n) && (e.eat(n), '>' == n && e.eat(n))),
+              ('>' == n && t.lexical && '>' == t.lexical.type) || e.eatWhile(p),
               ret('operator', 'operator', e.current())
             );
           if (u.test(n)) {
@@ -10725,119 +10708,96 @@ webpackJsonp([0], {
               ? cont(pushlex('form'), parenExpr, statement, poplex)
               : 'keyword b' == e
                 ? cont(pushlex('form'), statement, poplex)
-                : 'keyword d' == e
-                  ? m.stream.match(/^\s*$/, !1)
+                : '{' == e
+                  ? cont(pushlex('}'), block, poplex)
+                  : ';' == e
                     ? cont()
-                    : cont(
-                        pushlex('stat'),
-                        maybeexpression,
-                        expect(';'),
-                        poplex,
-                      )
-                  : 'debugger' == e
-                    ? cont(expect(';'))
-                    : '{' == e
-                      ? cont(pushlex('}'), block, poplex)
-                      : ';' == e
-                        ? cont()
-                        : 'if' == e
-                          ? ('else' == m.state.lexical.info &&
-                              m.state.cc[m.state.cc.length - 1] == poplex &&
-                              m.state.cc.pop()(),
-                            cont(
-                              pushlex('form'),
-                              parenExpr,
-                              statement,
-                              poplex,
-                              maybeelse,
-                            ))
-                          : 'function' == e
-                            ? cont(functiondef)
-                            : 'for' == e
+                    : 'if' == e
+                      ? ('else' == m.state.lexical.info &&
+                          m.state.cc[m.state.cc.length - 1] == poplex &&
+                          m.state.cc.pop()(),
+                        cont(
+                          pushlex('form'),
+                          parenExpr,
+                          statement,
+                          poplex,
+                          maybeelse,
+                        ))
+                      : 'function' == e
+                        ? cont(functiondef)
+                        : 'for' == e
+                          ? cont(pushlex('form'), forspec, statement, poplex)
+                          : 'variable' == e
+                            ? c && 'type' == t
+                              ? ((m.marked = 'keyword'),
+                                cont(
+                                  typeexpr,
+                                  expect('operator'),
+                                  typeexpr,
+                                  expect(';'),
+                                ))
+                              : c && 'declare' == t
+                                ? ((m.marked = 'keyword'), cont(statement))
+                                : cont(pushlex('stat'), maybelabel)
+                            : 'switch' == e
                               ? cont(
                                   pushlex('form'),
-                                  forspec,
-                                  statement,
+                                  parenExpr,
+                                  expect('{'),
+                                  pushlex('}', 'switch'),
+                                  block,
+                                  poplex,
                                   poplex,
                                 )
-                              : 'variable' == e
-                                ? c && 'type' == t
-                                  ? ((m.marked = 'keyword'),
-                                    cont(
-                                      typeexpr,
-                                      expect('operator'),
-                                      typeexpr,
-                                      expect(';'),
-                                    ))
-                                  : c && 'declare' == t
-                                    ? ((m.marked = 'keyword'), cont(statement))
-                                    : cont(pushlex('stat'), maybelabel)
-                                : 'switch' == e
-                                  ? cont(
-                                      pushlex('form'),
-                                      parenExpr,
-                                      expect('{'),
-                                      pushlex('}', 'switch'),
-                                      block,
-                                      poplex,
-                                      poplex,
-                                    )
-                                  : 'case' == e
-                                    ? cont(expression, expect(':'))
-                                    : 'default' == e
-                                      ? cont(expect(':'))
-                                      : 'catch' == e
+                              : 'case' == e
+                                ? cont(expression, expect(':'))
+                                : 'default' == e
+                                  ? cont(expect(':'))
+                                  : 'catch' == e
+                                    ? cont(
+                                        pushlex('form'),
+                                        pushcontext,
+                                        expect('('),
+                                        funarg,
+                                        expect(')'),
+                                        statement,
+                                        poplex,
+                                        popcontext,
+                                      )
+                                    : 'class' == e
+                                      ? cont(pushlex('form'), className, poplex)
+                                      : 'export' == e
                                         ? cont(
-                                            pushlex('form'),
-                                            pushcontext,
-                                            expect('('),
-                                            funarg,
-                                            expect(')'),
-                                            statement,
+                                            pushlex('stat'),
+                                            afterExport,
                                             poplex,
-                                            popcontext,
                                           )
-                                        : 'class' == e
+                                        : 'import' == e
                                           ? cont(
-                                              pushlex('form'),
-                                              className,
+                                              pushlex('stat'),
+                                              afterImport,
                                               poplex,
                                             )
-                                          : 'export' == e
+                                          : 'module' == e
                                             ? cont(
-                                                pushlex('stat'),
-                                                afterExport,
+                                                pushlex('form'),
+                                                pattern,
+                                                expect('{'),
+                                                pushlex('}'),
+                                                block,
+                                                poplex,
                                                 poplex,
                                               )
-                                            : 'import' == e
-                                              ? cont(
-                                                  pushlex('stat'),
-                                                  afterImport,
-                                                  poplex,
-                                                )
-                                              : 'module' == e
-                                                ? cont(
-                                                    pushlex('form'),
-                                                    pattern,
-                                                    expect('{'),
-                                                    pushlex('}'),
-                                                    block,
+                                            : 'async' == e
+                                              ? cont(statement)
+                                              : '@' == t
+                                                ? cont(expression, statement)
+                                                : pass(
+                                                    pushlex('stat'),
+                                                    expression,
+                                                    expect(';'),
                                                     poplex,
-                                                    poplex,
-                                                  )
-                                                : 'async' == e
-                                                  ? cont(statement)
-                                                  : '@' == t
-                                                    ? cont(
-                                                        expression,
-                                                        statement,
-                                                      )
-                                                    : pass(
-                                                        pushlex('stat'),
-                                                        expression,
-                                                        expect(';'),
-                                                        poplex,
-                                                      );
+                                                  );
         }
         function expression(e) {
           return expressionInner(e, !1);
@@ -10874,7 +10834,15 @@ webpackJsonp([0], {
               : 'class' == e
                 ? cont(pushlex('form'), classExpression, poplex)
                 : 'keyword c' == e || 'async' == e
-                  ? cont(t ? expressionNoComma : expression)
+                  ? cont(
+                      t
+                        ? function maybeexpressionNoComma(e) {
+                            return e.match(/[;\}\)\],]/)
+                              ? pass()
+                              : pass(expressionNoComma);
+                          }
+                        : maybeexpression,
+                    )
                   : '(' == e
                     ? cont(
                         pushlex(')'),
@@ -11030,10 +10998,8 @@ webpackJsonp([0], {
                 : '[' == e
                   ? cont(expression, expect(']'), afterprop)
                   : 'spread' == e
-                    ? cont(expressionNoComma, afterprop)
-                    : '*' == t
-                      ? ((m.marked = 'keyword'), cont(objprop))
-                      : ':' == e ? pass(afterprop) : void 0;
+                    ? cont(expression, afterprop)
+                    : ':' == e ? pass(afterprop) : void 0;
         }
         function getterSetter(e) {
           return 'variable' != e
@@ -11076,7 +11042,7 @@ webpackJsonp([0], {
           }
         }
         function typeexpr(e, t) {
-          return 'variable' == e || 'void' == t
+          return 'variable' == e
             ? 'keyof' == t
               ? ((m.marked = 'keyword'), cont(typeexpr))
               : ((m.marked = 'type'), cont(afterType))
@@ -11320,7 +11286,7 @@ webpackJsonp([0], {
         function expressionAllowed(e, t, n) {
           return (
             (t.tokenize == tokenBase &&
-              /^(?:operator|sof|keyword [bcd]|case|new|export|default|spread|[\[{}\(,;:]|=>)$/.test(
+              /^(?:operator|sof|keyword [bc]|case|new|export|default|spread|[\[{}\(,;:]|=>)$/.test(
                 t.lastType,
               )) ||
             ('quasi' == t.lastType &&
@@ -11342,10 +11308,9 @@ webpackJsonp([0], {
             var e = kw('keyword a'),
               t = kw('keyword b'),
               n = kw('keyword c'),
-              r = kw('keyword d'),
-              i = kw('operator'),
-              o = { type: 'atom', style: 'atom' },
-              a = {
+              r = kw('operator'),
+              i = { type: 'atom', style: 'atom' },
+              o = {
                 if: kw('if'),
                 while: e,
                 with: e,
@@ -11353,14 +11318,14 @@ webpackJsonp([0], {
                 do: t,
                 try: t,
                 finally: t,
-                return: r,
-                break: r,
-                continue: r,
+                return: n,
+                break: n,
+                continue: n,
                 new: kw('new'),
                 delete: n,
                 void: n,
                 throw: n,
-                debugger: kw('debugger'),
+                debugger: n,
                 var: kw('var'),
                 const: kw('var'),
                 let: kw('var'),
@@ -11370,15 +11335,15 @@ webpackJsonp([0], {
                 switch: kw('switch'),
                 case: kw('case'),
                 default: kw('default'),
-                in: i,
-                typeof: i,
-                instanceof: i,
-                true: o,
-                false: o,
-                null: o,
-                undefined: o,
-                NaN: o,
-                Infinity: o,
+                in: r,
+                typeof: r,
+                instanceof: r,
+                true: i,
+                false: i,
+                null: i,
+                undefined: i,
+                NaN: i,
+                Infinity: i,
                 this: kw('this'),
                 class: kw('class'),
                 super: kw('atom'),
@@ -11389,8 +11354,8 @@ webpackJsonp([0], {
                 await: n,
               };
             if (c) {
-              var s = { type: 'variable', style: 'type' },
-                l = {
+              var a = { type: 'variable', style: 'type' },
+                s = {
                   interface: kw('class'),
                   implements: n,
                   namespace: n,
@@ -11401,14 +11366,14 @@ webpackJsonp([0], {
                   protected: kw('modifier'),
                   abstract: kw('modifier'),
                   readonly: kw('modifier'),
-                  string: s,
-                  number: s,
-                  boolean: s,
-                  any: s,
+                  string: a,
+                  number: a,
+                  boolean: a,
+                  any: a,
                 };
-              for (var u in l) a[u] = l[u];
+              for (var l in s) o[l] = s[l];
             }
-            return a;
+            return o;
           })(),
           p = /[+\-*&%=<>!?|~^@]/,
           h = /^@(context|id|value|language|type|container|list|set|reverse|index|base|vocab|graph)"/,
@@ -11537,7 +11502,6 @@ webpackJsonp([0], {
             electricInput: /^\s*(?:case .*?:|default:|\{|\})$/,
             blockCommentStart: l ? null : '/*',
             blockCommentEnd: l ? null : '*/',
-            blockCommentContinue: l ? null : ' * ',
             lineComment: l ? null : '//',
             fold: 'brace',
             closeBrackets: '()[]{}\'\'""``',
@@ -11579,7 +11543,7 @@ webpackJsonp([0], {
   1485: function(e, t, n) {
     (e.exports = n(636)(void 0)).push([
       e.i,
-      "/* BASICS */\n\n.CodeMirror {\n  /* Set height, width, borders, and global font properties here */\n  font-family: monospace;\n  height: 300px;\n  color: black;\n  direction: ltr;\n}\n\n/* PADDING */\n\n.CodeMirror-lines {\n  padding: 4px 0; /* Vertical padding around content */\n}\n.CodeMirror pre {\n  padding: 0 4px; /* Horizontal padding of content */\n}\n\n.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  background-color: white; /* The little square between H and V scrollbars */\n}\n\n/* GUTTER */\n\n.CodeMirror-gutters {\n  border-right: 1px solid #ddd;\n  background-color: #f7f7f7;\n  white-space: nowrap;\n}\n.CodeMirror-linenumbers {}\n.CodeMirror-linenumber {\n  padding: 0 3px 0 5px;\n  min-width: 20px;\n  text-align: right;\n  color: #999;\n  white-space: nowrap;\n}\n\n.CodeMirror-guttermarker { color: black; }\n.CodeMirror-guttermarker-subtle { color: #999; }\n\n/* CURSOR */\n\n.CodeMirror-cursor {\n  border-left: 1px solid black;\n  border-right: none;\n  width: 0;\n}\n/* Shown when moving in bi-directional text */\n.CodeMirror div.CodeMirror-secondarycursor {\n  border-left: 1px solid silver;\n}\n.cm-fat-cursor .CodeMirror-cursor {\n  width: auto;\n  border: 0 !important;\n  background: #7e7;\n}\n.cm-fat-cursor div.CodeMirror-cursors {\n  z-index: 1;\n}\n.cm-fat-cursor-mark {\n  background-color: rgba(20, 255, 20, 0.5);\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n}\n.cm-animate-fat-cursor {\n  width: auto;\n  border: 0;\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n  background-color: #7e7;\n}\n@-moz-keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n@-webkit-keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n@keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n\n/* Can style cursor different in overwrite (non-insert) mode */\n.CodeMirror-overwrite .CodeMirror-cursor {}\n\n.cm-tab { display: inline-block; text-decoration: inherit; }\n\n.CodeMirror-rulers {\n  position: absolute;\n  left: 0; right: 0; top: -50px; bottom: -20px;\n  overflow: hidden;\n}\n.CodeMirror-ruler {\n  border-left: 1px solid #ccc;\n  top: 0; bottom: 0;\n  position: absolute;\n}\n\n/* DEFAULT THEME */\n\n.cm-s-default .cm-header {color: blue;}\n.cm-s-default .cm-quote {color: #090;}\n.cm-negative {color: #d44;}\n.cm-positive {color: #292;}\n.cm-header, .cm-strong {font-weight: bold;}\n.cm-em {font-style: italic;}\n.cm-link {text-decoration: underline;}\n.cm-strikethrough {text-decoration: line-through;}\n\n.cm-s-default .cm-keyword {color: #708;}\n.cm-s-default .cm-atom {color: #219;}\n.cm-s-default .cm-number {color: #164;}\n.cm-s-default .cm-def {color: #00f;}\n.cm-s-default .cm-variable,\n.cm-s-default .cm-punctuation,\n.cm-s-default .cm-property,\n.cm-s-default .cm-operator {}\n.cm-s-default .cm-variable-2 {color: #05a;}\n.cm-s-default .cm-variable-3, .cm-s-default .cm-type {color: #085;}\n.cm-s-default .cm-comment {color: #a50;}\n.cm-s-default .cm-string {color: #a11;}\n.cm-s-default .cm-string-2 {color: #f50;}\n.cm-s-default .cm-meta {color: #555;}\n.cm-s-default .cm-qualifier {color: #555;}\n.cm-s-default .cm-builtin {color: #30a;}\n.cm-s-default .cm-bracket {color: #997;}\n.cm-s-default .cm-tag {color: #170;}\n.cm-s-default .cm-attribute {color: #00c;}\n.cm-s-default .cm-hr {color: #999;}\n.cm-s-default .cm-link {color: #00c;}\n\n.cm-s-default .cm-error {color: #f00;}\n.cm-invalidchar {color: #f00;}\n\n.CodeMirror-composing { border-bottom: 2px solid; }\n\n/* Default styles for common addons */\n\ndiv.CodeMirror span.CodeMirror-matchingbracket {color: #0f0;}\ndiv.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}\n.CodeMirror-matchingtag { background: rgba(255, 150, 0, .3); }\n.CodeMirror-activeline-background {background: #e8f2ff;}\n\n/* STOP */\n\n/* The rest of this file contains styles related to the mechanics of\n   the editor. You probably shouldn't touch them. */\n\n.CodeMirror {\n  position: relative;\n  overflow: hidden;\n  background: white;\n}\n\n.CodeMirror-scroll {\n  overflow: scroll !important; /* Things will break if this is overridden */\n  /* 30px is the magic margin used to hide the element's real scrollbars */\n  /* See overflow: hidden in .CodeMirror */\n  margin-bottom: -30px; margin-right: -30px;\n  padding-bottom: 30px;\n  height: 100%;\n  outline: none; /* Prevent dragging from highlighting the element */\n  position: relative;\n}\n.CodeMirror-sizer {\n  position: relative;\n  border-right: 30px solid transparent;\n}\n\n/* The fake, visible scrollbars. Used to force redraw during scrolling\n   before actual scrolling happens, thus preventing shaking and\n   flickering artifacts. */\n.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  position: absolute;\n  z-index: 6;\n  display: none;\n}\n.CodeMirror-vscrollbar {\n  right: 0; top: 0;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n.CodeMirror-hscrollbar {\n  bottom: 0; left: 0;\n  overflow-y: hidden;\n  overflow-x: scroll;\n}\n.CodeMirror-scrollbar-filler {\n  right: 0; bottom: 0;\n}\n.CodeMirror-gutter-filler {\n  left: 0; bottom: 0;\n}\n\n.CodeMirror-gutters {\n  position: absolute; left: 0; top: 0;\n  min-height: 100%;\n  z-index: 3;\n}\n.CodeMirror-gutter {\n  white-space: normal;\n  height: 100%;\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: -30px;\n}\n.CodeMirror-gutter-wrapper {\n  position: absolute;\n  z-index: 4;\n  background: none !important;\n  border: none !important;\n}\n.CodeMirror-gutter-background {\n  position: absolute;\n  top: 0; bottom: 0;\n  z-index: 4;\n}\n.CodeMirror-gutter-elt {\n  position: absolute;\n  cursor: default;\n  z-index: 4;\n}\n.CodeMirror-gutter-wrapper ::selection { background-color: transparent }\n.CodeMirror-gutter-wrapper ::-moz-selection { background-color: transparent }\n\n.CodeMirror-lines {\n  cursor: text;\n  min-height: 1px; /* prevents collapsing before first draw */\n}\n.CodeMirror pre {\n  /* Reset some styles that the rest of the page might have set */\n  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;\n  border-width: 0;\n  background: transparent;\n  font-family: inherit;\n  font-size: inherit;\n  margin: 0;\n  white-space: pre;\n  word-wrap: normal;\n  line-height: inherit;\n  color: inherit;\n  z-index: 2;\n  position: relative;\n  overflow: visible;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-variant-ligatures: contextual;\n  font-variant-ligatures: contextual;\n}\n.CodeMirror-wrap pre {\n  word-wrap: break-word;\n  white-space: pre-wrap;\n  word-break: normal;\n}\n\n.CodeMirror-linebackground {\n  position: absolute;\n  left: 0; right: 0; top: 0; bottom: 0;\n  z-index: 0;\n}\n\n.CodeMirror-linewidget {\n  position: relative;\n  z-index: 2;\n  overflow: auto;\n}\n\n.CodeMirror-widget {}\n\n.CodeMirror-rtl pre { direction: rtl; }\n\n.CodeMirror-code {\n  outline: none;\n}\n\n/* Force content-box sizing for the elements where we expect it */\n.CodeMirror-scroll,\n.CodeMirror-sizer,\n.CodeMirror-gutter,\n.CodeMirror-gutters,\n.CodeMirror-linenumber {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n\n.CodeMirror-measure {\n  position: absolute;\n  width: 100%;\n  height: 0;\n  overflow: hidden;\n  visibility: hidden;\n}\n\n.CodeMirror-cursor {\n  position: absolute;\n  pointer-events: none;\n}\n.CodeMirror-measure pre { position: static; }\n\ndiv.CodeMirror-cursors {\n  visibility: hidden;\n  position: relative;\n  z-index: 3;\n}\ndiv.CodeMirror-dragcursors {\n  visibility: visible;\n}\n\n.CodeMirror-focused div.CodeMirror-cursors {\n  visibility: visible;\n}\n\n.CodeMirror-selected { background: #d9d9d9; }\n.CodeMirror-focused .CodeMirror-selected { background: #d7d4f0; }\n.CodeMirror-crosshair { cursor: crosshair; }\n.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #d7d4f0; }\n.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #d7d4f0; }\n\n.cm-searching {\n  background-color: #ffa;\n  background-color: rgba(255, 255, 0, .4);\n}\n\n/* Used to force a border model for a node */\n.cm-force-border { padding-right: .1px; }\n\n@media print {\n  /* Hide the cursor when printing */\n  .CodeMirror div.CodeMirror-cursors {\n    visibility: hidden;\n  }\n}\n\n/* See issue #2901 */\n.cm-tab-wrap-hack:after { content: ''; }\n\n/* Help users use markselection to safely style text background */\nspan.CodeMirror-selectedtext { background: none; }\n",
+      "/* BASICS */\n\n.CodeMirror {\n  /* Set height, width, borders, and global font properties here */\n  font-family: monospace;\n  height: 300px;\n  color: black;\n  direction: ltr;\n}\n\n/* PADDING */\n\n.CodeMirror-lines {\n  padding: 4px 0; /* Vertical padding around content */\n}\n.CodeMirror pre {\n  padding: 0 4px; /* Horizontal padding of content */\n}\n\n.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  background-color: white; /* The little square between H and V scrollbars */\n}\n\n/* GUTTER */\n\n.CodeMirror-gutters {\n  border-right: 1px solid #ddd;\n  background-color: #f7f7f7;\n  white-space: nowrap;\n}\n.CodeMirror-linenumbers {}\n.CodeMirror-linenumber {\n  padding: 0 3px 0 5px;\n  min-width: 20px;\n  text-align: right;\n  color: #999;\n  white-space: nowrap;\n}\n\n.CodeMirror-guttermarker { color: black; }\n.CodeMirror-guttermarker-subtle { color: #999; }\n\n/* CURSOR */\n\n.CodeMirror-cursor {\n  border-left: 1px solid black;\n  border-right: none;\n  width: 0;\n}\n/* Shown when moving in bi-directional text */\n.CodeMirror div.CodeMirror-secondarycursor {\n  border-left: 1px solid silver;\n}\n.cm-fat-cursor .CodeMirror-cursor {\n  width: auto;\n  border: 0 !important;\n  background: #7e7;\n}\n.cm-fat-cursor div.CodeMirror-cursors {\n  z-index: 1;\n}\n\n.cm-animate-fat-cursor {\n  width: auto;\n  border: 0;\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n  background-color: #7e7;\n}\n@-moz-keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n@-webkit-keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n@keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n\n/* Can style cursor different in overwrite (non-insert) mode */\n.CodeMirror-overwrite .CodeMirror-cursor {}\n\n.cm-tab { display: inline-block; text-decoration: inherit; }\n\n.CodeMirror-rulers {\n  position: absolute;\n  left: 0; right: 0; top: -50px; bottom: -20px;\n  overflow: hidden;\n}\n.CodeMirror-ruler {\n  border-left: 1px solid #ccc;\n  top: 0; bottom: 0;\n  position: absolute;\n}\n\n/* DEFAULT THEME */\n\n.cm-s-default .cm-header {color: blue;}\n.cm-s-default .cm-quote {color: #090;}\n.cm-negative {color: #d44;}\n.cm-positive {color: #292;}\n.cm-header, .cm-strong {font-weight: bold;}\n.cm-em {font-style: italic;}\n.cm-link {text-decoration: underline;}\n.cm-strikethrough {text-decoration: line-through;}\n\n.cm-s-default .cm-keyword {color: #708;}\n.cm-s-default .cm-atom {color: #219;}\n.cm-s-default .cm-number {color: #164;}\n.cm-s-default .cm-def {color: #00f;}\n.cm-s-default .cm-variable,\n.cm-s-default .cm-punctuation,\n.cm-s-default .cm-property,\n.cm-s-default .cm-operator {}\n.cm-s-default .cm-variable-2 {color: #05a;}\n.cm-s-default .cm-variable-3, .cm-s-default .cm-type {color: #085;}\n.cm-s-default .cm-comment {color: #a50;}\n.cm-s-default .cm-string {color: #a11;}\n.cm-s-default .cm-string-2 {color: #f50;}\n.cm-s-default .cm-meta {color: #555;}\n.cm-s-default .cm-qualifier {color: #555;}\n.cm-s-default .cm-builtin {color: #30a;}\n.cm-s-default .cm-bracket {color: #997;}\n.cm-s-default .cm-tag {color: #170;}\n.cm-s-default .cm-attribute {color: #00c;}\n.cm-s-default .cm-hr {color: #999;}\n.cm-s-default .cm-link {color: #00c;}\n\n.cm-s-default .cm-error {color: #f00;}\n.cm-invalidchar {color: #f00;}\n\n.CodeMirror-composing { border-bottom: 2px solid; }\n\n/* Default styles for common addons */\n\ndiv.CodeMirror span.CodeMirror-matchingbracket {color: #0f0;}\ndiv.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}\n.CodeMirror-matchingtag { background: rgba(255, 150, 0, .3); }\n.CodeMirror-activeline-background {background: #e8f2ff;}\n\n/* STOP */\n\n/* The rest of this file contains styles related to the mechanics of\n   the editor. You probably shouldn't touch them. */\n\n.CodeMirror {\n  position: relative;\n  overflow: hidden;\n  background: white;\n}\n\n.CodeMirror-scroll {\n  overflow: scroll !important; /* Things will break if this is overridden */\n  /* 30px is the magic margin used to hide the element's real scrollbars */\n  /* See overflow: hidden in .CodeMirror */\n  margin-bottom: -30px; margin-right: -30px;\n  padding-bottom: 30px;\n  height: 100%;\n  outline: none; /* Prevent dragging from highlighting the element */\n  position: relative;\n}\n.CodeMirror-sizer {\n  position: relative;\n  border-right: 30px solid transparent;\n}\n\n/* The fake, visible scrollbars. Used to force redraw during scrolling\n   before actual scrolling happens, thus preventing shaking and\n   flickering artifacts. */\n.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  position: absolute;\n  z-index: 6;\n  display: none;\n}\n.CodeMirror-vscrollbar {\n  right: 0; top: 0;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n.CodeMirror-hscrollbar {\n  bottom: 0; left: 0;\n  overflow-y: hidden;\n  overflow-x: scroll;\n}\n.CodeMirror-scrollbar-filler {\n  right: 0; bottom: 0;\n}\n.CodeMirror-gutter-filler {\n  left: 0; bottom: 0;\n}\n\n.CodeMirror-gutters {\n  position: absolute; left: 0; top: 0;\n  min-height: 100%;\n  z-index: 3;\n}\n.CodeMirror-gutter {\n  white-space: normal;\n  height: 100%;\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: -30px;\n}\n.CodeMirror-gutter-wrapper {\n  position: absolute;\n  z-index: 4;\n  background: none !important;\n  border: none !important;\n}\n.CodeMirror-gutter-background {\n  position: absolute;\n  top: 0; bottom: 0;\n  z-index: 4;\n}\n.CodeMirror-gutter-elt {\n  position: absolute;\n  cursor: default;\n  z-index: 4;\n}\n.CodeMirror-gutter-wrapper ::selection { background-color: transparent }\n.CodeMirror-gutter-wrapper ::-moz-selection { background-color: transparent }\n\n.CodeMirror-lines {\n  cursor: text;\n  min-height: 1px; /* prevents collapsing before first draw */\n}\n.CodeMirror pre {\n  /* Reset some styles that the rest of the page might have set */\n  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;\n  border-width: 0;\n  background: transparent;\n  font-family: inherit;\n  font-size: inherit;\n  margin: 0;\n  white-space: pre;\n  word-wrap: normal;\n  line-height: inherit;\n  color: inherit;\n  z-index: 2;\n  position: relative;\n  overflow: visible;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-variant-ligatures: contextual;\n  font-variant-ligatures: contextual;\n}\n.CodeMirror-wrap pre {\n  word-wrap: break-word;\n  white-space: pre-wrap;\n  word-break: normal;\n}\n\n.CodeMirror-linebackground {\n  position: absolute;\n  left: 0; right: 0; top: 0; bottom: 0;\n  z-index: 0;\n}\n\n.CodeMirror-linewidget {\n  position: relative;\n  z-index: 2;\n  overflow: auto;\n}\n\n.CodeMirror-widget {}\n\n.CodeMirror-rtl pre { direction: rtl; }\n\n.CodeMirror-code {\n  outline: none;\n}\n\n/* Force content-box sizing for the elements where we expect it */\n.CodeMirror-scroll,\n.CodeMirror-sizer,\n.CodeMirror-gutter,\n.CodeMirror-gutters,\n.CodeMirror-linenumber {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n\n.CodeMirror-measure {\n  position: absolute;\n  width: 100%;\n  height: 0;\n  overflow: hidden;\n  visibility: hidden;\n}\n\n.CodeMirror-cursor {\n  position: absolute;\n  pointer-events: none;\n}\n.CodeMirror-measure pre { position: static; }\n\ndiv.CodeMirror-cursors {\n  visibility: hidden;\n  position: relative;\n  z-index: 3;\n}\ndiv.CodeMirror-dragcursors {\n  visibility: visible;\n}\n\n.CodeMirror-focused div.CodeMirror-cursors {\n  visibility: visible;\n}\n\n.CodeMirror-selected { background: #d9d9d9; }\n.CodeMirror-focused .CodeMirror-selected { background: #d7d4f0; }\n.CodeMirror-crosshair { cursor: crosshair; }\n.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #d7d4f0; }\n.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #d7d4f0; }\n\n.cm-searching {\n  background-color: #ffa;\n  background-color: rgba(255, 255, 0, .4);\n}\n\n/* Used to force a border model for a node */\n.cm-force-border { padding-right: .1px; }\n\n@media print {\n  /* Hide the cursor when printing */\n  .CodeMirror div.CodeMirror-cursors {\n    visibility: hidden;\n  }\n}\n\n/* See issue #2901 */\n.cm-tab-wrap-hack:after { content: ''; }\n\n/* Help users use markselection to safely style text background */\nspan.CodeMirror-selectedtext { background: none; }\n",
       '',
     ]);
   },

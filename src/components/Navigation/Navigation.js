@@ -6,7 +6,8 @@ import DefaultLogoHeader from './LogoHeader';
 import theme from '../../theme';
 import Anchor from '../Anchor/Anchor';
 import NavigationBar from './styles/NavigationBar';
-import NavigationLinksArea from './styles/NavigationLinkArea';
+import NavigationItemListStack from './styles/NavigationItemListStack';
+import NavigationTitle from './styles/NavigationTitle';
 
 class Navigation extends React.Component {
   static propTypes = {
@@ -45,11 +46,15 @@ class Navigation extends React.Component {
     /**
      * A component for rendering the container for links
      */
-    LinksArea: PropTypes.func,
+    ItemListStack: PropTypes.func,
     /**
      * A component for rendering the nav items. Defaults NavigationItems. Must have a .Small variant.
      */
     Items: PropTypes.func,
+    /**
+     * A component for rendering a navigation title
+     */
+    Title: PropTypes.func,
   };
 
   static defaultProps = {
@@ -59,8 +64,9 @@ class Navigation extends React.Component {
     id: null,
     LogoHeader: DefaultLogoHeader,
     Bar: NavigationBar,
-    LinksArea: NavigationLinksArea,
+    ItemListStack: NavigationItemListStack,
     Items: NavigationItems,
+    Title: NavigationTitle,
   };
 
   render() {
@@ -72,18 +78,23 @@ class Navigation extends React.Component {
       className,
       logoLocation,
       Bar,
-      LinksArea,
+      ItemListStack,
       LogoHeader,
       Items,
+      Title,
     } = this.props;
 
     return (
       <Bar id={id} className={className}>
-        {title && <LogoHeader linkTo={logoLocation}>{title}</LogoHeader>}
-        <LinksArea>
+        {title && (
+          <Title>
+            <LogoHeader linkTo={logoLocation}>{title}</LogoHeader>
+          </Title>
+        )}
+        <ItemListStack>
           {topLinks && <Items.Small links={topLinks} />}
           <Items links={links} />
-        </LinksArea>
+        </ItemListStack>
       </Bar>
     );
   }
