@@ -15,7 +15,6 @@ export default styled.label`
   line-height: calc(${SIZE} * 1.5);
   font-family: ${get('fonts.brand')};
   font-weight: 300;
-  color: ${get('colors.text.default')};
   display: inline;
 
   &::before {

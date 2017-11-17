@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import get from 'extensions/themeGet';
+import NavigationItemList from './NavigationItemList';
+import NavigationItemListStack from './NavigationItemListStack';
+import NavigationBar from './NavigationBar';
 
 const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
   border: 0;
-  padding: ${get('spacing.small')} 0 ${get('spacing.large')} 0;
+  padding: ${get('spacing.large')} 0 ${get('spacing.large')} 0;
   line-height: 1;
   opacity: 1;
   transition: all 0.2s ease;
   position: relative;
   cursor: pointer;
-  color: ${props =>
-    props.active ? get('colors.primary.dark')(props) : 'inherit'};
-  margin: 0;
+  color: inherit;
   font-size: 1em;
 
   &::before {
@@ -33,6 +34,57 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
     opacity: 0.5;
     height: 5px;
   }
+
+  /* items that are children of a dark and sub nav have different colors */
+
+  ${NavigationBar.Dark} &, ${NavigationBar.Sub} & {
+    &::before {
+      background: ${get('colors.primary.default')};
+    }
+
+    /* hover state must be repeated for specificity */
+
+    &:hover::before {
+      opacity: 0.5;
+      height: 5px;
+    }
+  }
+
+  /* sub nav items use a color for active state as well */
+
+  ${NavigationBar.Sub} & {
+    color: ${props =>
+      props.active ? get('colors.primary.default')(props) : 'inherit'};
+  }
+
+  /* make items smaller when they're inside a small list */
+
+  ${NavigationItemList.Small} & {
+    padding: ${get('spacing.large')} 0 0 0;
+    margin-bottom: 10px;
+    font-size: 0.8em;
+
+    &::before {
+      height: ${props => (props.active ? '5px' : 0)};
+      top: calc(100% + 10px);
+      bottom: auto;
+    }
+
+    &:hover::before {
+      opacity: 0.5;
+      height: 5px;
+    }
+  }
+
+  /*
+    when items are in a stack, but not part of the first list in the stack,
+    they get squished down a bit on the top.
+  */
+
+  ${NavigationItemListStack} > ${NavigationItemList}:only-child &,
+    ${NavigationItemListStack} > ${NavigationItemList}:not(:first-child) & {
+    padding-top: ${get('spacing.medium')};
+  }
 `;
 
 NavigationItem.propTypes = {
@@ -51,39 +103,5 @@ NavigationItem.defaultProps = {
   className: null,
   id: null,
 };
-
-const darkStyles = css`
-  color: ${props =>
-    props.active ? get('colors.primary.default')(props) : 'inherit'};
-  &::before {
-    background: ${get('colors.primary.default')};
-  }
-`;
-
-NavigationItem.Dark = NavigationItem.extend`
-  ${darkStyles};
-`;
-
-const smallStyles = css`
-  padding: ${get('spacing.large')} 0 0 0;
-  margin: 0 0 10px 0;
-  font-size: 0.8em;
-
-  &::before {
-    height: ${props => (props.active ? '5px' : 0)};
-    top: calc(100% + 10px);
-    bottom: auto;
-  }
-`;
-
-NavigationItem.Small = NavigationItem.extend`
-  ${smallStyles};
-`;
-
-NavigationItem.Small.Dark = NavigationItem.extend`
-  ${darkStyles} ${smallStyles};
-`;
-
-NavigationItem.Dark.Small = NavigationItem.Small.Dark;
 
 export default NavigationItem;

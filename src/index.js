@@ -155,13 +155,9 @@ export { default as ModalWindow } from './components/Modal/styles/ModalWindow';
 export { default as Money } from './components/Money';
 export { default as MoneyStyles } from './components/Money/styles/MoneyStyles';
 export { default as Navigation } from './components/Navigation';
-export { default as LogoHeader } from './components/Navigation/LogoHeader';
 export {
-  default as NavigationItems,
-} from './components/Navigation/NavigationItems';
-export {
-  default as NavigationBar,
-} from './components/Navigation/styles/NavigationBar';
+  default as NavigationTitle,
+} from './components/Navigation/NavigationTitle';
 export {
   default as NavigationHeading,
 } from './components/Navigation/styles/NavigationHeading';
@@ -172,8 +168,8 @@ export {
   default as NavigationItemList,
 } from './components/Navigation/styles/NavigationItemList';
 export {
-  default as NavigationLinkArea,
-} from './components/Navigation/styles/NavigationLinkArea';
+  default as NavigationItemListStack,
+} from './components/Navigation/styles/NavigationItemListStack';
 export {
   default as NavigationLogoPairWrapper,
 } from './components/Navigation/styles/NavigationLogoPairWrapper';
@@ -276,6 +272,9 @@ export {
 export {
   default as TableHeaderColumnName,
 } from './components/Table/styles/TableHeaderColumnName';
+export {
+  default as TableHeaderSortArrowIcon,
+} from './components/Table/styles/TableHeaderSortArrowIcon';
 export {
   default as TableHeaderSortArrows,
 } from './components/Table/styles/TableHeaderSortArrows';

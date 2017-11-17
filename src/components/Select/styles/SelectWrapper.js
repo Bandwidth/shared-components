@@ -19,12 +19,14 @@ const spin = keyframes`
   }
 `;
 
-export default styled.div`
+const SelectWrapper = styled.div`
   width: 100%;
 
   .Select {
     position: relative;
+    font-size: 1em;
   }
+
   .Select,
   .Select div,
   .Select input,
@@ -88,7 +90,7 @@ export default styled.div`
     bottom: 0;
     color: ${get('colors.text.default')};
     left: 0;
-    font-size: 14px;
+    font-size: inherit;
     line-height: 1;
     padding: ${get('spacing.medium')};
     max-width: 100%;
@@ -130,7 +132,7 @@ export default styled.div`
     outline: none;
   }
   .Select-input {
-    font-size: 14px;
+    font-size: inherit;
     line-height: 1;
     padding: ${get('spacing.medium')};
     vertical-align: middle;
@@ -146,7 +148,7 @@ export default styled.div`
     margin: 0;
     outline: none;
     line-height: 1;
-    font-size: 14px;
+    font-size: inherit;
     min-height: 1em;
     /* For IE 8 compatibility */
     -webkit-appearance: none;
@@ -363,3 +365,5 @@ export default styled.div`
     color: ${get('colors.text.disabled')};
   }
 `;
+
+export default SelectWrapper;

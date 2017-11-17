@@ -9,6 +9,7 @@
     "watch": "run-s watch:*",
     "build:clean": "rimraf dist",
     "build:dist": "cross-env NODE_PATH=src babel --copy-files --out-dir dist src",
+    "build:index": "node ./tools/generateIndices.js",
     "build:styleguide": "cross-env NODE_PATH=src styleguidist build",
     "build": "run-s build:*",
     "prepublish": "npm run build",

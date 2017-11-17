@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
+import NavigationItem from './NavigationItem';
+import NavigationBar from './NavigationBar';
 
-export default styled.div.withConfig({
-  displayName: 'NavigationItemsContainer',
+const NavigationItemList = styled.div.withConfig({
+  displayName: 'NavigationItemList',
 })`
   display: flex;
   flex-direction: row;
@@ -10,20 +12,20 @@ export default styled.div.withConfig({
 
   background: transparent;
   color: inherit;
-  margin-bottom: auto;
 
   & > * {
     margin-right: ${get('spacing.large')};
     margin-top: auto;
   }
 
-  & > *:last-of-type {
+  & > *:last-child {
     margin: auto 0 0 0;
     padding-right: 0;
   }
-
-  & > a {
-    color: inherit;
-    text-decoration: none;
-  }
 `;
+
+NavigationItemList.Small = NavigationItemList.extend`
+  /* this doesn't contain any special styling, see NavigationItem for rules */
+`;
+
+export default NavigationItemList;
