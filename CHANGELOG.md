@@ -18,6 +18,8 @@ Major feature: Totally reworked the structure of components to create a clear di
 * `CodeBlock` no longer performs syntax highlighting. Syntax highlighting was inflating the library size. Handle syntax in your own app.
 * `CodeWrapper` is gone. Use `CodeBlock`.
 * A Catapult theme is now available. Theme will default to Iris. Use `BandwidthThemeProvider.Catapult` to provide the Catpault theme.
+* `Pane` no longer has a `title` prop. Add an `H1` as the first child of a section in the Pane to replace this functionality.
+* `Pane` padding has been revised.
 
 # v2.0.0
 

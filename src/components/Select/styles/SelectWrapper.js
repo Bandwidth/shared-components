@@ -21,6 +21,7 @@ const spin = keyframes`
 
 const SelectWrapper = styled.div`
   width: 100%;
+  color: ${get('colors.text.default')};
 
   .Select {
     position: relative;
@@ -52,7 +53,7 @@ const SelectWrapper = styled.div`
     border-radius: 0;
     border-width: ${get('thicknesses.normal')};
     border-style: solid;
-    color: ${get('colors.text.default')};
+    color: inherit;
     cursor: default;
     border-spacing: 0;
     border-collapse: separate;
@@ -88,7 +89,7 @@ const SelectWrapper = styled.div`
   .Select-placeholder,
   .Select--single > .Select-control .Select-value {
     bottom: 0;
-    color: ${get('colors.text.default')};
+    color: inherit;
     left: 0;
     font-size: inherit;
     line-height: 1;
@@ -105,7 +106,7 @@ const SelectWrapper = styled.div`
     > .Select-control
     .Select-value
     .Select-value-label {
-    color: ${get('colors.text.default')};
+    color: inherit;
     cursor: pointer;
     text-decoration: none;
   }
@@ -131,6 +132,13 @@ const SelectWrapper = styled.div`
     color: ${get('colors.primary.default')};
     outline: none;
   }
+
+  & .is-open .Select-control .Select-value .Select-value-label {
+    /* the library owner used !important on theirs... bah */
+
+    color: inherit !important;
+  }
+
   .Select-input {
     font-size: inherit;
     line-height: 1;
@@ -183,7 +191,8 @@ const SelectWrapper = styled.div`
 
   .Select-clear-zone {
     animation: ${fadeIn} 200ms;
-    color: ${get('colors.gray.medium')};
+    color: inherit;
+    opacity: 0.5;
     cursor: pointer;
     position: absolute;
     text-align: center;
@@ -193,7 +202,7 @@ const SelectWrapper = styled.div`
     transform: translateY(-50%);
   }
   .Select-clear-zone:hover {
-    color: ${get('colors.primary.default')};
+    opacity: 1;
   }
   .Select-clear {
     font-size: 20px;

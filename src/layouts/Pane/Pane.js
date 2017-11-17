@@ -11,10 +11,6 @@ import PaneStyles from './styles/PaneStyles';
 class Pane extends React.Component {
   static propTypes = {
     /**
-     * Optional title for the top of the pane.
-     */
-    title: PropTypes.string,
-    /**
      * Contents of the pane.
      */
     children: PropTypes.node.isRequired,
@@ -33,7 +29,6 @@ class Pane extends React.Component {
   };
 
   static defaultProps = {
-    title: null,
     className: null,
     id: null,
     Styles: PaneStyles,
@@ -44,7 +39,6 @@ class Pane extends React.Component {
 
     return (
       <Styles className={className} id={id}>
-        {title ? <H1>{title}</H1> : null}
         {children}
       </Styles>
     );

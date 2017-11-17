@@ -159,6 +159,9 @@ export {
   default as NavigationTitle,
 } from './components/Navigation/NavigationTitle';
 export {
+  default as NavigationBar,
+} from './components/Navigation/styles/NavigationBar';
+export {
   default as NavigationHeading,
 } from './components/Navigation/styles/NavigationHeading';
 export {
