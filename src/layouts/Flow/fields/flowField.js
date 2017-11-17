@@ -106,7 +106,7 @@ export default (FieldComponent) => class FlowField extends React.Component {
       description,
       type,
     };
-
+     
     return <FieldComponent {...passedProps} />;
   };
 
