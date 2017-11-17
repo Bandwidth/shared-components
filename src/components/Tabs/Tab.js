@@ -87,7 +87,6 @@ export default class Tab extends React.Component {
     const { active, disabled, vertical, index } = this.props;
 
     return (
-      // <Div vertical={vertical}>
       <TabContainer
         vertical={vertical}
         onClick={(disabled) ? null : this.createTabClickHandler(index)}
@@ -96,7 +95,6 @@ export default class Tab extends React.Component {
       >
         {this.props.children}
       </TabContainer>
-      // </Div>
     );
   }
 }
