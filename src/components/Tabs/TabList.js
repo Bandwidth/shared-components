@@ -25,6 +25,10 @@ export default class TabList extends React.Component {
     vertical: PropTypes.bool,
   };
 
+  static defaultProps = {
+    vertical: false,
+  };
+
   attachParams = (children, vertical) => React.Children.map(children,
         child => React.isValidElement(child) ?  React.cloneElement(child, { vertical }) : child);
 

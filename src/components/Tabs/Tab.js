@@ -68,24 +68,15 @@ const TabContainer = styled.div`
 export default class Tab extends React.Component {
 
   static propTypes = {
-    /**
-     * Shows whether tab is active
-     */
     active: PropTypes.bool,
-    /**
-     * Flag indicates vertical tab layout
-     */
     vertical: PropTypes.bool,
-    /**
-     *
-     */
     onTabSelected: PropTypes.func,
     disabled: PropTypes.bool,
     children: PropTypes.node,
     index: PropTypes.number,
   };
 
-  static defaultValues = {
+  static defaultProps = {
     disabled: false,
     active: false,
   };

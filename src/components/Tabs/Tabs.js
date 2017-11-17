@@ -51,10 +51,6 @@ export default class Tabs extends React.Component {
     vertical: PropTypes.bool,
   };
 
-  static defaultProps = {
-    vertical: false,
-  };
-
   renderTabs = (children,
                 { onTabSelected, selectedTabIndex, vertical }) => React.Children.map(children, (child, index) => {
       if (!React.isValidElement(child)) {
