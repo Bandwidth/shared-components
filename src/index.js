@@ -233,6 +233,7 @@ export {
 export {
   default as SearchBoxWrapper,
 } from './components/SearchBox/styles/SearchBoxWrapper';
+export { default as SectionTitle } from './components/SectionTitle';
 export { default as Select } from './components/Select';
 export {
   default as SelectWrapper,

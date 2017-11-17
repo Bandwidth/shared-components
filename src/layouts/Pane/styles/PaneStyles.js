@@ -7,6 +7,7 @@ export default styled.article`
   flex-direction: column;
   flex: 1 1;
   padding: 0 ${get('spacing.large')};
+  background: ${get('colors.background.default')};
 
   /* for panes within rows that are not on the top, add top padding */
 

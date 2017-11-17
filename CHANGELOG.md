@@ -2,6 +2,8 @@
 
 Major feature: Totally reworked the structure of components to create a clear divide between presentational and behavioral components. All sub-components of a component are now exposed as configurable props.
 
+## Breaking Changes
+
 * All `themes` have been removed.
   * Different sizes of components must now be accessed via attached 'variant' components, like `Accordion.Small`.
   * Error components, secondary components, and other visual modifications are also accessed via variants.
@@ -11,7 +13,6 @@ Major feature: Totally reworked the structure of components to create a clear di
 * `Header` has been renamed to `H1` for consistency with the design system.
 * `SubHeader` has been renamed to `H2` for consistency with the design system.
 * `H3`, `H4`, and `H5` introduced.
-* `BulkSelect` introduced as an experimental component. The name may change.
 * `Modal`, `Pane` components now provide default padding. Be sure to check the padding of contained elements and remove any spacing you manually applied (or create a varian to customize padding).
 * `Modal` no longer supports the `naturalWidth` prop. Use customized style component props to specify a new `width` value.
 * `Pane` children *must* be `Pane.Section`s to layout properly now. Otherwise, spacing will not be correct.
@@ -20,6 +21,11 @@ Major feature: Totally reworked the structure of components to create a clear di
 * A Catapult theme is now available. Theme will default to Iris. Use `BandwidthThemeProvider.Catapult` to provide the Catpault theme.
 * `Pane` no longer has a `title` prop. Add an `H1` as the first child of a section in the Pane to replace this functionality.
 * `Pane` padding has been revised.
+
+## New Components
+
+* `BulkSelect` introduced as an experimental component. The name may change.
+* `SectionTitle` introduced as a common definition for the gray-block title seen on Modals and Panes. Now it can be used on its own.
 
 # v2.0.0
 
