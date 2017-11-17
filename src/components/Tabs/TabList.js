@@ -12,7 +12,7 @@ const Div = styled.div`
     }
   }}`;
 
-export default class TabContainer extends React.Component {
+export default class TabList extends React.Component {
 
   static propTypes = {
     /**
@@ -25,19 +25,8 @@ export default class TabContainer extends React.Component {
     vertical: PropTypes.bool,
   };
 
-  attachParams = (children, vertical) => {
-    if (typeof children !== 'object') {
-      return children;
-    }
-
-    return React.Children.map(children, child => {
-      if (!React.isValidElement(child)) {
-        return child;
-      }
-
-      return React.cloneElement(child, { vertical });
-    });
-  };
+  attachParams = (children, vertical) => React.Children.map(children,
+        child => React.isValidElement(child) ?  React.cloneElement(child, { vertical }) : child);
 
   render() {
     return (<Div vertical={this.props.vertical}>{this.attachParams(this.props.children, this.props.vertical)}</Div>);

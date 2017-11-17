@@ -25,7 +25,8 @@ const TabsDiv = styled.div`
     text-align: center;
     margin-bottom: -1px;
     min-height: 53px;
-    text-align: center;`;
+    text-align: center;
+    margin-right: -1.5px;`;
   }}`
   ;
 
@@ -37,13 +38,9 @@ export default class Tabs extends React.Component {
      */
     children: PropTypes.node.isRequired,
     /**
-     * The name of the tabs container
-     */
-    name: PropTypes.string,
-    /**
      * Called when user selects the tab
      */
-    handleSelect: PropTypes.func,
+    onTabSelected: PropTypes.func,
     /**
      * The currently selected tab
      */
@@ -54,32 +51,29 @@ export default class Tabs extends React.Component {
     vertical: PropTypes.bool,
   };
 
-  renderTabs = (children, { handleSelect, selectedTabIndex, name, vertical }) => {
-    if (typeof children !== 'object') {
-      return children;
-    }
+  static defaultProps = {
+    vertical: false,
+  };
 
-    return React.Children.map(children, (child, index) => {
+  renderTabs = (children,
+                { onTabSelected, selectedTabIndex, vertical }) => React.Children.map(children, (child, index) => {
       if (!React.isValidElement(child)) {
         return child;
       }
 
       // rendering Tabs
       return React.cloneElement(child, {
-        handleSelect,
+        onTabSelected,
         index,
         active: index === selectedTabIndex,
-        namespace: name,
         vertical,
       });
     });
-  };
 
   render() {
     const tabs = this.renderTabs(this.props.children,
-      { handleSelect: this.props.handleSelect,
+      { onTabSelected: this.props.onTabSelected,
         selectedTabIndex: this.props.selectedTabIndex,
-        name: this.props.name,
         vertical: this.props.vertical,
       });
     return (
@@ -87,29 +81,3 @@ export default class Tabs extends React.Component {
     );
   }
 }
-
-Tabs.defaultProps = {
-  vertical: false,
-};
-
-Tabs.usage = `
-Tabs renders horizontal or vertical layout depending on \`vertical\` value. 
-It can be a controlled by specifying \`selectedTabIndex\` and \`handleSelect\` props.
-\`handleSelect\` is the function of name and clicked tab index.
-\`\`\`
-<TabContainer vertical>
-  <Tabs
-    name={'Tab Section'}
-    selectedTabIndex={0}
-  >
-    <Tab>Tab 1</Tab>
-    <Tab>Tab 2</Tab>
-    <Tab disabled>Tab 3</Tab>
-  </Tabs>
-  <TabContent>
-      Tab Content
-  </TabContent>
-</TabContainer>
-\`\`\`
-`;
-

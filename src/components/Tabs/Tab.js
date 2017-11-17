@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-const Div = styled.div`
+const TabContainer = styled.div`
   flex: 1 1 auto;
   
     ${({ vertical }) => {
@@ -10,31 +10,27 @@ const Div = styled.div`
         return css`
   margin-bottom: -1px;  
     
-  &:first-of-type > label {
+  &:first-child {
   border-radius: 3px 0 0 0;
   }
   
-  &:last-of-type > label {
+  &:last-child {
     border-radius: 0 0 0 3px;
-  }
-  
-  &:last-of-type {
-      margin-bottom: 0;
-    }`;
-      }
-      return css`  
+    margin-bottom: 0;
+  }`;
+      } return css`  
   margin-right: -1px;
   
-  &:first-of-type > label {
+  &:first-child {
   border-radius: 3px 0 0 0;
   }
   
-  &:last-of-type > label {
+  &:last-child {
     border-radius: 0 3px 0 0;    
+    margin-right: 0;
   }`;
-    }}`;
+    }}
 
-const TabContainer = styled.label`
   display: flex;
   flex-direction: column;
   align-content: flex-start;
@@ -59,7 +55,6 @@ const TabContainer = styled.label`
   
   border: ${({ theme }) => theme.tabs.border};
   border-${({ vertical }) => vertical ? 'right' : 'bottom'}-color: ${({ active, theme }) => active ? theme.tabs.bg : theme.tabs.border};
-  height: 100%;
   position: relative;
     ${({ vertical }) => {
       if (vertical) {
@@ -72,43 +67,45 @@ const TabContainer = styled.label`
 
 export default class Tab extends React.Component {
 
-  handleClick = (e) => {
-    this.props.handleSelect(this.props.namespace, this.props.index);
-
-    if (this.props.onClick) {
-      this.props.onClick(e);
-    }
+  static propTypes = {
+    /**
+     * Shows whether tab is active
+     */
+    active: PropTypes.bool,
+    /**
+     * Flag indicates vertical tab layout
+     */
+    vertical: PropTypes.bool,
+    /**
+     *
+     */
+    onTabSelected: PropTypes.func,
+    disabled: PropTypes.bool,
+    children: PropTypes.node,
+    index: PropTypes.number,
   };
 
+  static defaultValues = {
+    disabled: false,
+    active: false,
+  };
+
+  createTabClickHandler = (index) => () => this.props.onTabSelected(index);
+
   render() {
-    const { active, disabled, vertical } = this.props;
+    const { active, disabled, vertical, index } = this.props;
 
     return (
-      <Div vertical={vertical}>
-        <TabContainer
-          vertical={vertical}
-          onClick={(disabled) ? null : this.handleClick}
-          active={active}
-          disabled={disabled}
-        >
-          {this.props.children}
-        </TabContainer>
-      </Div>
+      // <Div vertical={vertical}>
+      <TabContainer
+        vertical={vertical}
+        onClick={(disabled) ? null : this.createTabClickHandler(index)}
+        active={active}
+        disabled={disabled}
+      >
+        {this.props.children}
+      </TabContainer>
+      // </Div>
     );
   }
 }
-
-Tab.defaultValues = {
-  disabled: false,
-  active: false,
-};
-
-Tab.propTypes = {
-  active: PropTypes.bool,
-  vertical: PropTypes.bool,
-  handleSelect: PropTypes.func,
-  namespace: PropTypes.string,
-  disabled: PropTypes.bool,
-  children: PropTypes.node,
-  index: PropTypes.number,
-};
