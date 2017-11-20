@@ -207,7 +207,7 @@ const SelectWrapper = styled.div`
   .Select-clear {
     font-size: 20px;
     display: block;
-    height: 18px;
+    height: 26px;
   }
   .Select--multi .Select-clear-zone {
     width: 17px;
