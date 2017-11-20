@@ -11,6 +11,7 @@ export default styled.div`
   & > ${NavigationHeading} {
     border-left: ${get('thicknesses.normal')} solid
       ${get('colors.text.inverted')};
+    margin: auto;
     margin-left: 0.5em;
     padding-left: 0.5em;
   }

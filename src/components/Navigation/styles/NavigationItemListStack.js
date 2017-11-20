@@ -11,4 +11,8 @@ export default styled.div.withConfig({
   & > div {
     margin-top: auto;
   }
+
+  ${NavigationBar} > &, ${NavigationBar.Dark} > &, ${NavigationBar.Sub} > & {
+    margin-bottom: 0;
+  }
 `;

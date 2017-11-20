@@ -15,6 +15,7 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
   cursor: pointer;
   color: inherit;
   font-size: 1em;
+  font-weight: 200;
 
   &::before {
     content: '';
