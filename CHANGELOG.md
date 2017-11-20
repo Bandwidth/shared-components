@@ -8,6 +8,7 @@ Major feature: Totally reworked the structure of components to create a clear di
   * Different sizes of components must now be accessed via attached 'variant' components, like `Accordion.Small`.
   * Error components, secondary components, and other visual modifications are also accessed via variants.
 * All `Field` components have been removed. These components were deprecated in `v1.1.0`.
+* `Navigation` has an entirely new usage. See the docs for the component for examples.
 * `Pane.Layout` has been removed. Use `<Spacing>` instead.
 * `Summary` experimental component removed. Use a Small FlowItem.
 * `Header` has been renamed to `H1` for consistency with the design system.
