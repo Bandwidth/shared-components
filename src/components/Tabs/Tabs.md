@@ -25,10 +25,10 @@ class Wrapper extends React.Component {
             selectedTabIndex={this.state.selectedIndex}
             onTabSelected={this.handleSelect}
           >
-            <Tab>Tab 1</Tab>
-            <Tab>Tab 2</Tab>
-            <Tab>Tab 3</Tab>
-            <Tab disabled>Tab 4</Tab>
+            <div>Tab 1</div>
+            <div>Tab 2</div>
+            <div>Tab 3</div>
+            <div disabled>Tab 4</div>
           </Tabs>
           <TabContent>
             {content[this.state.selectedIndex]}
