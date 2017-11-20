@@ -81,8 +81,7 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
     they get squished down a bit on the top.
   */
 
-  ${NavigationItemListStack} > ${NavigationItemList}:only-child &,
-    ${NavigationItemListStack} > ${NavigationItemList}:not(:first-child) & {
+  ${NavigationItemListStack} > ${NavigationItemList}:not(:first-child) :not(:only-child) & {
     padding-top: ${get('spacing.medium')};
   }
 `;
