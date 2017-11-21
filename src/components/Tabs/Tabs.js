@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import Tab from './Tab';
 
 const TabsDiv = styled.div`
   text-transform: uppercase;
@@ -29,69 +30,6 @@ const TabsDiv = styled.div`
     margin-right: -1.5px;`;
   }}`
   ;
-
-const TabContainer = styled.div`
-  flex: 1 1 auto;
-  
-    ${({ vertical }) => {
-  if (vertical) {
-    return css`
-  margin-bottom: -1px;  
-    
-  &:first-child {
-  border-radius: 3px 0 0 0;
-  }
-  
-  &:last-child {
-    border-radius: 0 0 0 3px;
-    margin-bottom: 0;
-  }`;
-  } return css`  
-  margin-right: -1px;
-  
-  &:first-child {
-  border-radius: 3px 0 0 0;
-  }
-  
-  &:last-child {
-    border-radius: 0 3px 0 0;    
-    margin-right: 0;
-  }`;
-}}
-
-  display: flex;
-  flex-direction: column;
-  align-content: flex-start;
-  opacity: ${({ active }) => active ? 1 : 0.5};
-  padding: ${({ theme }) => theme.tabs.padding};
-  cursor: ${({ disabled }) => disabled ? 'default' : 'pointer'};
-  background: ${({ theme, disabled }) => (disabled) ? theme.colors.disabled : theme.tabs.bg};
-  color: ${({ theme }) => theme.tabs.fg};
-  transition: opacity 0.2s ease, border-color 0.2s ease;
-
-  ${({ disabled }) => {
-  if (!disabled) {
-    return css`  
-      &:hover {
-      border-color: ${({ theme, active }) => active ? theme.tabs.border : theme.colors.primary};
-      border-${({ vertical }) => vertical ? 'right' : 'bottom'}-color: ${({ theme, active }) => active ? theme.tabs.bg : theme.tabs.border};
-      opacity: 1;
-      z-index: 1;
-      }`;
-  }
-}}
-  
-  border: ${({ theme }) => theme.tabs.border};
-  border-${({ vertical }) => vertical ? 'right' : 'bottom'}-color: ${({ active, theme }) => active ? theme.tabs.bg : theme.tabs.border};
-  position: relative;
-    ${({ vertical }) => {
-  if (vertical) {
-    return css` 
-    width: calc(100% + 1px);
-  `;
-  }
-}
-  } `;
 
 export default class Tabs extends React.Component {
 
@@ -122,14 +60,14 @@ export default class Tabs extends React.Component {
 
       // rendering Tab
       return (
-        <TabContainer
+        <Tab
           vertical={vertical}
           onClick={(child.props.disabled) ? null : () => onTabSelected(index)}
           active={index === selectedTabIndex}
           disabled={child.props.disabled}
         >
           {child.props.children}
-        </TabContainer>
+        </Tab>
       );
     });
 
@@ -143,4 +81,6 @@ export default class Tabs extends React.Component {
       <TabsDiv vertical={this.props.vertical}>{tabs}</TabsDiv>
     );
   }
-}
+};
+
+Tabs.Tab = Tab;

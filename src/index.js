@@ -72,6 +72,7 @@ export { default as TableRow } from './components/Table/TableRow';
 export { default as TableRowDetails } from './components/Table/TableRowDetails';
 export { default as TableWrap } from './components/Table/TableWrap';
 export { default as Tabs } from './components/Tabs';
+export { default as Tab } from './components/Tabs/Tab';
 export { default as TabList } from './components/Tabs/TabList';
 export { default as TabContent } from './components/Tabs/TabContent';
 export { default as TextArea } from './components/TextArea';
