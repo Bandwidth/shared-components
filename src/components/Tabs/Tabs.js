@@ -59,17 +59,12 @@ export default class Tabs extends React.Component {
       }
 
       // rendering Tab
-      return (
-        <Tab
-          vertical={vertical}
-          onClick={(child.props.disabled) ? null : () => onTabSelected(index)}
-          active={index === selectedTabIndex}
-          disabled={child.props.disabled}
-        >
-          {child.props.children}
-        </Tab>
-      );
-    });
+      return React.cloneElement(child, {
+        vertical,
+        onClick : (child.props.disabled) ? null : () => onTabSelected(index),
+        active: index === selectedTabIndex,
+        });
+      });
 
   render() {
     const tabs = this.renderTabs(this.props.children,
