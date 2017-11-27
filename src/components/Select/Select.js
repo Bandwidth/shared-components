@@ -24,7 +24,7 @@ const spin = keyframes`
 
 const Container = styled.div`
   width: 100%;
-    .Select {
+  .Select {
     position: relative;
   }
   .Select,
@@ -57,10 +57,8 @@ const Container = styled.div`
     border-spacing: 0;
     border-collapse: separate;
     outline: none;
-    overflow: hidden;
-    position: relative;
     width: 100%;
-    min-height: 46px;
+    min-height: 53px;
   }
 
   .Select-control .Select-input:focus {
@@ -91,7 +89,7 @@ const Container = styled.div`
     color: ${({ theme }) => theme.colors.black};
     left: 0;
     font-size: 14px;
-    line-height: 1;
+    line-height: 1.5;
     padding: ${({ theme }) => theme.padding.medium};
     max-width: 100%;
     overflow: hidden;
@@ -119,7 +117,7 @@ const Container = styled.div`
   }
   .Select-input {
     font-size: 14px;
-    line-height: 1;
+    line-height: 1.5;
     padding: 1em;
     vertical-align: middle;
   }
@@ -236,7 +234,7 @@ const Container = styled.div`
     position: absolute;
     top: 100%;
     width: 100%;
-    z-index: 1;
+    z-index: 100000;
     -webkit-overflow-scrolling: touch;
   }
   .Select-menu {

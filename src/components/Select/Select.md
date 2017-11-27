@@ -64,3 +64,10 @@ class Wrapper extends React.Component {
   <Wrapper options={options} loading/>
 </div>
 ```
+
+Visual test: inside a fixed size boundary
+```javascript
+<div style={{ overflowY: 'hidden' }}>
+  <Select value="a" options={['a', 'b', 'c', 'd', 'e', 'f']}/>
+</div>
+```
