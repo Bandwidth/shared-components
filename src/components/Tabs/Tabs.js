@@ -1,39 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
-import Tab from './Tab';
+import { withProps } from 'recompose';
+import DefaultTabList from './styles/TabList';
+import TabContainer from './styles/TabContainer';
+import TabContent from './styles/TabContent';
+import Tab from './styles/Tab';
 
-const TabsDiv = styled.div`
-  text-transform: uppercase;
-  font-weight: bold;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  ${({ vertical }) => {
-    if (vertical) {
-      return css`
-        width: 25%;
-        display: table-cell;
-        margin-bottom: -1px;
-        text-align: left;
-      `;
-    }
-    return css`
-      display: flex;
-      flex-direction: row;
-      align-items: stretch;
-      flex: 1 1 auto;
-      text-align: center;
-      margin-bottom: -1px;
-      min-height: 53px;
-      text-align: center;
-      margin-right: -1.5px;
-    `;
-  }};
-`;
-
-export default class Tabs extends React.Component {
+class Tabs extends React.Component {
   static propTypes = {
     /**
      * Tab elements within container
@@ -48,33 +21,61 @@ export default class Tabs extends React.Component {
      */
     selectedTabIndex: PropTypes.number,
     /**
-     * Enable vertical tab layout
+     * Override the component used to render the Tab list
      */
-    vertical: PropTypes.bool,
+    List: PropTypes.func,
   };
 
-  renderTabs = (children, { onTabSelected, selectedTabIndex, vertical }) =>
-    React.Children.map(children, (child, index) => {
+  static defaultProps = {
+    onTabSelected: null,
+    List: DefaultTabList,
+  };
+
+  /**
+   * Creates a click handler for a tab which preserves its own
+   * onClick usage, and also hooks in so that this component can
+   * appropriately call its onTabSelected callback with the right
+   * index.
+   */
+  createTabClickHandler = (tab, index) =>
+    this.props.onTabSelected
+      ? ev => {
+          if (tab.props.onClick) {
+            tab.props.onClick(ev);
+          }
+          this.props.onTabSelected(index);
+        }
+      : tab.props.onClick;
+
+  renderTabs = () =>
+    React.Children.map(this.props.children, (child, index) => {
       if (!React.isValidElement(child)) {
         return child;
       }
 
       // rendering Tab
       return React.cloneElement(child, {
-        vertical,
-        onClick: child.props.disabled ? null : () => onTabSelected(index),
-        active: index === selectedTabIndex,
+        onClick:
+          child.props.disabled || child.props.active
+            ? null
+            : this.createTabClickHandler(child, index),
+        active: index === this.props.selectedTabIndex,
       });
     });
 
   render() {
-    const tabs = this.renderTabs(this.props.children, {
-      onTabSelected: this.props.onTabSelected,
-      selectedTabIndex: this.props.selectedTabIndex,
-      vertical: this.props.vertical,
-    });
-    return <TabsDiv vertical={this.props.vertical}>{tabs}</TabsDiv>;
+    const { List } = this.props;
+
+    return <List>{this.renderTabs()}</List>;
   }
 }
 
+Tabs.Vertical = withProps({
+  List: DefaultTabList.Vertical,
+})(Tabs);
+
 Tabs.Tab = Tab;
+Tabs.Container = TabContainer;
+Tabs.Content = TabContent;
+
+export default Tabs;
