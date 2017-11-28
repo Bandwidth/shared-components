@@ -2,8 +2,8 @@
 
 Check these before submitting your pull request:
 
-- [] Visual and behavioral components are separated
-- [] Exported components are documented with examples
+- [ ] Visual and behavioral components are separated
+- [ ] Exported components are documented with examples
 
 ## Breaking Changes
 
