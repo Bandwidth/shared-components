@@ -1,60 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ScrollBox from '../../behaviors/ScrollBox';
-
-const Blocker = styled.div`
-  background: ${({ theme }) => theme.modal.blockerBG};
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  z-index: 100000;
-`;
-
-// content flex is `0 1 auto`: it won't grow beyond the content size, but can shrink if the window is too small
-// to show everything.
-const Content = styled.div`
-  background: ${({ theme }) => theme.modal.bg};
-  width: ${({ naturalWidth }) => naturalWidth};
-  max-width: ${({ theme }) => theme.modal.maxWidth};
-  min-width: ${({ theme }) => theme.modal.minWidth};
-  flex: 0 1 auto;
-  min-height: ${({ theme }) => theme.modal.minHeight};
-  max-height: ${({ theme }) => theme.modal.maxHeight};
-  margin: 180px auto auto auto;
-  display: flex;
-  flex-direction: column;
-  border-radius: ${({ theme }) => theme.modal.borderRadius};
-  box-shadow: ${({ theme }) => theme.modal.shadow};
-  position: relative;
-`;
-
-const Title = styled.h3`
-  display: block;
-  margin: 0;
-  background: ${({ theme }) => theme.modal.titleBG};
-  color: ${({ theme }) => theme.modal.titleFG};
-  padding: .95em 1em .95em 1.5em;
-  font-family: ${({ theme }) => theme.modal.titleFontFamily};
-  font-size: ${({ theme }) => theme.modal.titleFontSize};
-  font-weight: ${({ theme }) => theme.modal.titleFontWeight};
-  text-transform: ${({ theme }) => theme.modal.titleTextTransform};
-`;
-
-const ActionContent = styled.div`
-  position: relative;
-  &::before {
-    position: absolute;
-    content: '';
-    left: ${({ theme }) => theme.padding.large};
-    right: ${({ theme }) => theme.padding.large};
-    border-top: 1px solid ${({ theme }) => theme.colors.borderLight};
-  }
-`;
+import ModalActionContent from './styles/ModalActionContent';
+import ModalBlocker from './styles/ModalBlocker';
+import ModalContent from './styles/ModalContent';
+import ModalTitle from './styles/ModalTitle';
+import ModalWindow from './styles/ModalWindow';
 
 class Modal extends React.Component {
   static propTypes = {
@@ -86,38 +37,68 @@ class Modal extends React.Component {
      * Content to render in a fixed position at the bottom of the modal - meant for action buttons, like close.
      */
     actionContent: PropTypes.node,
+    /**
+     * A component to render the action content area
+     */
+    ActionContent: PropTypes.func,
+    /**
+     * A component to render the full-screen blocker behind the modal
+     */
+    Blocker: PropTypes.func,
+    /**
+     * A component to render the content inside the modal window
+     */
+    Content: PropTypes.func,
+    /**
+     * A component to render the title at the top of the modal
+     */
+    Title: PropTypes.func,
+    /**
+     * A component to render the window container of the modal
+     */
+    Window: PropTypes.func,
   };
 
   static defaultProps = {
     title: null,
-    naturalWidth: 'auto',
     onBlockerClicked: () => null,
     className: null,
     id: null,
     actionContent: null,
+    ActionContent: ModalActionContent,
+    Blocker: ModalBlocker,
+    Content: ModalContent,
+    Title: ModalTitle,
+    Window: ModalWindow,
   };
 
-  handleModalClicked = (event) => {
+  handleModalClicked = event => {
     // prevents click event bubbling to blocker and triggering blockerclicked callback
     event.stopPropagation();
   };
 
   render() {
-    const { id, className, onBlockerClicked, naturalWidth, title, children, actionContent } = this.props;
+    const {
+      id,
+      className,
+      onBlockerClicked,
+      title,
+      children,
+      actionContent,
+      Blocker,
+      Content,
+      Window,
+      ActionContent,
+      Title,
+    } = this.props;
+
     return (
       <Blocker onClick={onBlockerClicked}>
-        <Content
-          naturalWidth={naturalWidth}
-          onClick={this.handleModalClicked}
-          id={id}
-          className={className}
-        >
+        <Window onClick={this.handleModalClicked} id={id} className={className}>
           {title ? <Title>{title}</Title> : null}
-          <ScrollBox>
-            {children}
-          </ScrollBox>
-          <ActionContent>{actionContent}</ActionContent>
-        </Content>
+          <Content>{children}</Content>
+          {actionContent && <ActionContent>{actionContent}</ActionContent>}
+        </Window>
       </Blocker>
     );
   }

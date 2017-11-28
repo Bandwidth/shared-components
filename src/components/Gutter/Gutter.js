@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import get from 'extensions/themeGet';
 
-const GutterImpl = styled.div.withConfig({ displayName: 'Gutter' })`
-  background: ${({ theme }) => theme.colors.gutter};
+const Gutter = styled.div.withConfig({ displayName: 'Gutter' })`
+  background: ${get('colors.gray.light')};
 `;
-
-const Gutter = ({children, ...rest}) => (
-  <GutterImpl {...rest}>{children}</GutterImpl>
-)
 
 Gutter.propTypes = {
   /**
@@ -26,6 +23,7 @@ Gutter.defaultProps = {
   id: null,
 };
 
-Gutter.Styled = GutterImpl;
-
+/**
+ * @component
+ */
 export default Gutter;

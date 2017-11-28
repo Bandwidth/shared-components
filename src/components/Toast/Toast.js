@@ -1,19 +1,22 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import get from 'extensions/themeGet';
 
 const Toast = styled.div.withConfig({ displayName: 'Toast' })`
+  background: ${get('colors.background.default')};
+  width: 400px;
+  padding: ${get('spacing.small')};
+  text-align: center;
+  top: 120px;
+  border-width: ${get('thicknesses.normal')};
+  border-style: solid;
+  border-color: ${get('colors.border.medium')};
+  border-radius: 3px;
   position: fixed;
   z-index: 10000000;
-  background: ${({ theme }) => theme.colors.white};
   left: 50%;
   transform: translateX(-50%);
-  width: 400px;
-  padding: ${({ theme }) => theme.padding.small};
-  text-align: center;
   display: block;
-  top: 120px;
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: 3px;
 
   & p {
     margin: 0;
@@ -36,10 +39,7 @@ Toast.defaultProps = {
   id: null,
 };
 
-Toast.usage = `
-Fill with quick notification content.
-
-\`\`\`
-<Toast>Hi there</Toast>
-\`\`\`
-`
+/**
+ * @component
+ */
+export default Toast;

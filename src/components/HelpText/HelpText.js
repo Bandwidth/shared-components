@@ -1,18 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import get from 'extensions/themeGet';
 
-const HelpTextImpl = styled.div.withConfig({ displayName: 'HelpText' })`
-  color: ${({ theme, error }) => error ? theme.colors.errorText : theme.helpText.fg};
+const HelpText = styled.div.withConfig({ displayName: 'HelpText' })`
+  color: ${props =>
+    props.error ? get('colors.negative.default') : get('colors.gray.medium')};
   font-style: italic;
-  font-weight: ${({ theme }) => theme.helpText.fontWeight};
-  padding: ${({ theme }) => theme.input.helpTextPadding};
-  font-family: ${({ theme }) => theme.helpText.fontFamily};
+  font-weight: 300;
+  font-family: ${get('fonts.brand')};
 `;
-
-const HelpText = ({children, ...rest}) => (
-  <HelpTextImpl {...rest}>{children}</HelpTextImpl>
-)
 
 HelpText.propTypes = {
   /**
@@ -34,6 +31,7 @@ HelpText.defaultProps = {
   id: null,
 };
 
-HelpText.Styled = HelpTextImpl;
-
+/**
+ * @component
+ */
 export default HelpText;

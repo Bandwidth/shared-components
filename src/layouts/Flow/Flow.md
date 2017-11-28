@@ -6,7 +6,15 @@ Flow is a layout system which is intended to capture the rules which have surfac
 
 Flow Items have a distinctive layout and appearance. When you see one in a design mockup, use the Flow system.
 
-![A Flow Item]((../../../docs/images/item.png))
+#### The anatomy of a Flow.Item
+
+```javascript
+<Flow>
+  <Flow.Item label="A label" helpText="Some help text">
+    <Input value="A content element" />
+  </Flow.Item>
+</Flow>
+```
 
 Flow Items have a label, help text, and content which has a fixed height. Sometimes they might be missing a label, or help text, or both. As a rule of thumb, though, anything which is on the same horizontal level as another Flow Item should also be a Flow Item.
 
@@ -14,16 +22,16 @@ Flow Items have a label, help text, and content which has a fixed height. Someti
 
 #### Simple Row
 
-![Simple Recipe](../../../docs/images/simpleRecipe.png)
-
-```
+```javascript
 <Flow>
-  <Flow.Item label="User ID:" helpText={userIdHelpText}>
-    <Input value={userId} disabled />
-  </Flow.Item>
-  <Flow.Item label="API Token and Secret:" helpText={apiHelpText}>
-    <Button>Show Token and Secret</Button>
-  </Flow.Item>
+  <Flow.Row>
+    <Flow.Item label="User ID:" helpText="A unique identifier">
+      <Input value="u-userid" disabled />
+    </Flow.Item>
+    <Flow.Item label="API Token and Secret:" helpText="Click this to show API credentials" alignment="left">
+      <Button>Show Token and Secret</Button>
+    </Flow.Item>
+  </Flow.Row>
 </Flow>
 ```
 
@@ -31,20 +39,17 @@ Flow Items have a label, help text, and content which has a fixed height. Someti
 
 Sometimes you need to use nesting to achieve a precise alignment of various rows of fields. Particularly, if you want to break one column down into two columns on a certain row, you need to use nesting to line them up perfectly.
 
-![Alignment Recipe](../../../docs/images/alignmentRecipe.png)
-(Item contents omitted for brevity)
-
-```
+```javascript
 <Flow>
   <Flow.Row>
-    <Flow.Item label="Company" />
-    <Flow.Item label="Address" />
+    <Flow.Item label="Company"><Input /></Flow.Item>
+    <Flow.Item label="Address"><Input /></Flow.Item>
   </Flow.Row>
   <Flow.Row>
-    <Flow.Item label="City" />
+    <Flow.Item label="City"><Input /></Flow.Item>
     <Flow.Row>
-      <Flow.Item label="State" />
-      <Flow.Item label="Zip" />
+      <Flow.Item label="State"><Input /></Flow.Item>
+      <Flow.Item label="Zip"><Input /></Flow.Item>
     </Flow.Row>
   </Flow.Row>
 </Flow>
@@ -54,9 +59,7 @@ Sometimes you need to use nesting to achieve a precise alignment of various rows
 
 Flow includes built-in Redux Form fields for all our Input types. Reference them from \`Flow.fields\`. These components will take care of all transformations necessary for Redux Form Field usage.
 
-![Form Recipe](../../../docs/images/formRecipe.png)
-
-```
+```javascript static
 // in a redux-form HOC
 <Form onSubmit={this.props.handleSubmit}>
   <Flow>
@@ -99,9 +102,7 @@ Flow includes built-in Redux Form fields for all our Input types. Reference them
 
 Usually in a form, submit buttons and other controls lay out differently. There are a variety of possibilities, but all are possible with Flow! Here are some examples:
 
-![Left Recipe](../../../docs/images/leftRecipe.png)
-
-```
+```javascript
 <Flow>
   <Flow.Row alignment="left">
     <Flow.Item>
@@ -114,9 +115,7 @@ Usually in a form, submit buttons and other controls lay out differently. There 
 </Flow>
 ```
 
-![Spaced Recipe](../../../docs/images/spacedRecipe.png)
-
-```
+```javascript
 <Flow>
   <Flow.Row>
     <Flow.Item alignment="left">

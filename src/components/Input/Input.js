@@ -1,76 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withProps } from 'recompose';
 import styled, { css } from 'styled-components';
 import Anchor from '../Anchor';
-
-const StyledInput = styled.input`
-  color: ${({ theme }) => theme.colors.black};
-  background: ${({ theme }) => theme.colors.white};
-  letter-spacing: 0.02em;
-  line-height: ${({ theme }) => theme.input.lineHeight};
-  font-size: ${({ theme }) => theme.input.fontSize};
-  font-family: ${({ theme }) => theme.input.fontFamily};
-  transition: all 0.2s ease;
-  outline: none;
-  width: 100%;
-  padding: ${({ theme }) => theme.padding.medium};
-  display: block;
-  border: ${({ theme }) => theme.input.border};
-
-
-  &:focus {
-    box-shadow: inset 0 -5px 0 ${({ theme }) => theme.colors.primaryLight};
-    border: 1px solid ${({ theme }) => theme.colors.border};
-  }
-  &:focus + div {
-    opacity: 1;
-  }
-
-  &:disabled {
-    background: ${({ theme }) => theme.colors.disabled};
-    border: 1px solid ${({ theme }) => theme.colors.border};
-    opacity: 0.5;
-  }
-
-  &::placeholder {
-    opacity: 0.5;
-  }
-
-  ${({ visited, theme }) => visited ?
-    css`
-      &:invalid {
-        box-shadow: inset 0 -5px 0 ${theme.colors.errorBackgroundLight};
-        border: 1px solid ${theme.colors.errorBorder};
-      }
-    ` : ''
-  }
-
-  ${({ invalid, error, theme }) => invalid || error ?
-    `
-    box-shadow: inset 0 -5px ${theme.colors.errorBackgroundLight};
-    border: 1px solid ${theme.colors.errorBorder};
-    ` :
-    ''
-  }
-`;
-
-const RevealPasswordContainer = styled.div`
-  position: relative;
-  width: 100%;
-
-  div {
-    position: absolute;
-    right: 10px;
-    top: 30%;
-    z-index: 10;
-  }
-
-  input[type="password"],
-  input[type="text"] {
-    padding-right: ${({theme}) => theme.padding.extraLarge} !important;
-  }
-
-`
+import InputStyles from './styles/InputStyles';
+import InputRevealPasswordWrapper from './styles/InputRevealPasswordWrapper';
 
 class Input extends React.Component {
   static propTypes = {
@@ -91,8 +25,8 @@ class Input extends React.Component {
      */
     onFocus: PropTypes.func,
     /**
-       * Handler for the onkeydown event.
-       */
+     * Handler for the onkeydown event.
+     */
     onKeyDown: PropTypes.func,
     /**
      * Controls whether the user can change this element.
@@ -114,9 +48,21 @@ class Input extends React.Component {
      * Sets the type of data expected for this input.
      */
     type: PropTypes.oneOf([
-      'search', 'email', 'url', 'tel', 'number', 'range', 'date',
-      'month', 'week', 'time', 'datetime', 'datetime-local', 'color',
-      'password', 'text',
+      'search',
+      'email',
+      'url',
+      'tel',
+      'number',
+      'range',
+      'date',
+      'month',
+      'week',
+      'time',
+      'datetime',
+      'datetime-local',
+      'color',
+      'password',
+      'text',
     ]),
     /**
      * Styles this input as being invalid
@@ -138,13 +84,16 @@ class Input extends React.Component {
      * Provides a reference to the input element
      */
     inputRef: PropTypes.func,
+    /**
+     * A component that renders the internal input element
+     */
+    Styles: PropTypes.func,
+    /**
+     * A component that wraps the whole element and helps control spacing
+     * when reveal password is enabled
+     */
+    RevealPasswordWrapper: PropTypes.func,
   };
-
-  componentDidMount () {
-    this.setState({
-      _type: this.props.type
-    })
-  }
 
   static defaultProps = {
     disabled: false,
@@ -159,15 +108,24 @@ class Input extends React.Component {
     invalid: false,
     error: false,
     placeholder: '',
-    disableShowPassword: false
+    disableShowPassword: false,
+    Styles: InputStyles,
+    RevealPasswordWrapper: InputRevealPasswordWrapper,
   };
+
+  componentDidMount() {
+    this.setState({
+      _type: this.props.type,
+    });
+  }
 
   constructor(props) {
     super(props);
     this.state = { visited: false };
   }
 
-  onBlur = (event) => {
+  onBlur = event => {
+    console.log(event);
     this.setState({ visited: true });
     if (this.props.onBlur) {
       this.props.onBlur(event);
@@ -175,28 +133,29 @@ class Input extends React.Component {
   };
 
   renderPasswordField = () => {
-    const toggleState = () => this.state._type === 'password' ? 'text' : 'password';
-    const handleClick = (evt) => {
+    const { RevealPasswordWrapper } = this.props;
+    const toggleState = () =>
+      this.state._type === 'password' ? 'text' : 'password';
+    const handleClick = evt => {
       evt.preventDefault();
       this.setState({
-        _type: toggleState(this.state._type)
+        _type: toggleState(this.state._type),
       });
-    }
+    };
 
     return (
-      <RevealPasswordContainer>
+      <RevealPasswordWrapper>
         {this.renderInputField()}
         <div>
           <Anchor href="" onClick={handleClick}>
             {this.state._type === 'password' ? 'Show' : 'Hide'}
           </Anchor>
         </div>
-      </RevealPasswordContainer>
-    )
-  }
+      </RevealPasswordWrapper>
+    );
+  };
 
   renderInputField = () => {
-
     const {
       disabled,
       id,
@@ -211,12 +170,13 @@ class Input extends React.Component {
       placeholder,
       inputRef,
       onBlur,
+      Styles,
     } = this.props;
 
-    const { visited, _type:type } = this.state;
+    const { visited, _type: type } = this.state;
 
     return (
-      <StyledInput
+      <Styles
         onBlur={this.onBlur}
         onKeyDown={onKeyDown}
         onFocus={onFocus}
@@ -235,18 +195,21 @@ class Input extends React.Component {
         onBlur={onBlur}
       />
     );
-  }
-
+  };
 
   render() {
     const { type, disableShowPassword } = this.props;
 
-    if ( type === 'password' && !disableShowPassword) {
+    if (type === 'password' && !disableShowPassword) {
       return this.renderPasswordField();
     }
 
     return this.renderInputField();
   }
 }
+
+Input.Small = withProps({
+  Styles: InputStyles.Small,
+})(Input);
 
 export default Input;

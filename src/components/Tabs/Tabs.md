@@ -1,4 +1,17 @@
+Tab components provide visual rendering blocks of a tabbed layout. It's up to you to implement the logic behind rendering tabbed content.
+
+To keep things visually consistent and connected, utilize the `Tabs.Container` component as a wrapper around a `Tabs` and `Tabs.Content` component. This helps align the borders of the components so that they are rendered correctly.
+
+`Tabs` itself is a convenience component building on top of the `TabList` visual component (which can be imported from `components/Tabs/styles/TabList`). It provides a customized `onClick` handler to child `Tab` components and uses its own `onTabSelected` and `selectedTabIndex` props to give you a convenient and centralized place to keep track of tab state. If you'd prefer to do your own logic, you can just wrap `Tabs.Tab` components with the previously mentioned `TabList` component for rendering purposes.
+
 ```javascript
+const lipsum = require('lorem-ipsum');
+const content = [
+  lipsum({ count: 1 }),
+  lipsum({ count: 6 }),
+  lipsum({ count: 2, units: 'paragraph' }),
+];
+
 class Wrapper extends React.Component {
   constructor(props) {
     super(props);
@@ -11,38 +24,42 @@ class Wrapper extends React.Component {
   }
 
   render() {
-    const content = [
-      'Tab 1 content',
-      'Tab 2 content Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      'Tab 3 content Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' +
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    ];
+    const { List, Tab, Container } = this.props;
 
     return (
-      <div style={{ padding: '8px 0' }}>
-        <TabList vertical={this.state.vertical}>
-          <Tabs
-            selectedTabIndex={this.state.selectedIndex}
-            onTabSelected={this.handleSelect}
-          >
-            <Tabs.Tab>Tab 1</Tabs.Tab>
-            <Tabs.Tab>Tab 2</Tabs.Tab>
-            <Tabs.Tab>Tab 3</Tabs.Tab>
-            <Tabs.Tab disabled>Tab 4</Tabs.Tab>
-          </Tabs>
-          <TabContent>
-            {content[this.state.selectedIndex]}
-          </TabContent>
-        </TabList>
-      </div>
+      <Container>
+        <List
+          selectedTabIndex={this.state.selectedIndex}
+          onTabSelected={this.handleSelect}
+        >
+          <Tab>Tab 1</Tab>
+          <Tab>Tab 2</Tab>
+          <Tab>A longer tab name!</Tab>
+          <Tab disabled>Tab 4</Tab>
+        </List>
+        <Tabs.Content>
+          {content[this.state.selectedIndex]}
+        </Tabs.Content>
+      </Container>
     );
   }
 }
 
 <div>
-    <div>Horizontal tabs:</div>
-    <Wrapper/>
-    <div>Vertical tabs:</div>
-    <Wrapper vertical/>
+  <div>Horizontal tabs:</div>
+  <br />
+  <Wrapper
+    List={Tabs}
+    Container={Tabs.Container}
+    Tab={Tabs.Tab}
+  />
+  <br />
+  <div>Vertical tabs:</div>
+  <br />
+  <Wrapper
+    List={Tabs.Vertical}
+    Container={Tabs.Container.Vertical}
+    Tab={Tabs.Tab.Vertical}
+  />
 </div>
 ```

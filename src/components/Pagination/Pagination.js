@@ -1,70 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Icon from '../Icon';
-
-const ITEM_SIZE = '30px';
-
-const Container = styled.ul`
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  float: left;
-  list-style: none;
-  user-select: none;
-`;
-
-const Item = styled.li`
-  float: left;
-  margin: 0;
-  padding: 0;
-  width: ${ITEM_SIZE};
-  height: ${ITEM_SIZE};
-  line-height: ${ITEM_SIZE};
-  text-align: center;
-  cursor: pointer;
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-right: none;
-  user-select: none;
-
-  ${({ active, theme }) => active ?
-    `
-      background: ${theme.colors.primary};
-      border-color: ${theme.colors.primary};
-      color: ${theme.colors.white};
-
-      & + li {
-        border-left-color: ${theme.colors.primary};
-      }
-    ` :
-    `
-      &:hover {
-        background: ${theme.colors.primaryLight};
-      }
-    `
-  }
-
-  &:active {
-    background: ${({ theme }) => theme.colors.lightGray};
-  }
-
-  &:first-of-type {
-    border-radius: 3px 0px 0px 3px;
-  }
-
-  &:last-of-type {
-    border-radius: 0px 3px 3px 0px;
-    border-right: 1px solid ${({ theme }) => theme.colors.border};
-  }
-`;
-
-const ItemPlaceholder = styled.li`
-  float: left;
-  margin: 0;
-  padding: 0;
-  width: ${ITEM_SIZE};
-  height: ${ITEM_SIZE};
-`;
+import PaginationContainer from './styles/PaginationContainer';
+import PaginationItem from './styles/PaginationItem';
+import PaginationItemPlaceholder from './styles/PaginationItemPlaceholder';
 
 class Pagination extends React.Component {
   static propTypes = {
@@ -88,6 +27,18 @@ class Pagination extends React.Component {
      * Adds an id to the pagination container element.
      */
     id: PropTypes.string,
+    /**
+     * A component to render a container for the pagination
+     */
+    Container: PropTypes.func,
+    /**
+     * A component to render a single pagination item
+     */
+    Item: PropTypes.func,
+    /**
+     * A component to render a placeholder space for a pagination item
+     */
+    ItemPlaceholder: PropTypes.func,
   };
 
   static defaultProps = {
@@ -95,9 +46,12 @@ class Pagination extends React.Component {
     currentPage: 0,
     className: null,
     id: null,
+    Container: PaginationContainer,
+    Item: PaginationItem,
+    ItemPlaceholder: PaginationItemPlaceholder,
   };
 
-  createItemClickHandler = (index) => () => this.props.onPageSelected(index);
+  createItemClickHandler = index => () => this.props.onPageSelected(index);
 
   handlePreviousClick = () => {
     const { onPageSelected, currentPage } = this.props;
@@ -117,48 +71,47 @@ class Pagination extends React.Component {
   };
 
   renderPrevious = () =>
-    this.props.currentPage > 0 ?
-      (
-        <Item
-          onClick={this.handlePreviousClick}
-        >
-          <Icon name="back" />
-        </Item>
-      ) : <ItemPlaceholder />;
-
+    this.props.currentPage > 0 ? (
+      <this.props.Item onClick={this.handlePreviousClick}>
+        <Icon name="back" />
+      </this.props.Item>
+    ) : (
+      <this.props.ItemPlaceholder />
+    );
 
   renderNext = () =>
-    this.props.currentPage < this.props.pageCount - 1 ?
-      (
-        <Item
-          onClick={this.handleNextClick}
-        >
-          <Icon name="forward" />
-        </Item>
-      ) : <ItemPlaceholder />;
+    this.props.currentPage < this.props.pageCount - 1 ? (
+      <this.props.Item onClick={this.handleNextClick}>
+        <Icon name="forward" />
+      </this.props.Item>
+    ) : (
+      <this.props.ItemPlaceholder />
+    );
 
   renderItems = () => {
-    const { pageCount, currentPage } = this.props;
+    const { pageCount, currentPage, Item } = this.props;
     const start = Math.max(0, Math.min(currentPage + 5, pageCount) - 10);
     const end = Math.min(start + 10, pageCount);
-    return new Array(pageCount)
-      .fill(null)
-      // creates an array of incrementing numbers
-      .map((_, index) => index)
-      .slice(start, end)
-      .map((pageNumber) => (
-        <Item
-          key={pageNumber}
-          onClick={this.createItemClickHandler(pageNumber)}
-          active={pageNumber === currentPage}
-        >
-          {pageNumber + 1}
-        </Item>
-      ));
+    return (
+      new Array(pageCount)
+        .fill(null)
+        // creates an array of incrementing numbers
+        .map((_, index) => index)
+        .slice(start, end)
+        .map(pageNumber => (
+          <Item
+            key={pageNumber}
+            onClick={this.createItemClickHandler(pageNumber)}
+            selected={pageNumber === currentPage}
+          >
+            {pageNumber + 1}
+          </Item>
+        ))
+    );
   };
 
   render() {
-    const { id, className } = this.props;
+    const { id, className, Container } = this.props;
     return (
       <Container id={id} className={className}>
         {this.renderPrevious()}
@@ -168,13 +121,5 @@ class Pagination extends React.Component {
     );
   }
 }
-
-Pagination.usage = `
-Renders a 'controlled' pagination container. You need to provide the current page and other metadata.
-
-\`\`\`
-<Pagination pageCount={4} page={1} onPageSelected={(pageNumber) => { /* handle it */ }} />
-\`\`\`
-`;
 
 export default Pagination;

@@ -1,30 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withProps } from 'recompose';
 import { ThemeProvider } from 'styled-components';
-import theme from '../../theme';
+import irisTheme, { catapult as catapultTheme, NAMESPACE } from '../../theme';
 import '../../bootstrap'; // sets base CSS
 
-
-const BandwidthThemeProvider = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    {React.Children.only(children)}
-  </ThemeProvider>
+const BandwidthThemeProvider = ({ children, theme }) => (
+  <ThemeProvider theme={{ [NAMESPACE]: theme }}>{children}</ThemeProvider>
 );
 
-BandwidthThemeProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+BandwidthThemeProvider.defaultProps = {
+  theme: irisTheme,
 };
 
-BandwidthThemeProvider.usage = `
-Use this component at the root of your application to provide our default theme to all your components, and bootstrap your global CSS with some preferred defaults.
-
-You can only pass one child to BandwidthThemeProvider. Usually this is an App root component, or a Router, or something like that.
-
-\`\`\`
-<BandwidthThemeProvider>
-  <App />
-</BandwidthThemeProvider>
-\`\`\`
-`;
+BandwidthThemeProvider.CatapultThemeProvider = withProps({
+  theme: catapultTheme,
+})(BandwidthThemeProvider);
 
 export default BandwidthThemeProvider;

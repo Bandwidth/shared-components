@@ -1,17 +1,18 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import get from 'extensions/themeGet';
 
 const NewBadge = styled.span`
   display: inline-block;
 
   &::after {
     content: 'New:';
-    text-transform: uppercase;
     display: inline-block;
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${get('colors.primary.default')};
     font-weight: bold;
     font-size: 0.85em;
-    margin-right: 1em;
+    margin: 0 0 0 1em;
+    text-transform: uppercase;
   }
 `;
 
@@ -31,8 +32,7 @@ NewBadge.defaultProps = {
   id: null,
 };
 
-NewBadge.usage = `
-NewBadge lets a user quickly find new items that were just created by a previous action. Drop it on any item which just appeared on the page to easily inform the user of changes.
-`;
-
+/**
+ * @component
+ */
 export default NewBadge;

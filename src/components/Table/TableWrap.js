@@ -1,34 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import _ from 'lodash';
+import TableWrapShadow from './styles/TableWrapShadow';
 
-const WrapStyles = styled.div`
-  width: 100%;
-  background: ${({ theme }) => theme.table.bg};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: 5px 5px 0 0;
-  overflow-x: auto;
-  position: relative;
-  font-size: ${({ theme }) => theme.table.fontSize};
+// FIXME: profiling suggests this component is inefficient with rendering.
 
-  ${({ shadow }) => {
-    switch (shadow) {
-      case 'left':
-        return 'box-shadow: inset 15px 0 10px -10px rgba(0,0,0,0.2);';
-      case 'right':
-        return 'box-shadow: inset -15px 0 10px -10px rgba(0,0,0,0.2);';
-      case 'both':
-        return 'box-shadow: inset -15px 0 10px -10px rgba(0,0,0,.2), inset 15px 0 10px -10px rgba(0,0,0,.2);';
-      default:
-        return '';
-    }
-  }}
-`;
-
-class Wrap extends React.Component {
+class TableWrap extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
+    /**
+     * A component to render as the wrapping component.
+     * Passed a prop, 'shadow'=['left'|'right'|'both'], to indicate
+     * the scroll position and what side of the wrapper should be shadowed.
+     */
+    Styles: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    Styles: TableWrapShadow,
   };
 
   state = {
@@ -46,16 +35,30 @@ class Wrap extends React.Component {
   updateAndSubscribeWrapShadowChanges = () => {
     this.setWrapShadow(this.computeWrapShadow());
 
-    this._wrap.addEventListener('scroll', _.debounce(() => {
-      this.setWrapShadow(this.computeWrapShadow());
-    }, 300, { leading: true }));
+    this._wrap.addEventListener(
+      'scroll',
+      _.debounce(
+        () => {
+          this.setWrapShadow(this.computeWrapShadow());
+        },
+        300,
+        { leading: true },
+      ),
+    );
 
-    window.addEventListener('resize', _.debounce(() =>{
-      this.setWrapShadow(this.computeWrapShadow());
-    }, 300, { leading: true }));
-  }
+    window.addEventListener(
+      'resize',
+      _.debounce(
+        () => {
+          this.setWrapShadow(this.computeWrapShadow());
+        },
+        300,
+        { leading: true },
+      ),
+    );
+  };
 
-  setWrapShadow = (shadow) => {
+  setWrapShadow = shadow => {
     if (this.state.shadow === shadow) {
       return;
     }
@@ -85,12 +88,14 @@ class Wrap extends React.Component {
   };
 
   render() {
+    const { children, Styles } = this.props;
+
     return (
-      <WrapStyles innerRef={(el) => this._wrap = el} shadow={this.state.shadow}>
-        {this.props.children}
-      </WrapStyles>
-    )
+      <Styles innerRef={el => (this._wrap = el)} shadow={this.state.shadow}>
+        {children}
+      </Styles>
+    );
   }
 }
 
-export default Wrap;
+export default TableWrap;

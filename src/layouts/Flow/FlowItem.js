@@ -1,76 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import _ from 'lodash';
-import Label from '../../components/Label';
-import HelpText from '../../components/HelpText';
-import { HORIZONTAL_SPACING } from './constants';
-
-const Content = styled.div.withConfig({ displayName: 'FlowItemContent' })``;
-const FlexibleContent = styled.div.withConfig({ displayName: 'FlowItemContentFlexible' })``;
-const MoreContent = styled.div.withConfig({ displayName: 'FlowItemMoreContent' })``;
-
-const Container = styled.div.withConfig({ displayName: 'FlowItemContainer' })`
-  display: flex;
-  flex-direction: column;
-  align-items: ${({ alignment }) => {
-    switch (alignment) {
-      case 'left':
-        return 'flex-start';
-      case 'right':
-        return 'flex-end';
-      default:
-        return 'stretch';
-    }
-  }};
-
-  & > ${Label.Styled} {
-    height: 21px;
-    margin: 0;
-    margin-bottom: 5.6px;
-    overflow-x: hidden;
-    flex-basis: 21px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    padding: 0;
-  }
-
-  & > ${Content} {
-    height: 53px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    display: flex;
-
-    & > * {
-      margin: auto;
-    }
-
-    & > *:not(:last-child):not(:only-child) {
-      margin-right: ${HORIZONTAL_SPACING}px;
-    }
-  }
-
-  & > ${FlexibleContent} {
-    height: auto;
-    flex-basis: 53px;
-    flex-grow: 1;
-    flex-shrink: 0;
-  }
-
-  & > ${HelpText.Styled} {
-    min-height: 18px;
-    margin: 0;
-    margin-top: 5.6px;
-    flex-basis: 18px;
-    flex-grow: 1;
-    flex-shrink: 0;
-    padding: 0;
-  }
-
-  & > ${MoreContent} {
-    flex: 1 0 0;
-  }
-`;
+import { withProps } from 'recompose';
+import DefaultLabel from 'components/Label';
+import DefaultHelpText from 'components/HelpText';
+import FlowItemContainer from './styles/FlowItemContainer';
+import FlowItemContent from './styles/FlowItemContent';
+import FlowItemFlexibleContent from './styles/FlowItemFlexibleContent';
+import FlowItemMoreContent from './styles/FlowItemMoreContent';
 
 /**
  * Flow.Item is an individual element in the Flow system. It annotates the provided
@@ -120,6 +57,30 @@ class FlowItem extends React.Component {
      * A class name to add to the item container element.
      */
     className: PropTypes.string,
+    /**
+     * A component for rendering the containing element
+     */
+    Container: PropTypes.func,
+    /**
+     * A component for rendering the content area
+     */
+    Content: PropTypes.func,
+    /**
+     * A component for rendering content that is flexible in size
+     */
+    FlexibleContent: PropTypes.func,
+    /**
+     * A component for rendering the 'more content' area
+     */
+    MoreContent: PropTypes.func,
+    /**
+     * Allows overriding the default Label component
+     */
+    Label: PropTypes.func,
+    /**
+     * Allows overriding the default HelpText component
+     */
+    HelpText: PropTypes.func,
   };
 
   static defaultProps = {
@@ -132,45 +93,66 @@ class FlowItem extends React.Component {
     id: null,
     className: null,
     alignment: 'stretch',
+    Container: FlowItemContainer,
+    Content: FlowItemContent,
+    FlexibleContent: FlowItemFlexibleContent,
+    MoreContent: FlowItemMoreContent,
+    Label: DefaultLabel,
+    HelpText: DefaultHelpText,
   };
 
   renderLabel = () => {
-    const { label } = this.props;
+    const { label, Label } = this.props;
 
     if (!!label && _.isString(label)) {
-      return <Label>{label}</Label>;
+      return <Label className="FlowItem-label">{label}</Label>;
     }
 
     // always render some label, even if blank, to keep layout consistent
-    return label || <Label />;
+    return label || <Label className="FlowItem-label" />;
   };
 
-  renderChildren = () => this.props.flexibleContent ?
-    <FlexibleContent>{this.props.children}</FlexibleContent> :
-    <Content>{this.props.children}</Content>
-  ;
+  renderChildren = () => {
+    const { flexibleContent, FlexibleContent, Content, children } = this.props;
+
+    if (flexibleContent) {
+      return <FlexibleContent>{children}</FlexibleContent>;
+    }
+    return <Content>{children}</Content>;
+  };
 
   renderHelpText = () => {
-    const { helpText, error } = this.props;
+    const { helpText, error, HelpText } = this.props;
 
     if (_.isString(helpText)) {
-      return <HelpText error={error}>{helpText}</HelpText>;
+      return (
+        <HelpText className="FlowItem-helpText" error={error}>
+          {helpText}
+        </HelpText>
+      );
     } else if (helpText && helpText.props) {
       return React.cloneElement(helpText, { error: error });
     } else if (!helpText && error) {
-      return <HelpText error>{error}</HelpText>;
+      return (
+        <HelpText className="FlowItem-helpText" error>
+          {error}
+        </HelpText>
+      );
     }
 
     return helpText || null;
   };
 
-  renderMoreContent = () => this.props.moreContent ?
-    <MoreContent>{this.props.moreContent}</MoreContent> :
-    null
-  ;
+  renderMoreContent = () => {
+    const { moreContent, MoreContent } = this.props;
+    if (moreContent) {
+      return <MoreContent>{moreContent}</MoreContent>;
+    }
+    return null;
+  };
 
   render() {
-    const { id, className } = this.props;
+    const { id, className, Container } = this.props;
     return (
       <Container alignment={this.props.alignment} id={id} className={className}>
         {this.renderLabel()}
@@ -182,9 +164,8 @@ class FlowItem extends React.Component {
   }
 }
 
-FlowItem.Container = Container;
-FlowItem.Content = Content;
-FlowItem.FlexibleContent = FlexibleContent;
-FlowItem.MoreContent = MoreContent;
+FlowItem.Small = withProps({
+  Container: FlowItemContainer.Small,
+})(FlowItem);
 
 export default FlowItem;

@@ -78,7 +78,7 @@ class ExpandToggle extends React.Component {
       return toggleContent(this.calcIsExpanded());
     }
     return toggleContent;
-  }
+  };
 
   render() {
     const isExpanded = this.calcIsExpanded();
@@ -86,15 +86,10 @@ class ExpandToggle extends React.Component {
 
     return (
       <div id={id} className={className}>
-        <div
-          style={{ cursor: 'pointer' }}
-          onClick={this.handleToggle}
-        >
+        <div style={{ cursor: 'pointer' }} onClick={this.handleToggle}>
           {this.renderToggle()}
         </div>
-        <Collapse isOpened={isExpanded}>
-          {children}
-        </Collapse>
+        <Collapse isOpened={isExpanded}>{children}</Collapse>
       </div>
     );
   }

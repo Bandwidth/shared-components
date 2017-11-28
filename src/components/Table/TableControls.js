@@ -1,32 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Header from '../Header';
+import H1 from '../H';
 import Anchor from '../Anchor';
-import Icon from '../Icon';
+import BaseIcon from '../Icon';
+import TableControlsContainer from './styles/TableControlsContainer';
+import TableControlsRow from './styles/TableControlsRow';
 
-const Buttons = styled.div``;
-
-const Container = styled.div`
-  margin-bottom: ${({ theme }) => theme.padding.medium};
-`;
-
-const ControlsRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-bottom: ${({ theme }) => theme.padding.small};
-
-  & > ${Header.Styled} {
-    flex: 1;
-    margin: 0;
-  }
-
-  & > ${Buttons} {
-    flex: 0 0 auto;
-    & > a {
-      margin-left: ${({ theme }) => theme.padding.medium};
-    }
-  }
+const TableControlsIcon = BaseIcon.extend`
+  font-size: 21px;
 `;
 
 class TableControls extends React.Component {
@@ -71,6 +53,18 @@ class TableControls extends React.Component {
      * Adds an id to the container element.
      */
     id: PropTypes.string,
+    /**
+     * A component to render the containing element
+     */
+    Container: PropTypes.func,
+    /**
+     * A component to render the controls row
+     */
+    ControlsRow: PropTypes.func,
+    /**
+     * A component to render icons in the controls
+     */
+    Icon: PropTypes.func,
   };
 
   static defaultProps = {
@@ -84,6 +78,9 @@ class TableControls extends React.Component {
     onSearch: () => null,
     className: null,
     id: null,
+    Container: TableControlsContainer,
+    ControlsRow: TableControlsRow,
+    Icon: TableControlsIcon,
   };
 
   render() {
@@ -97,7 +94,10 @@ class TableControls extends React.Component {
       onAdd,
       id,
       className,
-      onSearch
+      onSearch,
+      Container,
+      ControlsRow,
+      Icon,
     } = this.props;
 
     if (!title && !enableAdd && !enableDelete && !enableSearch && !children) {
@@ -107,47 +107,29 @@ class TableControls extends React.Component {
     return (
       <Container>
         <ControlsRow id={id} className={className}>
-          <Header>{title}</Header>
-          <Buttons>
-            {
-              enableAdd ?
-                <Anchor onClick={onAdd} type="icon"><Icon size="21px" name="plusMath" /></Anchor> :
-                null
-            }
-            {
-              enableSearch ?
-                <Anchor onClick={onSearch} type="icon"><Icon size="21px" name="search" /></Anchor> :
-                null
-            }
-            {
-              enableDelete ?
-                <Anchor onClick={onDelete} type="icon"><Icon size="21px" name="trash" /></Anchor> :
-                null
-            }
-          </Buttons>
+          <H1>{title}</H1>
+          <div>
+            {enableAdd ? (
+              <Anchor onClick={onAdd} type="icon">
+                <Icon name="plusMath" />
+              </Anchor>
+            ) : null}
+            {enableSearch ? (
+              <Anchor onClick={onSearch} type="icon">
+                <Icon name="search" />
+              </Anchor>
+            ) : null}
+            {enableDelete ? (
+              <Anchor onClick={onDelete} type="icon">
+                <Icon name="trash" />
+              </Anchor>
+            ) : null}
+          </div>
         </ControlsRow>
         {children}
       </Container>
-    )
+    );
   }
 }
-
-TableControls.usage = `
-Generally sits above a table. Standardized format of the table name and some common controls.
-
-\`\`\`
-<TableControls
-  title="Sample Table"
-  enableAdd
-  enableDelete
-  enableSearch
-  onAdd={...}
-  onDelete={...}
-  onSearch={...}
->
-  Some extra top row content
-</TableControls>
-\`\`\`
-`;
 
 export default TableControls;

@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Item from './ListItem';
@@ -12,12 +13,13 @@ const UnorderedList = styled.ul.withConfig({ displayName: 'UnorderedList' })`
     margin-bottom: 0;
   }
 
-  & ul {
+  & > ul {
     list-style: circle outside;
+    margin: 0 0 0 1em;
   }
 
-  & ul ${Item.Styled}:first-child,
-  & ol ${Item.Styled}:first-child {
+  & ul li:first-child,
+  & ol li:first-child {
     margin-top: 0.5em;
   }
 `;
@@ -38,17 +40,10 @@ UnorderedList.defaultProps = {
   id: null,
 };
 
-UnorderedList.usage = `
-A basic bulletted list. Fill with \`Item\` elements.
-
-\`\`\`
-<UnorderedList>
-  <Item>Foo</Item>
-  <Item>Bar</Item>
-</UnorderedList>
-\`\`\`
-`;
-
 UnorderedList.Item = Item;
 UnorderedList.Ordered = Ordered;
+
+/**
+ * @component
+ */
 export default UnorderedList;

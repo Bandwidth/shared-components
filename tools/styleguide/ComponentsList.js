@@ -23,9 +23,7 @@ const Link = styled.a`
   color: inherit;
   font-weight: inherit;
 
-  ${({ active }) => active ? 'color: #00bef0;' : ''}
-
-  &:focus, &:active {
+  ${({ active }) => (active ? 'color: #00bef0;' : '')} &:focus, &:active {
     color: #00bef0;
   }
 `;
@@ -56,20 +54,13 @@ export default class ComponentsListRenderer extends React.Component {
     return (
       <List>
         {items.map(({ heading, name, slug, content }) => (
-          <Item
-            key={name}
-          >
-
+          <Item key={name}>
             <ExpandToggle
               toggleContent={
-                <Link
-                  href={`#${slug}`}
-                  active={`#${slug}` === currentPath}
-                >
+                <Link href={`#${slug}`} active={`#${slug}` === currentPath}>
                   {name}
                 </Link>
               }
-
             >
               {content}
             </ExpandToggle>

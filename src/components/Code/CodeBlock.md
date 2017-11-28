@@ -1,5 +1,4 @@
-CodeBlock.usage = `
-Applies styling to render code on the page. Supports multiline only (use InlineCode for single line).
+Applies styling to render multiline code.
 
 ```
 <CodeBlock>

@@ -1,15 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Container as AccordionContainer } from './Accordion';
+import AccordionGroupContainer from './styles/AccordionGroupContainer';
 
-const Container = styled.div`
-  & > ${AccordionContainer}:not(:first-child) {
-    border-top: none;
-  }
-`;
-
-class AccordionGroup extends React.Component {
+export default class AccordionGroup extends React.Component {
   static propTypes = {
     /**
      * Accordions to render in this group.
@@ -18,7 +11,7 @@ class AccordionGroup extends React.Component {
     /**
      * The key of the accordion (if any) to start in the expanded state.
      */
-    startExpandedKey: PropTypes.string,
+    startExpandedKey: PropTypes.any,
     /**
      * A class name to pass to the accordion group container.
      */
@@ -27,12 +20,17 @@ class AccordionGroup extends React.Component {
      * An id to pass to the accordion group container
      */
     id: PropTypes.string,
+    /**
+     * A component that wraps the accordions and defines layout and styling
+     */
+    Container: PropTypes.func,
   };
 
   static defaultProps = {
     startExpandedKey: null,
     className: null,
     id: null,
+    Container: AccordionGroupContainer,
   };
 
   constructor(props) {
@@ -42,17 +40,17 @@ class AccordionGroup extends React.Component {
     };
   }
 
-  createToggleHandler = (key) => (isAlreadyExpanded) => {
+  createToggleHandler = key => isAlreadyExpanded => {
     // current state is open, it will close
     if (!isAlreadyExpanded) {
       this.setState({ expandedKey: key });
-    // close already open accordion
+      // close already open accordion
     } else {
       this.setState({ expandedKey: null });
     }
   };
 
-  renderAccordion = (accordion) => {
+  renderAccordion = accordion => {
     const { expandedKey } = this.state;
     if (!accordion.key) {
       throw new Error('All AccordionGroup accordion children must have a key');
@@ -66,10 +64,10 @@ class AccordionGroup extends React.Component {
   renderAccordions = () => {
     const { children } = this.props;
     return React.Children.map(children, this.renderAccordion);
-  }
+  };
 
   render() {
-    const { className, id } = this.props;
+    const { className, id, Container } = this.props;
 
     return (
       <Container className={className} id={id}>
@@ -78,5 +76,3 @@ class AccordionGroup extends React.Component {
     );
   }
 }
-
-export default AccordionGroup;

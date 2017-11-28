@@ -1,8 +1,10 @@
 import styled from 'styled-components';
-import FlowRow from './FlowRow';
+import FlowRowStyles from './styles/FlowRowStyles';
 import field from './fields/flowField';
 import * as fields from './fields';
+import FlowItemContainer from './styles/FlowItemContainer';
 import FlowItem from './FlowItem';
+import FlowRow from './FlowRow';
 import { HORIZONTAL_SPACING, VERTICAL_SPACING } from './constants';
 
 const Flow = styled.div.withConfig({ displayName: 'Flow' })`
@@ -11,21 +13,20 @@ const Flow = styled.div.withConfig({ displayName: 'Flow' })`
   flex-wrap: wrap;
   justify-content: space-between;
 
-  & > ${FlowRow.Container} {
+  & > ${FlowRowStyles} {
     flex-basis: 100%;
     flex-shrink: 0;
   }
 
-  & > ${FlowItem.Container} {
-    flex-basis: calc(50% - ${HORIZONTAL_SPACING / 2}px);
+  & > ${FlowItemContainer} {
+    flex-basis: calc(50% - ${HORIZONTAL_SPACING}px / 2);
     flex-grow: 0;
     flex-shrink: 0;
   }
 
-  & > ${FlowRow.Container},
-  & > ${FlowItem.Container} {
-    margin-top: ${VERTICAL_SPACING / 2}px;
-    margin-bottom: ${VERTICAL_SPACING / 2}px;
+  & > ${FlowRowStyles}, & > ${FlowItemContainer} {
+    margin-top: calc(${VERTICAL_SPACING}px / 2);
+    margin-bottom: calc(${VERTICAL_SPACING}px / 2);
 
     &:first-child {
       margin-top: 0;
@@ -42,4 +43,7 @@ Flow.fields = fields;
 Flow.createField = field;
 Flow.Item = FlowItem;
 
+/**
+ * @component
+ */
 export default Flow;

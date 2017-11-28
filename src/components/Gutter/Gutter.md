@@ -1,9 +1,7 @@
 A simple container box which sets the background color. That's it!
 
-```
-
-  <Gutter>
-    Sample content
-  </Gutter>
-
+```javascript
+<Gutter>
+  Sample content
+</Gutter>
 ```
