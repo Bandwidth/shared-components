@@ -1,3 +1,9 @@
+Tab components provide visual rendering blocks of a tabbed layout. It's up to you to implement the logic behind rendering tabbed content.
+
+To keep things visually consistent and connected, utilize the `Tabs.Container` component as a wrapper around a `Tabs` and `Tabs.Content` component. This helps align the borders of the components so that they are rendered correctly.
+
+`Tabs` itself is a convenience component building on top of the `TabList` visual component (which can be imported from `components/Tabs/styles/TabList`). It provides a customized `onClick` handler to child `Tab` components and uses its own `onTabSelected` and `selectedTabIndex` props to give you a convenient and centralized place to keep track of tab state. If you'd prefer to do your own logic, you can just wrap `Tabs.Tab` components with the previously mentioned `TabList` component for rendering purposes.
+
 ```javascript
 const lipsum = require('lorem-ipsum');
 const content = [

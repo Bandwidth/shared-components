@@ -100,4 +100,7 @@ Tab.Vertical = Tab.extend`
   ${verticalStyles};
 `;
 
+/**
+ * @component
+ */
 export default Tab;
