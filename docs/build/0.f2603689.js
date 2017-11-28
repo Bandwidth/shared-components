@@ -1,16 +1,16 @@
 webpackJsonp([0], {
-  1478: function(e, t, n) {
+  1488: function(e, t, n) {
     'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 });
     var r = n(0),
       i = n.n(r),
       o = n(1),
       a = n.n(o),
-      s = n(325),
+      s = n(327),
       l = n.n(s),
-      c = n(1480),
+      c = n(1490),
       u = n.n(c),
-      d = n(1481),
+      d = n(1491),
       p = (n.n(d),
       Object.assign ||
         function(e) {
@@ -39,7 +39,7 @@ webpackJsonp([0], {
           );
         };
       })();
-    n(1484), n(1486);
+    n(1494), n(1496);
     var f = {
         mode: 'jsx',
         lineNumbers: !1,
@@ -126,7 +126,7 @@ webpackJsonp([0], {
       (m.contextTypes = { config: a.a.object.isRequired }),
       (t.default = m);
   },
-  1479: function(e, t, n) {
+  1489: function(e, t, n) {
     !(function(t, n) {
       e.exports = n();
     })(0, function() {
@@ -881,43 +881,44 @@ webpackJsonp([0], {
         for (
           var a = n.state,
             s = function(r) {
-              var a = e.state.overlays[r],
-                s = 1,
-                l = 0;
+              n.baseTokens = i;
+              var s = e.state.overlays[r],
+                l = 1,
+                c = 0;
               (n.state = !0),
                 runMode(
                   e,
                   t.text,
-                  a.mode,
+                  s.mode,
                   n,
                   function(e, t) {
-                    for (var n = s; l < e; ) {
-                      var r = i[s];
-                      r > e && i.splice(s, 1, e, i[s + 1], r),
-                        (s += 2),
-                        (l = Math.min(e, r));
+                    for (var n = l; c < e; ) {
+                      var r = i[l];
+                      r > e && i.splice(l, 1, e, i[l + 1], r),
+                        (l += 2),
+                        (c = Math.min(e, r));
                     }
                     if (t)
-                      if (a.opaque)
-                        i.splice(n, s - n, e, 'overlay ' + t), (s = n + 2);
+                      if (s.opaque)
+                        i.splice(n, l - n, e, 'overlay ' + t), (l = n + 2);
                       else
-                        for (; n < s; n += 2) {
+                        for (; n < l; n += 2) {
                           var o = i[n + 1];
                           i[n + 1] = (o ? o + ' ' : '') + 'overlay ' + t;
                         }
                   },
                   o,
-                );
+                ),
+                (n.state = a),
+                (n.baseTokens = null),
+                (n.baseTokenPos = 1);
             },
             l = 0;
           l < e.state.overlays.length;
           ++l
         )
           s(l);
-        return (
-          (n.state = a),
-          { styles: i, classes: o.bgClass || o.textClass ? o : null }
-        );
+        return { styles: i, classes: o.bgClass || o.textClass ? o : null };
       }
       function getLineStyles(e, t, n) {
         if (!t.styles || t.styles[0] != e.state.modeGen) {
@@ -2048,16 +2049,11 @@ webpackJsonp([0], {
               if (u) {
                 var d = (e.options.lineWrapping
                   ? function coordsBidiPartWrapped(e, t, n, r, i, o, a) {
-                      for (
-                        var s = wrappedLineExtent(e, t, r, a),
-                          l = s.begin,
-                          c = s.end,
-                          u = null,
-                          d = null,
-                          p = 0;
-                        p < i.length;
-                        p++
-                      ) {
+                      var s = wrappedLineExtent(e, t, r, a),
+                        l = s.begin,
+                        c = s.end;
+                      /\s/.test(t.text.charAt(c - 1)) && c--;
+                      for (var u = null, d = null, p = 0; p < i.length; p++) {
                         var h = i[p];
                         if (!(h.from >= c || h.to <= l)) {
                           var f = 1 != h.level,
@@ -2368,13 +2364,24 @@ webpackJsonp([0], {
                     }
                     function drawForLine(t, n, r) {
                       function coords(n, r) {
-                        return charCoords(e, Pos(t, n), 'div', c, r);
+                        return charCoords(e, Pos(t, n), 'div', u, r);
+                      }
+                      function wrapX(t, n, r) {
+                        var i = wrappedLineExtentChar(e, u, null, t),
+                          o = ('ltr' == n) == ('after' == r) ? 'left' : 'right';
+                        return coords(
+                          'after' == r
+                            ? i.begin
+                            : i.end -
+                              (/\s/.test(u.text.charAt(i.end - 1)) ? 2 : 1),
+                          o,
+                        )[o];
                       }
                       var o,
                         a,
-                        c = getLine(i, t),
-                        u = c.text.length,
-                        d = getOrder(c, i.direction);
+                        u = getLine(i, t),
+                        d = u.text.length,
+                        p = getOrder(u, i.direction);
                       return (
                         (function iterateBidiSections(e, t, n, r) {
                           if (!e) return r(t, n, 'ltr', 0);
@@ -2391,44 +2398,33 @@ webpackJsonp([0], {
                               (i = !0));
                           }
                           i || r(t, n, 'ltr');
-                        })(d, n || 0, null == r ? u : r, function(t, i, p, h) {
-                          var f = coords(t, 'ltr' == p ? 'left' : 'right'),
-                            g = coords(i - 1, 'ltr' == p ? 'right' : 'left');
-                          if ('ltr' == p) {
-                            var m = null == n && 0 == t ? s : f.left,
-                              v = null == r && i == u ? l : g.right;
-                            g.top - f.top <= 3
-                              ? add(m, g.top, v - m, g.bottom)
-                              : (add(m, f.top, null, f.bottom),
-                                f.bottom < g.top &&
-                                  add(s, f.bottom, null, g.top),
-                                add(s, g.top, g.right, g.bottom));
-                          } else if (t < i) {
-                            var y = null == n && 0 == t ? l : f.right,
-                              b = null == r && i == u ? s : g.left;
-                            if (g.top - f.top <= 3)
-                              add(b, g.top, y - b, g.bottom);
-                            else {
-                              var x = s;
-                              if (h) {
-                                var C = wrappedLineExtentChar(e, c, null, t)
-                                  .end;
-                                x = coords(
-                                  C - (/\s/.test(c.text.charAt(C - 1)) ? 2 : 1),
-                                  'left',
-                                ).left;
-                              }
-                              add(x, f.top, y - x, f.bottom),
-                                f.bottom < g.top &&
-                                  add(s, f.bottom, null, g.top);
-                              var w = null;
-                              if ((d.length, !0)) {
-                                var S = wrappedLineExtentChar(e, c, null, i)
-                                  .begin;
-                                w = coords(S, 'right').right - b;
-                              }
-                              add(b, g.top, w, g.bottom);
-                            }
+                        })(p, n || 0, null == r ? d : r, function(e, t, i, u) {
+                          var h = 'ltr' == i,
+                            f = coords(e, h ? 'left' : 'right'),
+                            g = coords(t - 1, h ? 'right' : 'left'),
+                            m = null == n && 0 == e,
+                            v = null == r && t == d,
+                            y = 0 == u,
+                            b = !p || u == p.length - 1;
+                          if (g.top - f.top <= 3) {
+                            var x = (c ? v : m) && b,
+                              C = (c ? m : v) && y ? s : (h ? f : g).left,
+                              w = x ? l : (h ? g : f).right;
+                            add(C, f.top, w - C, f.bottom);
+                          } else {
+                            var S, k, L, M;
+                            h
+                              ? ((S = c && m && y ? s : f.left),
+                                (k = c ? l : wrapX(e, i, 'before')),
+                                (L = c ? s : wrapX(t, i, 'after')),
+                                (M = c && v && b ? l : g.right))
+                              : ((S = c ? wrapX(e, i, 'before') : s),
+                                (k = !c && m && y ? l : f.right),
+                                (L = !c && v && b ? s : g.left),
+                                (M = c ? wrapX(t, i, 'after') : l)),
+                              add(S, f.top, k - S, f.bottom),
+                              f.bottom < g.top && add(s, f.bottom, null, g.top),
+                              add(L, g.top, M - L, g.bottom);
                           }
                           (!o || cmpCoords(f, o) < 0) && (o = f),
                             cmpCoords(g, o) < 0 && (o = g),
@@ -2447,26 +2443,27 @@ webpackJsonp([0], {
                         Math.max(
                           r.sizerWidth,
                           displayWidth(e) - r.sizer.offsetLeft,
-                        ) - a.right;
-                    var c = t.from(),
-                      u = t.to();
-                    if (c.line == u.line) drawForLine(c.line, c.ch, u.ch);
+                        ) - a.right,
+                      c = 'ltr' == i.direction;
+                    var u = t.from(),
+                      d = t.to();
+                    if (u.line == d.line) drawForLine(u.line, u.ch, d.ch);
                     else {
-                      var d = getLine(i, c.line),
-                        p = getLine(i, u.line),
-                        h = visualLine(d) == visualLine(p),
-                        f = drawForLine(
-                          c.line,
-                          c.ch,
-                          h ? d.text.length + 1 : null,
+                      var p = getLine(i, u.line),
+                        h = getLine(i, d.line),
+                        f = visualLine(p) == visualLine(h),
+                        g = drawForLine(
+                          u.line,
+                          u.ch,
+                          f ? p.text.length + 1 : null,
                         ).end,
-                        g = drawForLine(u.line, h ? 0 : null, u.ch).start;
-                      h &&
-                        (f.top < g.top - 2
-                          ? (add(f.right, f.top, null, f.bottom),
-                            add(s, g.top, g.left, g.bottom))
-                          : add(f.right, f.top, g.left - f.right, f.bottom)),
-                        f.bottom < g.top && add(s, f.bottom, null, g.top);
+                        m = drawForLine(d.line, f ? 0 : null, d.ch).start;
+                      f &&
+                        (g.top < m.top - 2
+                          ? (add(g.right, g.top, null, g.bottom),
+                            add(s, m.top, m.left, m.bottom))
+                          : add(g.right, g.top, m.left - g.right, g.bottom)),
+                        g.bottom < m.top && add(s, g.bottom, null, m.top);
                     }
                     n.appendChild(o);
                   })(e, s, o);
@@ -2588,8 +2585,11 @@ webpackJsonp([0], {
       }
       function updateWidgetHeight(e) {
         if (e.widgets)
-          for (var t = 0; t < e.widgets.length; ++t)
-            e.widgets[t].height = e.widgets[t].node.parentNode.offsetHeight;
+          for (var t = 0; t < e.widgets.length; ++t) {
+            var n = e.widgets[t],
+              r = n.node.parentNode;
+            r && (n.height = r.offsetHeight);
+          }
       }
       function visibleLines(e, t, n) {
         var r = n && null != n.top ? Math.max(0, n.top) : e.scroller.scrollTop;
@@ -4850,7 +4850,7 @@ webpackJsonp([0], {
             var a,
               s = i < 0 ? lst(o) : o[0],
               l = i < 0 == (1 == s.level) ? 'after' : 'before';
-            if (s.level > 0) {
+            if (s.level > 0 || 'rtl' == t.doc.direction) {
               var c = prepareMeasureForLine(t, n);
               a = i < 0 ? n.text.length - 1 : 0;
               var u = measureCharPrepared(t, c, a).top;
@@ -4914,13 +4914,21 @@ webpackJsonp([0], {
         var i = e.state.keySeq;
         if (i) {
           if (isModifierKey(t)) return 'handled';
-          De.set(50, function() {
-            e.state.keySeq == i &&
-              ((e.state.keySeq = null), e.display.input.reset());
-          }),
-            (t = i + ' ' + t);
+          if (
+            (/\'$/.test(t)
+              ? (e.state.keySeq = null)
+              : De.set(50, function() {
+                  e.state.keySeq == i &&
+                    ((e.state.keySeq = null), e.display.input.reset());
+                }),
+            dispatchKeyInner(e, i + ' ' + t, n, r))
+          )
+            return !0;
         }
-        var o = (function lookupKeyForEditor(e, t, n) {
+        return dispatchKeyInner(e, t, n, r);
+      }
+      function dispatchKeyInner(e, t, n, r) {
+        var i = (function lookupKeyForEditor(e, t, n) {
           for (var r = 0; r < e.state.keyMaps.length; r++) {
             var i = lookupKey(t, e.state.keyMaps[r], n, e);
             if (i) return i;
@@ -4931,11 +4939,11 @@ webpackJsonp([0], {
           );
         })(e, t, r);
         return (
-          'multi' == o && (e.state.keySeq = t),
-          'handled' == o && signalLater(e, 'keyHandled', e, t, n),
-          ('handled' != o && 'multi' != o) ||
+          'multi' == i && (e.state.keySeq = t),
+          'handled' == i && signalLater(e, 'keyHandled', e, t, n),
+          ('handled' != i && 'multi' != i) ||
             (e_preventDefault(n), restartBlink(e)),
-          i && !o && /\'$/.test(t) ? (e_preventDefault(n), !0) : !!o
+          !!i
         );
       }
       function handleKeyBinding(e, t) {
@@ -4988,27 +4996,30 @@ webpackJsonp([0], {
         16 == e.keyCode && (this.doc.sel.shift = !1), signalDOMEvent(this, e);
       }
       function onKeyPress(e) {
-        var t = this;
         if (
           !(
-            eventInWidget(t.display, e) ||
-            signalDOMEvent(t, e) ||
+            eventInWidget(this.display, e) ||
+            signalDOMEvent(this, e) ||
             (e.ctrlKey && !e.altKey) ||
             (y && e.metaKey)
           )
         ) {
-          var n = e.keyCode,
-            r = e.charCode;
-          if (d && n == He) return (He = null), void e_preventDefault(e);
-          if (!d || (e.which && !(e.which < 10)) || !handleKeyBinding(t, e)) {
-            var i = String.fromCharCode(null == r ? n : r);
-            '\b' != i &&
+          var t = e.keyCode,
+            n = e.charCode;
+          if (d && t == He) return (He = null), void e_preventDefault(e);
+          if (
+            !d ||
+            (e.which && !(e.which < 10)) ||
+            !handleKeyBinding(this, e)
+          ) {
+            var r = String.fromCharCode(null == n ? t : n);
+            '\b' != r &&
               ((function handleCharBinding(e, t, n) {
                 return dispatchKey(e, "'" + n + "'", t, function(t) {
                   return doHandleBinding(e, t, !0);
                 });
-              })(t, e, i) ||
-                t.display.input.onKeyPress(e));
+              })(this, e, r) ||
+                this.display.input.onKeyPress(e));
           }
         }
       }
@@ -5834,7 +5845,7 @@ webpackJsonp([0], {
         var o = e.doc;
         (e.display.shift = !1), r || (r = o.sel);
         var a = e.state.pasteIncoming || 'paste' == i,
-          s = _(t),
+          s = K(t),
           l = null;
         if (a && r.ranges.length > 1)
           if (Ve && Ve.text.join('\n') == t) {
@@ -6379,14 +6390,15 @@ webpackJsonp([0], {
                 F < E && W.splice(B, 0, new BidiSpan(1, F, E));
               }
             return (
-              1 == W[0].level &&
-                (H = e.match(/^\s+/)) &&
-                ((W[0].from = H[0].length),
-                W.unshift(new BidiSpan(0, 0, H[0].length))),
-              1 == lst(W).level &&
-                (H = e.match(/\s+$/)) &&
-                ((lst(W).to -= H[0].length),
-                W.push(new BidiSpan(0, l - H[0].length, l))),
+              'ltr' == t &&
+                (1 == W[0].level &&
+                  (H = e.match(/^\s+/)) &&
+                  ((W[0].from = H[0].length),
+                  W.unshift(new BidiSpan(0, 0, H[0].length))),
+                1 == lst(W).level &&
+                  (H = e.match(/\s+$/)) &&
+                  ((lst(W).to -= H[0].length),
+                  W.push(new BidiSpan(0, l - H[0].length, l)))),
               'rtl' == t ? W.reverse() : W
             );
           };
@@ -6405,7 +6417,7 @@ webpackJsonp([0], {
           var e = elt('div');
           return 'draggable' in e || 'dragDrop' in e;
         })(),
-        _ =
+        K =
           3 != '\n\nb'.split(/\n/).length
             ? function(e) {
                 for (var t = 0, n = [], r = e.length; t <= r; ) {
@@ -6422,7 +6434,7 @@ webpackJsonp([0], {
             : function(e) {
                 return e.split(/\r\n?|\n/);
               },
-        K = window.getSelection
+        _ = window.getSelection
           ? function(e) {
               try {
                 return e.selectionStart != e.selectionEnd;
@@ -6552,6 +6564,10 @@ webpackJsonp([0], {
         (Q.prototype.lookAhead = function(e) {
           var t = this.lineOracle;
           return t && t.lookAhead(e);
+        }),
+        (Q.prototype.baseToken = function() {
+          var e = this.lineOracle;
+          return e && e.baseToken(this.pos);
         });
       var J = function(e, t) {
           (this.state = e), (this.lookAhead = t);
@@ -6560,12 +6576,24 @@ webpackJsonp([0], {
           (this.state = t),
             (this.doc = e),
             (this.line = n),
-            (this.maxLookAhead = r || 0);
+            (this.maxLookAhead = r || 0),
+            (this.baseTokens = null),
+            (this.baseTokenPos = 1);
         };
       (ee.prototype.lookAhead = function(e) {
         var t = this.doc.getLine(this.line + e);
         return null != t && e > this.maxLookAhead && (this.maxLookAhead = e), t;
       }),
+        (ee.prototype.baseToken = function(e) {
+          var t = this;
+          if (!this.baseTokens) return null;
+          for (; this.baseTokens[this.baseTokenPos] <= e; ) t.baseTokenPos += 2;
+          var n = this.baseTokens[this.baseTokenPos + 1];
+          return {
+            type: n && n.replace(/( |^)overlay .*/, ''),
+            size: this.baseTokens[this.baseTokenPos] - e,
+          };
+        }),
         (ee.prototype.nextLine = function() {
           this.line++, this.maxLookAhead > 0 && this.maxLookAhead--;
         }),
@@ -7648,7 +7676,7 @@ webpackJsonp([0], {
           return this.cm;
         },
         splitLines: function(e) {
-          return this.lineSep ? e.split(this.lineSep) : _(e);
+          return this.lineSep ? e.split(this.lineSep) : K(e);
         },
         lineSeparator: function() {
           return this.lineSep || '\n';
@@ -8719,7 +8747,7 @@ webpackJsonp([0], {
           if (
             this.contextMenuPending ||
             !t.state.focused ||
-            (K(n) && !r && !this.composing) ||
+            (_(n) && !r && !this.composing) ||
             t.isReadOnly() ||
             t.options.disableInput ||
             t.state.keySeq
@@ -9583,14 +9611,14 @@ webpackJsonp([0], {
             });
         })(CodeMirror$1);
       var Ue = 'iter insert remove copy getEditor constructor'.split(' ');
-      for (var _e in Se.prototype)
-        Se.prototype.hasOwnProperty(_e) &&
-          indexOf(Ue, _e) < 0 &&
-          (CodeMirror$1.prototype[_e] = (function(e) {
+      for (var Ke in Se.prototype)
+        Se.prototype.hasOwnProperty(Ke) &&
+          indexOf(Ue, Ke) < 0 &&
+          (CodeMirror$1.prototype[Ke] = (function(e) {
             return function() {
               return e.apply(this.doc, arguments);
             };
-          })(Se.prototype[_e]));
+          })(Se.prototype[Ke]));
       return (
         eventMixin(Se),
         (CodeMirror$1.inputStyles = { textarea: Ge, contenteditable: je }),
@@ -9676,7 +9704,7 @@ webpackJsonp([0], {
             (e.on = G),
             (e.wheelEventPixels = wheelEventPixels),
             (e.Doc = Se),
-            (e.splitLines = _),
+            (e.splitLines = K),
             (e.countColumn = countColumn),
             (e.findColumn = findColumn),
             (e.isWordChar = isWordCharBasic),
@@ -9714,12 +9742,12 @@ webpackJsonp([0], {
             (e.rmClass = L),
             (e.keyNames = Me);
         })(CodeMirror$1),
-        (CodeMirror$1.version = '5.30.0'),
+        (CodeMirror$1.version = '5.32.0'),
         CodeMirror$1
       );
     });
   },
-  1480: function(e, t, n) {
+  1490: function(e, t, n) {
     'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 });
     var r = (function() {
@@ -9743,7 +9771,7 @@ webpackJsonp([0], {
       i = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
       })(n(0)),
-      o = n(1479),
+      o = n(1489),
       a = (function(e) {
         function CodeMirror(e) {
           !(function _classCallCheck(e, t) {
@@ -9985,9 +10013,9 @@ webpackJsonp([0], {
       })();
     t.default = a;
   },
-  1481: function(e, t, n) {
+  1491: function(e, t, n) {
     !(function(e) {
-      e(n(1479), n(1482), n(1483));
+      e(n(1489), n(1492), n(1493));
     })(function(e) {
       'use strict';
       function Context(e, t, n, r) {
@@ -10122,9 +10150,9 @@ webpackJsonp([0], {
         });
     });
   },
-  1482: function(e, t, n) {
+  1492: function(e, t, n) {
     !(function(e) {
-      e(n(1479));
+      e(n(1489));
     })(function(e) {
       'use strict';
       var t = {
@@ -10487,9 +10515,9 @@ webpackJsonp([0], {
           e.defineMIME('text/html', { name: 'xml', htmlMode: !0 });
     });
   },
-  1483: function(e, t, n) {
+  1493: function(e, t, n) {
     !(function(e) {
-      e(n(1479));
+      e(n(1489));
     })(function(e) {
       'use strict';
       e.defineMode('javascript', function(t, n) {
@@ -10548,12 +10576,15 @@ webpackJsonp([0], {
                     })(e),
                     e.match(/^\b(([gimyu])(?![gimyu]*\2))+\b/),
                     ret('regexp', 'string-2'))
-                  : (e.eatWhile(p), ret('operator', 'operator', e.current()));
+                  : (e.eat('='), ret('operator', 'operator', e.current()));
           if ('`' == n) return (t.tokenize = tokenQuasi), tokenQuasi(e, t);
           if ('#' == n) return e.skipToEnd(), ret('error', 'error');
           if (p.test(n))
             return (
-              ('>' == n && t.lexical && '>' == t.lexical.type) || e.eatWhile(p),
+              ('>' == n && t.lexical && '>' == t.lexical.type) ||
+                (e.eat('=')
+                  ? ('!' != n && '=' != n) || e.eat('=')
+                  : /[<>*+\-]/.test(n) && (e.eat(n), '>' == n && e.eat(n))),
               ret('operator', 'operator', e.current())
             );
           if (u.test(n)) {
@@ -10564,7 +10595,7 @@ webpackJsonp([0], {
                 var i = d[r];
                 return ret(i.type, i.style, r);
               }
-              if ('async' == r && e.match(/^\s*[\(\w]/, !1))
+              if ('async' == r && e.match(/^(\s|\/\*.*?\*\/)*[\(\w]/, !1))
                 return ret('async', 'keyword', r);
             }
             return ret('variable', 'variable', r);
@@ -10708,96 +10739,119 @@ webpackJsonp([0], {
               ? cont(pushlex('form'), parenExpr, statement, poplex)
               : 'keyword b' == e
                 ? cont(pushlex('form'), statement, poplex)
-                : '{' == e
-                  ? cont(pushlex('}'), block, poplex)
-                  : ';' == e
+                : 'keyword d' == e
+                  ? m.stream.match(/^\s*$/, !1)
                     ? cont()
-                    : 'if' == e
-                      ? ('else' == m.state.lexical.info &&
-                          m.state.cc[m.state.cc.length - 1] == poplex &&
-                          m.state.cc.pop()(),
-                        cont(
-                          pushlex('form'),
-                          parenExpr,
-                          statement,
-                          poplex,
-                          maybeelse,
-                        ))
-                      : 'function' == e
-                        ? cont(functiondef)
-                        : 'for' == e
-                          ? cont(pushlex('form'), forspec, statement, poplex)
-                          : 'variable' == e
-                            ? c && 'type' == t
-                              ? ((m.marked = 'keyword'),
-                                cont(
-                                  typeexpr,
-                                  expect('operator'),
-                                  typeexpr,
-                                  expect(';'),
-                                ))
-                              : c && 'declare' == t
-                                ? ((m.marked = 'keyword'), cont(statement))
-                                : cont(pushlex('stat'), maybelabel)
-                            : 'switch' == e
+                    : cont(
+                        pushlex('stat'),
+                        maybeexpression,
+                        expect(';'),
+                        poplex,
+                      )
+                  : 'debugger' == e
+                    ? cont(expect(';'))
+                    : '{' == e
+                      ? cont(pushlex('}'), block, poplex)
+                      : ';' == e
+                        ? cont()
+                        : 'if' == e
+                          ? ('else' == m.state.lexical.info &&
+                              m.state.cc[m.state.cc.length - 1] == poplex &&
+                              m.state.cc.pop()(),
+                            cont(
+                              pushlex('form'),
+                              parenExpr,
+                              statement,
+                              poplex,
+                              maybeelse,
+                            ))
+                          : 'function' == e
+                            ? cont(functiondef)
+                            : 'for' == e
                               ? cont(
                                   pushlex('form'),
-                                  parenExpr,
-                                  expect('{'),
-                                  pushlex('}', 'switch'),
-                                  block,
-                                  poplex,
+                                  forspec,
+                                  statement,
                                   poplex,
                                 )
-                              : 'case' == e
-                                ? cont(expression, expect(':'))
-                                : 'default' == e
-                                  ? cont(expect(':'))
-                                  : 'catch' == e
-                                    ? cont(
-                                        pushlex('form'),
-                                        pushcontext,
-                                        expect('('),
-                                        funarg,
-                                        expect(')'),
-                                        statement,
-                                        poplex,
-                                        popcontext,
-                                      )
-                                    : 'class' == e
-                                      ? cont(pushlex('form'), className, poplex)
-                                      : 'export' == e
+                              : 'variable' == e
+                                ? c && 'type' == t
+                                  ? ((m.marked = 'keyword'),
+                                    cont(
+                                      typeexpr,
+                                      expect('operator'),
+                                      typeexpr,
+                                      expect(';'),
+                                    ))
+                                  : c && 'declare' == t
+                                    ? ((m.marked = 'keyword'), cont(statement))
+                                    : c &&
+                                      ('module' == t || 'enum' == t) &&
+                                      m.stream.match(/^\s*\w/, !1)
+                                      ? ((m.marked = 'keyword'),
+                                        cont(
+                                          pushlex('form'),
+                                          pattern,
+                                          expect('{'),
+                                          pushlex('}'),
+                                          block,
+                                          poplex,
+                                          poplex,
+                                        ))
+                                      : cont(pushlex('stat'), maybelabel)
+                                : 'switch' == e
+                                  ? cont(
+                                      pushlex('form'),
+                                      parenExpr,
+                                      expect('{'),
+                                      pushlex('}', 'switch'),
+                                      block,
+                                      poplex,
+                                      poplex,
+                                    )
+                                  : 'case' == e
+                                    ? cont(expression, expect(':'))
+                                    : 'default' == e
+                                      ? cont(expect(':'))
+                                      : 'catch' == e
                                         ? cont(
-                                            pushlex('stat'),
-                                            afterExport,
+                                            pushlex('form'),
+                                            pushcontext,
+                                            expect('('),
+                                            funarg,
+                                            expect(')'),
+                                            statement,
                                             poplex,
+                                            popcontext,
                                           )
-                                        : 'import' == e
+                                        : 'class' == e
                                           ? cont(
-                                              pushlex('stat'),
-                                              afterImport,
+                                              pushlex('form'),
+                                              className,
                                               poplex,
                                             )
-                                          : 'module' == e
+                                          : 'export' == e
                                             ? cont(
-                                                pushlex('form'),
-                                                pattern,
-                                                expect('{'),
-                                                pushlex('}'),
-                                                block,
-                                                poplex,
+                                                pushlex('stat'),
+                                                afterExport,
                                                 poplex,
                                               )
-                                            : 'async' == e
-                                              ? cont(statement)
-                                              : '@' == t
-                                                ? cont(expression, statement)
-                                                : pass(
-                                                    pushlex('stat'),
-                                                    expression,
-                                                    expect(';'),
-                                                    poplex,
-                                                  );
+                                            : 'import' == e
+                                              ? cont(
+                                                  pushlex('stat'),
+                                                  afterImport,
+                                                  poplex,
+                                                )
+                                              : 'async' == e
+                                                ? cont(statement)
+                                                : '@' == t
+                                                  ? cont(expression, statement)
+                                                  : pass(
+                                                      pushlex('stat'),
+                                                      expression,
+                                                      expect(';'),
+                                                      poplex,
+                                                    );
         }
         function expression(e) {
           return expressionInner(e, !1);
@@ -10834,15 +10888,7 @@ webpackJsonp([0], {
               : 'class' == e
                 ? cont(pushlex('form'), classExpression, poplex)
                 : 'keyword c' == e || 'async' == e
-                  ? cont(
-                      t
-                        ? function maybeexpressionNoComma(e) {
-                            return e.match(/[;\}\)\],]/)
-                              ? pass()
-                              : pass(expressionNoComma);
-                          }
-                        : maybeexpression,
-                    )
+                  ? cont(t ? expressionNoComma : expression)
                   : '(' == e
                     ? cont(
                         pushlex(')'),
@@ -10912,7 +10958,9 @@ webpackJsonp([0], {
             : 'operator' == e
               ? /\+\+|--/.test(t) || (c && '!' == t)
                 ? cont(r)
-                : '?' == t ? cont(expression, expect(':'), i) : cont(i)
+                : c && '<' == t && m.stream.match(/^([^>]|<.*?>)*>\s*\(/, !1)
+                  ? cont(pushlex('>'), commasep(typeexpr, '>'), poplex, r)
+                  : '?' == t ? cont(expression, expect(':'), i) : cont(i)
               : 'quasi' == e
                 ? pass(quasi, r)
                 : ';' != e
@@ -10998,8 +11046,10 @@ webpackJsonp([0], {
                 : '[' == e
                   ? cont(expression, expect(']'), afterprop)
                   : 'spread' == e
-                    ? cont(expression, afterprop)
-                    : ':' == e ? pass(afterprop) : void 0;
+                    ? cont(expressionNoComma, afterprop)
+                    : '*' == t
+                      ? ((m.marked = 'keyword'), cont(objprop))
+                      : ':' == e ? pass(afterprop) : void 0;
         }
         function getterSetter(e) {
           return 'variable' != e
@@ -11041,8 +11091,17 @@ webpackJsonp([0], {
             if ('?' == t) return cont(maybetype);
           }
         }
+        function mayberettype(e) {
+          if (c && ':' == e)
+            return m.stream.match(/^\s*\w+\s+is\b/, !1)
+              ? cont(expression, isKW, typeexpr)
+              : cont(typeexpr);
+        }
+        function isKW(e, t) {
+          if ('is' == t) return (m.marked = 'keyword'), cont();
+        }
         function typeexpr(e, t) {
-          return 'variable' == e
+          return 'variable' == e || 'void' == t
             ? 'keyof' == t
               ? ((m.marked = 'keyword'), cont(typeexpr))
               : ((m.marked = 'type'), cont(afterType))
@@ -11102,6 +11161,12 @@ webpackJsonp([0], {
               poplex,
               afterType,
             );
+        }
+        function typeparam() {
+          return pass(typeexpr, maybeTypeDefault);
+        }
+        function maybeTypeDefault(e, t) {
+          if ('=' == t) return cont(typeexpr);
         }
         function vardef() {
           return pass(pattern, maybetype, maybeAssign, vardefCont);
@@ -11174,14 +11239,14 @@ webpackJsonp([0], {
                     pushlex(')'),
                     commasep(funarg, ')'),
                     poplex,
-                    maybetype,
+                    mayberettype,
                     statement,
                     popcontext,
                   )
                 : c && '<' == t
                   ? cont(
                       pushlex('>'),
-                      commasep(typeexpr, '>'),
+                      commasep(typeparam, '>'),
                       poplex,
                       functiondef,
                     )
@@ -11205,7 +11270,7 @@ webpackJsonp([0], {
           return '<' == t
             ? cont(
                 pushlex('>'),
-                commasep(typeexpr, '>'),
+                commasep(typeparam, '>'),
                 poplex,
                 classNameAfter,
               )
@@ -11286,7 +11351,7 @@ webpackJsonp([0], {
         function expressionAllowed(e, t, n) {
           return (
             (t.tokenize == tokenBase &&
-              /^(?:operator|sof|keyword [bc]|case|new|export|default|spread|[\[{}\(,;:]|=>)$/.test(
+              /^(?:operator|sof|keyword [bcd]|case|new|export|default|spread|[\[{}\(,;:]|=>)$/.test(
                 t.lastType,
               )) ||
             ('quasi' == t.lastType &&
@@ -11308,9 +11373,10 @@ webpackJsonp([0], {
             var e = kw('keyword a'),
               t = kw('keyword b'),
               n = kw('keyword c'),
-              r = kw('operator'),
-              i = { type: 'atom', style: 'atom' },
-              o = {
+              r = kw('keyword d'),
+              i = kw('operator'),
+              o = { type: 'atom', style: 'atom' },
+              a = {
                 if: kw('if'),
                 while: e,
                 with: e,
@@ -11318,14 +11384,14 @@ webpackJsonp([0], {
                 do: t,
                 try: t,
                 finally: t,
-                return: n,
-                break: n,
-                continue: n,
+                return: r,
+                break: r,
+                continue: r,
                 new: kw('new'),
                 delete: n,
                 void: n,
                 throw: n,
-                debugger: n,
+                debugger: kw('debugger'),
                 var: kw('var'),
                 const: kw('var'),
                 let: kw('var'),
@@ -11335,15 +11401,15 @@ webpackJsonp([0], {
                 switch: kw('switch'),
                 case: kw('case'),
                 default: kw('default'),
-                in: r,
-                typeof: r,
-                instanceof: r,
-                true: i,
-                false: i,
-                null: i,
-                undefined: i,
-                NaN: i,
-                Infinity: i,
+                in: i,
+                typeof: i,
+                instanceof: i,
+                true: o,
+                false: o,
+                null: o,
+                undefined: o,
+                NaN: o,
+                Infinity: o,
                 this: kw('this'),
                 class: kw('class'),
                 super: kw('atom'),
@@ -11354,26 +11420,24 @@ webpackJsonp([0], {
                 await: n,
               };
             if (c) {
-              var a = { type: 'variable', style: 'type' },
-                s = {
+              var s = { type: 'variable', style: 'type' },
+                l = {
                   interface: kw('class'),
                   implements: n,
                   namespace: n,
-                  module: kw('module'),
-                  enum: kw('module'),
                   public: kw('modifier'),
                   private: kw('modifier'),
                   protected: kw('modifier'),
                   abstract: kw('modifier'),
                   readonly: kw('modifier'),
-                  string: a,
-                  number: a,
-                  boolean: a,
-                  any: a,
+                  string: s,
+                  number: s,
+                  boolean: s,
+                  any: s,
                 };
-              for (var l in s) o[l] = s[l];
+              for (var u in l) a[u] = l[u];
             }
-            return o;
+            return a;
           })(),
           p = /[+\-*&%=<>!?|~^@]/,
           h = /^@(context|id|value|language|type|container|list|set|reverse|index|base|vocab|graph)"/,
@@ -11502,6 +11566,7 @@ webpackJsonp([0], {
             electricInput: /^\s*(?:case .*?:|default:|\{|\})$/,
             blockCommentStart: l ? null : '/*',
             blockCommentEnd: l ? null : '*/',
+            blockCommentContinue: l ? null : ' * ',
             lineComment: l ? null : '//',
             fold: 'brace',
             closeBrackets: '()[]{}\'\'""``',
@@ -11532,31 +11597,31 @@ webpackJsonp([0], {
         });
     });
   },
-  1484: function(e, t, n) {
-    var r = n(1485);
+  1494: function(e, t, n) {
+    var r = n(1495);
     'string' == typeof r && (r = [[e.i, r, '']]);
     var i = {};
     i.transform = void 0;
-    n(638)(r, i);
+    n(643)(r, i);
     r.locals && (e.exports = r.locals);
   },
-  1485: function(e, t, n) {
-    (e.exports = n(637)(void 0)).push([
+  1495: function(e, t, n) {
+    (e.exports = n(642)(void 0)).push([
       e.i,
-      "/* BASICS */\n\n.CodeMirror {\n  /* Set height, width, borders, and global font properties here */\n  font-family: monospace;\n  height: 300px;\n  color: black;\n  direction: ltr;\n}\n\n/* PADDING */\n\n.CodeMirror-lines {\n  padding: 4px 0; /* Vertical padding around content */\n}\n.CodeMirror pre {\n  padding: 0 4px; /* Horizontal padding of content */\n}\n\n.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  background-color: white; /* The little square between H and V scrollbars */\n}\n\n/* GUTTER */\n\n.CodeMirror-gutters {\n  border-right: 1px solid #ddd;\n  background-color: #f7f7f7;\n  white-space: nowrap;\n}\n.CodeMirror-linenumbers {}\n.CodeMirror-linenumber {\n  padding: 0 3px 0 5px;\n  min-width: 20px;\n  text-align: right;\n  color: #999;\n  white-space: nowrap;\n}\n\n.CodeMirror-guttermarker { color: black; }\n.CodeMirror-guttermarker-subtle { color: #999; }\n\n/* CURSOR */\n\n.CodeMirror-cursor {\n  border-left: 1px solid black;\n  border-right: none;\n  width: 0;\n}\n/* Shown when moving in bi-directional text */\n.CodeMirror div.CodeMirror-secondarycursor {\n  border-left: 1px solid silver;\n}\n.cm-fat-cursor .CodeMirror-cursor {\n  width: auto;\n  border: 0 !important;\n  background: #7e7;\n}\n.cm-fat-cursor div.CodeMirror-cursors {\n  z-index: 1;\n}\n\n.cm-animate-fat-cursor {\n  width: auto;\n  border: 0;\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n  background-color: #7e7;\n}\n@-moz-keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n@-webkit-keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n@keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n\n/* Can style cursor different in overwrite (non-insert) mode */\n.CodeMirror-overwrite .CodeMirror-cursor {}\n\n.cm-tab { display: inline-block; text-decoration: inherit; }\n\n.CodeMirror-rulers {\n  position: absolute;\n  left: 0; right: 0; top: -50px; bottom: -20px;\n  overflow: hidden;\n}\n.CodeMirror-ruler {\n  border-left: 1px solid #ccc;\n  top: 0; bottom: 0;\n  position: absolute;\n}\n\n/* DEFAULT THEME */\n\n.cm-s-default .cm-header {color: blue;}\n.cm-s-default .cm-quote {color: #090;}\n.cm-negative {color: #d44;}\n.cm-positive {color: #292;}\n.cm-header, .cm-strong {font-weight: bold;}\n.cm-em {font-style: italic;}\n.cm-link {text-decoration: underline;}\n.cm-strikethrough {text-decoration: line-through;}\n\n.cm-s-default .cm-keyword {color: #708;}\n.cm-s-default .cm-atom {color: #219;}\n.cm-s-default .cm-number {color: #164;}\n.cm-s-default .cm-def {color: #00f;}\n.cm-s-default .cm-variable,\n.cm-s-default .cm-punctuation,\n.cm-s-default .cm-property,\n.cm-s-default .cm-operator {}\n.cm-s-default .cm-variable-2 {color: #05a;}\n.cm-s-default .cm-variable-3, .cm-s-default .cm-type {color: #085;}\n.cm-s-default .cm-comment {color: #a50;}\n.cm-s-default .cm-string {color: #a11;}\n.cm-s-default .cm-string-2 {color: #f50;}\n.cm-s-default .cm-meta {color: #555;}\n.cm-s-default .cm-qualifier {color: #555;}\n.cm-s-default .cm-builtin {color: #30a;}\n.cm-s-default .cm-bracket {color: #997;}\n.cm-s-default .cm-tag {color: #170;}\n.cm-s-default .cm-attribute {color: #00c;}\n.cm-s-default .cm-hr {color: #999;}\n.cm-s-default .cm-link {color: #00c;}\n\n.cm-s-default .cm-error {color: #f00;}\n.cm-invalidchar {color: #f00;}\n\n.CodeMirror-composing { border-bottom: 2px solid; }\n\n/* Default styles for common addons */\n\ndiv.CodeMirror span.CodeMirror-matchingbracket {color: #0f0;}\ndiv.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}\n.CodeMirror-matchingtag { background: rgba(255, 150, 0, .3); }\n.CodeMirror-activeline-background {background: #e8f2ff;}\n\n/* STOP */\n\n/* The rest of this file contains styles related to the mechanics of\n   the editor. You probably shouldn't touch them. */\n\n.CodeMirror {\n  position: relative;\n  overflow: hidden;\n  background: white;\n}\n\n.CodeMirror-scroll {\n  overflow: scroll !important; /* Things will break if this is overridden */\n  /* 30px is the magic margin used to hide the element's real scrollbars */\n  /* See overflow: hidden in .CodeMirror */\n  margin-bottom: -30px; margin-right: -30px;\n  padding-bottom: 30px;\n  height: 100%;\n  outline: none; /* Prevent dragging from highlighting the element */\n  position: relative;\n}\n.CodeMirror-sizer {\n  position: relative;\n  border-right: 30px solid transparent;\n}\n\n/* The fake, visible scrollbars. Used to force redraw during scrolling\n   before actual scrolling happens, thus preventing shaking and\n   flickering artifacts. */\n.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  position: absolute;\n  z-index: 6;\n  display: none;\n}\n.CodeMirror-vscrollbar {\n  right: 0; top: 0;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n.CodeMirror-hscrollbar {\n  bottom: 0; left: 0;\n  overflow-y: hidden;\n  overflow-x: scroll;\n}\n.CodeMirror-scrollbar-filler {\n  right: 0; bottom: 0;\n}\n.CodeMirror-gutter-filler {\n  left: 0; bottom: 0;\n}\n\n.CodeMirror-gutters {\n  position: absolute; left: 0; top: 0;\n  min-height: 100%;\n  z-index: 3;\n}\n.CodeMirror-gutter {\n  white-space: normal;\n  height: 100%;\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: -30px;\n}\n.CodeMirror-gutter-wrapper {\n  position: absolute;\n  z-index: 4;\n  background: none !important;\n  border: none !important;\n}\n.CodeMirror-gutter-background {\n  position: absolute;\n  top: 0; bottom: 0;\n  z-index: 4;\n}\n.CodeMirror-gutter-elt {\n  position: absolute;\n  cursor: default;\n  z-index: 4;\n}\n.CodeMirror-gutter-wrapper ::selection { background-color: transparent }\n.CodeMirror-gutter-wrapper ::-moz-selection { background-color: transparent }\n\n.CodeMirror-lines {\n  cursor: text;\n  min-height: 1px; /* prevents collapsing before first draw */\n}\n.CodeMirror pre {\n  /* Reset some styles that the rest of the page might have set */\n  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;\n  border-width: 0;\n  background: transparent;\n  font-family: inherit;\n  font-size: inherit;\n  margin: 0;\n  white-space: pre;\n  word-wrap: normal;\n  line-height: inherit;\n  color: inherit;\n  z-index: 2;\n  position: relative;\n  overflow: visible;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-variant-ligatures: contextual;\n  font-variant-ligatures: contextual;\n}\n.CodeMirror-wrap pre {\n  word-wrap: break-word;\n  white-space: pre-wrap;\n  word-break: normal;\n}\n\n.CodeMirror-linebackground {\n  position: absolute;\n  left: 0; right: 0; top: 0; bottom: 0;\n  z-index: 0;\n}\n\n.CodeMirror-linewidget {\n  position: relative;\n  z-index: 2;\n  overflow: auto;\n}\n\n.CodeMirror-widget {}\n\n.CodeMirror-rtl pre { direction: rtl; }\n\n.CodeMirror-code {\n  outline: none;\n}\n\n/* Force content-box sizing for the elements where we expect it */\n.CodeMirror-scroll,\n.CodeMirror-sizer,\n.CodeMirror-gutter,\n.CodeMirror-gutters,\n.CodeMirror-linenumber {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n\n.CodeMirror-measure {\n  position: absolute;\n  width: 100%;\n  height: 0;\n  overflow: hidden;\n  visibility: hidden;\n}\n\n.CodeMirror-cursor {\n  position: absolute;\n  pointer-events: none;\n}\n.CodeMirror-measure pre { position: static; }\n\ndiv.CodeMirror-cursors {\n  visibility: hidden;\n  position: relative;\n  z-index: 3;\n}\ndiv.CodeMirror-dragcursors {\n  visibility: visible;\n}\n\n.CodeMirror-focused div.CodeMirror-cursors {\n  visibility: visible;\n}\n\n.CodeMirror-selected { background: #d9d9d9; }\n.CodeMirror-focused .CodeMirror-selected { background: #d7d4f0; }\n.CodeMirror-crosshair { cursor: crosshair; }\n.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #d7d4f0; }\n.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #d7d4f0; }\n\n.cm-searching {\n  background-color: #ffa;\n  background-color: rgba(255, 255, 0, .4);\n}\n\n/* Used to force a border model for a node */\n.cm-force-border { padding-right: .1px; }\n\n@media print {\n  /* Hide the cursor when printing */\n  .CodeMirror div.CodeMirror-cursors {\n    visibility: hidden;\n  }\n}\n\n/* See issue #2901 */\n.cm-tab-wrap-hack:after { content: ''; }\n\n/* Help users use markselection to safely style text background */\nspan.CodeMirror-selectedtext { background: none; }\n",
+      "/* BASICS */\n\n.CodeMirror {\n  /* Set height, width, borders, and global font properties here */\n  font-family: monospace;\n  height: 300px;\n  color: black;\n  direction: ltr;\n}\n\n/* PADDING */\n\n.CodeMirror-lines {\n  padding: 4px 0; /* Vertical padding around content */\n}\n.CodeMirror pre {\n  padding: 0 4px; /* Horizontal padding of content */\n}\n\n.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  background-color: white; /* The little square between H and V scrollbars */\n}\n\n/* GUTTER */\n\n.CodeMirror-gutters {\n  border-right: 1px solid #ddd;\n  background-color: #f7f7f7;\n  white-space: nowrap;\n}\n.CodeMirror-linenumbers {}\n.CodeMirror-linenumber {\n  padding: 0 3px 0 5px;\n  min-width: 20px;\n  text-align: right;\n  color: #999;\n  white-space: nowrap;\n}\n\n.CodeMirror-guttermarker { color: black; }\n.CodeMirror-guttermarker-subtle { color: #999; }\n\n/* CURSOR */\n\n.CodeMirror-cursor {\n  border-left: 1px solid black;\n  border-right: none;\n  width: 0;\n}\n/* Shown when moving in bi-directional text */\n.CodeMirror div.CodeMirror-secondarycursor {\n  border-left: 1px solid silver;\n}\n.cm-fat-cursor .CodeMirror-cursor {\n  width: auto;\n  border: 0 !important;\n  background: #7e7;\n}\n.cm-fat-cursor div.CodeMirror-cursors {\n  z-index: 1;\n}\n.cm-fat-cursor-mark {\n  background-color: rgba(20, 255, 20, 0.5);\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n}\n.cm-animate-fat-cursor {\n  width: auto;\n  border: 0;\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n  background-color: #7e7;\n}\n@-moz-keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n@-webkit-keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n@keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n\n/* Can style cursor different in overwrite (non-insert) mode */\n.CodeMirror-overwrite .CodeMirror-cursor {}\n\n.cm-tab { display: inline-block; text-decoration: inherit; }\n\n.CodeMirror-rulers {\n  position: absolute;\n  left: 0; right: 0; top: -50px; bottom: -20px;\n  overflow: hidden;\n}\n.CodeMirror-ruler {\n  border-left: 1px solid #ccc;\n  top: 0; bottom: 0;\n  position: absolute;\n}\n\n/* DEFAULT THEME */\n\n.cm-s-default .cm-header {color: blue;}\n.cm-s-default .cm-quote {color: #090;}\n.cm-negative {color: #d44;}\n.cm-positive {color: #292;}\n.cm-header, .cm-strong {font-weight: bold;}\n.cm-em {font-style: italic;}\n.cm-link {text-decoration: underline;}\n.cm-strikethrough {text-decoration: line-through;}\n\n.cm-s-default .cm-keyword {color: #708;}\n.cm-s-default .cm-atom {color: #219;}\n.cm-s-default .cm-number {color: #164;}\n.cm-s-default .cm-def {color: #00f;}\n.cm-s-default .cm-variable,\n.cm-s-default .cm-punctuation,\n.cm-s-default .cm-property,\n.cm-s-default .cm-operator {}\n.cm-s-default .cm-variable-2 {color: #05a;}\n.cm-s-default .cm-variable-3, .cm-s-default .cm-type {color: #085;}\n.cm-s-default .cm-comment {color: #a50;}\n.cm-s-default .cm-string {color: #a11;}\n.cm-s-default .cm-string-2 {color: #f50;}\n.cm-s-default .cm-meta {color: #555;}\n.cm-s-default .cm-qualifier {color: #555;}\n.cm-s-default .cm-builtin {color: #30a;}\n.cm-s-default .cm-bracket {color: #997;}\n.cm-s-default .cm-tag {color: #170;}\n.cm-s-default .cm-attribute {color: #00c;}\n.cm-s-default .cm-hr {color: #999;}\n.cm-s-default .cm-link {color: #00c;}\n\n.cm-s-default .cm-error {color: #f00;}\n.cm-invalidchar {color: #f00;}\n\n.CodeMirror-composing { border-bottom: 2px solid; }\n\n/* Default styles for common addons */\n\ndiv.CodeMirror span.CodeMirror-matchingbracket {color: #0b0;}\ndiv.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}\n.CodeMirror-matchingtag { background: rgba(255, 150, 0, .3); }\n.CodeMirror-activeline-background {background: #e8f2ff;}\n\n/* STOP */\n\n/* The rest of this file contains styles related to the mechanics of\n   the editor. You probably shouldn't touch them. */\n\n.CodeMirror {\n  position: relative;\n  overflow: hidden;\n  background: white;\n}\n\n.CodeMirror-scroll {\n  overflow: scroll !important; /* Things will break if this is overridden */\n  /* 30px is the magic margin used to hide the element's real scrollbars */\n  /* See overflow: hidden in .CodeMirror */\n  margin-bottom: -30px; margin-right: -30px;\n  padding-bottom: 30px;\n  height: 100%;\n  outline: none; /* Prevent dragging from highlighting the element */\n  position: relative;\n}\n.CodeMirror-sizer {\n  position: relative;\n  border-right: 30px solid transparent;\n}\n\n/* The fake, visible scrollbars. Used to force redraw during scrolling\n   before actual scrolling happens, thus preventing shaking and\n   flickering artifacts. */\n.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  position: absolute;\n  z-index: 6;\n  display: none;\n}\n.CodeMirror-vscrollbar {\n  right: 0; top: 0;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n.CodeMirror-hscrollbar {\n  bottom: 0; left: 0;\n  overflow-y: hidden;\n  overflow-x: scroll;\n}\n.CodeMirror-scrollbar-filler {\n  right: 0; bottom: 0;\n}\n.CodeMirror-gutter-filler {\n  left: 0; bottom: 0;\n}\n\n.CodeMirror-gutters {\n  position: absolute; left: 0; top: 0;\n  min-height: 100%;\n  z-index: 3;\n}\n.CodeMirror-gutter {\n  white-space: normal;\n  height: 100%;\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: -30px;\n}\n.CodeMirror-gutter-wrapper {\n  position: absolute;\n  z-index: 4;\n  background: none !important;\n  border: none !important;\n}\n.CodeMirror-gutter-background {\n  position: absolute;\n  top: 0; bottom: 0;\n  z-index: 4;\n}\n.CodeMirror-gutter-elt {\n  position: absolute;\n  cursor: default;\n  z-index: 4;\n}\n.CodeMirror-gutter-wrapper ::selection { background-color: transparent }\n.CodeMirror-gutter-wrapper ::-moz-selection { background-color: transparent }\n\n.CodeMirror-lines {\n  cursor: text;\n  min-height: 1px; /* prevents collapsing before first draw */\n}\n.CodeMirror pre {\n  /* Reset some styles that the rest of the page might have set */\n  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;\n  border-width: 0;\n  background: transparent;\n  font-family: inherit;\n  font-size: inherit;\n  margin: 0;\n  white-space: pre;\n  word-wrap: normal;\n  line-height: inherit;\n  color: inherit;\n  z-index: 2;\n  position: relative;\n  overflow: visible;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-variant-ligatures: contextual;\n  font-variant-ligatures: contextual;\n}\n.CodeMirror-wrap pre {\n  word-wrap: break-word;\n  white-space: pre-wrap;\n  word-break: normal;\n}\n\n.CodeMirror-linebackground {\n  position: absolute;\n  left: 0; right: 0; top: 0; bottom: 0;\n  z-index: 0;\n}\n\n.CodeMirror-linewidget {\n  position: relative;\n  z-index: 2;\n  overflow: auto;\n}\n\n.CodeMirror-widget {}\n\n.CodeMirror-rtl pre { direction: rtl; }\n\n.CodeMirror-code {\n  outline: none;\n}\n\n/* Force content-box sizing for the elements where we expect it */\n.CodeMirror-scroll,\n.CodeMirror-sizer,\n.CodeMirror-gutter,\n.CodeMirror-gutters,\n.CodeMirror-linenumber {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n\n.CodeMirror-measure {\n  position: absolute;\n  width: 100%;\n  height: 0;\n  overflow: hidden;\n  visibility: hidden;\n}\n\n.CodeMirror-cursor {\n  position: absolute;\n  pointer-events: none;\n}\n.CodeMirror-measure pre { position: static; }\n\ndiv.CodeMirror-cursors {\n  visibility: hidden;\n  position: relative;\n  z-index: 3;\n}\ndiv.CodeMirror-dragcursors {\n  visibility: visible;\n}\n\n.CodeMirror-focused div.CodeMirror-cursors {\n  visibility: visible;\n}\n\n.CodeMirror-selected { background: #d9d9d9; }\n.CodeMirror-focused .CodeMirror-selected { background: #d7d4f0; }\n.CodeMirror-crosshair { cursor: crosshair; }\n.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #d7d4f0; }\n.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #d7d4f0; }\n\n.cm-searching {\n  background-color: #ffa;\n  background-color: rgba(255, 255, 0, .4);\n}\n\n/* Used to force a border model for a node */\n.cm-force-border { padding-right: .1px; }\n\n@media print {\n  /* Hide the cursor when printing */\n  .CodeMirror div.CodeMirror-cursors {\n    visibility: hidden;\n  }\n}\n\n/* See issue #2901 */\n.cm-tab-wrap-hack:after { content: ''; }\n\n/* Help users use markselection to safely style text background */\nspan.CodeMirror-selectedtext { background: none; }\n",
       '',
     ]);
   },
-  1486: function(e, t, n) {
-    var r = n(1487);
+  1496: function(e, t, n) {
+    var r = n(1497);
     'string' == typeof r && (r = [[e.i, r, '']]);
     var i = {};
     i.transform = void 0;
-    n(638)(r, i);
+    n(643)(r, i);
     r.locals && (e.exports = r.locals);
   },
-  1487: function(e, t, n) {
-    (e.exports = n(637)(void 0)).push([
+  1497: function(e, t, n) {
+    (e.exports = n(642)(void 0)).push([
       e.i,
       '/*\n\n    Name:       Base16 Default Light\n    Author:     Chris Kempson (http://chriskempson.com)\n\n    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-codemirror)\n    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)\n\n*/\n\n.cm-s-base16-light.CodeMirror { background: #f5f5f5; color: #202020; }\n.cm-s-base16-light div.CodeMirror-selected { background: #e0e0e0; }\n.cm-s-base16-light .CodeMirror-line::selection, .cm-s-base16-light .CodeMirror-line > span::selection, .cm-s-base16-light .CodeMirror-line > span > span::selection { background: #e0e0e0; }\n.cm-s-base16-light .CodeMirror-line::-moz-selection, .cm-s-base16-light .CodeMirror-line > span::-moz-selection, .cm-s-base16-light .CodeMirror-line > span > span::-moz-selection { background: #e0e0e0; }\n.cm-s-base16-light .CodeMirror-gutters { background: #f5f5f5; border-right: 0px; }\n.cm-s-base16-light .CodeMirror-guttermarker { color: #ac4142; }\n.cm-s-base16-light .CodeMirror-guttermarker-subtle { color: #b0b0b0; }\n.cm-s-base16-light .CodeMirror-linenumber { color: #b0b0b0; }\n.cm-s-base16-light .CodeMirror-cursor { border-left: 1px solid #505050; }\n\n.cm-s-base16-light span.cm-comment { color: #8f5536; }\n.cm-s-base16-light span.cm-atom { color: #aa759f; }\n.cm-s-base16-light span.cm-number { color: #aa759f; }\n\n.cm-s-base16-light span.cm-property, .cm-s-base16-light span.cm-attribute { color: #90a959; }\n.cm-s-base16-light span.cm-keyword { color: #ac4142; }\n.cm-s-base16-light span.cm-string { color: #f4bf75; }\n\n.cm-s-base16-light span.cm-variable { color: #90a959; }\n.cm-s-base16-light span.cm-variable-2 { color: #6a9fb5; }\n.cm-s-base16-light span.cm-def { color: #d28445; }\n.cm-s-base16-light span.cm-bracket { color: #202020; }\n.cm-s-base16-light span.cm-tag { color: #ac4142; }\n.cm-s-base16-light span.cm-link { color: #aa759f; }\n.cm-s-base16-light span.cm-error { background: #ac4142; color: #505050; }\n\n.cm-s-base16-light .CodeMirror-activeline-background { background: #DDDCDC; }\n.cm-s-base16-light .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }\n',
       '',

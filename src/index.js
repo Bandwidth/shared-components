@@ -300,6 +300,9 @@ export {
   default as TableWrapShadow,
 } from './components/Table/styles/TableWrapShadow';
 export { default as Tabs } from './components/Tabs';
+export { default as Tab } from './components/Tabs/Tab';
+export { default as TabContent } from './components/Tabs/TabContent';
+export { default as TabList } from './components/Tabs/TabList';
 export { default as TextArea } from './components/TextArea';
 export { default as Toast } from './components/Toast';
 export { default as Toggle } from './components/Toggle';

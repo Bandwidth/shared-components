@@ -61,7 +61,7 @@ const SelectWrapper = styled.div`
     overflow: hidden;
     position: relative;
     width: 100%;
-    min-height: 46px;
+    min-height: 53px;
   }
 
   .Select-control .Select-input:focus {
@@ -92,7 +92,7 @@ const SelectWrapper = styled.div`
     color: inherit;
     left: 0;
     font-size: inherit;
-    line-height: 1;
+    line-height: 1.5;
     padding: ${get('spacing.medium')};
     max-width: 100%;
     overflow: hidden;
@@ -141,7 +141,7 @@ const SelectWrapper = styled.div`
 
   .Select-input {
     font-size: inherit;
-    line-height: 1;
+    line-height: 1.5;
     padding: ${get('spacing.medium')};
     vertical-align: middle;
   }
@@ -260,7 +260,7 @@ const SelectWrapper = styled.div`
     position: absolute;
     top: 100%;
     width: 100%;
-    z-index: 1;
+    z-index: 1000000;
     -webkit-overflow-scrolling: touch;
   }
   .Select-menu {
