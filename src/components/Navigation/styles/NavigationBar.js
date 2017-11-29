@@ -12,7 +12,6 @@ const NavigationBar = styled.header.withConfig({
   display: flex;
   flex-shrink: 0;
   justify-content: space-between;
-  z-index: 1000;
 
   /* we don't want the nav to expand or collapse, just keep its natural size */
   flex: 0 0 auto;
