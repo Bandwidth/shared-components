@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
-import AlertIcon from './AlertIcon';
-import AlertText from './AlertText';
 
 const AlertBorder = styled.div`
   padding: ${get('spacing.small')} ${get('spacing.medium')};
@@ -35,15 +33,6 @@ const AlertBorder = styled.div`
         return get('colors.primary.default');
     }
   }};
-
-  & > ${AlertIcon} {
-    margin: 0 1em auto 0;
-    flex: 0 0 auto;
-  }
-
-  & > ${AlertText} {
-    margin: auto 0 0 0;
-  }
 `;
 
 AlertBorder.Small = AlertBorder.extend`

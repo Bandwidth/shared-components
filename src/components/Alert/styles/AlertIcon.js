@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 import icons from 'components/Icon/icons';
+import AlertBorder from './AlertBorder';
 
 export const SIZE = '1.2em';
 
@@ -46,6 +47,11 @@ const AlertIcon = styled.i`
     font-size: calc(${SIZE} - 0.3em);
     position: absolute;
     font-style: normal;
+  }
+
+  ${AlertBorder} > & {
+    margin: 0 1em auto 0;
+    flex: 0 0 auto;
   }
 `;
 
