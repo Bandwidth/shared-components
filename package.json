@@ -24,6 +24,10 @@
     "url": "https://github.com/Bandwidth/shared-components/issues"
   },
   "homepage": "https://github.com/Bandwidth/shared-components#readme",
+  "peerDependencies": {
+    "react": "15.5.x",
+    "react-dom": "15.5.x"
+  },
   "dependencies": {
     "animation-timer": "^1.0.12",
     "change-case": "^3.0.1",
@@ -31,12 +35,10 @@
     "moment": "^2.19.1",
     "prop-types": "^15.5.8",
     "provinces": "^1.11.0",
-    "react": "^15.5.4",
     "react-autosuggest": "^9.3.2",
     "react-addons-shallow-compare": "^15.6.2",
     "react-collapse": "^4.0.3",
     "react-dates": "^13.0.6",
-    "react-dom": "^15.5.4",
     "react-dropzone": "^3.13.1",
     "react-motion": "^0.5.1",
     "react-router-dom": "^4.1.1",
