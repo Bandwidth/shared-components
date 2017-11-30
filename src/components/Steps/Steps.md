@@ -4,8 +4,8 @@ Steps renders a set of Step items. It will automatically assign numbers to the s
 const lipsum = require('lorem-ipsum');
 
 <Steps>
-  <Step complete>Step 1</Step>
-  <Step>Step 2</Step>
-  <Step>{lipsum({ count: 8 })}</Step>
+  <Steps.Step complete>Step 1</Steps.Step>
+  <Steps.Step>Step 2</Steps.Step>
+  <Steps.Step>{lipsum({ count: 8 })}</Steps.Step>
 </Steps>
 ```

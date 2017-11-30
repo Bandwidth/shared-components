@@ -30,3 +30,5 @@ export default class Steps extends React.Component {
     return <List>{this.renderSteps()}</List>;
   }
 }
+
+Steps.Step = Step;
