@@ -6,6 +6,10 @@ const Breadcrumb = styled.div`
   &>* {
     float: left;
   }
+  
+  &:after {
+   clear: both;
+  }
 `;
 
 export default Breadcrumb;
