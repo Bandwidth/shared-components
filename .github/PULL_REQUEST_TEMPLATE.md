@@ -4,7 +4,7 @@ Check these before submitting your pull request:
 
 - [ ] Visual and behavioral components are separated
 - [ ] Exported components are documented with examples
-- [ ] PropTypes have JSDoc comments
+- [ ] Props have JSDoc comments
 - [ ] All relevant visual sub-components can be overridden via props
 
 ## Breaking Changes
