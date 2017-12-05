@@ -4,12 +4,12 @@ navigation as commonly seen at the top of web pages.
 Example:
 ```jsx harmony
 <Breadcrumbs>
-  <Breadcrumb>
+  <Breadcrumbs.Breadcrumb>
     <Anchor to="https://www.myapp.com/home">Home</Anchor>
-  </Breadcrumb>
-  <Breadcrumb>
+  </Breadcrumbs.Breadcrumb>
+  <Breadcrumbs.Breadcrumb>
     <Anchor to="https://www.myapp.com/accounts">Accounts</Anchor>
-  </Breadcrumb>
-  <Breadcrumb>Products</Breadcrumb> <!-- User is currently here -->
+  </Breadcrumbs.Breadcrumb>
+  <Breadcrumbs.Breadcrumb>Products</Breadcrumbs.Breadcrumb> <!-- User is currently here -->
 </Breadcrumbs>
 ```
