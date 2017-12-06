@@ -259,6 +259,13 @@ export {
 } from './components/SidebarList/styles/SidebarListShowMore';
 export { default as Spacing } from './components/Spacing';
 export { default as Steps } from './components/Steps';
+export { default as Step } from './components/Steps/Step';
+export {
+  default as StepContainer,
+} from './components/Steps/styles/StepContainer';
+export { default as StepContent } from './components/Steps/styles/StepContent';
+export { default as StepList } from './components/Steps/styles/StepList';
+export { default as StepNumber } from './components/Steps/styles/StepNumber';
 export { default as Table } from './components/Table';
 export { default as SimpleTable } from './components/Table/SimpleTable';
 export { default as TableControls } from './components/Table/TableControls';
