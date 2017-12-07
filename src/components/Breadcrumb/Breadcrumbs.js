@@ -3,7 +3,7 @@ import Breadcrumb from './Breadcrumb';
 import dedent from 'dedent';
 
 const Breadcrumbs = styled.div`
-  &>*:not(:last-child)::after {
+  &>${Breadcrumb}:not(:last-child)::after {
     content: "\00a0 \00a0 ›\00a0 \00a0"
   }
 `;
@@ -13,8 +13,9 @@ Breadcrumbs.propTypes = {
     if (!props.children) return;
     const invalidChildren = props.children.filter(child => child.type.displayName !== Breadcrumb.displayName);
     if (invalidChildren.length > 0) {
-      const childName = invalidChildren[0].type.displayName || invalidChildren[0].type;
-      return new Error(dedent`Invalid child component for Breadcrumbs: ${childName}.  Only ${Breadcrumb.displayName}\
+      const child = invalidChildren[0];
+      const childName = child.type.displayName || child.type.name || child.type;
+      return new Error(dedent`Invalid child component for Breadcrumbs: ${childName}.  Only ${Breadcrumb.displayName} \
         components may be nested within Breadcrumbs.`);
     }
   }
