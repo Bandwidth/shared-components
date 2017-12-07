@@ -177,7 +177,9 @@ export {
 } from './components/Navigation/styles/NavigationLogoPairWrapper';
 export { default as NewBadge } from './components/NewBadge';
 export { default as Note } from './components/Note';
-export { default as NoteBody } from './components/Note/styles/NoteBody';
+export {
+  default as NoteContainer,
+} from './components/Note/styles/NoteContainer';
 export { default as NoteCorner } from './components/Note/styles/NoteCorner';
 export { default as Pagination } from './components/Pagination';
 export {

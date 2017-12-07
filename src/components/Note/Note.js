@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NoteBody from './styles/NoteBody';
+import NoteContainer from './styles/NoteContainer';
 import NoteCorner from './styles/NoteCorner';
 
-const Note = ({ children, Body, Corner }) => (
-  <Body>
+const Note = ({ children, Container, Corner }) => (
+  <Container>
     {children}
     <Corner />
-  </Body>
+  </Container>
 );
 
 Note.propTypes = {
@@ -16,9 +16,9 @@ Note.propTypes = {
    */
   children: PropTypes.node.isRequired,
   /**
-   * Override the component that renders the body container
+   * Override the component that renders the outer container
    */
-  Body: PropTypes.func,
+  Container: PropTypes.func,
   /**
    * Override the component that renders the corner
    */
@@ -26,7 +26,7 @@ Note.propTypes = {
 };
 
 Note.defaultProps = {
-  Body: NoteBody,
+  Container: NoteContainer,
   Corner: NoteCorner,
 };
 

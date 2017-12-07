@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
-const NoteBody = styled.div`
+const NoteContainer = styled.div`
   background: ${get('colors.background.default')};
   border: ${get('thicknesses.normal')} solid ${get('colors.border.medium')};
   border-right: 0;
@@ -12,4 +12,4 @@ const NoteBody = styled.div`
   position: relative;
 `;
 
-export default NoteBody;
+export default NoteContainer;
