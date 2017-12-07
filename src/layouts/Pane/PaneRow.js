@@ -11,9 +11,9 @@ const PaneRow = styled.div.withConfig({ displayName: 'PaneRow' })`
   & > * {
     flex: 1;
     border-right: ${get('thicknesses.normal')} solid
-      ${get('colors.border.light')};
+      ${get('colors.border.medium')};
     border-left: ${get('thicknesses.normal')} solid
-      ${get('colors.border.light')};
+      ${get('colors.border.medium')};
     margin-left: -${get('thicknesses.normal')};
   }
 
