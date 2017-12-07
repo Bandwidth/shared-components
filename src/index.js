@@ -88,7 +88,6 @@ export {
 } from './components/Checkbox/styles/CheckboxLabel';
 export { default as Code } from './components/Code';
 export { default as CodeBlock } from './components/Code/CodeBlock';
-export { default as Comments } from './components/Comments';
 export { default as DatePicker } from './components/DatePicker';
 export {
   default as DateRangePicker,
@@ -177,6 +176,11 @@ export {
   default as NavigationLogoPairWrapper,
 } from './components/Navigation/styles/NavigationLogoPairWrapper';
 export { default as NewBadge } from './components/NewBadge';
+export { default as Note } from './components/Note';
+export {
+  default as NoteContainer,
+} from './components/Note/styles/NoteContainer';
+export { default as NoteCorner } from './components/Note/styles/NoteCorner';
 export { default as Pagination } from './components/Pagination';
 export {
   default as PaginationContainer,
