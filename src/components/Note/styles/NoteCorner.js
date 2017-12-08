@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import NoteBody from './NoteBody';
 import get from 'extensions/themeGet';
 
 export default styled.div`
