@@ -15,15 +15,11 @@ const inferType = children => {
     return 'wrap';
   }
 
-  if (typeof children === 'string') {
-    return 'text';
-  }
-
   if (children.type && children.type.displayName === 'Icon') {
     return 'icon';
   }
 
-  return 'wrap';
+  return 'text';
 };
 
 class Anchor extends React.Component {
@@ -65,6 +61,10 @@ class Anchor extends React.Component {
      * Opens the link in a new tab.
      */
     newTab: PropTypes.bool,
+    /**
+     * Adds an icon to the beginning of the link and changes the styling to "icon" mode
+     */
+    icon: PropTypes.string,
     /**
      * Renders a text anchor linking to an external site
      */
@@ -123,6 +123,7 @@ class Anchor extends React.Component {
       external,
       children,
       to,
+      icon,
       ExternalTextAnchor,
       ExternalIconAnchor,
       ExternalContentAnchor,
@@ -130,7 +131,7 @@ class Anchor extends React.Component {
       InternalIconAnchor,
       InternalContentAnchor,
     } = this.props;
-    const finalType = type || inferType(children);
+    const finalType = type || (!!icon ? 'icon' : inferType(children));
     const finalExternal = this.isExternal();
     switch (finalType) {
       case 'wrap':
@@ -156,7 +157,6 @@ class Anchor extends React.Component {
     }
   };
 
-  // adds all non-children props to children
   childrenWithProps = extraProps => {
     const { children } = this.props;
     if (!children) {
@@ -165,9 +165,12 @@ class Anchor extends React.Component {
     if (typeof children === 'string') {
       return children;
     }
-    return React.Children.map(children, child =>
-      React.cloneElement(child, extraProps),
-    );
+    return React.Children.map(children, child => {
+      if (typeof child === 'string') {
+        return child;
+      }
+      return React.cloneElement(child, extraProps);
+    });
   };
 
   // provides extra properties based on certain factors to the underlying element
@@ -188,7 +191,7 @@ class Anchor extends React.Component {
   };
 
   render() {
-    const { to, exact, children, className, id } = this.props;
+    const { to, exact, children, className, id, icon, newTab } = this.props;
     const Component = this.getComponentType();
 
     return (
@@ -201,6 +204,8 @@ class Anchor extends React.Component {
             onClick={this.handleClick}
             className={className}
             id={id}
+            icon={icon}
+            newTab={newTab}
           >
             {this.childrenWithProps({ active: !!match })}
           </Component>
@@ -210,11 +215,32 @@ class Anchor extends React.Component {
   }
 }
 
-Anchor.Danger = withProps({
+Anchor.Danger = Anchor.Negative = withProps({
   ExternalTextAnchor: DefaultExternalTextAnchor.Danger,
   ExternalIconAnchor: DefaultExternalIconAnchor.Danger,
   InternalTextAnchor: DefaultInternalTextAnchor.Danger,
   InternalIconAnchor: DefaultInternalIconAnchor.Danger,
+})(Anchor);
+
+Anchor.Positive = withProps({
+  ExternalTextAnchor: DefaultExternalTextAnchor.Positive,
+  ExternalIconAnchor: DefaultExternalIconAnchor.Positive,
+  InternalTextAnchor: DefaultInternalTextAnchor.Positive,
+  InternalIconAnchor: DefaultInternalIconAnchor.Positive,
+})(Anchor);
+
+Anchor.Dark = withProps({
+  ExternalTextAnchor: DefaultExternalTextAnchor.Dark,
+  ExternalIconAnchor: DefaultExternalIconAnchor.Dark,
+  InternalTextAnchor: DefaultInternalTextAnchor.Dark,
+  InternalIconAnchor: DefaultInternalIconAnchor.Dark,
+})(Anchor);
+
+Anchor.Inverted = withProps({
+  ExternalTextAnchor: DefaultExternalTextAnchor.Inverted,
+  ExternalIconAnchor: DefaultExternalIconAnchor.Inverted,
+  InternalTextAnchor: DefaultInternalTextAnchor.Inverted,
+  InternalIconAnchor: DefaultInternalIconAnchor.Inverted,
 })(Anchor);
 
 export default Anchor;
