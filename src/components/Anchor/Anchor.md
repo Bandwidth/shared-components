@@ -1,5 +1,12 @@
 Anchors are meant to be used with React Router v4+.
 
+Available variants:
+
+* `Anchor.Negative` (aka `Anchor.Danger`)
+* `Anchor.Positive`
+* `Anchor.Dark`
+* `Anchor.Inverted`
+
 ```javascript
 <Anchor to="/about">Text!</Anchor>
 ```
@@ -24,19 +31,24 @@ _"Combo" anchor for toolbar functions_
 <Anchor icon="delete3">delete</Anchor>
 ```
 
-_A danger anchor_
+_Overriding the anchor type (forcing a text anchor to render as a wrap anchor)_
 ```javascript
-<Anchor.Danger to="#foo">Yikes!</Anchor.Danger>
+<Anchor type="wrap">Regular text</Anchor>
 ```
 
-_A danger icon anchor_
+_A negative anchor_
 ```javascript
-<Anchor.Danger to="#foo" icon="delete3" />
+<Anchor.Negative to="#foo">Yikes!</Anchor.Negative>
 ```
 
-_A danger "combo" anchor_
+_A negative icon anchor_
 ```javascript
-<Anchor.Danger to="#foo" icon="unicorn">Unicorns</Anchor.Danger>
+<Anchor.Negative to="#foo" icon="delete3" />
+```
+
+_A negative "combo" anchor_
+```javascript
+<Anchor.Negative to="#foo" icon="unicorn">Unicorns</Anchor.Negative>
 ```
 
 _A positive anchor_
