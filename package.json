@@ -41,6 +41,7 @@
   "dependencies": {
     "animation-timer": "^1.0.12",
     "change-case": "^3.0.1",
+    "dedent": "^0.7.0",
     "functional-easing": "^1.0.8",
     "moment": "^2.19.1",
     "prop-types": "^15.5.8",
