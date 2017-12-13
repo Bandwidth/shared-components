@@ -75,7 +75,7 @@ export { default as Button } from './components/Button';
 export { default as SubmitButton } from './components/Button/SubmitButton';
 export { default as Callout } from './components/Callout';
 export { default as CalloutTag } from './components/Callout/styles/CalloutTag';
-export { default as Card } from './components/Cards';
+export { default as Cards } from './components/Cards';
 export { default as Checkbox } from './components/Checkbox';
 export {
   default as CheckboxContainer,

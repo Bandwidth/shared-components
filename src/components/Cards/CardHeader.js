@@ -24,7 +24,13 @@ const WhiteHeader = H3.extend`
 
 class CardHeader extends React.Component {
   static propTypes = {
+    /**
+     * The text to be displayed in the header.  Optional.  Text is displayed in white font by default.
+     */
     text: PropTypes.string,
+    /**
+     * The image to be displayed as the background of the header.  If omitted, no background image is used.
+     */
     image: PropTypes.string,
   };
 
