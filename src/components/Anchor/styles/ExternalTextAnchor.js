@@ -1,7 +1,27 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import get from 'extensions/themeGet';
+import icons from 'components/Icon/icons';
 
 const color = get('colors.primary.alternate');
+
+const newTabIconStyles = css`
+  &::before {
+    content: "${icons('openInWindow')}";
+    font-family: ${get('fonts.icon')};
+    opacity: 0;
+    background: ${get('colors.background.default')};
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    transition: right 0.3s ease, opacity 0.2s ease;
+  }
+
+  &:hover::before {
+    right: -1.5em;
+    opacity: 1;
+    transition: right 0.3s ease, opacity 0.2s ease 0.1s;
+  }
+`;
 
 const ExternalTextAnchor = styled.a`
   color: ${color};
@@ -45,11 +65,13 @@ const ExternalTextAnchor = styled.a`
     transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
       opacity 0s ease;
   }
+
+  ${({ newTab }) => (newTab ? newTabIconStyles : '')};
 `;
 
 const dangerColor = get('colors.negative.default');
 
-ExternalTextAnchor.Danger = ExternalTextAnchor.extend`
+ExternalTextAnchor.Danger = ExternalTextAnchor.Negative = ExternalTextAnchor.extend`
   color: ${dangerColor};
 
   &:active {
@@ -58,6 +80,48 @@ ExternalTextAnchor.Danger = ExternalTextAnchor.extend`
 
   &::after {
     background: ${dangerColor};
+  }
+`;
+
+const positiveColor = get('colors.positive.default');
+
+ExternalTextAnchor.Positive = ExternalTextAnchor.extend`
+  color: ${positiveColor};
+
+  &:active {
+    color: ${get('colors.positive.dark')};
+  }
+
+  &::after {
+    background: ${positiveColor};
+  }
+`;
+
+const darkColor = get('colors.primary.dark');
+
+ExternalTextAnchor.Dark = ExternalTextAnchor.extend`
+  color: ${darkColor};
+
+  &:active {
+    color: ${get('colors.primary.dark')};
+  }
+
+  &::after {
+    background: ${darkColor};
+  }
+`;
+
+const invertedColor = get('colors.text.inverted');
+
+ExternalTextAnchor.Inverted = ExternalTextAnchor.extend`
+  color: ${invertedColor};
+
+  &:active {
+    color: ${get('colors.text.inverted')};
+  }
+
+  &::after {
+    background: ${invertedColor};
   }
 `;
 
