@@ -33,7 +33,7 @@ class Card extends React.Component {
     /**
      * The background image to be used for the card header.
      */
-    image: PropTypes.any,
+    image: PropTypes.string,
     /**
      * The component to be used in order to render the card header.  A reasonable default is provided.
      */
