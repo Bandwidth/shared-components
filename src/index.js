@@ -58,6 +58,7 @@ export {
   default as BandwidthThemeProvider,
 } from './components/BandwidthThemeProvider';
 export { default as Breadcrumb } from './components/Breadcrumb';
+export { default as Breadcrumbs } from './components/Breadcrumb/Breadcrumbs';
 export { default as BulkSelect } from './components/BulkSelect';
 export {
   default as BulkSelectBorder,
@@ -101,6 +102,9 @@ export {
 export {
   default as DateRangePickerWrapper,
 } from './components/DatePicker/styles/DateRangePickerWrapper';
+export { default as DragGroups } from './components/DragGroups';
+export { default as DragGroup } from './components/DragGroups/DragGroup';
+export { default as DragItem } from './components/DragGroups/DragItem';
 export { default as FileLoader } from './components/FileLoader';
 export {
   default as FileLoaderDropArea,

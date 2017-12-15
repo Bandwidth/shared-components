@@ -50,6 +50,8 @@
     "react-autosuggest": "^9.3.2",
     "react-collapse": "^4.0.3",
     "react-dates": "^13.0.6",
+    "react-dnd": "^2.5.4",
+    "react-dnd-html5-backend": "^2.5.4",
     "react-dropzone": "^3.13.1",
     "react-motion": "^0.5.1",
     "react-router-dom": "^4.1.1",

@@ -1,5 +1,5 @@
 webpackJsonp([0], {
-  1512: function(e, t, n) {
+  1526: function(e, t, n) {
     'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 });
     var r = n(0),
@@ -8,9 +8,9 @@ webpackJsonp([0], {
       a = n.n(o),
       s = n(338),
       l = n.n(s),
-      c = n(1514),
+      c = n(1528),
       u = n.n(c),
-      d = n(1515),
+      d = n(1529),
       p = (n.n(d),
       Object.assign ||
         function(e) {
@@ -39,7 +39,7 @@ webpackJsonp([0], {
           );
         };
       })();
-    n(1518), n(1520);
+    n(1532), n(1534);
     var f = {
         mode: 'jsx',
         lineNumbers: !1,
@@ -126,7 +126,7 @@ webpackJsonp([0], {
       (m.contextTypes = { config: a.a.object.isRequired }),
       (t.default = m);
   },
-  1513: function(e, t, n) {
+  1527: function(e, t, n) {
     !(function(t, n) {
       e.exports = n();
     })(0, function() {
@@ -2368,14 +2368,13 @@ webpackJsonp([0], {
                       }
                       function wrapX(t, n, r) {
                         var i = wrappedLineExtentChar(e, u, null, t),
-                          o = ('ltr' == n) == ('after' == r) ? 'left' : 'right';
-                        return coords(
-                          'after' == r
-                            ? i.begin
-                            : i.end -
-                              (/\s/.test(u.text.charAt(i.end - 1)) ? 2 : 1),
-                          o,
-                        )[o];
+                          o = ('ltr' == n) == ('after' == r) ? 'left' : 'right',
+                          a =
+                            'after' == r
+                              ? i.begin
+                              : i.end -
+                                (/\s/.test(u.text.charAt(i.end - 1)) ? 2 : 1);
+                        return coords(a, o)[o];
                       }
                       var o,
                         a,
@@ -2407,24 +2406,25 @@ webpackJsonp([0], {
                             y = 0 == u,
                             b = !p || u == p.length - 1;
                           if (g.top - f.top <= 3) {
-                            var x = (c ? v : m) && b,
-                              C = (c ? m : v) && y ? s : (h ? f : g).left,
-                              w = x ? l : (h ? g : f).right;
-                            add(C, f.top, w - C, f.bottom);
+                            var x = (c ? m : v) && y,
+                              C = (c ? v : m) && b,
+                              w = x ? s : (h ? f : g).left,
+                              S = C ? l : (h ? g : f).right;
+                            add(w, f.top, S - w, f.bottom);
                           } else {
-                            var S, k, L, M;
+                            var k, L, M, T;
                             h
-                              ? ((S = c && m && y ? s : f.left),
-                                (k = c ? l : wrapX(e, i, 'before')),
-                                (L = c ? s : wrapX(t, i, 'after')),
-                                (M = c && v && b ? l : g.right))
-                              : ((S = c ? wrapX(e, i, 'before') : s),
-                                (k = !c && m && y ? l : f.right),
-                                (L = !c && v && b ? s : g.left),
-                                (M = c ? wrapX(t, i, 'after') : l)),
-                              add(S, f.top, k - S, f.bottom),
+                              ? ((k = c && m && y ? s : f.left),
+                                (L = c ? l : wrapX(e, i, 'before')),
+                                (M = c ? s : wrapX(t, i, 'after')),
+                                (T = c && v && b ? l : g.right))
+                              : ((k = c ? wrapX(e, i, 'before') : s),
+                                (L = !c && m && y ? l : f.right),
+                                (M = !c && v && b ? s : g.left),
+                                (T = c ? wrapX(t, i, 'after') : l)),
+                              add(k, f.top, L - k, f.bottom),
                               f.bottom < g.top && add(s, f.bottom, null, g.top),
-                              add(L, g.top, M - L, g.bottom);
+                              add(M, g.top, T - M, g.bottom);
                           }
                           (!o || cmpCoords(f, o) < 0) && (o = f),
                             cmpCoords(g, o) < 0 && (o = g),
@@ -4007,12 +4007,11 @@ webpackJsonp([0], {
             var r = {
               ranges: t.ranges,
               update: function(t) {
-                var n = this;
                 this.ranges = [];
-                for (var r = 0; r < t.length; r++)
-                  n.ranges[r] = new ve(
-                    clipPos(e, t[r].anchor),
-                    clipPos(e, t[r].head),
+                for (var n = 0; n < t.length; n++)
+                  this.ranges[n] = new ve(
+                    clipPos(e, t[n].anchor),
+                    clipPos(e, t[n].head),
                   );
               },
               origin: n && n.origin,
@@ -4446,20 +4445,18 @@ webpackJsonp([0], {
         );
       }
       function LeafChunk(e) {
-        var t = this;
         (this.lines = e), (this.parent = null);
-        for (var n = 0, r = 0; r < e.length; ++r)
-          (e[r].parent = t), (n += e[r].height);
-        this.height = n;
+        for (var t = 0, n = 0; n < e.length; ++n)
+          (e[n].parent = this), (t += e[n].height);
+        this.height = t;
       }
       function BranchChunk(e) {
-        var t = this;
         this.children = e;
-        for (var n = 0, r = 0, i = 0; i < e.length; ++i) {
-          var o = e[i];
-          (n += o.chunkSize()), (r += o.height), (o.parent = t);
+        for (var t = 0, n = 0, r = 0; r < e.length; ++r) {
+          var i = e[r];
+          (t += i.chunkSize()), (n += i.height), (i.parent = this);
         }
-        (this.size = n), (this.height = r), (this.parent = null);
+        (this.size = t), (this.height = n), (this.parent = null);
       }
       function adjustScrollWhenAboveVisible(e, t, n) {
         heightAtLine(t) < ((e.curOp && e.curOp.scrollTop) || e.doc.scrollTop) &&
@@ -4964,21 +4961,20 @@ webpackJsonp([0], {
         );
       }
       function onKeyDown(e) {
-        var t = this;
-        if (((t.curOp.focus = activeElt()), !signalDOMEvent(t, e))) {
+        if (((this.curOp.focus = activeElt()), !signalDOMEvent(this, e))) {
           a && s < 11 && 27 == e.keyCode && (e.returnValue = !1);
-          var n = e.keyCode;
-          t.display.shift = 16 == n || e.shiftKey;
-          var r = handleKeyBinding(t, e);
+          var t = e.keyCode;
+          this.display.shift = 16 == t || e.shiftKey;
+          var n = handleKeyBinding(this, e);
           d &&
-            ((He = r ? n : null),
-            !r &&
-              88 == n &&
+            ((He = n ? t : null),
+            !n &&
+              88 == t &&
               !$ &&
               (y ? e.metaKey : e.ctrlKey) &&
-              t.replaceSelection('', null, 'cut')),
-            18 != n ||
-              /\bCodeMirror-crosshair\b/.test(t.display.lineDiv.className) ||
+              this.replaceSelection('', null, 'cut')),
+            18 != t ||
+              /\bCodeMirror-crosshair\b/.test(this.display.lineDiv.className) ||
               (function showCrossHair(e) {
                 function up(e) {
                   (18 != e.keyCode && e.altKey) ||
@@ -4989,7 +4985,7 @@ webpackJsonp([0], {
                 var t = e.display.lineDiv;
                 addClass(t, 'CodeMirror-crosshair');
                 G(document, 'keyup', up), G(document, 'mouseover', up);
-              })(t);
+              })(this);
         }
       }
       function onKeyUp(e) {
@@ -5024,25 +5020,27 @@ webpackJsonp([0], {
         }
       }
       function onMouseDown(e) {
-        var t = this,
-          n = t.display;
+        var t = this.display;
         if (
-          !(signalDOMEvent(t, e) || (n.activeTouch && n.input.supportsTouch()))
+          !(
+            signalDOMEvent(this, e) ||
+            (t.activeTouch && t.input.supportsTouch())
+          )
         )
           if (
-            (n.input.ensurePolled(),
-            (n.shift = e.shiftKey),
-            eventInWidget(n, e))
+            (t.input.ensurePolled(),
+            (t.shift = e.shiftKey),
+            eventInWidget(t, e))
           )
             l ||
-              ((n.scroller.draggable = !1),
+              ((t.scroller.draggable = !1),
               setTimeout(function() {
-                return (n.scroller.draggable = !0);
+                return (t.scroller.draggable = !0);
               }, 100));
-          else if (!clickInGutter(t, e)) {
-            var r = posFromMouse(t, e),
-              i = e_button(e),
-              o = r
+          else if (!clickInGutter(this, e)) {
+            var n = posFromMouse(this, e),
+              r = e_button(e),
+              i = n
                 ? (function clickRepeat(e, t) {
                     var n = +new Date();
                     return Ie && Ie.compare(n, e, t)
@@ -5050,11 +5048,11 @@ webpackJsonp([0], {
                       : Ee && Ee.compare(n, e, t)
                         ? ((Ie = new We(n, e, t)), (Ee = null), 'double')
                         : ((Ee = new We(n, e, t)), (Ie = null), 'single');
-                  })(r, i)
+                  })(n, r)
                 : 'single';
             window.focus(),
-              1 == i && t.state.selectingText && t.state.selectingText(e),
-              (r &&
+              1 == r && this.state.selectingText && this.state.selectingText(e),
+              (n &&
                 (function handleMappedButton(e, t, n, r, i) {
                   var o = 'Click';
                   'double' == r
@@ -5074,9 +5072,9 @@ webpackJsonp([0], {
                       return r;
                     })
                   );
-                })(t, i, r, o, e)) ||
-                (1 == i
-                  ? r
+                })(this, r, n, i, e)) ||
+                (1 == r
+                  ? n
                     ? (function leftButtonDown(e, t, n, r) {
                         a
                           ? setTimeout(bind(ensureFocus, e), 0)
@@ -5378,14 +5376,15 @@ webpackJsonp([0], {
                                 G(document, 'mousemove', f),
                                 G(document, 'mouseup', g);
                             })(e, r, t, o);
-                      })(t, r, o, e)
-                    : e_target(e) == n.scroller && e_preventDefault(e)
-                  : 2 == i
-                    ? (r && extendSelection(t.doc, r),
+                      })(this, n, i, e)
+                    : e_target(e) == t.scroller && e_preventDefault(e)
+                  : 2 == r
+                    ? (n && extendSelection(this.doc, n),
                       setTimeout(function() {
-                        return n.input.focus();
+                        return t.input.focus();
                       }, 20))
-                    : 3 == i && (k ? onContextMenu(t, e) : delayBlurEvent(t)));
+                    : 3 == r &&
+                      (k ? onContextMenu(this, e) : delayBlurEvent(this)));
           }
       }
       function rangeForUnit(e, t, n) {
@@ -5479,88 +5478,92 @@ webpackJsonp([0], {
           (this.doc = i);
         var o = new CodeMirror$1.inputStyles[t.inputStyle](this),
           c = (this.display = new function Display(e, t, r) {
-            var i = this;
             (this.input = r),
-              (i.scrollbarFiller = elt(
+              (this.scrollbarFiller = elt(
                 'div',
                 null,
                 'CodeMirror-scrollbar-filler',
               )),
-              i.scrollbarFiller.setAttribute('cm-not-content', 'true'),
-              (i.gutterFiller = elt('div', null, 'CodeMirror-gutter-filler')),
-              i.gutterFiller.setAttribute('cm-not-content', 'true'),
-              (i.lineDiv = eltP('div', null, 'CodeMirror-code')),
-              (i.selectionDiv = elt(
+              this.scrollbarFiller.setAttribute('cm-not-content', 'true'),
+              (this.gutterFiller = elt(
+                'div',
+                null,
+                'CodeMirror-gutter-filler',
+              )),
+              this.gutterFiller.setAttribute('cm-not-content', 'true'),
+              (this.lineDiv = eltP('div', null, 'CodeMirror-code')),
+              (this.selectionDiv = elt(
                 'div',
                 null,
                 null,
                 'position: relative; z-index: 1',
               )),
-              (i.cursorDiv = elt('div', null, 'CodeMirror-cursors')),
-              (i.measure = elt('div', null, 'CodeMirror-measure')),
-              (i.lineMeasure = elt('div', null, 'CodeMirror-measure')),
-              (i.lineSpace = eltP(
+              (this.cursorDiv = elt('div', null, 'CodeMirror-cursors')),
+              (this.measure = elt('div', null, 'CodeMirror-measure')),
+              (this.lineMeasure = elt('div', null, 'CodeMirror-measure')),
+              (this.lineSpace = eltP(
                 'div',
                 [
-                  i.measure,
-                  i.lineMeasure,
-                  i.selectionDiv,
-                  i.cursorDiv,
-                  i.lineDiv,
+                  this.measure,
+                  this.lineMeasure,
+                  this.selectionDiv,
+                  this.cursorDiv,
+                  this.lineDiv,
                 ],
                 null,
                 'position: relative; outline: none',
               ));
-            var o = eltP('div', [i.lineSpace], 'CodeMirror-lines');
-            (i.mover = elt('div', [o], null, 'position: relative')),
-              (i.sizer = elt('div', [i.mover], 'CodeMirror-sizer')),
-              (i.sizerWidth = null),
-              (i.heightForcer = elt(
+            var i = eltP('div', [this.lineSpace], 'CodeMirror-lines');
+            (this.mover = elt('div', [i], null, 'position: relative')),
+              (this.sizer = elt('div', [this.mover], 'CodeMirror-sizer')),
+              (this.sizerWidth = null),
+              (this.heightForcer = elt(
                 'div',
                 null,
                 null,
                 'position: absolute; height: ' + A + 'px; width: 1px;',
               )),
-              (i.gutters = elt('div', null, 'CodeMirror-gutters')),
-              (i.lineGutter = null),
-              (i.scroller = elt(
+              (this.gutters = elt('div', null, 'CodeMirror-gutters')),
+              (this.lineGutter = null),
+              (this.scroller = elt(
                 'div',
-                [i.sizer, i.heightForcer, i.gutters],
+                [this.sizer, this.heightForcer, this.gutters],
                 'CodeMirror-scroll',
               )),
-              i.scroller.setAttribute('tabIndex', '-1'),
-              (i.wrapper = elt(
+              this.scroller.setAttribute('tabIndex', '-1'),
+              (this.wrapper = elt(
                 'div',
-                [i.scrollbarFiller, i.gutterFiller, i.scroller],
+                [this.scrollbarFiller, this.gutterFiller, this.scroller],
                 'CodeMirror',
               )),
               a &&
                 s < 8 &&
-                ((i.gutters.style.zIndex = -1),
-                (i.scroller.style.paddingRight = 0)),
-              l || (n && v) || (i.scroller.draggable = !0),
-              e && (e.appendChild ? e.appendChild(i.wrapper) : e(i.wrapper)),
-              (i.viewFrom = i.viewTo = t.first),
-              (i.reportedViewFrom = i.reportedViewTo = t.first),
-              (i.view = []),
-              (i.renderedView = null),
-              (i.externalMeasured = null),
-              (i.viewOffset = 0),
-              (i.lastWrapHeight = i.lastWrapWidth = 0),
-              (i.updateLineNumbers = null),
-              (i.nativeBarWidth = i.barHeight = i.barWidth = 0),
-              (i.scrollbarsClipped = !1),
-              (i.lineNumWidth = i.lineNumInnerWidth = i.lineNumChars = null),
-              (i.alignWidgets = !1),
-              (i.cachedCharWidth = i.cachedTextHeight = i.cachedPaddingH = null),
-              (i.maxLine = null),
-              (i.maxLineLength = 0),
-              (i.maxLineChanged = !1),
-              (i.wheelDX = i.wheelDY = i.wheelStartX = i.wheelStartY = null),
-              (i.shift = !1),
-              (i.selForContextMenu = null),
-              (i.activeTouch = null),
-              r.init(i);
+                ((this.gutters.style.zIndex = -1),
+                (this.scroller.style.paddingRight = 0)),
+              l || (n && v) || (this.scroller.draggable = !0),
+              e &&
+                (e.appendChild ? e.appendChild(this.wrapper) : e(this.wrapper)),
+              (this.viewFrom = this.viewTo = t.first),
+              (this.reportedViewFrom = this.reportedViewTo = t.first),
+              (this.view = []),
+              (this.renderedView = null),
+              (this.externalMeasured = null),
+              (this.viewOffset = 0),
+              (this.lastWrapHeight = this.lastWrapWidth = 0),
+              (this.updateLineNumbers = null),
+              (this.nativeBarWidth = this.barHeight = this.barWidth = 0),
+              (this.scrollbarsClipped = !1),
+              (this.lineNumWidth = this.lineNumInnerWidth = this.lineNumChars = null),
+              (this.alignWidgets = !1),
+              (this.cachedCharWidth = this.cachedTextHeight = this.cachedPaddingH = null),
+              (this.maxLine = null),
+              (this.maxLineLength = 0),
+              (this.maxLineChanged = !1),
+              (this.wheelDX = this.wheelDY = this.wheelStartX = this.wheelStartY = null),
+              (this.shift = !1),
+              (this.selForContextMenu = null),
+              (this.activeTouch = null),
+              r.init(this);
           }(e, i, o));
         (c.wrapper.CodeMirror = this),
           updateGutters(this),
@@ -5606,11 +5609,11 @@ webpackJsonp([0], {
             }
             var t = e.display;
             G(t.scroller, 'mousedown', operation(e, onMouseDown)),
-              a && s < 11
-                ? G(
-                    t.scroller,
-                    'dblclick',
-                    operation(e, function(t) {
+              G(
+                t.scroller,
+                'dblclick',
+                a && s < 11
+                  ? operation(e, function(t) {
                       if (!signalDOMEvent(e, t)) {
                         var n = posFromMouse(e, t);
                         if (
@@ -5623,11 +5626,11 @@ webpackJsonp([0], {
                           extendSelection(e.doc, r.anchor, r.head);
                         }
                       }
-                    }),
-                  )
-                : G(t.scroller, 'dblclick', function(t) {
-                    return signalDOMEvent(e, t) || e_preventDefault(t);
-                  });
+                    })
+                  : function(t) {
+                      return signalDOMEvent(e, t) || e_preventDefault(t);
+                    },
+              );
             k ||
               G(t.scroller, 'contextmenu', function(t) {
                 return onContextMenu(e, t);
@@ -6495,12 +6498,12 @@ webpackJsonp([0], {
         }),
         (Q.prototype.eatSpace = function() {
           for (
-            var e = this, t = this.pos;
+            var e = this.pos;
             /[\s\u00a0]/.test(this.string.charAt(this.pos));
 
           )
-            ++e.pos;
-          return this.pos > t;
+            ++this.pos;
+          return this.pos > e;
         }),
         (Q.prototype.skipToEnd = function() {
           this.pos = this.string.length;
@@ -6585,12 +6588,12 @@ webpackJsonp([0], {
         return null != t && e > this.maxLookAhead && (this.maxLookAhead = e), t;
       }),
         (ee.prototype.baseToken = function(e) {
-          var t = this;
           if (!this.baseTokens) return null;
-          for (; this.baseTokens[this.baseTokenPos] <= e; ) t.baseTokenPos += 2;
-          var n = this.baseTokens[this.baseTokenPos + 1];
+          for (; this.baseTokens[this.baseTokenPos] <= e; )
+            this.baseTokenPos += 2;
+          var t = this.baseTokens[this.baseTokenPos + 1];
           return {
-            type: n && n.replace(/( |^)overlay .*/, ''),
+            type: t && t.replace(/( |^)overlay .*/, ''),
             size: this.baseTokens[this.baseTokenPos] - e,
           };
         }),
@@ -6744,8 +6747,8 @@ webpackJsonp([0], {
         hasHandler(e, t) && this.events.push(arguments);
       }),
         (he.prototype.finish = function() {
-          for (var e = this, t = 0; t < this.events.length; t++)
-            signal.apply(null, e.events[t]);
+          for (var e = 0; e < this.events.length; e++)
+            signal.apply(null, this.events[e]);
         });
       var fe = 0,
         ge = null;
@@ -6757,43 +6760,41 @@ webpackJsonp([0], {
         return this.ranges[this.primIndex];
       }),
         (me.prototype.equals = function(e) {
-          var t = this;
           if (e == this) return !0;
           if (
             e.primIndex != this.primIndex ||
             e.ranges.length != this.ranges.length
           )
             return !1;
-          for (var n = 0; n < this.ranges.length; n++) {
-            var r = t.ranges[n],
-              i = e.ranges[n];
+          for (var t = 0; t < this.ranges.length; t++) {
+            var n = this.ranges[t],
+              r = e.ranges[t];
             if (
-              !equalCursorPos(r.anchor, i.anchor) ||
-              !equalCursorPos(r.head, i.head)
+              !equalCursorPos(n.anchor, r.anchor) ||
+              !equalCursorPos(n.head, r.head)
             )
               return !1;
           }
           return !0;
         }),
         (me.prototype.deepCopy = function() {
-          for (var e = this, t = [], n = 0; n < this.ranges.length; n++)
-            t[n] = new ve(
-              copyPos(e.ranges[n].anchor),
-              copyPos(e.ranges[n].head),
+          for (var e = [], t = 0; t < this.ranges.length; t++)
+            e[t] = new ve(
+              copyPos(this.ranges[t].anchor),
+              copyPos(this.ranges[t].head),
             );
-          return new me(t, this.primIndex);
+          return new me(e, this.primIndex);
         }),
         (me.prototype.somethingSelected = function() {
-          for (var e = this, t = 0; t < this.ranges.length; t++)
-            if (!e.ranges[t].empty()) return !0;
+          for (var e = 0; e < this.ranges.length; e++)
+            if (!this.ranges[e].empty()) return !0;
           return !1;
         }),
         (me.prototype.contains = function(e, t) {
-          var n = this;
           t || (t = e);
-          for (var r = 0; r < this.ranges.length; r++) {
-            var i = n.ranges[r];
-            if (cmp(t, i.from()) >= 0 && cmp(e, i.to()) <= 0) return r;
+          for (var n = 0; n < this.ranges.length; n++) {
+            var r = this.ranges[n];
+            if (cmp(t, r.from()) >= 0 && cmp(e, r.to()) <= 0) return n;
           }
           return -1;
         });
@@ -6816,9 +6817,11 @@ webpackJsonp([0], {
             return this.lines.length;
           },
           removeInner: function removeInner(e, t) {
-            for (var n = this, r = e, i = e + t; r < i; ++r) {
-              var o = n.lines[r];
-              (n.height -= o.height), cleanUpLine(o), signalLater(o, 'delete');
+            for (var n = e, r = e + t; n < r; ++n) {
+              var i = this.lines[n];
+              (this.height -= i.height),
+                cleanUpLine(i),
+                signalLater(i, 'delete');
             }
             this.lines.splice(e, t);
           },
@@ -6826,17 +6829,15 @@ webpackJsonp([0], {
             e.push.apply(e, this.lines);
           },
           insertInner: function insertInner(e, t, n) {
-            var r = this;
             (this.height += n),
               (this.lines = this.lines
                 .slice(0, e)
                 .concat(t)
                 .concat(this.lines.slice(e)));
-            for (var i = 0; i < t.length; ++i) t[i].parent = r;
+            for (var r = 0; r < t.length; ++r) t[r].parent = this;
           },
           iterN: function iterN(e, t, n) {
-            for (var r = this, i = e + t; e < i; ++e)
-              if (n(r.lines[e])) return !0;
+            for (var r = e + t; e < r; ++e) if (n(this.lines[e])) return !0;
           },
         }),
         (BranchChunk.prototype = {
@@ -6844,62 +6845,60 @@ webpackJsonp([0], {
             return this.size;
           },
           removeInner: function removeInner(e, t) {
-            var n = this;
             this.size -= t;
-            for (var r = 0; r < this.children.length; ++r) {
-              var i = n.children[r],
-                o = i.chunkSize();
-              if (e < o) {
-                var a = Math.min(t, o - e),
-                  s = i.height;
+            for (var n = 0; n < this.children.length; ++n) {
+              var r = this.children[n],
+                i = r.chunkSize();
+              if (e < i) {
+                var o = Math.min(t, i - e),
+                  a = r.height;
                 if (
-                  (i.removeInner(e, a),
-                  (n.height -= s - i.height),
-                  o == a && (n.children.splice(r--, 1), (i.parent = null)),
-                  0 == (t -= a))
+                  (r.removeInner(e, o),
+                  (this.height -= a - r.height),
+                  i == o && (this.children.splice(n--, 1), (r.parent = null)),
+                  0 == (t -= o))
                 )
                   break;
                 e = 0;
-              } else e -= o;
+              } else e -= i;
             }
             if (
               this.size - t < 25 &&
               (this.children.length > 1 ||
                 !(this.children[0] instanceof LeafChunk))
             ) {
-              var l = [];
-              this.collapse(l),
-                (this.children = [new LeafChunk(l)]),
+              var s = [];
+              this.collapse(s),
+                (this.children = [new LeafChunk(s)]),
                 (this.children[0].parent = this);
             }
           },
           collapse: function collapse(e) {
-            for (var t = this, n = 0; n < this.children.length; ++n)
-              t.children[n].collapse(e);
+            for (var t = 0; t < this.children.length; ++t)
+              this.children[t].collapse(e);
           },
           insertInner: function insertInner(e, t, n) {
-            var r = this;
             (this.size += t.length), (this.height += n);
-            for (var i = 0; i < this.children.length; ++i) {
-              var o = r.children[i],
-                a = o.chunkSize();
-              if (e <= a) {
-                if ((o.insertInner(e, t, n), o.lines && o.lines.length > 50)) {
+            for (var r = 0; r < this.children.length; ++r) {
+              var i = this.children[r],
+                o = i.chunkSize();
+              if (e <= o) {
+                if ((i.insertInner(e, t, n), i.lines && i.lines.length > 50)) {
                   for (
-                    var s = o.lines.length % 25 + 25, l = s;
-                    l < o.lines.length;
+                    var a = i.lines.length % 25 + 25, s = a;
+                    s < i.lines.length;
 
                   ) {
-                    var c = new LeafChunk(o.lines.slice(l, (l += 25)));
-                    (o.height -= c.height),
-                      r.children.splice(++i, 0, c),
-                      (c.parent = r);
+                    var l = new LeafChunk(i.lines.slice(s, (s += 25)));
+                    (i.height -= l.height),
+                      this.children.splice(++r, 0, l),
+                      (l.parent = this);
                   }
-                  (o.lines = o.lines.slice(0, s)), r.maybeSpill();
+                  (i.lines = i.lines.slice(0, a)), this.maybeSpill();
                 }
                 break;
               }
-              e -= a;
+              e -= o;
             }
           },
           maybeSpill: function maybeSpill() {
@@ -6923,40 +6922,38 @@ webpackJsonp([0], {
             }
           },
           iterN: function iterN(e, t, n) {
-            for (var r = this, i = 0; i < this.children.length; ++i) {
-              var o = r.children[i],
-                a = o.chunkSize();
-              if (e < a) {
-                var s = Math.min(t, a - e);
-                if (o.iterN(e, s, n)) return !0;
-                if (0 == (t -= s)) break;
+            for (var r = 0; r < this.children.length; ++r) {
+              var i = this.children[r],
+                o = i.chunkSize();
+              if (e < o) {
+                var a = Math.min(t, o - e);
+                if (i.iterN(e, a, n)) return !0;
+                if (0 == (t -= a)) break;
                 e = 0;
-              } else e -= a;
+              } else e -= o;
             }
           },
         });
       var ye = function(e, t, n) {
-        var r = this;
-        if (n) for (var i in n) n.hasOwnProperty(i) && (r[i] = n[i]);
+        if (n) for (var r in n) n.hasOwnProperty(r) && (this[r] = n[r]);
         (this.doc = e), (this.node = t);
       };
       (ye.prototype.clear = function() {
-        var e = this,
-          t = this.doc.cm,
-          n = this.line.widgets,
-          r = this.line,
-          i = lineNo(r);
-        if (null != i && n) {
-          for (var o = 0; o < n.length; ++o) n[o] == e && n.splice(o--, 1);
-          n.length || (r.widgets = null);
-          var a = widgetHeight(this);
-          updateLineHeight(r, Math.max(0, r.height - a)),
-            t &&
-              (runInOp(t, function() {
-                adjustScrollWhenAboveVisible(t, r, -a),
-                  regLineChange(t, i, 'widget');
+        var e = this.doc.cm,
+          t = this.line.widgets,
+          n = this.line,
+          r = lineNo(n);
+        if (null != r && t) {
+          for (var i = 0; i < t.length; ++i) t[i] == this && t.splice(i--, 1);
+          t.length || (n.widgets = null);
+          var o = widgetHeight(this);
+          updateLineHeight(n, Math.max(0, n.height - o)),
+            e &&
+              (runInOp(e, function() {
+                adjustScrollWhenAboveVisible(e, n, -o),
+                  regLineChange(e, r, 'widget');
               }),
-              signalLater(t, 'lineWidgetCleared', t, this, i));
+              signalLater(e, 'lineWidgetCleared', e, this, r));
         }
       }),
         (ye.prototype.changed = function() {
@@ -6981,64 +6978,62 @@ webpackJsonp([0], {
           (this.lines = []), (this.type = t), (this.doc = e), (this.id = ++be);
         };
       (xe.prototype.clear = function() {
-        var e = this;
         if (!this.explicitlyCleared) {
-          var t = this.doc.cm,
-            n = t && !t.curOp;
-          if ((n && startOperation(t), hasHandler(this, 'clear'))) {
-            var r = this.find();
-            r && signalLater(this, 'clear', r.from, r.to);
+          var e = this.doc.cm,
+            t = e && !e.curOp;
+          if ((t && startOperation(e), hasHandler(this, 'clear'))) {
+            var n = this.find();
+            n && signalLater(this, 'clear', n.from, n.to);
           }
-          for (var i = null, o = null, a = 0; a < this.lines.length; ++a) {
-            var s = e.lines[a],
-              l = getMarkedSpanFor(s.markedSpans, e);
-            t && !e.collapsed
-              ? regLineChange(t, lineNo(s), 'text')
-              : t &&
-                (null != l.to && (o = lineNo(s)),
-                null != l.from && (i = lineNo(s))),
-              (s.markedSpans = removeMarkedSpan(s.markedSpans, l)),
-              null == l.from &&
-                e.collapsed &&
-                !lineIsHidden(e.doc, s) &&
-                t &&
-                updateLineHeight(s, textHeight(t.display));
+          for (var r = null, i = null, o = 0; o < this.lines.length; ++o) {
+            var a = this.lines[o],
+              s = getMarkedSpanFor(a.markedSpans, this);
+            e && !this.collapsed
+              ? regLineChange(e, lineNo(a), 'text')
+              : e &&
+                (null != s.to && (i = lineNo(a)),
+                null != s.from && (r = lineNo(a))),
+              (a.markedSpans = removeMarkedSpan(a.markedSpans, s)),
+              null == s.from &&
+                this.collapsed &&
+                !lineIsHidden(this.doc, a) &&
+                e &&
+                updateLineHeight(a, textHeight(e.display));
           }
-          if (t && this.collapsed && !t.options.lineWrapping)
-            for (var c = 0; c < this.lines.length; ++c) {
-              var u = visualLine(e.lines[c]),
-                d = lineLength(u);
-              d > t.display.maxLineLength &&
-                ((t.display.maxLine = u),
-                (t.display.maxLineLength = d),
-                (t.display.maxLineChanged = !0));
+          if (e && this.collapsed && !e.options.lineWrapping)
+            for (var l = 0; l < this.lines.length; ++l) {
+              var c = visualLine(this.lines[l]),
+                u = lineLength(c);
+              u > e.display.maxLineLength &&
+                ((e.display.maxLine = c),
+                (e.display.maxLineLength = u),
+                (e.display.maxLineChanged = !0));
             }
-          null != i && t && this.collapsed && regChange(t, i, o + 1),
+          null != r && e && this.collapsed && regChange(e, r, i + 1),
             (this.lines.length = 0),
             (this.explicitlyCleared = !0),
             this.atomic &&
               this.doc.cantEdit &&
-              ((this.doc.cantEdit = !1), t && reCheckSelection(t.doc)),
-            t && signalLater(t, 'markerCleared', t, this, i, o),
-            n && endOperation(t),
+              ((this.doc.cantEdit = !1), e && reCheckSelection(e.doc)),
+            e && signalLater(e, 'markerCleared', e, this, r, i),
+            t && endOperation(e),
             this.parent && this.parent.clear();
         }
       }),
         (xe.prototype.find = function(e, t) {
-          var n = this;
           null == e && 'bookmark' == this.type && (e = 1);
-          for (var r, i, o = 0; o < this.lines.length; ++o) {
-            var a = n.lines[o],
-              s = getMarkedSpanFor(a.markedSpans, n);
+          for (var n, r, i = 0; i < this.lines.length; ++i) {
+            var o = this.lines[i],
+              a = getMarkedSpanFor(o.markedSpans, this);
             if (
-              null != s.from &&
-              ((r = Pos(t ? a : lineNo(a), s.from)), -1 == e)
+              null != a.from &&
+              ((n = Pos(t ? o : lineNo(o), a.from)), -1 == e)
             )
+              return n;
+            if (null != a.to && ((r = Pos(t ? o : lineNo(o), a.to)), 1 == e))
               return r;
-            if (null != s.to && ((i = Pos(t ? a : lineNo(a), s.to)), 1 == e))
-              return i;
           }
-          return r && { from: r, to: i };
+          return n && { from: n, to: r };
         }),
         (xe.prototype.changed = function() {
           var e = this,
@@ -7088,15 +7083,13 @@ webpackJsonp([0], {
         }),
         eventMixin(xe);
       var Ce = function(e, t) {
-        var n = this;
         (this.markers = e), (this.primary = t);
-        for (var r = 0; r < e.length; ++r) e[r].parent = n;
+        for (var n = 0; n < e.length; ++n) e[n].parent = this;
       };
       (Ce.prototype.clear = function() {
-        var e = this;
         if (!this.explicitlyCleared) {
           this.explicitlyCleared = !0;
-          for (var t = 0; t < this.markers.length; ++t) e.markers[t].clear();
+          for (var e = 0; e < this.markers.length; ++e) this.markers[e].clear();
           signalLater(this, 'clear');
         }
       }),
@@ -7238,12 +7231,14 @@ webpackJsonp([0], {
           );
         }),
         setSelections: docMethodOp(function(e, t, n) {
-          var r = this;
           if (e.length) {
-            for (var i = [], o = 0; o < e.length; o++)
-              i[o] = new ve(clipPos(r, e[o].anchor), clipPos(r, e[o].head));
+            for (var r = [], i = 0; i < e.length; i++)
+              r[i] = new ve(
+                clipPos(this, e[i].anchor),
+                clipPos(this, e[i].head),
+              );
             null == t && (t = Math.min(e.length - 1, this.sel.primIndex)),
-              setSelection(this, normalizeSelection(i, t), n);
+              setSelection(this, normalizeSelection(r, t), n);
           }
         }),
         addSelection: docMethodOp(function(e, t, n) {
@@ -7252,43 +7247,35 @@ webpackJsonp([0], {
             setSelection(this, normalizeSelection(r, r.length - 1), n);
         }),
         getSelection: function(e) {
-          for (var t, n = this, r = this.sel.ranges, i = 0; i < r.length; i++) {
-            var o = getBetween(n, r[i].from(), r[i].to());
-            t = t ? t.concat(o) : o;
+          for (var t, n = this.sel.ranges, r = 0; r < n.length; r++) {
+            var i = getBetween(this, n[r].from(), n[r].to());
+            t = t ? t.concat(i) : i;
           }
           return !1 === e ? t : t.join(e || this.lineSeparator());
         },
         getSelections: function(e) {
-          for (
-            var t = this, n = [], r = this.sel.ranges, i = 0;
-            i < r.length;
-            i++
-          ) {
-            var o = getBetween(t, r[i].from(), r[i].to());
-            !1 !== e && (o = o.join(e || t.lineSeparator())), (n[i] = o);
+          for (var t = [], n = this.sel.ranges, r = 0; r < n.length; r++) {
+            var i = getBetween(this, n[r].from(), n[r].to());
+            !1 !== e && (i = i.join(e || this.lineSeparator())), (t[r] = i);
           }
-          return n;
+          return t;
         },
         replaceSelection: function(e, t, n) {
           for (var r = [], i = 0; i < this.sel.ranges.length; i++) r[i] = e;
           this.replaceSelections(r, t, n || '+input');
         },
         replaceSelections: docMethodOp(function(e, t, n) {
-          for (
-            var r = this, i = [], o = this.sel, a = 0;
-            a < o.ranges.length;
-            a++
-          ) {
-            var s = o.ranges[a];
-            i[a] = {
-              from: s.from(),
-              to: s.to(),
-              text: r.splitLines(e[a]),
+          for (var r = [], i = this.sel, o = 0; o < i.ranges.length; o++) {
+            var a = i.ranges[o];
+            r[o] = {
+              from: a.from(),
+              to: a.to(),
+              text: this.splitLines(e[o]),
               origin: n,
             };
           }
           for (
-            var l =
+            var s =
                 t &&
                 'end' != t &&
                 (function computeReplacedSel(e, t, n) {
@@ -7307,14 +7294,14 @@ webpackJsonp([0], {
                     } else r[a] = new ve(l, l);
                   }
                   return new me(r, e.sel.primIndex);
-                })(this, i, t),
-              c = i.length - 1;
-            c >= 0;
-            c--
+                })(this, r, t),
+              l = r.length - 1;
+            l >= 0;
+            l--
           )
-            makeChange(r, i[c]);
-          l
-            ? setSelectionReplaceHistory(this, l)
+            makeChange(this, r[l]);
+          s
+            ? setSelectionReplaceHistory(this, s)
             : this.cm && ensureCursorVisible(this.cm);
         }),
         undo: docMethodOp(function() {
@@ -7642,28 +7629,27 @@ webpackJsonp([0], {
           );
         },
         unlinkDoc: function(e) {
-          var t = this;
           if ((e instanceof CodeMirror$1 && (e = e.doc), this.linked))
-            for (var n = 0; n < this.linked.length; ++n) {
-              if (t.linked[n].doc == e) {
-                t.linked.splice(n, 1),
-                  e.unlinkDoc(t),
-                  detachSharedMarkers(findSharedMarkers(t));
+            for (var t = 0; t < this.linked.length; ++t) {
+              if (this.linked[t].doc == e) {
+                this.linked.splice(t, 1),
+                  e.unlinkDoc(this),
+                  detachSharedMarkers(findSharedMarkers(this));
                 break;
               }
             }
           if (e.history == this.history) {
-            var r = [e.id];
+            var n = [e.id];
             linkedDocs(
               e,
               function(e) {
-                return r.push(e.id);
+                return n.push(e.id);
               },
               !0,
             ),
               (e.history = new History(null)),
-              (e.history.done = copyHistoryArray(this.history.done, r)),
-              (e.history.undone = copyHistoryArray(this.history.undone, r));
+              (e.history.done = copyHistoryArray(this.history.done, n)),
+              (e.history.undone = copyHistoryArray(this.history.undone, n));
           }
         },
         iterLinkedDocs: function(e) {
@@ -9167,14 +9153,12 @@ webpackJsonp([0], {
                 regChange(this);
             }),
             removeOverlay: methodOp(function(e) {
-              for (
-                var t = this, n = this.state.overlays, r = 0;
-                r < n.length;
-                ++r
-              ) {
-                var i = n[r].modeSpec;
-                if (i == e || ('string' == typeof e && i.name == e))
-                  return n.splice(r, 1), t.state.modeGen++, void regChange(t);
+              for (var t = this.state.overlays, n = 0; n < t.length; ++n) {
+                var r = t[n].modeSpec;
+                if (r == e || ('string' == typeof e && r.name == e))
+                  return (
+                    t.splice(n, 1), this.state.modeGen++, void regChange(this)
+                  );
               }
             }),
             indentLine: methodOp(function(e, t, n) {
@@ -9188,27 +9172,27 @@ webpackJsonp([0], {
             }),
             indentSelection: methodOp(function(e) {
               for (
-                var t = this, n = this.doc.sel.ranges, r = -1, i = 0;
-                i < n.length;
-                i++
+                var t = this.doc.sel.ranges, n = -1, r = 0;
+                r < t.length;
+                r++
               ) {
-                var o = n[i];
-                if (o.empty())
-                  o.head.line > r &&
-                    (indentLine(t, o.head.line, e, !0),
-                    (r = o.head.line),
-                    i == t.doc.sel.primIndex && ensureCursorVisible(t));
+                var i = t[r];
+                if (i.empty())
+                  i.head.line > n &&
+                    (indentLine(this, i.head.line, e, !0),
+                    (n = i.head.line),
+                    r == this.doc.sel.primIndex && ensureCursorVisible(this));
                 else {
-                  var a = o.from(),
-                    s = o.to(),
-                    l = Math.max(r, a.line);
-                  r = Math.min(t.lastLine(), s.line - (s.ch ? 0 : 1)) + 1;
-                  for (var c = l; c < r; ++c) indentLine(t, c, e);
-                  var u = t.doc.sel.ranges;
-                  0 == a.ch &&
-                    n.length == u.length &&
-                    u[i].from().ch > 0 &&
-                    replaceOneSelection(t.doc, i, new ve(a, u[i].to()), D);
+                  var o = i.from(),
+                    a = i.to(),
+                    s = Math.max(n, o.line);
+                  n = Math.min(this.lastLine(), a.line - (a.ch ? 0 : 1)) + 1;
+                  for (var l = s; l < n; ++l) indentLine(this, l, e);
+                  var c = this.doc.sel.ranges;
+                  0 == o.ch &&
+                    t.length == c.length &&
+                    c[r].from().ch > 0 &&
+                    replaceOneSelection(this.doc, r, new ve(o, c[r].to()), D);
                 }
               }
             }),
@@ -9251,26 +9235,25 @@ webpackJsonp([0], {
               return this.getHelpers(e, t)[0];
             },
             getHelpers: function(e, t) {
-              var r = this,
-                i = [];
-              if (!n.hasOwnProperty(t)) return i;
-              var o = n[t],
-                a = this.getModeAt(e);
-              if ('string' == typeof a[t]) o[a[t]] && i.push(o[a[t]]);
-              else if (a[t])
-                for (var s = 0; s < a[t].length; s++) {
-                  var l = o[a[t][s]];
-                  l && i.push(l);
+              var r = [];
+              if (!n.hasOwnProperty(t)) return r;
+              var i = n[t],
+                o = this.getModeAt(e);
+              if ('string' == typeof o[t]) i[o[t]] && r.push(i[o[t]]);
+              else if (o[t])
+                for (var a = 0; a < o[t].length; a++) {
+                  var s = i[o[t][a]];
+                  s && r.push(s);
                 }
               else
-                a.helperType && o[a.helperType]
-                  ? i.push(o[a.helperType])
-                  : o[a.name] && i.push(o[a.name]);
-              for (var c = 0; c < o._global.length; c++) {
-                var u = o._global[c];
-                u.pred(a, r) && -1 == indexOf(i, u.val) && i.push(u.val);
+                o.helperType && i[o.helperType]
+                  ? r.push(i[o.helperType])
+                  : i[o.name] && r.push(i[o.name]);
+              for (var l = 0; l < i._global.length; l++) {
+                var c = i._global[l];
+                c.pred(o, this) && -1 == indexOf(r, c.val) && r.push(c.val);
               }
-              return i;
+              return r;
             },
             getStateAfter: function(e, t) {
               var n = this.doc;
@@ -9391,15 +9374,14 @@ webpackJsonp([0], {
               triggerElectric(this, e);
             }),
             findPosH: function(e, t, n, r) {
-              var i = this,
-                o = 1;
-              t < 0 && ((o = -1), (t = -t));
+              var i = 1;
+              t < 0 && ((i = -1), (t = -t));
               for (
-                var a = clipPos(this.doc, e), s = 0;
-                s < t && !(a = findPosH(i.doc, a, o, n, r)).hitSide;
-                ++s
+                var o = clipPos(this.doc, e), a = 0;
+                a < t && !(o = findPosH(this.doc, o, i, n, r)).hitSide;
+                ++a
               );
-              return a;
+              return o;
             },
             moveH: methodOp(function(e, t) {
               var n = this;
@@ -9422,19 +9404,18 @@ webpackJsonp([0], {
                   });
             }),
             findPosV: function(e, t, n, r) {
-              var i = this,
-                o = 1,
-                a = r;
-              t < 0 && ((o = -1), (t = -t));
-              for (var s = clipPos(this.doc, e), l = 0; l < t; ++l) {
-                var c = cursorCoords(i, s, 'div');
+              var i = 1,
+                o = r;
+              t < 0 && ((i = -1), (t = -t));
+              for (var a = clipPos(this.doc, e), s = 0; s < t; ++s) {
+                var l = cursorCoords(this, a, 'div');
                 if (
-                  (null == a ? (a = c.left) : (c.left = a),
-                  (s = findPosV(i, c, o, n)).hitSide)
+                  (null == o ? (o = l.left) : (l.left = o),
+                  (a = findPosV(this, l, i, n)).hitSide)
                 )
                   break;
               }
-              return s;
+              return a;
             },
             moveV: methodOp(function(e, t) {
               var n = this,
@@ -9747,7 +9728,7 @@ webpackJsonp([0], {
       );
     });
   },
-  1514: function(e, t, n) {
+  1528: function(e, t, n) {
     'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 });
     var r = (function() {
@@ -9771,7 +9752,7 @@ webpackJsonp([0], {
       i = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
       })(n(0)),
-      o = n(1513),
+      o = n(1527),
       a = (function(e) {
         function CodeMirror(e) {
           !(function _classCallCheck(e, t) {
@@ -10013,9 +9994,9 @@ webpackJsonp([0], {
       })();
     t.default = a;
   },
-  1515: function(e, t, n) {
+  1529: function(e, t, n) {
     !(function(e) {
-      e(n(1513), n(1516), n(1517));
+      e(n(1527), n(1530), n(1531));
     })(function(e) {
       'use strict';
       function Context(e, t, n, r) {
@@ -10150,9 +10131,9 @@ webpackJsonp([0], {
         });
     });
   },
-  1516: function(e, t, n) {
+  1530: function(e, t, n) {
     !(function(e) {
-      e(n(1513));
+      e(n(1527));
     })(function(e) {
       'use strict';
       var t = {
@@ -10515,9 +10496,9 @@ webpackJsonp([0], {
           e.defineMIME('text/html', { name: 'xml', htmlMode: !0 });
     });
   },
-  1517: function(e, t, n) {
+  1531: function(e, t, n) {
     !(function(e) {
-      e(n(1513));
+      e(n(1527));
     })(function(e) {
       'use strict';
       e.defineMode('javascript', function(t, n) {
@@ -10665,9 +10646,9 @@ webpackJsonp([0], {
             null != r && (this.align = r);
         }
         function inScope(e, t) {
-          for (r = e.localVars; r; r = r.next) if (r.name == t) return !0;
-          for (var n = e.context; n; n = n.prev)
-            for (var r = n.vars; r; r = r.next) if (r.name == t) return !0;
+          for (var n = e.localVars; n; n = n.next) if (n.name == t) return !0;
+          for (var r = e.context; r; r = r.prev)
+            for (n = r.vars; n; n = n.next) if (n.name == t) return !0;
         }
         function pass() {
           for (var e = arguments.length - 1; e >= 0; e--)
@@ -10910,23 +10891,7 @@ webpackJsonp([0], {
                                   (function maybeTarget(e) {
                                     return function(t) {
                                       return '.' == t
-                                        ? cont(
-                                            e
-                                              ? function targetNoComma(e, t) {
-                                                  if ('target' == t)
-                                                    return (
-                                                      (m.marked = 'keyword'),
-                                                      cont(maybeoperatorNoComma)
-                                                    );
-                                                }
-                                              : function target(e, t) {
-                                                  if ('target' == t)
-                                                    return (
-                                                      (m.marked = 'keyword'),
-                                                      cont(maybeoperatorComma)
-                                                    );
-                                                },
-                                          )
+                                        ? cont(e ? targetNoComma : target)
                                         : 'variable' == t && c
                                           ? cont(
                                               maybeTypeArgs,
@@ -11013,6 +10978,14 @@ webpackJsonp([0], {
             findFatArrow(m.stream, m.state),
             pass('{' == e ? statement : expressionNoComma)
           );
+        }
+        function target(e, t) {
+          if ('target' == t)
+            return (m.marked = 'keyword'), cont(maybeoperatorComma);
+        }
+        function targetNoComma(e, t) {
+          if ('target' == t)
+            return (m.marked = 'keyword'), cont(maybeoperatorNoComma);
         }
         function maybelabel(e) {
           return ':' == e
@@ -11597,31 +11570,31 @@ webpackJsonp([0], {
         });
     });
   },
-  1518: function(e, t, n) {
-    var r = n(1519);
+  1532: function(e, t, n) {
+    var r = n(1533);
     'string' == typeof r && (r = [[e.i, r, '']]);
     var i = {};
     i.transform = void 0;
-    n(652)(r, i);
+    n(649)(r, i);
     r.locals && (e.exports = r.locals);
   },
-  1519: function(e, t, n) {
-    (e.exports = n(651)(void 0)).push([
+  1533: function(e, t, n) {
+    (e.exports = n(648)(void 0)).push([
       e.i,
       "/* BASICS */\n\n.CodeMirror {\n  /* Set height, width, borders, and global font properties here */\n  font-family: monospace;\n  height: 300px;\n  color: black;\n  direction: ltr;\n}\n\n/* PADDING */\n\n.CodeMirror-lines {\n  padding: 4px 0; /* Vertical padding around content */\n}\n.CodeMirror pre {\n  padding: 0 4px; /* Horizontal padding of content */\n}\n\n.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  background-color: white; /* The little square between H and V scrollbars */\n}\n\n/* GUTTER */\n\n.CodeMirror-gutters {\n  border-right: 1px solid #ddd;\n  background-color: #f7f7f7;\n  white-space: nowrap;\n}\n.CodeMirror-linenumbers {}\n.CodeMirror-linenumber {\n  padding: 0 3px 0 5px;\n  min-width: 20px;\n  text-align: right;\n  color: #999;\n  white-space: nowrap;\n}\n\n.CodeMirror-guttermarker { color: black; }\n.CodeMirror-guttermarker-subtle { color: #999; }\n\n/* CURSOR */\n\n.CodeMirror-cursor {\n  border-left: 1px solid black;\n  border-right: none;\n  width: 0;\n}\n/* Shown when moving in bi-directional text */\n.CodeMirror div.CodeMirror-secondarycursor {\n  border-left: 1px solid silver;\n}\n.cm-fat-cursor .CodeMirror-cursor {\n  width: auto;\n  border: 0 !important;\n  background: #7e7;\n}\n.cm-fat-cursor div.CodeMirror-cursors {\n  z-index: 1;\n}\n.cm-fat-cursor-mark {\n  background-color: rgba(20, 255, 20, 0.5);\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n}\n.cm-animate-fat-cursor {\n  width: auto;\n  border: 0;\n  -webkit-animation: blink 1.06s steps(1) infinite;\n  -moz-animation: blink 1.06s steps(1) infinite;\n  animation: blink 1.06s steps(1) infinite;\n  background-color: #7e7;\n}\n@-moz-keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n@-webkit-keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n@keyframes blink {\n  0% {}\n  50% { background-color: transparent; }\n  100% {}\n}\n\n/* Can style cursor different in overwrite (non-insert) mode */\n.CodeMirror-overwrite .CodeMirror-cursor {}\n\n.cm-tab { display: inline-block; text-decoration: inherit; }\n\n.CodeMirror-rulers {\n  position: absolute;\n  left: 0; right: 0; top: -50px; bottom: -20px;\n  overflow: hidden;\n}\n.CodeMirror-ruler {\n  border-left: 1px solid #ccc;\n  top: 0; bottom: 0;\n  position: absolute;\n}\n\n/* DEFAULT THEME */\n\n.cm-s-default .cm-header {color: blue;}\n.cm-s-default .cm-quote {color: #090;}\n.cm-negative {color: #d44;}\n.cm-positive {color: #292;}\n.cm-header, .cm-strong {font-weight: bold;}\n.cm-em {font-style: italic;}\n.cm-link {text-decoration: underline;}\n.cm-strikethrough {text-decoration: line-through;}\n\n.cm-s-default .cm-keyword {color: #708;}\n.cm-s-default .cm-atom {color: #219;}\n.cm-s-default .cm-number {color: #164;}\n.cm-s-default .cm-def {color: #00f;}\n.cm-s-default .cm-variable,\n.cm-s-default .cm-punctuation,\n.cm-s-default .cm-property,\n.cm-s-default .cm-operator {}\n.cm-s-default .cm-variable-2 {color: #05a;}\n.cm-s-default .cm-variable-3, .cm-s-default .cm-type {color: #085;}\n.cm-s-default .cm-comment {color: #a50;}\n.cm-s-default .cm-string {color: #a11;}\n.cm-s-default .cm-string-2 {color: #f50;}\n.cm-s-default .cm-meta {color: #555;}\n.cm-s-default .cm-qualifier {color: #555;}\n.cm-s-default .cm-builtin {color: #30a;}\n.cm-s-default .cm-bracket {color: #997;}\n.cm-s-default .cm-tag {color: #170;}\n.cm-s-default .cm-attribute {color: #00c;}\n.cm-s-default .cm-hr {color: #999;}\n.cm-s-default .cm-link {color: #00c;}\n\n.cm-s-default .cm-error {color: #f00;}\n.cm-invalidchar {color: #f00;}\n\n.CodeMirror-composing { border-bottom: 2px solid; }\n\n/* Default styles for common addons */\n\ndiv.CodeMirror span.CodeMirror-matchingbracket {color: #0b0;}\ndiv.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}\n.CodeMirror-matchingtag { background: rgba(255, 150, 0, .3); }\n.CodeMirror-activeline-background {background: #e8f2ff;}\n\n/* STOP */\n\n/* The rest of this file contains styles related to the mechanics of\n   the editor. You probably shouldn't touch them. */\n\n.CodeMirror {\n  position: relative;\n  overflow: hidden;\n  background: white;\n}\n\n.CodeMirror-scroll {\n  overflow: scroll !important; /* Things will break if this is overridden */\n  /* 30px is the magic margin used to hide the element's real scrollbars */\n  /* See overflow: hidden in .CodeMirror */\n  margin-bottom: -30px; margin-right: -30px;\n  padding-bottom: 30px;\n  height: 100%;\n  outline: none; /* Prevent dragging from highlighting the element */\n  position: relative;\n}\n.CodeMirror-sizer {\n  position: relative;\n  border-right: 30px solid transparent;\n}\n\n/* The fake, visible scrollbars. Used to force redraw during scrolling\n   before actual scrolling happens, thus preventing shaking and\n   flickering artifacts. */\n.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {\n  position: absolute;\n  z-index: 6;\n  display: none;\n}\n.CodeMirror-vscrollbar {\n  right: 0; top: 0;\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n.CodeMirror-hscrollbar {\n  bottom: 0; left: 0;\n  overflow-y: hidden;\n  overflow-x: scroll;\n}\n.CodeMirror-scrollbar-filler {\n  right: 0; bottom: 0;\n}\n.CodeMirror-gutter-filler {\n  left: 0; bottom: 0;\n}\n\n.CodeMirror-gutters {\n  position: absolute; left: 0; top: 0;\n  min-height: 100%;\n  z-index: 3;\n}\n.CodeMirror-gutter {\n  white-space: normal;\n  height: 100%;\n  display: inline-block;\n  vertical-align: top;\n  margin-bottom: -30px;\n}\n.CodeMirror-gutter-wrapper {\n  position: absolute;\n  z-index: 4;\n  background: none !important;\n  border: none !important;\n}\n.CodeMirror-gutter-background {\n  position: absolute;\n  top: 0; bottom: 0;\n  z-index: 4;\n}\n.CodeMirror-gutter-elt {\n  position: absolute;\n  cursor: default;\n  z-index: 4;\n}\n.CodeMirror-gutter-wrapper ::selection { background-color: transparent }\n.CodeMirror-gutter-wrapper ::-moz-selection { background-color: transparent }\n\n.CodeMirror-lines {\n  cursor: text;\n  min-height: 1px; /* prevents collapsing before first draw */\n}\n.CodeMirror pre {\n  /* Reset some styles that the rest of the page might have set */\n  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;\n  border-width: 0;\n  background: transparent;\n  font-family: inherit;\n  font-size: inherit;\n  margin: 0;\n  white-space: pre;\n  word-wrap: normal;\n  line-height: inherit;\n  color: inherit;\n  z-index: 2;\n  position: relative;\n  overflow: visible;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-variant-ligatures: contextual;\n  font-variant-ligatures: contextual;\n}\n.CodeMirror-wrap pre {\n  word-wrap: break-word;\n  white-space: pre-wrap;\n  word-break: normal;\n}\n\n.CodeMirror-linebackground {\n  position: absolute;\n  left: 0; right: 0; top: 0; bottom: 0;\n  z-index: 0;\n}\n\n.CodeMirror-linewidget {\n  position: relative;\n  z-index: 2;\n  overflow: auto;\n}\n\n.CodeMirror-widget {}\n\n.CodeMirror-rtl pre { direction: rtl; }\n\n.CodeMirror-code {\n  outline: none;\n}\n\n/* Force content-box sizing for the elements where we expect it */\n.CodeMirror-scroll,\n.CodeMirror-sizer,\n.CodeMirror-gutter,\n.CodeMirror-gutters,\n.CodeMirror-linenumber {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n}\n\n.CodeMirror-measure {\n  position: absolute;\n  width: 100%;\n  height: 0;\n  overflow: hidden;\n  visibility: hidden;\n}\n\n.CodeMirror-cursor {\n  position: absolute;\n  pointer-events: none;\n}\n.CodeMirror-measure pre { position: static; }\n\ndiv.CodeMirror-cursors {\n  visibility: hidden;\n  position: relative;\n  z-index: 3;\n}\ndiv.CodeMirror-dragcursors {\n  visibility: visible;\n}\n\n.CodeMirror-focused div.CodeMirror-cursors {\n  visibility: visible;\n}\n\n.CodeMirror-selected { background: #d9d9d9; }\n.CodeMirror-focused .CodeMirror-selected { background: #d7d4f0; }\n.CodeMirror-crosshair { cursor: crosshair; }\n.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #d7d4f0; }\n.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #d7d4f0; }\n\n.cm-searching {\n  background-color: #ffa;\n  background-color: rgba(255, 255, 0, .4);\n}\n\n/* Used to force a border model for a node */\n.cm-force-border { padding-right: .1px; }\n\n@media print {\n  /* Hide the cursor when printing */\n  .CodeMirror div.CodeMirror-cursors {\n    visibility: hidden;\n  }\n}\n\n/* See issue #2901 */\n.cm-tab-wrap-hack:after { content: ''; }\n\n/* Help users use markselection to safely style text background */\nspan.CodeMirror-selectedtext { background: none; }\n",
       '',
     ]);
   },
-  1520: function(e, t, n) {
-    var r = n(1521);
+  1534: function(e, t, n) {
+    var r = n(1535);
     'string' == typeof r && (r = [[e.i, r, '']]);
     var i = {};
     i.transform = void 0;
-    n(652)(r, i);
+    n(649)(r, i);
     r.locals && (e.exports = r.locals);
   },
-  1521: function(e, t, n) {
-    (e.exports = n(651)(void 0)).push([
+  1535: function(e, t, n) {
+    (e.exports = n(648)(void 0)).push([
       e.i,
       '/*\n\n    Name:       Base16 Default Light\n    Author:     Chris Kempson (http://chriskempson.com)\n\n    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-codemirror)\n    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)\n\n*/\n\n.cm-s-base16-light.CodeMirror { background: #f5f5f5; color: #202020; }\n.cm-s-base16-light div.CodeMirror-selected { background: #e0e0e0; }\n.cm-s-base16-light .CodeMirror-line::selection, .cm-s-base16-light .CodeMirror-line > span::selection, .cm-s-base16-light .CodeMirror-line > span > span::selection { background: #e0e0e0; }\n.cm-s-base16-light .CodeMirror-line::-moz-selection, .cm-s-base16-light .CodeMirror-line > span::-moz-selection, .cm-s-base16-light .CodeMirror-line > span > span::-moz-selection { background: #e0e0e0; }\n.cm-s-base16-light .CodeMirror-gutters { background: #f5f5f5; border-right: 0px; }\n.cm-s-base16-light .CodeMirror-guttermarker { color: #ac4142; }\n.cm-s-base16-light .CodeMirror-guttermarker-subtle { color: #b0b0b0; }\n.cm-s-base16-light .CodeMirror-linenumber { color: #b0b0b0; }\n.cm-s-base16-light .CodeMirror-cursor { border-left: 1px solid #505050; }\n\n.cm-s-base16-light span.cm-comment { color: #8f5536; }\n.cm-s-base16-light span.cm-atom { color: #aa759f; }\n.cm-s-base16-light span.cm-number { color: #aa759f; }\n\n.cm-s-base16-light span.cm-property, .cm-s-base16-light span.cm-attribute { color: #90a959; }\n.cm-s-base16-light span.cm-keyword { color: #ac4142; }\n.cm-s-base16-light span.cm-string { color: #f4bf75; }\n\n.cm-s-base16-light span.cm-variable { color: #90a959; }\n.cm-s-base16-light span.cm-variable-2 { color: #6a9fb5; }\n.cm-s-base16-light span.cm-def { color: #d28445; }\n.cm-s-base16-light span.cm-bracket { color: #202020; }\n.cm-s-base16-light span.cm-tag { color: #ac4142; }\n.cm-s-base16-light span.cm-link { color: #aa759f; }\n.cm-s-base16-light span.cm-error { background: #ac4142; color: #505050; }\n\n.cm-s-base16-light .CodeMirror-activeline-background { background: #DDDCDC; }\n.cm-s-base16-light .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }\n',
       '',
