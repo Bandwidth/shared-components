@@ -45,7 +45,7 @@ const Button = styled.button`
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
-    background-color: ${get('colors.primary.alternate')};
+    background-color: ${get('colors.primary.dark')};
     border-color: ${get('colors.primary.alternate')};
     box-shadow: ${get('shadows.short')};
   }
