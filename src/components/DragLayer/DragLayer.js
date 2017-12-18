@@ -4,11 +4,39 @@ import { DragLayer as LibDragLayer } from 'react-dnd';
 import DragItemPreviewContainer from './styles/DragItemPreviewContainer';
 import DragLayerOverlay from './styles/DragLayerOverlay';
 
+/**
+ * Renders a generic layer for drawing dragged items from draggable
+ * components.
+ */
 class DragLayer extends React.Component {
   static propTypes = {
-    item: PropTypes.object,
+    /**
+     * Provided by DragGroupItem via drag context.
+     * Contains details needed to render an item preview
+     */
+    item: PropTypes.shape({
+      children: PropTypes.node.isRequired,
+      dimensions: PropTypes.shape({
+        width: PropTypes.number.isRequired,
+        height: PropTypes.number.isRequired,
+      }).isRequired,
+    }),
+    /**
+     * Provided by
+     * Offset values for the position of the dragged preview
+     * item
+     */
     clientOffset: PropTypes.object,
+
+    /**
+     * Override the presentational component which renders the full-screen
+     * overlay
+     */
     Overlay: PropTypes.func,
+    /**
+     * Override the presentational component which positions and sizes
+     * the preview element
+     */
     PreviewContainer: PropTypes.func,
   };
 
@@ -28,7 +56,13 @@ class DragLayer extends React.Component {
   };
 
   render() {
-    const { item, clientOffset, Overlay, PreviewContainer } = this.props;
+    const {
+      item,
+      clientOffset,
+      Overlay,
+      PreviewContainer,
+      Cutout,
+    } = this.props;
 
     if (!item || !clientOffset) {
       return <Overlay />;

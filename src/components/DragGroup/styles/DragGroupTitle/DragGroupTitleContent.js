@@ -14,6 +14,7 @@ export default styled.span`
   border-radius: 3px;
 
   padding: 0 ${get('spacing.small')};
+  padding-top: 1px;
   background: ${get('colors.background.default')};
   text-transform: uppercase;
 `;

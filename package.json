@@ -13,7 +13,9 @@
     "build:styleguide": "cross-env NODE_PATH=src styleguidist build",
     "build": "run-s build:*",
     "prepublish": "npm run build",
-    "styleguide": "cross-env NODE_PATH=src styleguidist server",
+    "styleguide:prerun": "npm run build:index",
+    "styleguide:run": "cross-env NODE_PATH=src styleguidist server",
+    "styleguide": "run-s styleguide:*",
     "gen": "studs generate component",
     "precommit": "lint-staged",
     "prettier": "prettier --single-quote --trailing-comma all --write \"{src,tools,__tests__}/**/*.js\""

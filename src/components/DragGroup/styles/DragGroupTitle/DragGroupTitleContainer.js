@@ -7,11 +7,12 @@ export default styled.div`
   display: flex;
   flex-direction: row;
   position: relative;
+  margin-bottom: ${get('spacing.small')};
 
   &::before {
     content: "${icons('expandArrow')}";
     font-family: ${get('fonts.icon')};
-    font-size: 8px;
+    font-size: 10px;
     transform: ${({ expanded }) =>
       expanded ? 'rotate(0deg)' : 'rotate(-90deg)'};
     transition: transform 0.2s ease;
@@ -33,8 +34,8 @@ export default styled.div`
     position: absolute;
     right: 0;
     background: ${get('colors.background.default')};
-    font-size: 10px;
-    color: ${get('colors.gray.medium')};
+    font-size: 12px;
+    color: ${get('colors.text.default')};
   }
 
   &:hover > ${Icon} {

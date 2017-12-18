@@ -38,6 +38,14 @@ class ExpandToggle extends React.Component {
      * Whether to start expanded
      */
     startExpanded: PropTypes.bool,
+    /**
+     * react-motion config, see https://github.com/chenglou/react-motion#--spring-val-number-config-springhelperconfig--opaqueconfig
+     */
+    springConfig: PropTypes.shape({
+      stiffness: PropTypes.number,
+      damping: PropTypes.number,
+      precision: PropTypes.number,
+    }),
   };
 
   static defaultProps = {
@@ -46,6 +54,7 @@ class ExpandToggle extends React.Component {
     onToggle: () => null,
     isExpanded: null,
     startExpanded: false,
+    springConfig: null,
   };
 
   constructor(props) {
@@ -82,35 +91,19 @@ class ExpandToggle extends React.Component {
 
   render() {
     const isExpanded = this.calcIsExpanded();
-    const { children, id, className } = this.props;
+    const { children, id, className, springConfig } = this.props;
 
     return (
       <div id={id} className={className}>
         <div style={{ cursor: 'pointer' }} onClick={this.handleToggle}>
           {this.renderToggle()}
         </div>
-        <Collapse isOpened={isExpanded}>{children}</Collapse>
+        <Collapse isOpened={isExpanded} springConfig={springConfig}>
+          {children}
+        </Collapse>
       </div>
     );
   }
 }
-
-ExpandToggle.usage = `
-\`\`\`
-<ExpandToggle
-  toggleContent={<Label>Click me</Label>}
-  startExpanded={false}
->
-  Stuff!
-</ExpandToggle>
-
-<ExpandToggle
-  isExpanded={true}
-  toggleContent={<Label>Won't do anything</Label>}
->
-  This one won't toggle, expand state is overridden to true!
-</ExpandToggle>
-\`\`\`
-`;
 
 export default ExpandToggle;
