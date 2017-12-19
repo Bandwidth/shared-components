@@ -201,7 +201,9 @@ Note that the code in this example implements the full logic of manpiulating a h
 
 This component doesn't lend itself well to compatibility with redux-form due to the complex and dynamic shape of its data. If you need to include a DragGroup inside a redux-form powered form, it's recommended that you simply create a typical Redux container for the DragGroup and handle its state outside of your form, then merge the state in during the submit phase.
 
-If you need to integrate this component as a Field, it's recommended that you write a wrapping stateful component around it which serializes the state before passing it along to an `onChange` prop, and deserializes incoming state from a `value` prop.
+If you need to integrate this component as a Field, the easiest way would be to write a wrapping stateful component around it which serializes the state before passing it along to an `onChange` prop, and deserializes incoming state from a `value` prop.
+
+If you want to fully control field manipulation using nested redux-form FieldArrays, you'll need to write your own logic for updating redux-form state using its [action creators](https://redux-form.com/7.2.0/docs/api/actioncreators.md/). This looks entirely possible, but might be a good bit of work.
 
 ### Another example: horizontal groups
 
