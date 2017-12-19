@@ -1,5 +1,7 @@
 Anchors are meant to be used with React Router v4+.
 
+Anchors infer their type from their contents. To override type, use the `type` prop. Anchors which enclose another component besides Icon are assumed to be 'transparent' (non-styled) wrap type. If your anchor is not visible, try providing an explicit type.
+
 Available variants:
 
 * `Anchor.Negative` (aka `Anchor.Danger`)
@@ -16,9 +18,14 @@ _An icon anchor_
 <Anchor to="#bar" icon="openInWindow" />
 ```
 
+_An old-style icon anchor_: this kind of icon anchor is not recommended anymore; use the `icon` prop on an empty anchor instead.
+```javascript
+<Anchor to="#bar"><Icon name="moderator"/></Anchor>
+```
+
 _Text and icon_
 ```javascript
-<Anchor to="#bar"><Icon name="help" /> Learn more about this</Anchor>
+<Anchor to="#bar" type="text"><Icon name="help" /> Learn more about this</Anchor>
 ```
 
 _New tab link_
