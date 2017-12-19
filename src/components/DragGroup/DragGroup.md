@@ -1,3 +1,5 @@
+> **Note:** You must include [BandwidthProvider](/#!/BandwidthProvider) at or near the root of your application to use drag and drop functionality.
+
 A collection of items which can be split up into several named groups.
 
 The ordering of items within a group is arbitrary and non-editable.

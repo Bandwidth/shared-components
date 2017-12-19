@@ -5,6 +5,7 @@ import BandwidthThemeProvider from '../BandwidthThemeProvider';
 import DefaultStyleRoot from './styles/StyleRoot';
 import withDragDropContext from './withDragDropContext';
 import DefaultDragLayer from '../DragLayer';
+import './styles/global'; // injects a global stylesheet
 
 const Provider = ({ StyleRoot, ThemeProvider, DragLayer, children }) => (
   <ThemeProvider>
