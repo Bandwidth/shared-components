@@ -5,6 +5,9 @@ import { DragSource } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import DragItemContainer from './styles/DragItemContainer';
 
+/**
+ * Used to wrap an item used in DragGroup. See DragGroup documentation.
+ */
 class DragItem extends React.Component {
   static propTypes = {
     /**

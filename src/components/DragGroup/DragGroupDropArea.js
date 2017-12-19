@@ -8,6 +8,9 @@ import DragGroupDropAreaContent from './styles/DragGroupDropAreaContent';
  * Renders its children when idle, but if a dragging operation is
  * ongoing, its default Content presenter will render a
  * drop zone box.
+ *
+ * You may reference this component if you choose to override it
+ * in DragGroup, otherwise it is not needed. See DragGroup docs.
  */
 class DragGroupDropArea extends React.Component {
   static propTypes = {

@@ -6,7 +6,7 @@ The ordering of items within a group is arbitrary and non-editable.
 
 Dragging is not enabled until more than one group is present.
 
-#### Implementation notes
+### Implementation notes
 
 This component requires you to implement state behavior to support the desired UX.
 
@@ -18,6 +18,8 @@ Here is a brief summary of the rules:
 * When a group is split, the items *up to* the separator index should be moved into the newly created group, which should be placed *before* the group which initiated the split. The remaining items *including and after* the separator index should remain in the group.
 * When an item is moved, it should be removed from the source group and appended to the end of the target group.
 * When a group has no remaining items, it should be removed.
+
+### Example
 
 ```javascript
 const React = require ('react');
