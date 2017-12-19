@@ -10,7 +10,8 @@ import ExpandToggle from '../../behaviors/ExpandToggle';
 import DragItem from './DragGroupItem';
 
 /**
- * A group of items which can be dragged into other DragGroups.
+ * A group of items which can be dragged into other DragGroups depending
+ * on itemType.
  */
 class DragGroup extends React.Component {
   static Item = DragItem;

@@ -38,10 +38,17 @@ class DragItem extends React.Component {
   }
 
   wrapDragHandle = dragHandleNode =>
+    /**
+     * The element passed to connectDragSource must be a plain
+     * React element, not a component. Thus, to do proper
+     * vendor prefixing with styling, we assign a class name
+     * and traget it from DragItemContainer's styles; see
+     * styles/DragItemContainer.js
+     */
     this.props.connectDragSource(
       <div
+        className="DragGroupItem--handle"
         style={{
-          cursor: '-webkit-grab',
           display: this.props.canDrag ? 'block' : 'none',
         }}
       >

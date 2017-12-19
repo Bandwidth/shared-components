@@ -165,7 +165,7 @@ class DemoApp extends React.Component {
             groupId={groupIdx}
             name={`Group ${groupIdx + 1}`}
             allowDrag={groups.length > 1}
-            collapsible={groups.length < 2}
+            collapsible={groups.length > 1}
             itemType="demo"
             onSplit={itemIdx => this.handleGroupInserted(groupIdx, itemIdx)}
             onRemoved={() => this.handleGroupRemoved(groupIdx)}
@@ -367,7 +367,7 @@ class DemoApp extends React.Component {
               groupId={groupIdx}
               name={`Group ${groupIdx + 1}`}
               allowDrag={groups.length > 1}
-              collapsible={groups.length < 2}
+              collapsible={groups.length > 1}
               itemType="demo"
               onSplit={itemIdx => this.handleGroupInserted(groupIdx, itemIdx)}
               onRemoved={() => this.handleGroupRemoved(groupIdx)}

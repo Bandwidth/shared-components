@@ -144,6 +144,7 @@ export {
 export {
   default as DragGroupTitleContent,
 } from './components/DragGroup/styles/DragGroupTitle/DragGroupTitleContent';
+export { default as DragLayer } from './components/DragLayer';
 export {
   default as DragItemPreviewContainer,
 } from './components/DragLayer/styles/DragItemPreviewContainer';
