@@ -47,7 +47,7 @@
         'build/' +
         ({}[e] || e) +
         '.' +
-        { 0: 'e4d94cf3' }[e] +
+        { 0: '3e8d2a96' }[e] +
         '.js');
     var i = setTimeout(onScriptComplete, 12e4);
     return (a.onerror = a.onload = onScriptComplete), o.appendChild(a), n;
@@ -80,14 +80,14 @@
     (__webpack_require__.oe = function(e) {
       throw (console.error(e), e);
     }),
-    __webpack_require__((__webpack_require__.s = 712));
+    __webpack_require__((__webpack_require__.s = 711));
 })([
   function(e, t, n) {
     'use strict';
     e.exports = n(54);
   },
   function(e, t, n) {
-    e.exports = n(730)();
+    e.exports = n(729)();
   },
   function(e, t, n) {
     'use strict';
@@ -170,15 +170,15 @@
             return W;
           });
         var o,
-          a = n(713),
+          a = n(712),
           i = n.n(a),
-          u = n(715),
+          u = n(714),
           s = n.n(u),
           l = n(0),
           c = n.n(l),
           d = n(1),
           p = n.n(d),
-          f = n(731),
+          f = n(730),
           h = n.n(f),
           m = n(378),
           g = n.n(m),
@@ -2505,7 +2505,7 @@
           if (!re[t] && void 0 !== e && e && e.exports)
             try {
               r = ee._abbr;
-              n(909)('./' + t), getSetGlobalLocale(r);
+              n(908)('./' + t), getSetGlobalLocale(r);
             } catch (e) {}
           return re[t];
         }
@@ -5161,7 +5161,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1078);
+    var r = n(1077);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -5275,7 +5275,7 @@ object-assign
     e.exports = r;
   },
   function(e, t, n) {
-    e.exports = n(891);
+    e.exports = n(890);
   },
   function(e, t) {
     var n = Array.isArray;
@@ -5500,7 +5500,7 @@ object-assign
     var r = n(87),
       o = n(444),
       a = n(445),
-      i = n(894),
+      i = n(893),
       u = a();
     r(u, { implementation: o, getPolyfill: a, shim: i }), (e.exports = u);
   },
@@ -5855,9 +5855,9 @@ object-assign
       o = n.n(r),
       a = n(76),
       i = n.n(a),
-      u = n(749),
+      u = n(748),
       s = n.n(u),
-      l = n(750),
+      l = n(749),
       c = (n.n(l), n(393)),
       d = n.n(c);
     n.d(t, 'shallowEqual', function() {
@@ -6608,15 +6608,15 @@ object-assign
   function(e, t, n) {
     'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 });
-    var r = n(756);
+    var r = n(755);
     n.d(t, 'MemoryRouter', function() {
       return r.a;
     });
-    var o = n(758);
+    var o = n(757);
     n.d(t, 'Prompt', function() {
       return o.a;
     });
-    var a = n(759);
+    var a = n(758);
     n.d(t, 'Redirect', function() {
       return a.a;
     });
@@ -6628,11 +6628,11 @@ object-assign
     n.d(t, 'Router', function() {
       return u.a;
     });
-    var s = n(762);
+    var s = n(761);
     n.d(t, 'StaticRouter', function() {
       return s.a;
     });
-    var l = n(763);
+    var l = n(762);
     n.d(t, 'Switch', function() {
       return l.a;
     });
@@ -6640,7 +6640,7 @@ object-assign
     n.d(t, 'matchPath', function() {
       return c.a;
     });
-    var d = n(764);
+    var d = n(763);
     n.d(t, 'withRouter', function() {
       return d.a;
     });
@@ -12036,11 +12036,11 @@ object-assign
       };
     };
     var a = _interopRequireDefault(n(0)),
-      i = _interopRequireDefault(n(895)),
-      u = _interopRequireDefault(n(900)),
-      s = _interopRequireDefault(n(901)),
-      l = n(902),
-      c = _interopRequireDefault(n(903)),
+      i = _interopRequireDefault(n(894)),
+      u = _interopRequireDefault(n(899)),
+      s = _interopRequireDefault(n(900)),
+      l = n(901),
+      c = _interopRequireDefault(n(902)),
       d = _interopRequireDefault(n(442)),
       p = ((t.css = d.default.resolve),
       (t.cssNoRTL = d.default.resolveNoRTL),
@@ -12344,9 +12344,9 @@ object-assign
   },
   function(e, t, n) {
     var r = n(106),
-      o = n(1043),
-      a = n(1044),
-      i = n(1045);
+      o = n(1042),
+      a = n(1043),
+      i = n(1044);
     e.exports = function(e, t, n) {
       return null == e
         ? ''
@@ -12621,8 +12621,8 @@ object-assign
   },
   function(e, t, n) {
     var r = n(3),
-      o = n(988),
-      a = n(989);
+      o = n(987),
+      a = n(988);
     (r.createFromInputFallback = function(e) {
       e._d = new Date(e._i);
     }),
@@ -12682,7 +12682,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1135);
+    var r = n(1134);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -12833,8 +12833,8 @@ object-assign
   },
   function(e, t, n) {
     var r = n(82),
-      o = n(782),
-      a = n(783),
+      o = n(781),
+      a = n(782),
       i = '[object Null]',
       u = '[object Undefined]',
       s = r ? r.toStringTag : void 0;
@@ -12845,8 +12845,8 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(789),
-      o = n(792);
+    var r = n(788),
+      o = n(791);
     e.exports = function getNative(e, t) {
       var n = o(e, t);
       return r(n) ? n : void 0;
@@ -12995,7 +12995,7 @@ object-assign
       i = _interopRequireDefault(n(27)),
       u = n(22),
       s = _interopRequireDefault(n(86)),
-      l = _interopRequireDefault(n(632)),
+      l = _interopRequireDefault(n(631)),
       c = _interopRequireDefault(n(107)),
       d = _interopRequireDefault(n(180)),
       p = _interopRequireDefault(n(181)),
@@ -13152,13 +13152,13 @@ object-assign
     'use strict';
     var r = n(10),
       o = n(372),
-      a = n(717),
-      i = n(722),
+      a = n(716),
+      i = n(721),
       u = n(55),
-      s = n(723),
-      l = n(726),
-      c = n(727),
-      d = n(729),
+      s = n(722),
+      l = n(725),
+      c = n(726),
+      d = n(728),
       p = u.createElement,
       f = u.createFactory,
       h = u.cloneElement,
@@ -13273,8 +13273,8 @@ object-assign
   },
   function(e, t, n) {
     var r = n(212),
-      o = n(813),
-      a = n(814);
+      o = n(812),
+      a = n(813);
     e.exports = function baseRest(e, t) {
       return a(o(e, t, r), e + '');
     };
@@ -13400,7 +13400,7 @@ object-assign
     function attachRefs() {
       r.attachRefs(this, this._currentElement);
     }
-    var r = n(923),
+    var r = n(922),
       o = (n(32),
       n(8),
       {
@@ -13634,7 +13634,7 @@ object-assign
         return _interopRequireDefault(i).default;
       },
     });
-    var u = _interopRequireDefault(n(669));
+    var u = _interopRequireDefault(n(668));
     t.default = u.default;
   },
   function(e, t) {
@@ -13937,28 +13937,28 @@ object-assign
         return _interopRequireDefault(r).default;
       },
     });
-    var o = n(836);
+    var o = n(835);
     Object.defineProperty(t, 'DragDropContextProvider', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(o).default;
       },
     });
-    var a = n(837);
+    var a = n(836);
     Object.defineProperty(t, 'DragLayer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(a).default;
       },
     });
-    var i = n(838);
+    var i = n(837);
     Object.defineProperty(t, 'DragSource', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(i).default;
       },
     });
-    var u = n(848);
+    var u = n(847);
     Object.defineProperty(t, 'DropTarget', {
       enumerable: !0,
       get: function get() {
@@ -14086,7 +14086,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    e.exports = n(915);
+    e.exports = n(914);
   },
   function(e, t, n) {
     'use strict';
@@ -14339,7 +14339,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(634));
+    })(n(633));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -14720,7 +14720,7 @@ object-assign
         u = t.paragraphLowerBound || 3,
         s = t.paragraphUpperBound || 7,
         l = t.format || 'plain',
-        c = t.words || n(1363).words,
+        c = t.words || n(1362).words,
         d = t.random || Math.random,
         p = t.suffix;
       if (!p) {
@@ -14730,7 +14730,7 @@ object-assign
             'ReactNative' === product.navigator) ||
           !f
             ? '\n'
-            : n(1364).EOL;
+            : n(1363).EOL;
       }
       o = (function simplePluralize(e) {
         return -1 === e.indexOf('s', e.length - 1) ? e + 's' : e;
@@ -14798,14 +14798,14 @@ object-assign
       return e && e.__esModule ? e : { default: e };
     }
     Object.defineProperty(t, '__esModule', { value: !0 });
-    var r = n(732);
+    var r = n(731);
     Object.defineProperty(t, 'bootstrap', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(r).default;
       },
     });
-    var o = n(733);
+    var o = n(732);
     Object.defineProperty(t, 'animations', {
       enumerable: !0,
       get: function get() {
@@ -14819,7 +14819,7 @@ object-assign
         return _interopRequireDefault(a).default;
       },
     });
-    var i = n(739);
+    var i = n(738);
     Object.defineProperty(t, 'behaviors', {
       enumerable: !0,
       get: function get() {
@@ -14889,7 +14889,7 @@ object-assign
         return _interopRequireDefault(m).default;
       },
     });
-    var g = n(753);
+    var g = n(752);
     Object.defineProperty(t, 'Alert', {
       enumerable: !0,
       get: function get() {
@@ -14966,7 +14966,7 @@ object-assign
         return _interopRequireDefault(S).default;
       },
     });
-    var E = n(777);
+    var E = n(776);
     Object.defineProperty(t, 'BandwidthProvider', {
       enumerable: !0,
       get: function get() {
@@ -14987,7 +14987,7 @@ object-assign
         return _interopRequireDefault(P).default;
       },
     });
-    var O = n(873);
+    var O = n(872);
     Object.defineProperty(t, 'Breadcrumb', {
       enumerable: !0,
       get: function get() {
@@ -15001,7 +15001,7 @@ object-assign
         return _interopRequireDefault(R).default;
       },
     });
-    var T = n(875);
+    var T = n(874);
     Object.defineProperty(t, 'BulkSelect', {
       enumerable: !0,
       get: function get() {
@@ -15050,7 +15050,7 @@ object-assign
         return _interopRequireDefault(q).default;
       },
     });
-    var N = n(876);
+    var N = n(875);
     Object.defineProperty(t, 'Callout', {
       enumerable: !0,
       get: function get() {
@@ -15064,7 +15064,7 @@ object-assign
         return _interopRequireDefault(B).default;
       },
     });
-    var Y = n(877);
+    var Y = n(876);
     Object.defineProperty(t, 'Card', {
       enumerable: !0,
       get: function get() {
@@ -15099,7 +15099,7 @@ object-assign
         return _interopRequireDefault(U).default;
       },
     });
-    var z = n(878);
+    var z = n(877);
     Object.defineProperty(t, 'Code', {
       enumerable: !0,
       get: function get() {
@@ -15113,7 +15113,7 @@ object-assign
         return _interopRequireDefault(G).default;
       },
     });
-    var K = n(879);
+    var K = n(878);
     Object.defineProperty(t, 'DatePicker', {
       enumerable: !0,
       get: function get() {
@@ -15148,7 +15148,7 @@ object-assign
         return _interopRequireDefault(Z).default;
       },
     });
-    var Q = n(1012);
+    var Q = n(1011);
     Object.defineProperty(t, 'DragGroup', {
       enumerable: !0,
       get: function get() {
@@ -15190,1208 +15190,1201 @@ object-assign
         return _interopRequireDefault(oe).default;
       },
     });
-    var ae = n(627);
-    Object.defineProperty(t, 'DragGroupsContainer', {
+    var ae = n(273);
+    Object.defineProperty(t, 'DragItemContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ae).default;
       },
     });
-    var ie = n(273);
-    Object.defineProperty(t, 'DragItemContainer', {
+    var ie = n(625);
+    Object.defineProperty(t, 'DragGroupSeparator', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ie).default;
       },
     });
-    var ue = n(625);
-    Object.defineProperty(t, 'DragGroupSeparator', {
+    var ue = n(153);
+    Object.defineProperty(t, 'DragGroupSeparatorContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ue).default;
       },
     });
-    var se = n(153);
-    Object.defineProperty(t, 'DragGroupSeparatorContainer', {
+    var se = n(270);
+    Object.defineProperty(t, 'DragGroupSeparatorContent', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(se).default;
       },
     });
-    var le = n(270);
-    Object.defineProperty(t, 'DragGroupSeparatorContent', {
+    var le = n(626);
+    Object.defineProperty(t, 'DragGroupTitle', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(le).default;
       },
     });
-    var ce = n(626);
-    Object.defineProperty(t, 'DragGroupTitle', {
+    var ce = n(271);
+    Object.defineProperty(t, 'DragGroupTitleContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ce).default;
       },
     });
-    var de = n(271);
-    Object.defineProperty(t, 'DragGroupTitleContainer', {
+    var de = n(272);
+    Object.defineProperty(t, 'DragGroupTitleContent', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(de).default;
       },
     });
-    var pe = n(272);
-    Object.defineProperty(t, 'DragGroupTitleContent', {
+    var pe = n(431);
+    Object.defineProperty(t, 'DragLayer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(pe).default;
       },
     });
-    var fe = n(431);
-    Object.defineProperty(t, 'DragLayer', {
+    var fe = n(226);
+    Object.defineProperty(t, 'DragItemPreviewContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(fe).default;
       },
     });
-    var he = n(226);
-    Object.defineProperty(t, 'DragItemPreviewContainer', {
+    var he = n(227);
+    Object.defineProperty(t, 'DragLayerOverlay', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(he).default;
       },
     });
-    var me = n(227);
-    Object.defineProperty(t, 'DragLayerOverlay', {
+    var me = n(627);
+    Object.defineProperty(t, 'FileLoader', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(me).default;
       },
     });
-    var ge = n(628);
-    Object.defineProperty(t, 'FileLoader', {
+    var ge = n(274);
+    Object.defineProperty(t, 'FileLoaderDropArea', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ge).default;
       },
     });
-    var ye = n(274);
-    Object.defineProperty(t, 'FileLoaderDropArea', {
+    var ye = n(275);
+    Object.defineProperty(t, 'FileLoaderPreview', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ye).default;
       },
     });
-    var _e = n(275);
-    Object.defineProperty(t, 'FileLoaderPreview', {
+    var _e = n(1013);
+    Object.defineProperty(t, 'Form', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(_e).default;
       },
     });
-    var be = n(1014);
-    Object.defineProperty(t, 'Form', {
+    var be = n(157);
+    Object.defineProperty(t, 'FormBox', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(be).default;
       },
     });
-    var ve = n(157);
-    Object.defineProperty(t, 'FormBox', {
+    var ve = n(156);
+    Object.defineProperty(t, 'FormColumn', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ve).default;
       },
     });
-    var De = n(156);
-    Object.defineProperty(t, 'FormColumn', {
+    var De = n(1014);
+    Object.defineProperty(t, 'Gutter', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(De).default;
       },
     });
-    var we = n(1015);
-    Object.defineProperty(t, 'Gutter', {
+    var we = n(276);
+    Object.defineProperty(t, 'H', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(we).default;
       },
     });
-    var ke = n(276);
-    Object.defineProperty(t, 'H', {
+    var ke = n(277);
+    Object.defineProperty(t, 'H1', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ke).default;
       },
     });
-    var Ce = n(277);
-    Object.defineProperty(t, 'H1', {
+    var Ce = n(158);
+    Object.defineProperty(t, 'H2', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ce).default;
       },
     });
-    var xe = n(158);
-    Object.defineProperty(t, 'H2', {
+    var xe = n(159);
+    Object.defineProperty(t, 'H3', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(xe).default;
       },
     });
-    var Se = n(159);
-    Object.defineProperty(t, 'H3', {
+    var Se = n(160);
+    Object.defineProperty(t, 'H4', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Se).default;
       },
     });
-    var Ee = n(160);
-    Object.defineProperty(t, 'H4', {
+    var Ee = n(161);
+    Object.defineProperty(t, 'H5', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ee).default;
       },
     });
-    var Me = n(161);
-    Object.defineProperty(t, 'H5', {
+    var Me = n(631);
+    Object.defineProperty(t, 'HelpText', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Me).default;
       },
     });
-    var Pe = n(632);
-    Object.defineProperty(t, 'HelpText', {
+    var Pe = n(33);
+    Object.defineProperty(t, 'Icon', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Pe).default;
       },
     });
-    var Oe = n(33);
-    Object.defineProperty(t, 'Icon', {
+    var Oe = n(18);
+    Object.defineProperty(t, 'icons', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Oe).default;
       },
     });
-    var Re = n(18);
-    Object.defineProperty(t, 'icons', {
+    var Re = n(98);
+    Object.defineProperty(t, 'Input', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Re).default;
       },
     });
-    var Te = n(98);
-    Object.defineProperty(t, 'Input', {
+    var Te = n(278);
+    Object.defineProperty(t, 'InputRevealPasswordWrapper', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Te).default;
       },
     });
-    var Ae = n(278);
-    Object.defineProperty(t, 'InputRevealPasswordWrapper', {
+    var Ae = n(155);
+    Object.defineProperty(t, 'InputStyles', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ae).default;
       },
     });
-    var Le = n(155);
-    Object.defineProperty(t, 'InputStyles', {
+    var Le = n(86);
+    Object.defineProperty(t, 'Label', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Le).default;
       },
     });
-    var je = n(86);
-    Object.defineProperty(t, 'Label', {
+    var je = n(1015);
+    Object.defineProperty(t, 'List', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(je).default;
       },
     });
-    var Ie = n(1016);
-    Object.defineProperty(t, 'List', {
+    var Ie = n(99);
+    Object.defineProperty(t, 'ListItem', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ie).default;
       },
     });
-    var Fe = n(99);
-    Object.defineProperty(t, 'ListItem', {
+    var Fe = n(162);
+    Object.defineProperty(t, 'OrderedList', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Fe).default;
       },
     });
-    var qe = n(162);
-    Object.defineProperty(t, 'OrderedList', {
+    var qe = n(279);
+    Object.defineProperty(t, 'UnorderedList', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(qe).default;
       },
     });
-    var Ne = n(279);
-    Object.defineProperty(t, 'UnorderedList', {
+    var Ne = n(139);
+    Object.defineProperty(t, 'Loader', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ne).default;
       },
     });
-    var Be = n(139);
-    Object.defineProperty(t, 'Loader', {
+    var Be = n(237);
+    Object.defineProperty(t, 'LoaderContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Be).default;
       },
     });
-    var Ye = n(237);
-    Object.defineProperty(t, 'LoaderContainer', {
+    var Ye = n(236);
+    Object.defineProperty(t, 'LoaderRing', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ye).default;
       },
     });
-    var He = n(236);
-    Object.defineProperty(t, 'LoaderRing', {
+    var He = n(634);
+    Object.defineProperty(t, 'Logo', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(He).default;
       },
     });
-    var Ve = n(635);
-    Object.defineProperty(t, 'Logo', {
+    var Ve = n(280);
+    Object.defineProperty(t, 'LogoImage', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ve).default;
       },
     });
-    var We = n(280);
-    Object.defineProperty(t, 'LogoImage', {
+    var We = n(1017);
+    Object.defineProperty(t, 'MethodTag', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(We).default;
       },
     });
     var Ue = n(1018);
-    Object.defineProperty(t, 'MethodTag', {
+    Object.defineProperty(t, 'Modal', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ue).default;
       },
     });
-    var ze = n(1019);
-    Object.defineProperty(t, 'Modal', {
+    var ze = n(281);
+    Object.defineProperty(t, 'ModalActionContent', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ze).default;
       },
     });
-    var Ge = n(281);
-    Object.defineProperty(t, 'ModalActionContent', {
+    var Ge = n(282);
+    Object.defineProperty(t, 'ModalBlocker', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ge).default;
       },
     });
-    var Ke = n(282);
-    Object.defineProperty(t, 'ModalBlocker', {
+    var Ke = n(283);
+    Object.defineProperty(t, 'ModalContent', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ke).default;
       },
     });
-    var Je = n(283);
-    Object.defineProperty(t, 'ModalContent', {
+    var Je = n(284);
+    Object.defineProperty(t, 'ModalTitle', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Je).default;
       },
     });
-    var $e = n(284);
-    Object.defineProperty(t, 'ModalTitle', {
+    var $e = n(286);
+    Object.defineProperty(t, 'ModalWindow', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault($e).default;
       },
     });
-    var Xe = n(286);
-    Object.defineProperty(t, 'ModalWindow', {
+    var Xe = n(639);
+    Object.defineProperty(t, 'Money', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Xe).default;
       },
     });
-    var Ze = n(640);
-    Object.defineProperty(t, 'Money', {
+    var Ze = n(287);
+    Object.defineProperty(t, 'MoneyStyles', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ze).default;
       },
     });
-    var Qe = n(287);
-    Object.defineProperty(t, 'MoneyStyles', {
+    var Qe = n(1019);
+    Object.defineProperty(t, 'Navigation', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Qe).default;
       },
     });
-    var et = n(1020);
-    Object.defineProperty(t, 'Navigation', {
+    var et = n(288);
+    Object.defineProperty(t, 'NavigationTitle', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(et).default;
       },
     });
-    var tt = n(288);
-    Object.defineProperty(t, 'NavigationTitle', {
+    var tt = n(52);
+    Object.defineProperty(t, 'NavigationBar', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(tt).default;
       },
     });
-    var nt = n(52);
-    Object.defineProperty(t, 'NavigationBar', {
+    var nt = n(100);
+    Object.defineProperty(t, 'NavigationHeading', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(nt).default;
       },
     });
-    var rt = n(100);
-    Object.defineProperty(t, 'NavigationHeading', {
+    var rt = n(101);
+    Object.defineProperty(t, 'NavigationItem', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(rt).default;
       },
     });
-    var ot = n(101);
-    Object.defineProperty(t, 'NavigationItem', {
+    var ot = n(102);
+    Object.defineProperty(t, 'NavigationItemList', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ot).default;
       },
     });
-    var at = n(102);
-    Object.defineProperty(t, 'NavigationItemList', {
+    var at = n(103);
+    Object.defineProperty(t, 'NavigationItemListStack', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(at).default;
       },
     });
-    var it = n(103);
-    Object.defineProperty(t, 'NavigationItemListStack', {
+    var it = n(104);
+    Object.defineProperty(t, 'NavigationLogoPairWrapper', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(it).default;
       },
     });
-    var ut = n(104);
-    Object.defineProperty(t, 'NavigationLogoPairWrapper', {
+    var ut = n(643);
+    Object.defineProperty(t, 'NewBadge', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ut).default;
       },
     });
-    var st = n(644);
-    Object.defineProperty(t, 'NewBadge', {
+    var st = n(1020);
+    Object.defineProperty(t, 'Note', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(st).default;
       },
     });
-    var lt = n(1021);
-    Object.defineProperty(t, 'Note', {
+    var lt = n(289);
+    Object.defineProperty(t, 'NoteContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(lt).default;
       },
     });
-    var ct = n(289);
-    Object.defineProperty(t, 'NoteContainer', {
+    var ct = n(290);
+    Object.defineProperty(t, 'NoteCorner', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ct).default;
       },
     });
-    var dt = n(290);
-    Object.defineProperty(t, 'NoteCorner', {
+    var dt = n(1021);
+    Object.defineProperty(t, 'Pagination', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(dt).default;
       },
     });
-    var pt = n(1022);
-    Object.defineProperty(t, 'Pagination', {
+    var pt = n(291);
+    Object.defineProperty(t, 'PaginationContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(pt).default;
       },
     });
-    var ft = n(291);
-    Object.defineProperty(t, 'PaginationContainer', {
+    var ft = n(163);
+    Object.defineProperty(t, 'PaginationItem', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ft).default;
       },
     });
-    var ht = n(163);
-    Object.defineProperty(t, 'PaginationItem', {
+    var ht = n(292);
+    Object.defineProperty(t, 'PaginationItemPlaceholder', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ht).default;
       },
     });
-    var mt = n(292);
-    Object.defineProperty(t, 'PaginationItemPlaceholder', {
+    var mt = n(1022);
+    Object.defineProperty(t, 'Radio', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(mt).default;
       },
     });
-    var gt = n(1023);
-    Object.defineProperty(t, 'Radio', {
+    var gt = n(293);
+    Object.defineProperty(t, 'RadioContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(gt).default;
       },
     });
-    var yt = n(293);
-    Object.defineProperty(t, 'RadioContainer', {
+    var yt = n(294);
+    Object.defineProperty(t, 'RadioInput', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(yt).default;
       },
     });
-    var _t = n(294);
-    Object.defineProperty(t, 'RadioInput', {
+    var _t = n(295);
+    Object.defineProperty(t, 'RadioLabel', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(_t).default;
       },
     });
-    var bt = n(295);
-    Object.defineProperty(t, 'RadioLabel', {
+    var bt = n(296);
+    Object.defineProperty(t, 'RadioGroup', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(bt).default;
       },
     });
-    var vt = n(296);
-    Object.defineProperty(t, 'RadioGroup', {
+    var vt = n(164);
+    Object.defineProperty(t, 'RadioButton', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(vt).default;
       },
     });
-    var Dt = n(164);
-    Object.defineProperty(t, 'RadioButton', {
+    var Dt = n(297);
+    Object.defineProperty(t, 'RadioGroupButtonContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Dt).default;
       },
     });
-    var wt = n(297);
-    Object.defineProperty(t, 'RadioGroupButtonContainer', {
+    var wt = n(298);
+    Object.defineProperty(t, 'RadioGroupButtonContent', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(wt).default;
       },
     });
-    var kt = n(298);
-    Object.defineProperty(t, 'RadioGroupButtonContent', {
+    var kt = n(165);
+    Object.defineProperty(t, 'RadioGroupButtonInput', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(kt).default;
       },
     });
-    var Ct = n(165);
-    Object.defineProperty(t, 'RadioGroupButtonInput', {
+    var Ct = n(299);
+    Object.defineProperty(t, 'RadioGroupButtonLabel', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ct).default;
       },
     });
-    var xt = n(299);
-    Object.defineProperty(t, 'RadioGroupButtonLabel', {
+    var xt = n(300);
+    Object.defineProperty(t, 'RadioGroupButtonLabelText', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(xt).default;
       },
     });
-    var St = n(300);
-    Object.defineProperty(t, 'RadioGroupButtonLabelText', {
+    var St = n(301);
+    Object.defineProperty(t, 'RadioGroupContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(St).default;
       },
     });
-    var Et = n(301);
-    Object.defineProperty(t, 'RadioGroupContainer', {
+    var Et = n(1023);
+    Object.defineProperty(t, 'SearchBox', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Et).default;
       },
     });
-    var Mt = n(1024);
-    Object.defineProperty(t, 'SearchBox', {
+    var Mt = n(166);
+    Object.defineProperty(t, 'Suggestion', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Mt).default;
       },
     });
-    var Pt = n(166);
-    Object.defineProperty(t, 'Suggestion', {
+    var Pt = n(307);
+    Object.defineProperty(t, 'SearchBoxSearchButton', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Pt).default;
       },
     });
-    var Ot = n(307);
-    Object.defineProperty(t, 'SearchBoxSearchButton', {
+    var Ot = n(302);
+    Object.defineProperty(t, 'SearchBoxSuggestionContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ot).default;
       },
     });
-    var Rt = n(302);
-    Object.defineProperty(t, 'SearchBoxSuggestionContainer', {
+    var Rt = n(303);
+    Object.defineProperty(t, 'SearchBoxSuggestionHighlightText', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Rt).default;
       },
     });
-    var Tt = n(303);
-    Object.defineProperty(t, 'SearchBoxSuggestionHighlightText', {
+    var Tt = n(305);
+    Object.defineProperty(t, 'SearchBoxSuggestionsList', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Tt).default;
       },
     });
-    var At = n(305);
-    Object.defineProperty(t, 'SearchBoxSuggestionsList', {
+    var At = n(306);
+    Object.defineProperty(t, 'SearchBoxSuggestionsSectionTitle', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(At).default;
       },
     });
-    var Lt = n(306);
-    Object.defineProperty(t, 'SearchBoxSuggestionsSectionTitle', {
+    var Lt = n(308);
+    Object.defineProperty(t, 'SearchBoxWrapper', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Lt).default;
       },
     });
-    var jt = n(308);
-    Object.defineProperty(t, 'SearchBoxWrapper', {
+    var jt = n(285);
+    Object.defineProperty(t, 'SectionTitle', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(jt).default;
       },
     });
-    var It = n(285);
-    Object.defineProperty(t, 'SectionTitle', {
+    var It = n(650);
+    Object.defineProperty(t, 'Select', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(It).default;
       },
     });
-    var Ft = n(651);
-    Object.defineProperty(t, 'Select', {
+    var Ft = n(309);
+    Object.defineProperty(t, 'SelectWrapper', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ft).default;
       },
     });
-    var qt = n(309);
-    Object.defineProperty(t, 'SelectWrapper', {
+    var qt = n(1038);
+    Object.defineProperty(t, 'SidebarList', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(qt).default;
       },
     });
-    var Nt = n(1039);
-    Object.defineProperty(t, 'SidebarList', {
+    var Nt = n(167);
+    Object.defineProperty(t, 'SidebarListItem', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Nt).default;
       },
     });
-    var Bt = n(167);
-    Object.defineProperty(t, 'SidebarListItem', {
+    var Bt = n(314);
+    Object.defineProperty(t, 'SidebarListContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Bt).default;
       },
     });
-    var Yt = n(314);
-    Object.defineProperty(t, 'SidebarListContainer', {
+    var Yt = n(311);
+    Object.defineProperty(t, 'SidebarListItemContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Yt).default;
       },
     });
-    var Ht = n(311);
-    Object.defineProperty(t, 'SidebarListItemContainer', {
+    var Ht = n(313);
+    Object.defineProperty(t, 'SidebarListItemDetails', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ht).default;
       },
     });
-    var Vt = n(313);
-    Object.defineProperty(t, 'SidebarListItemDetails', {
+    var Vt = n(312);
+    Object.defineProperty(t, 'SidebarListItemLabel', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Vt).default;
       },
     });
-    var Wt = n(312);
-    Object.defineProperty(t, 'SidebarListItemLabel', {
+    var Wt = n(310);
+    Object.defineProperty(t, 'SidebarListShowMore', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Wt).default;
       },
     });
-    var Ut = n(310);
-    Object.defineProperty(t, 'SidebarListShowMore', {
+    var Ut = n(315);
+    Object.defineProperty(t, 'Spacing', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ut).default;
       },
     });
-    var zt = n(315);
-    Object.defineProperty(t, 'Spacing', {
+    var zt = n(1039);
+    Object.defineProperty(t, 'Steps', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(zt).default;
       },
     });
-    var Gt = n(1040);
-    Object.defineProperty(t, 'Steps', {
+    var Gt = n(316);
+    Object.defineProperty(t, 'Step', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Gt).default;
       },
     });
-    var Kt = n(316);
-    Object.defineProperty(t, 'Step', {
+    var Kt = n(105);
+    Object.defineProperty(t, 'StepContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Kt).default;
       },
     });
-    var Jt = n(105);
-    Object.defineProperty(t, 'StepContainer', {
+    var Jt = n(318);
+    Object.defineProperty(t, 'StepContent', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Jt).default;
       },
     });
-    var $t = n(318);
-    Object.defineProperty(t, 'StepContent', {
+    var $t = n(319);
+    Object.defineProperty(t, 'StepList', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault($t).default;
       },
     });
-    var Xt = n(319);
-    Object.defineProperty(t, 'StepList', {
+    var Xt = n(317);
+    Object.defineProperty(t, 'StepNumber', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Xt).default;
       },
     });
-    var Zt = n(317);
-    Object.defineProperty(t, 'StepNumber', {
+    var Zt = n(1040);
+    Object.defineProperty(t, 'Table', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Zt).default;
       },
     });
-    var Qt = n(1041);
-    Object.defineProperty(t, 'Table', {
+    var Qt = n(173);
+    Object.defineProperty(t, 'SimpleTable', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Qt).default;
       },
     });
-    var en = n(173);
-    Object.defineProperty(t, 'SimpleTable', {
+    var en = n(172);
+    Object.defineProperty(t, 'TableControls', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(en).default;
       },
     });
-    var tn = n(172);
-    Object.defineProperty(t, 'TableControls', {
+    var tn = n(170);
+    Object.defineProperty(t, 'TableHeader', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(tn).default;
       },
     });
-    var nn = n(170);
-    Object.defineProperty(t, 'TableHeader', {
+    var nn = n(329);
+    Object.defineProperty(t, 'TableRowDetails', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(nn).default;
       },
     });
-    var rn = n(329);
-    Object.defineProperty(t, 'TableRowDetails', {
+    var rn = n(332);
+    Object.defineProperty(t, 'TableWrap', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(rn).default;
       },
     });
-    var on = n(332);
-    Object.defineProperty(t, 'TableWrap', {
+    var on = n(174);
+    Object.defineProperty(t, 'TableBody', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(on).default;
       },
     });
-    var an = n(174);
-    Object.defineProperty(t, 'TableBody', {
+    var an = n(169);
+    Object.defineProperty(t, 'TableCell', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(an).default;
       },
     });
-    var un = n(169);
-    Object.defineProperty(t, 'TableCell', {
+    var un = n(327);
+    Object.defineProperty(t, 'TableControlsContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(un).default;
       },
     });
-    var sn = n(327);
-    Object.defineProperty(t, 'TableControlsContainer', {
+    var sn = n(328);
+    Object.defineProperty(t, 'TableControlsRow', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(sn).default;
       },
     });
-    var ln = n(328);
-    Object.defineProperty(t, 'TableControlsRow', {
+    var ln = n(326);
+    Object.defineProperty(t, 'TableHeaderColumnName', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ln).default;
       },
     });
-    var cn = n(326);
-    Object.defineProperty(t, 'TableHeaderColumnName', {
+    var cn = n(323);
+    Object.defineProperty(t, 'TableHeaderSortArrowIcon', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(cn).default;
       },
     });
-    var dn = n(323);
-    Object.defineProperty(t, 'TableHeaderSortArrowIcon', {
+    var dn = n(325);
+    Object.defineProperty(t, 'TableHeaderSortArrows', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(dn).default;
       },
     });
-    var pn = n(325);
-    Object.defineProperty(t, 'TableHeaderSortArrows', {
+    var pn = n(324);
+    Object.defineProperty(t, 'TableHeaderStyles', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(pn).default;
       },
     });
-    var fn = n(324);
-    Object.defineProperty(t, 'TableHeaderStyles', {
+    var fn = n(321);
+    Object.defineProperty(t, 'TableOverlay', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(fn).default;
       },
     });
-    var hn = n(321);
-    Object.defineProperty(t, 'TableOverlay', {
+    var hn = n(171);
+    Object.defineProperty(t, 'TableRow', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(hn).default;
       },
     });
-    var mn = n(171);
-    Object.defineProperty(t, 'TableRow', {
+    var mn = n(330);
+    Object.defineProperty(t, 'TableRowDetailsRow', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(mn).default;
       },
     });
-    var gn = n(330);
-    Object.defineProperty(t, 'TableRowDetailsRow', {
+    var gn = n(331);
+    Object.defineProperty(t, 'TableRowDetailsStyles', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(gn).default;
       },
     });
-    var yn = n(331);
-    Object.defineProperty(t, 'TableRowDetailsStyles', {
+    var yn = n(320);
+    Object.defineProperty(t, 'TableStyles', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(yn).default;
       },
     });
-    var _n = n(320);
-    Object.defineProperty(t, 'TableStyles', {
+    var _n = n(333);
+    Object.defineProperty(t, 'TableWrapShadow', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(_n).default;
       },
     });
-    var bn = n(333);
-    Object.defineProperty(t, 'TableWrapShadow', {
+    var bn = n(1057);
+    Object.defineProperty(t, 'Tabs', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(bn).default;
       },
     });
-    var vn = n(1058);
-    Object.defineProperty(t, 'Tabs', {
+    var vn = n(335);
+    Object.defineProperty(t, 'Tab', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(vn).default;
       },
     });
-    var Dn = n(335);
-    Object.defineProperty(t, 'Tab', {
+    var Dn = n(69);
+    Object.defineProperty(t, 'TabContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Dn).default;
       },
     });
-    var wn = n(69);
-    Object.defineProperty(t, 'TabContainer', {
+    var wn = n(334);
+    Object.defineProperty(t, 'TabContent', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(wn).default;
       },
     });
-    var kn = n(334);
-    Object.defineProperty(t, 'TabContent', {
+    var kn = n(175);
+    Object.defineProperty(t, 'TabList', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(kn).default;
       },
     });
-    var Cn = n(175);
-    Object.defineProperty(t, 'TabList', {
+    var Cn = n(336);
+    Object.defineProperty(t, 'TextArea', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Cn).default;
       },
     });
-    var xn = n(336);
-    Object.defineProperty(t, 'TextArea', {
+    var xn = n(1058);
+    Object.defineProperty(t, 'Toast', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(xn).default;
       },
     });
-    var Sn = n(1059);
-    Object.defineProperty(t, 'Toast', {
+    var Sn = n(337);
+    Object.defineProperty(t, 'Toggle', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Sn).default;
       },
     });
-    var En = n(337);
-    Object.defineProperty(t, 'Toggle', {
+    var En = n(338);
+    Object.defineProperty(t, 'ToggleContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(En).default;
       },
     });
-    var Mn = n(338);
-    Object.defineProperty(t, 'ToggleContainer', {
+    var Mn = n(176);
+    Object.defineProperty(t, 'ToggleInput', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Mn).default;
       },
     });
-    var Pn = n(176);
-    Object.defineProperty(t, 'ToggleInput', {
+    var Pn = n(339);
+    Object.defineProperty(t, 'ToggleLabel', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Pn).default;
       },
     });
-    var On = n(339);
-    Object.defineProperty(t, 'ToggleLabel', {
+    var On = n(1059);
+    Object.defineProperty(t, 'childrenWithProps', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(On).default;
       },
     });
-    var Rn = n(1060);
-    Object.defineProperty(t, 'childrenWithProps', {
+    var Rn = n(641);
+    Object.defineProperty(t, 'formatMoney', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Rn).default;
       },
     });
-    var Tn = n(642);
-    Object.defineProperty(t, 'formatMoney', {
+    var Tn = n(85);
+    Object.defineProperty(t, 'generateId', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Tn).default;
       },
     });
-    var An = n(85);
-    Object.defineProperty(t, 'generateId', {
+    var An = n(1060);
+    Object.defineProperty(t, 'parseFlex', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(An).default;
       },
     });
     var Ln = n(1061);
-    Object.defineProperty(t, 'parseFlex', {
+    Object.defineProperty(t, 'provinces', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Ln).default;
       },
     });
-    var jn = n(1062);
-    Object.defineProperty(t, 'provinces', {
+    var jn = n(653);
+    Object.defineProperty(t, 'selectItemPrimaryValue', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(jn).default;
       },
     });
-    var In = n(654);
-    Object.defineProperty(t, 'selectItemPrimaryValue', {
+    var In = n(4);
+    Object.defineProperty(t, 'themeGet', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(In).default;
       },
     });
-    var Fn = n(4);
-    Object.defineProperty(t, 'themeGet', {
+    var Fn = n(1064);
+    Object.defineProperty(t, 'layouts', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Fn).default;
       },
     });
-    var qn = n(1065);
-    Object.defineProperty(t, 'layouts', {
+    var qn = n(71);
+    Object.defineProperty(t, 'Flow', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(qn).default;
       },
     });
-    var Nn = n(71);
-    Object.defineProperty(t, 'Flow', {
+    var Nn = n(53);
+    Object.defineProperty(t, 'FlowItem', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Nn).default;
       },
     });
-    var Bn = n(53);
-    Object.defineProperty(t, 'FlowItem', {
+    var Bn = n(184);
+    Object.defineProperty(t, 'FlowRow', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Bn).default;
       },
     });
-    var Yn = n(184);
-    Object.defineProperty(t, 'FlowRow', {
+    var Yn = n(343);
+    Object.defineProperty(t, 'fields', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Yn).default;
       },
     });
-    var Hn = n(343);
-    Object.defineProperty(t, 'fields', {
+    var Hn = n(346);
+    Object.defineProperty(t, 'FlowCheckbox', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Hn).default;
       },
     });
-    var Vn = n(346);
-    Object.defineProperty(t, 'FlowCheckbox', {
+    var Vn = n(350);
+    Object.defineProperty(t, 'FlowFile', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Vn).default;
       },
     });
-    var Wn = n(350);
-    Object.defineProperty(t, 'FlowFile', {
+    var Wn = n(344);
+    Object.defineProperty(t, 'FlowInput', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Wn).default;
       },
     });
-    var Un = n(344);
-    Object.defineProperty(t, 'FlowInput', {
+    var Un = n(351);
+    Object.defineProperty(t, 'FlowMulti', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Un).default;
       },
     });
-    var zn = n(351);
-    Object.defineProperty(t, 'FlowMulti', {
+    var zn = n(348);
+    Object.defineProperty(t, 'FlowRadioGroup', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(zn).default;
       },
     });
-    var Gn = n(348);
-    Object.defineProperty(t, 'FlowRadioGroup', {
+    var Gn = n(349);
+    Object.defineProperty(t, 'FlowSelect', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Gn).default;
       },
     });
-    var Kn = n(349);
-    Object.defineProperty(t, 'FlowSelect', {
+    var Kn = n(347);
+    Object.defineProperty(t, 'FlowTextArea', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Kn).default;
       },
     });
-    var Jn = n(347);
-    Object.defineProperty(t, 'FlowTextArea', {
+    var Jn = n(345);
+    Object.defineProperty(t, 'FlowToggle', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Jn).default;
       },
     });
-    var $n = n(345);
-    Object.defineProperty(t, 'FlowToggle', {
+    var $n = n(107);
+    Object.defineProperty(t, 'FlowItemContainer', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault($n).default;
       },
     });
-    var Xn = n(107);
-    Object.defineProperty(t, 'FlowItemContainer', {
+    var Xn = n(180);
+    Object.defineProperty(t, 'FlowItemContent', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Xn).default;
       },
     });
-    var Zn = n(180);
-    Object.defineProperty(t, 'FlowItemContent', {
+    var Zn = n(181);
+    Object.defineProperty(t, 'FlowItemFlexibleContent', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Zn).default;
       },
     });
-    var Qn = n(181);
-    Object.defineProperty(t, 'FlowItemFlexibleContent', {
+    var Qn = n(182);
+    Object.defineProperty(t, 'FlowItemMoreContent', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(Qn).default;
       },
     });
-    var er = n(182);
-    Object.defineProperty(t, 'FlowItemMoreContent', {
+    var er = n(185);
+    Object.defineProperty(t, 'FlowRowStyles', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(er).default;
       },
     });
-    var tr = n(185);
-    Object.defineProperty(t, 'FlowRowStyles', {
+    var tr = n(662);
+    Object.defineProperty(t, 'Page', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(tr).default;
       },
     });
-    var nr = n(663);
-    Object.defineProperty(t, 'Page', {
+    var nr = n(666);
+    Object.defineProperty(t, 'Pane', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(nr).default;
       },
     });
-    var rr = n(667);
-    Object.defineProperty(t, 'Pane', {
+    var rr = n(177);
+    Object.defineProperty(t, 'PaneColumn', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(rr).default;
       },
     });
-    var or = n(177);
-    Object.defineProperty(t, 'PaneColumn', {
+    var or = n(70);
+    Object.defineProperty(t, 'PaneRow', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(or).default;
       },
     });
-    var ar = n(70);
-    Object.defineProperty(t, 'PaneRow', {
+    var ar = n(178);
+    Object.defineProperty(t, 'PaneSection', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ar).default;
       },
     });
-    var ir = n(178);
-    Object.defineProperty(t, 'PaneSection', {
+    var ir = n(340);
+    Object.defineProperty(t, 'PaneSectionContent', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ir).default;
       },
     });
-    var ur = n(340);
-    Object.defineProperty(t, 'PaneSectionContent', {
+    var ur = n(341);
+    Object.defineProperty(t, 'PaneSectionTitle', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(ur).default;
       },
     });
-    var sr = n(341);
-    Object.defineProperty(t, 'PaneSectionTitle', {
+    var sr = n(342);
+    Object.defineProperty(t, 'PaneSectionWrap', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(sr).default;
       },
     });
-    var lr = n(342);
-    Object.defineProperty(t, 'PaneSectionWrap', {
+    var lr = n(179);
+    Object.defineProperty(t, 'PaneStyles', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(lr).default;
       },
     });
-    var cr = n(179);
-    Object.defineProperty(t, 'PaneStyles', {
+    var cr = n(664);
+    Object.defineProperty(t, 'SidebarLayout', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(cr).default;
       },
     });
-    var dr = n(665);
-    Object.defineProperty(t, 'SidebarLayout', {
+    var dr = n(40);
+    Object.defineProperty(t, 'theme', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(dr).default;
       },
     });
-    var pr = n(40);
-    Object.defineProperty(t, 'theme', {
+    var pr = n(191);
+    Object.defineProperty(t, 'catapultTheme', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(pr).default;
       },
     });
-    var fr = n(191);
-    Object.defineProperty(t, 'catapultTheme', {
+    var fr = n(40);
+    Object.defineProperty(t, 'index', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(fr).default;
       },
     });
-    var hr = n(40);
-    Object.defineProperty(t, 'index', {
-      enumerable: !0,
-      get: function get() {
-        return _interopRequireDefault(hr).default;
-      },
-    });
-    var mr = n(114);
+    var hr = n(114);
     Object.defineProperty(t, 'irisTheme', {
       enumerable: !0,
       get: function get() {
-        return _interopRequireDefault(mr).default;
+        return _interopRequireDefault(hr).default;
       },
     });
   },
@@ -16831,11 +16824,11 @@ object-assign
   function(e, t, n) {
     'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 });
-    var r = n(754);
+    var r = n(753);
     n.d(t, 'BrowserRouter', function() {
       return r.a;
     });
-    var o = n(765);
+    var o = n(764);
     n.d(t, 'HashRouter', function() {
       return o.a;
     });
@@ -16843,43 +16836,43 @@ object-assign
     n.d(t, 'Link', function() {
       return a.a;
     });
-    var i = n(767);
+    var i = n(766);
     n.d(t, 'MemoryRouter', function() {
       return i.a;
     });
-    var u = n(768);
+    var u = n(767);
     n.d(t, 'NavLink', function() {
       return u.a;
     });
-    var s = n(769);
+    var s = n(768);
     n.d(t, 'Prompt', function() {
       return s.a;
     });
-    var l = n(770);
+    var l = n(769);
     n.d(t, 'Redirect', function() {
       return l.a;
     });
-    var c = n(771);
+    var c = n(770);
     n.d(t, 'Route', function() {
       return c.a;
     });
-    var d = n(772);
+    var d = n(771);
     n.d(t, 'Router', function() {
       return d.a;
     });
-    var p = n(773);
+    var p = n(772);
     n.d(t, 'StaticRouter', function() {
       return p.a;
     });
-    var f = n(774);
+    var f = n(773);
     n.d(t, 'Switch', function() {
       return f.a;
     });
-    var h = n(775);
+    var h = n(774);
     n.d(t, 'matchPath', function() {
       return h.a;
     });
-    var m = n(776);
+    var m = n(775);
     n.d(t, 'withRouter', function() {
       return m.a;
     });
@@ -17083,8 +17076,8 @@ object-assign
       for (this.__data__ = new r(); ++t < n; ) this.add(e[t]);
     }
     var r = n(206),
-      o = n(807),
-      a = n(808);
+      o = n(806),
+      a = n(807);
     (SetCache.prototype.add = SetCache.prototype.push = o),
       (SetCache.prototype.has = a),
       (e.exports = SetCache);
@@ -17102,11 +17095,11 @@ object-assign
         this.set(r[0], r[1]);
       }
     }
-    var r = n(797),
-      o = n(798),
-      a = n(799),
-      i = n(800),
-      u = n(801);
+    var r = n(796),
+      o = n(797),
+      a = n(798),
+      i = n(799),
+      u = n(800);
     (ListCache.prototype.clear = r),
       (ListCache.prototype.delete = o),
       (ListCache.prototype.get = a),
@@ -17122,7 +17115,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(803);
+    var r = n(802);
     e.exports = function getMapData(e, t) {
       var n = e.__data__;
       return r(t) ? n['string' == typeof t ? 'string' : 'hash'] : n.map;
@@ -17154,7 +17147,7 @@ object-assign
       i = (t.REMOVE_TARGET = 'dnd-core/REMOVE_TARGET');
   },
   function(e, t, n) {
-    var r = n(822),
+    var r = n(821),
       o = n(42),
       a = Object.prototype,
       i = a.hasOwnProperty,
@@ -17224,7 +17217,7 @@ object-assign
     );
   },
   function(e, t, n) {
-    var r = n(892);
+    var r = n(891);
     e.exports = Function.prototype.bind || r;
   },
   function(e, t, n) {
@@ -17455,8 +17448,8 @@ object-assign
       (t.removeEventListener = function removeEventListener(e) {
         e();
       });
-    var r = _interopRequireDefault(n(910)),
-      o = _interopRequireDefault(n(913)),
+    var r = _interopRequireDefault(n(909)),
+      o = _interopRequireDefault(n(912)),
       a = (t.EVENT_HANDLERS_KEY = '__consolidated_events_handlers__');
   },
   function(e, t, n) {
@@ -17650,9 +17643,9 @@ object-assign
     var r,
       o = n(10),
       a = n(244),
-      i = n(941),
+      i = n(940),
       u = n(574),
-      s = n(942),
+      s = n(941),
       l = n(248),
       c = {},
       d = !1,
@@ -18782,7 +18775,7 @@ object-assign
       })(),
       o = _interopRequireDefault(n(0)),
       a = _interopRequireDefault(n(1)),
-      i = (_interopRequireDefault(n(2)), _interopRequireDefault(n(644))),
+      i = (_interopRequireDefault(n(2)), _interopRequireDefault(n(643))),
       u = _interopRequireDefault(n(311)),
       s = _interopRequireDefault(n(312)),
       l = _interopRequireDefault(n(313)),
@@ -19102,7 +19095,7 @@ object-assign
       a = _interopRequireDefault(n(1)),
       i = n(22),
       u = (_interopRequireDefault(n(2)),
-      n(1042),
+      n(1041),
       _interopRequireDefault(n(78))),
       s = _interopRequireDefault(n(323)),
       l = _interopRequireDefault(n(324)),
@@ -20253,10 +20246,10 @@ object-assign
           );
         };
       })(),
-      a = _interopRequireDefault(n(675)),
-      i = _interopRequireDefault(n(1099)),
-      u = _interopRequireDefault(n(678)),
-      s = _interopRequireDefault(n(676)),
+      a = _interopRequireDefault(n(674)),
+      i = _interopRequireDefault(n(1098)),
+      u = _interopRequireDefault(n(677)),
+      s = _interopRequireDefault(n(675)),
       l = (function() {
         function RuleList(e) {
           !(function _classCallCheck(e, t) {
@@ -20587,9 +20580,9 @@ object-assign
             u ? l + c : c
           );
         });
-      var r = n(1260),
+      var r = n(1259),
         o = n.n(r),
-        a = n(1262),
+        a = n(1261),
         i = new (n.n(a)).a();
     }.call(t, n(25)));
   },
@@ -20996,7 +20989,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(760),
+    var r = n(759),
       o = n.n(r),
       a = {},
       i = 0;
@@ -21095,11 +21088,11 @@ object-assign
         this.set(r[0], r[1]);
       }
     }
-    var r = n(786),
-      o = n(802),
-      a = n(804),
-      i = n(805),
-      u = n(806);
+    var r = n(785),
+      o = n(801),
+      a = n(803),
+      i = n(804),
+      u = n(805);
     (MapCache.prototype.clear = r),
       (MapCache.prototype.delete = o),
       (MapCache.prototype.get = a),
@@ -21125,7 +21118,7 @@ object-assign
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(809);
+    var r = n(808);
     e.exports = function arrayIncludes(e, t) {
       return !(null == e || !e.length) && r(e, t, 0) > -1;
     };
@@ -21261,7 +21254,7 @@ object-assign
   },
   function(e, t, n) {
     var r = n(429),
-      o = n(862),
+      o = n(861),
       a = n(58);
     e.exports = function keysIn(e) {
       return a(e) ? r(e, !0) : o(e);
@@ -21270,7 +21263,7 @@ object-assign
   function(e, t, n) {
     (function(e) {
       var r = n(28),
-        o = n(859),
+        o = n(858),
         a = 'object' == typeof t && t && !t.nodeType && t,
         i = a && 'object' == typeof e && e && !e.nodeType && e,
         u = i && i.exports === a ? r.Buffer : void 0,
@@ -21279,9 +21272,9 @@ object-assign
     }.call(t, n(47)(e)));
   },
   function(e, t, n) {
-    var r = n(860),
+    var r = n(859),
       o = n(211),
-      a = n(861),
+      a = n(860),
       i = a && a.isTypedArray,
       u = i ? o(i) : r;
     e.exports = u;
@@ -21382,7 +21375,7 @@ object-assign
       ),
       o = _interopRequireDefault(n(2)),
       a = _interopRequireDefault(n(228)),
-      i = _interopRequireDefault(n(874)),
+      i = _interopRequireDefault(n(873)),
       u = o.default.div.withConfig({ displayName: 'Breadcrumbs' })(
         ['& > ', ":not(:last-child)::after{content:'\0a0 \0a0 ›\0a0 \0a0';}"],
         a.default,
@@ -22031,7 +22024,7 @@ object-assign
     var r = Object.prototype.hasOwnProperty,
       o = Object.prototype.toString,
       a = Array.prototype.slice,
-      i = n(884),
+      i = n(883),
       u = Object.prototype.propertyIsEnumerable,
       s = !u.call({ toString: null }, 'toString'),
       l = u.call(function() {}, 'prototype'),
@@ -22447,7 +22440,7 @@ object-assign
       }
     }
     var r = n(63),
-      o = n(929),
+      o = n(928),
       a = (n(13), n(32), n(252)),
       i = n(147),
       u = n(575),
@@ -22530,7 +22523,7 @@ object-assign
       return '';
     }
     var r = n(9),
-      o = n(944),
+      o = n(943),
       a = n(376)(n(54).isValidElement),
       i = (n(7),
       n(8),
@@ -22901,7 +22894,7 @@ object-assign
       ,
       ,
       function(e, t) {
-        e.exports = n(992);
+        e.exports = n(991);
       },
       ,
       ,
@@ -22916,10 +22909,10 @@ object-assign
       ,
       ,
       function(e, t) {
-        e.exports = n(998);
+        e.exports = n(997);
       },
       function(e, t) {
-        e.exports = n(1e3);
+        e.exports = n(999);
       },
       ,
       ,
@@ -24102,7 +24095,7 @@ object-assign
       displayName: 'DragGroupDropAreaContent',
     })(
       [
-        "position:relative;&::before{content:'';position:absolute;left:0;right:0;top:0;bottom:0;border-width:",
+        "position:relative;min-height:8px;&::before{content:'';position:absolute;left:0;right:0;top:0;bottom:0;border-width:",
         ';border-style:solid;border-color:',
         ';opacity:',
         ';pointer-events:none;transition:opacity 0.2s ease;z-index:1;background:',
@@ -24482,7 +24475,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(639));
+    })(n(638));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -24548,7 +24541,7 @@ object-assign
       })(),
       o = _interopRequireDefault(n(0)),
       a = _interopRequireDefault(n(1)),
-      i = _interopRequireDefault(n(635)),
+      i = _interopRequireDefault(n(634)),
       u = _interopRequireDefault(n(104)),
       s = _interopRequireDefault(n(100)),
       l = (function(e) {
@@ -24809,7 +24802,7 @@ object-assign
     });
     var o = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(649));
+    })(n(648));
     t.default = o.default;
   },
   function(e, t, n) {
@@ -25128,7 +25121,7 @@ object-assign
     var r = n(2),
       o = _interopRequireDefault(r),
       a = _interopRequireDefault(n(4)),
-      i = _interopRequireDefault(n(653)),
+      i = _interopRequireDefault(n(652)),
       u = (0, r.keyframes)(['from{opacity:0;}to{opacity:1;}']),
       s = ((0, r.keyframes)(['to{transform:rotate(1turn);}']),
       o.default.div.withConfig({ displayName: 'SelectWrapper' })(
@@ -25359,7 +25352,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(656));
+    })(n(655));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -26135,7 +26128,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(660));
+    })(n(659));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -26143,7 +26136,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(662));
+    })(n(661));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -26430,7 +26423,7 @@ object-assign
     }
     Object.defineProperty(t, '__esModule', { value: !0 });
     var r = _interopRequireDefault(n(39)),
-      o = _interopRequireDefault(n(651)),
+      o = _interopRequireDefault(n(650)),
       a = (0, r.default)(o.default);
     t.default = a;
   },
@@ -26441,7 +26434,7 @@ object-assign
     }
     Object.defineProperty(t, '__esModule', { value: !0 });
     var r = _interopRequireDefault(n(39)),
-      o = _interopRequireDefault(n(628)),
+      o = _interopRequireDefault(n(627)),
       a = (0, r.default)(o.default);
     t.default = a;
   },
@@ -26630,11 +26623,11 @@ object-assign
       n.d(t, 'a', function() {
         return l;
       });
-    var r = n(1075),
-      o = n(1125),
-      a = n(1256),
-      i = n(1264),
-      u = n(1266),
+    var r = n(1074),
+      o = n(1124),
+      a = n(1255),
+      i = n(1263),
+      u = n(1265),
       s = 'rsg-code-editor',
       l = 'rsg-usage',
       c = [a.a];
@@ -26654,11 +26647,11 @@ object-assign
       this.size = t.size;
     }
     var r = n(131),
-      o = n(1082),
-      a = n(1083),
-      i = n(1084),
-      u = n(1085),
-      s = n(1086);
+      o = n(1081),
+      a = n(1082),
+      i = n(1083),
+      u = n(1084),
+      s = n(1085);
     (Stack.prototype.clear = o),
       (Stack.prototype.delete = a),
       (Stack.prototype.get = i),
@@ -26668,20 +26661,20 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(673),
-      o = (n.n(r), n(1114)),
+    var r = n(672),
+      o = (n.n(r), n(1113)),
       a = n.n(o),
-      i = n(1115),
+      i = n(1114),
       u = n.n(i),
-      s = n(1117),
+      s = n(1116),
       l = n.n(s),
-      c = n(1118),
+      c = n(1117),
       d = n.n(c),
-      p = n(1119),
+      p = n(1118),
       f = n.n(p),
-      h = n(1121),
+      h = n(1120),
       m = n.n(h),
-      g = n(1122),
+      g = n(1121),
       y =
         Object.assign ||
         function(e) {
@@ -26764,24 +26757,24 @@ object-assign
       });
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(677));
+    })(n(676));
   },
   function(e, t, n) {
     'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 });
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(674));
+    })(n(673));
     t.default = new r.default();
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1159),
-      o = n(1160),
-      a = n(1161),
+    var r = n(1158),
+      o = n(1159),
+      a = n(1160),
       i = n(187),
-      u = n(1162),
-      s = n(1163);
+      u = n(1161),
+      s = n(1162);
     e.exports = function wrapper(e, t) {
       var n,
         i,
@@ -27060,14 +27053,14 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1183);
+    var r = n(1182);
     e.exports = function normalize(e) {
       return r(e).toLowerCase();
     };
   },
   function(e, t, n) {
     var r = n(429),
-      o = n(1208),
+      o = n(1207),
       a = n(58);
     e.exports = function keys(e) {
       return a(e) ? r(e) : o(e);
@@ -27097,13 +27090,20 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1240);
+    var r = n(1239);
     n.d(t, 'a', function() {
       return r.a;
     }),
       n.d(t, 'b', function() {
         return r.b;
       });
+  },
+  function(e, t, n) {
+    'use strict';
+    var r = n(1242);
+    n.d(t, 'a', function() {
+      return r.a;
+    });
   },
   function(e, t, n) {
     'use strict';
@@ -27114,14 +27114,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1244);
-    n.d(t, 'a', function() {
-      return r.a;
-    });
-  },
-  function(e, t, n) {
-    'use strict';
-    var r = n(1246);
+    var r = n(1245);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -27252,15 +27245,15 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1321);
+    var r = n(1320);
     n.d(t, 'a', function() {
       return r.a;
     });
   },
   function(e, t, n) {
     var r = n(29),
-      o = n(990),
-      a = n(991),
+      o = n(989),
+      a = n(990),
       i = 'Expected a function',
       u = Math.max,
       s = Math.min;
@@ -27350,7 +27343,7 @@ object-assign
       o = n(10),
       a = n(373),
       i = (n(374), n(112));
-    n(7), n(716);
+    n(7), n(715);
     (ReactComponent.prototype.isReactComponent = {}),
       (ReactComponent.prototype.setState = function(e, t) {
         'object' != typeof e && 'function' != typeof e && null != e && r('85'),
@@ -27400,7 +27393,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(724);
+    var r = n(723);
     e.exports = function(e) {
       return r(e, !1);
     };
@@ -27501,8 +27494,8 @@ object-assign
       a = _interopRequireDefault(n(1)),
       i = _interopRequireDefault(n(2)),
       u = _interopRequireDefault(n(27)),
-      s = n(734),
-      l = n(737),
+      s = n(733),
+      l = n(736),
       c = i.default.div.withConfig({ displayName: 'Expand__Container' })([
         'overflow:hidden;width:100%;height:100%;',
       ]),
@@ -27686,7 +27679,7 @@ object-assign
       o = _interopRequireDefault(n(0)),
       a = _interopRequireDefault(n(1)),
       i = _interopRequireDefault(n(27)),
-      u = n(740),
+      u = n(739),
       s = (function(e) {
         function ExpandToggle(e) {
           !(function _classCallCheck(e, t) {
@@ -27841,7 +27834,7 @@ object-assign
       })(),
       a = _interopRequireDefault(n(0)),
       i = _interopRequireDefault(n(1)),
-      u = n(741),
+      u = n(740),
       s = 'IDLING',
       l = function noop() {
         return null;
@@ -28369,7 +28362,7 @@ object-assign
       (t.default = h);
   },
   function(e, t, n) {
-    e.exports = n(751);
+    e.exports = n(750);
   },
   function(e, t, n) {
     'use strict';
@@ -29093,9 +29086,9 @@ object-assign
       o = _interopRequireDefault(n(1)),
       a = (n(22), _interopRequireDefault(n(402))),
       i = _interopRequireDefault(n(205)),
-      u = _interopRequireDefault(n(778)),
+      u = _interopRequireDefault(n(777)),
       s = _interopRequireDefault(n(431));
-    n(872);
+    n(871);
     var l = function Provider(e) {
       var t = e.StyleRoot,
         n = e.ThemeProvider,
@@ -29329,7 +29322,7 @@ object-assign
     var i = n(0),
       u = _interopRequireDefault(i),
       s = _interopRequireDefault(n(1)),
-      l = n(779),
+      l = n(778),
       c = _interopRequireDefault(n(14)),
       d = _interopRequireDefault(n(216)),
       p = _interopRequireDefault(n(137)),
@@ -29567,8 +29560,8 @@ object-assign
           (e === s || void 0 === t || (0, o.default)(t, e).length > 0)
         );
       });
-    var r = _interopRequireDefault(n(819)),
-      o = _interopRequireDefault(n(824)),
+    var r = _interopRequireDefault(n(818)),
+      o = _interopRequireDefault(n(823)),
       a = n(128),
       i = n(135),
       u = [],
@@ -29596,7 +29589,7 @@ object-assign
       return i;
     }
     var r = n(418),
-      o = n(821);
+      o = n(820);
     e.exports = baseFlatten;
   },
   function(e, t) {
@@ -29610,7 +29603,7 @@ object-assign
       o = n(209),
       a = n(210),
       i = n(134),
-      u = n(823),
+      u = n(822),
       s = n(215),
       l = 200;
     e.exports = function baseUniq(e, t, n) {
@@ -29938,7 +29931,7 @@ object-assign
     var i = n(0),
       u = _interopRequireDefault(i),
       s = _interopRequireDefault(n(1)),
-      l = n(839),
+      l = n(838),
       c = (_interopRequireDefault(n(41)), _interopRequireDefault(n(14))),
       d = _interopRequireDefault(n(216)),
       p = _interopRequireDefault(n(217)),
@@ -29999,7 +29992,7 @@ object-assign
     var r = n(0),
       o = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
-      })(n(847));
+      })(n(846));
   },
   function(e, t, n) {
     'use strict';
@@ -30053,8 +30046,8 @@ object-assign
       (t.default = function createHTML5Backend(e) {
         return new r.default(e);
       });
-    var r = _interopRequireDefault(n(853)),
-      o = _interopRequireDefault(n(871)),
+    var r = _interopRequireDefault(n(852)),
+      o = _interopRequireDefault(n(870)),
       a = (function _interopRequireWildcard(e) {
         if (e && e.__esModule) return e;
         var t = {};
@@ -30066,7 +30059,7 @@ object-assign
     (t.NativeTypes = a), (t.getEmptyImage = o.default);
   },
   function(e, t, n) {
-    var r = n(856),
+    var r = n(855),
       o = n(138);
     e.exports = function copyObject(e, t, n, a) {
       var i = !n;
@@ -30081,7 +30074,7 @@ object-assign
   },
   function(e, t, n) {
     var r = n(57),
-      o = n(857);
+      o = n(856);
     e.exports = function createAssigner(e) {
       return r(function(t, n) {
         var r = -1,
@@ -30103,7 +30096,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(858),
+    var r = n(857),
       o = n(136),
       a = n(17),
       i = n(221),
@@ -30933,7 +30926,7 @@ object-assign
       (t.default = u);
   },
   function(e, t, n) {
-    (0, n(880).default)();
+    (0, n(879).default)();
   },
   function(e, t, n) {
     'use strict';
@@ -31092,10 +31085,10 @@ object-assign
     );
   },
   function(e, t, n) {
-    var r = n(890).default,
+    var r = n(889).default,
       o = n(599).default,
       a = n(598).default,
-      i = n(1010).default,
+      i = n(1009).default,
       u = n(621).default,
       s = n(262).default,
       l = n(602).default,
@@ -31106,7 +31099,7 @@ object-assign
       h = n(594).default,
       m = n(619).default,
       g = n(89).default,
-      y = n(1011).default,
+      y = n(1010).default,
       _ = n(618).default,
       b = n(68).default,
       v = n(65).default,
@@ -31139,7 +31132,7 @@ object-assign
     'use strict';
     var r = n(243),
       o = n(142),
-      a = n(893)(),
+      a = n(892)(),
       i = Object,
       u = o.call(Function.call, Array.prototype.push),
       s = o.call(Function.call, Object.prototype.propertyIsEnumerable),
@@ -41441,7 +41434,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(937),
+    var r = n(936),
       o = /^-ms-/;
     e.exports = function camelizeStyleName(e) {
       return r(e.replace(o, 'ms-'));
@@ -41449,7 +41442,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(939),
+    var r = n(938),
       o = /^ms-/;
     e.exports = function hyphenateStyleName(e) {
       return r(e).replace(o, '-ms-');
@@ -41483,7 +41476,7 @@ object-assign
       );
     }
     var r = n(61),
-      o = (n(13), n(32), n(940)),
+      o = (n(13), n(32), n(939)),
       a = (n(8),
       new RegExp(
         '^[' +
@@ -41687,10 +41680,10 @@ object-assign
     }
     var r = n(9),
       o = n(10),
-      a = n(949),
+      a = n(948),
       i = n(585),
       u = n(586),
-      s = (n(950),
+      s = (n(949),
       n(7),
       n(8),
       function(e) {
@@ -41828,8 +41821,8 @@ object-assign
       return p;
     }
     var r = n(9),
-      o = (n(35), n(951)),
-      a = n(952),
+      o = (n(35), n(950)),
+      a = n(951),
       i = (n(7), n(256)),
       u = (n(8), '.'),
       s = ':';
@@ -42169,8 +42162,8 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(964),
-      o = n(966),
+    var r = n(963),
+      o = n(965),
       a = n(576),
       i = n(591),
       u = {
@@ -42320,11 +42313,11 @@ object-assign
       i = n(54),
       u = n(149),
       s = (n(35), n(13)),
-      l = n(981),
-      c = n(982),
+      l = n(980),
+      c = n(981),
       d = n(571),
       p = n(95),
-      f = (n(32), n(983)),
+      f = (n(32), n(982)),
       h = n(62),
       m = n(257),
       g = n(34),
@@ -45956,11 +45949,11 @@ object-assign
       ,
       ,
       function(e, t) {
-        e.exports = n(993);
+        e.exports = n(992);
       },
       ,
       function(e, t) {
-        e.exports = n(994);
+        e.exports = n(993);
       },
       ,
       function(e, t) {
@@ -46542,11 +46535,11 @@ object-assign
       ,
       ,
       function(e, t) {
-        e.exports = n(995);
+        e.exports = n(994);
       },
       ,
       function(e, t) {
-        e.exports = n(996);
+        e.exports = n(995);
       },
       ,
       ,
@@ -47010,7 +47003,7 @@ object-assign
         e.exports = n(11);
       },
       47: function(e, t) {
-        e.exports = n(997);
+        e.exports = n(996);
       },
       5: function(e, t) {
         e.exports = n(20);
@@ -47473,13 +47466,13 @@ object-assign
     var r = n(87),
       o = n(609),
       a = n(617),
-      i = n(1009),
+      i = n(1008),
       u = a();
     r(u, { getPolyfill: a, implementation: o, shim: i }), (e.exports = u);
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1001),
+    var r = n(1e3),
       o = n(616),
       a = n(142).call(Function.call, Object.prototype.propertyIsEnumerable);
     e.exports = function values(e) {
@@ -49532,20 +49525,10 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    Object.defineProperty(t, '__esModule', { value: !0 });
-    var r = (function _interopRequireDefault(e) {
-      return e && e.__esModule ? e : { default: e };
-    })(n(2));
-    t.default = r.default.div.withConfig({
-      displayName: 'DragGroupsContainer',
-    })(['position:relative;']);
-  },
-  function(e, t, n) {
-    'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(629));
+    })(n(628));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -49581,7 +49564,7 @@ object-assign
       })(),
       o = _interopRequireDefault(n(0)),
       a = _interopRequireDefault(n(1)),
-      i = _interopRequireDefault(n(1013)),
+      i = _interopRequireDefault(n(1012)),
       u = _interopRequireDefault(n(33)),
       s = _interopRequireDefault(n(274)),
       l = _interopRequireDefault(n(275)),
@@ -49761,7 +49744,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(633));
+    })(n(632));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -50048,7 +50031,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(636));
+    })(n(635));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -50061,7 +50044,7 @@ object-assign
       o = _interopRequireDefault(n(1)),
       a = n(22),
       i = _interopRequireDefault(n(280)),
-      u = _interopRequireDefault(n(1017)),
+      u = _interopRequireDefault(n(1016)),
       s = function Logo(e) {
         var t = e.id,
           n = e.className,
@@ -50289,7 +50272,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(641));
+    })(n(640));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -50318,7 +50301,7 @@ object-assign
       })(),
       o = _interopRequireDefault(n(0)),
       a = _interopRequireDefault(n(1)),
-      i = _interopRequireDefault(n(642)),
+      i = _interopRequireDefault(n(641)),
       u = _interopRequireDefault(n(287)),
       s = (function(e) {
         function Money() {
@@ -50490,7 +50473,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(645));
+    })(n(644));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -51111,7 +51094,7 @@ object-assign
       })(),
       a = _interopRequireDefault(n(0)),
       i = _interopRequireDefault(n(1)),
-      u = (_interopRequireDefault(n(2)), _interopRequireDefault(n(1025))),
+      u = (_interopRequireDefault(n(2)), _interopRequireDefault(n(1024))),
       s = _interopRequireDefault(n(98)),
       l = _interopRequireDefault(n(166)),
       c = _interopRequireDefault(n(305)),
@@ -51309,7 +51292,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(652));
+    })(n(651));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -51355,11 +51338,11 @@ object-assign
       })(),
       a = _interopRequireDefault(n(0)),
       i = _interopRequireDefault(n(1)),
-      u = _interopRequireDefault(n(1037)),
-      s = (_interopRequireDefault(n(653)),
+      u = _interopRequireDefault(n(1036)),
+      s = (_interopRequireDefault(n(652)),
       _interopRequireDefault(n(40)),
       _interopRequireDefault(n(27)),
-      _interopRequireDefault(n(654))),
+      _interopRequireDefault(n(653))),
       l = _interopRequireDefault(n(139)),
       c = _interopRequireDefault(n(309)),
       d = (function(e) {
@@ -52117,7 +52100,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(664));
+    })(n(663));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -52143,7 +52126,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(666));
+    })(n(665));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -52179,7 +52162,7 @@ object-assign
     }
     Object.defineProperty(t, '__esModule', { value: !0 }),
       (t.PaneSection = t.PaneRow = t.PaneColumn = t.default = void 0);
-    var r = _interopRequireDefault(n(668)),
+    var r = _interopRequireDefault(n(667)),
       o = _interopRequireDefault(n(177)),
       a = _interopRequireDefault(n(70)),
       i = _interopRequireDefault(n(178));
@@ -52348,7 +52331,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(1087)();
+    var r = n(1086)();
     e.exports = r;
   },
   function(e, t, n) {
@@ -52362,21 +52345,21 @@ object-assign
     }
     Object.defineProperty(t, '__esModule', { value: !0 }),
       (t.create = t.sheets = t.RuleList = t.SheetsManager = t.SheetsRegistry = t.getDynamicStyles = void 0);
-    var r = n(1096);
+    var r = n(1095);
     Object.defineProperty(t, 'getDynamicStyles', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(r).default;
       },
     });
-    var o = n(674);
+    var o = n(673);
     Object.defineProperty(t, 'SheetsRegistry', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(o).default;
       },
     });
-    var a = n(1097);
+    var a = n(1096);
     Object.defineProperty(t, 'SheetsManager', {
       enumerable: !0,
       get: function get() {
@@ -52397,7 +52380,7 @@ object-assign
         return _interopRequireDefault(u).default;
       },
     });
-    var s = _interopRequireDefault(n(1100)),
+    var s = _interopRequireDefault(n(1099)),
       l = (t.create = function create(e) {
         return new s.default(e);
       });
@@ -52509,8 +52492,8 @@ object-assign
         );
       });
     var r = _interopRequireDefault(n(15)),
-      o = _interopRequireDefault(n(676)),
-      a = _interopRequireDefault(n(1098));
+      o = _interopRequireDefault(n(675)),
+      a = _interopRequireDefault(n(1097));
   },
   function(e, t, n) {
     'use strict';
@@ -52550,7 +52533,7 @@ object-assign
         };
       })(),
       a = _interopRequireDefault(n(355)),
-      i = _interopRequireDefault(n(677)),
+      i = _interopRequireDefault(n(676)),
       u = (function() {
         function StyleRule(e, t, n) {
           !(function _classCallCheck(e, t) {
@@ -53213,9 +53196,9 @@ object-assign
  * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
  * @license  MIT
  */
-      var r = n(1130),
-        o = n(1131),
-        a = n(1132);
+      var r = n(1129),
+        o = n(1130),
+        a = n(1131);
       (t.Buffer = Buffer),
         (t.SlowBuffer = function SlowBuffer(e) {
           return +e != e && (e = 0), Buffer.alloc(+e);
@@ -53845,14 +53828,14 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1133);
+    var r = n(1132);
     n.d(t, 'a', function() {
       return r.a;
     });
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1134);
+    var r = n(1133);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -53994,7 +53977,7 @@ object-assign
       commonmark: !1,
       footnotes: !1,
       pedantic: !1,
-      blocks: n(1167),
+      blocks: n(1166),
     };
   },
   function(e, t, n) {
@@ -54038,18 +54021,18 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(671),
+    var r = n(670),
       o = n(362);
     e.exports = function baseForOwn(e, t) {
       return e && r(e, t, o);
     };
   },
   function(e, t, n) {
-    var r = n(1210),
-      o = n(1226),
+    var r = n(1209),
+      o = n(1225),
       a = n(212),
       i = n(17),
-      u = n(1235);
+      u = n(1234);
     e.exports = function baseIteratee(e) {
       return 'function' == typeof e
         ? e
@@ -54067,13 +54050,13 @@ object-assign
           : r(e, t, n, a, baseIsEqual, i))
       );
     }
-    var r = n(1212),
+    var r = n(1211),
       o = n(42);
     e.exports = baseIsEqual;
   },
   function(e, t, n) {
     var r = n(129),
-      o = n(1213),
+      o = n(1212),
       a = n(134),
       i = 1,
       u = 2;
@@ -54127,7 +54110,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(697),
+    var r = n(696),
       o = n(188);
     e.exports = function baseGet(e, t) {
       for (var n = 0, a = (t = r(t, e)).length; null != e && n < a; )
@@ -54138,23 +54121,23 @@ object-assign
   function(e, t, n) {
     var r = n(17),
       o = n(363),
-      a = n(1228),
-      i = n(1230);
+      a = n(1227),
+      i = n(1229);
     e.exports = function castPath(e, t) {
       return r(e) ? e : o(e, t) ? [e] : a(i(e));
     };
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1245);
+    var r = n(1244);
     n.d(t, 'a', function() {
       return r.a;
     });
   },
   function(e, t, n) {
     var r = n(83),
-      o = n(691),
-      a = n(1247),
+      o = n(690),
+      a = n(1246),
       i = n(17);
     e.exports = function map(e, t) {
       return (i(e) ? r : a)(e, o(t, 3));
@@ -54162,35 +54145,35 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1252);
+    var r = n(1251);
     n.d(t, 'a', function() {
       return r.a;
     });
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1259);
+    var r = n(1258);
     n.d(t, 'a', function() {
       return r.a;
     });
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1265);
+    var r = n(1264);
     n.d(t, 'a', function() {
       return r.a;
     });
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1275);
+    var r = n(1274);
     n.d(t, 'a', function() {
       return r.a;
     });
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1278);
+    var r = n(1277);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -54284,7 +54267,7 @@ object-assign
         return n || null;
       });
     _interopRequireDefault(n(578));
-    var r = _interopRequireDefault(n(1297)),
+    var r = _interopRequireDefault(n(1296)),
       o = _interopRequireDefault(n(579)),
       a = _interopRequireDefault(n(580)),
       i = (_interopRequireDefault(n(8)),
@@ -54300,7 +54283,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1328);
+    var r = n(1327);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -54543,7 +54526,7 @@ object-assign
       i = null,
       u = 0,
       s = [],
-      l = n(1124);
+      l = n(1123);
     e.exports = function(e, t) {
       if ('undefined' != typeof DEBUG && DEBUG && 'object' != typeof document)
         throw new Error(
@@ -54582,7 +54565,7 @@ object-assign
     })();
   },
   function(e, t, n) {
-    n(2), n(113), (e.exports = n(1066));
+    n(2), n(113), (e.exports = n(1065));
   },
   function(e, t, n) {
     'use strict';
@@ -54596,7 +54579,7 @@ object-assign
  * Copyright (c) 2014-2017, Jon Schlinkert.
  * Released under the MIT License.
  */
-    var r = n(714);
+    var r = n(713);
     e.exports = function isPlainObject(e) {
       var t, n;
       return (
@@ -55630,10 +55613,10 @@ object-assign
     function forEachSingleChildDummy(e, t, n) {
       return null;
     }
-    var r = n(718),
+    var r = n(717),
       o = n(55),
       a = n(26),
-      i = n(719),
+      i = n(718),
       u = r.twoArgumentPooler,
       s = r.fourArgumentPooler,
       l = /\/+/g;
@@ -55794,8 +55777,8 @@ object-assign
     }
     var r = n(73),
       o = (n(35), n(375)),
-      a = n(720),
-      i = (n(7), n(721)),
+      a = n(719),
+      i = (n(7), n(720)),
       u = (n(8), '.'),
       s = ':';
     e.exports = function traverseAllChildren(e, t, n) {
@@ -55985,7 +55968,7 @@ object-assign
       o = n(7),
       a = n(8),
       i = n(377),
-      u = n(725);
+      u = n(724);
     e.exports = function(e, t) {
       function is(e, t) {
         return e === t ? 0 !== e || 1 / e == 1 / t : e != e && t != t;
@@ -56344,7 +56327,7 @@ object-assign
     var r = n(372).Component,
       o = n(55).isValidElement,
       a = n(373),
-      i = n(728);
+      i = n(727);
     e.exports = i(r, o, a);
   },
   function(e, t, n) {
@@ -56735,11 +56718,11 @@ object-assign
       }
     }
     n(386);
-    var r = n(735);
+    var r = n(734);
     r.add(function() {});
     var o = n(192),
       a = n(193),
-      i = n(736),
+      i = n(735),
       u = 0;
     (AnimationTimer.prototype = {
       duration: function(e) {
@@ -56987,7 +56970,7 @@ object-assign
       return (this._easer = o.linear), this;
     }
     var r = n(192),
-      o = n(738);
+      o = n(737);
     (AnimationEaser.prototype = {
       using: function(e) {
         var t = !1,
@@ -57186,7 +57169,7 @@ object-assign
   function(e, t, n) {
     'use strict';
     var r = n(388).Collapse,
-      o = n(748).UnmountClosed;
+      o = n(747).UnmountClosed;
     (o.Collapse = r), (o.UnmountClosed = o), (e.exports = o);
   },
   function(e, t, n) {
@@ -57195,19 +57178,19 @@ object-assign
       return e && e.__esModule ? e.default : e;
     }
     t.__esModule = !0;
-    var r = n(742);
+    var r = n(741);
     t.Motion = _interopRequire(r);
-    var o = n(743);
+    var o = n(742);
     t.StaggeredMotion = _interopRequire(o);
-    var a = n(744);
+    var a = n(743);
     t.TransitionMotion = _interopRequire(a);
-    var i = n(746);
+    var i = n(745);
     t.spring = _interopRequire(i);
     var u = n(389);
     t.presets = _interopRequire(u);
     var s = n(117);
     t.stripStyle = _interopRequire(s);
-    var l = n(747);
+    var l = n(746);
     t.reorderKeys = _interopRequire(l);
   },
   function(e, t, n) {
@@ -57803,7 +57786,7 @@ object-assign
       a = _interopRequireDefault(n(194)),
       i = _interopRequireDefault(n(117)),
       u = _interopRequireDefault(n(195)),
-      s = _interopRequireDefault(n(745)),
+      s = _interopRequireDefault(n(744)),
       l = _interopRequireDefault(n(115)),
       c = _interopRequireDefault(n(74)),
       d = _interopRequireDefault(n(196)),
@@ -58456,7 +58439,7 @@ object-assign
       var o,
         a = (function _interopRequireDefault(e) {
           return e && e.__esModule ? e : { default: e };
-        })(n(752));
+        })(n(751));
       o =
         'undefined' != typeof self
           ? self
@@ -58502,7 +58485,7 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(755),
+      u = n(754),
       s = n.n(u),
       l = n(23),
       c = (function(e) {
@@ -58804,7 +58787,7 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(757),
+      u = n(756),
       s = n.n(u),
       l = n(200),
       c = (function(e) {
@@ -59374,7 +59357,7 @@ object-assign
               })(e, t, n)
       );
     }
-    var r = n(761);
+    var r = n(760);
     (e.exports = pathToRegexp),
       (e.exports.parse = parse),
       (e.exports.compile = function compile(e, t) {
@@ -59718,7 +59701,7 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(766),
+      u = n(765),
       s = n.n(u),
       l = n(23),
       c = (function(e) {
@@ -60180,28 +60163,28 @@ object-assign
       return e && e.__esModule ? e : { default: e };
     }
     Object.defineProperty(t, '__esModule', { value: !0 });
-    var r = n(780);
+    var r = n(779);
     Object.defineProperty(t, 'DragDropManager', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(r).default;
       },
     });
-    var o = n(833);
+    var o = n(832);
     Object.defineProperty(t, 'DragSource', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(o).default;
       },
     });
-    var a = n(834);
+    var a = n(833);
     Object.defineProperty(t, 'DropTarget', {
       enumerable: !0,
       get: function get() {
         return _interopRequireDefault(a).default;
       },
     });
-    var i = n(835);
+    var i = n(834);
     Object.defineProperty(t, 'createTestBackend', {
       enumerable: !0,
       get: function get() {
@@ -60233,8 +60216,8 @@ object-assign
           );
         };
       })(),
-      o = _interopRequireDefault(n(781)),
-      a = _interopRequireDefault(n(784)),
+      o = _interopRequireDefault(n(780)),
+      a = _interopRequireDefault(n(783)),
       i = (function _interopRequireWildcard(e) {
         if (e && e.__esModule) return e;
         var t = {};
@@ -60243,7 +60226,7 @@ object-assign
             Object.prototype.hasOwnProperty.call(e, n) && (t[n] = e[n]);
         return (t.default = e), t;
       })(n(128)),
-      u = _interopRequireDefault(n(828)),
+      u = _interopRequireDefault(n(827)),
       s = (function() {
         function DragDropManager(e) {
           var t =
@@ -60482,10 +60465,10 @@ object-assign
         };
       });
     var r = _interopRequireDefault(n(408)),
-      o = _interopRequireDefault(n(785)),
-      a = _interopRequireDefault(n(818)),
+      o = _interopRequireDefault(n(784)),
+      a = _interopRequireDefault(n(817)),
       i = _interopRequireDefault(n(415)),
-      u = _interopRequireDefault(n(827));
+      u = _interopRequireDefault(n(826));
   },
   function(e, t, n) {
     'use strict';
@@ -60558,7 +60541,7 @@ object-assign
       };
   },
   function(e, t, n) {
-    var r = n(787),
+    var r = n(786),
       o = n(131),
       a = n(208);
     e.exports = function mapCacheClear() {
@@ -60579,11 +60562,11 @@ object-assign
         this.set(r[0], r[1]);
       }
     }
-    var r = n(788),
-      o = n(793),
-      a = n(794),
-      i = n(795),
-      u = n(796);
+    var r = n(787),
+      o = n(792),
+      a = n(793),
+      i = n(794),
+      u = n(795);
     (Hash.prototype.clear = r),
       (Hash.prototype.delete = o),
       (Hash.prototype.get = a),
@@ -60599,7 +60582,7 @@ object-assign
   },
   function(e, t, n) {
     var r = n(207),
-      o = n(790),
+      o = n(789),
       a = n(29),
       i = n(412),
       u = /^\[object .+?Constructor\]$/,
@@ -60623,7 +60606,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(791),
+    var r = n(790),
       o = (function() {
         var e = /[^.]+$/.exec((r && r.keys && r.keys.IE_PROTO) || '');
         return e ? 'Symbol(src)_1.' + e : '';
@@ -60765,9 +60748,9 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(810),
-      o = n(811),
-      a = n(812);
+    var r = n(809),
+      o = n(810),
+      a = n(811);
     e.exports = function baseIndexOf(e, t, n) {
       return t == t ? a(e, t, n) : r(e, o, n);
     };
@@ -60811,12 +60794,12 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(815),
-      o = n(817)(r);
+    var r = n(814),
+      o = n(816)(r);
     e.exports = o;
   },
   function(e, t, n) {
-    var r = n(816),
+    var r = n(815),
       o = n(414),
       a = n(212),
       i = o
@@ -60877,7 +60860,7 @@ object-assign
   function(e, t, n) {
     var r = n(416),
       o = n(57),
-      a = n(820),
+      a = n(819),
       i = n(84),
       u = o(function(e) {
         return a(r(e, i));
@@ -60928,9 +60911,9 @@ object-assign
   },
   function(e, t, n) {
     var r = n(83),
-      o = n(825),
+      o = n(824),
       a = n(57),
-      i = n(826),
+      i = n(825),
       u = a(function(e) {
         var t = r(e, i);
         return t.length && t[0] === e[0] ? o(t) : [];
@@ -61025,7 +61008,7 @@ object-assign
       o = _interopRequireDefault(n(14)),
       a = _interopRequireDefault(n(17)),
       i = _interopRequireDefault(n(409)),
-      u = _interopRequireDefault(n(829)),
+      u = _interopRequireDefault(n(828)),
       s = n(408),
       l = n(415),
       c = (function() {
@@ -61291,9 +61274,9 @@ object-assign
             },
       a = _interopRequireDefault(n(14)),
       i = _interopRequireDefault(n(17)),
-      u = _interopRequireDefault(n(830)),
+      u = _interopRequireDefault(n(829)),
       s = n(135),
-      l = _interopRequireDefault(n(832)),
+      l = _interopRequireDefault(n(831)),
       c = { SOURCE: 'SOURCE', TARGET: 'TARGET' },
       d = (function() {
         function HandlerRegistry(e) {
@@ -61502,7 +61485,7 @@ object-assign
     function RawTask() {
       this.task = null;
     }
-    var r = n(831),
+    var r = n(830),
       o = [],
       a = [],
       i = r.makeRequestCallFromTimer(function throwFirstError() {
@@ -62184,10 +62167,10 @@ object-assign
       o = _interopRequireDefault(n(41)),
       a = _interopRequireDefault(n(137)),
       i = _interopRequireDefault(n(422)),
-      u = _interopRequireDefault(n(843)),
-      s = _interopRequireDefault(n(844)),
-      l = _interopRequireDefault(n(845)),
-      c = _interopRequireDefault(n(846)),
+      u = _interopRequireDefault(n(842)),
+      s = _interopRequireDefault(n(843)),
+      l = _interopRequireDefault(n(844)),
+      c = _interopRequireDefault(n(845)),
       d = _interopRequireDefault(n(425));
   },
   function(e, t, n) {
@@ -62198,11 +62181,11 @@ object-assign
     t.__esModule = !0;
     var o = r(n(218));
     t.isDisposable = o.default;
-    var a = r(n(840));
+    var a = r(n(839));
     t.Disposable = a.default;
-    var i = r(n(841));
+    var i = r(n(840));
     t.CompositeDisposable = i.default;
-    var u = r(n(842));
+    var u = r(n(841));
     t.SerialDisposable = u.default;
   },
   function(e, t, n) {
@@ -62722,10 +62705,10 @@ object-assign
       o = _interopRequireDefault(n(41)),
       a = _interopRequireDefault(n(137)),
       i = _interopRequireDefault(n(422)),
-      u = _interopRequireDefault(n(849)),
-      s = _interopRequireDefault(n(850)),
-      l = _interopRequireDefault(n(851)),
-      c = _interopRequireDefault(n(852)),
+      u = _interopRequireDefault(n(848)),
+      s = _interopRequireDefault(n(849)),
+      l = _interopRequireDefault(n(850)),
+      c = _interopRequireDefault(n(851)),
       d = _interopRequireDefault(n(425));
   },
   function(e, t, n) {
@@ -63019,12 +63002,12 @@ object-assign
           );
         };
       })(),
-      o = _interopRequireDefault(n(854)),
-      a = _interopRequireDefault(n(865)),
-      i = _interopRequireDefault(n(866)),
+      o = _interopRequireDefault(n(853)),
+      a = _interopRequireDefault(n(864)),
+      i = _interopRequireDefault(n(865)),
       u = n(430),
-      s = n(868),
-      l = n(870),
+      s = n(867),
+      l = n(869),
       c = (function _interopRequireWildcard(e) {
         if (e && e.__esModule) return e;
         var t = {};
@@ -63623,9 +63606,9 @@ object-assign
   },
   function(e, t, n) {
     var r = n(413),
-      o = n(855),
+      o = n(854),
       a = n(57),
-      i = n(864),
+      i = n(863),
       u = a(function(e) {
         return e.push(void 0, i), r(o, void 0, e);
       });
@@ -63716,7 +63699,7 @@ object-assign
   function(e, t, n) {
     var r = n(29),
       o = n(223),
-      a = n(863),
+      a = n(862),
       i = Object.prototype.hasOwnProperty;
     e.exports = function baseKeysIn(e) {
       if (!r(e)) return a(e);
@@ -63785,7 +63768,7 @@ object-assign
           );
         };
       })(),
-      o = _interopRequireDefault(n(867)),
+      o = _interopRequireDefault(n(866)),
       a = _interopRequireDefault(n(410)),
       i = (function() {
         function EnterLeaveCounter() {
@@ -63924,7 +63907,7 @@ object-assign
     var r = n(430),
       o = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
-      })(n(869)),
+      })(n(868)),
       a = 1;
   },
   function(e, t, n) {
@@ -64312,22 +64295,22 @@ object-assign
       (t.default = function registerCSSInterfaceWithDefaultTheme() {
         (0, o.default)(r.default);
       });
-    var r = _interopRequireDefault(n(881)),
-      o = _interopRequireDefault(n(888));
+    var r = _interopRequireDefault(n(880)),
+      o = _interopRequireDefault(n(887));
   },
   function(e, t, n) {
-    e.exports = n(882).default;
+    e.exports = n(881).default;
   },
   function(e, t, n) {
     function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
     }
     Object.defineProperty(t, '__esModule', { value: !0 });
-    var r = n(883),
+    var r = n(882),
       o = _interopRequireDefault(n(440)),
-      a = n(885),
-      i = _interopRequireDefault(n(886)),
-      u = _interopRequireDefault(n(887));
+      a = n(884),
+      i = _interopRequireDefault(n(885)),
+      u = _interopRequireDefault(n(886));
     t.default = {
       create: function create(e) {
         var t = {},
@@ -64449,7 +64432,7 @@ object-assign
         r.default.registerInterface(e), r.default.registerTheme(o.default);
       });
     var r = _interopRequireDefault(n(442)),
-      o = _interopRequireDefault(n(889));
+      o = _interopRequireDefault(n(888));
   },
   function(e, t) {
     Object.defineProperty(t, '__esModule', { value: !0 });
@@ -65646,13 +65629,13 @@ object-assign
     };
   },
   function(e, t, n) {
-    e.exports = n(896)();
+    e.exports = n(895)();
   },
   function(e, t, n) {
     'use strict';
-    var r = n(897),
-      o = n(898),
-      a = n(899);
+    var r = n(896),
+      o = n(897),
+      a = n(898);
     e.exports = function() {
       function shim(e, t, n, r, i, u) {
         u !== a &&
@@ -65876,7 +65859,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 });
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(904));
+    })(n(903));
     t.default = r.default.shape({
       getState: r.default.func,
       setState: r.default.func,
@@ -65884,13 +65867,13 @@ object-assign
     });
   },
   function(e, t, n) {
-    e.exports = n(905)();
+    e.exports = n(904)();
   },
   function(e, t, n) {
     'use strict';
-    var r = n(906),
-      o = n(907),
-      a = n(908);
+    var r = n(905),
+      o = n(906),
+      a = n(907);
     e.exports = function() {
       function shim(e, t, n, r, i, u) {
         u !== a &&
@@ -66225,7 +66208,7 @@ object-assign
     }),
       (webpackContext.resolve = webpackContextResolve),
       (e.exports = webpackContext),
-      (webpackContext.id = 909);
+      (webpackContext.id = 908);
   },
   function(e, t, n) {
     Object.defineProperty(t, '__esModule', { value: !0 }),
@@ -66234,7 +66217,7 @@ object-assign
       });
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(911));
+    })(n(910));
   },
   function(e, t, n) {
     Object.defineProperty(t, '__esModule', { value: !0 }),
@@ -66265,7 +66248,7 @@ object-assign
       });
     var r = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
-      })(n(912)),
+      })(n(911)),
       o = void 0;
   },
   function(e, t) {
@@ -66302,7 +66285,7 @@ object-assign
       })(),
       o = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
-      })(n(914)),
+      })(n(913)),
       a = (function() {
         function TargetEventHandlers(e) {
           !(function _classCallCheck(e, t) {
@@ -66383,14 +66366,14 @@ object-assign
   function(e, t, n) {
     'use strict';
     var r = n(13),
-      o = n(916),
+      o = n(915),
       a = n(592),
       i = n(62),
       u = n(34),
-      s = n(985),
-      l = n(986),
+      s = n(984),
+      l = n(985),
       c = n(593),
-      d = n(987);
+      d = n(986);
     n(8);
     o.inject();
     var p = {
@@ -66420,25 +66403,25 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(917),
-      o = n(918),
-      a = n(922),
-      i = n(925),
-      u = n(926),
-      s = n(927),
-      l = n(928),
-      c = n(934),
+    var r = n(916),
+      o = n(917),
+      a = n(921),
+      i = n(924),
+      u = n(925),
+      s = n(926),
+      l = n(927),
+      c = n(933),
       d = n(13),
-      p = n(956),
-      f = n(957),
-      h = n(958),
-      m = n(959),
-      g = n(960),
-      y = n(962),
-      _ = n(963),
-      b = n(969),
-      v = n(970),
-      D = n(971),
+      p = n(955),
+      f = n(956),
+      h = n(957),
+      m = n(958),
+      g = n(959),
+      y = n(961),
+      _ = n(962),
+      b = n(968),
+      v = n(969),
+      D = n(970),
       w = !1;
     e.exports = {
       inject: function inject() {
@@ -66634,9 +66617,9 @@ object-assign
     }
     var r = n(92),
       o = n(21),
-      a = n(919),
-      i = n(920),
-      u = n(921),
+      a = n(918),
+      i = n(919),
+      u = n(920),
       s = [9, 13, 27, 32],
       l = 229,
       c = o.canUseDOM && 'CompositionEvent' in window,
@@ -66939,7 +66922,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(924),
+    var r = n(923),
       o = {};
     (o.attachRefs = function(e, t) {
       if (null !== t && 'object' == typeof t) {
@@ -67245,7 +67228,7 @@ object-assign
     'use strict';
     var r = n(250),
       o = {
-        processChildrenUpdates: n(933).dangerouslyProcessChildrenUpdates,
+        processChildrenUpdates: n(932).dangerouslyProcessChildrenUpdates,
         replaceNodeWithMarkup: r.dangerouslyReplaceNodeWithMarkup,
       };
     e.exports = o;
@@ -67255,7 +67238,7 @@ object-assign
     var r = n(9),
       o = n(63),
       a = n(21),
-      i = n(930),
+      i = n(929),
       u = n(26),
       s = (n(7),
       {
@@ -67276,8 +67259,8 @@ object-assign
   function(e, t, n) {
     'use strict';
     var r = n(21),
-      o = n(931),
-      a = n(932),
+      o = n(930),
+      a = n(931),
       i = n(7),
       u = r.canUseDOM ? document.createElement('div') : null,
       s = /^\s*<(\w+)/;
@@ -67542,8 +67525,8 @@ object-assign
     }
     var r = n(9),
       o = n(10),
-      a = n(935),
-      i = n(936),
+      a = n(934),
+      i = n(935),
       u = n(63),
       s = n(251),
       l = n(61),
@@ -67553,12 +67536,12 @@ object-assign
       f = n(149),
       h = n(566),
       m = n(13),
-      g = n(943),
-      y = n(945),
+      g = n(942),
+      y = n(944),
       _ = n(582),
-      b = n(946),
-      v = (n(32), n(947)),
-      D = n(954),
+      b = n(945),
+      v = (n(32), n(946)),
+      D = n(953),
       w = (n(26), n(148)),
       k = (n(7), n(248), n(76), n(572)),
       C = (n(258), n(8), h),
@@ -67940,7 +67923,7 @@ object-assign
     'use strict';
     var r = n(577),
       o = n(21),
-      a = (n(32), n(578), n(938)),
+      a = (n(32), n(578), n(937)),
       i = n(579),
       u = n(580),
       s = (n(8),
@@ -68336,8 +68319,8 @@ object-assign
     var r = n(9),
       o = n(254),
       a = (n(95), n(32), n(35), n(62)),
-      i = n(948),
-      u = (n(26), n(953)),
+      i = n(947),
+      u = (n(26), n(952)),
       s = (n(7),
       {
         Mixin: {
@@ -68982,7 +68965,7 @@ object-assign
     var r = n(10),
       o = n(50),
       a = n(145),
-      i = (n(32), n(955)),
+      i = (n(32), n(954)),
       u = [];
     var s = { enqueue: function() {} };
     r(ReactServerRenderingTransaction.prototype, a, {
@@ -69276,7 +69259,7 @@ object-assign
       u = n(13),
       s = n(34),
       l = n(247),
-      c = n(961);
+      c = n(960);
     r(TopLevelCallbackBookKeeping.prototype, {
       destructor: function() {
         (this.topLevelType = null),
@@ -69420,7 +69403,7 @@ object-assign
       return e === n && t === r;
     }
     var r = n(21),
-      o = n(965),
+      o = n(964),
       a = n(569),
       i = r.canUseDOM && 'selection' in document && !('getSelection' in window),
       u = {
@@ -69550,12 +69533,12 @@ object-assign
                   !!(16 & e.compareDocumentPosition(t)))))
       );
     }
-    var r = n(967);
+    var r = n(966);
     e.exports = containsNode;
   },
   function(e, t, n) {
     'use strict';
-    var r = n(968);
+    var r = n(967);
     e.exports = function isTextNode(e) {
       return r(e) && 3 == e.nodeType;
     };
@@ -69960,17 +69943,17 @@ object-assign
       o = n(589),
       a = n(92),
       i = n(13),
-      u = n(972),
-      s = n(973),
+      u = n(971),
+      s = n(972),
       l = n(36),
-      c = n(974),
-      d = n(975),
+      c = n(973),
+      d = n(974),
       p = n(146),
-      f = n(977),
-      h = n(978),
-      m = n(979),
+      f = n(976),
+      h = n(977),
+      m = n(978),
       g = n(94),
-      y = n(980),
+      y = n(979),
       _ = n(26),
       b = n(259),
       v = (n(7), {}),
@@ -70206,7 +70189,7 @@ object-assign
     var r = n(94),
       o = n(259),
       a = {
-        key: n(976),
+        key: n(975),
         location: null,
         ctrlKey: null,
         shiftKey: null,
@@ -70385,7 +70368,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(984),
+    var r = n(983),
       o = /\/?>/,
       a = /^<\!\-\-/,
       i = {
@@ -70858,7 +70841,7 @@ object-assign
         e.exports = n(30);
       },
       60: function(e, t) {
-        e.exports = n(999);
+        e.exports = n(998);
       },
       7: function(e, t) {
         e.exports = n(24);
@@ -72188,7 +72171,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1002),
+    var r = n(1001),
       o = n(612)(r, {
         SameValueNonNumber: function SameValueNonNumber(e, t) {
           if ('number' == typeof e || typeof e != typeof t)
@@ -72211,8 +72194,8 @@ object-assign
       l = n(612),
       c = n(613),
       d = n(614),
-      p = n(1003),
-      f = n(1004),
+      p = n(1002),
+      f = n(1003),
       h = parseInt,
       m = n(142),
       g = m.call(Function.call, String.prototype.slice),
@@ -72225,8 +72208,8 @@ object-assign
       k = ['\t\n\v\f\r   ᠎    ', '         　\u2028', '\u2029\ufeff'].join(''),
       C = new RegExp('(^[' + k + ']+)|([' + k + ']+$)', 'g'),
       x = m.call(Function.call, String.prototype.replace),
-      S = n(1006),
-      E = n(1008),
+      S = n(1005),
+      E = n(1007),
       M = l(l({}, S), {
         Call: function Call(e, t) {
           var n = arguments.length > 2 ? arguments[2] : [];
@@ -72381,7 +72364,7 @@ object-assign
     var r = 'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator,
       o = n(615),
       a = n(263),
-      i = n(1005),
+      i = n(1004),
       u = n(441);
     e.exports = function ToPrimitive(e, t) {
       if (o(e)) return e;
@@ -72464,7 +72447,7 @@ object-assign
       i = n(614),
       u = n(263),
       s = {
-        ToPrimitive: n(1007),
+        ToPrimitive: n(1006),
         ToBoolean: function ToBoolean(e) {
           return Boolean(e);
         },
@@ -74520,7 +74503,7 @@ object-assign
     }
     Object.defineProperty(t, '__esModule', { value: !0 }),
       (t.FormColumn = t.FormBox = t.default = void 0);
-    var r = _interopRequireDefault(n(630)),
+    var r = _interopRequireDefault(n(629)),
       o = _interopRequireDefault(n(157)),
       a = _interopRequireDefault(n(156));
     (t.default = r.default),
@@ -74532,7 +74515,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(631));
+    })(n(630));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -74555,7 +74538,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(637));
+    })(n(636));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -74563,7 +74546,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(638));
+    })(n(637));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -74608,13 +74591,13 @@ object-assign
         return _interopRequireDefault(u).default;
       },
     });
-    var s = _interopRequireDefault(n(643));
+    var s = _interopRequireDefault(n(642));
     t.default = s.default;
   },
   function(e, t, n) {
     'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 });
-    var r = n(646);
+    var r = n(645);
     Object.defineProperty(t, 'default', {
       enumerable: !0,
       get: function get() {
@@ -74629,7 +74612,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(647));
+    })(n(646));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -74637,7 +74620,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(648));
+    })(n(647));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -74654,12 +74637,12 @@ object-assign
         return _interopRequireDefault(r).default;
       },
     });
-    var o = _interopRequireDefault(n(650));
+    var o = _interopRequireDefault(n(649));
     t.default = o.default;
   },
   function(e, t, n) {
     'use strict';
-    e.exports = n(1026).default;
+    e.exports = n(1025).default;
   },
   function(e, t, n) {
     'use strict';
@@ -74698,9 +74681,9 @@ object-assign
       a = n(0),
       i = _interopRequireDefault(a),
       u = _interopRequireDefault(n(1)),
-      s = _interopRequireDefault(n(1027)),
-      l = _interopRequireDefault(n(1028)),
-      c = n(1036),
+      s = _interopRequireDefault(n(1026)),
+      l = _interopRequireDefault(n(1027)),
+      c = n(1035),
       d = function alwaysTrue() {
         return !0;
       },
@@ -75289,7 +75272,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    e.exports = n(1029).default;
+    e.exports = n(1028).default;
   },
   function(e, t, n) {
     'use strict';
@@ -75360,10 +75343,10 @@ object-assign
       i = n(0),
       u = _interopRequireDefault(i),
       s = _interopRequireDefault(n(1)),
-      l = _interopRequireDefault(n(1030)),
-      c = _interopRequireDefault(n(1031)),
-      d = _interopRequireDefault(n(1033)),
-      p = _interopRequireDefault(n(1034)),
+      l = _interopRequireDefault(n(1029)),
+      c = _interopRequireDefault(n(1030)),
+      d = _interopRequireDefault(n(1032)),
+      p = _interopRequireDefault(n(1033)),
       f = {},
       h = (function(e) {
         function Autowhatever(e) {
@@ -75876,7 +75859,7 @@ object-assign
       })(),
       o = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
-      })(n(1032)),
+      })(n(1031)),
       a = function truthy(e) {
         return e;
       };
@@ -76103,7 +76086,7 @@ object-assign
       a = n(0),
       i = _interopRequireDefault(a),
       u = _interopRequireDefault(n(1)),
-      s = _interopRequireDefault(n(1035)),
+      s = _interopRequireDefault(n(1034)),
       l = _interopRequireDefault(n(304)),
       c = (function(e) {
         function ItemsList() {
@@ -76633,7 +76616,7 @@ object-assign
       a = n(1),
       i = n.n(a),
       u = n(91),
-      s = (n.n(u), n(1038)),
+      s = (n.n(u), n(1037)),
       l = n.n(s),
       c = n(37),
       d = n.n(c);
@@ -79324,7 +79307,7 @@ object-assign
     }
     Object.defineProperty(t, '__esModule', { value: !0 }),
       (t.Item = t.default = void 0);
-    var r = _interopRequireDefault(n(655)),
+    var r = _interopRequireDefault(n(654)),
       o = _interopRequireDefault(n(167));
     (t.default = r.default), (t.Item = o.default);
   },
@@ -79353,23 +79336,23 @@ object-assign
   },
   function(e, t, n) {
     (t.no = t.noCase = n(38)),
-      (t.dot = t.dotCase = n(1046)),
-      (t.swap = t.swapCase = n(1047)),
-      (t.path = t.pathCase = n(1048)),
+      (t.dot = t.dotCase = n(1045)),
+      (t.swap = t.swapCase = n(1046)),
+      (t.path = t.pathCase = n(1047)),
       (t.upper = t.upperCase = n(44)),
       (t.lower = t.lowerCase = n(106)),
-      (t.camel = t.camelCase = n(657)),
-      (t.snake = t.snakeCase = n(658)),
-      (t.title = t.titleCase = n(1049)),
-      (t.param = t.paramCase = n(1050)),
-      (t.header = t.headerCase = n(1051)),
-      (t.pascal = t.pascalCase = n(1052)),
-      (t.constant = t.constantCase = n(1053)),
-      (t.sentence = t.sentenceCase = n(1054)),
-      (t.isUpper = t.isUpperCase = n(1055)),
-      (t.isLower = t.isLowerCase = n(1056)),
+      (t.camel = t.camelCase = n(656)),
+      (t.snake = t.snakeCase = n(657)),
+      (t.title = t.titleCase = n(1048)),
+      (t.param = t.paramCase = n(1049)),
+      (t.header = t.headerCase = n(1050)),
+      (t.pascal = t.pascalCase = n(1051)),
+      (t.constant = t.constantCase = n(1052)),
+      (t.sentence = t.sentenceCase = n(1053)),
+      (t.isUpper = t.isUpperCase = n(1054)),
+      (t.isLower = t.isLowerCase = n(1055)),
       (t.ucFirst = t.upperCaseFirst = n(322)),
-      (t.lcFirst = t.lowerCaseFirst = n(1057));
+      (t.lcFirst = t.lowerCaseFirst = n(1056));
   },
   function(e, t) {
     e.exports = /[^A-Za-z\xAA\xB5\xBA\xC0-\xD6\xD8-\xF6\xF8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377\u037A-\u037D\u037F\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0481\u048A-\u052F\u0531-\u0556\u0559\u0561-\u0587\u05D0-\u05EA\u05F0-\u05F2\u0620-\u064A\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE\u06EF\u06FA-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07CA-\u07EA\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u08A0-\u08B4\u0904-\u0939\u093D\u0950\u0958-\u0961\u0971-\u0980\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09F0\u09F1\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A59-\u0A5C\u0A5E\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0AF9\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C\u0B5D\u0B5F-\u0B61\u0B71\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3D\u0C58-\u0C5A\u0C60\u0C61\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CF1\u0CF2\u0D05-\u0D0C\u0D0E-\u0D10\u0D12-\u0D3A\u0D3D\u0D4E\u0D5F-\u0D61\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E81\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6\u0EDC-\u0EDF\u0F00\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A\u103F\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081\u108E\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u1380-\u138F\u13A0-\u13F5\u13F8-\u13FD\u1401-\u166C\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u16F1-\u16F8\u1700-\u170C\u170E-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7\u17DC\u1820-\u1877\u1880-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191E\u1950-\u196D\u1970-\u1974\u1980-\u19AB\u19B0-\u19C9\u1A00-\u1A16\u1A20-\u1A54\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B83-\u1BA0\u1BAE\u1BAF\u1BBA-\u1BE5\u1C00-\u1C23\u1C4D-\u1C4F\u1C5A-\u1C7D\u1CE9-\u1CEC\u1CEE-\u1CF1\u1CF5\u1CF6\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2071\u207F\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2183\u2184\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005\u3006\u3031-\u3035\u303B\u303C\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312D\u3131-\u318E\u31A0-\u31BA\u31F0-\u31FF\u3400-\u4DB5\u4E00-\u9FD5\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA61F\uA62A\uA62B\uA640-\uA66E\uA67F-\uA69D\uA6A0-\uA6E5\uA717-\uA71F\uA722-\uA788\uA78B-\uA7AD\uA7B0-\uA7B7\uA7F7-\uA801\uA803-\uA805\uA807-\uA80A\uA80C-\uA822\uA840-\uA873\uA882-\uA8B3\uA8F2-\uA8F7\uA8FB\uA8FD\uA90A-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF\uA9E0-\uA9E4\uA9E6-\uA9EF\uA9FA-\uA9FE\uAA00-\uAA28\uAA40-\uAA42\uAA44-\uAA4B\uAA60-\uAA76\uAA7A\uAA7E-\uAAAF\uAAB1\uAAB5\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uAB30-\uAB5A\uAB5C-\uAB65\uAB70-\uABE2\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC0-9\xB2\xB3\xB9\xBC-\xBE\u0660-\u0669\u06F0-\u06F9\u07C0-\u07C9\u0966-\u096F\u09E6-\u09EF\u09F4-\u09F9\u0A66-\u0A6F\u0AE6-\u0AEF\u0B66-\u0B6F\u0B72-\u0B77\u0BE6-\u0BF2\u0C66-\u0C6F\u0C78-\u0C7E\u0CE6-\u0CEF\u0D66-\u0D75\u0DE6-\u0DEF\u0E50-\u0E59\u0ED0-\u0ED9\u0F20-\u0F33\u1040-\u1049\u1090-\u1099\u1369-\u137C\u16EE-\u16F0\u17E0-\u17E9\u17F0-\u17F9\u1810-\u1819\u1946-\u194F\u19D0-\u19DA\u1A80-\u1A89\u1A90-\u1A99\u1B50-\u1B59\u1BB0-\u1BB9\u1C40-\u1C49\u1C50-\u1C59\u2070\u2074-\u2079\u2080-\u2089\u2150-\u2182\u2185-\u2189\u2460-\u249B\u24EA-\u24FF\u2776-\u2793\u2CFD\u3007\u3021-\u3029\u3038-\u303A\u3192-\u3195\u3220-\u3229\u3248-\u324F\u3251-\u325F\u3280-\u3289\u32B1-\u32BF\uA620-\uA629\uA6E6-\uA6EF\uA830-\uA835\uA8D0-\uA8D9\uA900-\uA909\uA9D0-\uA9D9\uA9F0-\uA9F9\uAA50-\uAA59\uABF0-\uABF9\uFF10-\uFF19]+/g;
@@ -79430,7 +79413,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(657),
+    var r = n(656),
       o = n(322);
     e.exports = function(e, t, n) {
       return o(r(e, t, n), t);
@@ -79438,7 +79421,7 @@ object-assign
   },
   function(e, t, n) {
     var r = n(44),
-      o = n(658);
+      o = n(657);
     e.exports = function(e, t) {
       return r(o(e, t), t);
     };
@@ -79475,7 +79458,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(659));
+    })(n(658));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -79483,7 +79466,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(661));
+    })(n(660));
     t.default = r.default;
   },
   function(e, t, n) {
@@ -79579,7 +79562,7 @@ object-assign
     Object.defineProperty(t, '__esModule', { value: !0 });
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(1063));
+    })(n(1062));
     t.default = function(e) {
       return e.reduce(function(e, t) {
         return e.concat(
@@ -79596,7 +79579,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    e.exports = n(1064);
+    e.exports = n(1063);
   },
   function(e, t) {
     e.exports = [
@@ -81215,9 +81198,9 @@ object-assign
     }
     Object.defineProperty(t, '__esModule', { value: !0 }),
       (t.Pane = t.SidebarLayout = t.Page = void 0);
-    var r = _interopRequireDefault(n(663)),
-      o = _interopRequireDefault(n(665)),
-      a = _interopRequireDefault(n(667));
+    var r = _interopRequireDefault(n(662)),
+      o = _interopRequireDefault(n(664)),
+      a = _interopRequireDefault(n(666));
     (t.Page = r.default),
       (t.SidebarLayout = o.default),
       (t.Pane = a.default),
@@ -81226,7 +81209,7 @@ object-assign
   function(e, t, n) {
     'use strict';
     function renderStyleguide() {
-      var e = n(1344),
+      var e = n(1343),
         t = Object(d.h)(e.sections),
         r = Object(d.f)(),
         a = r.targetName,
@@ -81272,24 +81255,24 @@ object-assign
       );
     }
     Object.defineProperty(t, '__esModule', { value: !0 });
-    n(1067);
+    n(1066);
     var r = n(0),
       o = n.n(r),
       a = n(91),
       i = n.n(a),
-      u = n(1074),
+      u = n(1073),
       s = n.n(u),
       l = n(352),
-      c = n(1267),
+      c = n(1266),
       d = n(189),
-      p = (n(1342), 0);
+      p = (n(1341), 0);
     window.addEventListener('hashchange', renderStyleguide), renderStyleguide();
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1068),
-      o = (n.n(r), n(1069)),
-      a = (n.n(o), n(1071));
+    var r = n(1067),
+      o = (n.n(r), n(1068)),
+      a = (n.n(o), n(1070));
     n.n(a);
   },
   function(e, t) {
@@ -81371,7 +81354,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    n(1070).polyfill();
+    n(1069).polyfill();
   },
   function(e, t, n) {
     'use strict';
@@ -81408,7 +81391,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    e.exports = n(1072).polyfill();
+    e.exports = n(1071).polyfill();
   },
   function(e, t, n) {
     (function(t, r) {
@@ -81440,7 +81423,7 @@ object-assign
         }
         function attemptVertx() {
           try {
-            var e = n(1073);
+            var e = n(1072);
             return (
               (a = e.runOnLoop || e.runOnContext),
               (function useVertxTimer() {
@@ -81867,7 +81850,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1076);
+    var r = n(1075);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -81883,7 +81866,7 @@ object-assign
     }
     var r = n(0),
       o = n.n(r),
-      a = n(1077),
+      a = n(1076),
       i = (function() {
         function defineProperties(e, t) {
           for (var n = 0; n < t.length; n++) {
@@ -81953,7 +81936,7 @@ object-assign
                 var e = this;
                 n
                   .e(0)
-                  .then(n.bind(null, 1639))
+                  .then(n.bind(null, 1637))
                   .then(function(t) {
                     e.setState({ editor: t.default });
                   });
@@ -82025,7 +82008,7 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(1079),
+      u = n(1078),
       s =
         Object.assign ||
         function(e) {
@@ -82140,12 +82123,12 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1080),
+    var r = n(1079),
       o = n.n(r),
       a = n(224),
       i = n.n(a),
       u = n(354),
-      s = n(1123);
+      s = n(1122);
     t.a = i()(function(e, t, n) {
       var r = o()({}, s, t.theme),
         a = o()({}, e(r), t.styles && t.styles[n]);
@@ -82153,7 +82136,7 @@ object-assign
     });
   },
   function(e, t, n) {
-    var r = n(1081),
+    var r = n(1080),
       o = n(428)(function(e, t, n) {
         r(e, t, n);
       });
@@ -82175,9 +82158,9 @@ object-assign
         );
     }
     var r = n(353),
-      o = n(670),
-      a = n(671),
-      i = n(1088),
+      o = n(669),
+      a = n(670),
+      i = n(1087),
       u = n(29),
       s = n(220);
     e.exports = baseMerge;
@@ -82233,11 +82216,11 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(670),
-      o = n(1089),
-      a = n(1090),
-      i = n(1092),
-      u = n(1093),
+    var r = n(669),
+      o = n(1088),
+      a = n(1089),
+      i = n(1091),
+      u = n(1092),
       s = n(136),
       l = n(17),
       c = n(84),
@@ -82246,7 +82229,7 @@ object-assign
       f = n(29),
       h = n(41),
       m = n(222),
-      g = n(1095);
+      g = n(1094);
     e.exports = function baseMergeDeep(e, t, n, y, _, b, v) {
       var D = e[n],
         w = t[n],
@@ -82293,14 +82276,14 @@ object-assign
     }.call(t, n(47)(e)));
   },
   function(e, t, n) {
-    var r = n(1091);
+    var r = n(1090);
     e.exports = function cloneTypedArray(e, t) {
       var n = t ? r(e.buffer) : e.buffer;
       return new e.constructor(n, e.byteOffset, e.length);
     };
   },
   function(e, t, n) {
-    var r = n(672);
+    var r = n(671);
     e.exports = function cloneArrayBuffer(e) {
       var t = new e.constructor(e.byteLength);
       return new r(t).set(new r(e)), t;
@@ -82315,7 +82298,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(1094),
+    var r = n(1093),
       o = n(406),
       a = n(223);
     e.exports = function initCloneObject(e) {
@@ -82556,13 +82539,13 @@ object-assign
           );
         };
       })(),
-      i = _interopRequireDefault(n(1101)),
-      u = _interopRequireDefault(n(1102)),
-      s = _interopRequireDefault(n(1103)),
+      i = _interopRequireDefault(n(1100)),
+      u = _interopRequireDefault(n(1101)),
+      s = _interopRequireDefault(n(1102)),
       l = _interopRequireDefault(n(356)),
-      c = _interopRequireDefault(n(1109)),
-      d = _interopRequireDefault(n(675)),
-      p = _interopRequireDefault(n(1110)),
+      c = _interopRequireDefault(n(1108)),
+      d = _interopRequireDefault(n(674)),
+      p = _interopRequireDefault(n(1109)),
       f = (function() {
         function Jss(e) {
           !(function _classCallCheck(e, t) {
@@ -82705,7 +82688,7 @@ object-assign
           );
         };
       })(),
-      a = _interopRequireDefault(n(678)),
+      a = _interopRequireDefault(n(677)),
       i = _interopRequireDefault(n(186)),
       u = (function() {
         function StyleSheet(e, t) {
@@ -82954,11 +82937,11 @@ object-assign
       return e && e.__esModule ? e : { default: e };
     }
     Object.defineProperty(t, '__esModule', { value: !0 });
-    var r = _interopRequireDefault(n(1104)),
-      o = _interopRequireDefault(n(1105)),
-      a = _interopRequireDefault(n(1106)),
-      i = _interopRequireDefault(n(1107)),
-      u = _interopRequireDefault(n(1108)),
+    var r = _interopRequireDefault(n(1103)),
+      o = _interopRequireDefault(n(1104)),
+      a = _interopRequireDefault(n(1105)),
+      i = _interopRequireDefault(n(1106)),
+      u = _interopRequireDefault(n(1107)),
       s = {
         '@charset': r.default,
         '@import': r.default,
@@ -83325,9 +83308,9 @@ object-assign
           ? e.Renderer
           : e.virtual || !r.default ? a.default : o.default;
       });
-    var r = _interopRequireDefault(n(1111)),
-      o = _interopRequireDefault(n(1112)),
-      a = _interopRequireDefault(n(1113));
+    var r = _interopRequireDefault(n(1110)),
+      o = _interopRequireDefault(n(1111)),
+      a = _interopRequireDefault(n(1112));
   },
   function(e, t, n) {
     'use strict';
@@ -83739,7 +83722,7 @@ object-assign
         },
       };
     };
-    var a = n(673),
+    var a = n(672),
       i = '@global',
       u = '@global ',
       s = (function() {
@@ -83857,7 +83840,7 @@ object-assign
     };
     var o = (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
-      })(n(1116)),
+      })(n(1115)),
       a = (function debounce(e) {
         var t = !1;
         return function() {
@@ -84115,7 +84098,7 @@ object-assign
     var o = addCamelCasedVersion(
       (function _interopRequireDefault(e) {
         return e && e.__esModule ? e : { default: e };
-      })(n(1120)).default,
+      })(n(1119)).default,
     );
   },
   function(e, t, n) {
@@ -84444,7 +84427,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1126);
+    var r = n(1125);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -84464,15 +84447,15 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(1127),
-      s = n(1254);
+      u = n(1126),
+      s = n(1253);
     Usage.propTypes = {
       props: i.a.shape({ props: i.a.object, methods: i.a.array }).isRequired,
     };
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1128);
+    var r = n(1127);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -84763,18 +84746,18 @@ object-assign
       __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(
         __WEBPACK_IMPORTED_MODULE_1_prop_types__,
       ),
-      __WEBPACK_IMPORTED_MODULE_2_react_group__ = __webpack_require__(679),
+      __WEBPACK_IMPORTED_MODULE_2_react_group__ = __webpack_require__(678),
       __WEBPACK_IMPORTED_MODULE_2_react_group___default = __webpack_require__.n(
         __WEBPACK_IMPORTED_MODULE_2_react_group__,
       ),
       __WEBPACK_IMPORTED_MODULE_3_javascript_stringify__ = __webpack_require__(
-        1129,
+        1128,
       ),
       __WEBPACK_IMPORTED_MODULE_3_javascript_stringify___default = __webpack_require__.n(
         __WEBPACK_IMPORTED_MODULE_3_javascript_stringify__,
       ),
       __WEBPACK_IMPORTED_MODULE_4_rsg_components_Arguments__ = __webpack_require__(
-        681,
+        680,
       ),
       __WEBPACK_IMPORTED_MODULE_5_rsg_components_Code__ = __webpack_require__(
         366,
@@ -84789,22 +84772,22 @@ object-assign
         365,
       ),
       __WEBPACK_IMPORTED_MODULE_9_rsg_components_Type__ = __webpack_require__(
-        698,
+        697,
       ),
       __WEBPACK_IMPORTED_MODULE_10_rsg_components_Text__ = __webpack_require__(
-        1250,
+        1249,
       ),
       __WEBPACK_IMPORTED_MODULE_11_rsg_components_Para__ = __webpack_require__(
         364,
       ),
       __WEBPACK_IMPORTED_MODULE_12_rsg_components_Table__ = __webpack_require__(
-        700,
+        699,
       ),
-      __WEBPACK_IMPORTED_MODULE_13_lodash_map__ = __webpack_require__(699),
+      __WEBPACK_IMPORTED_MODULE_13_lodash_map__ = __webpack_require__(698),
       __WEBPACK_IMPORTED_MODULE_13_lodash_map___default = __webpack_require__.n(
         __WEBPACK_IMPORTED_MODULE_13_lodash_map__,
       ),
-      __WEBPACK_IMPORTED_MODULE_14__util__ = __webpack_require__(1253),
+      __WEBPACK_IMPORTED_MODULE_14__util__ = __webpack_require__(1252),
       _extends =
         Object.assign ||
         function(e) {
@@ -85011,7 +84994,7 @@ object-assign
           return m;
         };
       });
-    }.call(t, n(680).Buffer));
+    }.call(t, n(679).Buffer));
   },
   function(e, t, n) {
     'use strict';
@@ -85197,7 +85180,7 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(682),
+      u = n(681),
       s = n(12),
       l =
         Object.assign ||
@@ -85275,8 +85258,8 @@ object-assign
       u = n(12),
       s = n(45),
       l = n(365),
-      c = n(698),
-      d = n(679),
+      c = n(697),
+      d = n(678),
       p = n.n(d),
       f =
         Object.assign ||
@@ -85322,11 +85305,11 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(1136),
-      s = n(1207),
+      u = n(1135),
+      s = n(1206),
       l = n.n(s),
       c = n(12),
-      d = n(1238),
+      d = n(1237),
       p = n(364),
       f =
         Object.assign ||
@@ -85338,7 +85321,7 @@ object-assign
           }
           return e;
         };
-    n(1241);
+    n(1240);
     var h = function memoize(e) {
       return e;
     };
@@ -85749,11 +85732,11 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(1137),
+      u = n(1136),
       s = n.n(u),
-      l = n(1138),
+      l = n(1137),
       c = n.n(l),
-      d = n(1151),
+      d = n(1150),
       p = n.n(d),
       f =
         Object.assign ||
@@ -86378,13 +86361,13 @@ object-assign
       if (!n)
         throw new Error('`' + e + '` finished async. Use `' + t + '` instead');
     }
-    var r = n(1139),
-      o = n(1140),
-      a = n(1141),
-      i = n(1147),
-      u = n(1148),
-      s = n(1149),
-      l = n(1150);
+    var r = n(1138),
+      o = n(1139),
+      a = n(1140),
+      i = n(1146),
+      u = n(1147),
+      s = n(1148),
+      l = n(1149);
     e.exports = unified().freeze();
     var c = [].slice,
       d = {}.hasOwnProperty,
@@ -86471,8 +86454,8 @@ object-assign
         a
       );
     }
-    var r = n(1142),
-      o = n(1144);
+    var r = n(1141),
+      o = n(1143);
     e.exports = o;
     var a = o.prototype;
     (a.message = message),
@@ -86518,7 +86501,7 @@ object-assign
         (this.source = o[0]),
         (this.ruleId = o[1]);
     }
-    var r = n(1143);
+    var r = n(1142);
     (e.exports = VMessage), (VMessagePrototype.prototype = Error.prototype);
     var o = (VMessage.prototype = new VMessagePrototype());
     (o.file = ''),
@@ -86594,9 +86577,9 @@ object-assign
         if (!e)
           throw new Error('Setting `' + t + '` requires `path` to be set too');
       }
-      var r = n(683),
-        o = n(1145),
-        a = n(1146);
+      var r = n(682),
+        o = n(1144),
+        a = n(1145);
       e.exports = VFile;
       var i = {}.hasOwnProperty,
         u = VFile.prototype;
@@ -86670,7 +86653,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(683);
+    var r = n(682);
     e.exports = function replaceExt(e, t) {
       if ('string' != typeof e) return e;
       if (0 === e.length) return e;
@@ -86799,9 +86782,9 @@ object-assign
       (t.prototype.options = o(t.prototype.options, this.data('settings'), e)),
         (this.Parser = t);
     }
-    var r = n(1152),
+    var r = n(1151),
       o = n(108),
-      a = n(1154);
+      a = n(1153);
     (e.exports = parse), (parse.Parser = a);
   },
   function(e, t, n) {
@@ -86814,7 +86797,7 @@ object-assign
      *   without affecting the original class.
      */;
     var r = n(108),
-      o = n(1153);
+      o = n(1152);
     e.exports = function unherit(e) {
       function From(t) {
         return e.apply(this, t);
@@ -86876,16 +86859,16 @@ object-assign
       return n;
     }
     var r = n(108),
-      o = n(1155),
-      a = n(1156),
-      i = n(1157),
-      u = n(1158),
-      s = n(1164);
+      o = n(1154),
+      a = n(1155),
+      i = n(1156),
+      u = n(1157),
+      s = n(1163);
     e.exports = Parser;
     var l = Parser.prototype;
-    (l.setOptions = n(1165)),
-      (l.parse = n(1168)),
-      (l.options = n(685)),
+    (l.setOptions = n(1164)),
+      (l.parse = n(1167)),
+      (l.options = n(684)),
       (l.exitStart = o('atStart', !0)),
       (l.enterList = o('inList', !1)),
       (l.enterLink = o('inLink', !1)),
@@ -86918,33 +86901,33 @@ object-assign
         ['footnote', { commonmark: !1 }],
       ]),
       (l.blockTokenizers = {
-        newline: n(1172),
-        indentedCode: n(1173),
-        fencedCode: n(1174),
-        blockquote: n(1175),
-        atxHeading: n(1176),
-        thematicBreak: n(1177),
-        list: n(1178),
-        setextHeading: n(1180),
-        html: n(1181),
-        footnote: n(1182),
-        definition: n(1184),
-        table: n(1185),
-        paragraph: n(1186),
+        newline: n(1171),
+        indentedCode: n(1172),
+        fencedCode: n(1173),
+        blockquote: n(1174),
+        atxHeading: n(1175),
+        thematicBreak: n(1176),
+        list: n(1177),
+        setextHeading: n(1179),
+        html: n(1180),
+        footnote: n(1181),
+        definition: n(1183),
+        table: n(1184),
+        paragraph: n(1185),
       }),
       (l.inlineTokenizers = {
-        escape: n(1187),
-        autoLink: n(1189),
-        url: n(1190),
-        html: n(1192),
-        link: n(1193),
-        reference: n(1194),
-        strong: n(1195),
-        emphasis: n(1197),
-        deletion: n(1200),
-        code: n(1202),
-        break: n(1204),
-        text: n(1206),
+        escape: n(1186),
+        autoLink: n(1188),
+        url: n(1189),
+        html: n(1191),
+        link: n(1192),
+        reference: n(1193),
+        strong: n(1194),
+        emphasis: n(1196),
+        deletion: n(1199),
+        code: n(1201),
+        break: n(1203),
+        text: n(1205),
       }),
       (l.blockMethods = keys(l.blockTokenizers)),
       (l.inlineMethods = keys(l.inlineTokenizers)),
@@ -89431,7 +89414,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(684),
+    var r = n(683),
       o = n(187);
     e.exports = function alphanumerical(e) {
       return r(e) || o(e);
@@ -89588,8 +89571,8 @@ object-assign
   function(e, t, n) {
     'use strict';
     var r = n(108),
-      o = n(1166),
-      a = n(685);
+      o = n(1165),
+      a = n(684);
     e.exports = function setOptions(e) {
       var t,
         n,
@@ -89732,7 +89715,7 @@ object-assign
   function(e, t, n) {
     'use strict';
     var r = n(108),
-      o = n(1169);
+      o = n(1168);
     e.exports = function parse() {
       var e,
         t = String(this.file),
@@ -89761,7 +89744,7 @@ object-assign
     function soft(e) {
       e.position = void 0;
     }
-    var r = n(1170);
+    var r = n(1169);
     e.exports = function removePosition(e, t) {
       return r(e, t ? hard : soft), e;
     };
@@ -89800,7 +89783,7 @@ object-assign
         one(e);
     }
     e.exports = visit;
-    var r = n(1171),
+    var r = n(1170),
       o = !0,
       a = 'skip',
       i = !1;
@@ -90226,8 +90209,8 @@ object-assign
     var r = n(72),
       o = n(358),
       a = n(187),
-      i = n(686),
-      u = n(1179),
+      i = n(685),
+      u = n(1178),
       s = n(360);
     e.exports = function list(e, t, n) {
       for (
@@ -90432,7 +90415,7 @@ object-assign
     'use strict';
     var r = n(72),
       o = n(358),
-      a = n(686);
+      a = n(685);
     e.exports = function indentation(e, t) {
       var n,
         l,
@@ -90518,7 +90501,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(687).openCloseTag;
+    var r = n(686).openCloseTag;
     e.exports = function blockHTML(e, t, n) {
       for (
         var s,
@@ -91035,7 +91018,7 @@ object-assign
           e('\\' + r)(o))
         );
     }
-    var r = n(1188);
+    var r = n(1187);
     (e.exports = escape), (escape.locator = r);
   },
   function(e, t, n) {
@@ -91097,7 +91080,7 @@ object-assign
     }
     var r = n(31),
       o = n(357),
-      a = n(688);
+      a = n(687);
     (e.exports = autoLink), (autoLink.locator = a), (autoLink.notInLink = !0);
     var i = '<',
       u = '>',
@@ -91152,7 +91135,7 @@ object-assign
     }
     var r = n(357),
       o = n(31),
-      a = n(1191);
+      a = n(1190);
     (e.exports = url), (url.locator = a), (url.notInLink = !0);
     var i = '[',
       u = ']',
@@ -91198,9 +91181,9 @@ object-assign
           e(s)({ type: 'html', value: s }))
         );
     }
-    var r = n(684),
-      o = n(688),
-      a = n(687).tag;
+    var r = n(683),
+      o = n(687),
+      a = n(686).tag;
     (e.exports = inlineHTML), (inlineHTML.locator = o);
     var i = /^<a /i,
       u = /^<\/a>/i;
@@ -91344,7 +91327,7 @@ object-assign
       }
     }
     var r = n(31),
-      o = n(689);
+      o = n(688);
     (e.exports = link), (link.locator = o);
     var a = {}.hasOwnProperty,
       i = '\\',
@@ -91447,7 +91430,7 @@ object-assign
       }
     }
     var r = n(31),
-      o = n(689),
+      o = n(688),
       a = n(361);
     (e.exports = reference), (reference.locator = o);
     var i = 'link',
@@ -91513,7 +91496,7 @@ object-assign
     }
     var r = n(72),
       o = n(31),
-      a = n(1196);
+      a = n(1195);
     (e.exports = strong), (strong.locator = a);
     var i = '*',
       u = '_';
@@ -91576,9 +91559,9 @@ object-assign
         }
     }
     var r = n(72),
-      o = n(1198),
+      o = n(1197),
       a = n(31),
-      i = n(1199);
+      i = n(1198);
     (e.exports = emphasis), (emphasis.locator = i);
     var u = '*',
       s = '_';
@@ -91632,7 +91615,7 @@ object-assign
         }
     }
     var r = n(31),
-      o = n(1201);
+      o = n(1200);
     (e.exports = strikethrough), (strikethrough.locator = o);
     var a = '~',
       i = '~~';
@@ -91680,7 +91663,7 @@ object-assign
       }
     }
     var r = n(31),
-      o = n(1203);
+      o = n(1202);
     (e.exports = inlineCode), (inlineCode.locator = o);
     var a = '`';
   },
@@ -91702,7 +91685,7 @@ object-assign
         u += r;
       }
     }
-    var r = n(1205);
+    var r = n(1204);
     (e.exports = hardBreak), (hardBreak.locator = r);
     var o = 2;
   },
@@ -91739,8 +91722,8 @@ object-assign
   },
   function(e, t, n) {
     var r = n(138),
-      o = n(690),
-      a = n(691);
+      o = n(689),
+      a = n(690);
     e.exports = function mapValues(e, t) {
       var n = {};
       return (
@@ -91754,7 +91737,7 @@ object-assign
   },
   function(e, t, n) {
     var r = n(223),
-      o = n(1209),
+      o = n(1208),
       a = Object.prototype.hasOwnProperty;
     e.exports = function baseKeys(e) {
       if (!r(e)) return o(e);
@@ -91768,9 +91751,9 @@ object-assign
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(1211),
-      o = n(1225),
-      a = n(695);
+    var r = n(1210),
+      o = n(1224),
+      a = n(694);
     e.exports = function baseMatches(e) {
       var t = o(e);
       return 1 == t.length && t[0][2]
@@ -91782,7 +91765,7 @@ object-assign
   },
   function(e, t, n) {
     var r = n(353),
-      o = n(692),
+      o = n(691),
       a = 1,
       i = 2;
     e.exports = function baseIsMatch(e, t, n, u) {
@@ -91811,10 +91794,10 @@ object-assign
   },
   function(e, t, n) {
     var r = n(353),
-      o = n(693),
-      a = n(1214),
-      i = n(1216),
-      u = n(1221),
+      o = n(692),
+      a = n(1213),
+      i = n(1215),
+      u = n(1220),
       s = n(17),
       l = n(221),
       c = n(222),
@@ -91861,10 +91844,10 @@ object-assign
   },
   function(e, t, n) {
     var r = n(82),
-      o = n(672),
+      o = n(671),
       a = n(56),
-      i = n(693),
-      u = n(1215),
+      i = n(692),
+      u = n(1214),
       s = n(215),
       l = 1,
       c = 2,
@@ -91927,7 +91910,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(1217),
+    var r = n(1216),
       o = 1,
       a = Object.prototype.hasOwnProperty;
     e.exports = function equalObjects(e, t, n, i, u, s) {
@@ -91971,8 +91954,8 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(1218),
-      o = n(1219),
+    var r = n(1217),
+      o = n(1218),
       a = n(362);
     e.exports = function getAllKeys(e) {
       return r(e, a, o);
@@ -91988,7 +91971,7 @@ object-assign
   },
   function(e, t, n) {
     var r = n(416),
-      o = n(1220),
+      o = n(1219),
       a = Object.prototype.propertyIsEnumerable,
       i = Object.getOwnPropertySymbols,
       u = i
@@ -92009,11 +91992,11 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(1222),
+    var r = n(1221),
       o = n(208),
-      a = n(1223),
+      a = n(1222),
       i = n(420),
-      u = n(1224),
+      u = n(1223),
       s = n(48),
       l = n(412),
       c = l(r),
@@ -92061,7 +92044,7 @@ object-assign
     e.exports = r;
   },
   function(e, t, n) {
-    var r = n(694),
+    var r = n(693),
       o = n(362);
     e.exports = function getMatchData(e) {
       for (var t = o(e), n = t.length; n--; ) {
@@ -92073,12 +92056,12 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(692),
-      o = n(1227),
-      a = n(1232),
+    var r = n(691),
+      o = n(1226),
+      a = n(1231),
       i = n(363),
-      u = n(694),
-      s = n(695),
+      u = n(693),
+      s = n(694),
       l = n(188),
       c = 1,
       d = 2;
@@ -92092,7 +92075,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(696);
+    var r = n(695);
     e.exports = function get(e, t, n) {
       var o = null == e ? void 0 : r(e, t);
       return void 0 === o ? n : o;
@@ -92102,7 +92085,7 @@ object-assign
     var r = /^\./,
       o = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g,
       a = /\\(\\)?/g,
-      i = n(1229)(function(e) {
+      i = n(1228)(function(e) {
         var t = [];
         return (
           r.test(e) && t.push(''),
@@ -92126,7 +92109,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(1231);
+    var r = n(1230);
     e.exports = function toString(e) {
       return null == e ? '' : r(e);
     };
@@ -92149,8 +92132,8 @@ object-assign
     e.exports = baseToString;
   },
   function(e, t, n) {
-    var r = n(1233),
-      o = n(1234);
+    var r = n(1232),
+      o = n(1233);
     e.exports = function hasIn(e, t) {
       return null != e && o(e, t, r);
     };
@@ -92161,7 +92144,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(697),
+    var r = n(696),
       o = n(136),
       a = n(17),
       i = n(219),
@@ -92179,8 +92162,8 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(1236),
-      o = n(1237),
+    var r = n(1235),
+      o = n(1236),
       a = n(363),
       i = n(188);
     e.exports = function property(e) {
@@ -92195,7 +92178,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(696);
+    var r = n(695);
     e.exports = function basePropertyDeep(e) {
       return function(t) {
         return r(t, e);
@@ -92204,7 +92187,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1239);
+    var r = n(1238);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -92304,15 +92287,15 @@ object-assign
       (t.a = Object(u.a)(s)(ParaRenderer));
   },
   function(e, t, n) {
-    var r = n(1242);
+    var r = n(1241);
     'string' == typeof r && (r = [[e.i, r, '']]);
     var o = {};
     o.transform = void 0;
-    n(711)(r, o);
+    n(710)(r, o);
     r.locals && (e.exports = r.locals);
   },
   function(e, t, n) {
-    (e.exports = n(710)(void 0)).push([
+    (e.exports = n(709)(void 0)).push([
       e.i,
       '/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */\n\n/* Tomorrow Comment */\n.hljs-comment,\n.hljs-quote {\n  color: #8e908c;\n}\n\n/* Tomorrow Red */\n.hljs-variable,\n.hljs-template-variable,\n.hljs-tag,\n.hljs-name,\n.hljs-selector-id,\n.hljs-selector-class,\n.hljs-regexp,\n.hljs-deletion {\n  color: #c82829;\n}\n\n/* Tomorrow Orange */\n.hljs-number,\n.hljs-built_in,\n.hljs-builtin-name,\n.hljs-literal,\n.hljs-type,\n.hljs-params,\n.hljs-meta,\n.hljs-link {\n  color: #f5871f;\n}\n\n/* Tomorrow Yellow */\n.hljs-attribute {\n  color: #eab700;\n}\n\n/* Tomorrow Green */\n.hljs-string,\n.hljs-symbol,\n.hljs-bullet,\n.hljs-addition {\n  color: #718c00;\n}\n\n/* Tomorrow Blue */\n.hljs-title,\n.hljs-section {\n  color: #4271ae;\n}\n\n/* Tomorrow Purple */\n.hljs-keyword,\n.hljs-selector-tag {\n  color: #8959a8;\n}\n\n.hljs {\n  display: block;\n  overflow-x: auto;\n  background: white;\n  color: #4d4d4c;\n  padding: 0.5em;\n}\n\n.hljs-emphasis {\n  font-style: italic;\n}\n\n.hljs-strong {\n  font-weight: bold;\n}\n',
       '',
@@ -92443,7 +92426,7 @@ object-assign
       a = n(1),
       i = n.n(a),
       u = n(45),
-      s = n(699),
+      s = n(698),
       l = n.n(s),
       c = function paragraphs(e) {
         return e
@@ -92494,7 +92477,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(1248),
+    var r = n(1247),
       o = n(58);
     e.exports = function baseMap(e, t) {
       var n = -1,
@@ -92508,8 +92491,8 @@ object-assign
     };
   },
   function(e, t, n) {
-    var r = n(690),
-      o = n(1249)(r);
+    var r = n(689),
+      o = n(1248)(r);
     e.exports = o;
   },
   function(e, t, n) {
@@ -92529,7 +92512,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1251);
+    var r = n(1250);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -92709,7 +92692,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1255);
+    var r = n(1254);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -92726,11 +92709,11 @@ object-assign
       a = n(1),
       i = n.n(a),
       u = n(45),
-      s = n(682),
-      l = n(681),
+      s = n(681),
+      l = n(680),
       c = n(365),
       d = n(367),
-      p = n(700),
+      p = n(699),
       f =
         Object.assign ||
         function(e) {
@@ -92801,11 +92784,11 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(1257),
+      u = n(1256),
       s = n.n(u),
-      l = n(1258),
+      l = n(1257),
       c = n.n(l),
-      d = n(701),
+      d = n(700),
       p = n(189),
       f = function IsolateButton(e) {
         var t = e.name,
@@ -92983,7 +92966,7 @@ object-assign
       })(ToolbarButtonRenderer));
   },
   function(e, t, n) {
-    var r = n(1261);
+    var r = n(1260);
     e.exports = function isNaN(e) {
       return r(e) && e != +e;
     };
@@ -93004,7 +92987,7 @@ object-assign
     function lower(e) {
       return e.toLowerCase();
     }
-    var r = n(1263);
+    var r = n(1262);
     (e.exports = BananaSlug),
       (BananaSlug.prototype.slug = function(e, t) {
         var n = (function slugger(e, t) {
@@ -93044,7 +93027,7 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(702),
+      u = n(701),
       s = function CodeTabButton(e) {
         return o.a.createElement(u.a, e, 'Code');
       };
@@ -93140,7 +93123,7 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(702),
+      u = n(701),
       s = function UsageTabButton(e) {
         var t = e.props;
         return t.props || (t.methods && t.methods.length > 0)
@@ -93157,7 +93140,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1268);
+    var r = n(1267);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -93175,12 +93158,12 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(1269),
-      s = n(1273),
-      l = n(703),
-      c = n(1338),
-      d = n(1340),
-      p = n(709),
+      u = n(1268),
+      s = n(1272),
+      l = n(702),
+      c = n(1337),
+      d = n(1339),
+      p = n(708),
       f = (n.n(p),
       (function() {
         function defineProperties(e, t) {
@@ -93320,7 +93303,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1270);
+    var r = n(1269);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -93345,9 +93328,9 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(1271),
+      u = n(1270),
       s = n.n(u),
-      l = n(1272),
+      l = n(1271),
       c = n(189),
       d = (function() {
         function defineProperties(e, t) {
@@ -93724,7 +93707,7 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(1274),
+      u = n(1273),
       s = n.n(u),
       l = n(45),
       c = n(12),
@@ -93897,8 +93880,8 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(1276),
-      s = n(1337);
+      u = n(1275),
+      s = n(1336);
     Sections.propTypes = {
       sections: i.a.array.isRequired,
       root: i.a.bool,
@@ -93907,7 +93890,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1277);
+    var r = n(1276);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -93942,10 +93925,10 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(704),
-      s = n(1324),
-      l = n(703),
-      c = n(1336);
+      u = n(703),
+      s = n(1323),
+      l = n(702),
+      c = n(1335);
     (Section.propTypes = {
       section: i.a.object.isRequired,
       depth: i.a.number.isRequired,
@@ -93985,9 +93968,9 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(1279),
+      u = n(1278),
       s = n(45),
-      l = n(1323);
+      l = n(1322);
     (Examples.propTypes = {
       examples: i.a.array.isRequired,
       name: i.a.string.isRequired,
@@ -93996,7 +93979,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1280);
+    var r = n(1279);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -94009,10 +93992,10 @@ object-assign
       i = n.n(a),
       u = n(371),
       s = n.n(u),
-      l = n(1281),
+      l = n(1280),
       c = n(364),
       d = n(370),
-      p = n(1322),
+      p = n(1321),
       f = n(352),
       h = (function() {
         function defineProperties(e, t) {
@@ -94178,7 +94161,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1282);
+    var r = n(1281);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -94222,9 +94205,9 @@ object-assign
       s = n.n(u),
       l = n(214),
       c = n.n(l),
-      d = n(1283),
-      p = (n.n(d), n(1287)),
-      f = n(1289),
+      d = n(1282),
+      p = (n.n(d), n(1286)),
+      f = n(1288),
       h = n.n(f),
       m = (function() {
         function defineProperties(e, t) {
@@ -94421,7 +94404,7 @@ object-assign
     (function(e) {
       var r;
       !(function(e, r) {
-        r(t, n(1284), n(1285));
+        r(t, n(1283), n(1284));
       })(0, function(t, o, a) {
         'use strict';
         function __commonjs(e, t) {
@@ -103678,7 +103661,7 @@ object-assign
       function getSemis(e) {
         return new Array(e.split('\n').length).join(';');
       }
-      var r = n(1286);
+      var r = n(1285);
       Chunk.prototype = {
         append: function append(e) {
           this.outro += e;
@@ -104389,7 +104372,7 @@ object-assign
       }),
         (MagicString.Bundle = Bundle),
         (e.exports = MagicString);
-    }.call(t, n(680).Buffer));
+    }.call(t, n(679).Buffer));
   },
   function(e, t, n) {
     'use strict';
@@ -104435,7 +104418,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1288);
+    var r = n(1287);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -104502,11 +104485,11 @@ object-assign
       o = _interopRequireDefault(n(0)),
       a = (_interopRequireDefault(n(1)), n(113)),
       i = n(23),
-      u = n(1290),
-      s = _interopRequireDefault(n(1294)),
+      u = n(1289),
+      s = _interopRequireDefault(n(1293)),
       l = _interopRequireDefault(n(2)),
       c = _interopRequireDefault(n(4)),
-      d = _interopRequireDefault(n(1320)),
+      d = _interopRequireDefault(n(1319)),
       p = (0, u.createMemoryHistory)('/'),
       f = l.default.div.withConfig({ displayName: 'Wrapper__Container' })(
         ['position:relative;margin:0;background:', ';color:', ';'],
@@ -104619,15 +104602,15 @@ object-assign
   function(e, t, n) {
     'use strict';
     Object.defineProperty(t, '__esModule', { value: !0 });
-    var r = n(1291);
+    var r = n(1290);
     n.d(t, 'createBrowserHistory', function() {
       return r.a;
     });
-    var o = n(1292);
+    var o = n(1291);
     n.d(t, 'createHashHistory', function() {
       return o.a;
     });
-    var a = n(1293);
+    var a = n(1292);
     n.d(t, 'createMemoryHistory', function() {
       return a.a;
     });
@@ -104655,7 +104638,7 @@ object-assign
       u = n(190),
       s = n(109),
       l = n(369),
-      c = n(705),
+      c = n(704),
       d =
         'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
           ? function(e) {
@@ -104880,7 +104863,7 @@ object-assign
       u = n(190),
       s = n(109),
       l = n(369),
-      c = n(705),
+      c = n(704),
       d =
         Object.assign ||
         function(e) {
@@ -105234,10 +105217,10 @@ object-assign
         };
       })(),
       o = _interopRequireDefault(n(0)),
-      a = n(1295),
+      a = n(1294),
       i = _interopRequireDefault(n(10)),
       u = n(1),
-      s = n(1318),
+      s = n(1317),
       l = (function(e) {
         function XRay() {
           !(function _classCallCheck(e, t) {
@@ -105951,11 +105934,11 @@ object-assign
           : '';
       });
     var r = _interopRequireDefault(n(10)),
-      o = n(1296),
-      a = n(706),
-      i = _interopRequireDefault(n(1299)),
-      u = n(1300),
-      s = _interopRequireDefault(n(1317)),
+      o = n(1295),
+      a = n(705),
+      i = _interopRequireDefault(n(1298)),
+      u = n(1299),
+      s = _interopRequireDefault(n(1316)),
       l = (t.styleSheet = new o.StyleSheet());
     l.inject();
     var c = (t.plugins = l.plugins = new u.PluginSet([
@@ -106286,7 +106269,7 @@ object-assign
       return e && e.__esModule ? e : { default: e };
     }
     Object.defineProperty(t, '__esModule', { value: !0 });
-    var r = _interopRequireDefault(n(1298)),
+    var r = _interopRequireDefault(n(1297)),
       o = (_interopRequireDefault(n(8)), r.default.isUnitlessNumber);
     t.default = function dangerousStyleValue(e, t, n) {
       if (null == t || 'boolean' == typeof t || '' === t) return '';
@@ -106513,8 +106496,8 @@ object-assign
         return (0, o.default)({}, e, { style: (0, i.default)(r({}, e.style)) });
       });
     var o = _interopRequireDefault(n(10)),
-      a = n(706),
-      i = _interopRequireDefault(n(1301));
+      a = n(705),
+      i = _interopRequireDefault(n(1300));
     (0, o.default)(PluginSet.prototype, {
       add: function add() {
         for (
@@ -106567,19 +106550,19 @@ object-assign
         }
         return e;
       });
-    var r = _interopRequireDefault(n(1302)),
-      o = _interopRequireDefault(n(1303)),
-      a = _interopRequireDefault(n(1304)),
-      i = _interopRequireDefault(n(1305)),
-      u = _interopRequireDefault(n(1306)),
-      s = _interopRequireDefault(n(1307)),
-      l = _interopRequireDefault(n(1308)),
-      c = _interopRequireDefault(n(1309)),
-      d = _interopRequireDefault(n(1310)),
-      p = _interopRequireDefault(n(1311)),
-      f = _interopRequireDefault(n(1312)),
-      h = _interopRequireDefault(n(1313)),
-      m = _interopRequireDefault(n(1314)),
+    var r = _interopRequireDefault(n(1301)),
+      o = _interopRequireDefault(n(1302)),
+      a = _interopRequireDefault(n(1303)),
+      i = _interopRequireDefault(n(1304)),
+      u = _interopRequireDefault(n(1305)),
+      s = _interopRequireDefault(n(1306)),
+      l = _interopRequireDefault(n(1307)),
+      c = _interopRequireDefault(n(1308)),
+      d = _interopRequireDefault(n(1309)),
+      p = _interopRequireDefault(n(1310)),
+      f = _interopRequireDefault(n(1311)),
+      h = _interopRequireDefault(n(1312)),
+      m = _interopRequireDefault(n(1313)),
       g = [
         u.default,
         i.default,
@@ -106742,7 +106725,7 @@ object-assign
       });
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(707));
+    })(n(706));
     e.exports = t.default;
   },
   function(e, t, n) {
@@ -106975,9 +106958,9 @@ object-assign
               l);
         }
       });
-    var r = _interopRequireDefault(n(1315)),
+    var r = _interopRequireDefault(n(1314)),
       o = _interopRequireDefault(n(110)),
-      a = _interopRequireDefault(n(707)),
+      a = _interopRequireDefault(n(706)),
       i = {
         transition: !0,
         transitionProperty: !0,
@@ -106997,7 +106980,7 @@ object-assign
       });
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(1316));
+    })(n(1315));
     e.exports = t.default;
   },
   function(e, t, n) {
@@ -107066,7 +107049,7 @@ object-assign
       (t.alpha = t.gradient = void 0);
     var r = (function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
-    })(n(1319));
+    })(n(1318));
     (t.gradient = function gradient() {
       var e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0,
@@ -110272,7 +110255,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1325);
+    var r = n(1324);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -110299,8 +110282,8 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(1326),
-      s = n(1335);
+      u = n(1325),
+      s = n(1334);
     Components.propTypes = {
       components: i.a.array.isRequired,
       depth: i.a.number.isRequired,
@@ -110308,7 +110291,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1327);
+    var r = n(1326);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -110319,12 +110302,12 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(704),
-      s = n(708),
+      u = n(703),
+      s = n(707),
       l = n(367),
       c = n(45),
       d = n(370),
-      p = n(1330),
+      p = n(1329),
       f = n(352),
       h =
         Object.assign ||
@@ -110516,7 +110499,7 @@ object-assign
       a = n(1),
       i = n.n(a),
       u = n(370),
-      s = n(1329),
+      s = n(1328),
       l = n(189),
       c =
         Object.assign ||
@@ -110649,7 +110632,7 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(1331),
+      u = n(1330),
       s = n(12);
     (ReactComponentRenderer.propTypes = {
       classes: i.a.object.isRequired,
@@ -110678,7 +110661,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1332);
+    var r = n(1331);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -110710,11 +110693,11 @@ object-assign
       o = n.n(r),
       a = n(1),
       i = n.n(a),
-      u = n(1333),
+      u = n(1332),
       s = n.n(u),
-      l = n(1334),
+      l = n(1333),
       c = n.n(l),
-      d = n(701),
+      d = n(700),
       p = n(12);
     (PathlineRenderer.propTypes = {
       classes: i.a.object.isRequired,
@@ -110830,7 +110813,7 @@ object-assign
       a = n(1),
       i = n.n(a),
       u = n(12),
-      s = n(708);
+      s = n(707);
     (SectionRenderer.propTypes = {
       classes: i.a.object.isRequired,
       name: i.a.string,
@@ -110867,7 +110850,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1339);
+    var r = n(1338);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -110900,7 +110883,7 @@ object-assign
       i = n.n(a),
       u = n(45),
       s = n(12),
-      l = n(709);
+      l = n(708);
     n.n(l);
     (WelcomeRenderer.propTypes = {
       classes: i.a.object.isRequired,
@@ -110915,7 +110898,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    var r = n(1341);
+    var r = n(1340);
     n.d(t, 'a', function() {
       return r.a;
     });
@@ -110993,7 +110976,7 @@ object-assign
   },
   function(e, t, n) {
     'use strict';
-    n(354), n(1343);
+    n(354), n(1342);
   },
   function(e, t, n) {
     'use strict';
@@ -111024,7 +111007,7 @@ object-assign
           name: 'Introduction',
           components: [],
           sections: [],
-          content: n(1345),
+          content: n(1344),
         },
         {
           name: 'Design',
@@ -111034,16 +111017,16 @@ object-assign
               name: 'Animation',
               components: [],
               sections: [],
-              content: n(1346),
+              content: n(1345),
             },
-            { name: 'Brand', components: [], sections: [], content: n(1347) },
-            { name: 'Color', components: [], sections: [], content: n(1348) },
-            { name: 'Layout', components: [], sections: [], content: n(1349) },
+            { name: 'Brand', components: [], sections: [], content: n(1346) },
+            { name: 'Color', components: [], sections: [], content: n(1347) },
+            { name: 'Layout', components: [], sections: [], content: n(1348) },
             {
               name: 'Typography',
               components: [],
               sections: [],
-              content: n(1350),
+              content: n(1349),
             },
           ],
           content: void 0,
@@ -111059,7 +111042,7 @@ object-assign
                   filepath: 'src\\components\\Accordion\\Accordion.js',
                   pathLine: 'src\\components\\Accordion\\Accordion.js',
                   module: n(392),
-                  props: n(1351),
+                  props: n(1350),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111067,7 +111050,7 @@ object-assign
                   filepath: 'src\\components\\Accordion\\AccordionGroup.js',
                   pathLine: 'src\\components\\Accordion\\AccordionGroup.js',
                   module: n(118),
-                  props: n(1353),
+                  props: n(1352),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111077,7 +111060,7 @@ object-assign
                   pathLine:
                     'src\\components\\Accordion\\styles\\AccordionArrow.js',
                   module: n(120),
-                  props: n(1355),
+                  props: n(1354),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111087,7 +111070,7 @@ object-assign
                   pathLine:
                     'src\\components\\Accordion\\styles\\AccordionBorder.js',
                   module: n(75),
-                  props: n(1356),
+                  props: n(1355),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111097,7 +111080,7 @@ object-assign
                   pathLine:
                     'src\\components\\Accordion\\styles\\AccordionContent.js',
                   module: n(121),
-                  props: n(1357),
+                  props: n(1356),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111107,7 +111090,7 @@ object-assign
                   pathLine:
                     'src\\components\\Accordion\\styles\\AccordionGroupContainer.js',
                   module: n(119),
-                  props: n(1358),
+                  props: n(1357),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111117,7 +111100,7 @@ object-assign
                   pathLine:
                     'src\\components\\Accordion\\styles\\AccordionLabel.js',
                   module: n(122),
-                  props: n(1359),
+                  props: n(1358),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111127,7 +111110,7 @@ object-assign
                   pathLine:
                     'src\\components\\Accordion\\styles\\AccordionLabelText.js',
                   module: n(123),
-                  props: n(1360),
+                  props: n(1359),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111135,7 +111118,7 @@ object-assign
                   filepath: 'src\\components\\Alert\\Alert.js',
                   pathLine: 'src\\components\\Alert\\Alert.js',
                   module: n(394),
-                  props: n(1361),
+                  props: n(1360),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111143,7 +111126,7 @@ object-assign
                   filepath: 'src\\components\\Alert\\styles\\AlertBorder.js',
                   pathLine: 'src\\components\\Alert\\styles\\AlertBorder.js',
                   module: n(77),
-                  props: n(1365),
+                  props: n(1364),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111151,7 +111134,7 @@ object-assign
                   filepath: 'src\\components\\Alert\\styles\\AlertIcon.js',
                   pathLine: 'src\\components\\Alert\\styles\\AlertIcon.js',
                   module: n(124),
-                  props: n(1366),
+                  props: n(1365),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111159,7 +111142,7 @@ object-assign
                   filepath: 'src\\components\\Alert\\styles\\AlertText.js',
                   pathLine: 'src\\components\\Alert\\styles\\AlertText.js',
                   module: n(197),
-                  props: n(1367),
+                  props: n(1366),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111167,7 +111150,7 @@ object-assign
                   filepath: 'src\\components\\Anchor\\Anchor.js',
                   pathLine: 'src\\components\\Anchor\\Anchor.js',
                   module: n(395),
-                  props: n(1368),
+                  props: n(1367),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111177,7 +111160,7 @@ object-assign
                   pathLine:
                     'src\\components\\Anchor\\styles\\ExternalContentAnchor.js',
                   module: n(126),
-                  props: n(1370),
+                  props: n(1369),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111187,7 +111170,7 @@ object-assign
                   pathLine:
                     'src\\components\\Anchor\\styles\\ExternalIconAnchor.js',
                   module: n(127),
-                  props: n(1371),
+                  props: n(1370),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111197,7 +111180,7 @@ object-assign
                   pathLine:
                     'src\\components\\Anchor\\styles\\ExternalTextAnchor.js',
                   module: n(80),
-                  props: n(1372),
+                  props: n(1371),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111207,7 +111190,7 @@ object-assign
                   pathLine:
                     'src\\components\\Anchor\\styles\\InternalContentAnchor.js',
                   module: n(202),
-                  props: n(1373),
+                  props: n(1372),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111217,7 +111200,7 @@ object-assign
                   pathLine:
                     'src\\components\\Anchor\\styles\\InternalIconAnchor.js',
                   module: n(204),
-                  props: n(1374),
+                  props: n(1373),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111227,7 +111210,7 @@ object-assign
                   pathLine:
                     'src\\components\\Anchor\\styles\\InternalTextAnchor.js',
                   module: n(203),
-                  props: n(1375),
+                  props: n(1374),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111237,7 +111220,7 @@ object-assign
                   pathLine:
                     'src\\components\\BandwidthProvider\\BandwidthProvider.js',
                   module: n(401),
-                  props: n(1376),
+                  props: n(1375),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111247,7 +111230,7 @@ object-assign
                   pathLine:
                     'src\\components\\BandwidthProvider\\styles\\StyleRoot.js',
                   module: n(205),
-                  props: n(1378),
+                  props: n(1377),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111257,7 +111240,7 @@ object-assign
                   pathLine:
                     'src\\components\\BandwidthThemeProvider\\BandwidthThemeProvider.js',
                   module: n(403),
-                  props: n(1379),
+                  props: n(1378),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111265,7 +111248,7 @@ object-assign
                   filepath: 'src\\components\\Breadcrumb\\Breadcrumb.js',
                   pathLine: 'src\\components\\Breadcrumb\\Breadcrumb.js',
                   module: n(228),
-                  props: n(1381),
+                  props: n(1380),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111273,7 +111256,7 @@ object-assign
                   filepath: 'src\\components\\Breadcrumb\\Breadcrumbs.js',
                   pathLine: 'src\\components\\Breadcrumb\\Breadcrumbs.js',
                   module: n(229),
-                  props: n(1383),
+                  props: n(1382),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111281,7 +111264,7 @@ object-assign
                   filepath: 'src\\components\\BulkSelect\\BulkSelect.js',
                   pathLine: 'src\\components\\BulkSelect\\BulkSelect.js',
                   module: n(433),
-                  props: n(1385),
+                  props: n(1384),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111291,7 +111274,7 @@ object-assign
                   pathLine:
                     'src\\components\\BulkSelect\\styles\\BulkSelectBorder.js',
                   module: n(231),
-                  props: n(1387),
+                  props: n(1386),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111301,7 +111284,7 @@ object-assign
                   pathLine:
                     'src\\components\\BulkSelect\\styles\\BulkSelectDivider.js',
                   module: n(232),
-                  props: n(1388),
+                  props: n(1387),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111311,7 +111294,7 @@ object-assign
                   pathLine:
                     'src\\components\\BulkSelect\\styles\\BulkSelectItem.js',
                   module: n(230),
-                  props: n(1389),
+                  props: n(1388),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111321,7 +111304,7 @@ object-assign
                   pathLine:
                     'src\\components\\BulkSelect\\styles\\BulkSelectItemContainer.js',
                   module: n(233),
-                  props: n(1390),
+                  props: n(1389),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111329,7 +111312,7 @@ object-assign
                   filepath: 'src\\components\\Button\\Button.js',
                   pathLine: 'src\\components\\Button\\Button.js',
                   module: n(234),
-                  props: n(1391),
+                  props: n(1390),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111337,7 +111320,7 @@ object-assign
                   filepath: 'src\\components\\Button\\SubmitButton.js',
                   pathLine: 'src\\components\\Button\\SubmitButton.js',
                   module: n(235),
-                  props: n(1393),
+                  props: n(1392),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111345,7 +111328,7 @@ object-assign
                   filepath: 'src\\components\\Callout\\Callout.js',
                   pathLine: 'src\\components\\Callout\\Callout.js',
                   module: n(435),
-                  props: n(1395),
+                  props: n(1394),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111353,7 +111336,7 @@ object-assign
                   filepath: 'src\\components\\Callout\\styles\\CalloutTag.js',
                   pathLine: 'src\\components\\Callout\\styles\\CalloutTag.js',
                   module: n(238),
-                  props: n(1397),
+                  props: n(1396),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111361,7 +111344,7 @@ object-assign
                   filepath: 'src\\components\\Checkbox\\Checkbox.js',
                   pathLine: 'src\\components\\Checkbox\\Checkbox.js',
                   module: n(436),
-                  props: n(1398),
+                  props: n(1397),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111371,7 +111354,7 @@ object-assign
                   pathLine:
                     'src\\components\\Checkbox\\styles\\CheckboxContainer.js',
                   module: n(241),
-                  props: n(1400),
+                  props: n(1399),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111381,7 +111364,7 @@ object-assign
                   pathLine:
                     'src\\components\\Checkbox\\styles\\CheckboxInput.js',
                   module: n(140),
-                  props: n(1401),
+                  props: n(1400),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111391,7 +111374,7 @@ object-assign
                   pathLine:
                     'src\\components\\Checkbox\\styles\\CheckboxLabel.js',
                   module: n(240),
-                  props: n(1402),
+                  props: n(1401),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111399,7 +111382,7 @@ object-assign
                   filepath: 'src\\components\\Code\\Code.js',
                   pathLine: 'src\\components\\Code\\Code.js',
                   module: n(438),
-                  props: n(1403),
+                  props: n(1402),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111407,15 +111390,15 @@ object-assign
                   filepath: 'src\\components\\Code\\CodeBlock.js',
                   pathLine: 'src\\components\\Code\\CodeBlock.js',
                   module: n(141),
-                  props: n(1405),
+                  props: n(1404),
                   hasExamples: !0,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\DatePicker\\DatePicker.js',
                   pathLine: 'src\\components\\DatePicker\\DatePicker.js',
-                  module: n(1407),
-                  props: n(1408),
+                  module: n(1406),
+                  props: n(1407),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111423,7 +111406,7 @@ object-assign
                   filepath: 'src\\components\\DatePicker\\DateRangePicker.js',
                   pathLine: 'src\\components\\DatePicker\\DateRangePicker.js',
                   module: n(242),
-                  props: n(1410),
+                  props: n(1409),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111433,7 +111416,7 @@ object-assign
                   pathLine:
                     'src\\components\\DatePicker\\styles\\DatePickerWrapper.js',
                   module: n(266),
-                  props: n(1412),
+                  props: n(1411),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111443,7 +111426,7 @@ object-assign
                   pathLine:
                     'src\\components\\DatePicker\\styles\\DateRangePickerLineSeparator.js',
                   module: n(265),
-                  props: n(1413),
+                  props: n(1412),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111453,7 +111436,7 @@ object-assign
                   pathLine:
                     'src\\components\\DatePicker\\styles\\DateRangePickerWrapper.js',
                   module: n(264),
-                  props: n(1414),
+                  props: n(1413),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111461,7 +111444,7 @@ object-assign
                   filepath: 'src\\components\\DragGroup\\DragGroup.js',
                   pathLine: 'src\\components\\DragGroup\\DragGroup.js',
                   module: n(624),
-                  props: n(1415),
+                  props: n(1414),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111469,7 +111452,7 @@ object-assign
                   filepath: 'src\\components\\DragGroup\\DragGroupDropArea.js',
                   pathLine: 'src\\components\\DragGroup\\DragGroupDropArea.js',
                   module: n(152),
-                  props: n(1417),
+                  props: n(1416),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111477,7 +111460,7 @@ object-assign
                   filepath: 'src\\components\\DragGroup\\DragGroupItem.js',
                   pathLine: 'src\\components\\DragGroup\\DragGroupItem.js',
                   module: n(154),
-                  props: n(1418),
+                  props: n(1417),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111487,7 +111470,7 @@ object-assign
                   pathLine:
                     'src\\components\\DragGroup\\styles\\DragGroupContainer.js',
                   module: n(267),
-                  props: n(1419),
+                  props: n(1418),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111497,7 +111480,7 @@ object-assign
                   pathLine:
                     'src\\components\\DragGroup\\styles\\DragGroupDropAreaContent.js',
                   module: n(269),
-                  props: n(1420),
+                  props: n(1419),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111507,17 +111490,7 @@ object-assign
                   pathLine:
                     'src\\components\\DragGroup\\styles\\DragGroupItemsContainer.js',
                   module: n(268),
-                  props: n(1421),
-                  hasExamples: !1,
-                  metadata: {},
-                },
-                {
-                  filepath:
-                    'src\\components\\DragGroup\\styles\\DragGroupsContainer.js',
-                  pathLine:
-                    'src\\components\\DragGroup\\styles\\DragGroupsContainer.js',
-                  module: n(627),
-                  props: n(1422),
+                  props: n(1420),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111527,7 +111500,7 @@ object-assign
                   pathLine:
                     'src\\components\\DragGroup\\styles\\DragGroupSeparator\\DragGroupSeparatorContainer.js',
                   module: n(153),
-                  props: n(1423),
+                  props: n(1421),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111537,7 +111510,7 @@ object-assign
                   pathLine:
                     'src\\components\\DragGroup\\styles\\DragGroupSeparator\\DragGroupSeparatorContent.js',
                   module: n(270),
-                  props: n(1424),
+                  props: n(1422),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111547,7 +111520,7 @@ object-assign
                   pathLine:
                     'src\\components\\DragGroup\\styles\\DragGroupTitle\\DragGroupTitleContainer.js',
                   module: n(271),
-                  props: n(1425),
+                  props: n(1423),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111557,7 +111530,7 @@ object-assign
                   pathLine:
                     'src\\components\\DragGroup\\styles\\DragGroupTitle\\DragGroupTitleContent.js',
                   module: n(272),
-                  props: n(1426),
+                  props: n(1424),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111567,7 +111540,7 @@ object-assign
                   pathLine:
                     'src\\components\\DragGroup\\styles\\DragItemContainer.js',
                   module: n(273),
-                  props: n(1427),
+                  props: n(1425),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111575,7 +111548,7 @@ object-assign
                   filepath: 'src\\components\\DragLayer\\DragLayer.js',
                   pathLine: 'src\\components\\DragLayer\\DragLayer.js',
                   module: n(432),
-                  props: n(1428),
+                  props: n(1426),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111585,7 +111558,7 @@ object-assign
                   pathLine:
                     'src\\components\\DragLayer\\styles\\DragItemPreviewContainer.js',
                   module: n(226),
-                  props: n(1429),
+                  props: n(1427),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111595,15 +111568,15 @@ object-assign
                   pathLine:
                     'src\\components\\DragLayer\\styles\\DragLayerOverlay.js',
                   module: n(227),
-                  props: n(1430),
+                  props: n(1428),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\FileLoader\\FileLoader.js',
                   pathLine: 'src\\components\\FileLoader\\FileLoader.js',
-                  module: n(629),
-                  props: n(1431),
+                  module: n(628),
+                  props: n(1429),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111613,7 +111586,7 @@ object-assign
                   pathLine:
                     'src\\components\\FileLoader\\styles\\FileLoaderDropArea.js',
                   module: n(274),
-                  props: n(1433),
+                  props: n(1431),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111623,15 +111596,15 @@ object-assign
                   pathLine:
                     'src\\components\\FileLoader\\styles\\FileLoaderPreview.js',
                   module: n(275),
-                  props: n(1434),
+                  props: n(1432),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Form\\Form.js',
                   pathLine: 'src\\components\\Form\\Form.js',
-                  module: n(630),
-                  props: n(1435),
+                  module: n(629),
+                  props: n(1433),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111639,7 +111612,7 @@ object-assign
                   filepath: 'src\\components\\Form\\FormBox.js',
                   pathLine: 'src\\components\\Form\\FormBox.js',
                   module: n(157),
-                  props: n(1437),
+                  props: n(1435),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111647,15 +111620,15 @@ object-assign
                   filepath: 'src\\components\\Form\\FormColumn.js',
                   pathLine: 'src\\components\\Form\\FormColumn.js',
                   module: n(156),
-                  props: n(1439),
+                  props: n(1437),
                   hasExamples: !0,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Gutter\\Gutter.js',
                   pathLine: 'src\\components\\Gutter\\Gutter.js',
-                  module: n(631),
-                  props: n(1441),
+                  module: n(630),
+                  props: n(1439),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111663,7 +111636,7 @@ object-assign
                   filepath: 'src\\components\\H\\H1.js',
                   pathLine: 'src\\components\\H\\H1.js',
                   module: n(277),
-                  props: n(1443),
+                  props: n(1441),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111671,7 +111644,7 @@ object-assign
                   filepath: 'src\\components\\H\\H2.js',
                   pathLine: 'src\\components\\H\\H2.js',
                   module: n(158),
-                  props: n(1445),
+                  props: n(1443),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111679,7 +111652,7 @@ object-assign
                   filepath: 'src\\components\\H\\H3.js',
                   pathLine: 'src\\components\\H\\H3.js',
                   module: n(159),
-                  props: n(1447),
+                  props: n(1445),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111687,7 +111660,7 @@ object-assign
                   filepath: 'src\\components\\H\\H4.js',
                   pathLine: 'src\\components\\H\\H4.js',
                   module: n(160),
-                  props: n(1449),
+                  props: n(1447),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111695,15 +111668,15 @@ object-assign
                   filepath: 'src\\components\\H\\H5.js',
                   pathLine: 'src\\components\\H\\H5.js',
                   module: n(161),
-                  props: n(1451),
+                  props: n(1449),
                   hasExamples: !0,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\HelpText\\HelpText.js',
                   pathLine: 'src\\components\\HelpText\\HelpText.js',
-                  module: n(633),
-                  props: n(1453),
+                  module: n(632),
+                  props: n(1451),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111711,15 +111684,15 @@ object-assign
                   filepath: 'src\\components\\Icon\\Icon.js',
                   pathLine: 'src\\components\\Icon\\Icon.js',
                   module: n(391),
-                  props: n(1455),
+                  props: n(1453),
                   hasExamples: !0,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Input\\Input.js',
                   pathLine: 'src\\components\\Input\\Input.js',
-                  module: n(634),
-                  props: n(1457),
+                  module: n(633),
+                  props: n(1455),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111729,7 +111702,7 @@ object-assign
                   pathLine:
                     'src\\components\\Input\\styles\\InputRevealPasswordWrapper.js',
                   module: n(278),
-                  props: n(1459),
+                  props: n(1457),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111737,7 +111710,7 @@ object-assign
                   filepath: 'src\\components\\Input\\styles\\InputStyles.js',
                   pathLine: 'src\\components\\Input\\styles\\InputStyles.js',
                   module: n(155),
-                  props: n(1460),
+                  props: n(1458),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111745,7 +111718,7 @@ object-assign
                   filepath: 'src\\components\\Label\\Label.js',
                   pathLine: 'src\\components\\Label\\Label.js',
                   module: n(437),
-                  props: n(1461),
+                  props: n(1459),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111753,7 +111726,7 @@ object-assign
                   filepath: 'src\\components\\List\\ListItem.js',
                   pathLine: 'src\\components\\List\\ListItem.js',
                   module: n(99),
-                  props: n(1463),
+                  props: n(1461),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111761,7 +111734,7 @@ object-assign
                   filepath: 'src\\components\\List\\OrderedList.js',
                   pathLine: 'src\\components\\List\\OrderedList.js',
                   module: n(162),
-                  props: n(1465),
+                  props: n(1463),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111769,7 +111742,7 @@ object-assign
                   filepath: 'src\\components\\List\\UnorderedList.js',
                   pathLine: 'src\\components\\List\\UnorderedList.js',
                   module: n(279),
-                  props: n(1467),
+                  props: n(1465),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111777,7 +111750,7 @@ object-assign
                   filepath: 'src\\components\\Loader\\Loader.js',
                   pathLine: 'src\\components\\Loader\\Loader.js',
                   module: n(434),
-                  props: n(1469),
+                  props: n(1467),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111787,7 +111760,7 @@ object-assign
                   pathLine:
                     'src\\components\\Loader\\styles\\LoaderContainer.js',
                   module: n(237),
-                  props: n(1471),
+                  props: n(1469),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111795,15 +111768,15 @@ object-assign
                   filepath: 'src\\components\\Loader\\styles\\LoaderRing.js',
                   pathLine: 'src\\components\\Loader\\styles\\LoaderRing.js',
                   module: n(236),
-                  props: n(1472),
+                  props: n(1470),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Logo\\Logo.js',
                   pathLine: 'src\\components\\Logo\\Logo.js',
-                  module: n(636),
-                  props: n(1473),
+                  module: n(635),
+                  props: n(1471),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111811,23 +111784,23 @@ object-assign
                   filepath: 'src\\components\\Logo\\styles\\LogoImage.js',
                   pathLine: 'src\\components\\Logo\\styles\\LogoImage.js',
                   module: n(280),
-                  props: n(1475),
+                  props: n(1473),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\MethodTag\\MethodTag.js',
                   pathLine: 'src\\components\\MethodTag\\MethodTag.js',
-                  module: n(637),
-                  props: n(1476),
+                  module: n(636),
+                  props: n(1474),
                   hasExamples: !0,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Modal\\Modal.js',
                   pathLine: 'src\\components\\Modal\\Modal.js',
-                  module: n(638),
-                  props: n(1478),
+                  module: n(637),
+                  props: n(1476),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111837,7 +111810,7 @@ object-assign
                   pathLine:
                     'src\\components\\Modal\\styles\\ModalActionContent.js',
                   module: n(281),
-                  props: n(1480),
+                  props: n(1478),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111845,7 +111818,7 @@ object-assign
                   filepath: 'src\\components\\Modal\\styles\\ModalBlocker.js',
                   pathLine: 'src\\components\\Modal\\styles\\ModalBlocker.js',
                   module: n(282),
-                  props: n(1481),
+                  props: n(1479),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111853,7 +111826,7 @@ object-assign
                   filepath: 'src\\components\\Modal\\styles\\ModalContent.js',
                   pathLine: 'src\\components\\Modal\\styles\\ModalContent.js',
                   module: n(283),
-                  props: n(1482),
+                  props: n(1480),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111861,7 +111834,7 @@ object-assign
                   filepath: 'src\\components\\Modal\\styles\\ModalTitle.js',
                   pathLine: 'src\\components\\Modal\\styles\\ModalTitle.js',
                   module: n(284),
-                  props: n(1483),
+                  props: n(1481),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111869,15 +111842,15 @@ object-assign
                   filepath: 'src\\components\\Modal\\styles\\ModalWindow.js',
                   pathLine: 'src\\components\\Modal\\styles\\ModalWindow.js',
                   module: n(286),
-                  props: n(1484),
+                  props: n(1482),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Money\\Money.js',
                   pathLine: 'src\\components\\Money\\Money.js',
-                  module: n(641),
-                  props: n(1485),
+                  module: n(640),
+                  props: n(1483),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111885,15 +111858,15 @@ object-assign
                   filepath: 'src\\components\\Money\\styles\\MoneyStyles.js',
                   pathLine: 'src\\components\\Money\\styles\\MoneyStyles.js',
                   module: n(287),
-                  props: n(1487),
+                  props: n(1485),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Navigation\\Navigation.js',
                   pathLine: 'src\\components\\Navigation\\Navigation.js',
-                  module: n(643),
-                  props: n(1488),
+                  module: n(642),
+                  props: n(1486),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111901,7 +111874,7 @@ object-assign
                   filepath: 'src\\components\\Navigation\\NavigationTitle.js',
                   pathLine: 'src\\components\\Navigation\\NavigationTitle.js',
                   module: n(288),
-                  props: n(1490),
+                  props: n(1488),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111911,7 +111884,7 @@ object-assign
                   pathLine:
                     'src\\components\\Navigation\\styles\\NavigationBar.js',
                   module: n(52),
-                  props: n(1491),
+                  props: n(1489),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111921,7 +111894,7 @@ object-assign
                   pathLine:
                     'src\\components\\Navigation\\styles\\NavigationHeading.js',
                   module: n(100),
-                  props: n(1492),
+                  props: n(1490),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111931,7 +111904,7 @@ object-assign
                   pathLine:
                     'src\\components\\Navigation\\styles\\NavigationItem.js',
                   module: n(101),
-                  props: n(1493),
+                  props: n(1491),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111941,7 +111914,7 @@ object-assign
                   pathLine:
                     'src\\components\\Navigation\\styles\\NavigationItemList.js',
                   module: n(102),
-                  props: n(1494),
+                  props: n(1492),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111951,7 +111924,7 @@ object-assign
                   pathLine:
                     'src\\components\\Navigation\\styles\\NavigationItemListStack.js',
                   module: n(103),
-                  props: n(1495),
+                  props: n(1493),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111961,23 +111934,23 @@ object-assign
                   pathLine:
                     'src\\components\\Navigation\\styles\\NavigationLogoPairWrapper.js',
                   module: n(104),
-                  props: n(1496),
+                  props: n(1494),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\NewBadge\\NewBadge.js',
                   pathLine: 'src\\components\\NewBadge\\NewBadge.js',
-                  module: n(645),
-                  props: n(1497),
+                  module: n(644),
+                  props: n(1495),
                   hasExamples: !0,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Note\\Note.js',
                   pathLine: 'src\\components\\Note\\Note.js',
-                  module: n(646),
-                  props: n(1499),
+                  module: n(645),
+                  props: n(1497),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -111985,7 +111958,7 @@ object-assign
                   filepath: 'src\\components\\Note\\styles\\NoteContainer.js',
                   pathLine: 'src\\components\\Note\\styles\\NoteContainer.js',
                   module: n(289),
-                  props: n(1501),
+                  props: n(1499),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -111993,15 +111966,15 @@ object-assign
                   filepath: 'src\\components\\Note\\styles\\NoteCorner.js',
                   pathLine: 'src\\components\\Note\\styles\\NoteCorner.js',
                   module: n(290),
-                  props: n(1502),
+                  props: n(1500),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Pagination\\Pagination.js',
                   pathLine: 'src\\components\\Pagination\\Pagination.js',
-                  module: n(647),
-                  props: n(1503),
+                  module: n(646),
+                  props: n(1501),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112011,7 +111984,7 @@ object-assign
                   pathLine:
                     'src\\components\\Pagination\\styles\\PaginationContainer.js',
                   module: n(291),
-                  props: n(1505),
+                  props: n(1503),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112021,7 +111994,7 @@ object-assign
                   pathLine:
                     'src\\components\\Pagination\\styles\\PaginationItem.js',
                   module: n(163),
-                  props: n(1506),
+                  props: n(1504),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112031,15 +112004,15 @@ object-assign
                   pathLine:
                     'src\\components\\Pagination\\styles\\PaginationItemPlaceholder.js',
                   module: n(292),
-                  props: n(1507),
+                  props: n(1505),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Radio\\Radio.js',
                   pathLine: 'src\\components\\Radio\\Radio.js',
-                  module: n(648),
-                  props: n(1508),
+                  module: n(647),
+                  props: n(1506),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112047,7 +112020,7 @@ object-assign
                   filepath: 'src\\components\\Radio\\styles\\RadioContainer.js',
                   pathLine: 'src\\components\\Radio\\styles\\RadioContainer.js',
                   module: n(293),
-                  props: n(1510),
+                  props: n(1508),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112055,7 +112028,7 @@ object-assign
                   filepath: 'src\\components\\Radio\\styles\\RadioInput.js',
                   pathLine: 'src\\components\\Radio\\styles\\RadioInput.js',
                   module: n(294),
-                  props: n(1511),
+                  props: n(1509),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112063,7 +112036,7 @@ object-assign
                   filepath: 'src\\components\\Radio\\styles\\RadioLabel.js',
                   pathLine: 'src\\components\\Radio\\styles\\RadioLabel.js',
                   module: n(295),
-                  props: n(1512),
+                  props: n(1510),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112071,15 +112044,15 @@ object-assign
                   filepath: 'src\\components\\RadioGroup\\RadioButton.js',
                   pathLine: 'src\\components\\RadioGroup\\RadioButton.js',
                   module: n(164),
-                  props: n(1513),
+                  props: n(1511),
                   hasExamples: !0,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\RadioGroup\\RadioGroup.js',
                   pathLine: 'src\\components\\RadioGroup\\RadioGroup.js',
-                  module: n(649),
-                  props: n(1515),
+                  module: n(648),
+                  props: n(1513),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112089,7 +112062,7 @@ object-assign
                   pathLine:
                     'src\\components\\RadioGroup\\styles\\RadioGroupButtonContainer.js',
                   module: n(297),
-                  props: n(1517),
+                  props: n(1515),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112099,7 +112072,7 @@ object-assign
                   pathLine:
                     'src\\components\\RadioGroup\\styles\\RadioGroupButtonContent.js',
                   module: n(298),
-                  props: n(1518),
+                  props: n(1516),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112109,7 +112082,7 @@ object-assign
                   pathLine:
                     'src\\components\\RadioGroup\\styles\\RadioGroupButtonInput.js',
                   module: n(165),
-                  props: n(1519),
+                  props: n(1517),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112119,7 +112092,7 @@ object-assign
                   pathLine:
                     'src\\components\\RadioGroup\\styles\\RadioGroupButtonLabel.js',
                   module: n(299),
-                  props: n(1520),
+                  props: n(1518),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112129,7 +112102,7 @@ object-assign
                   pathLine:
                     'src\\components\\RadioGroup\\styles\\RadioGroupButtonLabelText.js',
                   module: n(300),
-                  props: n(1521),
+                  props: n(1519),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112139,15 +112112,15 @@ object-assign
                   pathLine:
                     'src\\components\\RadioGroup\\styles\\RadioGroupContainer.js',
                   module: n(301),
-                  props: n(1522),
+                  props: n(1520),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\SearchBox\\SearchBox.js',
                   pathLine: 'src\\components\\SearchBox\\SearchBox.js',
-                  module: n(650),
-                  props: n(1523),
+                  module: n(649),
+                  props: n(1521),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112157,7 +112130,7 @@ object-assign
                   pathLine:
                     'src\\components\\SearchBox\\styles\\SearchBoxSearchButton.js',
                   module: n(307),
-                  props: n(1525),
+                  props: n(1523),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112167,7 +112140,7 @@ object-assign
                   pathLine:
                     'src\\components\\SearchBox\\styles\\SearchBoxSuggestionContainer.js',
                   module: n(302),
-                  props: n(1526),
+                  props: n(1524),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112177,7 +112150,7 @@ object-assign
                   pathLine:
                     'src\\components\\SearchBox\\styles\\SearchBoxSuggestionHighlightText.js',
                   module: n(303),
-                  props: n(1527),
+                  props: n(1525),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112187,7 +112160,7 @@ object-assign
                   pathLine:
                     'src\\components\\SearchBox\\styles\\SearchBoxSuggestionsList.js',
                   module: n(305),
-                  props: n(1528),
+                  props: n(1526),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112197,7 +112170,7 @@ object-assign
                   pathLine:
                     'src\\components\\SearchBox\\styles\\SearchBoxSuggestionsSectionTitle.js',
                   module: n(306),
-                  props: n(1529),
+                  props: n(1527),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112207,7 +112180,7 @@ object-assign
                   pathLine:
                     'src\\components\\SearchBox\\styles\\SearchBoxWrapper.js',
                   module: n(308),
-                  props: n(1530),
+                  props: n(1528),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112215,23 +112188,23 @@ object-assign
                   filepath: 'src\\components\\SearchBox\\Suggestion.js',
                   pathLine: 'src\\components\\SearchBox\\Suggestion.js',
                   module: n(166),
-                  props: n(1531),
+                  props: n(1529),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\SectionTitle\\SectionTitle.js',
                   pathLine: 'src\\components\\SectionTitle\\SectionTitle.js',
-                  module: n(639),
-                  props: n(1532),
+                  module: n(638),
+                  props: n(1530),
                   hasExamples: !0,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Select\\Select.js',
                   pathLine: 'src\\components\\Select\\Select.js',
-                  module: n(652),
-                  props: n(1534),
+                  module: n(651),
+                  props: n(1532),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112239,15 +112212,15 @@ object-assign
                   filepath: 'src\\components\\Select\\styles\\SelectWrapper.js',
                   pathLine: 'src\\components\\Select\\styles\\SelectWrapper.js',
                   module: n(309),
-                  props: n(1536),
+                  props: n(1534),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\SidebarList\\SidebarList.js',
                   pathLine: 'src\\components\\SidebarList\\SidebarList.js',
-                  module: n(655),
-                  props: n(1537),
+                  module: n(654),
+                  props: n(1535),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112255,7 +112228,7 @@ object-assign
                   filepath: 'src\\components\\SidebarList\\SidebarListItem.js',
                   pathLine: 'src\\components\\SidebarList\\SidebarListItem.js',
                   module: n(167),
-                  props: n(1539),
+                  props: n(1537),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112265,7 +112238,7 @@ object-assign
                   pathLine:
                     'src\\components\\SidebarList\\styles\\SidebarListContainer.js',
                   module: n(314),
-                  props: n(1540),
+                  props: n(1538),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112275,7 +112248,7 @@ object-assign
                   pathLine:
                     'src\\components\\SidebarList\\styles\\SidebarListItemContainer.js',
                   module: n(311),
-                  props: n(1541),
+                  props: n(1539),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112285,7 +112258,7 @@ object-assign
                   pathLine:
                     'src\\components\\SidebarList\\styles\\SidebarListItemDetails.js',
                   module: n(313),
-                  props: n(1542),
+                  props: n(1540),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112295,7 +112268,7 @@ object-assign
                   pathLine:
                     'src\\components\\SidebarList\\styles\\SidebarListItemLabel.js',
                   module: n(312),
-                  props: n(1543),
+                  props: n(1541),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112305,15 +112278,15 @@ object-assign
                   pathLine:
                     'src\\components\\SidebarList\\styles\\SidebarListShowMore.js',
                   module: n(310),
-                  props: n(1544),
+                  props: n(1542),
                   hasExamples: !0,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Spacing\\Spacing.js',
                   pathLine: 'src\\components\\Spacing\\Spacing.js',
-                  module: n(656),
-                  props: n(1546),
+                  module: n(655),
+                  props: n(1544),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112321,15 +112294,15 @@ object-assign
                   filepath: 'src\\components\\Steps\\Step.js',
                   pathLine: 'src\\components\\Steps\\Step.js',
                   module: n(316),
-                  props: n(1548),
+                  props: n(1546),
                   hasExamples: !0,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Steps\\Steps.js',
                   pathLine: 'src\\components\\Steps\\Steps.js',
-                  module: n(1550),
-                  props: n(1551),
+                  module: n(1548),
+                  props: n(1549),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112337,7 +112310,7 @@ object-assign
                   filepath: 'src\\components\\Steps\\styles\\StepContainer.js',
                   pathLine: 'src\\components\\Steps\\styles\\StepContainer.js',
                   module: n(105),
-                  props: n(1553),
+                  props: n(1551),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112345,7 +112318,7 @@ object-assign
                   filepath: 'src\\components\\Steps\\styles\\StepContent.js',
                   pathLine: 'src\\components\\Steps\\styles\\StepContent.js',
                   module: n(318),
-                  props: n(1554),
+                  props: n(1552),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112353,7 +112326,7 @@ object-assign
                   filepath: 'src\\components\\Steps\\styles\\StepList.js',
                   pathLine: 'src\\components\\Steps\\styles\\StepList.js',
                   module: n(319),
-                  props: n(1555),
+                  props: n(1553),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112361,7 +112334,7 @@ object-assign
                   filepath: 'src\\components\\Steps\\styles\\StepNumber.js',
                   pathLine: 'src\\components\\Steps\\styles\\StepNumber.js',
                   module: n(317),
-                  props: n(1556),
+                  props: n(1554),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112369,7 +112342,7 @@ object-assign
                   filepath: 'src\\components\\Table\\SimpleTable.js',
                   pathLine: 'src\\components\\Table\\SimpleTable.js',
                   module: n(173),
-                  props: n(1557),
+                  props: n(1555),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112377,7 +112350,7 @@ object-assign
                   filepath: 'src\\components\\Table\\styles\\TableBody.js',
                   pathLine: 'src\\components\\Table\\styles\\TableBody.js',
                   module: n(174),
-                  props: n(1559),
+                  props: n(1557),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112385,7 +112358,7 @@ object-assign
                   filepath: 'src\\components\\Table\\styles\\TableCell.js',
                   pathLine: 'src\\components\\Table\\styles\\TableCell.js',
                   module: n(169),
-                  props: n(1561),
+                  props: n(1559),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112395,7 +112368,7 @@ object-assign
                   pathLine:
                     'src\\components\\Table\\styles\\TableControlsContainer.js',
                   module: n(327),
-                  props: n(1563),
+                  props: n(1561),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112405,7 +112378,7 @@ object-assign
                   pathLine:
                     'src\\components\\Table\\styles\\TableControlsRow.js',
                   module: n(328),
-                  props: n(1564),
+                  props: n(1562),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112415,7 +112388,7 @@ object-assign
                   pathLine:
                     'src\\components\\Table\\styles\\TableHeaderColumnName.js',
                   module: n(326),
-                  props: n(1565),
+                  props: n(1563),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112425,7 +112398,7 @@ object-assign
                   pathLine:
                     'src\\components\\Table\\styles\\TableHeaderSortArrowIcon.js',
                   module: n(323),
-                  props: n(1566),
+                  props: n(1564),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112435,7 +112408,7 @@ object-assign
                   pathLine:
                     'src\\components\\Table\\styles\\TableHeaderSortArrows.js',
                   module: n(325),
-                  props: n(1567),
+                  props: n(1565),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112445,7 +112418,7 @@ object-assign
                   pathLine:
                     'src\\components\\Table\\styles\\TableHeaderStyles.js',
                   module: n(324),
-                  props: n(1568),
+                  props: n(1566),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112453,7 +112426,7 @@ object-assign
                   filepath: 'src\\components\\Table\\styles\\TableOverlay.js',
                   pathLine: 'src\\components\\Table\\styles\\TableOverlay.js',
                   module: n(321),
-                  props: n(1569),
+                  props: n(1567),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112461,7 +112434,7 @@ object-assign
                   filepath: 'src\\components\\Table\\styles\\TableRow.js',
                   pathLine: 'src\\components\\Table\\styles\\TableRow.js',
                   module: n(171),
-                  props: n(1570),
+                  props: n(1568),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112471,7 +112444,7 @@ object-assign
                   pathLine:
                     'src\\components\\Table\\styles\\TableRowDetailsRow.js',
                   module: n(330),
-                  props: n(1572),
+                  props: n(1570),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112481,7 +112454,7 @@ object-assign
                   pathLine:
                     'src\\components\\Table\\styles\\TableRowDetailsStyles.js',
                   module: n(331),
-                  props: n(1573),
+                  props: n(1571),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112489,7 +112462,7 @@ object-assign
                   filepath: 'src\\components\\Table\\styles\\TableStyles.js',
                   pathLine: 'src\\components\\Table\\styles\\TableStyles.js',
                   module: n(320),
-                  props: n(1574),
+                  props: n(1572),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112499,7 +112472,7 @@ object-assign
                   pathLine:
                     'src\\components\\Table\\styles\\TableWrapShadow.js',
                   module: n(333),
-                  props: n(1575),
+                  props: n(1573),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112507,7 +112480,7 @@ object-assign
                   filepath: 'src\\components\\Table\\Table.js',
                   pathLine: 'src\\components\\Table\\Table.js',
                   module: n(168),
-                  props: n(1576),
+                  props: n(1574),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112515,7 +112488,7 @@ object-assign
                   filepath: 'src\\components\\Table\\TableControls.js',
                   pathLine: 'src\\components\\Table\\TableControls.js',
                   module: n(172),
-                  props: n(1578),
+                  props: n(1576),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112523,7 +112496,7 @@ object-assign
                   filepath: 'src\\components\\Table\\TableHeader.js',
                   pathLine: 'src\\components\\Table\\TableHeader.js',
                   module: n(170),
-                  props: n(1580),
+                  props: n(1578),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112531,7 +112504,7 @@ object-assign
                   filepath: 'src\\components\\Table\\TableRowDetails.js',
                   pathLine: 'src\\components\\Table\\TableRowDetails.js',
                   module: n(329),
-                  props: n(1582),
+                  props: n(1580),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112539,7 +112512,7 @@ object-assign
                   filepath: 'src\\components\\Table\\TableWrap.js',
                   pathLine: 'src\\components\\Table\\TableWrap.js',
                   module: n(332),
-                  props: n(1584),
+                  props: n(1582),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112547,7 +112520,7 @@ object-assign
                   filepath: 'src\\components\\Tabs\\styles\\Tab.js',
                   pathLine: 'src\\components\\Tabs\\styles\\Tab.js',
                   module: n(335),
-                  props: n(1586),
+                  props: n(1584),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112555,7 +112528,7 @@ object-assign
                   filepath: 'src\\components\\Tabs\\styles\\TabContainer.js',
                   pathLine: 'src\\components\\Tabs\\styles\\TabContainer.js',
                   module: n(69),
-                  props: n(1588),
+                  props: n(1586),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112563,7 +112536,7 @@ object-assign
                   filepath: 'src\\components\\Tabs\\styles\\TabContent.js',
                   pathLine: 'src\\components\\Tabs\\styles\\TabContent.js',
                   module: n(334),
-                  props: n(1589),
+                  props: n(1587),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112571,31 +112544,31 @@ object-assign
                   filepath: 'src\\components\\Tabs\\styles\\TabList.js',
                   pathLine: 'src\\components\\Tabs\\styles\\TabList.js',
                   module: n(175),
-                  props: n(1590),
+                  props: n(1588),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Tabs\\Tabs.js',
                   pathLine: 'src\\components\\Tabs\\Tabs.js',
-                  module: n(659),
-                  props: n(1591),
+                  module: n(658),
+                  props: n(1589),
                   hasExamples: !0,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\TextArea\\TextArea.js',
                   pathLine: 'src\\components\\TextArea\\TextArea.js',
-                  module: n(660),
-                  props: n(1593),
+                  module: n(659),
+                  props: n(1591),
                   hasExamples: !0,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Toast\\Toast.js',
                   pathLine: 'src\\components\\Toast\\Toast.js',
-                  module: n(661),
-                  props: n(1595),
+                  module: n(660),
+                  props: n(1593),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112605,7 +112578,7 @@ object-assign
                   pathLine:
                     'src\\components\\Toggle\\styles\\ToggleContainer.js',
                   module: n(338),
-                  props: n(1597),
+                  props: n(1595),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112613,7 +112586,7 @@ object-assign
                   filepath: 'src\\components\\Toggle\\styles\\ToggleInput.js',
                   pathLine: 'src\\components\\Toggle\\styles\\ToggleInput.js',
                   module: n(176),
-                  props: n(1598),
+                  props: n(1596),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112621,15 +112594,15 @@ object-assign
                   filepath: 'src\\components\\Toggle\\styles\\ToggleLabel.js',
                   pathLine: 'src\\components\\Toggle\\styles\\ToggleLabel.js',
                   module: n(339),
-                  props: n(1599),
+                  props: n(1597),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\components\\Toggle\\Toggle.js',
                   pathLine: 'src\\components\\Toggle\\Toggle.js',
-                  module: n(662),
-                  props: n(1600),
+                  module: n(661),
+                  props: n(1598),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112644,7 +112617,7 @@ object-assign
                   filepath: 'src\\layouts\\Flow\\fields\\FlowCheckbox.js',
                   pathLine: 'src\\layouts\\Flow\\fields\\FlowCheckbox.js',
                   module: n(346),
-                  props: n(1602),
+                  props: n(1600),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112652,7 +112625,7 @@ object-assign
                   filepath: 'src\\layouts\\Flow\\fields\\FlowFile.js',
                   pathLine: 'src\\layouts\\Flow\\fields\\FlowFile.js',
                   module: n(350),
-                  props: n(1603),
+                  props: n(1601),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112660,7 +112633,7 @@ object-assign
                   filepath: 'src\\layouts\\Flow\\fields\\FlowInput.js',
                   pathLine: 'src\\layouts\\Flow\\fields\\FlowInput.js',
                   module: n(344),
-                  props: n(1604),
+                  props: n(1602),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112668,7 +112641,7 @@ object-assign
                   filepath: 'src\\layouts\\Flow\\fields\\FlowMulti.js',
                   pathLine: 'src\\layouts\\Flow\\fields\\FlowMulti.js',
                   module: n(351),
-                  props: n(1605),
+                  props: n(1603),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112676,7 +112649,7 @@ object-assign
                   filepath: 'src\\layouts\\Flow\\fields\\FlowRadioGroup.js',
                   pathLine: 'src\\layouts\\Flow\\fields\\FlowRadioGroup.js',
                   module: n(348),
-                  props: n(1607),
+                  props: n(1605),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112684,7 +112657,7 @@ object-assign
                   filepath: 'src\\layouts\\Flow\\fields\\FlowSelect.js',
                   pathLine: 'src\\layouts\\Flow\\fields\\FlowSelect.js',
                   module: n(349),
-                  props: n(1608),
+                  props: n(1606),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112692,7 +112665,7 @@ object-assign
                   filepath: 'src\\layouts\\Flow\\fields\\FlowTextArea.js',
                   pathLine: 'src\\layouts\\Flow\\fields\\FlowTextArea.js',
                   module: n(347),
-                  props: n(1609),
+                  props: n(1607),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112700,15 +112673,15 @@ object-assign
                   filepath: 'src\\layouts\\Flow\\fields\\FlowToggle.js',
                   pathLine: 'src\\layouts\\Flow\\fields\\FlowToggle.js',
                   module: n(345),
-                  props: n(1610),
+                  props: n(1608),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\layouts\\Flow\\Flow.js',
                   pathLine: 'src\\layouts\\Flow\\Flow.js',
-                  module: n(669),
-                  props: n(1611),
+                  module: n(668),
+                  props: n(1609),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112716,7 +112689,7 @@ object-assign
                   filepath: 'src\\layouts\\Flow\\FlowItem.js',
                   pathLine: 'src\\layouts\\Flow\\FlowItem.js',
                   module: n(53),
-                  props: n(1613),
+                  props: n(1611),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112724,7 +112697,7 @@ object-assign
                   filepath: 'src\\layouts\\Flow\\FlowRow.js',
                   pathLine: 'src\\layouts\\Flow\\FlowRow.js',
                   module: n(184),
-                  props: n(1615),
+                  props: n(1613),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112732,7 +112705,7 @@ object-assign
                   filepath: 'src\\layouts\\Flow\\styles\\FlowItemContainer.js',
                   pathLine: 'src\\layouts\\Flow\\styles\\FlowItemContainer.js',
                   module: n(107),
-                  props: n(1617),
+                  props: n(1615),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112740,7 +112713,7 @@ object-assign
                   filepath: 'src\\layouts\\Flow\\styles\\FlowItemContent.js',
                   pathLine: 'src\\layouts\\Flow\\styles\\FlowItemContent.js',
                   module: n(180),
-                  props: n(1618),
+                  props: n(1616),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112750,7 +112723,7 @@ object-assign
                   pathLine:
                     'src\\layouts\\Flow\\styles\\FlowItemFlexibleContent.js',
                   module: n(181),
-                  props: n(1619),
+                  props: n(1617),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112760,7 +112733,7 @@ object-assign
                   pathLine:
                     'src\\layouts\\Flow\\styles\\FlowItemMoreContent.js',
                   module: n(182),
-                  props: n(1620),
+                  props: n(1618),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112768,23 +112741,23 @@ object-assign
                   filepath: 'src\\layouts\\Flow\\styles\\FlowRowStyles.js',
                   pathLine: 'src\\layouts\\Flow\\styles\\FlowRowStyles.js',
                   module: n(185),
-                  props: n(1621),
+                  props: n(1619),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\layouts\\Page\\Page.js',
                   pathLine: 'src\\layouts\\Page\\Page.js',
-                  module: n(664),
-                  props: n(1622),
+                  module: n(663),
+                  props: n(1620),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\layouts\\Pane\\Pane.js',
                   pathLine: 'src\\layouts\\Pane\\Pane.js',
-                  module: n(668),
-                  props: n(1623),
+                  module: n(667),
+                  props: n(1621),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112792,7 +112765,7 @@ object-assign
                   filepath: 'src\\layouts\\Pane\\PaneColumn.js',
                   pathLine: 'src\\layouts\\Pane\\PaneColumn.js',
                   module: n(177),
-                  props: n(1625),
+                  props: n(1623),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112800,7 +112773,7 @@ object-assign
                   filepath: 'src\\layouts\\Pane\\PaneRow.js',
                   pathLine: 'src\\layouts\\Pane\\PaneRow.js',
                   module: n(70),
-                  props: n(1627),
+                  props: n(1625),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112808,7 +112781,7 @@ object-assign
                   filepath: 'src\\layouts\\Pane\\PaneSection.js',
                   pathLine: 'src\\layouts\\Pane\\PaneSection.js',
                   module: n(178),
-                  props: n(1629),
+                  props: n(1627),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112816,7 +112789,7 @@ object-assign
                   filepath: 'src\\layouts\\Pane\\styles\\PaneSectionContent.js',
                   pathLine: 'src\\layouts\\Pane\\styles\\PaneSectionContent.js',
                   module: n(340),
-                  props: n(1631),
+                  props: n(1629),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112824,7 +112797,7 @@ object-assign
                   filepath: 'src\\layouts\\Pane\\styles\\PaneSectionTitle.js',
                   pathLine: 'src\\layouts\\Pane\\styles\\PaneSectionTitle.js',
                   module: n(341),
-                  props: n(1632),
+                  props: n(1630),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112832,7 +112805,7 @@ object-assign
                   filepath: 'src\\layouts\\Pane\\styles\\PaneSectionWrap.js',
                   pathLine: 'src\\layouts\\Pane\\styles\\PaneSectionWrap.js',
                   module: n(342),
-                  props: n(1633),
+                  props: n(1631),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112840,15 +112813,15 @@ object-assign
                   filepath: 'src\\layouts\\Pane\\styles\\PaneStyles.js',
                   pathLine: 'src\\layouts\\Pane\\styles\\PaneStyles.js',
                   module: n(179),
-                  props: n(1634),
+                  props: n(1632),
                   hasExamples: !1,
                   metadata: {},
                 },
                 {
                   filepath: 'src\\layouts\\SidebarLayout\\SidebarLayout.js',
                   pathLine: 'src\\layouts\\SidebarLayout\\SidebarLayout.js',
-                  module: n(666),
-                  props: n(1635),
+                  module: n(665),
+                  props: n(1633),
                   hasExamples: !0,
                   metadata: {},
                 },
@@ -112863,7 +112836,7 @@ object-assign
                   filepath: 'src\\behaviors\\ExpandToggle\\ExpandToggle.js',
                   pathLine: 'src\\behaviors\\ExpandToggle\\ExpandToggle.js',
                   module: n(387),
-                  props: n(1637),
+                  props: n(1635),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -112878,7 +112851,7 @@ object-assign
                   filepath: 'src\\animations\\Expand\\Expand.js',
                   pathLine: 'src\\animations\\Expand\\Expand.js',
                   module: n(385),
-                  props: n(1638),
+                  props: n(1636),
                   hasExamples: !1,
                   metadata: {},
                 },
@@ -113046,7 +113019,7 @@ object-assign
       },
       doclets: {},
       tags: {},
-      examples: n(1352),
+      examples: n(1351),
     };
   },
   function(e, t, n) {
@@ -113120,7 +113093,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1354),
+      examples: n(1353),
     };
   },
   function(e, t, n) {
@@ -113225,7 +113198,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1362),
+      examples: n(1361),
     };
   },
   function(e, t, n) {
@@ -113529,7 +113502,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1369),
+      examples: n(1368),
     };
   },
   function(e, t, n) {
@@ -113731,7 +113704,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1377),
+      examples: n(1376),
     };
   },
   function(e, t, n) {
@@ -113762,7 +113735,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1380),
+      examples: n(1379),
     };
   },
   function(e, t, n) {
@@ -113778,7 +113751,7 @@ object-assign
     ];
   },
   function(e, t, n) {
-    e.exports = { methods: [], doclets: {}, examples: n(1382) };
+    e.exports = { methods: [], doclets: {}, examples: n(1381) };
   },
   function(e, t, n) {
     var r = { react: n(0) },
@@ -113800,7 +113773,7 @@ object-assign
     ];
   },
   function(e, t, n) {
-    e.exports = { methods: [], doclets: {}, examples: n(1384) };
+    e.exports = { methods: [], doclets: {}, examples: n(1383) };
   },
   function(e, t, n) {
     var r = { react: n(0) },
@@ -113923,7 +113896,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1386),
+      examples: n(1385),
     };
   },
   function(e, t, n) {
@@ -113998,7 +113971,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1392),
+      examples: n(1391),
     };
   },
   function(e, t, n) {
@@ -114127,7 +114100,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1394),
+      examples: n(1393),
     };
   },
   function(e, t, n) {
@@ -114206,7 +114179,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1396),
+      examples: n(1395),
     };
   },
   function(e, t, n) {
@@ -114315,7 +114288,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1399),
+      examples: n(1398),
     };
   },
   function(e, t, n) {
@@ -114373,7 +114346,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1404),
+      examples: n(1403),
     };
   },
   function(e, t, n) {
@@ -114400,7 +114373,7 @@ object-assign
       displayName: 'CodeBlock',
       doclets: { component: !0 },
       tags: { component: [{ title: 'component', description: null }] },
-      examples: n(1406),
+      examples: n(1405),
     };
   },
   function(e, t, n) {
@@ -114506,7 +114479,7 @@ object-assign
       },
       composes: ['react-dates'],
       doclets: {},
-      examples: n(1409),
+      examples: n(1408),
     };
   },
   function(e, t, n) {
@@ -114565,7 +114538,7 @@ object-assign
       },
       composes: ['react-dates'],
       doclets: {},
-      examples: n(1411),
+      examples: n(1410),
     };
   },
   function(e, t, n) {
@@ -114721,7 +114694,7 @@ object-assign
       },
       doclets: {},
       tags: {},
-      examples: n(1416),
+      examples: n(1415),
     };
   },
   function(e, t, n) {
@@ -114732,12 +114705,12 @@ object-assign
       {
         type: 'markdown',
         content:
-          '> **Note:** You must include [BandwidthProvider](/#!/BandwidthProvider) at or near the root of your application to use drag and drop functionality.\n\nA collection of items which can be split up into several named groups.\n\nThe ordering of items within a group is arbitrary and non-editable.\n\nDragging is not enabled until more than one group is present.',
+          '> **Note:** You must include [BandwidthProvider](/#!/BandwidthProvider) at or near the root of your application to use drag and drop functionality.\n\nA collection of items which can be split up into several named groups.\n\nThe ordering of items within a group is arbitrary and non-editable.\n\nDragging is not enabled until more than one group is present.\n\n### Implementation notes\n\nThis component requires you to implement state behavior to support the desired UX.\n\nHere is a brief summary of the rules:\n\n-   Groups should not be collapsible unless multiple groups are present\n-   Items should not be draggable unless multiple groups are present\n-   When a group is removed, its items are shifted to the group above it; if no group is above it, they should be shifted to the group below it.\n-   When a group is split, the items _up to_ the separator index should be moved into the newly created group, which should be placed _before_ the group which initiated the split. The remaining items _including and after_ the separator index should remain in the group.\n-   When an item is moved, it should be removed from the source group and appended to the end of the target group.\n-   When a group has no remaining items, it should be removed.\n\n### Example',
       },
       {
         type: 'code',
         content:
-          "const React = require ('react');\n\nclass ItemContent extends React.Component {\n  render() {\n    const { value, wrapDragHandle } = this.props;\n\n    return (\n      <div style={{ position: 'relative' }}>\n        <Input value={value} />\n        <div style={{\n          position: 'absolute',\n          display: 'flex',\n          flexDirection: 'row',\n          top: '50%',\n          transform: 'translateY(-50%)',\n          right: '15px',\n          color: '#00bef0',\n          fontSize: '18px',\n        }}>\n          <Icon name=\"settings\" />\n          <span style={{ width: '8px' }} />\n          <Icon name=\"delete3\" />\n          <span style={{ width: '8px' }} />\n          {wrapDragHandle(\n            <Icon name=\"moveGrabber\" />\n          )}\n        </div>\n      </div>\n    )\n  }\n}\n\nconst genKey = () => Math.floor(Math.random() * 10000);\n\nconst replace = (array, idx, item) => [\n  ...array.slice(0, idx),\n  item,\n  ...array.slice(idx + 1),\n];\n\nconst remove = (array, idx) => [\n  ...array.slice(0, idx),\n  ...array.slice(idx + 1),\n];\n\nconst insert = (array, idx, item) => [\n  ...array.slice(0, idx),\n  item,\n  ...array.slice(idx),\n];\n\nconst removeAt = (groups, groupIndex, index) => replace(groups, groupIndex, {\n  ...groups[groupIndex],\n  items: remove(groups[groupIndex].items, index),\n});\n\nconst addTo = (groups, groupIndex, item) => replace(groups, groupIndex, {\n  ...groups[groupIndex],\n  items: groups[groupIndex].items.concat(item),\n});\n\nconst split = (groups, groupIndex, itemIndex) => groups.reduce((newGroups, group, idx) => {\n  if (groupIndex === idx) {\n    const groupA = {\n      key: group.key,\n      items: group.items.slice(0, itemIndex),\n    };\n    const groupB = {\n      key: genKey(),\n      items: group.items.slice(itemIndex),\n    };\n    return newGroups.concat([groupA, groupB]);\n  }\n\n  return newGroups.concat(group);\n}, []);\n\nclass DemoApp extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      groups: [\n        {\n          key: genKey(),\n          items: [\n            { key: 'a', value: 'An item' },\n            { key: 'b', value: 'Another item' },\n            { key: 'b2', value: 'And another one' },\n          ],\n        },\n        {\n          key: genKey(),\n          items: [\n            { key: 'c', value: 'Yet another item' },\n            { key: 'd', value: 'Last one promise' },\n          ],\n        },\n      ],\n    };\n\n    this.handleItemMoved = this.handleItemMoved.bind(this);\n    this.handleGroupInserted = this.handleGroupInserted.bind(this);\n    this.handleGroupRemoved = this.handleGroupRemoved.bind(this);\n  }\n\n  handleItemMoved(itemIndex, fromGroupIndex, toGroupIndex) {\n    console.log(`${itemIndex} ${fromGroupIndex} ${toGroupIndex}`);\n    if (toGroupIndex === null) {\n      // ignore drops outside of a group\n      return;\n    }\n\n    const state = this.state;\n    const itemToMove = state.groups[fromGroupIndex].items[itemIndex];\n    const newState = {\n      ...state,\n      groups: addTo(\n        removeAt(state.groups, fromGroupIndex, itemIndex),\n        toGroupIndex,\n        itemToMove\n      ),\n    };\n\n    this.setState(newState);\n  };\n\n  handleGroupInserted(groupIndex, itemIndex) {\n    console.log(`${groupIndex} ${itemIndex}`);\n    const state = this.state;\n    const newState = {\n      ...state,\n      groups: split(state.groups, groupIndex, itemIndex),\n    };\n    this.setState(newState);\n  }\n\n  handleGroupRemoved(groupIndex) {\n    const state = this.state;\n    const removedItems = state.groups[groupIndex].items;\n    const addToGroupIndex = groupIndex > 0 ? groupIndex - 1 : groupIndex;\n    const newState = {\n      ...state,\n      groups: removedItems.reduce(\n        (groups, item) => addTo(groups, addToGroupIndex, item),\n        remove(state.groups, groupIndex)\n      )\n    };\n    this.setState(newState);\n  }\n\n  render() {\n    const { groups } = this.state;\n    return (\n      <div>\n        {groups.map((group, groupIdx) => (\n          <DragGroup\n            key={group.key}\n            groupId={groupIdx}\n            name={`Group ${groupIdx + 1}`}\n            allowDrag={groups.length > 1}\n            collapsible={groups.length > 1}\n            itemType=\"demo\"\n            onSplit={itemIdx => this.handleGroupInserted(groupIdx, itemIdx)}\n            onRemoved={() => this.handleGroupRemoved(groupIdx)}\n          >\n            {group.items.map((item, itemIdx) => (\n              <DragGroup.Item\n                key={item.key}\n                onMove={\n                  (fromGroupIdx, toGroupIdx) =>\n                    this.handleItemMoved(itemIdx, fromGroupIdx, toGroupIdx)\n                }\n              >\n                <ItemContent value={item.value} />\n              </DragGroup.Item>)\n            )}\n          </DragGroup>\n        ))}\n      </div>\n    )\n  }\n}\n\n<div style={{ display: 'flex' }}>\n  <div style={{ margin: 'auto', width: '350px' }}>\n    <DemoApp />\n  </div>\n</div>",
+          "const React = require ('react');\n\n// a demo component to put in the items\nclass ItemContent extends React.Component {\n  render() {\n    const { value, wrapDragHandle } = this.props;\n\n    return (\n      <div style={{ position: 'relative' }}>\n        <Input value={value} />\n        <div style={{\n          position: 'absolute',\n          display: 'flex',\n          flexDirection: 'row',\n          top: '50%',\n          transform: 'translateY(-50%)',\n          right: '15px',\n          color: '#00bef0',\n          fontSize: '18px',\n        }}>\n          <Icon name=\"settings\" />\n          <span style={{ width: '8px' }} />\n          <Icon name=\"delete3\" />\n          <span style={{ width: '8px' }} />\n          {/* Using wrapDragHandle to indicate which element is the handle */}\n          {wrapDragHandle(\n            <Icon name=\"moveGrabber\" />\n          )}\n        </div>\n      </div>\n    )\n  }\n}\n\n// some utility functions\n\nconst genKey = () => Math.floor(Math.random() * 10000);\n\nconst replace = (array, idx, item) => [\n  ...array.slice(0, idx),\n  item,\n  ...array.slice(idx + 1),\n];\n\nconst remove = (array, idx) => [\n  ...array.slice(0, idx),\n  ...array.slice(idx + 1),\n];\n\nconst insert = (array, idx, item) => [\n  ...array.slice(0, idx),\n  item,\n  ...array.slice(idx),\n];\n\nconst removeAt = (groups, groupIndex, index) => replace(groups, groupIndex, {\n  ...groups[groupIndex],\n  items: remove(groups[groupIndex].items, index),\n});\n\nconst addTo = (groups, groupIndex, item) => replace(groups, groupIndex, {\n  ...groups[groupIndex],\n  items: groups[groupIndex].items.concat(item),\n});\n\nconst split = (groups, groupIndex, itemIndex) => groups.reduce((newGroups, group, idx) => {\n  if (groupIndex === idx) {\n    const groupA = {\n      key: genKey(),\n      items: group.items.slice(0, itemIndex),\n    };\n    const groupB = {\n      key: group.key,\n      items: group.items.slice(itemIndex),\n    };\n    return newGroups.concat([groupA, groupB]);\n  }\n\n  return newGroups.concat(group);\n}, []);\n\n// our demo app manages group state and modifications\nclass DemoApp extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      groups: [\n        {\n          key: genKey(),\n          items: [\n            { key: 'a', value: 'An item' },\n            { key: 'b', value: 'Another item' },\n            { key: 'b2', value: 'And another one' },\n          ],\n        },\n        {\n          key: genKey(),\n          items: [\n            { key: 'c', value: 'Yet another item' },\n            { key: 'd', value: 'Last one promise' },\n          ],\n        },\n      ],\n    };\n\n    this.handleItemMoved = this.handleItemMoved.bind(this);\n    this.handleGroupInserted = this.handleGroupInserted.bind(this);\n    this.handleGroupRemoved = this.handleGroupRemoved.bind(this);\n  }\n\n  handleItemMoved(itemIndex, fromGroupIndex, toGroupIndex) {\n    if (toGroupIndex === null) {\n      // ignore drops outside of a group\n      return;\n    }\n\n    const state = this.state;\n    // store the item which will be moved from the source group\n    const itemToMove = state.groups[fromGroupIndex].items[itemIndex];\n    const newState = {\n      ...state,\n      // add the item to the target group\n      groups: addTo(\n        // remove the item from the source group\n        removeAt(state.groups, fromGroupIndex, itemIndex),\n        toGroupIndex,\n        itemToMove\n      ).filter(group => group.items.length > 0), // remove any empty groups\n    };\n\n    this.setState(newState);\n  };\n\n  handleGroupInserted(groupIndex, itemIndex) {\n    const state = this.state;\n    const newState = {\n      ...state,\n      // splits the group at the item index\n      groups: split(state.groups, groupIndex, itemIndex),\n    };\n    this.setState(newState);\n  }\n\n  handleGroupRemoved(groupIndex) {\n    const state = this.state;\n    // store the items which will be added to a different group\n    const removedItems = state.groups[groupIndex].items;\n    // determine whether there is a previous group; if not, use the existing\n    // group index, which will reference the next group once this one is\n    // removed\n    const addToGroupIndex = groupIndex > 0 ? groupIndex - 1 : groupIndex;\n    const newState = {\n      ...state,\n      // iterate through all removed items and add them to the new list\n      groups: removedItems.reduce(\n        (groups, item) => addTo(groups, addToGroupIndex, item),\n        // remove the current group from the list to create the source\n        // array for the reduce operation\n        remove(state.groups, groupIndex)\n      )\n    };\n    this.setState(newState);\n  }\n\n  render() {\n    const { groups } = this.state;\n\n    // the following render contains instances of 'binding' callbacks\n    // to group and item indexes. Notice how we are using a closure to\n    // pass a bound `groupIdx` in `onSplit` for instance.\n    // This is necessary practice to inform our state management\n    // of which groups and items events are operating on\n    return (\n      <div>\n        {groups.map((group, groupIdx) => (\n          <DragGroup\n            key={group.key}\n            groupId={groupIdx}\n            name={`Group ${groupIdx + 1}`}\n            allowDrag={groups.length > 1}\n            collapsible={groups.length > 1}\n            itemType=\"demo\"\n            onSplit={itemIdx => this.handleGroupInserted(groupIdx, itemIdx)}\n            onRemoved={() => this.handleGroupRemoved(groupIdx)}\n          >\n            {group.items.map((item, itemIdx) => (\n              <DragGroup.Item\n                key={item.key}\n                onMove={\n                  (fromGroupIdx, toGroupIdx) =>\n                    this.handleItemMoved(itemIdx, fromGroupIdx, toGroupIdx)\n                }\n              >\n                <ItemContent value={item.value} />\n              </DragGroup.Item>)\n            )}\n          </DragGroup>\n        ))}\n      </div>\n    )\n  }\n}\n\n<div style={{ display: 'flex' }}>\n  <div style={{ margin: 'auto', width: '350px' }}>\n    <DemoApp />\n  </div>\n</div>",
         settings: {},
         evalInContext: a,
       },
@@ -114749,7 +114722,7 @@ object-assign
       {
         type: 'code',
         content:
-          "const React = require ('react');\n\nclass ItemContent extends React.Component {\n  render() {\n    const { value, wrapDragHandle } = this.props;\n\n    return (\n      <div style={{ position: 'relative' }}>\n        <Input value={value} />\n        <div style={{\n          position: 'absolute',\n          display: 'flex',\n          flexDirection: 'row',\n          top: '50%',\n          transform: 'translateY(-50%)',\n          right: '15px',\n          color: '#00bef0',\n          fontSize: '18px',\n        }}>\n          <Icon name=\"settings\" />\n          <span style={{ width: '8px' }} />\n          <Icon name=\"delete3\" />\n          <span style={{ width: '8px' }} />\n          {wrapDragHandle(\n            <Icon name=\"moveGrabber\" />\n          )}\n        </div>\n      </div>\n    )\n  }\n}\n\nconst genKey = () => Math.floor(Math.random() * 10000);\n\nconst replace = (array, idx, item) => [\n  ...array.slice(0, idx),\n  item,\n  ...array.slice(idx + 1),\n];\n\nconst remove = (array, idx) => [\n  ...array.slice(0, idx),\n  ...array.slice(idx + 1),\n];\n\nconst insert = (array, idx, item) => [\n  ...array.slice(0, idx),\n  item,\n  ...array.slice(idx),\n];\n\nconst removeAt = (groups, groupIndex, index) => replace(groups, groupIndex, {\n  ...groups[groupIndex],\n  items: remove(groups[groupIndex].items, index),\n});\n\nconst addTo = (groups, groupIndex, item) => replace(groups, groupIndex, {\n  ...groups[groupIndex],\n  items: groups[groupIndex].items.concat(item),\n});\n\nconst split = (groups, groupIndex, itemIndex) => groups.reduce((newGroups, group, idx) => {\n  if (groupIndex === idx) {\n    const groupA = {\n      key: group.key,\n      items: group.items.slice(0, itemIndex),\n    };\n    const groupB = {\n      key: genKey(),\n      items: group.items.slice(itemIndex),\n    };\n    return newGroups.concat([groupA, groupB]);\n  }\n\n  return newGroups.concat(group);\n}, []);\n\nclass DemoApp extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      groups: [\n        {\n          key: genKey(),\n          items: [\n            { key: 'a', value: 'An item' },\n            { key: 'b', value: 'Another item' },\n            { key: 'b2', value: 'And another one' },\n          ],\n        },\n        {\n          key: genKey(),\n          items: [\n            { key: 'c', value: 'Yet another item' },\n            { key: 'd', value: 'Last one promise' },\n          ],\n        },\n      ],\n    };\n\n    this.handleItemMoved = this.handleItemMoved.bind(this);\n    this.handleGroupInserted = this.handleGroupInserted.bind(this);\n    this.handleGroupRemoved = this.handleGroupRemoved.bind(this);\n  }\n\n  handleItemMoved(itemIndex, fromGroupIndex, toGroupIndex) {\n    console.log(`${itemIndex} ${fromGroupIndex} ${toGroupIndex}`);\n    if (toGroupIndex === null) {\n      // ignore drops outside of a group\n      return;\n    }\n\n    const state = this.state;\n    const itemToMove = state.groups[fromGroupIndex].items[itemIndex];\n    const newState = {\n      ...state,\n      groups: addTo(\n        removeAt(state.groups, fromGroupIndex, itemIndex),\n        toGroupIndex,\n        itemToMove\n      ),\n    };\n\n    this.setState(newState);\n  };\n\n  handleGroupInserted(groupIndex, itemIndex) {\n    console.log(`${groupIndex} ${itemIndex}`);\n    const state = this.state;\n    const newState = {\n      ...state,\n      groups: split(state.groups, groupIndex, itemIndex),\n    };\n    this.setState(newState);\n  }\n\n  handleGroupRemoved(groupIndex) {\n    const state = this.state;\n    const removedItems = state.groups[groupIndex].items;\n    const addToGroupIndex = groupIndex > 0 ? groupIndex - 1 : groupIndex;\n    const newState = {\n      ...state,\n      groups: removedItems.reduce(\n        (groups, item) => addTo(groups, addToGroupIndex, item),\n        remove(state.groups, groupIndex)\n      )\n    };\n    this.setState(newState);\n  }\n\n  render() {\n    const { groups } = this.state;\n    return (\n      <div style={{ display: 'flex', flexDirection: 'row' }}>\n        {groups.map((group, groupIdx) => (\n          <div style={{ width: '350px', margin: '0 10px' }}>\n            <DragGroup\n              key={group.key}\n              groupId={groupIdx}\n              name={`Group ${groupIdx + 1}`}\n              allowDrag={groups.length > 1}\n              collapsible={groups.length > 1}\n              itemType=\"demo\"\n              onSplit={itemIdx => this.handleGroupInserted(groupIdx, itemIdx)}\n              onRemoved={() => this.handleGroupRemoved(groupIdx)}\n            >\n              {group.items.map((item, itemIdx) => (\n                <DragGroup.Item\n                  key={item.key}\n                  onMove={\n                    (fromGroupIdx, toGroupIdx) =>\n                      this.handleItemMoved(itemIdx, fromGroupIdx, toGroupIdx)\n                  }\n                >\n                  <ItemContent value={item.value} />\n                </DragGroup.Item>)\n              )}\n            </DragGroup>\n          </div>\n        ))}\n      </div>\n    )\n  }\n}\n\n<DemoApp />",
+          "const React = require ('react');\n\n// a demo component to put in the items\nclass ItemContent extends React.Component {\n  render() {\n    const { value, wrapDragHandle } = this.props;\n\n    return (\n      <div style={{ position: 'relative' }}>\n        <Input value={value} />\n        <div style={{\n          position: 'absolute',\n          display: 'flex',\n          flexDirection: 'row',\n          top: '50%',\n          transform: 'translateY(-50%)',\n          right: '15px',\n          color: '#00bef0',\n          fontSize: '18px',\n        }}>\n          <Icon name=\"settings\" />\n          <span style={{ width: '8px' }} />\n          <Icon name=\"delete3\" />\n          <span style={{ width: '8px' }} />\n          {/* Using wrapDragHandle to indicate which element is the handle */}\n          {wrapDragHandle(\n            <Icon name=\"moveGrabber\" />\n          )}\n        </div>\n      </div>\n    )\n  }\n}\n\n// some utility functions\n\nconst genKey = () => Math.floor(Math.random() * 10000);\n\nconst replace = (array, idx, item) => [\n  ...array.slice(0, idx),\n  item,\n  ...array.slice(idx + 1),\n];\n\nconst remove = (array, idx) => [\n  ...array.slice(0, idx),\n  ...array.slice(idx + 1),\n];\n\nconst insert = (array, idx, item) => [\n  ...array.slice(0, idx),\n  item,\n  ...array.slice(idx),\n];\n\nconst removeAt = (groups, groupIndex, index) => replace(groups, groupIndex, {\n  ...groups[groupIndex],\n  items: remove(groups[groupIndex].items, index),\n});\n\nconst addTo = (groups, groupIndex, item) => replace(groups, groupIndex, {\n  ...groups[groupIndex],\n  items: groups[groupIndex].items.concat(item),\n});\n\nconst split = (groups, groupIndex, itemIndex) => groups.reduce((newGroups, group, idx) => {\n  if (groupIndex === idx) {\n    const groupA = {\n      key: genKey(),\n      items: group.items.slice(0, itemIndex),\n    };\n    const groupB = {\n      key: group.key,\n      items: group.items.slice(itemIndex),\n    };\n    return newGroups.concat([groupA, groupB]);\n  }\n\n  return newGroups.concat(group);\n}, []);\n\n// our demo app manages group state and modifications\nclass DemoApp extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      groups: [\n        {\n          key: genKey(),\n          items: [\n            { key: 'a', value: 'An item' },\n            { key: 'b', value: 'Another item' },\n            { key: 'b2', value: 'And another one' },\n          ],\n        },\n        {\n          key: genKey(),\n          items: [\n            { key: 'c', value: 'Yet another item' },\n            { key: 'd', value: 'Last one promise' },\n          ],\n        },\n      ],\n    };\n\n    this.handleItemMoved = this.handleItemMoved.bind(this);\n    this.handleGroupInserted = this.handleGroupInserted.bind(this);\n    this.handleGroupRemoved = this.handleGroupRemoved.bind(this);\n  }\n\n  handleItemMoved(itemIndex, fromGroupIndex, toGroupIndex) {\n    if (toGroupIndex === null) {\n      // ignore drops outside of a group\n      return;\n    }\n\n    const state = this.state;\n    // store the item which will be moved from the source group\n    const itemToMove = state.groups[fromGroupIndex].items[itemIndex];\n    const newState = {\n      ...state,\n      // add the item to the target group\n      groups: addTo(\n        // remove the item from the source group\n        removeAt(state.groups, fromGroupIndex, itemIndex),\n        toGroupIndex,\n        itemToMove\n      ).filter(group => group.items.length > 0), // remove any empty groups\n    };\n\n    this.setState(newState);\n  };\n\n  handleGroupInserted(groupIndex, itemIndex) {\n    const state = this.state;\n    const newState = {\n      ...state,\n      // splits the group at the item index\n      groups: split(state.groups, groupIndex, itemIndex),\n    };\n    this.setState(newState);\n  }\n\n  handleGroupRemoved(groupIndex) {\n    const state = this.state;\n    // store the items which will be added to a different group\n    const removedItems = state.groups[groupIndex].items;\n    // determine whether there is a previous group; if not, use the existing\n    // group index, which will reference the next group once this one is\n    // removed\n    const addToGroupIndex = groupIndex > 0 ? groupIndex - 1 : groupIndex;\n    const newState = {\n      ...state,\n      // iterate through all removed items and add them to the new list\n      groups: removedItems.reduce(\n        (groups, item) => addTo(groups, addToGroupIndex, item),\n        // remove the current group from the list to create the source\n        // array for the reduce operation\n        remove(state.groups, groupIndex)\n      )\n    };\n    this.setState(newState);\n  }\n\n  render() {\n    const { groups } = this.state;\n\n    // the following render contains instances of 'binding' callbacks\n    // to group and item indexes. Notice how we are using a closure to\n    // pass a bound `groupIdx` in `onSplit` for instance.\n    // This is necessary practice to inform our state management\n    // of which groups and items events are operating on\n    return (\n      <div style={{ display: 'flex', flexDirection: 'row' }}>\n        {groups.map((group, groupIdx) => (\n          <div style={{ width: '350px', margin: '0 10px' }}>\n            <DragGroup\n              key={group.key}\n              groupId={groupIdx}\n              name={`Group ${groupIdx + 1}`}\n              allowDrag={groups.length > 1}\n              collapsible={groups.length > 1}\n              itemType=\"demo\"\n              onSplit={itemIdx => this.handleGroupInserted(groupIdx, itemIdx)}\n              onRemoved={() => this.handleGroupRemoved(groupIdx)}\n            >\n              {group.items.map((item, itemIdx) => (\n                <DragGroup.Item\n                  key={item.key}\n                  onMove={\n                    (fromGroupIdx, toGroupIdx) =>\n                      this.handleItemMoved(itemIdx, fromGroupIdx, toGroupIdx)\n                  }\n                >\n                  <ItemContent value={item.value} />\n                </DragGroup.Item>)\n              )}\n            </DragGroup>\n          </div>\n        ))}\n      </div>\n    )\n  }\n}\n\n<DemoApp />",
         settings: {},
         evalInContext: a,
       },
@@ -114758,7 +114731,7 @@ object-assign
   function(e, t, n) {
     e.exports = {
       description:
-        'The droppable area of a DragGroup. Connected to react-dnd.\nRenders its children when idle, but if a dragging operation is\nongoing, its default Content presenter will render a\ndrop zone box.\n',
+        'The droppable area of a DragGroup. Connected to react-dnd.\nRenders its children when idle, but if a dragging operation is\nongoing, its default Content presenter will render a\ndrop zone box.\n\nYou may reference this component if you choose to override it\nin DragGroup, otherwise it is not needed. See DragGroup docs.\n',
       displayName: 'DragGroupDropArea',
       methods: [],
       props: {
@@ -114789,7 +114762,8 @@ object-assign
   },
   function(e, t, n) {
     e.exports = {
-      description: '',
+      description:
+        'Used to wrap an item used in DragGroup. See DragGroup documentation.\n',
       displayName: 'DragItem',
       methods: [],
       props: {
@@ -114816,11 +114790,9 @@ object-assign
         },
       },
       doclets: {},
+      tags: {},
       examples: [],
     };
-  },
-  function(e, t, n) {
-    e.exports = { methods: [], doclets: {}, examples: [] };
   },
   function(e, t, n) {
     e.exports = { methods: [], doclets: {}, examples: [] };
@@ -114973,7 +114945,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1432),
+      examples: n(1430),
     };
   },
   function(e, t, n) {
@@ -115021,7 +114993,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1436),
+      examples: n(1434),
     };
   },
   function(e, t, n) {
@@ -115065,7 +115037,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1438),
+      examples: n(1436),
     };
   },
   function(e, t, n) {
@@ -115114,7 +115086,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1440),
+      examples: n(1438),
     };
   },
   function(e, t, n) {
@@ -115158,7 +115130,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1442),
+      examples: n(1440),
     };
   },
   function(e, t, n) {
@@ -115201,7 +115173,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1444),
+      examples: n(1442),
     };
   },
   function(e, t, n) {
@@ -115239,7 +115211,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1446),
+      examples: n(1444),
     };
   },
   function(e, t, n) {
@@ -115277,7 +115249,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1448),
+      examples: n(1446),
     };
   },
   function(e, t, n) {
@@ -115315,7 +115287,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1450),
+      examples: n(1448),
     };
   },
   function(e, t, n) {
@@ -115353,7 +115325,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1452),
+      examples: n(1450),
     };
   },
   function(e, t, n) {
@@ -115397,7 +115369,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1454),
+      examples: n(1452),
     };
   },
   function(e, t, n) {
@@ -115453,7 +115425,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1456),
+      examples: n(1454),
     };
   },
   function(e, t, n) {
@@ -115631,7 +115603,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1458),
+      examples: n(1456),
     };
   },
   function(e, t, n) {
@@ -115716,7 +115688,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1462),
+      examples: n(1460),
     };
   },
   function(e, t, n) {
@@ -115759,7 +115731,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1464),
+      examples: n(1462),
     };
   },
   function(e, t, n) {
@@ -115798,7 +115770,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1466),
+      examples: n(1464),
     };
   },
   function(e, t, n) {
@@ -115841,7 +115813,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1468),
+      examples: n(1466),
     };
   },
   function(e, t, n) {
@@ -115915,7 +115887,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1470),
+      examples: n(1468),
     };
   },
   function(e, t, n) {
@@ -115971,7 +115943,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1474),
+      examples: n(1472),
     };
   },
   function(e, t, n) {
@@ -116018,7 +115990,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1477),
+      examples: n(1475),
     };
   },
   function(e, t, n) {
@@ -116137,7 +116109,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1479),
+      examples: n(1477),
     };
   },
   function(e, t, n) {
@@ -116222,7 +116194,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1486),
+      examples: n(1484),
     };
   },
   function(e, t, n) {
@@ -116295,7 +116267,7 @@ object-assign
       displayName: 'Navigation',
       doclets: { component: !0 },
       tags: { component: [{ title: 'component', description: null }] },
-      examples: n(1489),
+      examples: n(1487),
     };
   },
   function(e, t, n) {
@@ -116432,7 +116404,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1498),
+      examples: n(1496),
     };
   },
   function(e, t, n) {
@@ -116477,7 +116449,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1500),
+      examples: n(1498),
     };
   },
   function(e, t, n) {
@@ -116565,7 +116537,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1504),
+      examples: n(1502),
     };
   },
   function(e, t, n) {
@@ -116704,7 +116676,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1509),
+      examples: n(1507),
     };
   },
   function(e, t, n) {
@@ -116827,7 +116799,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1514),
+      examples: n(1512),
     };
   },
   function(e, t, n) {
@@ -116938,7 +116910,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1516),
+      examples: n(1514),
     };
   },
   function(e, t, n) {
@@ -117173,7 +117145,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1524),
+      examples: n(1522),
     };
   },
   function(e, t, n) {
@@ -117295,7 +117267,7 @@ object-assign
     };
   },
   function(e, t, n) {
-    e.exports = { methods: [], doclets: {}, examples: n(1533) };
+    e.exports = { methods: [], doclets: {}, examples: n(1531) };
   },
   function(e, t, n) {
     var r = { react: n(0) },
@@ -117553,7 +117525,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1535),
+      examples: n(1533),
     };
   },
   function(e, t, n) {
@@ -117667,7 +117639,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1538),
+      examples: n(1536),
     };
   },
   function(e, t, n) {
@@ -117777,7 +117749,7 @@ object-assign
     e.exports = { methods: [], doclets: {}, examples: [] };
   },
   function(e, t, n) {
-    e.exports = { methods: [], doclets: {}, examples: n(1545) };
+    e.exports = { methods: [], doclets: {}, examples: n(1543) };
   },
   function(e, t, n) {
     var r = { react: n(0) },
@@ -117854,7 +117826,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1547),
+      examples: n(1545),
     };
   },
   function(e, t, n) {
@@ -117927,7 +117899,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1549),
+      examples: n(1547),
     };
   },
   function(e, t, n) {
@@ -118071,7 +118043,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1552),
+      examples: n(1550),
     };
   },
   function(e, t, n) {
@@ -118204,12 +118176,12 @@ object-assign
           },
         ],
       },
-      examples: n(1558),
+      examples: n(1556),
     };
   },
   function(e, t, n) {
     var r = {
-        '../Money': n(640),
+        '../Money': n(639),
         './Table': n(168),
         '../Spacing': n(315),
         react: n(0),
@@ -118232,6 +118204,15 @@ object-assign
     ];
   },
   function(e, t, n) {
+    e.exports = { methods: [], doclets: {}, examples: n(1558) };
+  },
+  function(e, t, n) {
+    var r = { react: n(0) },
+      o = n(5).bind(null, r);
+    n(6).bind(null, "var React = require('react');", o);
+    e.exports = [];
+  },
+  function(e, t, n) {
     e.exports = { methods: [], doclets: {}, examples: n(1560) };
   },
   function(e, t, n) {
@@ -118241,15 +118222,6 @@ object-assign
     e.exports = [];
   },
   function(e, t, n) {
-    e.exports = { methods: [], doclets: {}, examples: n(1562) };
-  },
-  function(e, t, n) {
-    var r = { react: n(0) },
-      o = n(5).bind(null, r);
-    n(6).bind(null, "var React = require('react');", o);
-    e.exports = [];
-  },
-  function(e, t, n) {
     e.exports = { methods: [], doclets: {}, examples: [] };
   },
   function(e, t, n) {
@@ -118271,7 +118243,7 @@ object-assign
     e.exports = { methods: [], doclets: {}, examples: [] };
   },
   function(e, t, n) {
-    e.exports = { methods: [], doclets: {}, examples: n(1571) };
+    e.exports = { methods: [], doclets: {}, examples: n(1569) };
   },
   function(e, t, n) {
     var r = { react: n(0) },
@@ -118364,7 +118336,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1577),
+      examples: n(1575),
     };
   },
   function(e, t, n) {
@@ -118492,7 +118464,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1579),
+      examples: n(1577),
     };
   },
   function(e, t, n) {
@@ -118608,7 +118580,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1581),
+      examples: n(1579),
     };
   },
   function(e, t, n) {
@@ -118663,7 +118635,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1583),
+      examples: n(1581),
     };
   },
   function(e, t, n) {
@@ -118694,7 +118666,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1585),
+      examples: n(1583),
     };
   },
   function(e, t, n) {
@@ -118715,7 +118687,7 @@ object-assign
       methods: [],
       displayName: 'Tab',
       doclets: {},
-      examples: n(1587),
+      examples: n(1585),
     };
   },
   function(e, t, n) {
@@ -118785,7 +118757,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1592),
+      examples: n(1590),
     };
   },
   function(e, t, n) {
@@ -118836,7 +118808,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1594),
+      examples: n(1592),
     };
   },
   function(e, t, n) {
@@ -118867,7 +118839,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1596),
+      examples: n(1594),
     };
   },
   function(e, t, n) {
@@ -118978,7 +118950,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1601),
+      examples: n(1599),
     };
   },
   function(e, t, n) {
@@ -119078,7 +119050,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1606),
+      examples: n(1604),
     };
   },
   function(e, t, n) {
@@ -119111,7 +119083,7 @@ object-assign
       methods: [],
       displayName: 'Flow',
       doclets: {},
-      examples: n(1612),
+      examples: n(1610),
     };
   },
   function(e, t, n) {
@@ -119317,7 +119289,7 @@ object-assign
           },
         ],
       },
-      examples: n(1614),
+      examples: n(1612),
     };
   },
   function(e, t, n) {
@@ -119430,7 +119402,7 @@ object-assign
           },
         ],
       },
-      examples: n(1616),
+      examples: n(1614),
     };
   },
   function(e, t, n) {
@@ -119573,7 +119545,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1624),
+      examples: n(1622),
     };
   },
   function(e, t, n) {
@@ -119613,7 +119585,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1626),
+      examples: n(1624),
     };
   },
   function(e, t, n) {
@@ -119650,7 +119622,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1628),
+      examples: n(1626),
     };
   },
   function(e, t, n) {
@@ -119722,7 +119694,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1630),
+      examples: n(1628),
     };
   },
   function(e, t, n) {
@@ -119771,7 +119743,7 @@ object-assign
         },
       },
       doclets: {},
-      examples: n(1636),
+      examples: n(1634),
     };
   },
   function(e, t, n) {
