@@ -121,9 +121,6 @@ export {
   default as DragGroupItemsContainer,
 } from './components/DragGroup/styles/DragGroupItemsContainer';
 export {
-  default as DragGroupsContainer,
-} from './components/DragGroup/styles/DragGroupsContainer';
-export {
   default as DragItemContainer,
 } from './components/DragGroup/styles/DragItemContainer';
 export {

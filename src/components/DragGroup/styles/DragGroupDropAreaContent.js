@@ -3,6 +3,7 @@ import get from 'extensions/themeGet';
 
 export default styled.div`
   position: relative;
+  min-height: 8px;
 
   &::before {
     content: '';
