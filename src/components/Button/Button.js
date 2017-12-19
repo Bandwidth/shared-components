@@ -42,9 +42,10 @@ const Button = styled.button`
 
   outline: none;
 
+
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
-    background-color: ${get('colors.primary.alternate')};
+    background-color: ${get('colors.primary.dark')};
     border-color: ${get('colors.primary.alternate')};
     box-shadow: ${get('shadows.short')};
   }
@@ -54,12 +55,12 @@ const Button = styled.button`
     color: ${get('colors.text.disabled')};
     border-color: ${get('colors.background.disabled')};
     cursor: default;
+    opacity: 0.5;
   }
 
   &::before, &::after {
     position: absolute;
     height: 100%;
-    font-size: 125%;
     color: inherit;
     transition: all 0.3s;
     speak: none;
