@@ -2,6 +2,7 @@ import ExternalTextAnchor from './ExternalTextAnchor';
 import { css } from 'styled-components';
 import get from 'extensions/themeGet';
 import icons from 'components/Icon/icons';
+import Icon from 'components/Icon';
 
 const iconStyles = css`
   text-decoration: none;
@@ -19,6 +20,10 @@ const iconStyles = css`
     font-weight: normal;
     margin-right: ${({ icon, children }) =>
       !!icon && !!children ? '0.5em' : '0'};
+  }
+
+  & > ${Icon} {
+    font-weight: normal;
   }
 `;
 

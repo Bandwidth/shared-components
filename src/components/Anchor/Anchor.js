@@ -19,7 +19,11 @@ const inferType = children => {
     return 'icon';
   }
 
-  return 'text';
+  if (typeof children === 'string') {
+    return 'text';
+  }
+
+  return 'wrap';
 };
 
 class Anchor extends React.Component {
