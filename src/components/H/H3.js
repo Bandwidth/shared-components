@@ -6,9 +6,10 @@ import get from 'extensions/themeGet';
 const H3 = styled.h3.withConfig({ displayName: 'H3' })`
   color: ${get('colors.text.default')};
   font-weight: 300;
-  font-family: ${get('fonts.brand')};
+  font-family: 'Overpass', sans-serif;
   font-size: 1.75em;
-  line-height: 1em;
+  line-height: 1.25;
+  letter-spacing: 0;
   margin: 0;
   padding: 0;
 `;
