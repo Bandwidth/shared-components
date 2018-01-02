@@ -58,6 +58,7 @@ export {
   default as BandwidthThemeProvider,
 } from './components/BandwidthThemeProvider';
 export { default as Breadcrumb } from './components/Breadcrumb';
+export { default as Breadcrumbs } from './components/Breadcrumb/Breadcrumbs';
 export { default as BulkSelect } from './components/BulkSelect';
 export {
   default as BulkSelectBorder,
