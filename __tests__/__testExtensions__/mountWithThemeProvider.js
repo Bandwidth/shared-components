@@ -2,7 +2,8 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { shallow, mount } from 'enzyme';
 
-import { defaultTheme } from '../../src';
+import { irisTheme } from '../../src';
+import { NAMESPACE } from '../../src/theme';
 import createBroadcast from 'styled-components/lib/utils/create-broadcast';
 
 /**
@@ -23,7 +24,7 @@ function nodeWithThemeProp(node, broadcast) {
 export function mountWithTheme(
   node,
   { context, childContextTypes } = {},
-  theme = defaultTheme,
+  theme = { [NAMESPACE]: irisTheme },
 ) {
   const broadcast = createBroadcast(theme);
 
@@ -40,7 +41,7 @@ export function mountWithTheme(
 export function shallowWithTheme(
   node,
   { context, childContextTypes } = {},
-  theme = defaultTheme,
+  theme = { [NAMESPACE]: irisTheme },
 ) {
   const broadcast = createBroadcast(theme);
 
