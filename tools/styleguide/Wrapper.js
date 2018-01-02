@@ -1,15 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { irisTheme, catapultTheme, BandwidthThemeProvider } from '../../src';
-import bootstrap from '../../src/bootstrap';
+import { BandwidthProvider, BandwidthThemeProvider } from '../../src';
 import { Router } from 'react-router';
 import { createMemoryHistory } from 'history';
 import XRay from 'react-x-ray';
 import styled from 'styled-components';
 import get from '../../src/extensions/themeGet';
 import WrapperControls from './WrapperControls';
-
-bootstrap();
 
 const history = createMemoryHistory('/');
 
@@ -24,11 +21,6 @@ const Content = styled.div`
   margin-top: ${get('spacing.medium')};
 `;
 
-const themes = {
-  iris: irisTheme,
-  catapult: catapultTheme,
-};
-
 export default class Wrapper extends React.Component {
   constructor(props) {
     super(props);
@@ -39,8 +31,18 @@ export default class Wrapper extends React.Component {
     console.log(val);
     this.setState({ xray: val });
   };
+
   setTheme = val => {
     this.setState({ theme: val });
+  };
+
+  getThemeProvider = () => {
+    switch (this.state.theme) {
+      case 'catapult':
+        return BandwidthThemeProvider.Catapult;
+      default:
+        return BandwidthThemeProvider;
+    }
   };
 
   render() {
@@ -48,7 +50,7 @@ export default class Wrapper extends React.Component {
 
     return (
       <Router history={history}>
-        <BandwidthThemeProvider theme={themes[theme]}>
+        <BandwidthProvider ThemeProvider={this.getThemeProvider()}>
           <Container>
             <WrapperControls
               theme={theme}
@@ -60,7 +62,7 @@ export default class Wrapper extends React.Component {
               <XRay disabled={!xray}>{this.props.children}</XRay>
             </Content>
           </Container>
-        </BandwidthThemeProvider>
+        </BandwidthProvider>
       </Router>
     );
   }
