@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the Flow component styling containing rows 1`] = `
-.fHFrIZ {
+.cGFMBv {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -18,7 +18,7 @@ exports[`the Flow component styling containing rows 1`] = `
   justify-content: space-between;
 }
 
-.fHFrIZ > .FlowRow__Styles-iRxcTN {
+.cGFMBv > .FlowRowStyles-duyuMs {
   -webkit-flex-basis: 100%;
   -ms-flex-basis: 100%;
   flex-basis: 100%;
@@ -27,10 +27,10 @@ exports[`the Flow component styling containing rows 1`] = `
   flex-shrink: 0;
 }
 
-.fHFrIZ > .FlowItem__Container-krUYur {
-  -webkit-flex-basis: calc(50% - 15px);
-  -ms-flex-basis: calc(50% - 15px);
-  flex-basis: calc(50% - 15px);
+.cGFMBv > .FlowItemContainer-inwfIX {
+  -webkit-flex-basis: calc(50% - 30px / 2);
+  -ms-flex-basis: calc(50% - 30px / 2);
+  flex-basis: calc(50% - 30px / 2);
   -webkit-flex-grow: 0;
   -ms-flex-grow: 0;
   flex-grow: 0;
@@ -39,31 +39,31 @@ exports[`the Flow component styling containing rows 1`] = `
   flex-shrink: 0;
 }
 
-.fHFrIZ > .FlowRow__Styles-iRxcTN,
-.fHFrIZ > .FlowItem__Container-krUYur {
-  margin-top: 14px;
-  margin-bottom: 14px;
+.cGFMBv > .FlowRowStyles-duyuMs,
+.cGFMBv > .FlowItemContainer-inwfIX {
+  margin-top: calc(28px / 2);
+  margin-bottom: calc(28px / 2);
 }
 
-.fHFrIZ > .FlowRow__Styles-iRxcTN:first-child,
-.fHFrIZ > .FlowItem__Container-krUYur:first-child {
+.cGFMBv > .FlowRowStyles-duyuMs:first-child,
+.cGFMBv > .FlowItemContainer-inwfIX:first-child {
   margin-top: 0;
 }
 
-.fHFrIZ > .FlowRow__Styles-iRxcTN:last-child,
-.fHFrIZ > .FlowItem__Container-krUYur:last-child {
+.cGFMBv > .FlowRowStyles-duyuMs:last-child,
+.cGFMBv > .FlowItemContainer-inwfIX:last-child {
   margin-bottom: 0;
 }
 
-.YEuSm {
+.ibmJYt {
   -webkit-box-pack: space-between;
   -webkit-justify-content: space-between;
   -ms-flex-pack: space-between;
   justify-content: space-between;
 }
 
-.YEuSm > .FlowItem__Container-krUYur,
-.YEuSm > .FlowRow__BaseStyles-jBvvfh {
+.ibmJYt > .FlowItemContainer-inwfIX,
+.ibmJYt > .FlowRowStyles__BaseStyles-bMPHYI {
   -webkit-flex-grow: 1;
   -ms-flex-grow: 1;
   flex-grow: 1;
@@ -77,21 +77,21 @@ exports[`the Flow component styling containing rows 1`] = `
   flex-basis: 0;
 }
 
-.YEuSm > .FlowItem__Container-krUYur:first-child,
-.YEuSm > .FlowRow__BaseStyles-jBvvfh:first-child {
+.ibmJYt > .FlowItemContainer-inwfIX:first-child,
+.ibmJYt > .FlowRowStyles__BaseStyles-bMPHYI:first-child {
   margin-left: 0;
 }
 
-.YEuSm > .FlowItem__Container-krUYur:last-child,
-.YEuSm > .FlowRow__BaseStyles-jBvvfh:last-child {
+.ibmJYt > .FlowItemContainer-inwfIX:last-child,
+.ibmJYt > .FlowRowStyles__BaseStyles-bMPHYI:last-child {
   margin-right: 0;
 }
 
-.YEuSm .Label__Label-jsURsk {
+.ibmJYt .FlowItem-label {
   display: none;
 }
 
-.gbwVLv {
+.blOfLL {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -101,7 +101,7 @@ exports[`the Flow component styling containing rows 1`] = `
   flex-direction: row;
 }
 
-.jVAKAe {
+.iEbfDR {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -109,16 +109,16 @@ exports[`the Flow component styling containing rows 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  font-size: 1em;
   -webkit-align-items: stretch;
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
 }
 
-.jVAKAe > .Label__Label-jsURsk {
+.iEbfDR > .FlowItem-label {
   height: 21px;
-  margin: 0;
-  margin-bottom: 5.6px;
+  margin: 0 0 5.6px 0;
   overflow-x: hidden;
   -webkit-flex-basis: 21px;
   -ms-flex-basis: 21px;
@@ -132,7 +132,7 @@ exports[`the Flow component styling containing rows 1`] = `
   padding: 0;
 }
 
-.jVAKAe > .FlowItem__Content-bZFRMT {
+.iEbfDR > .FlowItemContent-hJlKhy {
   height: 53px;
   -webkit-flex-grow: 0;
   -ms-flex-grow: 0;
@@ -146,15 +146,15 @@ exports[`the Flow component styling containing rows 1`] = `
   display: flex;
 }
 
-.jVAKAe > .FlowItem__Content-bZFRMT > * {
+.iEbfDR > .FlowItemContent-hJlKhy > * {
   margin: auto;
 }
 
-.jVAKAe > .FlowItem__Content-bZFRMT > *:not(:last-child):not(:only-child) {
-  margin-right: 30px;
+.iEbfDR > .FlowItemContent-hJlKhy > *:not(:last-child):not(:only-child) {
+  margin-right: ;
 }
 
-.jVAKAe > .FlowItem__FlexibleContent-kAxlQq {
+.iEbfDR > .FlowItemFlexibleContent-drAddD {
   height: auto;
   -webkit-flex-basis: 53px;
   -ms-flex-basis: 53px;
@@ -167,10 +167,9 @@ exports[`the Flow component styling containing rows 1`] = `
   flex-shrink: 0;
 }
 
-.jVAKAe > .HelpText__HelpText-cZQOvv {
+.iEbfDR > .FlowItem-helpText {
   min-height: 18px;
-  margin: 0;
-  margin-top: 5.6px;
+  margin: 5.6px 0 0 0;
   -webkit-flex-basis: 18px;
   -ms-flex-basis: 18px;
   flex-basis: 18px;
@@ -183,54 +182,63 @@ exports[`the Flow component styling containing rows 1`] = `
   padding: 0;
 }
 
-.jVAKAe > .FlowItem__MoreContent-eNWnOb {
+.iEbfDR > .FlowItemMoreContent-eLBclL {
   -webkit-flex: 1 0 0;
   -ms-flex: 1 0 0;
   flex: 1 0 0;
 }
 
-.gdcnMF {
+.crMBmz {
   font-size: 1em;
   -webkit-letter-spacing: 0.02em;
   -moz-letter-spacing: 0.02em;
   -ms-letter-spacing: 0.02em;
   letter-spacing: 0.02em;
   font-weight: 600;
-  font-family: "Overpass", Raleway, "Open Sans", arial, sans-serif;
-  padding-bottom: 0.4em;
+  font-family: "Overpass",Raleway,"Open Sans",arial,sans-serif;
   color: #666;
   background: transparent;
-  opacity: 1;
+  line-height: 1.5;
   display: block;
-  line-height: 1.5em;
 }
 
-<Flow__Flow
+.crMBmz:disabled {
+  opacity: 0.5;
+}
+
+<Flow
   __styled-components__={[Function]}
 >
   <div
-    className="Flow__Flow-leoEqO fHFrIZ"
+    className="Flow-eCXGpz cGFMBv"
   >
     <FlowRow
+      Styles={[Function]}
       alignment="stretch"
       sizes={Array []}
     >
-      <FlowRow__Styles
+      <FlowRowStyles
         alignment="stretch"
         sizes={Array []}
         suppressLabels={true}
       >
-        <FlowRow__BaseStyles
+        <FlowRowStyles__BaseStyles
           alignment="stretch"
-          className="FlowRow__Styles-iRxcTN YEuSm"
+          className="FlowRowStyles-duyuMs ibmJYt"
           sizes={Array []}
           suppressLabels={true}
         >
           <div
-            className="FlowRow__Styles-iRxcTN YEuSm FlowRow__BaseStyles-jBvvfh gbwVLv"
+            className="FlowRowStyles-duyuMs ibmJYt FlowRowStyles__BaseStyles-bMPHYI blOfLL"
             sizes={Array []}
           >
             <FlowItem
+              Container={[Function]}
+              Content={[Function]}
+              FlexibleContent={[Function]}
+              HelpText={[Function]}
+              Label={[Function]}
+              MoreContent={[Function]}
               alignment="stretch"
               className={null}
               error={false}
@@ -240,35 +248,41 @@ exports[`the Flow component styling containing rows 1`] = `
               label={null}
               moreContent={null}
             >
-              <FlowItem__Container
+              <FlowItemContainer
                 alignment="stretch"
                 className={null}
                 id={null}
               >
                 <div
-                  className="FlowItem__Container-krUYur jVAKAe"
+                  className="FlowItemContainer-inwfIX iEbfDR"
                   id={null}
                 >
-                  <Label__Label
-                    className={null}
+                  <Label
+                    className="FlowItem-label"
                     disabled={false}
                     id={null}
                   >
                     <label
-                      className="Label__Label-jsURsk gdcnMF"
+                      className="FlowItem-label Label-ghyrbC crMBmz"
                       disabled={false}
                       id={null}
                     />
-                  </Label__Label>
-                  <FlowItem__Content>
+                  </Label>
+                  <FlowItemContent>
                     <div
-                      className="FlowItem__Content-bZFRMT cwqVhq"
+                      className="FlowItemContent-hJlKhy bduvXg"
                     />
-                  </FlowItem__Content>
+                  </FlowItemContent>
                 </div>
-              </FlowItem__Container>
+              </FlowItemContainer>
             </FlowItem>
             <FlowItem
+              Container={[Function]}
+              Content={[Function]}
+              FlexibleContent={[Function]}
+              HelpText={[Function]}
+              Label={[Function]}
+              MoreContent={[Function]}
               alignment="stretch"
               className={null}
               error={false}
@@ -278,58 +292,65 @@ exports[`the Flow component styling containing rows 1`] = `
               label={null}
               moreContent={null}
             >
-              <FlowItem__Container
+              <FlowItemContainer
                 alignment="stretch"
                 className={null}
                 id={null}
               >
                 <div
-                  className="FlowItem__Container-krUYur jVAKAe"
+                  className="FlowItemContainer-inwfIX iEbfDR"
                   id={null}
                 >
-                  <Label__Label
-                    className={null}
+                  <Label
+                    className="FlowItem-label"
                     disabled={false}
                     id={null}
                   >
                     <label
-                      className="Label__Label-jsURsk gdcnMF"
+                      className="FlowItem-label Label-ghyrbC crMBmz"
                       disabled={false}
                       id={null}
                     />
-                  </Label__Label>
-                  <FlowItem__Content>
+                  </Label>
+                  <FlowItemContent>
                     <div
-                      className="FlowItem__Content-bZFRMT cwqVhq"
+                      className="FlowItemContent-hJlKhy bduvXg"
                     />
-                  </FlowItem__Content>
+                  </FlowItemContent>
                 </div>
-              </FlowItem__Container>
+              </FlowItemContainer>
             </FlowItem>
           </div>
-        </FlowRow__BaseStyles>
-      </FlowRow__Styles>
+        </FlowRowStyles__BaseStyles>
+      </FlowRowStyles>
     </FlowRow>
     <FlowRow
+      Styles={[Function]}
       alignment="stretch"
       sizes={Array []}
     >
-      <FlowRow__Styles
+      <FlowRowStyles
         alignment="stretch"
         sizes={Array []}
         suppressLabels={true}
       >
-        <FlowRow__BaseStyles
+        <FlowRowStyles__BaseStyles
           alignment="stretch"
-          className="FlowRow__Styles-iRxcTN YEuSm"
+          className="FlowRowStyles-duyuMs ibmJYt"
           sizes={Array []}
           suppressLabels={true}
         >
           <div
-            className="FlowRow__Styles-iRxcTN YEuSm FlowRow__BaseStyles-jBvvfh gbwVLv"
+            className="FlowRowStyles-duyuMs ibmJYt FlowRowStyles__BaseStyles-bMPHYI blOfLL"
             sizes={Array []}
           >
             <FlowItem
+              Container={[Function]}
+              Content={[Function]}
+              FlexibleContent={[Function]}
+              HelpText={[Function]}
+              Label={[Function]}
+              MoreContent={[Function]}
               alignment="stretch"
               className={null}
               error={false}
@@ -339,35 +360,41 @@ exports[`the Flow component styling containing rows 1`] = `
               label={null}
               moreContent={null}
             >
-              <FlowItem__Container
+              <FlowItemContainer
                 alignment="stretch"
                 className={null}
                 id={null}
               >
                 <div
-                  className="FlowItem__Container-krUYur jVAKAe"
+                  className="FlowItemContainer-inwfIX iEbfDR"
                   id={null}
                 >
-                  <Label__Label
-                    className={null}
+                  <Label
+                    className="FlowItem-label"
                     disabled={false}
                     id={null}
                   >
                     <label
-                      className="Label__Label-jsURsk gdcnMF"
+                      className="FlowItem-label Label-ghyrbC crMBmz"
                       disabled={false}
                       id={null}
                     />
-                  </Label__Label>
-                  <FlowItem__Content>
+                  </Label>
+                  <FlowItemContent>
                     <div
-                      className="FlowItem__Content-bZFRMT cwqVhq"
+                      className="FlowItemContent-hJlKhy bduvXg"
                     />
-                  </FlowItem__Content>
+                  </FlowItemContent>
                 </div>
-              </FlowItem__Container>
+              </FlowItemContainer>
             </FlowItem>
             <FlowItem
+              Container={[Function]}
+              Content={[Function]}
+              FlexibleContent={[Function]}
+              HelpText={[Function]}
+              Label={[Function]}
+              MoreContent={[Function]}
               alignment="stretch"
               className={null}
               error={false}
@@ -377,38 +404,38 @@ exports[`the Flow component styling containing rows 1`] = `
               label={null}
               moreContent={null}
             >
-              <FlowItem__Container
+              <FlowItemContainer
                 alignment="stretch"
                 className={null}
                 id={null}
               >
                 <div
-                  className="FlowItem__Container-krUYur jVAKAe"
+                  className="FlowItemContainer-inwfIX iEbfDR"
                   id={null}
                 >
-                  <Label__Label
-                    className={null}
+                  <Label
+                    className="FlowItem-label"
                     disabled={false}
                     id={null}
                   >
                     <label
-                      className="Label__Label-jsURsk gdcnMF"
+                      className="FlowItem-label Label-ghyrbC crMBmz"
                       disabled={false}
                       id={null}
                     />
-                  </Label__Label>
-                  <FlowItem__Content>
+                  </Label>
+                  <FlowItemContent>
                     <div
-                      className="FlowItem__Content-bZFRMT cwqVhq"
+                      className="FlowItemContent-hJlKhy bduvXg"
                     />
-                  </FlowItem__Content>
+                  </FlowItemContent>
                 </div>
-              </FlowItem__Container>
+              </FlowItemContainer>
             </FlowItem>
           </div>
-        </FlowRow__BaseStyles>
-      </FlowRow__Styles>
+        </FlowRowStyles__BaseStyles>
+      </FlowRowStyles>
     </FlowRow>
   </div>
-</Flow__Flow>
+</Flow>
 `;
