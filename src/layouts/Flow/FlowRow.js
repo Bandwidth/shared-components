@@ -35,7 +35,9 @@ class FlowRow extends React.Component {
      */
     alignment: (props, propName, componentName) => {
       if (props.sizes.length > 0 && props[propName] !== 'stretch') {
-        return new Error(`Using ${propName} with sizes is invalid in ${componentName}.
+        return new Error(`Using ${propName} with sizes is invalid in ${
+          componentName
+        }.
         ${propName} is ${JSON.stringify(
           props[propName],
         )}, sizes is ${JSON.stringify(props.sizes)}`);
@@ -43,7 +45,9 @@ class FlowRow extends React.Component {
 
       if (!['left', 'right', 'stretch', 'center'].includes(props[propName])) {
         return new Error(
-          `Invalid prop ${propName} supplied to ${componentName}: must be one of [left, right, center, stretch].`,
+          `Invalid prop ${propName} supplied to ${
+            componentName
+          }: must be one of [left, right, center, stretch].`,
         );
       }
     },
