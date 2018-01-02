@@ -43,7 +43,7 @@
     "react-router-dom": "^4.1.1",
     "react-select": "^1.0.0-rc.10",
     "react-syntax-highlighter": "^5.5.0",
-    "styled-components": "^2.1.2",
+    "styled-components": "^2.4.0",
     "warning": "^3.0.0"
   },
   "devDependencies": {
@@ -70,9 +70,9 @@
     "lodash": "^4.17.4",
     "npm-run-all": "^4.0.2",
     "postcss-loader": "^2.0.6",
-    "react-docgen": "^2.17.0",
+    "react-docgen": "^3.0.0-beta9",
     "react-dom": "^15.6.1",
-    "react-styleguidist": "^6.0.26",
+    "react-styleguidist": "^6.1.0",
     "react-test-renderer": "^15.6.1",
     "react-x-ray": "^1.0.0-2",
     "rimraf": "^2.6.1",

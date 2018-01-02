@@ -23,7 +23,5 @@ Breadcrumbs.propTypes = {
 
 Breadcrumbs.Breadcrumb = Breadcrumb;
 
-/**
- * @component
- */
+/** @component */
 export default Breadcrumbs;

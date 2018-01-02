@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
-/**
- * @component
- */
-export default styled.div`
+const Breadcrumb = styled.div`
   float: left;
   
   &>* {
@@ -14,3 +11,9 @@ export default styled.div`
    clear: both;
   }
 `;
+
+
+/**
+ * @component
+ */
+export default Breadcrumb;
