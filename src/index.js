@@ -58,6 +58,7 @@ export {
   default as BandwidthThemeProvider,
 } from './components/BandwidthThemeProvider';
 export { default as Breadcrumb } from './components/Breadcrumb';
+export { default as Breadcrumbs } from './components/Breadcrumb/Breadcrumbs';
 export { default as BulkSelect } from './components/BulkSelect';
 export {
   default as BulkSelectBorder,
@@ -76,6 +77,9 @@ export { default as SubmitButton } from './components/Button/SubmitButton';
 export { default as Callout } from './components/Callout';
 export { default as CalloutTag } from './components/Callout/styles/CalloutTag';
 export { default as Cards } from './components/Cards';
+export { default as Card } from './components/Cards/Card';
+export { default as CardHeader } from './components/Cards/CardHeader';
+export { default as CardSection } from './components/Cards/CardSection';
 export { default as Checkbox } from './components/Checkbox';
 export {
   default as CheckboxContainer,

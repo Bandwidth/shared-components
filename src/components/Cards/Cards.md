@@ -3,10 +3,11 @@
 
 Example:
 ```jsx harmony
-import myImage from 'images/myImage.png';
+//You can import a local image as such:
+//import myImage from 'images/myImage.png';
 
 <Cards>
-  <Cards.Card image={myImage} title="My Card">
+  <Cards.Card image={'http://dev.bandwidth.com/design-system/source/images/blue.png'} title="My Card">
     <Cards.Card.Section>
       <p>Cards may have an image and/or title which dictate how the top of the card will look.</p>
     </Cards.Card.Section>
@@ -15,31 +16,31 @@ import myImage from 'images/myImage.png';
     </Cards.Card.Section>
   </Cards.Card>
   <Cards.Card>
-    <Cards.Card.CardSection>
+    <Cards.Card.Section>
       <p>Cards may contain any HTML elements or React components.</p>
-    </Cards.Card.CardSection>
-    <Cards.Card.CardSection>
+    </Cards.Card.Section>
+    <Cards.Card.Section>
       <p>If a card does not have a title or image, no header will be displayed</p>
-    </Cards.Card.CardSection>
+    </Cards.Card.Section>
   </Cards.Card>
 </Cards>
 ```
 ```jsx harmony
 <Cards.Connected>
-  <Cards.Card image={myImage} title="First of many">
-    <Cards.Card.CardSection>
+  <Cards.Card image={'http://dev.bandwidth.com/design-system/source/images/blue.png'} title="First of many">
+    <Cards.Card.Section>
       <p>These cards will be connected visually</p>
-    </Cards.Card.CardSection>
+    </Cards.Card.Section>
   </Cards.Card>
-  <Cards.Card image={myImage} title="Another connected card">
-    <Cards.Card.CardSection>
+  <Cards.Card image={'http://dev.bandwidth.com/design-system/source/images/blue.png'} title="Another connected card">
+    <Cards.Card.Section>
       <p>There will be no space between these three cards</p>
-    </Cards.Card.CardSection>
+    </Cards.Card.Section>
   </Cards.Card>
   <Cards.Card>
-    <Cards.Card.CardSection>
+    <Cards.Card.Section>
       <p>This last card doesn't have a header image or title</p>
-    </Cards.Card.CardSection>
+    </Cards.Card.Section>
   </Cards.Card>
 </Cards.Connected>
 ```

@@ -17,6 +17,7 @@ Cards.Connected = Cards.extend`
     margin: 0;
     border-radius: 0px;
     border-color: ${themeGet('colors.border.medium')};
+    border-width: 0;
     border-right-width: ${themeGet('thicknesses.normal')};
     border-style: solid;
   }
