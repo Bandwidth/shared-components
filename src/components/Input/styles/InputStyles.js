@@ -24,6 +24,10 @@ const InputStyles = styled.input`
     border-color: ${get('colors.border.medium')};
   }
 
+  &:required {
+    box-shadow: none;
+  }
+
   &:disabled {
     background: ${get('colors.background.disabled')};
     border-color: ${get('colors.border.medium')};
