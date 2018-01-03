@@ -14456,10 +14456,10 @@ object-assign
         );
       })(
         [
-          "\n  /* this doesn't contain any special styling, see NavigationItem for rules */\n",
+          "\n  /* this doesn't contain any special styling, see NavigationItem for rules */\n  /* adding one rule to ensure a new class is created */\n\n  display: flex;\n",
         ],
         [
-          "\n  /* this doesn't contain any special styling, see NavigationItem for rules */\n",
+          "\n  /* this doesn't contain any special styling, see NavigationItem for rules */\n  /* adding one rule to ensure a new class is created */\n\n  display: flex;\n",
         ],
       ),
       o = _interopRequireDefault(n(2)),
@@ -18385,29 +18385,24 @@ object-assign
         (0, i.default)('colors.border.medium'),
         (0, i.default)('colors.text.disabled'),
         function(e) {
-          var t = e.visited;
-          e.theme;
-          return t
+          return e.visited
             ? (0, o.css)(
                 [
                   '&:invalid{box-shadow:inset 0 -5px 0 ',
                   ';border-color:',
                   ';}',
                 ],
-                (0, i.default)('colors.negative.light'),
-                (0, i.default)('colors.negative.border'),
+                (0, i.default)('colors.negative.light')(e),
+                (0, i.default)('colors.negative.border')(e),
               )
             : '';
         },
         function(e) {
-          var t = e.invalid,
-            n = e.error;
-          e.theme;
-          return t || n
+          return e.invalid || e.error
             ? '\n    box-shadow: inset 0 -5px ' +
-                (0, i.default)('colors.negative.light') +
+                (0, i.default)('colors.negative.light')(e) +
                 ';\n    border-color: ' +
-                (0, i.default)('colors.negative.border') +
+                (0, i.default)('colors.negative.border')(e) +
                 ';\n    '
             : '';
         },
@@ -18513,7 +18508,7 @@ object-assign
         [
           'color:',
           ';font-weight:300;font-family:',
-          ';font-size:1.75em;line-height:1em;margin:0;padding:0;',
+          ';font-size:1.75em;line-height:1.25;letter-spacing:0;margin:0;padding:0;',
         ],
         (0, i.default)('colors.text.default'),
         (0, i.default)('fonts.brand'),
@@ -115971,6 +115966,13 @@ object-assign
         settings: {},
         evalInContext: a,
       },
+      { type: 'markdown', content: 'An invalid input' },
+      {
+        type: 'code',
+        content: '<Input type="text" invalid />',
+        settings: {},
+        evalInContext: a,
+      },
       { type: 'markdown', content: '_Small variant_' },
       {
         type: 'code',
@@ -119721,7 +119723,7 @@ object-assign
           type: {
             name: 'custom',
             raw:
-              "(props, propName, componentName) => {\r\n  if (props.sizes.length > 0 && props[propName] !== 'stretch') {\r\n    return new Error(`Using ${propName} with sizes is invalid in ${componentName}.\r\n    ${propName} is ${JSON.stringify(\r\n      props[propName],\r\n    )}, sizes is ${JSON.stringify(props.sizes)}`);\r\n  }\r\n\r\n  if (!['left', 'right', 'stretch', 'center'].includes(props[propName])) {\r\n    return new Error(\r\n      `Invalid prop ${propName} supplied to ${componentName}: must be one of [left, right, center, stretch].`,\r\n    );\r\n  }\r\n}",
+              "(props, propName, componentName) => {\r\n  if (props.sizes.length > 0 && props[propName] !== 'stretch') {\r\n    return new Error(`Using ${propName} with sizes is invalid in ${\r\n      componentName\r\n    }.\r\n    ${propName} is ${JSON.stringify(\r\n      props[propName],\r\n    )}, sizes is ${JSON.stringify(props.sizes)}`);\r\n  }\r\n\r\n  if (!['left', 'right', 'stretch', 'center'].includes(props[propName])) {\r\n    return new Error(\r\n      `Invalid prop ${propName} supplied to ${\r\n        componentName\r\n      }: must be one of [left, right, center, stretch].`,\r\n    );\r\n  }\r\n}",
           },
           required: !1,
           description:

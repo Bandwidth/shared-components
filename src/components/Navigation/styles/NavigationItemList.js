@@ -26,6 +26,9 @@ const NavigationItemList = styled.div.withConfig({
 
 NavigationItemList.Small = NavigationItemList.extend`
   /* this doesn't contain any special styling, see NavigationItem for rules */
+  /* adding one rule to ensure a new class is created */
+
+  display: flex;
 `;
 
 export default NavigationItemList;
