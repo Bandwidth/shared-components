@@ -8,6 +8,12 @@ A basic styled text input.
 <Input type="text" placeholder="Placeholder text"/>
 ```
 
+An invalid input
+
+```
+<Input type="text" invalid />
+```
+
 _Small variant_
 
 ```
