@@ -61,7 +61,7 @@
     "react-studs": "^2.0.1",
     "react-syntax-highlighter": "^5.5.0",
     "recompose": "^0.26.0",
-    "styled-components": "^2.1.2",
+    "styled-components": "2.3.3",
     "warning": "^3.0.0"
   },
   "devDependencies": {
