@@ -14091,12 +14091,12 @@ object-assign
         [
           '\n  font-size: 0.75em;\n\n  & > .FlowItem-label {\n    height: auto;\n    margin: 0;\n  }\n\n  & > ',
           ' {\n    height: 20px;\n  }\n\n  & > ',
-          ' {\n    min-height: 20px;\n  }\n\n  & > .FlowItem-helpText {\n    min-height: 14px;\n    margin: 0;\n  }\n',
+          ' {\n    flex-basis: 20px;\n  }\n\n  & > .FlowItem-helpText {\n    min-height: 14px;\n    margin: 0;\n  }\n',
         ],
         [
           '\n  font-size: 0.75em;\n\n  & > .FlowItem-label {\n    height: auto;\n    margin: 0;\n  }\n\n  & > ',
           ' {\n    height: 20px;\n  }\n\n  & > ',
-          ' {\n    min-height: 20px;\n  }\n\n  & > .FlowItem-helpText {\n    min-height: 14px;\n    margin: 0;\n  }\n',
+          ' {\n    flex-basis: 20px;\n  }\n\n  & > .FlowItem-helpText {\n    min-height: 14px;\n    margin: 0;\n  }\n',
         ],
       ),
       o = _interopRequireDefault(n(2)),
