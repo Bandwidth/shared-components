@@ -11920,7 +11920,11 @@ object-assign
                 var e = o.props,
                   t = e.label,
                   n = e.required;
-                return a.default.createElement(d.default, { required: n }, t);
+                return a.default.createElement(
+                  d.default,
+                  { className: 'FlowItem-label', required: n },
+                  t,
+                );
               }),
               (o.renderInput = function() {
                 var t = o.props,

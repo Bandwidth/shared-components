@@ -74,7 +74,11 @@ export default FieldComponent =>
      */
     renderLabel = () => {
       const { label, required } = this.props;
-      return <Label required={required}>{label}</Label>;
+      return (
+        <Label className="FlowItem-label" required={required}>
+          {label}
+        </Label>
+      );
     };
 
     /**
