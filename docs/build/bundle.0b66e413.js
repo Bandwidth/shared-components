@@ -26060,8 +26060,8 @@ object-assign
           Object.defineProperties(e, { raw: { value: Object.freeze(t) } }),
         );
       })(
-        ['\n  margin: 0 -', ' ', ' -', ';\n'],
-        ['\n  margin: 0 -', ' ', ' -', ';\n'],
+        ['\n  width: auto;\n  margin: 0 -', ' ', ' -', ';\n'],
+        ['\n  width: auto;\n  margin: 0 -', ' ', ' -', ';\n'],
       ),
       o = _interopRequireDefault(n(290)),
       a = _interopRequireDefault(n(4));
