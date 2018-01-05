@@ -50632,7 +50632,7 @@ object-assign
       i = o.default.span.withConfig({ displayName: 'NewBadge' })(
         [
           "display:inline-block;&::after{content:'New:';display:inline-block;color:",
-          ';font-weight:bold;font-size:0.85em;margin:0 0 0 1em;text-transform:uppercase;}',
+          ';font-weight:bold;font-size:0.85em;margin:0 1em 0 0;text-transform:uppercase;}',
         ],
         (0, a.default)('colors.primary.default'),
       );
