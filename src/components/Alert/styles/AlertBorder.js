@@ -14,26 +14,37 @@ const AlertBorder = styled.div`
   flex-direction: row;
   min-height: 53px;
   letter-spacing: 0.02em;
-  white-space: wrap;
 
   background: ${({ theme, type }) => {
     switch (type) {
       case 'success':
-        return get('colors.positive.light');
+        return '#e0fff7';
       case 'error':
-        return get('colors.negative.light');
+        return '#ffede8';
       default:
-        return get('colors.primary.light');
+        return '#e0f7fd';
     }
   }};
+
+  border-color: ${({ theme, type }) => {
+    switch (type) {
+      case 'success':
+        return '#00fbb9';
+      case 'error':
+        return '#ffb39e';
+      default:
+        return '#00bef0';
+    }
+  }};
+
   color: ${({ theme, type }) => {
     switch (type) {
       case 'success':
-        return get('colors.positive.default');
+        return '#005c44';
       case 'error':
-        return get('colors.negative.default');
+        return '#a53f0c';
       default:
-        return get('colors.primary.default');
+        return get('colors.primary.dark');
     }
   }};
 `;
@@ -42,6 +53,7 @@ AlertBorder.Small = AlertBorder.extend`
   padding: 5px;
   font-size: 0.8em;
   min-height: 30px;
+  font-weight: 300;
 `;
 
 export default AlertBorder;
