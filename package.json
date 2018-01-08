@@ -1,6 +1,6 @@
 {
   "name": "@bandwidth/shared-components",
-  "version": "3.0.2",
+  "version": "3.0.8",
   "description": "Shared Component Library for Bandwidth React Apps",
   "main": "dist/index.js",
   "scripts": {
@@ -58,10 +58,9 @@
     "react-motion": "^0.5.1",
     "react-router-dom": "^4.1.1",
     "react-select": "^1.0.0-rc.10",
-    "react-studs": "^2.0.1",
     "react-syntax-highlighter": "^5.5.0",
     "recompose": "^0.26.0",
-    "styled-components": "^2.1.2",
+    "styled-components": "2.3.3",
     "warning": "^3.0.0"
   },
   "devDependencies": {
@@ -94,14 +93,14 @@
     "npm-run-all": "^4.0.2",
     "postcss-loader": "^2.0.6",
     "prettier": "^1.8.2",
+    "react": "^15.5.4",
     "react-docgen": "^3.0.0-beta9",
     "react-docgen-annotation-resolver": "^1.0.0",
     "react-dom": "^15.6.1",
-    "react-styleguidist": "^6.0.33",
+    "react-styleguidist": "^6.1.0",
     "react-test-renderer": "^15.6.1",
     "react-x-ray": "^1.0.0-2",
     "rimraf": "^2.6.1",
-    "studs-cli": "^0.1.5",
     "style-loader": "^0.18.2",
     "verbal-expressions": "^0.3.0",
     "webpack": "^3.5.5"

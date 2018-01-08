@@ -329,6 +329,9 @@ export {
   default as TableControlsContainer,
 } from './components/Table/styles/TableControlsContainer';
 export {
+  default as TableControlsIcons,
+} from './components/Table/styles/TableControlsIcons';
+export {
   default as TableControlsRow,
 } from './components/Table/styles/TableControlsRow';
 export {

@@ -5,7 +5,7 @@ const annotationResolver = require('react-docgen-annotation-resolver').default;
 
 module.exports = {
   title: 'Bandwidth Shared React Components',
-  styleguideDir: "docs",
+  styleguideDir: 'docs',
   sections: [
     {
       name: 'Introduction',
@@ -59,21 +59,18 @@ module.exports = {
     },
   ],
   theme: {
-    fontSize :{
-      base: 14
+    fontSize: {
+      base: 14,
     },
     fontFamily: {
-      base: ['Bandwidth']
-    }
+      base: ['Bandwidth'],
+    },
   },
   ignore: [
     'src/components/**/index.js',
     'src/components/layout/Flow/fields/**/*.js',
   ],
-  require: [
-    'styled-components',
-    path.join(__dirname, 'src'),
-  ],
+  require: ['styled-components', path.join(__dirname, 'src')],
   styleguideComponents: {
     Logo: path.join(__dirname, 'tools/styleguide/Logo'),
     Wrapper: path.join(__dirname, 'tools/styleguide/Wrapper'),
@@ -92,8 +89,8 @@ module.exports = {
     devtool: 'cheap-module-eval-source-map',
     resolve: {
       modules: ['node_modules'].concat(
-        process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
-      )
+        process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
+      ),
     },
     module: {
       rules: [
@@ -102,12 +99,12 @@ module.exports = {
           test: /\.js?$/,
           exclude: /node_modules/,
           use: {
-              loader: 'babel-loader',
-              options: {
-                plugins: ['styled-components'],
-                presets: ['es2015', 'react', 'stage-0']
-              }
-            }
+            loader: 'babel-loader',
+            options: {
+              plugins: ['styled-components'],
+              presets: ['es2015', 'react', 'stage-0'],
+            },
+          },
         },
         {
           test: /\.css$/,
@@ -132,7 +129,7 @@ module.exports = {
           test: /\.(svg|woff|woff2|eot|otf|ttf)$/,
           use: 'file-loader',
         },
-      ]
-    }
-  }
+      ],
+    },
+  },
 };
