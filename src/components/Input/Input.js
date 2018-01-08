@@ -148,24 +148,23 @@ class Input extends React.Component {
       });
     };
 
-    return (
-      <RevealPasswordWrapper>
-        {this.renderInputField()}
-        <div>
-          <Anchor href="" onClick={handleClick}>
-            {this.state._type === 'password' ? 'Show' : 'Hide'}
-          </Anchor>
-        </div>
-      </RevealPasswordWrapper>
+    const inlineNode = (
+      <div>
+        <Anchor href="" onClick={handleClick}>
+          {this.state._type === 'password' ? 'Show' : 'Hide'}
+        </Anchor>
+      </div>
     );
+
+    return this.renderInlineContent(inlineNode);
   };
 
-  renderInlineContent = () => {
+  renderInlineContent = node => {
     const { RevealPasswordWrapper } = this.props;
     return (
       <RevealPasswordWrapper>
         {this.renderInputField()}
-        {this.props.inlineContent}
+        {node}
       </RevealPasswordWrapper>
     );
   };
@@ -222,7 +221,7 @@ class Input extends React.Component {
     }
 
     if (inlineContent) {
-      return this.renderInlineContent();
+      return this.renderInlineContent(inlineContent);
     }
 
     return this.renderInputField();
