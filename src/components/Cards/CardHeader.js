@@ -31,7 +31,7 @@ class CardHeader extends React.Component {
   };
 
   render() {
-    const { image, title } = this.props;
+    const { image, title, HeaderWrapper } = this.props;
 
     return (
       <HeaderWrapper image={image}>
