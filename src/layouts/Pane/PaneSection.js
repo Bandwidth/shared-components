@@ -1,26 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
-const Wrap = styled.section`
-
-`;
-
-const Content = styled.div`
-  padding: 0;
-  margin: 0;
-`;
-
-const Title = styled.h3`
-  background: #dedede;
-  display: block;
-  padding: ${({ theme }) => `${theme.padding.extraSmall} ${theme.padding.large}`};
-  margin: 0;
-  font-size: 0.9em;
-  font-weight: 600;
-  line-height: 1.5em;
-  text-transform: uppercase;
-`;
+import PaneSectionContent from './styles/PaneSectionContent';
+import PaneSectionTitle from './styles/PaneSectionTitle';
+import PaneSectionWrap from './styles/PaneSectionWrap';
 
 class PaneSection extends React.Component {
   static propTypes = {
@@ -40,16 +22,31 @@ class PaneSection extends React.Component {
      * Adds a class name to the section.
      */
     className: PropTypes.string,
+    /**
+     * A component to render the content of the pane section
+     */
+    Content: PropTypes.func,
+    /**
+     * A component to render the title of the pane section
+     */
+    Title: PropTypes.func,
+    /**
+     * A component to render the outer wrapper of the pane section
+     */
+    Wrap: PropTypes.func,
   };
 
   static defaultProps = {
     title: null,
     id: null,
     className: null,
+    Content: PaneSectionContent,
+    Title: PaneSectionTitle,
+    Wrap: PaneSectionWrap,
   };
 
   render() {
-    const { title, children, id, className } = this.props;
+    const { title, children, id, className, Wrap, Title, Content } = this.props;
     return (
       <Wrap id={id} className={className}>
         {title ? <Title>{title}</Title> : null}
@@ -58,24 +55,5 @@ class PaneSection extends React.Component {
     );
   }
 }
-
-PaneSection.usage = `
-# PaneSection
-
-Provides a nice delineated section of content within a Pane. Add a \`title\` to display a little divider with the title inside.
-
-Does no layout on children. Add your own padding to children if needed.
-
-\`\`\`
-<Pane title="parent">
-  <PaneSection title="foo">
-    Content
-  </PaneSection>
-  <PaneSection title="bar">
-    Content
-  </PaneSection>
-</Pane>
-\`\`\`
-`;
 
 export default PaneSection;

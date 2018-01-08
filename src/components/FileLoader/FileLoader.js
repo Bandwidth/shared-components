@@ -1,37 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
-import styled from 'styled-components';
 import Icon from '../Icon';
+import FileLoaderDropArea from './styles/FileLoaderDropArea';
+import FileLoaderPreview from './styles/FileLoaderPreview';
 
-const DropArea = styled.div`
-  border: ${({ theme }) => theme.input.border};
-  padding: ${({ theme }) => theme.input.padding};
-  font-size: ${({ theme }) => theme.input.fontSize};
-  font-family: ${({ theme }) => theme.input.fontFamily};
-  line-height: ${({ theme }) => theme.input.lineHeight};
-  background: ${({ theme }) => theme.input.bg};
-  color: ${({ theme }) => theme.input.fg};
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  cursor: pointer;
-`;
-
-const Preview = styled.div`
-  margin: auto auto auto 16px;
-`;
-
-class FileLoader extends React.Component {
+export default class FileLoader extends React.Component {
   static propTypes = {
     /**
      * A FileList object to use as the value of the input.
+     * Using undefined makes this an 'uncontrolled' input
      */
-    value: PropTypes.instanceOf(FileList).isRequired,
+    value: PropTypes.instanceOf(FileList),
     /**
      * Handler for the onChange event on the input.
      */
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     /**
      * Marks that this input is required for form submission.
      */
@@ -48,6 +32,14 @@ class FileLoader extends React.Component {
      * Adds an id to the input element.
      */
     id: PropTypes.string,
+    /**
+     * A component to render the drop area
+     */
+    DropArea: PropTypes.func,
+    /**
+     * A component to render the preview container
+     */
+    Preview: PropTypes.func,
   };
 
   static defaultProps = {
@@ -55,10 +47,12 @@ class FileLoader extends React.Component {
     disabled: false,
     className: null,
     id: null,
+    DropArea: FileLoaderDropArea,
+    Preview: FileLoaderPreview,
   };
 
   renderFiles = () => {
-    const { value } = this.props;
+    const { value, DropArea, Preview } = this.props;
     if (value && value[0]) {
       return (
         <DropArea>
@@ -74,7 +68,7 @@ class FileLoader extends React.Component {
         </DropArea>
       );
     }
-  }
+  };
 
   render() {
     const { onChange, value, required, disabled, className, id } = this.props;
@@ -82,7 +76,7 @@ class FileLoader extends React.Component {
     return (
       <Dropzone
         multiple={false}
-        onDrop={(files) => onChange(files)}
+        onDrop={files => onChange(files)}
         style={{ width: '100%' }}
         activeStyle={{ color: '#00bcec' }}
         rejectStyle={{}}
@@ -97,5 +91,3 @@ class FileLoader extends React.Component {
     );
   }
 }
-
-export default FileLoader;

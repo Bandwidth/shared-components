@@ -1,61 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withProps } from 'recompose';
 import styled, { css } from 'styled-components';
 import { sentence } from 'change-case';
-import Icon from '../Icon';
-import Anchor from '../Anchor';
+import DefaultAnchor from '../Anchor';
+import TableHeaderSortArrowIcon from './styles/TableHeaderSortArrowIcon';
+import TableHeaderStyles from './styles/TableHeaderStyles';
+import TableHeaderSortArrows from './styles/TableHeaderSortArrows';
+import TableHeaderColumnName from './styles/TableHeaderColumnName';
 
-const TH = styled.th`
-  background: ${({ theme }) => theme.table.headerBG};
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.white};
-  font-weight: ${({ theme }) => theme.table.headerFontWeight};
-  font-family: ${({ theme }) => theme.table.headerFontFamily};
-  padding: ${({ theme }) => theme.table.headerPadding};
-  text-align: left;
-  white-space: nowrap;
-
-  cursor: ${({ sortable }) => sortable ? 'pointer' : 'default' };
-
-  &>a {
-    color: inherit;
-  }
-  &>a:focus {
-    color: inherit;
-  }
-  &>a::after {
-    background: ${({ theme }) => theme.colors.white};
-  }
-`;
-
-const ColumnName = styled.span`
-  display: inline;
-`;
-
-const SortArrows = styled.span`
-  margin-left: 8px;
-  white-space: nowrap;
-
-  &>a {
-    color: ${({ theme }) => theme.colors.grayLightText};
-  }
-  &>a:focus {
-    color: ${({ theme }) => theme.colors.white};
-  }
-  &>a::after {
-    background: ${({ theme }) => theme.colors.grayLightText};
-  }
-
-  ${({ theme, sortOrder }) => {
-    if (sortOrder > 0) {
-      return css`&>*:first-child { color: ${theme.colors.white}; }`;
-    } else if (sortOrder < 0) {
-      return css`&>*:last-child { color: ${theme.colors.white}; }`;
-    }
-  }}
-`;
-
-export default class Header extends React.Component {
+class TableHeader extends React.Component {
   static propTypes = {
     /**
      * Contents of the header cell.
@@ -85,6 +39,26 @@ export default class Header extends React.Component {
      * Adds an id to the element.
      */
     id: PropTypes.string,
+    /**
+     * A component for rendering an icon, used for sort arrows.
+     */
+    Icon: PropTypes.func,
+    /**
+     * An anchor component. Defaults Anchor
+     */
+    Anchor: PropTypes.func,
+    /**
+     * A component for rendering the th element styles
+     */
+    Styles: PropTypes.func,
+    /**
+     * A component for rendering the sort arrow container
+     */
+    SortArrows: PropTypes.func,
+    /**
+     * A component for rendering the column name text
+     */
+    ColumnName: PropTypes.func,
   };
 
   static defaultProps = {
@@ -94,39 +68,67 @@ export default class Header extends React.Component {
     onClick: () => null,
     className: null,
     id: null,
+    Icon: TableHeaderSortArrowIcon,
+    Anchor: DefaultAnchor,
+    Styles: TableHeaderStyles,
+    SortArrows: TableHeaderSortArrows,
+    ColumnName: TableHeaderColumnName,
   };
 
-  createClickHandler = (naturalOrder) => () =>
-    this.props.onClick ? this.props.onClick(naturalOrder) :
-    this.props.handleClick(naturalOrder);
+  createClickHandler = naturalOrder => () =>
+    this.props.onClick
+      ? this.props.onClick(naturalOrder)
+      : this.props.handleClick(naturalOrder);
 
   renderColumnName = () => {
-    const { sortable, children, sortOrder } = this.props;
+    const { sortable, children, sortOrder, Anchor, ColumnName } = this.props;
 
     if (sortable) {
       return (
-        <Anchor type="text" onClick={this.createClickHandler(sortOrder === 0 ? 1 : -sortOrder)}>
+        <Anchor
+          type="text"
+          onClick={this.createClickHandler(sortOrder === 0 ? 1 : -sortOrder)}
+        >
           <ColumnName sortable>{children}</ColumnName>
         </Anchor>
       );
     }
 
     return <ColumnName>{children}</ColumnName>;
-  }
+  };
 
   render() {
-    const { sortable, sortOrder, handleClick, onClick, id, className } = this.props;
+    const {
+      sortable,
+      sortOrder,
+      handleClick,
+      onClick,
+      id,
+      className,
+      Styles,
+      SortArrows,
+      Anchor,
+      Icon,
+    } = this.props;
 
     return (
-      <TH sortable={sortable} className={className} id={id}>
+      <Styles sortable={sortable} className={className} id={id}>
         {this.renderColumnName()}
-        {sortable &&
+        {sortable && (
           <SortArrows sortOrder={sortOrder}>
-            <Anchor type="icon" onClick={this.createClickHandler(1)}><Icon name="up" /></Anchor>
-            <Anchor type="icon" onClick={this.createClickHandler(-1)}><Icon name="down" /></Anchor>
+            <Anchor type="icon" onClick={this.createClickHandler(1)}>
+              <Icon name="up" />
+            </Anchor>
+            <Anchor type="icon" onClick={this.createClickHandler(-1)}>
+              <Icon name="down" />
+            </Anchor>
           </SortArrows>
-        }
-      </TH>
+        )}
+      </Styles>
     );
   }
 }
+
+TableHeader.Small = withProps({ Styles: TableHeaderStyles.Small })(TableHeader);
+
+export default TableHeader;

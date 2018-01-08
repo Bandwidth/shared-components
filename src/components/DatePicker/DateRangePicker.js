@@ -1,34 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import 'react-dates/initialize';
-import { DateRangePicker as LibDateRangePicker, DateRangePickerShape } from 'react-dates';
-import baseCss from './reactDatesCss';
-import overridesCss from './overridesCss';
-import styled from 'styled-components';
+import {
+  DateRangePicker as LibDateRangePicker,
+  DateRangePickerShape,
+} from 'react-dates';
 import Icon from '../Icon';
+import DateRangePickerWrapper from './styles/DateRangePickerWrapper';
+import DateRangePickerLineSeparator from './styles/DateRangePickerLineSeparator';
 
-const WIDTH = 550;
-
-const Wrapper = styled.div`
-  ${baseCss}
-  ${overridesCss}
-
-  .DateRangePicker {
-    width: ${WIDTH}px;
-  }
-
-  .DayPicker_transitionContainer {
-    width: ${WIDTH - 2}px !important;
-  }
-`;
-
-const LineSeparator = styled.div`
-  width: 10px;
-  margin: auto ${({ theme }) => theme.padding.small};
-  height: 1px;
-  background: ${({ theme }) => theme.colors.border};
-`;
-
-const DateRangePicker = (props) => (
+const DateRangePicker = ({ Wrapper, LineSeparator, ...props }) => (
   <Wrapper>
     <LibDateRangePicker
       {...props}
@@ -45,6 +26,21 @@ const DateRangePicker = (props) => (
 
 DateRangePicker.propTypes = {
   ...DateRangePickerShape,
+  startDateId: PropTypes.string,
+  endDateId: PropTypes.string,
+  /**
+   * A component to wrap and control styles of the underlying react-dates DatePicker
+   */
+  Wrapper: PropTypes.func,
+  /**
+   * A component that renders the separator line between the two inputs
+   */
+  LineSeparator: PropTypes.func,
+};
+
+DateRangePicker.defaultProps = {
+  Wrapper: DateRangePickerWrapper,
+  LineSeparator: DateRangePickerLineSeparator,
 };
 
 export default DateRangePicker;

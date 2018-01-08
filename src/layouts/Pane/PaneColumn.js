@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import get from 'extensions/themeGet';
 
 const PaneColumn = styled.div.withConfig({ displayName: 'PaneColumn' })`
   display: flex;
@@ -9,7 +10,8 @@ const PaneColumn = styled.div.withConfig({ displayName: 'PaneColumn' })`
 
   & > * {
     flex: 1 0 auto;
-    border-bottom: 1px solid #e1e1e1;
+    border-bottom: ${get('thicknesses.normal')} solid
+      ${get('colors.border.medium')};
   }
 
   & > *:last-child {
@@ -33,17 +35,7 @@ PaneColumn.defaultProps = {
   className: null,
 };
 
-PaneColumn.usage = `
-# PaneColumn
-
-A composeable column. Lays out children vertically. Applies a divider between children.
-
-\`\`\`
-<PaneColumn>
-  <Pane>Content</Pane>
-  <Pane>Content</Pane>
-</PaneColumn>
-\`\`\`
-`;
-
+/**
+ * @component
+ */
 export default PaneColumn;

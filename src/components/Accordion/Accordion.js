@@ -1,52 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { withProps } from 'recompose';
+
 import ExpandToggle from '../../behaviors/ExpandToggle';
-import Icon from '../Icon';
-import Group from './AccordionGroup';
-
-export const Container = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.border};
-`;
-
-const Label = styled.div`
-  padding: ${({ theme }) => theme.accordion.padding};
-  color: ${({ theme }) => theme.accordion.labelFG};
-  font-family: ${({ theme }) => theme.accordion.labelFontFamily};
-  font-size: ${({ theme }) => theme.accordion.labelFontSize};
-  text-transform: ${({ theme }) => theme.accordion.textTransform};
-  font-weight: ${({ theme }) => theme.accordion.labelFontWeight};
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  user-select: none;
-`;
-
-const ModdedIcon = styled(Icon)`
-  color: #666;
-  margin: auto 1em auto auto;
-  transform: ${({ isExpanded }) => isExpanded ? 'rotate(90deg)' : 'rotate(0)'};
-  transition: 0.2s all ease;
-  font-weight: 100;
-
-  &:after {
-    padding-top: 0;
-    padding-bottom: 0;
-    font-size: ${({ theme }) => theme.accordion.iconFontSize};
-  }
-`;
-
-const LabelText = styled.span`
-  margin: auto;
-  flex: 1;
-`;
-
-export const ContentPadding = styled.div`
-  padding: ${({ theme }) => theme.accordion.padding};
-  padding-top: 0;
-  display: flex;
-  flex-direction: column;
-`;
+import AccordionLabel from './styles/AccordionLabel';
+import AccordionArrow from './styles/AccordionArrow';
+import AccordionBorder from './styles/AccordionBorder';
+import AccordionLabelText from './styles/AccordionLabelText';
+import AccordionContent from './styles/AccordionContent';
+import AccordionGroup from './AccordionGroup';
 
 /**
  * Accordion works like a controllable component. Provide the
@@ -82,6 +44,26 @@ class Accordion extends React.Component {
      * Set an id for the accordion container element.
      */
     id: PropTypes.string,
+    /**
+     * A component to render the border
+     */
+    Border: PropTypes.func,
+    /**
+     * A component to render the label
+     */
+    Label: PropTypes.func,
+    /**
+     * A component to render the arrow
+     */
+    Arrow: PropTypes.func,
+    /**
+     * A component to render the text inside the label
+     */
+    LabelText: PropTypes.func,
+    /**
+     * A component to render the content area
+     */
+    Content: PropTypes.func,
   };
 
   static defaultProps = {
@@ -90,6 +72,11 @@ class Accordion extends React.Component {
     onToggle: null,
     className: null,
     id: null,
+    Border: AccordionBorder,
+    Label: AccordionLabel,
+    Arrow: AccordionArrow,
+    LabelText: AccordionLabelText,
+    Content: AccordionContent,
   };
 
   coalesceIsExpandedProps = () => {
@@ -101,20 +88,20 @@ class Accordion extends React.Component {
       return !isCollapsed;
     }
     return isExpanded;
-  }
+  };
 
-  renderLabel = (isExpanded) => (
-    <Label onClick={this.handleToggle}>
-      <ModdedIcon isExpanded={isExpanded} name="forward" size={21} />
-      <LabelText>{this.props.label}</LabelText>
-    </Label>
+  renderLabel = isExpanded => (
+    <this.props.Label onClick={this.handleToggle}>
+      <this.props.Arrow isExpanded={isExpanded} name="forward" size={21} />
+      <this.props.LabelText>{this.props.label}</this.props.LabelText>
+    </this.props.Label>
   );
 
   render() {
-    const { id, className, onToggle, children } = this.props;
+    const { id, className, onToggle, children, Border, Content } = this.props;
 
     return (
-      <Container>
+      <Border>
         <ExpandToggle
           id={id}
           className={className}
@@ -122,12 +109,19 @@ class Accordion extends React.Component {
           toggleContent={this.renderLabel}
           isExpanded={this.coalesceIsExpandedProps()}
         >
-          {children}
+          <Content>{children}</Content>
         </ExpandToggle>
-      </Container>
-    )
+      </Border>
+    );
   }
 }
 
-Accordion.Group = Group;
+Accordion.Small = withProps({
+  Border: AccordionBorder.Small,
+  Arrow: AccordionArrow.Small,
+  Label: AccordionLabel.Small,
+  Content: AccordionContent.Small,
+})(Accordion);
+Accordion.Group = AccordionGroup;
+
 export default Accordion;

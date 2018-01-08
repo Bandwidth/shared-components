@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Item from './ListItem';
+import theme from '../../theme';
 
-const OrderedListImpl = styled.ul.withConfig({ displayName: 'OrderedList' })`
+const OrderedList = styled.ol.withConfig({ displayName: 'OrderedList' })`
   margin: 0 0 1em;
   padding: 0;
   list-style: decimal outside;
@@ -12,19 +13,16 @@ const OrderedListImpl = styled.ul.withConfig({ displayName: 'OrderedList' })`
     margin-bottom: 0;
   }
 
-  & ul {
+  & > ol {
     list-style: lower-latin outside;
+    margin: 0 0 0 1em;
   }
 
-  & ul ${Item.Styled}:first-child,
-  & ol ${Item.Styled}:first-child {
+  & ul li:first-child,
+  & ol li:first-child {
     margin-top: 0.5em;
   }
 `;
-
-const OrderedList = ({children, ...rest}) => (
-  <OrderedListImpl {...rest}>{children}</OrderedListImpl>
-)
 
 OrderedList.propTypes = {
   /**
@@ -43,6 +41,8 @@ OrderedList.defaultProps = {
 };
 
 OrderedList.Item = Item;
-OrderedList.Styled = OrderedListImpl;
 
+/**
+ * @component
+ */
 export default OrderedList;

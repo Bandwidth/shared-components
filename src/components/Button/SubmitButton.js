@@ -66,14 +66,23 @@ class SubmitButton extends React.Component {
       return <span>{pristineContents}</span>;
     }
     if (loading) {
-      return <Loader size="1em" />
+      return <Loader size="14px" />;
     }
 
     return children;
-  }
+  };
 
   render() {
-    const { pristine, loading, disabled, leftIcon, rightIcon, id, className, onClick } = this.props;
+    const {
+      pristine,
+      loading,
+      disabled,
+      leftIcon,
+      rightIcon,
+      id,
+      className,
+      onClick,
+    } = this.props;
     return (
       <Button
         disabled={pristine || loading || disabled}
@@ -86,12 +95,8 @@ class SubmitButton extends React.Component {
       >
         {this.renderContents()}
       </Button>
-    )
+    );
   }
 }
-
-SubmitButton.usage = `
-
-`;
 
 export default SubmitButton;

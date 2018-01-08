@@ -1,24 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import get from 'extensions/themeGet';
 
 import Block from './CodeBlock';
-import Container from './CodeContainer';
 
-const CodeImpl = styled.pre.withConfig({ displayName: 'Code' })`
-  font-family: ${({ theme }) => theme.inlineCode.fontFamily};
-  fontSize: ${({ theme }) => theme.inlineCode.fontSize};
-  background: ${({ theme }) => theme.inlineCode.bg};
-  color: ${({ theme }) => theme.inlineCode.fg};
-  border: ${({ theme }) => theme.inlineCode.border};
-  padding: ${({ theme }) => theme.inlineCode.padding}
-  borderRadius: ${({ theme }) => theme.inlineCode.borderRadius};
+const Code = styled.pre.withConfig({ displayName: 'Code' })`
+  font-family: ${get('fonts.monospace')};
+  font-size: 0.85em;
+
+  background: ${get('colors.gray.light')};
+  color: ${get('colors.text.default')};
+  border-color: ${get('colors.border.medium')};
+  border-width: ${get('thicknesses.normal')};
+  border-style: solid;
+  border-radius: 3px;
+
+  padding: 0.3em;
   margin: 0;
-`;
 
-const Code = ({...rest, children}) => (
-  <CodeImpl {...rest}>{children}</CodeImpl>
-)
+  display: inline-block;
+`;
 
 Code.propTypes = {
   /**
@@ -37,7 +39,8 @@ Code.defaultProps = {
 };
 
 Code.Block = Block;
-Code.Container = Container;
-Code.Styled = CodeImpl;
 
+/**
+ * @component
+ */
 export default Code;

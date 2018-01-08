@@ -1,7 +1,4 @@
-export defaultTheme from './defaultTheme';
-export errorTheme from './errorTheme';
-export largeTheme from './largeTheme';
-export smallTheme from './smallTheme';
-export secondaryTheme from './secondaryTheme';
-
-export default from './defaultTheme';
+export { default } from './irisTheme';
+export { default as catapult } from './catapultTheme';
+export { default as iris } from './irisTheme';
+export const NAMESPACE = 'bandwidth-shared';

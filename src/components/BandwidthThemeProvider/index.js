@@ -1,1 +1,1 @@
-export default from './BandwidthThemeProvider';
+export { default } from './BandwidthThemeProvider';

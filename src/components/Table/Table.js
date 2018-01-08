@@ -1,40 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { withProps } from 'recompose';
 
 import Loader from '../Loader';
 
-import Cell from './TableCell';
+import TableStyles from './styles/TableStyles';
+import TableOverlay from './styles/TableOverlay';
+
+import Cell from './styles/TableCell';
 import Header from './TableHeader';
-import Row from './TableRow';
+import Row from './styles/TableRow';
 import Controls from './TableControls';
 import Simple from './SimpleTable';
 import RowDetails from './TableRowDetails';
-import Wrap from './TableWrap';
-import TBody from './TBody';
-
-const BaseTable = styled.table`
-  min-width: 100%;
-  border-collapse: collapse;
-
-  & > tbody, & > thead {
-    background: transparent;
-  }
-`;
-
-const Overlay = styled.div`
-  position: absolute;
-  top: 40px;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.2);
-  display: flex;
-
-  & > div {
-    margin: auto;
-  }
-`;
+import TableWrap from './TableWrap';
+import TableBody from './styles/TableBody';
 
 class Table extends React.Component {
   static propTypes = {
@@ -62,6 +42,18 @@ class Table extends React.Component {
      * Whether to wrap the passed children in a <Table.Body>. Defaults true.
      */
     wrapBody: PropTypes.bool,
+    /**
+     * A component to render the table element
+     */
+    Styles: PropTypes.func,
+    /**
+     * A component to render any content that overlays the table itself
+     */
+    Overlay: PropTypes.func,
+    /**
+     * A component that wraps the whole table as a scroll context
+     */
+    Wrap: PropTypes.func,
   };
 
   static defaultProps = {
@@ -70,31 +62,34 @@ class Table extends React.Component {
     id: null,
     headers: null,
     wrapBody: true,
+    Styles: TableStyles,
+    Overlay: TableOverlay,
+    Wrap: TableWrap,
   };
 
   render() {
-    const { children, headers, loading, className, id, wrapBody } = this.props;
+    const {
+      children,
+      headers,
+      loading,
+      className,
+      id,
+      wrapBody,
+      Wrap,
+      Styles,
+      Overlay,
+    } = this.props;
     return (
       <Wrap>
-        <BaseTable
-          cellPadding={0}
-          cellSpacing={0}
-          className={className}
-          id={id}
-        >
-          <thead>
-            {headers}
-          </thead>
-          {wrapBody?
-            <TBody>
-              {children}
-            </TBody> :
-            children
-          }
-        </BaseTable>
-        {loading &&
-          <Overlay><Loader /></Overlay>
-        }
+        <Styles cellPadding={0} cellSpacing={0} className={className} id={id}>
+          <thead>{headers}</thead>
+          {wrapBody ? <TableBody>{children}</TableBody> : children}
+        </Styles>
+        {loading && (
+          <Overlay>
+            <Loader />
+          </Overlay>
+        )}
       </Wrap>
     );
   }
@@ -106,11 +101,11 @@ Table.Cell = Cell;
 Table.Controls = Controls;
 Table.Simple = Simple;
 Table.RowDetails = RowDetails;
-Table.Wrap = Wrap;
-Table.Body = TBody;
+Table.Wrap = TableWrap;
+Table.Body = TableBody;
 
-Table.usage = `
-Renders a table, using the \`children\` and \`headers\` props to define the various table parts. Also accepts \`loading\` to show a loading state.
-`;
+Table.Small = withProps({
+  Styles: TableStyles.Small,
+})(Table);
 
 export default Table;

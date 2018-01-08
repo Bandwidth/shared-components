@@ -49,16 +49,6 @@ import { Button } from 'shared-components';
 
 Built into the library is a layout system which is designed to easily create experiences according to Bandwidth's design guidelines. You can read more in the [Flow docs](https://github.com/Bandwidth/shared-components/blob/master/src/layouts/Flow/Flow.md)
 
-# Additional Components
-
-Besides the components listed in our design system, this library contains a few extras:
-
-* Header/SubHeader: different sized header texts
-* Gutter: a div with a gutter-styled background
-* Money: takes a currency value and renders it with special effects and proper formatting
-* NewBadge: a little badge indicating a new item
-* Code/MethodTag: a colored HTTP method verb tag
-
 # License
 
 The source of this library is licensed under the MIT license (see [LICENSE](./LICENSE))

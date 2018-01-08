@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const ListItemImpl = styled.li.withConfig({ displayName: 'ListItem' })`
+const ListItem = styled.li.withConfig({ displayName: 'ListItem' })`
   margin: 0 0 0.5em 2em;
   padding: 0;
 
@@ -10,10 +10,6 @@ const ListItemImpl = styled.li.withConfig({ displayName: 'ListItem' })`
     margin: 0 0 0.5em;
   }
 `;
-
-const ListItem = ({children, ...rest}) => (
-  <ListItemImpl {...rest}>{children}</ListItemImpl>
-)
 
 ListItem.propTypes = {
   /**
@@ -31,6 +27,7 @@ ListItem.defaultProps = {
   id: null,
 };
 
-ListItem.Styled = ListItemImpl;
-
+/**
+ * @component
+ */
 export default ListItem;

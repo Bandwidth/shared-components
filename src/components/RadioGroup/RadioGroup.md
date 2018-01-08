@@ -1,19 +1,39 @@
-RadioGroup is a fully functional input. It generates its own radio buttons from the options you supply. You can use it manually by passing in `value` and `onChange` props. It's a controlled component, so it won't update its own value.
+RadioGroup is a fully functional input. It generates its own radio buttons from the options you supply. You can use it manually by passing in \`value\` and \`onChange\` props. It's a controlled component, so it won\'t update its own value.
 
-**Multiple Radio options**
-```
-<RadioGroup 
-    onChange={()=>null} 
-    choices={['Foo', 'Bar']} 
-    />
+```javascript
+<div>
+  <RadioGroup value="a" name="a" onChange={() => { /* handle it! */ }} options={['a', 'b', 'c', 'd']} />
+</div>
 ```
 
-**Radio Option with selected value**
-```
-<RadioGroup 
-    value="Foo"
-    onChange={()=>null} 
-    choices={['Foo', 'Bar']} 
-    />
+_With Descriptions_
+```javascript
+const lipsum = require('lorem-ipsum');
+
+<div>
+  <RadioGroup
+    value="three"
+    name="b"
+    onChange={() => { /* handle it! */ }}
+    options={{
+      one: lipsum(),
+      two: lipsum(),
+      three: lipsum(),
+    }}
+  />
+</div>
 ```
 
+_Small Variant_
+```javascript
+<div>
+  <RadioGroup.Small value="d" name="c" onChange={() => { /* handle it! */ }} options={['a', 'b', 'c', 'd']} />
+</div>
+```
+
+_Large Variant_
+```javascript
+<div>
+  <RadioGroup.Large value="b" name="d" onChange={() => { /* handle it! */ }} options={['a', 'b', 'c', 'd']} />
+</div>
+```

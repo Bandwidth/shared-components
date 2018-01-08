@@ -1,63 +1,70 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, {ThemeProvider} from 'styled-components';
+import styled from 'styled-components';
 import icons from '../Icon/icons';
 import SubmitButton from './SubmitButton';
-import {secondaryTheme} from '../../theme';
+import get from 'extensions/themeGet';
 
-const ButtonImpl = styled.button`
-  font-size: ${({ theme }) => theme.button.fontSize};
+const Button = styled.button`
+  font-size: 0.8em;
   text-decoration: none;
-  font-weight: ${({ theme }) => theme.button.fontWeight};
-  font-family: ${({ theme }) => theme.button.fontFamily};
-  text-transform: ${({ theme }) => theme.button.textTransform};
+  font-weight: 700;
+  font-family: ${get('fonts.brand')};
+  text-transform: uppercase;
 
-  background: ${({ theme }) => theme.colors.primary};
-  border: 1px solid ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.white};
+  border-width: ${get('thicknesses.normal')};
+  border-style: solid;
   border-radius: 3em;
-  padding: ${({ theme }) => theme.button.padding};
+  border-color: ${get('colors.primary.default')};
+
+  color: ${get('colors.text.inverted')};
+  background: ${get('colors.primary.default')};
+
+  /* 2px less than design system values since we always render a 1px border */
+  padding: 11px 38px;
   display: inline-block;
+  position: relative;
+  overflow: hidden;
   line-height: normal;
   white-space: nowrap;
+
   vertical-align: middle;
   text-align: center;
+
   cursor: pointer;
   -webkit-user-drag: none;
   /* should get auto-prefixed */
   user-select: none;
-  box-sizing: border-box;
-  transition: all 0.25s ease;
-  outline: none;
-  position: relative;
-  overflow: hidden;
 
-  &:hover:not(:disabled), &:focus {
-    background-color: ${({ theme }) => theme.button.activeBG};
-    border-color: ${({ theme }) => theme.button.activeBG};
-    color: ${({ theme }) => theme.button.activeFG};
-    box-shadow: ${({ theme }) => theme.shadows.short};
+  box-sizing: border-box;
+
+  transition: all 0.25s ease;
+
+  outline: none;
+
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    background: ${get('colors.primary.dark')};
+    border-color: ${get('colors.primary.dark')};
+    box-shadow: ${get('shadows.short')};
   }
 
   &:disabled {
-    background: ${({ theme }) => theme.button.disabledBG};
-    color: ${({ theme }) => theme.button.disabledFG};
-    border: ${({ theme }) => theme.button.disabledBorder};
+    background: ${get('colors.background.disabled')};
+    color: ${get('colors.text.disabled')};
+    border-color: ${get('colors.background.disabled')};
     cursor: default;
+    opacity: 0.5;
   }
 
   &::before, &::after {
     position: absolute;
     height: 100%;
-    font-size: 125%;
-    color: ${({ theme }) => theme.button.fg};
+    color: inherit;
     transition: all 0.3s;
     speak: none;
-    font-family: 'Bandwidth';
-  }
-
-  &:hover::before, &:hover::after {
-    color: ${({ theme }) => theme.button.activeFG};
+    font-family: ${get('fonts.icon')};
   }
 
   &::before {
@@ -78,10 +85,6 @@ const ButtonImpl = styled.button`
     right: 10px;
   }
 `;
-
-const Button = ({children, ...rest}) => (
-  <ButtonImpl {...rest}>{children}</ButtonImpl>
-)
 
 Button.propTypes = {
   /**
@@ -115,11 +118,43 @@ Button.defaultProps = {
   id: null,
 };
 
-Button.Example2 = () => (<ThemeProvider theme={secondaryTheme}>
-<Button>Secondary!</Button>
-</ThemeProvider>)
-
 Button.Submit = SubmitButton;
-Button.Styled = ButtonImpl;
 
+Button.Secondary = Button.extend`
+  color: ${get('colors.primary.dark')};
+  border-color: ${get('colors.primary.dark')};
+  background: transparent;
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    color: ${get('colors.text.inverted')};
+    background: ${get('colors.primary.dark')};
+    border-color: ${get('colors.primary.dark')};
+  }
+`;
+
+Button.Small = Button.extend`
+  padding: 9px 28px;
+  font-size: 0.6em;
+`;
+
+Button.Large = Button.extend`
+  padding: 13px 58px;
+  font-size: 0.9em;
+`;
+
+Button.Danger = Button.extend`
+  border-color: ${get('colors.negative.default')};
+  background: ${get('colors.negative.default')};
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    background: ${get('colors.negative.dark')};
+    border-color: ${get('colors.negative.dark')};
+  }
+`;
+
+/**
+ * @component
+ */
 export default Button;

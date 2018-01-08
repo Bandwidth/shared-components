@@ -104,9 +104,7 @@ class FlowMultiField extends React.Component {
         className={className}
         flexibleContent
       >
-        <List>
-          {fields.map(this.renderSubField)}
-        </List>
+        <List>{fields.map(this.renderSubField)}</List>
         <Anchor onClick={() => fields.push('')}>add</Anchor>
       </FlowItem>
     );

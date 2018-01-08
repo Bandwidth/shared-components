@@ -1,8 +1,11 @@
 const path = require('path');
+const defaultResolver = require('react-docgen').resolver
+  .findAllExportedComponentDefinitions;
+const annotationResolver = require('react-docgen-annotation-resolver').default;
 
 module.exports = {
   title: 'Bandwidth Shared React Components',
-  styleguideDir: "docs",
+  styleguideDir: 'docs',
   sections: [
     {
       name: 'Introduction',
@@ -56,26 +59,39 @@ module.exports = {
     },
   ],
   theme: {
-    fontSize :{
-      base: 14
+    fontSize: {
+      base: 14,
     },
     fontFamily: {
-      base: ['Bandwidth']
-    }
+      base: ['Bandwidth'],
+    },
   },
   ignore: [
     'src/components/**/index.js',
+    'src/components/layout/Flow/fields/**/*.js',
   ],
-  require: [
-    'styled-components'
-  ],
+  require: ['styled-components', path.join(__dirname, 'src')],
   styleguideComponents: {
     Logo: path.join(__dirname, 'tools/styleguide/Logo'),
     Wrapper: path.join(__dirname, 'tools/styleguide/Wrapper'),
     ComponentsList: path.join(__dirname, 'tools/styleguide/ComponentsList'),
   },
+  /**
+   * Fix for styled-components; see
+   * https://github.com/styled-components/styled-components/issues/945#issuecomment-339209956
+   */
+  resolver: (ast, recast) => {
+    const annotatedComponents = annotationResolver(ast, recast);
+    const defaultComponents = defaultResolver(ast, recast);
+    return annotatedComponents.concat(defaultComponents);
+  },
   webpackConfig: {
     devtool: 'cheap-module-eval-source-map',
+    resolve: {
+      modules: ['node_modules'].concat(
+        process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
+      ),
+    },
     module: {
       rules: [
         // Babel loader, will use your project’s .babelrc
@@ -83,11 +99,12 @@ module.exports = {
           test: /\.js?$/,
           exclude: /node_modules/,
           use: {
-              loader: 'babel-loader',
-              options: {
-                presets: ['es2015', 'react', 'stage-0']
-              }
-            }
+            loader: 'babel-loader',
+            options: {
+              plugins: ['styled-components'],
+              presets: ['es2015', 'react', 'stage-0'],
+            },
+          },
         },
         {
           test: /\.css$/,
@@ -101,6 +118,7 @@ module.exports = {
                 localIdentName: 'cat__[local]_[path]',
               },
             },
+            'postcss-loader',
           ],
         },
         {
@@ -111,7 +129,7 @@ module.exports = {
           test: /\.(svg|woff|woff2|eot|otf|ttf)$/,
           use: 'file-loader',
         },
-      ]
-    }
-  }
+      ],
+    },
+  },
 };

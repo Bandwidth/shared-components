@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import get from 'extensions/themeGet';
 
 const SidebarLayout = styled.div.withConfig({ displayName: 'SidebarLayout' })`
   display: flex;
@@ -14,8 +15,10 @@ const SidebarLayout = styled.div.withConfig({ displayName: 'SidebarLayout' })`
 
   & > *:last-child {
     flex: 6;
-    background: ${({ theme }) => theme.colors.gutter};
-    border-left: 1px solid ${({ theme }) => theme.colors.borderLight};
+    background: ${get('colors.gray.light')};
+    border-left-width: ${get('thicknesses.normal')};
+    border-left-style: solid;
+    border-left-color: ${get('colors.border.light')};
     margin-left: -1px;
   }
 `;
@@ -36,17 +39,7 @@ SidebarLayout.defaultProps = {
   className: null,
 };
 
-SidebarLayout.usage = `
-# SidebarLayout
-
-Does some simple stuff with flexbox to layout two columns. Assumes that it only has two children. We could extend this with media queries at some point to make it more useful.
-
-\`\`\`
-<SidebarLayout>
-  <ASidebar/>
-  <SomeContent/>
-</SidebarLayout>
-\`\`\`
-`;
-
+/**
+ * @component
+ */
 export default SidebarLayout;

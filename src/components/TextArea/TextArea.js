@@ -1,22 +1,24 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import get from 'extensions/themeGet';
 
 const TextArea = styled.textarea`
-  background: ${({ theme }) => theme.textarea.bg};
-  color: ${({ theme }) => theme.textarea.fg};
-  border: ${({ theme }) => theme.textarea.border};
-  font-size: ${({ theme }) => theme.textarea.fontSize};
-  font-weight: ${({ theme }) => theme.textarea.fontWeight};
-  font-family: ${({ theme }) => theme.textarea.fontFamily};
-  padding: ${({ theme }) => theme.textarea.padding};
+  background: ${get('colors.background.default')};
+  color: ${get('colors.text.default')};
+  font-size: 14px;
+  font-weight: 400;
+  font-family: ${get('fonts.brand')};
   letter-spacing: 0.02em;
+  border-color: ${get('colors.border.light')};
+  border-width: ${get('thicknesses.normal')};
+  border-style: solid;
+  line-height: 1.5;
+  min-height: 100px;
   box-shadow: none;
   transition: all 0.2s ease;
-  line-height: ${({ theme }) => theme.textarea.lineHeight};
   outline: none;
   width: 100%;
-  min-height: 100px;
-  height: ${ props => props.height };
+  height: ${props => props.height};
 `;
 
 TextArea.propTypes = {
@@ -40,12 +42,7 @@ TextArea.defaultProps = {
   height: '100px',
 };
 
-TextArea.usage = `
-An input component that renders a large field for entering long text.
-
-\`\`\`
-<TextArea value="hi" required />
-\`\`\`
-`;
-
+/**
+ * @component
+ */
 export default TextArea;

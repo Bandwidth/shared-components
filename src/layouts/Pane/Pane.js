@@ -1,29 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Header from '../../components/Header';
+import H1 from 'components/H';
 import Column from './PaneColumn';
-import Content from './PaneContent';
-import Layout from './PaneLayout';
 import Row from './PaneRow';
 import Section from './PaneSection';
-
-const Container = styled.article`
-  display: flex;
-  flex-direction: column;
-  flex: 1 1;
-`;
-
-const PaddedHeader = styled(Header)`
-  padding: 0 30px 30px 30px;
-`;
+import theme from '../../theme';
+import PaneStyles from './styles/PaneStyles';
 
 class Pane extends React.Component {
   static propTypes = {
-    /**
-     * Optional title for the top of the pane.
-     */
-    title: PropTypes.string,
     /**
      * Contents of the pane.
      */
@@ -36,39 +22,30 @@ class Pane extends React.Component {
      * Adds a class name to the pane.
      */
     className: PropTypes.string,
+    /**
+     * A component to render the pane itself.
+     */
+    Styles: PropTypes.func,
   };
 
   static defaultProps = {
-    title: null,
     className: null,
     id: null,
+    Styles: PaneStyles,
   };
 
   render() {
-    const { title, children, className, id } = this.props;
+    const { title, children, className, id, Styles } = this.props;
 
     return (
-      <Container className={className} id={id}>
-        {title ? <PaddedHeader>{title}</PaddedHeader> : null}
+      <Styles className={className} id={id}>
         {children}
-      </Container>
+      </Styles>
     );
   }
 }
 
-Pane.usage = `
-# Pane
-
-A section of display content with a title. Arranges children vertically.
-
-\`\`\`
-<Pane title="Hello">Content</Pane>
-\`\`\`
-`;
-
 Pane.Column = Column;
-Pane.Content = Content;
-Pane.Layout = Layout;
 Pane.Row = Row;
 Pane.Section = Section;
 export default Pane;

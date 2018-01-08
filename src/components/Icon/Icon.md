@@ -5,7 +5,21 @@ The icon definition file is in `components/helpers/icons.js`
 ```
 <Icon name="checkmark" />
 ```
-```
-<Icon />
+
+_Available Icons:_
+
+```javascript
+const icons = require('./icons').map;
+const iconItemStyle = { border: '1px solid #f1f1f1', padding: '2px', margin: '2px', display: 'inline-block' };
+const IconList = () => (
+  <div>
+  {
+    Object.keys(icons).map((icon) => (
+      <span key={icon} style={iconItemStyle}>{icon}&nbsp;<Icon name={icon} /></span>
+    ))
+  }
+  </div>
+);
+<IconList />
 ```
 

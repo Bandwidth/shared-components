@@ -1,35 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import get from 'extensions/themeGet';
 
-const LabelImpl = styled.label.withConfig({ displayName: 'Label' })`
-  font-size: ${({ theme }) => theme.label.fontSize};
-  letter-spacing: ${({ theme }) => theme.label.letterSpacing};
-  font-weight: ${({ theme }) => theme.label.fontWeight};
-  font-family: ${({ theme }) => theme.label.fontFamily};
-  padding-bottom: 0.4em;
-  color: ${({ theme }) => theme.label.fg};
-  background: ${({ theme }) => theme.label.bg};
-  opacity: ${({ disabled }) => disabled ? '0.5' : '1'};
+const Label = styled.label.withConfig({ displayName: 'Label' })`
+  font-size: 1em;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  font-family: ${get('fonts.brand')};
+  color: ${get('colors.text.default')};
+  background: transparent;
+  line-height: 1.5;
   display: block;
-  line-height: 1.5em;
 
-  ${({ required, theme }) =>
-    required ?
-      css`
-        &::after {
-          content: '*';
-          color: ${theme.label.requiredMarkFG};
-          padding-left: 0.3em;
-        }
-      ` :
-      ''
+  ${({ disabled }) => (disabled ? 'opacity: 0.5;' : '')} &:disabled {
+    opacity: 0.5;
   }
-`;
 
-const Label = ({children, ...rest}) => (
-  <LabelImpl {...rest}>{children}</LabelImpl>
-)
+  ${({ required }) =>
+    required
+      ? css`
+          &::after {
+            content: '*';
+            color: #e8562e;
+            padding-left: 0.3em;
+          }
+        `
+      : ''};
+`;
 
 Label.propTypes = {
   /**
@@ -52,6 +50,7 @@ Label.defaultProps = {
   id: null,
 };
 
-Label.Styled = LabelImpl;
-
+/**
+ * @component
+ */
 export default Label;

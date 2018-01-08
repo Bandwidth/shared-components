@@ -1,6 +1,5 @@
 Flow.Row is designed to be used with 2 children:
 
-
 ```
 const Flow = require('./index').default;
 <Flow.Row>
@@ -45,7 +44,7 @@ Flow.Row can achieve some pretty complex layouts with nesting and its props:
 ```
 const Flow = require('./index').default;
 <Flow.Row>
-  <Flow.Item>foo</Flow.Item>
+  <Flow.Item>This is left-aligned</Flow.Item>
   <Flow.Row alignment="left">
     <Flow.Item>these will be</Flow.Item>
     <Flow.Item>pushed up against the center</Flow.Item>

@@ -29,7 +29,7 @@ Sometimes you may want to render more stuff in an item. You can use \`moreConten
 
 ```
 const Flow = require('./index').default;
-<Flow.Item moreContent={(<h1>Hello</h1>)}>
+<Flow.Item moreContent={(<h1>Hello</h1>)} helpText="The help text is here">
   Main Content
 </Flow.Item>
 ```
