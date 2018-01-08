@@ -8,6 +8,10 @@ const CardSection = styled.div`
     border-bottom-width: ${themeGet('thicknesses.normal')};
     border-bottom-style: solid;
   }
+
+  ${CardSection} > * {
+    margin: 0;
+  }
 `;
 
 /**
