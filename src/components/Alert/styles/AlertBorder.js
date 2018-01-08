@@ -3,15 +3,18 @@ import get from 'extensions/themeGet';
 
 const AlertBorder = styled.div`
   padding: ${get('spacing.small')} ${get('spacing.medium')};
-  font-weight: 500;
+  font-weight: 200;
   border-width: ${get('thicknesses.normal')};
   border-style: solid;
   width: auto;
-  font-size: 1em;
-  line-height: 1em;
+  font-size: 14px;
+  line-height: 1.5em;
   position: relative;
   display: flex;
   flex-direction: row;
+  min-height: 53px;
+  letter-spacing: 0.02em;
+  white-space: wrap;
 
   background: ${({ theme, type }) => {
     switch (type) {
@@ -36,8 +39,9 @@ const AlertBorder = styled.div`
 `;
 
 AlertBorder.Small = AlertBorder.extend`
-  padding: 0.5em 1em;
+  padding: 5px;
   font-size: 0.8em;
+  min-height: 30px;
 `;
 
 export default AlertBorder;
