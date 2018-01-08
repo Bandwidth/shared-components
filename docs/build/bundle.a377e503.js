@@ -18385,29 +18385,24 @@ object-assign
         (0, i.default)('colors.border.medium'),
         (0, i.default)('colors.text.disabled'),
         function(e) {
-          var t = e.visited;
-          e.theme;
-          return t
+          return e.visited
             ? (0, o.css)(
                 [
                   '&:invalid{box-shadow:inset 0 -5px 0 ',
                   ';border-color:',
                   ';}',
                 ],
-                (0, i.default)('colors.negative.light'),
-                (0, i.default)('colors.negative.border'),
+                (0, i.default)('colors.negative.light')(e),
+                (0, i.default)('colors.negative.border')(e),
               )
             : '';
         },
         function(e) {
-          var t = e.invalid,
-            n = e.error;
-          e.theme;
-          return t || n
+          return e.invalid || e.error
             ? '\n    box-shadow: inset 0 -5px ' +
-                (0, i.default)('colors.negative.light') +
+                (0, i.default)('colors.negative.light')(e) +
                 ';\n    border-color: ' +
-                (0, i.default)('colors.negative.border') +
+                (0, i.default)('colors.negative.border')(e) +
                 ';\n    '
             : '';
         },
@@ -18513,7 +18508,7 @@ object-assign
         [
           'color:',
           ';font-weight:300;font-family:',
-          ';font-size:1.75em;line-height:1em;margin:0;padding:0;',
+          ';font-size:1.75em;line-height:1.25;letter-spacing:0;margin:0;padding:0;',
         ],
         (0, i.default)('colors.text.default'),
         (0, i.default)('fonts.brand'),
@@ -50545,6 +50540,19 @@ object-assign
     function _interopRequireDefault(e) {
       return e && e.__esModule ? e : { default: e };
     }
+    function _defineProperty(e, t, n) {
+      return (
+        t in e
+          ? Object.defineProperty(e, t, {
+              value: n,
+              enumerable: !0,
+              configurable: !0,
+              writable: !0,
+            })
+          : (e[t] = n),
+        e
+      );
+    }
     Object.defineProperty(t, '__esModule', { value: !0 });
     var r = (function() {
         function defineProperties(e, t) {
@@ -50623,60 +50631,58 @@ object-assign
                 ),
               );
             }),
-            (t.renderInputField = function() {
-              var e = t.props,
-                n = e.disabled,
-                r = e.id,
-                a = e.className,
-                i = e.invalid,
-                u = e.onFocus,
-                s = e.onChange,
-                l = e.onKeyDown,
-                c = e.value,
-                d = e.required,
-                p = e.error,
-                f = e.placeholder,
-                h = e.inputRef,
-                m = e.onBlur,
-                g = e.Styles,
-                y = t.state,
-                _ = y.visited,
-                b = y._type;
+            (t.renderInlineContent = function() {
+              var e = t.props.RevealPasswordWrapper;
               return o.default.createElement(
-                g,
-                (function _defineProperty(e, t, n) {
-                  return (
-                    t in e
-                      ? Object.defineProperty(e, t, {
-                          value: n,
-                          enumerable: !0,
-                          configurable: !0,
-                          writable: !0,
-                        })
-                      : (e[t] = n),
-                    e
-                  );
-                })(
-                  {
-                    onBlur: t.onBlur,
-                    onKeyDown: l,
-                    onFocus: u,
-                    visited: _,
-                    id: r,
-                    className: a,
-                    invalid: i,
-                    onChange: s,
-                    value: c,
-                    required: d,
-                    type: b,
-                    error: p,
-                    disabled: n,
-                    placeholder: f,
-                    innerRef: h,
-                  },
-                  'onBlur',
-                  m,
-                ),
+                e,
+                null,
+                t.renderInputField(),
+                t.props.inlineContent,
+              );
+            }),
+            (t.renderInputField = function() {
+              var e,
+                n = t.props,
+                r = n.disabled,
+                a = n.id,
+                i = n.className,
+                u = n.invalid,
+                s = n.onFocus,
+                l = n.onChange,
+                c = n.onKeyDown,
+                d = n.value,
+                p = n.required,
+                f = n.error,
+                h = n.placeholder,
+                m = n.inputRef,
+                g = n.onBlur,
+                y = n.Styles,
+                _ = n.inlineContent,
+                b = t.state,
+                v = b.visited,
+                D = b._type;
+              return o.default.createElement(
+                y,
+                ((e = {
+                  onBlur: t.onBlur,
+                  onKeyDown: c,
+                  onFocus: s,
+                  visited: v,
+                  id: a,
+                  className: i,
+                  invalid: u,
+                  onChange: l,
+                  value: d,
+                  required: p,
+                  type: D,
+                  error: f,
+                  disabled: r,
+                  placeholder: h,
+                  innerRef: m,
+                }),
+                _defineProperty(e, 'onBlur', g),
+                _defineProperty(e, 'inlineContent', _),
+                e),
               );
             }),
             (t.state = { visited: !1 }),
@@ -50717,9 +50723,10 @@ object-assign
               value: function render() {
                 var e = this.props,
                   t = e.type,
-                  n = e.disableShowPassword;
+                  n = e.disableShowPassword,
+                  r = e.inlineContent;
                 return 'password' !== t || n
-                  ? this.renderInputField()
+                  ? r ? this.renderInlineContent() : this.renderInputField()
                   : this.renderPasswordField();
               },
             },
@@ -50761,6 +50768,7 @@ object-assign
       inputRef: a.default.func,
       Styles: a.default.func,
       RevealPasswordWrapper: a.default.func,
+      inlineContent: a.default.node,
     }),
       (c.defaultProps = {
         disabled: !1,
@@ -50786,6 +50794,7 @@ object-assign
         disableShowPassword: !1,
         Styles: s.default,
         RevealPasswordWrapper: l.default,
+        inlineContent: null,
       }),
       (c.Small = (0, i.withProps)({ Styles: s.default.Small })(c)),
       (t.default = c);
@@ -115950,6 +115959,13 @@ object-assign
           defaultValue: { value: 'InputRevealPasswordWrapper', computed: !0 },
           tags: {},
         },
+        inlineContent: {
+          type: { name: 'node' },
+          required: !1,
+          description: 'A react node that is displayed inside input element',
+          defaultValue: { value: 'null', computed: !1 },
+          tags: {},
+        },
       },
       doclets: {},
       examples: n(1457),
@@ -115968,6 +115984,13 @@ object-assign
       {
         type: 'code',
         content: '<Input type="text" placeholder="Placeholder text"/>',
+        settings: {},
+        evalInContext: a,
+      },
+      { type: 'markdown', content: 'An invalid input' },
+      {
+        type: 'code',
+        content: '<Input type="text" invalid />',
         settings: {},
         evalInContext: a,
       },
@@ -119721,7 +119744,7 @@ object-assign
           type: {
             name: 'custom',
             raw:
-              "(props, propName, componentName) => {\r\n  if (props.sizes.length > 0 && props[propName] !== 'stretch') {\r\n    return new Error(`Using ${propName} with sizes is invalid in ${componentName}.\r\n    ${propName} is ${JSON.stringify(\r\n      props[propName],\r\n    )}, sizes is ${JSON.stringify(props.sizes)}`);\r\n  }\r\n\r\n  if (!['left', 'right', 'stretch', 'center'].includes(props[propName])) {\r\n    return new Error(\r\n      `Invalid prop ${propName} supplied to ${componentName}: must be one of [left, right, center, stretch].`,\r\n    );\r\n  }\r\n}",
+              "(props, propName, componentName) => {\r\n  if (props.sizes.length > 0 && props[propName] !== 'stretch') {\r\n    return new Error(`Using ${propName} with sizes is invalid in ${\r\n      componentName\r\n    }.\r\n    ${propName} is ${JSON.stringify(\r\n      props[propName],\r\n    )}, sizes is ${JSON.stringify(props.sizes)}`);\r\n  }\r\n\r\n  if (!['left', 'right', 'stretch', 'center'].includes(props[propName])) {\r\n    return new Error(\r\n      `Invalid prop ${propName} supplied to ${\r\n        componentName\r\n      }: must be one of [left, right, center, stretch].`,\r\n    );\r\n  }\r\n}",
           },
           required: !1,
           description:

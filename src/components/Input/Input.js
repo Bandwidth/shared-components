@@ -94,13 +94,9 @@ class Input extends React.Component {
      */
     RevealPasswordWrapper: PropTypes.func,
     /**
-     * A string that is displayed inside input element
+     * A react node that is displayed inside input element
      */
-    inlineText: PropTypes.string,
-    /**
-     * A function that is called when the inlineText is clicked
-     */
-    onInlineTextClicked: PropTypes.func,
+    inlineContent: PropTypes.node,
   };
 
   static defaultProps = {
@@ -119,8 +115,7 @@ class Input extends React.Component {
     disableShowPassword: false,
     Styles: InputStyles,
     RevealPasswordWrapper: InputRevealPasswordWrapper,
-    inlineText: null,
-    onInlineTextClicked: null,
+    inlineContent: null,
   };
 
   componentDidMount() {
@@ -165,16 +160,12 @@ class Input extends React.Component {
     );
   };
 
-  renderInlineTextInputField = () => {
+  renderInlineContent = () => {
     const { RevealPasswordWrapper } = this.props;
     return (
       <RevealPasswordWrapper>
         {this.renderInputField()}
-        <div>
-          <Anchor href="" onClick={this.props.onInlineTextClicked}>
-            {this.props.inlineText}
-          </Anchor>
-        </div>
+        {this.props.inlineContent}
       </RevealPasswordWrapper>
     );
   };
@@ -195,8 +186,9 @@ class Input extends React.Component {
       inputRef,
       onBlur,
       Styles,
-      inlineText,
-      onInlineTextClicked,
+      //inlineText,
+      //onInlineTextClicked,
+      inlineContent,
     } = this.props;
 
     const { visited, _type: type } = this.state;
@@ -219,21 +211,20 @@ class Input extends React.Component {
         placeholder={placeholder}
         innerRef={inputRef}
         onBlur={onBlur}
-        inlineText={inlineText}
-        onInlineTextClicked={onInlineTextClicked}
+        inlineContent={inlineContent}
       />
     );
   };
 
   render() {
-    const { type, disableShowPassword, inlineText } = this.props;
+    const { type, disableShowPassword, inlineContent } = this.props;
 
     if (type === 'password' && !disableShowPassword) {
       return this.renderPasswordField();
     }
 
-    if (inlineText) {
-      return this.renderInlineTextInputField();
+    if (inlineContent) {
+      return this.renderInlineContent();
     }
 
     return this.renderInputField();
