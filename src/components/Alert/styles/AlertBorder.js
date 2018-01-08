@@ -18,31 +18,31 @@ const AlertBorder = styled.div`
   background: ${({ theme, type }) => {
     switch (type) {
       case 'success':
-        return '#e0fff7';
+        return get('colors.positive.light');
       case 'error':
-        return '#ffede8';
+        return get('colors.negative.light');
       default:
-        return '#e0f7fd';
+        return get('colors.primary.light');
     }
   }};
 
   border-color: ${({ theme, type }) => {
     switch (type) {
       case 'success':
-        return '#00fbb9';
+        return get('colors.positive.border');
       case 'error':
-        return '#ffb39e';
+        return get('colors.negative.border');
       default:
-        return '#00bef0';
+        return get('colors.primary.border');
     }
   }};
 
   color: ${({ theme, type }) => {
     switch (type) {
       case 'success':
-        return '#005c44';
+        return get('colors.positive.dark');
       case 'error':
-        return '#a53f0c';
+        return get('colors.negative.dark');
       default:
         return get('colors.primary.dark');
     }
