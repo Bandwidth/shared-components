@@ -186,8 +186,6 @@ class Input extends React.Component {
       inputRef,
       onBlur,
       Styles,
-      //inlineText,
-      //onInlineTextClicked,
       inlineContent,
     } = this.props;
 
