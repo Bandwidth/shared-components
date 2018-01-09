@@ -83,6 +83,9 @@ export {
 } from './components/Cards/CardGroupConnected';
 export { default as CardHeader } from './components/Cards/CardHeader';
 export { default as CardSection } from './components/Cards/CardSection';
+export {
+  default as CardHeaderText,
+} from './components/Cards/styles/CardHeaderText';
 export { default as CardWrapper } from './components/Cards/styles/CardWrapper';
 export {
   default as HeaderWrapper,

@@ -6,7 +6,8 @@ const HeaderWrapper = styled.div`
   font-size: 1.2em;
   font-weight: 500;
   text-transform: uppercase;
-  background-image: url(${props => props.image || 'none'});
+  background: ${props =>
+    props.image ? `url(${props.image})` : themeGet('colors.primary.dark')};
   background-size: cover;
   padding: ${themeGet('spacing.medium')};
   padding-top: ${themeGet('spacing.extraLarge')};

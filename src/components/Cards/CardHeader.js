@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import H3 from 'components/H/H3';
-import themeGet from 'extensions/themeGet';
 import DefaultHeaderWrapper from './styles/HeaderWrapper';
-
-const WhiteHeader = H3.extend`
-  color: ${themeGet('colors.text.inverted')};
-`;
+import DefaultCardHeaderText from './styles/CardHeaderText';
 
 class CardHeader extends React.Component {
   static propTypes = {
@@ -22,20 +17,25 @@ class CardHeader extends React.Component {
      * A component which controls the styling of the CardHeader
      */
     HeaderWrapper: PropTypes.func,
+    /**
+     * A component which controls the appearance of the text in the Card Header
+     */
+    CardHeaderText: PropTypes.func,
   };
 
   static defaultProps = {
     title: null,
     image: null,
     HeaderWrapper: DefaultHeaderWrapper,
+    CardHeaderText: DefaultCardHeaderText,
   };
 
   render() {
-    const { image, title, HeaderWrapper } = this.props;
+    const { image, title, HeaderWrapper, CardHeaderText } = this.props;
 
     return (
       <HeaderWrapper image={image}>
-        {title ? <WhiteHeader>{title}</WhiteHeader> : null}
+        {title ? <CardHeaderText>{title}</CardHeaderText> : null}
       </HeaderWrapper>
     );
   }
