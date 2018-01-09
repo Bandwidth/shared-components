@@ -53024,42 +53024,33 @@
               t.props.onBlur && t.props.onBlur(e);
           }),
           (t.renderPasswordField = function() {
-            var e = t.props.RevealPasswordWrapper;
-            return o.default.createElement(
-              e,
+            t.props.RevealPasswordWrapper;
+            var e = o.default.createElement(
+              'div',
               null,
-              t.renderInputField(),
               o.default.createElement(
-                'div',
-                null,
-                o.default.createElement(
-                  u.default,
-                  {
-                    href: '',
-                    onClick: function handleClick(e) {
-                      e.preventDefault(),
-                        t.setState({
-                          _type: (function toggleState() {
-                            return 'password' === t.state._type
-                              ? 'text'
-                              : 'password';
-                          })(t.state._type),
-                        });
-                    },
+                u.default,
+                {
+                  href: '',
+                  onClick: function handleClick(e) {
+                    e.preventDefault(),
+                      t.setState({
+                        _type: (function toggleState() {
+                          return 'password' === t.state._type
+                            ? 'text'
+                            : 'password';
+                        })(t.state._type),
+                      });
                   },
-                  'password' === t.state._type ? 'Show' : 'Hide',
-                ),
+                },
+                'password' === t.state._type ? 'Show' : 'Hide',
               ),
             );
+            return t.renderInlineContent(e);
           }),
-          (t.renderInlineContent = function() {
-            var e = t.props.RevealPasswordWrapper;
-            return o.default.createElement(
-              e,
-              null,
-              t.renderInputField(),
-              t.props.inlineContent,
-            );
+          (t.renderInlineContent = function(e) {
+            var n = t.props.RevealPasswordWrapper;
+            return o.default.createElement(n, null, t.renderInputField(), e);
           }),
           (t.renderInputField = function() {
             var e,
@@ -53150,7 +53141,7 @@
                 n = e.disableShowPassword,
                 r = e.inlineContent;
               return 'password' !== t || n
-                ? r ? this.renderInlineContent() : this.renderInputField()
+                ? r ? this.renderInlineContent(r) : this.renderInputField()
                 : this.renderPasswordField();
             },
           },
@@ -113780,7 +113771,7 @@
           type: {
             name: 'custom',
             raw:
-              'props => {\r\n  if (!props.children) return;\r\n  const invalidChildren = props.children.filter(\r\n    child => child.type.displayName !== Breadcrumb.displayName,\r\n  );\r\n  if (invalidChildren.length > 0) {\r\n    const child = invalidChildren[0];\r\n    const childName = child.type.displayName || child.type.name || child.type;\r\n    return new Error(dedent`Invalid child component for Breadcrumbs: ${\r\n      childName\r\n    }.  Only ${Breadcrumb.displayName} \\\r\n      components may be nested within Breadcrumbs.`);\r\n  }\r\n}',
+              'props => {\r\n  if (!props.children) return;\r\n  const invalidChildren = props.children.filter(\r\n    child => child.type.displayName !== Breadcrumb.displayName,\r\n  );\r\n  if (invalidChildren.length > 0) {\r\n    const child = invalidChildren[0];\r\n    const childName = child.type.displayName || child.type.name || child.type;\r\n    return new Error(dedent`Invalid child component for Breadcrumbs: ${childName}.  Only ${\r\n      Breadcrumb.displayName\r\n    } \\\r\n      components may be nested within Breadcrumbs.`);\r\n  }\r\n}',
           },
           required: !1,
           description: '',
