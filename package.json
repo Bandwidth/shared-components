@@ -1,6 +1,6 @@
 {
   "name": "@bandwidth/shared-components",
-  "version": "3.0.4",
+  "version": "3.0.8",
   "description": "Shared Component Library for Bandwidth React Apps",
   "main": "dist/index.js",
   "scripts": {
@@ -96,8 +96,8 @@
     "react": "^15.5.4",
     "react-docgen": "^3.0.0-beta9",
     "react-docgen-annotation-resolver": "^1.0.0",
-    "react-dom": "^15.5.4",
-    "react-styleguidist": "^6.0.33",
+    "react-dom": "^15.6.1",
+    "react-styleguidist": "^6.1.0",
     "react-test-renderer": "^15.6.1",
     "react-x-ray": "^1.0.0-2",
     "rimraf": "^2.6.1",

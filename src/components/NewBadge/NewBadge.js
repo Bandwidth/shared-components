@@ -11,7 +11,7 @@ const NewBadge = styled.span`
     color: ${get('colors.primary.default')};
     font-weight: bold;
     font-size: 0.85em;
-    margin: 0 0 0 1em;
+    margin: 0 1em 0 0;
     text-transform: uppercase;
   }
 `;

@@ -17,9 +17,9 @@ Breadcrumbs.propTypes = {
     if (invalidChildren.length > 0) {
       const child = invalidChildren[0];
       const childName = child.type.displayName || child.type.name || child.type;
-      return new Error(dedent`Invalid child component for Breadcrumbs: ${
-        childName
-      }.  Only ${Breadcrumb.displayName} \
+      return new Error(dedent`Invalid child component for Breadcrumbs: ${childName}.  Only ${
+        Breadcrumb.displayName
+      } \
         components may be nested within Breadcrumbs.`);
     }
   },
@@ -27,4 +27,5 @@ Breadcrumbs.propTypes = {
 
 Breadcrumbs.Breadcrumb = Breadcrumb;
 
+/** @component */
 export default Breadcrumbs;
