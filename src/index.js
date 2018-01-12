@@ -80,7 +80,20 @@ export { default as Button } from './components/Button';
 export { default as SubmitButton } from './components/Button/SubmitButton';
 export { default as Callout } from './components/Callout';
 export { default as CalloutTag } from './components/Callout/styles/CalloutTag';
-export { default as Card } from './components/Card';
+export { default as Card } from './components/Cards/Card';
+export { default as CardGroup } from './components/Cards/CardGroup';
+export {
+  default as CardGroupConnected,
+} from './components/Cards/CardGroupConnected';
+export { default as CardHeader } from './components/Cards/CardHeader';
+export { default as CardSection } from './components/Cards/CardSection';
+export {
+  default as CardHeaderText,
+} from './components/Cards/styles/CardHeaderText';
+export { default as CardWrapper } from './components/Cards/styles/CardWrapper';
+export {
+  default as HeaderWrapper,
+} from './components/Cards/styles/HeaderWrapper';
 export { default as Checkbox } from './components/Checkbox';
 export {
   default as CheckboxContainer,
