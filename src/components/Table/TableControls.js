@@ -2,14 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import H1 from '../H';
-import Anchor from '../Anchor';
-import BaseIcon from '../Icon';
 import TableControlsContainer from './styles/TableControlsContainer';
 import TableControlsRow from './styles/TableControlsRow';
-
-const TableControlsIcon = BaseIcon.extend`
-  font-size: 21px;
-`;
+import TableControlsIcons from './styles/TableControlsIcons';
+import DefaultAnchor from 'components/Anchor';
 
 class TableControls extends React.Component {
   static propTypes = {
@@ -58,13 +54,17 @@ class TableControls extends React.Component {
      */
     Container: PropTypes.func,
     /**
-     * A component to render the controls row
+     * A component to render the controls row, including header and icons
      */
     ControlsRow: PropTypes.func,
     /**
-     * A component to render icons in the controls
+     * A component to render the container for icons. Mainly controls font size.
      */
-    Icon: PropTypes.func,
+    ControlsIcons: PropTypes.func,
+    /**
+     * A component to render an Anchor, defaults to library Anchor
+     */
+    Anchor: PropTypes.func,
   };
 
   static defaultProps = {
@@ -80,7 +80,8 @@ class TableControls extends React.Component {
     id: null,
     Container: TableControlsContainer,
     ControlsRow: TableControlsRow,
-    Icon: TableControlsIcon,
+    ControlsIcons: TableControlsIcons,
+    Anchor: DefaultAnchor,
   };
 
   render() {
@@ -97,7 +98,8 @@ class TableControls extends React.Component {
       onSearch,
       Container,
       ControlsRow,
-      Icon,
+      ControlsIcons,
+      Anchor,
     } = this.props;
 
     if (!title && !enableAdd && !enableDelete && !enableSearch && !children) {
@@ -108,23 +110,11 @@ class TableControls extends React.Component {
       <Container>
         <ControlsRow id={id} className={className}>
           <H1>{title}</H1>
-          <div>
-            {enableAdd ? (
-              <Anchor onClick={onAdd} type="icon">
-                <Icon name="plusMath" />
-              </Anchor>
-            ) : null}
-            {enableSearch ? (
-              <Anchor onClick={onSearch} type="icon">
-                <Icon name="search" />
-              </Anchor>
-            ) : null}
-            {enableDelete ? (
-              <Anchor onClick={onDelete} type="icon">
-                <Icon name="trash" />
-              </Anchor>
-            ) : null}
-          </div>
+          <ControlsIcons>
+            {enableAdd ? <Anchor onClick={onAdd} icon="plusMath" /> : null}
+            {enableSearch ? <Anchor onClick={onSearch} icon="search" /> : null}
+            {enableDelete ? <Anchor onClick={onDelete} icon="delete3" /> : null}
+          </ControlsIcons>
         </ControlsRow>
         {children}
       </Container>

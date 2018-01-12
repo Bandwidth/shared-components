@@ -6,23 +6,23 @@ export const colors = {
   primary: {
     default: '#00bef0',
     alternate: '#008db1',
-    light: '#d9f5fc',
-    border: '#33c9f0',
+    light: '#e0f7fd',
+    border: '#00bef0',
     dark: '#004658',
   },
   /* aka 'green' */
   positive: {
     default: '#6cbf0d',
-    light: '#e9f5db',
-    border: '#b5df86',
-    dark: '#5a9f0b',
+    light: '#e0fff7',
+    border: '#00fbb9',
+    dark: '#005c44',
   },
   /* aka 'red' */
   negative: {
     default: '#e9562e',
-    light: '#fceae6',
-    border: '#f6bbab',
-    dark: '#b1351e',
+    light: '#ffede8',
+    border: '#ffb39e',
+    dark: '#a53f0c',
   },
   accents: [
     /* purple */

@@ -93,6 +93,10 @@ class Input extends React.Component {
      * when reveal password is enabled
      */
     RevealPasswordWrapper: PropTypes.func,
+    /**
+     * A react node that is displayed inside input element
+     */
+    inlineContent: PropTypes.node,
   };
 
   static defaultProps = {
@@ -111,6 +115,7 @@ class Input extends React.Component {
     disableShowPassword: false,
     Styles: InputStyles,
     RevealPasswordWrapper: InputRevealPasswordWrapper,
+    inlineContent: null,
   };
 
   componentDidMount() {
@@ -143,14 +148,23 @@ class Input extends React.Component {
       });
     };
 
+    const inlineNode = (
+      <div>
+        <Anchor href="" onClick={handleClick}>
+          {this.state._type === 'password' ? 'Show' : 'Hide'}
+        </Anchor>
+      </div>
+    );
+
+    return this.renderInlineContent(inlineNode);
+  };
+
+  renderInlineContent = node => {
+    const { RevealPasswordWrapper } = this.props;
     return (
       <RevealPasswordWrapper>
         {this.renderInputField()}
-        <div>
-          <Anchor href="" onClick={handleClick}>
-            {this.state._type === 'password' ? 'Show' : 'Hide'}
-          </Anchor>
-        </div>
+        {node}
       </RevealPasswordWrapper>
     );
   };
@@ -171,6 +185,7 @@ class Input extends React.Component {
       inputRef,
       onBlur,
       Styles,
+      inlineContent,
     } = this.props;
 
     const { visited, _type: type } = this.state;
@@ -193,15 +208,20 @@ class Input extends React.Component {
         placeholder={placeholder}
         innerRef={inputRef}
         onBlur={onBlur}
+        inlineContent={inlineContent}
       />
     );
   };
 
   render() {
-    const { type, disableShowPassword } = this.props;
+    const { type, disableShowPassword, inlineContent } = this.props;
 
     if (type === 'password' && !disableShowPassword) {
       return this.renderPasswordField();
+    }
+
+    if (inlineContent) {
+      return this.renderInlineContent(inlineContent);
     }
 
     return this.renderInputField();

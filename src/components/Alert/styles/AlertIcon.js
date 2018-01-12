@@ -3,13 +3,14 @@ import get from 'extensions/themeGet';
 import icons from 'components/Icon/icons';
 import AlertBorder from './AlertBorder';
 
-export const SIZE = '1.2em';
+export const SIZE = '31px';
+const SMALL_SIZE = '18px';
 
-const AlertIcon = styled.i`
-  width: ${SIZE};
-  height: ${SIZE};
-  margin-right: 1em;
+const getAlertIcon = size => styled.i`
+  width: ${size};
+  height: ${size};
   display: inline-block;
+  border-color: inherit;
 
   &::before {
     content: ${({ type }) => {
@@ -23,35 +24,43 @@ const AlertIcon = styled.i`
       }
     }};
 
+    box-sizing: border-box;
     border-width: ${get('thicknesses.normal')};
     border-style: solid;
-    border-color: ${props => {
-      switch (props.type) {
-        case 'success':
-          return get('colors.positive.default')(props);
-        case 'error':
-          return get('colors.negative.default')(props);
-        default:
-          return get('colors.primary.default')(props);
-      }
-    }};
+    border-color: inherit;
 
     background: ${get('colors.background.default')};
-    width: ${SIZE};
-    height: ${SIZE};
+    width: ${size};
+    height: ${size};
     display: inline-block;
-    line-height: ${SIZE};
-    font-family: ${get('fonts.icon')};
+    line-height: ${size};
+    font-family: ${props => {
+      switch (props.type) {
+        case 'success':
+          return get('fonts.icon');
+        case 'error':
+        default:
+          return get('fonts.brand');
+      }
+    }};
     text-align: center;
     border-radius: 100%;
-    font-size: calc(${SIZE} - 0.3em);
+    font-size: 1em;
     position: absolute;
     font-style: normal;
   }
 
   ${AlertBorder} > & {
-    margin: 0 1em auto 0;
+    margin: 0 10px auto 0;
     flex: 0 0 auto;
+  }
+`;
+
+const AlertIcon = getAlertIcon(SIZE);
+AlertIcon.Small = getAlertIcon(SMALL_SIZE).extend`
+  
+  ${AlertBorder.Small} > & {
+    margin: 0 5px auto 0;
   }
 `;
 

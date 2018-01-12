@@ -75,7 +75,7 @@ export default class Checkbox extends React.Component {
       Label,
     } = this.props;
 
-    const id = this.props.id || generateId('toggle');
+    const id = this.props.id || generateId('checkbox');
 
     return (
       <Container>

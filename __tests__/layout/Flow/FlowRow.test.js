@@ -1,8 +1,14 @@
 import React from 'react';
 import toJSON from 'enzyme-to-json';
 import { FlowRow, Label } from '../../../src';
+import { withProps } from 'recompose';
 
 describe('the FlowRow component', () => {
+  const mocks = {
+    Styles: createMockComponent('Container'),
+  };
+  const TestFlowRow = withProps(mocks)(FlowRow);
+
   test('defines subcomponents', () => {
     expect(FlowRow.Item).toBeTruthy();
   });
@@ -12,18 +18,15 @@ describe('the FlowRow component', () => {
 
     beforeEach(() => {
       wrapper = shallowWithTheme(
-        <FlowRow>
+        <TestFlowRow>
           <FlowRow.Item label="foo" />
           <FlowRow.Item label="bar" />
-        </FlowRow>,
-      );
+        </TestFlowRow>,
+      ).dive();
     });
 
     test('renders items with labels', () => {
-      expect(wrapper.find(FlowRow.Container)).toHaveProp(
-        'suppressLabels',
-        false,
-      );
+      expect(wrapper.find('Container')).toHaveProp('suppressLabels', false);
       expect(wrapper.find(FlowRow.Item)).toHaveLength(2);
     });
   });
@@ -33,18 +36,15 @@ describe('the FlowRow component', () => {
 
     beforeEach(() => {
       wrapper = shallowWithTheme(
-        <FlowRow>
+        <TestFlowRow>
           <FlowRow.Item />
           <FlowRow.Item />
-        </FlowRow>,
-      );
+        </TestFlowRow>,
+      ).dive();
     });
 
     test('renders items with suppressed labels', () => {
-      expect(wrapper.find(FlowRow.Container)).toHaveProp(
-        'suppressLabels',
-        true,
-      );
+      expect(wrapper.find('Container')).toHaveProp('suppressLabels', true);
       expect(wrapper.find(FlowRow.Item)).toHaveLength(2);
     });
   });
@@ -54,18 +54,16 @@ describe('the FlowRow component', () => {
 
     beforeEach(() => {
       wrapper = shallowWithTheme(
-        <FlowRow>
+        <TestFlowRow>
           <FlowRow.Item label="foo" />
           <FlowRow.Item />
-        </FlowRow>,
-      );
+        </TestFlowRow>,
+      ).dive();
     });
 
     test('renders items with labels', () => {
-      expect(wrapper.find(FlowRow.Container)).toHaveProp(
-        'suppressLabels',
-        false,
-      );
+      console.log(wrapper.debug());
+      expect(wrapper.find('Container')).toHaveProp('suppressLabels', false);
       expect(wrapper.find(FlowRow.Item)).toHaveLength(2);
     });
   });

@@ -8,7 +8,8 @@ const H3 = styled.h3.withConfig({ displayName: 'H3' })`
   font-weight: 300;
   font-family: ${get('fonts.brand')};
   font-size: 1.75em;
-  line-height: 1em;
+  line-height: 1.25;
+  letter-spacing: 0;
   margin: 0;
   padding: 0;
 `;

@@ -6,8 +6,8 @@ export default styled.p`
   padding: 0;
   display: inline-block;
 
-  ${AlertBorder} > & {
-    margin: auto 0 0 0;
+  ${AlertBorder} > &, ${AlertBorder.Small} > & {
+    margin: auto 0;
     flex: 1;
   }
 `;

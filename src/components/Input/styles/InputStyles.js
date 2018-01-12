@@ -19,6 +19,10 @@ const InputStyles = styled.input`
   outline: none;
   width: 100%;
 
+  &:required {
+    box-shadow: none;
+  }
+
   &:focus {
     box-shadow: inset 0 -5px 0 ${get('colors.primary.light')};
     border-color: ${get('colors.border.medium')};
@@ -35,19 +39,19 @@ const InputStyles = styled.input`
     opacity: 0.5;
   }
 
-  ${({ visited, theme }) =>
-    visited
+  ${props =>
+    props.visited
       ? css`
           &:invalid {
-            box-shadow: inset 0 -5px 0 ${get('colors.negative.light')};
-            border-color: ${get('colors.negative.border')};
+            box-shadow: inset 0 -5px 0 ${get('colors.negative.light')(props)};
+            border-color: ${get('colors.negative.border')(props)};
           }
         `
-      : ''} ${({ invalid, error, theme }) =>
-      invalid || error
+      : ''} ${props =>
+      props.invalid || props.error
         ? `
-    box-shadow: inset 0 -5px ${get('colors.negative.light')};
-    border-color: ${get('colors.negative.border')};
+    box-shadow: inset 0 -5px ${get('colors.negative.light')(props)};
+    border-color: ${get('colors.negative.border')(props)};
     `
         : ''};
 `;

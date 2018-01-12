@@ -68,6 +68,7 @@ Alert.defaultProps = {
 
 Alert.Small = withProps({
   Border: AlertBorder.Small,
+  Icon: AlertIcon.Small,
 })(Alert);
 
 export default Alert;

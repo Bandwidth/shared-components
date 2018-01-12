@@ -6,7 +6,7 @@ import get from 'extensions/themeGet';
 
 const Icon = styled.i.withConfig({ displayName: 'Icon' })`
   font-family: ${get('fonts.icon')};
-  font-size: 16px;
+  font-size: inherit;
   color: inherit;
   font-style: normal;
   display: inline-block;
