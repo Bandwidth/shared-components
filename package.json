@@ -38,7 +38,7 @@
   "homepage": "https://github.com/Bandwidth/shared-components#readme",
   "peerDependencies": {
     "react": ">=15.5.x <= 16.0.0",
-    "react-dom": ">= 15.5.x <= 16.0.0"
+    "react-dom": ">= 15.5.x <= 16.0.x"
   },
   "dependencies": {
     "animation-timer": "^1.0.12",
