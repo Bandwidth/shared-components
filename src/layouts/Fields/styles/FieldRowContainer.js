@@ -6,7 +6,7 @@ const FieldRowContainer = styled.div`
   flex-direction: column;
 
   & > div:not(:last-child) {
-    margin-bottom: ${themeGet('spacing.medium')};
+    margin-bottom: ${themeGet('spacing.large')};
   }
 `;
 
