@@ -37,8 +37,8 @@
   },
   "homepage": "https://github.com/Bandwidth/shared-components#readme",
   "peerDependencies": {
-    "react": ">=15.5.x <= 16.0.0",
-    "react-dom": ">= 15.5.x <= 16.0.x"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "dependencies": {
     "animation-timer": "^1.0.12",
@@ -93,10 +93,10 @@
     "npm-run-all": "^4.0.2",
     "postcss-loader": "^2.0.6",
     "prettier": "^1.8.2",
-    "react": "^15.5.4",
+    "react": "^16.0.0",
     "react-docgen": "^3.0.0-beta9",
     "react-docgen-annotation-resolver": "^1.0.0",
-    "react-dom": "^15.6.1",
+    "react-dom": "^16.0.0",
     "react-styleguidist": "^6.1.0",
     "react-test-renderer": "^15.6.1",
     "react-x-ray": "^1.0.0-2",
