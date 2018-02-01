@@ -16,19 +16,27 @@ class Radio extends React.Component {
      */
     id: PropTypes.string,
     /**
-     * The value of the checkbox.
+     * The value of the radio; a string that describes what the value should be if checked=true
      */
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    value: PropTypes.string.isRequired,
     /**
-     * Whether the checkbox is required for form submission.
+     * Whether the radio is checked
+     */
+    checked: PropTypes.bool,
+    /**
+     * Name ties groups of radio buttons together
+     */
+    name: PropTypes.string.isRequired,
+    /**
+     * Whether the radio is required for form submission.
      */
     required: PropTypes.bool,
     /**
-     * Whether the user is prevented from interacting with the checkbox.
+     * Whether the user is prevented from interacting with the radio.
      */
     disabled: PropTypes.bool,
     /**
-     * A description to display next to the checkbox.
+     * A description to display next to the radio.
      */
     description: PropTypes.node,
     /**
@@ -52,7 +60,7 @@ class Radio extends React.Component {
   static defaultProps = {
     className: null,
     id: null,
-    value: false,
+    checked: false,
     required: false,
     disabled: false,
     description: null,
@@ -67,6 +75,8 @@ class Radio extends React.Component {
       className,
       disabled,
       value,
+      checked,
+      name,
       required,
       description,
       onChange,
@@ -80,13 +90,15 @@ class Radio extends React.Component {
         <Input
           id={id}
           className={className}
-          type="checkbox"
+          type="radio"
+          value={value}
+          name={name}
           disabled={disabled}
-          checked={!!value}
+          checked={!!checked}
           required={required}
           onChange={onChange}
         />
-        <Label htmlFor={id} checked={!!value}>
+        <Label htmlFor={id} checked={!!checked}>
           {description}
         </Label>
       </Container>
