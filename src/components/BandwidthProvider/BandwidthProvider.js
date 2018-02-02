@@ -7,26 +7,31 @@ import withDragDropContext from './withDragDropContext';
 import DefaultDragLayer from '../DragLayer';
 import './styles/global'; // injects a global stylesheet
 
-const Provider = ({ StyleRoot, ThemeProvider, DragLayer, children }) => (
-  <ThemeProvider>
-    <StyleRoot>
-      {children}
-      <DragLayer />
-    </StyleRoot>
-  </ThemeProvider>
-);
+class Provider extends React.PureComponent {
+  static propTypes = {
+    StyleRoot: PropTypes.func,
+    ThemeProvider: PropTypes.func,
+    DragLayer: PropTypes.func,
+    children: PropTypes.node.isRequired,
+  };
 
-Provider.propTypes = {
-  StyleRoot: PropTypes.func,
-  ThemeProvider: PropTypes.func,
-  DragLayer: PropTypes.func,
-  children: PropTypes.node.isRequired,
-};
+  static defaultProps = {
+    StyleRoot: DefaultStyleRoot,
+    ThemeProvider: BandwidthThemeProvider,
+    DragLayer: DefaultDragLayer,
+  };
 
-Provider.defaultProps = {
-  StyleRoot: DefaultStyleRoot,
-  ThemeProvider: BandwidthThemeProvider,
-  DragLayer: DefaultDragLayer,
-};
+  render() {
+    const { StyleRoot, ThemeProvider, DragLayer, children } = this.props;
+    return (
+      <ThemeProvider>
+        <StyleRoot>
+          {children}
+          <DragLayer />
+        </StyleRoot>
+      </ThemeProvider>
+    );
+  }
+}
 
 export default withDragDropContext(Provider);
