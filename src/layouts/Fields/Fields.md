@@ -76,3 +76,31 @@ const Input = require('../../components/Input').default;
   <Fields.Field><Input /></Fields.Field>
 </Fields>
 ```
+
+### A field with a fieldSpan too large will wrap to the next row.
+
+```js
+const Input = require('../../components/Input').default;
+
+<Fields columns={6}>
+  <Fields.Field label="label" columnSpan={4}><Input /></Fields.Field>
+  <Fields.Field label="wrapped" columnSpan={3}><Input /></Fields.Field>
+  <Fields.Field label="label" columnSpan={2}><Input /></Fields.Field>
+  <Fields.Field label="label" columnSpan={1}><Input /></Fields.Field>
+</Fields>
+```
+
+### Error test: a field which is too wide for the fieldset
+
+This layout should fail with an error in the console explaining that the field is too wide.
+
+```js
+const Input = require('../../components/Input').default;
+
+<Fields columns={3}>
+  <Fields.Field label="too wide" columnSpan={4}><Input /></Fields.Field>
+  <Fields.Field label="just right" columnSpan={3}><Input /></Fields.Field>
+  <Fields.Field label="label" columnSpan={2}><Input /></Fields.Field>
+  <Fields.Field label="label" columnSpan={1}><Input /></Fields.Field>
+</Fields>
+```

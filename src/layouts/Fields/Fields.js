@@ -8,9 +8,22 @@ class Fields extends React.PureComponent {
   static Field = Field;
 
   static propTypes = {
-    RowContainer: PropTypes.func,
-    Row: PropTypes.func,
+    /**
+     * The number of columns to divide the fieldset into when rendering. Fields can span multiple columns if provided
+     * with a columnSpan prop. Fields which overflow the column limit will be added to new rows. If a Field's
+     * columnSpan is too large to fit in the current row, it will be wrapped to the next one.
+     */
     columns: PropTypes.number,
+    /**
+     * A component prop to override the component used to render the outer container which renders field rows.
+     * Defaults to FieldRowContainer.
+     */
+    RowContainer: PropTypes.func,
+    /**
+     * A component prop to override the component which is injected to wrap Field elements into discrete rows.
+     * Row receives the same `columns` prop provided to this component. Defaults to FieldRow.
+     */
+    Row: PropTypes.func,
   };
 
   static defaultProps = {
@@ -26,6 +39,13 @@ class Fields extends React.PureComponent {
     const rows = childArray.reduce(
       (rows, child) => {
         const childColumnSpan = child.props.columnSpan || 1;
+
+        if (childColumnSpan > columns) {
+          throw new Error(
+            `A Field has a columnSpan of ${childColumnSpan}, but the containing Fields only has ${columns} columns`,
+          );
+        }
+
         const currentRow = rows[rows.length - 1];
         if (currentRow.columnWidth + childColumnSpan <= columns) {
           // add to current row
