@@ -6,7 +6,8 @@ const FieldRowContainer = styled.div`
   flex-direction: column;
 
   & > div:not(:last-child) {
-    margin-bottom: ${themeGet('spacing.large')};
+    /* a custom, non-theme-standard value requested by UX */
+    margin-bottom: 20px;
   }
 `;
 

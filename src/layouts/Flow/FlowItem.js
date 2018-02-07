@@ -10,6 +10,9 @@ import FlowItemFlexibleContent from './styles/FlowItemFlexibleContent';
 import FlowItemMoreContent from './styles/FlowItemMoreContent';
 
 /**
+ * @deprecated
+ * See /layouts/Fields for new layout mechanisms for form fields
+ *
  * Flow.Item is an individual element in the Flow system. It annotates the provided
  * content with a label, help text, and ensures correct layout with sibling elements when used properly inside
  * a Flow.Row. Flow.Item includes some advanced props like `moreContent` and `flexibleContent` to further

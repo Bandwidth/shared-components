@@ -7,6 +7,11 @@ import FlowItem from './FlowItem';
 import FlowRow from './FlowRow';
 import { HORIZONTAL_SPACING, VERTICAL_SPACING } from './constants';
 
+/**
+ * @deprecated
+ *
+ * See /layouts/Fields for new layout mechanisms for form fields
+ */
 const Flow = styled.div.withConfig({ displayName: 'Flow' })`
   display: flex;
   flex-direction: row;

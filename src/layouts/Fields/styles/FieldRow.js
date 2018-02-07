@@ -20,7 +20,9 @@ const FieldRow = ({ children, columns, theme }) => (
         `"${copyArea('helpText', columns)}"`,
       ].join('\n'),
       // defines spacing between rows and columns
-      gridGap: `0 ${themeGet('spacing.large')({ theme })}`,
+      gridGap: `${themeGet('spacing.extraSmall')({ theme })} ${themeGet(
+        'spacing.large',
+      )({ theme })}`,
       // each column has an equal size. To make fields larger than
       // adjacent fields, use the columnSpan prop on Field to span
       // multiple columns. This keeps all field sizes directly proportional
