@@ -157,9 +157,9 @@ class DragGroup extends React.Component {
 
   renderTitle = expanded =>
     this.props.allowDrag ? (
-      <Title expanded={expanded} onDelete={this.props.onRemoved}>
+      <this.props.Title expanded={expanded} onDelete={this.props.onRemoved}>
         {this.props.name}
-      </Title>
+      </this.props.Title>
     ) : null;
 
   render() {
