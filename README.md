@@ -43,11 +43,11 @@ With this alias, you could just type:
 import { Button } from 'shared-components';
 ```
 
-# The Flow Layout System
+# Developing
 
-![Flow example](./docs/images/formRecipe.png)
+To develop locally, run `npm run styleguide`. The docs should then be available at `http://localhost:6060`. Live reloading, etc should work as well.
 
-Built into the library is a layout system which is designed to easily create experiences according to Bandwidth's design guidelines. You can read more in the [Flow docs](https://github.com/Bandwidth/shared-components/blob/master/src/layouts/Flow/Flow.md)
+Please refer to the [contributing guide](https://github.com/Bandwidth/shared-components/blob/master/.github/CONTRIBUTING.md) and read through the pull request template before submitting a PR!
 
 # License
 
