@@ -45641,19 +45641,22 @@
               : (e.__proto__ = t));
       })(DragGroup, a.default.Component);
       function DragGroup() {
-        var e, t, n;
+        var e,
+          t,
+          n,
+          r = this;
         !(function _classCallCheck(e, t) {
           if (!(e instanceof t))
             throw new TypeError('Cannot call a class as a function');
         })(this, DragGroup);
-        for (var r = arguments.length, o = Array(r), i = 0; i < r; i++)
-          o[i] = arguments[i];
+        for (var o = arguments.length, i = Array(o), u = 0; u < o; u++)
+          i[u] = arguments[u];
         return (
           (t = n = _possibleConstructorReturn(
             this,
             (e =
               DragGroup.__proto__ ||
-              Object.getPrototypeOf(DragGroup)).call.apply(e, [this].concat(o)),
+              Object.getPrototypeOf(DragGroup)).call.apply(e, [this].concat(i)),
           )),
           (n.calcOverrideExpanded = function() {
             var e = n.props,
@@ -45675,7 +45678,7 @@
           (n.renderTitle = function(e) {
             return n.props.allowDrag
               ? a.default.createElement(
-                  d.default,
+                  r.props.Title,
                   { expanded: e, onDelete: n.props.onRemoved },
                   n.props.name,
                 )
