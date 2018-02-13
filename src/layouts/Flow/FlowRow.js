@@ -7,6 +7,9 @@ import { HORIZONTAL_SPACING } from './constants';
 import FlowRowStyles from './styles/FlowRowStyles';
 
 /**
+ * @deprecated
+ * See /layouts/Fields for new layout mechanisms for form fields
+ *
  * A Flow.Row defines a horizontal row of FlowItems. FlowRows belong within a Flow component.
  * Flow will manage their vertical spacing. A Flow.Row manages the horizontal spacing of its children.
  *

@@ -1,3 +1,7 @@
+# Deprecated!
+
+Flow used a flexbox-based layout system to achieve some complex layout goals for fields within forms. Now that CSS-Grid is widely supported, a new, simpler layout system called Fields has been introduced. Please refer to Fields for new form field layouts.
+
 ## The Flow System
 
 Flow is a layout system which is intended to capture the rules which have surfaced in various UX mockups into tested, repeatable code. With Flow, each UI element is annotated with an optional label and help text component. Vertical spacing is kept consistent on every row. Horizontal alignment has sane defaults and a lot of options for fine-tuning. Flow is primarily designed for use inside forms to layout inputs, but it can be used anywhere you need it.
