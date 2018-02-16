@@ -8,7 +8,7 @@ const SIZE = '22px';
 const CHECK_SIZE = '14px';
 
 // Builds off the base label
-export default Label.extend`
+export default styled(Label)`
   padding: 0.2em 0 0.2em 2.1em;
 
   cursor: pointer;

@@ -11,7 +11,7 @@ export default styled.div.attrs({
     props.complete ? get('fonts.icon')(props) : get('fonts.default')(props),
   numberColor: props =>
     props.complete
-      ? get('colors.positive.default')(props)
+      ? get('colors.positive.dark')(props)
       : get('colors.text.default')(props),
   numberBorderColor: props =>
     props.complete

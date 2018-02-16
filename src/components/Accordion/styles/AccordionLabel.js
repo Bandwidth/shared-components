@@ -14,7 +14,7 @@ const AccordionLabel = styled.div`
   user-select: none;
 `;
 
-AccordionLabel.Small = AccordionLabel.extend`
+AccordionLabel.Small = styled(AccordionLabel)`
   padding: ${get('spacing.medium')};
   color: ${get('colors.text.default')};
   font-weight: 600;

@@ -17,7 +17,7 @@ const AccordionArrow = styled(Icon)`
   }
 `;
 
-AccordionArrow.Small = AccordionArrow.extend`
+AccordionArrow.Small = styled(AccordionArrow)`
   color: ${get('colors.text.default')};
 
   &:after {

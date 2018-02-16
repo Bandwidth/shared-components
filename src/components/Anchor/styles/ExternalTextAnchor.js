@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import get from 'extensions/themeGet';
 import icons from 'components/Icon/icons';
+import { base, positive, negative, dark, inverted } from './sharedStyles';
 
 const color = get('colors.primary.alternate');
 
@@ -24,105 +25,24 @@ const newTabIconStyles = css`
 `;
 
 const ExternalTextAnchor = styled.a`
-  color: ${color};
-  font-family: ${get('fonts.brand')};
-
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-  position: relative;
-  height: auto;
-  margin: auto;
-
-  &:focus {
-    outline: none;
-  }
-
-  &:active {
-    color: ${get('colors.primary.default')};
-  }
-
-  &::after {
-    content: '';
-    background: ${color};
-    border-radius: 2em;
-    height: 1px;
-    width: 100%;
-    position: absolute;
-    bottom: -0.1em;
-    left: 0;
-    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
-      opacity 0.25s ease;
-  }
-
-  &:hover::after,
-  &:focus::after {
-    height: calc(100% + 0.2em);
-    width: calc(100% + 0.6em);
-    left: -0.3em;
-    opacity: 0.125;
-    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
-      opacity 0s ease;
-  }
-
-  ${({ newTab }) => (newTab ? newTabIconStyles : '')};
+  ${base} ${({ newTab }) => (newTab ? newTabIconStyles : '')};
 `;
 
-const dangerColor = get('colors.negative.default');
+ExternalTextAnchor.Negative = styled(ExternalTextAnchor)`
+  ${negative};
+`;
+ExternalTextAnchor.Danger = ExternalTextAnchor.Negative;
 
-ExternalTextAnchor.Danger = ExternalTextAnchor.Negative = ExternalTextAnchor.extend`
-  color: ${dangerColor};
-
-  &:active {
-    color: ${get('colors.negative.dark')};
-  }
-
-  &::after {
-    background: ${dangerColor};
-  }
+ExternalTextAnchor.Positive = styled(ExternalTextAnchor)`
+  ${positive};
 `;
 
-const positiveColor = get('colors.positive.default');
-
-ExternalTextAnchor.Positive = ExternalTextAnchor.extend`
-  color: ${positiveColor};
-
-  &:active {
-    color: ${get('colors.positive.dark')};
-  }
-
-  &::after {
-    background: ${positiveColor};
-  }
+ExternalTextAnchor.Dark = styled(ExternalTextAnchor)`
+  ${dark};
 `;
 
-const darkColor = get('colors.primary.dark');
-
-ExternalTextAnchor.Dark = ExternalTextAnchor.extend`
-  color: ${darkColor};
-
-  &:active {
-    color: ${get('colors.primary.dark')};
-  }
-
-  &::after {
-    background: ${darkColor};
-  }
-`;
-
-const invertedColor = get('colors.text.inverted');
-
-ExternalTextAnchor.Inverted = ExternalTextAnchor.extend`
-  color: ${invertedColor};
-
-  &:active {
-    color: ${get('colors.text.inverted')};
-  }
-
-  &::after {
-    background: ${invertedColor};
-  }
+ExternalTextAnchor.Inverted = styled(ExternalTextAnchor)`
+  ${inverted};
 `;
 
 export default ExternalTextAnchor;

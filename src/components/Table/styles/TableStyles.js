@@ -11,7 +11,7 @@ const TableStyles = styled.table`
   }
 `;
 
-TableStyles.Small = TableStyles.extend`
+TableStyles.Small = styled(TableStyles)`
   font-size: 0.9em;
 `;
 

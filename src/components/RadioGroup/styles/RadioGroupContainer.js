@@ -6,7 +6,7 @@ const RadioGroupContainer = styled.div`
   align-items: stretch;
 `;
 
-RadioGroupContainer.Vertical = RadioGroupContainer.extend`
+RadioGroupContainer.Vertical = styled(RadioGroupContainer)`
   flex-direction: column;
 `;
 

@@ -5,7 +5,7 @@ const TabContainer = styled.div`
   flex-direction: column;
 `;
 
-TabContainer.Vertical = TabContainer.extend`
+TabContainer.Vertical = styled(TabContainer)`
   flex-direction: row;
 `;
 

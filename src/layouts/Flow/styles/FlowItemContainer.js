@@ -72,7 +72,7 @@ const FlowItemContainer = styled.div.withConfig({
   }
 `;
 
-FlowItemContainer.Small = FlowItemContainer.extend`
+FlowItemContainer.Small = styled(FlowItemContainer)`
   font-size: 0.75em;
 
   & > .FlowItem-label {

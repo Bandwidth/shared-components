@@ -1,5 +1,6 @@
 import BaseIcon from 'components/Icon';
+import styled from 'styled-components';
 
-export default BaseIcon.extend`
+export default styled(BaseIcon)`
   font-size: inherit;
 `;

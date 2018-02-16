@@ -19,7 +19,7 @@ const InputRevealPasswordContainer = styled.div`
   }
 `;
 
-InputRevealPasswordContainer.Small = InputRevealPasswordContainer.extend`
+InputRevealPasswordContainer.Small = styled(InputRevealPasswordContainer)`
   input[type='password'],
   input[type='text'] {
     padding: ${get('spacing.small')} ${get('spacing.extraLarge')}

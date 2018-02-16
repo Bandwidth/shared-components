@@ -20,11 +20,13 @@ _An icon anchor_
 
 _An old-style icon anchor_: this kind of icon anchor is not recommended anymore; use the `icon` prop on an empty anchor instead.
 ```javascript
+const Icon = require('../Icon').default;
 <Anchor to="#bar"><Icon name="moderator"/></Anchor>
 ```
 
 _Text and icon_
 ```javascript
+const Icon = require('../Icon').default;
 <Anchor to="#bar" type="text"><Icon name="help" /> Learn more about this</Anchor>
 ```
 

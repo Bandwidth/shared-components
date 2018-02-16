@@ -58,7 +58,7 @@ const RadioGroupButtonLabel = styled.label`
   }
 `;
 
-RadioGroupButtonLabel.Small = RadioGroupButtonLabel.extend`
+RadioGroupButtonLabel.Small = styled(RadioGroupButtonLabel)`
   font-size: 0.8em;
   padding: 0.83em 1em;
   font-weight: normal;
@@ -69,7 +69,7 @@ RadioGroupButtonLabel.Small = RadioGroupButtonLabel.extend`
   }
 `;
 
-RadioGroupButtonLabel.Large = RadioGroupButtonLabel.extend`
+RadioGroupButtonLabel.Large = styled(RadioGroupButtonLabel)`
   padding: ${get('spacing.large')};
 `;
 

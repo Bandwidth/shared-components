@@ -6,12 +6,12 @@ const LogoImage = styled.img`
   margin: auto;
 `;
 
-LogoImage.Small = LogoImage.extend`
+LogoImage.Small = styled(LogoImage)`
   width: 13px;
   height: 15px;
 `;
 
-LogoImage.Large = LogoImage.extend`
+LogoImage.Large = styled(LogoImage)`
   width: 52px;
   height: 60px;
 `;

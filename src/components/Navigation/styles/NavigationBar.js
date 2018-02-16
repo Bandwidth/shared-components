@@ -21,12 +21,12 @@ const NavigationBar = styled.header.withConfig({
   }
 `;
 
-NavigationBar.Sub = NavigationBar.extend`
+NavigationBar.Sub = styled(NavigationBar)`
   background: ${get('colors.gray.light')};
   color: ${get('colors.text.default')};
 `;
 
-NavigationBar.Dark = NavigationBar.extend`
+NavigationBar.Dark = styled(NavigationBar)`
   background: ${get('colors.primary.dark')};
 `;
 

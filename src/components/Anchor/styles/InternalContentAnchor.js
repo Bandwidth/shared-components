@@ -1,4 +1,4 @@
 import ExternalContentAnchor from './ExternalContentAnchor';
-import { Link } from 'react-router-dom';
+import Link from './DomSafeLink';
 
 export default ExternalContentAnchor.withComponent(Link);
