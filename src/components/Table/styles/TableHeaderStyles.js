@@ -24,7 +24,7 @@ const TableHeaderStyles = styled.th`
   }
 `;
 
-TableHeaderStyles.Small = TableHeaderStyles.extend`
+TableHeaderStyles.Small = styled(TableHeaderStyles)`
   padding: 3px 8px;
 `;
 

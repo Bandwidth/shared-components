@@ -30,7 +30,7 @@ H3.defaultProps = {
   id: null,
 };
 
-H3.Primary = H3.extend`
+H3.Primary = styled(H3)`
   color: ${get('colors.primary.default')};
 `;
 

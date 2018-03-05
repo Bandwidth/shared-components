@@ -3,6 +3,8 @@ import { css } from 'styled-components';
 import get from 'extensions/themeGet';
 import icons from 'components/Icon/icons';
 import Icon from 'components/Icon';
+import styled from 'styled-components';
+import { base, positive, negative, dark, inverted } from './sharedStyles';
 
 const iconStyles = css`
   text-decoration: none;
@@ -27,25 +29,29 @@ const iconStyles = css`
   }
 `;
 
-const ExternalIconAnchor = ExternalTextAnchor.extend`
-  ${iconStyles};
+const ExternalIconAnchor = styled.a`
+  ${base} ${iconStyles};
 `;
 
-ExternalIconAnchor.Danger = ExternalIconAnchor.Negative = ExternalTextAnchor
-  .Danger.extend`
-  ${iconStyles}
+ExternalIconAnchor.Negative = styled.a`
+  ${base} ${iconStyles};
+  ${negative};
+`;
+ExternalIconAnchor.Danger = ExternalIconAnchor.Negative;
+
+ExternalIconAnchor.Positive = styled.a`
+  ${base} ${iconStyles};
+  ${positive};
 `;
 
-ExternalIconAnchor.Positive = ExternalTextAnchor.Positive.extend`
-  ${iconStyles}
+ExternalIconAnchor.Dark = styled.a`
+  ${base} ${iconStyles};
+  ${dark};
 `;
 
-ExternalIconAnchor.Dark = ExternalTextAnchor.Dark.extend`
-  ${iconStyles}
-`;
-
-ExternalIconAnchor.Inverted = ExternalTextAnchor.Inverted.extend`
-  ${iconStyles}
+ExternalIconAnchor.Inverted = styled.a`
+  ${base} ${iconStyles};
+  ${inverted};
 `;
 
 export default ExternalIconAnchor;

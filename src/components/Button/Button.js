@@ -120,7 +120,7 @@ Button.defaultProps = {
 
 Button.Submit = SubmitButton;
 
-Button.Secondary = Button.extend`
+Button.Secondary = styled(Button)`
   color: ${get('colors.primary.dark')};
   border-color: ${get('colors.primary.dark')};
   background: transparent;
@@ -133,17 +133,17 @@ Button.Secondary = Button.extend`
   }
 `;
 
-Button.Small = Button.extend`
+Button.Small = styled(Button)`
   padding: 9px 28px;
   font-size: 0.6em;
 `;
 
-Button.Large = Button.extend`
+Button.Large = styled(Button)`
   padding: 13px 58px;
   font-size: 0.9em;
 `;
 
-Button.Danger = Button.extend`
+Button.Danger = styled(Button)`
   border-color: ${get('colors.negative.default')};
   background: ${get('colors.negative.default')};
 

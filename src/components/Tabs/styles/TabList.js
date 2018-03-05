@@ -18,7 +18,7 @@ const TabList = styled.ul`
   }
 `;
 
-TabList.Vertical = TabList.extend`
+TabList.Vertical = styled(TabList)`
   flex-direction: column;
 `;
 

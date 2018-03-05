@@ -87,7 +87,9 @@ const Tab = styled.li`
         }
       `;
     }
-  }} ${TabList} > & {
+  }}
+
+  ${TabList}:not(${TabList.Vertical}) > & {
     flex: 1 0 0;
   }
 
@@ -96,7 +98,7 @@ const Tab = styled.li`
   }
 `;
 
-Tab.Vertical = Tab.extend`
+Tab.Vertical = styled(Tab)`
   ${verticalStyles};
 `;
 

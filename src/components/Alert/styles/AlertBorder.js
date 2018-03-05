@@ -49,7 +49,7 @@ const AlertBorder = styled.div`
   }};
 `;
 
-AlertBorder.Small = AlertBorder.extend`
+AlertBorder.Small = styled(AlertBorder)`
   padding: 5px;
   font-size: 0.8em;
   min-height: 30px;

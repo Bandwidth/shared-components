@@ -56,7 +56,7 @@ const InputStyles = styled.input`
         : ''};
 `;
 
-InputStyles.Small = InputStyles.extend`
+InputStyles.Small = styled(InputStyles)`
   font-size: 12px;
   padding: ${get('spacing.small')};
 `;
