@@ -7,6 +7,7 @@ const Page = styled.article.withConfig({ displayName: 'Page' })`
   flex-direction: column;
   align-items: stretch;
   width: 100%;
+  min-height: 0;
 
   & > *:last-child {
     flex: 1 1 auto;
