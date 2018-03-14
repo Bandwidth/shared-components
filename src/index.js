@@ -36,6 +36,7 @@ export { default as AlertBorder } from './components/Alert/styles/AlertBorder';
 export { default as AlertIcon } from './components/Alert/styles/AlertIcon';
 export { default as AlertText } from './components/Alert/styles/AlertText';
 export { default as Anchor } from './components/Anchor';
+export { default as DomSafeLink } from './components/Anchor/styles/DomSafeLink';
 export {
   default as ExternalContentAnchor,
 } from './components/Anchor/styles/ExternalContentAnchor';
