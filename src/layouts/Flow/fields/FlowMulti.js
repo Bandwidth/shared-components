@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Anchor from '../../../components/Anchor';
 import FlowItem from '../FlowItem';
+import get from 'extensions/themeGet';
 
 const List = styled.ul`
   appearance: none;
@@ -14,7 +15,7 @@ const List = styled.ul`
 const SubFieldContainer = styled.li`
   display: flex;
   flex-direction: row;
-  margin: ${({ theme }) => theme.padding.small};
+  margin: ${get('spacing.small')};
 
   & > * {
     flex: 1;

@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "cross-env NODE_PATH=src jest --config jestConfig.json --coverage",
-    "watch:run": "cross-env NODE_PATH=src babel --watch --copy-files --out-dir dist src",
+    "watch:run": "npm run build:index && cross-env NODE_PATH=src babel --watch --copy-files --out-dir dist src",
     "watch": "run-s watch:*",
     "build:clean": "rimraf dist",
     "build:dist": "cross-env NODE_PATH=src babel --copy-files --out-dir dist src",
@@ -38,14 +38,16 @@
   "homepage": "https://github.com/Bandwidth/shared-components#readme",
   "peerDependencies": {
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "styled-components": "^3.1.6",
+    "prop-types": "^15.5.8"
   },
   "dependencies": {
     "animation-timer": "^1.0.12",
     "change-case": "^3.0.1",
     "dedent": "^0.7.0",
     "functional-easing": "^1.0.8",
-    "prop-types": "^15.5.8",
+    "moment": "^2.19.1",    
     "provinces": "^1.11.0",
     "react-addons-shallow-compare": "^15.6.2",
     "react-autosuggest": "^9.3.2",
@@ -59,7 +61,6 @@
     "react-select": "^1.0.0-rc.10",
     "react-syntax-highlighter": "^5.5.0",
     "recompose": "^0.26.0",
-    "styled-components": "^3.1.6",
     "warning": "^3.0.0"
   },
   "devDependencies": {
