@@ -61,6 +61,7 @@
     "react-select": "^1.0.0-rc.10",
     "react-syntax-highlighter": "^5.5.0",
     "recompose": "^0.26.0",
+    "styled-components": "^3.2.3",
     "warning": "^3.0.0"
   },
   "devDependencies": {
