@@ -42,12 +42,17 @@ Label.propTypes = {
    * Adds an id to the element.
    */
   id: PropTypes.string,
+  /**
+   * Adds a red star at the end of the label.
+   */
+  required: PropTypes.bool,
 };
 
 Label.defaultProps = {
   disabled: false,
   className: null,
   id: null,
+  required: false,
 };
 
 /**

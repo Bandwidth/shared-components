@@ -15,7 +15,7 @@ const longLabel = `a ${(new Array(16).fill('very, ').join(''))} very long label!
   <Fields.Field helpText="some help text" label={longLabel}><Input /></Fields.Field>
   <Fields.Field><Toggle description="Toggle me!" /></Fields.Field>
   <Fields.Field label="label"><Input /></Fields.Field>
-  <Fields.Field><Input /></Fields.Field>
+  <Fields.Field label="required:" required={true}><Input /></Fields.Field>
   <Fields.Field><Input /></Fields.Field>
   <Fields.Field label="options" alignContent="left">
     <RadioGroup options={['one', 'two', 'three']} />

@@ -33,6 +33,14 @@ class Field extends React.Component {
      */
     label: PropTypes.node,
     /**
+     * Indicates if the field is required by the form.
+     */
+    required: PropTypes.bool,
+    /**
+     * Disables the form label.
+     */
+    disabled: PropTypes.bool,
+    /**
      * Contents to render inside the main field area.
      */
     children: PropTypes.node,
@@ -62,6 +70,8 @@ class Field extends React.Component {
     Content: FieldContent,
     helpText: null,
     label: null,
+    required: false,
+    disabled: false,
   };
 
   stylesFor = gridName => {
@@ -78,7 +88,7 @@ class Field extends React.Component {
   };
 
   renderLabel = () => {
-    const { label, Label, children } = this.props;
+    const { label, disabled, required, Label, children } = this.props;
 
     if (!label) {
       return null;
@@ -88,7 +98,12 @@ class Field extends React.Component {
 
     if (typeof label === 'string') {
       return (
-        <Label htmlFor={labelFor} style={this.stylesFor('label')}>
+        <Label
+          disabled={disabled}
+          required={required}
+          htmlFor={labelFor}
+          style={this.stylesFor('label')}
+        >
           {label}
         </Label>
       );
