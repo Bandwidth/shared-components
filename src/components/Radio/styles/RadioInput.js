@@ -1,31 +1,43 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
+import icons from 'components/Icon/icons';
 
 export default styled.input`
   opacity: 0;
   position: absolute;
   z-index: -1000000;
+  transition: all 0.2s ease;
 
-  &:active:not(:disabled) + label::after {
-    border-color: ${get('colors.primary.dark')};
+  /* the check */
+
+  &:checked + label::before {
+    content: "${icons('checkmark')}";
   }
+
+  /* the bubble */
+
+  & + label::after {
+    border-color: ${get('colors.border.dark')};
+  }
+
+  &:disabled + label::after {
+    border-color: ${get('colors.border.disabled')};
+  }
+
+  &:disabled:checked + label::after {
+    background-color: ${get('colors.background.disabledSelected')};
+  }
+
+  &:disabled:not(:checked) + label::after {
+    background-color: ${get('colors.background.disabled')};
+  }
+
   &:checked:not(:disabled) + label::after {
-    background: ${get('colors.primary.dark')};
+    background-color: ${get('colors.background.dark')};
   }
-  &:active:not(:disabled) + label::after {
-    border-color: ${get('colors.primary.alternate')};
+
+  &:not(:checked):not(:disabled) + label::after {
+    background-color: ${get('colors.background.default')};
   }
-  &:checked:active:not(:disabled) + label::after {
-    background: ${get('colors.primary.alternate')};
-  }
-  &:focus:not(:hover) + label::after {
-    box-shadow: ${get('shadows.focusOutline')};
-  }
-  &:disabled + label {
-    opacity: 0.5;
-    cursor: default;
-  }
-  &:disabled + label::before {
-    color: ${get('colors.gray.medium')};
-  }
+
 `;

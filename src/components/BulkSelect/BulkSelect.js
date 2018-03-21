@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withProps } from 'recompose';
 import theme from '../../theme';
 import styled from 'styled-components';
 import BulkSelectItem from './styles/BulkSelectItem';
@@ -97,6 +98,7 @@ class BulkSelect extends React.Component {
             <Item
               key={computeItemKey(item.data)}
               selected={item.selected}
+              disabled={item.disabled}
               onClick={this.createItemClickHandler(item)}
             >
               {resolvedRenderItemContents(item.data, item.selected)}
@@ -113,5 +115,11 @@ class BulkSelect extends React.Component {
     return <Border>{sections.map(this.renderSection)}</Border>;
   }
 }
+
+BulkSelect.Small = withProps({ ItemContainer: BulkSelectItemContainer.Small })(
+  BulkSelect,
+);
+
+BulkSelect.Colorful = withProps({ Item: BulkSelectItem.Colorful })(BulkSelect);
 
 export default BulkSelect;
