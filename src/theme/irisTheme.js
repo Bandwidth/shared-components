@@ -16,6 +16,7 @@ export const colors = {
     light: '#e0fff7',
     border: '#00fbb9',
     dark: '#005c44',
+    medium: '#00aa6c',
   },
   /* aka 'red' */
   negative: {
@@ -23,6 +24,7 @@ export const colors = {
     light: '#ffede8',
     border: '#ffb39e',
     dark: '#a53f0c',
+    medium: '#ff391a',
   },
   accents: [
     /* purple */
@@ -55,17 +57,20 @@ export const colors = {
   graphics: ['#41d3bd', '#a95adf'],
   border: {
     medium: '#c2c2c2',
+    dark: '#004658',
     light: '#e1e1e1',
+    disabled: '#d2d2d2',
   },
   background: {
     default: '#fff',
     inverted: '#272b2d',
-    disabled: '#e1e1e1',
+    disabled: '#ececec',
+    disabledSelected: '#d2d2d2',
   },
   text: {
     default: '#666',
     inverted: '#fff',
-    disabled: '#666',
+    disabled: '#c2c2c2',
   },
 };
 
@@ -83,7 +88,7 @@ export const shadows = {
     0 1px 5px 0 rgba(0, 0, 0, 0.12),
     0 3px 1px -2px rgba(0 ,0, 0, 0.2)
     `,
-  focusOutline: '0 0 0 5px #d9f5fc',
+  focusOutline: '0 0 0 5px #e0f7fd',
 };
 
 export const spacing = {
