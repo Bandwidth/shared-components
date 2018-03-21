@@ -66,6 +66,7 @@ export const colors = {
     inverted: '#272b2d',
     disabled: '#ececec',
     disabledSelected: '#d2d2d2',
+    dark: '#004658',
   },
   text: {
     default: '#666',
