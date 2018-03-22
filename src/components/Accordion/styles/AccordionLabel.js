@@ -8,7 +8,7 @@ const AccordionLabel = styled.div`
   font-size: 1.5em;
   text-transform: none;
   font-weight: 400;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'auto' : 'pointer')};
   display: flex;
   flex-direction: row;
   user-select: none;

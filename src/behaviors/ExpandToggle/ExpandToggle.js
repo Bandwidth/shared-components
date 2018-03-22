@@ -39,6 +39,10 @@ class ExpandToggle extends React.Component {
      */
     startExpanded: PropTypes.bool,
     /**
+     * If true, the user cannot change the state
+     */
+    disabled: PropTypes.bool,
+    /**
      * react-motion config, see https://github.com/chenglou/react-motion#--spring-val-number-config-springhelperconfig--opaqueconfig
      */
     springConfig: PropTypes.shape({
@@ -55,6 +59,7 @@ class ExpandToggle extends React.Component {
     isExpanded: null,
     startExpanded: false,
     springConfig: null,
+    disabled: false,
   };
 
   constructor(props) {
@@ -65,6 +70,10 @@ class ExpandToggle extends React.Component {
   }
 
   handleToggle = () => {
+    if (this.props.disabled) {
+      return;
+    }
+
     if (this.props.onToggle) {
       this.props.onToggle(this.calcIsExpanded());
     }
@@ -82,20 +91,23 @@ class ExpandToggle extends React.Component {
   };
 
   renderToggle = () => {
-    const { toggleContent } = this.props;
+    const { toggleContent, disabled } = this.props;
     if (_.isFunction(toggleContent)) {
-      return toggleContent(this.calcIsExpanded());
+      return toggleContent(this.calcIsExpanded(), disabled);
     }
     return toggleContent;
   };
 
   render() {
     const isExpanded = this.calcIsExpanded();
-    const { children, id, className, springConfig } = this.props;
+    const { children, id, className, springConfig, disabled } = this.props;
 
     return (
       <div id={id} className={className}>
-        <div style={{ cursor: 'pointer' }} onClick={this.handleToggle}>
+        <div
+          style={{ cursor: disabled ? 'auto' : 'pointer' }}
+          onClick={this.handleToggle}
+        >
           {this.renderToggle()}
         </div>
         <Collapse isOpened={isExpanded} springConfig={springConfig}>

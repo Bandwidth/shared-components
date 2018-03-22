@@ -5,4 +5,7 @@ export default styled.div`
   border-width: ${get('thicknesses.normal')};
   border-color: ${get('colors.gray.border')};
   border-style: solid;
+
+  background: ${props =>
+    props.disabled ? get('colors.background.disabled')(props) : 'transparent'};
 `;

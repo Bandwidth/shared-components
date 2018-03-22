@@ -25,9 +25,15 @@ class Accordion extends React.Component {
      */
     children: PropTypes.node.isRequired,
     /**
-     * Pass isExpanded to override the internal collapsing state
+     * Pass isExpanded to override the internal collapsing state (makes the expanded state a controlled value, please
+     * use onToggle to manage the state yourself or startExpanded if you just want to set the initial state).
      */
     isExpanded: PropTypes.bool,
+    /**
+     * Use this to set the default initial state of the internal expanded state without
+     * turning it into a controlled value.
+     */
+    startExpanded: PropTypes.bool,
     /**
      * DEPRECATED: the negation of isExpanded, overrides internal collapse state
      */
@@ -36,6 +42,11 @@ class Accordion extends React.Component {
      * Add a handler for when the accordion is collapsed or expanded.
      */
     onToggle: PropTypes.func,
+    /**
+     * If true, the user cannot change the expanded state of this
+     * accordion.
+     */
+    disabled: PropTypes.bool,
     /**
      * Set a classname for the accordion container element.
      */
@@ -68,10 +79,12 @@ class Accordion extends React.Component {
 
   static defaultProps = {
     isExpanded: null,
+    startExpanded: false,
     isCollapsed: null,
     onToggle: null,
     className: null,
     id: null,
+    disabled: false,
     Border: AccordionBorder,
     Label: AccordionLabel,
     Arrow: AccordionArrow,
@@ -90,24 +103,35 @@ class Accordion extends React.Component {
     return isExpanded;
   };
 
-  renderLabel = isExpanded => (
-    <this.props.Label onClick={this.handleToggle}>
+  renderLabel = (isExpanded, disabled) => (
+    <this.props.Label disabled={disabled}>
       <this.props.Arrow isExpanded={isExpanded} name="forward" size={21} />
       <this.props.LabelText>{this.props.label}</this.props.LabelText>
     </this.props.Label>
   );
 
   render() {
-    const { id, className, onToggle, children, Border, Content } = this.props;
+    const {
+      id,
+      className,
+      onToggle,
+      children,
+      Border,
+      Content,
+      startExpanded,
+      disabled,
+    } = this.props;
 
     return (
-      <Border>
+      <Border disabled={disabled}>
         <ExpandToggle
           id={id}
           className={className}
           onToggle={onToggle}
           toggleContent={this.renderLabel}
           isExpanded={this.coalesceIsExpandedProps()}
+          startExpanded={startExpanded}
+          disabled={disabled}
         >
           <Content>{children}</Content>
         </ExpandToggle>
