@@ -39,7 +39,7 @@ export default class Wrapper extends React.Component {
   getThemeProvider = () => {
     switch (this.state.theme) {
       case 'catapult':
-        return BandwidthThemeProvider.Catapult;
+        return BandwidthThemeProvider.CatapultThemeProvider;
       default:
         return BandwidthThemeProvider;
     }

@@ -93,12 +93,17 @@ class Radio extends React.Component {
           type="radio"
           value={value}
           name={name}
-          disabled={disabled}
+          disabled={!!disabled}
           checked={!!checked}
-          required={required}
+          required={!!required}
           onChange={onChange}
         />
-        <Label htmlFor={id} checked={!!checked}>
+        <Label
+          htmlFor={id}
+          checked={!!checked}
+          disabled={!!disabled}
+          required={!!required}
+        >
           {description}
         </Label>
       </Container>

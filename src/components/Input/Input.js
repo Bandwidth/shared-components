@@ -37,9 +37,29 @@ class Input extends React.Component {
      */
     required: PropTypes.bool,
     /**
+     * Controls whether the user can modify the element - typically displays differently from disabled.
+     */
+    readonly: PropTypes.bool,
+    /**
+     * Limits the maximum length of the input.
+     */
+    maxLength: PropTypes.number,
+    /**
+     * Limits the minimum value of the input - note that this value is primarily for its semantic meaning.
+     */
+    min: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    /**
+     * Limits the maximum value of the input - note that this value is primarily for its semantic meaning.
+     */
+    max: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    /**
      * Adds an id to the element.
      */
     id: PropTypes.string,
+    /**
+     * Adds an name to the element.
+     */
+    name: PropTypes.string,
     /**
      * Adds a class name to the element.
      */
@@ -102,7 +122,9 @@ class Input extends React.Component {
   static defaultProps = {
     disabled: false,
     required: false,
+    readonly: false,
     id: null,
+    name: null,
     type: 'text',
     onChange: () => null,
     onBlur: () => null,
@@ -116,6 +138,9 @@ class Input extends React.Component {
     Styles: InputStyles,
     RevealPasswordWrapper: InputRevealPasswordWrapper,
     inlineContent: null,
+    maxLength: null,
+    min: null,
+    max: null,
   };
 
   componentDidMount() {
@@ -186,6 +211,11 @@ class Input extends React.Component {
       onBlur,
       Styles,
       inlineContent,
+      readonly,
+      name,
+      maxLength,
+      min,
+      max,
     } = this.props;
 
     const { visited, _type: type } = this.state;
@@ -197,6 +227,7 @@ class Input extends React.Component {
         onFocus={onFocus}
         visited={visited}
         id={id}
+        name={name}
         className={className}
         invalid={invalid}
         onChange={onChange}
@@ -205,10 +236,14 @@ class Input extends React.Component {
         type={type}
         error={error}
         disabled={disabled}
+        readonly={readonly}
         placeholder={placeholder}
         innerRef={inputRef}
         onBlur={onBlur}
         inlineContent={inlineContent}
+        maxLength={maxLength}
+        min={min}
+        max={max}
       />
     );
   };

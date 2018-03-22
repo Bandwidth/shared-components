@@ -18,7 +18,8 @@
     "styleguide": "run-s styleguide:*",
     "gen": "studs generate component",
     "precommit": "lint-staged",
-    "prettier": "prettier --single-quote --trailing-comma all --write \"{src,tools,__tests__}/**/*.js\""
+    "prettier": "prettier --single-quote --trailing-comma all --write \"{src,tools,__tests__}/**/*.js\"",
+    "start": "npm run styleguide"
   },
   "lint-staged": {
     "*.js": [

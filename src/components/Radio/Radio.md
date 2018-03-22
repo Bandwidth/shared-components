@@ -13,6 +13,7 @@
     }
   />
   <Radio disabled value="hello" description="Can't check this"/>
+  <Radio disabled checked value="hello" description="Can't uncheck this"/>
 </div>
 ```
 
