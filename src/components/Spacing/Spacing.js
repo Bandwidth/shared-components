@@ -38,16 +38,14 @@ const getSpacing = (props, size) => {
 
 const Spacing = styled.div`
   ${props => `padding: ${getSpacing(props, props.size)};`} ${props =>
-      props.top
-        ? `padding-top: ${getSpacing(props, props.top)};`
-        : ''} ${props =>
-      props.bottom
-        ? `padding-bottom: ${getSpacing(props, props.bottom)};`
-        : ''} ${props =>
-      props.left
-        ? `padding-left: ${getSpacing(props, props.left)};`
-        : ''} ${props =>
-      props.right ? `padding-right: ${getSpacing(props, props.right)};` : ''};
+  props.top ? `padding-top: ${getSpacing(props, props.top)};` : ''} ${props =>
+  props.bottom
+    ? `padding-bottom: ${getSpacing(props, props.bottom)};`
+    : ''} ${props =>
+  props.left
+    ? `padding-left: ${getSpacing(props, props.left)};`
+    : ''} ${props =>
+  props.right ? `padding-right: ${getSpacing(props, props.right)};` : ''};
 `;
 
 Spacing.propTypes = {

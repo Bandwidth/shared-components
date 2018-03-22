@@ -48,12 +48,12 @@ const InputStyles = styled.input`
           }
         `
       : ''} ${props =>
-      props.invalid || props.error
-        ? `
+    props.invalid || props.error
+      ? `
     box-shadow: inset 0 -5px ${get('colors.negative.light')(props)};
     border-color: ${get('colors.negative.border')(props)};
     `
-        : ''};
+      : ''};
 `;
 
 InputStyles.Small = styled(InputStyles)`
