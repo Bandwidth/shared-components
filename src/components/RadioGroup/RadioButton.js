@@ -35,6 +35,10 @@ class RadioButton extends React.Component {
      */
     value: PropTypes.string.isRequired,
     /**
+     * If true, user cannot interact with this button.
+     */
+    disabled: PropTypes.bool,
+    /**
      * Adds a class name to the input element.
      */
     className: PropTypes.string,
@@ -68,6 +72,7 @@ class RadioButton extends React.Component {
     content: null,
     className: null,
     id: null,
+    disabled: false,
     Container: RadioGroupButtonContainer,
     Content: RadioGroupButtonContent,
     Input: RadioGroupButtonInput,
@@ -81,6 +86,7 @@ class RadioButton extends React.Component {
       label,
       name,
       value,
+      disabled,
       onChange,
       content,
       className,
@@ -103,8 +109,9 @@ class RadioButton extends React.Component {
           checked={checked}
           onChange={onChange}
           className={className}
+          disabled={disabled}
         />
-        <Label htmlFor={id} active={checked}>
+        <Label htmlFor={id} active={checked} disabled={disabled}>
           <LabelText>{label}</LabelText>
           {content !== null ? (
             <Content active={checked}>{content}</Content>

@@ -37,3 +37,10 @@ _Large Variant_
   <RadioGroup.Large value="b" name="d" onChange={() => { /* handle it! */ }} options={['a', 'b', 'c', 'd']} />
 </div>
 ```
+
+_Disabled_
+```javascript
+<div>
+  <RadioGroup value="a" name="e" onChange={() => { /* handle it! */ }} options={['a', 'b', 'c']} disabled />
+</div>
+```

@@ -34,7 +34,7 @@ const RadioGroupButtonLabel = styled.label`
     transition: height 0.2s ease, opacity 0.2s ease;
   }
 
-  ${Input}:hover + & {
+  ${Input}:hover:not(:disabled) + & {
     border-color: ${get('colors.primary.default')};
     &::after {
       height: 5px;
@@ -42,11 +42,11 @@ const RadioGroupButtonLabel = styled.label`
     }
   }
 
-  ${Input}:focus + & {
+  ${Input}:focus:not(:disabled) + & {
     border-color: ${get('colors.border.medium')};
   }
 
-  ${Input}:checked:hover + & {
+  ${Input}:checked:hover:not(:disabled) + & {
     border-color: ${get('colors.primary.default')};
   }
 
@@ -54,6 +54,16 @@ const RadioGroupButtonLabel = styled.label`
     opacity: 1;
     &::after {
       height: 5px;
+    }
+  }
+
+  ${Input}:disabled + & {
+    opacity: 0.5;
+    background-color: ${get('colors.gray.disabled')};
+    border-color: ${get('colors.border.medium')};
+    cursor: auto;
+    &::after {
+      background: ${get('colors.gray.border')};
     }
   }
 `;
