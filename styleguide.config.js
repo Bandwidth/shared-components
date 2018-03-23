@@ -6,6 +6,7 @@ const annotationResolver = require('react-docgen-annotation-resolver').default;
 module.exports = {
   title: 'Bandwidth Shared React Components',
   styleguideDir: 'docs',
+  pagePerSection: true,
   sections: [
     {
       name: 'Introduction',

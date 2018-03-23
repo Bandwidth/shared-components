@@ -38,7 +38,7 @@ const Item = styled.li`
 export default class ComponentsListRenderer extends React.Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
-    classes: PropTypes.object.isRequired,
+    classes: PropTypes.object,
   };
 
   render() {
@@ -56,10 +56,18 @@ export default class ComponentsListRenderer extends React.Component {
         {items.map(({ heading, name, slug, content }) => (
           <Item key={name}>
             <ExpandToggle
+              startExpanded
               toggleContent={
-                <Link href={`#${slug}`} active={`#${slug}` === currentPath}>
-                  {name}
-                </Link>
+                !!content ? (
+                  <span>{name}</span>
+                ) : (
+                  <Link
+                    href={`#!/${name}`}
+                    active={`#!/${name}` === currentPath}
+                  >
+                    {name}
+                  </Link>
+                )
               }
             >
               {content}
