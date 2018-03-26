@@ -5,7 +5,7 @@ Accepts \`label\` to define what's rendered in the label.
 Also exports \`ContentPadding\`, which you can use on any content contained inside the accordion to achieve consistent padding.
 ```javascript
 <Accordion label="Hello">
-  <p>Some content</p>
+  Some content
 </Accordion>
 ```
 
@@ -16,5 +16,33 @@ const Button = require('../Button').default;
 <Accordion.Small label="Small!">
   Some content<br />
   <Button>A normal Button</Button>
+</Accordion.Small>
+```
+
+_Start open_
+```javascript
+<Accordion label="Hello" startExpanded>
+  Some content
+</Accordion>
+```
+
+_Disabled_
+```javascript
+<Accordion label="Disabled" disabled>
+  Content
+</Accordion>
+```
+
+_Disabled, start expanded_
+```javascript
+<Accordion label="Disabled" startExpanded disabled>
+  Visible content
+</Accordion>
+```
+
+_Small disabled_
+```javascript
+<Accordion.Small label="Small disabled" disabled>
+  Some content
 </Accordion.Small>
 ```
