@@ -101,6 +101,10 @@ class Input extends React.Component {
      */
     disableShowPassword: PropTypes.bool,
     /**
+     * Suggests to most browsers whether they should auto-complete the field
+     */
+    autoComplete: PropTypes.oneOf([PropTypes.string, PropTypes.bool]),
+    /**
      * Provides a reference to the input element
      */
     inputRef: PropTypes.func,
@@ -141,6 +145,7 @@ class Input extends React.Component {
     maxLength: null,
     min: null,
     max: null,
+    autoComplete: true,
   };
 
   componentDidMount() {
@@ -216,6 +221,7 @@ class Input extends React.Component {
       maxLength,
       min,
       max,
+      autoComplete,
     } = this.props;
 
     const { visited, _type: type } = this.state;
@@ -244,6 +250,7 @@ class Input extends React.Component {
         maxLength={maxLength}
         min={min}
         max={max}
+        autoComplete={autoComplete === true || autoComplete === 'on'}
       />
     );
   };
