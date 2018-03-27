@@ -1,6 +1,15 @@
 import { css } from 'styled-components';
 import get from 'extensions/themeGet';
 
+const focusAfterStyles = css`
+  height: calc(100% + 0.2em);
+  width: calc(100% + 0.6em);
+  left: -0.3em;
+  opacity: 0.125;
+  transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
+    opacity 0s ease;
+`;
+
 const color = get('colors.primary.alternate');
 export const base = css`
   color: ${color};
@@ -33,16 +42,13 @@ export const base = css`
     left: 0;
     transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
       opacity 0.25s ease;
+
+    ${({ appearFocused }) => (appearFocused ? focusAfterStyles : '')};
   }
 
   &:hover::after,
   &:focus::after {
-    height: calc(100% + 0.2em);
-    width: calc(100% + 0.6em);
-    left: -0.3em;
-    opacity: 0.125;
-    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
-      opacity 0s ease;
+    ${focusAfterStyles};
   }
 `;
 

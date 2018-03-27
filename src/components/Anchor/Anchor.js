@@ -70,6 +70,11 @@ class Anchor extends React.Component {
      */
     icon: PropTypes.string,
     /**
+     * This prop can be used to 'pseudo-focus' an anchor visually. Useful when
+     * supporting some advanced keyboard navigation scenarios.
+     */
+    appearFocused: PropTypes.bool,
+    /**
      * Renders a text anchor linking to an external site
      */
     ExternalTextAnchor: PropTypes.func,
@@ -104,6 +109,7 @@ class Anchor extends React.Component {
     className: null,
     id: null,
     newTab: false,
+    appearFocused: false,
     external: undefined,
     ExternalTextAnchor: DefaultExternalTextAnchor,
     ExternalIconAnchor: DefaultExternalIconAnchor,
@@ -195,7 +201,16 @@ class Anchor extends React.Component {
   };
 
   render() {
-    const { to, exact, children, className, id, icon, newTab } = this.props;
+    const {
+      to,
+      exact,
+      children,
+      className,
+      id,
+      icon,
+      newTab,
+      appearFocused,
+    } = this.props;
     const Component = this.getComponentType();
 
     return (
@@ -210,6 +225,7 @@ class Anchor extends React.Component {
             id={id}
             icon={icon}
             newTab={newTab}
+            appearFocused={appearFocused}
           >
             {this.childrenWithProps({ active: !!match })}
           </Component>

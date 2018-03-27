@@ -13,7 +13,7 @@ const iconStyles = css`
   font-weight: 700;
 
   &::after {
-    opacity: 0;
+    opacity: ${({ appearFocused }) => (appearFocused ? 0.125 : 0)};
   }
 
   &::before {
