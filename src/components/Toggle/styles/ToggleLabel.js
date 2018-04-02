@@ -7,12 +7,11 @@ export const SIZE = '24px';
 export default styled.label`
   cursor: pointer;
   position: relative;
-  padding: ${get('spacing.extraSmall')};
   padding-right: 0;
   padding-left: calc(${SIZE} * 2 + ${get('spacing.medium')});
   user-select: none;
   transition: all 0.2s ease;
-  line-height: calc(${SIZE} * 1.5);
+  line-height: calc(${SIZE} * 1.166);
   font-family: ${get('fonts.brand')};
   font-weight: 300;
   display: inline;

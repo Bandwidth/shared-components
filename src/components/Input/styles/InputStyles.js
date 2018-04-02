@@ -8,7 +8,7 @@ const InputStyles = styled.input`
   font-family: ${get('fonts.brand')};
   transition: all 0.2s ease;
   padding: ${get('spacing.medium')};
-  border-width: ${get('thicknesses.normal')};
+  border-width: ${get('thicknesses.wide')};
   border-style: solid;
 
   color: ${get('colors.text.default')};
