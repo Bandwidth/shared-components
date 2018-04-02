@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withProps } from 'recompose';
+import { defaultProps } from 'recompose';
 
 import ExpandToggle from '../../behaviors/ExpandToggle';
 import AccordionLabel from './styles/AccordionLabel';
@@ -140,7 +140,7 @@ class Accordion extends React.Component {
   }
 }
 
-Accordion.Small = withProps({
+Accordion.Small = defaultProps({
   Border: AccordionBorder.Small,
   Arrow: AccordionArrow.Small,
   Label: AccordionLabel.Small,
