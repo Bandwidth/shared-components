@@ -167,6 +167,11 @@ class Input extends React.Component {
     }
   };
 
+  getAutoComplete = () => {
+    const { autoComplete } = this.props;
+    return autoComplete === true || autoComplete === 'on' ? 'on' : 'off';
+  };
+
   renderPasswordField = () => {
     const { RevealPasswordWrapper } = this.props;
     const toggleState = () =>
@@ -250,7 +255,7 @@ class Input extends React.Component {
         maxLength={maxLength}
         min={min}
         max={max}
-        autoComplete={autoComplete === true || autoComplete === 'on'}
+        autoComplete={this.getAutoComplete()}
       />
     );
   };
