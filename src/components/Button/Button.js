@@ -20,8 +20,7 @@ const Button = styled.button`
   color: ${get('colors.text.inverted')};
   background: ${get('colors.primary.default')};
 
-  /* 2px less than design system values since we always render a 1px border */
-  padding: 11px 38px;
+  padding: 17px 30px;
   display: inline-block;
   position: relative;
   overflow: hidden;
