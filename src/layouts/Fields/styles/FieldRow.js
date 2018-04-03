@@ -2,12 +2,19 @@ import React from 'react';
 import themeGet from 'extensions/themeGet';
 import { withTheme } from 'styled-components';
 
+const AREA = {
+  LABEL: 'label',
+  CONTENT: 'content',
+  HELP_TEXT: 'helpText',
+};
+
 const copyArea = (input, times) =>
   new Array(times)
     .fill(input)
     .map((text, index) => `${text}${index}`)
     .join(' ');
 
+// Returns true if at least one child uses a label
 const hasLabel = children =>
   React.Children.toArray(children).some(
     child =>
@@ -16,6 +23,7 @@ const hasLabel = children =>
       child.props.label.length > 0,
   );
 
+// Returns true if at least one child uses help text
 const hasHelpText = children =>
   React.Children.toArray(children).some(
     child =>
@@ -29,17 +37,35 @@ const hasHelpText = children =>
  * whether any children need them. This helps deal with the gridGap,
  * as it will still be present if a grid area gets a size of zero.
  */
-const calcGridTemplateAreas = (children, columns) => {
-  const areas = [];
-  if (hasLabel(children)) {
-    areas.push(copyArea('label', columns));
+const includeArea = (area, children) => {
+  if (area === AREA.LABEL) {
+    return hasLabel(children);
   }
-  areas.push(copyArea('content', columns));
-  if (hasHelpText(children)) {
-    areas.push(copyArea('helpText', columns));
+  if (area === AREA.HELP_TEXT) {
+    return hasHelpText(children);
   }
-  return areas.map(a => `"${a}"`).join('\n');
+  return true;
 };
+
+const calcGridAreas = children =>
+  [AREA.LABEL, AREA.CONTENT, AREA.HELP_TEXT].filter(area =>
+    includeArea(area, children),
+  );
+
+const calcGridTemplateAreas = (children, columns) =>
+  calcGridAreas(children)
+    .map(area => `"${copyArea(area, columns)}"`)
+    .join('\n');
+
+const calcGridTemplateRows = children =>
+  calcGridAreas(children)
+    .map(
+      area =>
+        [AREA.LABEL, AREA.HELP_TEXT].includes(area)
+          ? 'auto'
+          : 'minmax(53px, auto)',
+    )
+    .join(' ');
 
 const FieldRow = ({ children, columns, theme }) => {
   return (
@@ -59,9 +85,7 @@ const FieldRow = ({ children, columns, theme }) => {
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
         // label and helpText rows expand or contract as needed.
         // content row has a minimum size of 53px, and can expand as needed.
-        gridTemplateRows: `${
-          hasLabel(children) ? 'auto' : ''
-        } minmax(53px, auto) ${hasHelpText(children) ? 'auto' : ''}`,
+        gridTemplateRows: calcGridTemplateRows(children),
       }}
     >
       {children}
