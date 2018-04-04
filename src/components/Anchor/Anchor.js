@@ -45,6 +45,14 @@ class Anchor extends React.Component {
      */
     onClick: PropTypes.func,
     /**
+     * Bind a handler for the mouseEnter event
+     */
+    onMouseEnter: PropTypes.func,
+    /**
+     * Bind a handler for the mouseLeave event
+     */
+    onMouseLeave: PropTypes.func,
+    /**
      * whether the contents should be treated as text (underlined),
      * icon (has specific styling), or 'content' (no styling).
      */
@@ -210,6 +218,8 @@ class Anchor extends React.Component {
       icon,
       newTab,
       appearFocused,
+      onMouseEnter,
+      onMouseLeave,
     } = this.props;
     const Component = this.getComponentType();
 
@@ -226,6 +236,8 @@ class Anchor extends React.Component {
             icon={icon}
             newTab={newTab}
             appearFocused={appearFocused}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
           >
             {this.childrenWithProps({ active: !!match })}
           </Component>
