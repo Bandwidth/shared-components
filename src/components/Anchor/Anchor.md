@@ -110,3 +110,12 @@ _An inverted "combo" anchor_
   <Anchor.Inverted icon="loginRounded">Login</Anchor.Inverted>
 </div>
 ```
+
+_Controlled 'pseudo-focused' state_
+```javascript
+<div>
+  <Anchor appearFocused>Foo</Anchor>
+  <Anchor appearFocused icon="file">Bar</Anchor>
+  <Anchor appearFocused newTab>Baz</Anchor>
+</div>
+```

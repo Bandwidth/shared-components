@@ -45,6 +45,14 @@ class Anchor extends React.Component {
      */
     onClick: PropTypes.func,
     /**
+     * Bind a handler for the mouseEnter event
+     */
+    onMouseEnter: PropTypes.func,
+    /**
+     * Bind a handler for the mouseLeave event
+     */
+    onMouseLeave: PropTypes.func,
+    /**
      * whether the contents should be treated as text (underlined),
      * icon (has specific styling), or 'content' (no styling).
      */
@@ -69,6 +77,11 @@ class Anchor extends React.Component {
      * Adds an icon to the beginning of the link and changes the styling to "icon" mode
      */
     icon: PropTypes.string,
+    /**
+     * This prop can be used to 'pseudo-focus' an anchor visually. Useful when
+     * supporting some advanced keyboard navigation scenarios.
+     */
+    appearFocused: PropTypes.bool,
     /**
      * Renders a text anchor linking to an external site
      */
@@ -104,6 +117,7 @@ class Anchor extends React.Component {
     className: null,
     id: null,
     newTab: false,
+    appearFocused: false,
     external: undefined,
     ExternalTextAnchor: DefaultExternalTextAnchor,
     ExternalIconAnchor: DefaultExternalIconAnchor,
@@ -195,7 +209,18 @@ class Anchor extends React.Component {
   };
 
   render() {
-    const { to, exact, children, className, id, icon, newTab } = this.props;
+    const {
+      to,
+      exact,
+      children,
+      className,
+      id,
+      icon,
+      newTab,
+      appearFocused,
+      onMouseEnter,
+      onMouseLeave,
+    } = this.props;
     const Component = this.getComponentType();
 
     return (
@@ -210,6 +235,9 @@ class Anchor extends React.Component {
             id={id}
             icon={icon}
             newTab={newTab}
+            appearFocused={appearFocused}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
           >
             {this.childrenWithProps({ active: !!match })}
           </Component>

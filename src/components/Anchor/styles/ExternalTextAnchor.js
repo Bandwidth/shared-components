@@ -5,6 +5,12 @@ import { base, positive, negative, dark, inverted } from './sharedStyles';
 
 const color = get('colors.primary.alternate');
 
+const focusBeforeStyles = css`
+  right: -1.5em;
+  opacity: 1;
+  transition: right 0.3s ease, opacity 0.2s ease 0.1s;
+`;
+
 const newTabIconStyles = css`
   &::before {
     content: "${icons('openInWindow')}";
@@ -15,12 +21,12 @@ const newTabIconStyles = css`
     right: 0;
     z-index: 1;
     transition: right 0.3s ease, opacity 0.2s ease;
+
+    ${({ appearFocused }) => (appearFocused ? focusBeforeStyles : '')}
   }
 
   &:hover::before {
-    right: -1.5em;
-    opacity: 1;
-    transition: right 0.3s ease, opacity 0.2s ease 0.1s;
+    ${focusBeforeStyles}
   }
 `;
 
