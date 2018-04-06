@@ -7,7 +7,7 @@ import withDragDropContext from './withDragDropContext';
 import DefaultDragLayer from '../DragLayer';
 import './styles/global'; // injects a global stylesheet
 
-class Provider extends React.PureComponent {
+class BandwidthProvider extends React.PureComponent {
   static propTypes = {
     StyleRoot: PropTypes.func,
     ThemeProvider: PropTypes.func,
@@ -34,4 +34,4 @@ class Provider extends React.PureComponent {
   }
 }
 
-export default withDragDropContext(Provider);
+export default withDragDropContext(BandwidthProvider);
