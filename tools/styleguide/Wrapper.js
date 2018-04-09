@@ -28,7 +28,6 @@ export default class Wrapper extends React.Component {
   }
 
   setXRay = val => {
-    console.log(val);
     this.setState({ xray: val });
   };
 

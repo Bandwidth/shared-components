@@ -39,24 +39,19 @@ module.exports = {
     },
     {
       name: 'Components',
-      sections: [
-        {
-          name: 'Elements',
-          components: 'src/components/**/[A-Z]*.js',
-        },
-        {
-          name: 'Layouts',
-          components: 'src/layouts/**/**/[A-Z]*.js',
-        },
-        {
-          name: 'Behaviors',
-          components: 'src/behaviors/**/**/[A-Z]*.js',
-        },
-        {
-          name: 'Animations',
-          components: 'src/animations/**/**/[A-Z]*.js',
-        },
-      ],
+      components: 'src/components/*/[A-Z]*.js',
+    },
+    {
+      name: 'Layouts',
+      components: 'src/layouts/*/[A-Z]*.js',
+    },
+    {
+      name: 'Behaviors',
+      components: 'src/behaviors/*/[A-Z]*.js',
+    },
+    {
+      name: 'Animations',
+      components: 'src/animations/*/[A-Z]*.js',
     },
   ],
   theme: {
@@ -76,6 +71,7 @@ module.exports = {
     Logo: path.join(__dirname, 'tools/styleguide/Logo'),
     Wrapper: path.join(__dirname, 'tools/styleguide/Wrapper'),
     ComponentsList: path.join(__dirname, 'tools/styleguide/ComponentsList'),
+    StyleGuideRenderer: path.join(__dirname, 'tools/styleguide/StyleGuideRenderer'),
   },
   /**
    * Fix for styled-components; see

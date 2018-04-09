@@ -2,37 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ExpandToggle } from '../../src';
 import styled from 'styled-components';
+import Accordion, { AccordionGroup } from 'components/Accordion';
+import RadioButton from 'components/RadioGroup/RadioButton';
+import RadioGroupButtonLabel from 'components/RadioGroup/styles/RadioGroupButtonLabel';
+import get from 'extensions/themeGet';
 
 const List = styled.ul`
-  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
   color: rgb(0, 141, 177);
   font-weight: bold;
-  margin: 8px;
-
-  & ul {
-    padding-left: 8px;
-    & li {
-      font-weight: normal;
-      color: black;
-    }
-  }
+  margin: 0;
 `;
 
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
   font-weight: inherit;
+  margin-left: 15px;
 
-  ${({ active }) => (active ? 'color: #00bef0;' : '')} &:focus, &:active {
-    color: #00bef0;
+  ${({ active }) =>
+    active
+      ? `color: ${get('colors.primary.default')};`
+      : ''} &:focus, &:active {
+    color: ${get('colors.primary.default')};
   }
 `;
 
-const Item = styled.li`
-  list-style: none;
-  display: block;
-  font-weight: inherit;
-  color: inherit;
+// TODO: Radio buttons should actually be smart about how they are used
+// and insert the margin when needed so that we don't have to monkey patch it.
+const StyledRadioButtonLabel = styled(RadioGroupButtonLabel)`
+  margin-right: 0px;
 `;
 
 export default class ComponentsListRenderer extends React.Component {
@@ -40,6 +41,33 @@ export default class ComponentsListRenderer extends React.Component {
     items: PropTypes.array.isRequired,
     classes: PropTypes.object,
   };
+
+  renderSection = ({ name }) => (
+    <Link
+      key={name}
+      href={`#!/${name}`}
+      active={`#!/${name}` === window.location.hash}
+    >
+      {name}
+    </Link>
+  );
+
+  renderTopLevel = ({ name, content, sections, components }) =>
+    content ? (
+      <Accordion.Small key={name} label={name}>
+        {(sections.length > 0 ? sections : components).map(this.renderSection)}
+      </Accordion.Small>
+    ) : (
+      <RadioButton
+        key={name}
+        checked={`#!/${name}` === window.location.hash}
+        value={`#!/${name}` === window.location.hash}
+        name={name}
+        label={name}
+        Label={StyledRadioButtonLabel}
+        onChange={ev => (window.location.hash = `#!/${name}`)}
+      />
+    );
 
   render() {
     let { classes, items } = this.props;
@@ -49,31 +77,9 @@ export default class ComponentsListRenderer extends React.Component {
       return null;
     }
 
-    const currentPath = window.location.hash;
-
     return (
       <List>
-        {items.map(({ heading, name, slug, content }) => (
-          <Item key={name}>
-            <ExpandToggle
-              startExpanded
-              toggleContent={
-                !!content ? (
-                  <span>{name}</span>
-                ) : (
-                  <Link
-                    href={`#!/${name}`}
-                    active={`#!/${name}` === currentPath}
-                  >
-                    {name}
-                  </Link>
-                )
-              }
-            >
-              {content}
-            </ExpandToggle>
-          </Item>
-        ))}
+        <AccordionGroup>{items.map(this.renderTopLevel)}</AccordionGroup>
       </List>
     );
   }
