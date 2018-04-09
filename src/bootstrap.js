@@ -7,11 +7,11 @@ import { injectGlobal } from 'styled-components';
 import catapultTheme from './theme/catapultTheme';
 import irisTheme from './theme/irisTheme';
 
-import eot from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.eot';
-import woff2 from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.woff2';
-import woff from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.woff';
-import ttf from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.ttf';
-import svg from './fonts/Bandwidth_34eef440b4b051f3bd41c51dd36ec882.svg';
+import eot from './fonts/Bandwidth.eot';
+import woff2 from './fonts/Bandwidth.woff2';
+import woff from './fonts/Bandwidth.woff';
+import ttf from './fonts/Bandwidth.ttf';
+import svg from './fonts/Bandwidth.svg';
 
 /**
  * @deprecated
