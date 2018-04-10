@@ -20,6 +20,10 @@ export default class Checkbox extends React.Component {
      */
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     /**
+     * Whether the checkbox is checked or not.
+     */
+    checked: PropTypes.bool,
+    /**
      * Whether the checkbox is required for form submission.
      */
     required: PropTypes.bool,
@@ -52,7 +56,8 @@ export default class Checkbox extends React.Component {
   static defaultProps = {
     className: null,
     id: null,
-    value: false,
+    value: undefined,
+    checked: undefined,
     required: false,
     disabled: false,
     description: null,
@@ -60,6 +65,20 @@ export default class Checkbox extends React.Component {
     Input: CheckboxInput,
     Label: CheckboxLabel,
     Container: CheckboxContainer,
+  };
+
+  computeChecked = () => {
+    const { value, checked } = this.props;
+
+    if (typeof checked === 'boolean') {
+      return checked;
+    }
+
+    if (typeof value === 'boolean') {
+      return value;
+    }
+
+    return undefined;
   };
 
   render() {
@@ -73,9 +92,11 @@ export default class Checkbox extends React.Component {
       Container,
       Input,
       Label,
+      checked,
     } = this.props;
 
     const id = this.props.id || generateId('checkbox');
+    const isChecked = this.computeChecked();
 
     return (
       <Container>
@@ -84,11 +105,11 @@ export default class Checkbox extends React.Component {
           className={className}
           type="checkbox"
           disabled={disabled}
-          checked={!!value}
+          checked={isChecked}
           required={required}
           onChange={onChange}
         />
-        <Label htmlFor={id} active={!!value}>
+        <Label htmlFor={id} active={isChecked}>
           {description}
         </Label>
       </Container>
