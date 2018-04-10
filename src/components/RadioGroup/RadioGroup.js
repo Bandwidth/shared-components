@@ -96,7 +96,7 @@ class RadioGroup extends React.Component {
             name={name}
             value={key}
             label={key}
-            content={choice}
+            children={choice}
             key={key}
             disabled={disabled}
             required={required}
