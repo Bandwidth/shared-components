@@ -9,12 +9,12 @@ module.exports = {
   pagePerSection: true,
   sections: [
     {
-      name: 'Introduction',
-      content: 'docs/introduction.md',
-    },
-    {
-      name: 'Design',
+      name: 'About',
       sections: [
+        {
+          name: 'Home',
+          content: 'docs/introduction.md',
+        },
         {
           name: 'Animation',
           content: 'docs/design/animation.md',
@@ -71,7 +71,10 @@ module.exports = {
     Logo: path.join(__dirname, 'tools/styleguide/Logo'),
     Wrapper: path.join(__dirname, 'tools/styleguide/Wrapper'),
     ComponentsList: path.join(__dirname, 'tools/styleguide/ComponentsList'),
-    StyleGuideRenderer: path.join(__dirname, 'tools/styleguide/StyleGuideRenderer'),
+    StyleGuideRenderer: path.join(
+      __dirname,
+      'tools/styleguide/StyleGuideRenderer',
+    ),
   },
   /**
    * Fix for styled-components; see

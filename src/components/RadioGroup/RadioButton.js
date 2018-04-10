@@ -6,8 +6,13 @@ import RadioGroupButtonContent from './styles/RadioGroupButtonContent';
 import RadioGroupButtonInput from './styles/RadioGroupButtonInput';
 import RadioGroupButtonLabel from './styles/RadioGroupButtonLabel';
 import RadioGroupButtonLabelText from './styles/RadioGroupButtonLabelText';
+import RadioGroupContainer from './styles/RadioGroupContainer';
 
-class RadioButton extends React.Component {
+/**
+ * A stylized `<input type="radio">` meant to be used in a
+ * group with others. Reference the group container by `RadioButton.Group`.
+ */
+export default class RadioButton extends React.Component {
   static propTypes = {
     /**
      * Whether or not the button is currently selected.
@@ -23,9 +28,15 @@ class RadioButton extends React.Component {
      */
     label: PropTypes.string.isRequired,
     /**
-     * Content to render inside the main part of the button.
+     * Content to render inside the main part of the button. You can pass
+     * a node, string, or a function. If a function is passed, it recieves
+     * a parameter `{ checked: boolean }` and should return a node.
      */
-    content: PropTypes.node,
+    children: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.string,
+      PropTypes.func,
+    ]),
     /**
      * A field name for the input.
      */
@@ -80,6 +91,25 @@ class RadioButton extends React.Component {
     LabelText: RadioGroupButtonLabelText,
   };
 
+  static Small = withProps({
+    Label: RadioGroupButtonLabel.Small,
+  })(RadioButton);
+  static Large = withProps({
+    Label: RadioGroupButtonLabel.Large,
+  })(RadioButton);
+
+  static Group = RadioGroupContainer;
+
+  renderChildren = () => {
+    const { children, checked } = this.props;
+
+    if (typeof children === 'function') {
+      return children({ checked });
+    }
+
+    return children;
+  };
+
   render() {
     const {
       checked,
@@ -88,7 +118,7 @@ class RadioButton extends React.Component {
       value,
       disabled,
       onChange,
-      content,
+      children,
       className,
       Container,
       Content,
@@ -113,20 +143,9 @@ class RadioButton extends React.Component {
         />
         <Label htmlFor={id} active={checked} disabled={disabled}>
           <LabelText>{label}</LabelText>
-          {content !== null ? (
-            <Content active={checked}>{content}</Content>
-          ) : null}
+          {children && <Content>{this.renderChildren()}</Content>}
         </Label>
       </Container>
     );
   }
 }
-
-RadioButton.Small = withProps({
-  Label: RadioGroupButtonLabel.Small,
-})(RadioButton);
-RadioButton.Large = withProps({
-  Label: RadioGroupButtonLabel.Large,
-})(RadioButton);
-
-export default RadioButton;

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { ExpandToggle } from '../../src';
 import styled from 'styled-components';
 import Accordion, { AccordionGroup } from 'components/Accordion';
-import RadioButton from 'components/RadioGroup/RadioButton';
 import RadioGroupButtonLabel from 'components/RadioGroup/styles/RadioGroupButtonLabel';
 import get from 'extensions/themeGet';
 
@@ -30,44 +29,28 @@ const Link = styled.a`
   }
 `;
 
-// TODO: Radio buttons should actually be smart about how they are used
-// and insert the margin when needed so that we don't have to monkey patch it.
-const StyledRadioButtonLabel = styled(RadioGroupButtonLabel)`
-  margin-right: 0px;
-`;
-
 export default class ComponentsListRenderer extends React.Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
     classes: PropTypes.object,
   };
 
-  renderSection = ({ name }) => (
-    <Link
-      key={name}
-      href={`#!/${name}`}
-      active={`#!/${name}` === window.location.hash}
-    >
-      {name}
-    </Link>
-  );
-
-  renderTopLevel = ({ name, content, sections, components }) =>
-    content ? (
-      <Accordion.Small key={name} label={name}>
-        {(sections.length > 0 ? sections : components).map(this.renderSection)}
-      </Accordion.Small>
-    ) : (
-      <RadioButton
-        key={name}
-        checked={`#!/${name}` === window.location.hash}
-        value={`#!/${name}` === window.location.hash}
-        name={name}
-        label={name}
-        Label={StyledRadioButtonLabel}
-        onChange={ev => (window.location.hash = `#!/${name}`)}
-      />
+  renderSection = section =>
+    section && (
+      <Link
+        key={section.name}
+        href={`#!/${section.name}`}
+        active={`#!/${section.name}` === window.location.hash}
+      >
+        {section.name}
+      </Link>
     );
+
+  renderTopLevel = ({ name, content, sections, components }) => (
+    <Accordion.Small key={name} label={name}>
+      {(sections.length > 0 ? sections : components).map(this.renderSection)}
+    </Accordion.Small>
+  );
 
   render() {
     let { classes, items } = this.props;
