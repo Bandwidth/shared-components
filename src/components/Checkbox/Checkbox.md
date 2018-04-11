@@ -1,11 +1,18 @@
 A simple checkbox input.
 
-***Checked checkbox***
-```
-<Checkbox value={true} description="Foo" />
+*Uncontrolled (interactive) checkbox*
+```js
+<div>
+  <Checkbox description="Foo" />
+</div>
 ```
 
-***UnChecked checkbox***
+*Disabled empty checkbox*
+```js
+<Checkbox disabled description="Baz" />
 ```
-<Checkbox description="Bar" />
+
+*Disabled checked checkbox*
+```js
+<Checkbox disabled checked description="Bop" />
 ```
