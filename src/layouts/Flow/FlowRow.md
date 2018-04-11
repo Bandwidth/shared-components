@@ -19,7 +19,7 @@ const Flow = require('./index').default;
 </Flow.Row>
 ```
 
-You can use the \`sizes\` prop to have more control over item sizes:
+You can use the `sizes` prop to have more control over item sizes:
 
 ```
 const Flow = require('./index').default;

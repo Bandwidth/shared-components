@@ -61,7 +61,7 @@ Sometimes you need to use nesting to achieve a precise alignment of various rows
 
 #### Redux Form
 
-Flow includes built-in Redux Form fields for all our Input types. Reference them from \`Flow.fields\`. These components will take care of all transformations necessary for Redux Form Field usage.
+Flow includes built-in Redux Form fields for all our Input types. Reference them from `Flow.fields`. These components will take care of all transformations necessary for Redux Form Field usage.
 
 ```javascript static
 // in a redux-form HOC

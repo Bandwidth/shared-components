@@ -1,4 +1,4 @@
-Alerts control their own color based on \`type\`.
+Alerts control their own color based on `type`.
 
 ```javascript
 <Alert type="info">

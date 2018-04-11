@@ -16,7 +16,7 @@ const Flow = require('./index').default;
 </Flow.Item>
 ```
 
-By default, a Flow.Item's content is limited to a set pixel size. You can turn this off with \`flexibleContent\`:
+By default, a Flow.Item's content is limited to a set pixel size. You can turn this off with `flexibleContent`:
 
 ```
 const Flow = require('./index').default;
@@ -25,7 +25,7 @@ const Flow = require('./index').default;
 </Flow.Item>
 ```
 
-Sometimes you may want to render more stuff in an item. You can use \`moreContent\` to put any arbitrary JSX below the item's help text.
+Sometimes you may want to render more stuff in an item. You can use `moreContent` to put any arbitrary JSX below the item's help text.
 
 ```
 const Flow = require('./index').default;
