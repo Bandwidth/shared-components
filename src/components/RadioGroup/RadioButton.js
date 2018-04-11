@@ -29,7 +29,7 @@ export default class RadioButton extends React.Component {
     label: PropTypes.string.isRequired,
     /**
      * Content to render inside the main part of the button. You can pass
-     * a node, string, or a function. If a function is passed, it recieves
+     * a node, string, or a function. If a function is passed, it receives
      * a parameter `{ checked: boolean }` and should return a node.
      */
     children: PropTypes.oneOfType([
