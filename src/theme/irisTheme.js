@@ -102,8 +102,12 @@ export const spacing = {
 
 export const thicknesses = {
   normal: '1px',
+  default: '1px',
   wide: '2px',
+  thick: '2px',
+  large: '2px',
   extraWide: '3px',
+  extraLarge: '3px',
 };
 
 export default {

@@ -19,4 +19,8 @@ export default styled.div`
   &:last-of-type > label::after {
     border-radius: 0 0 3px 0;
   }
+
+  &:not(:first-of-type) > label {
+    border-left: 0;
+  }
 `;

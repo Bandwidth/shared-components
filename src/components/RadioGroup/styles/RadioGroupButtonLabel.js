@@ -3,11 +3,9 @@ import get from 'extensions/themeGet';
 import Input from './RadioGroupButtonInput';
 
 const RadioGroupButtonLabel = styled.label`
-  opacity: 0.5;
-  border-width: ${get('thicknesses.normal')};
+  border-width: ${get('thicknesses.thick')};
   border-style: solid;
-  border-color: ${get('colors.border.medium')};
-  margin-right: -1px;
+  border-color: ${get('colors.primary.dark')};
   padding: 1em 1.4em;
   cursor: pointer;
   position: relative;
@@ -15,8 +13,8 @@ const RadioGroupButtonLabel = styled.label`
   flex-direction: column;
   align-content: flex-start;
   background: ${get('colors.background.default')};
-  color: ${get('colors.text.default')};
-  transition: opacity 0.2s ease;
+  color: ${get('colors.primary.dark')};
+  transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1em;
@@ -25,39 +23,37 @@ const RadioGroupButtonLabel = styled.label`
   &::after {
     content: '';
     background: ${get('colors.primary.default')};
-    width: calc(100% + 2px);
     height: 0;
     position: absolute;
-    bottom: -1px;
-    left: -1px;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: block;
     transition: height 0.2s ease, opacity 0.2s ease;
   }
 
-  ${Input}:hover:not(:disabled) + & {
-    border-color: ${get('colors.primary.default')};
+  ${Input}:hover:not(:disabled):not(:checked) + &,
+  ${Input}:focus:not(:disabled):not(:checked) + & {
     &::after {
       height: 5px;
       opacity: 0.5;
     }
   }
 
-  ${Input}:focus:not(:disabled) + & {
-    border-color: ${get('colors.border.medium')};
-  }
-
   ${Input}:checked:hover:not(:disabled) + & {
-    border-color: ${get('colors.primary.default')};
   }
 
   ${Input}:checked + & {
     opacity: 1;
+    background: ${get('colors.primary.dark')};
+    color: ${get('colors.text.inverted')};
     &::after {
       height: 5px;
     }
   }
 
   ${Input}:disabled + & {
+    color: ${get('colors.text.default')};
     opacity: 0.5;
     background-color: ${get('colors.gray.disabled')};
     border-color: ${get('colors.border.medium')};
