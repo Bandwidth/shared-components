@@ -32,6 +32,11 @@ const RadioGroupButtonLabel = styled.label`
     transition: height 0.2s ease, opacity 0.2s ease;
   }
 
+  ${Input}:focus:not(:disabled) + &,
+  ${Input}:active:not(:disabled) + & {
+    box-shadow: ${get('shadows.focusOutline')};
+  }
+
   ${Input}:hover:not(:disabled):not(:checked) + &,
   ${Input}:focus:not(:disabled):not(:checked) + & {
     &::after {
