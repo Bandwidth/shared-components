@@ -48,6 +48,11 @@ class Accordion extends React.Component {
      */
     disabled: PropTypes.bool,
     /**
+     * If true, contents are unmounted when the accordion is closed. Useful for improving performance when the Accordion
+     * contains a large amount of complex contents.
+     */
+    unmountClosed: PropTypes.bool,
+    /**
      * Set a classname for the accordion container element.
      */
     className: PropTypes.string,
@@ -85,6 +90,7 @@ class Accordion extends React.Component {
     className: null,
     id: null,
     disabled: false,
+    unmountClosed: false,
     Border: AccordionBorder,
     Label: AccordionLabel,
     Arrow: AccordionArrow,
@@ -120,6 +126,7 @@ class Accordion extends React.Component {
       Content,
       startExpanded,
       disabled,
+      unmountClosed,
     } = this.props;
 
     return (
@@ -132,6 +139,7 @@ class Accordion extends React.Component {
           isExpanded={this.coalesceIsExpandedProps()}
           startExpanded={startExpanded}
           disabled={disabled}
+          unmountClosed={unmountClosed}
         >
           <Content>{children}</Content>
         </ExpandToggle>

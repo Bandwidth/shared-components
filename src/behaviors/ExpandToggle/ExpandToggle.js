@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { Collapse } from 'react-collapse';
+import { Collapse, UnmountClosed } from 'react-collapse';
 
 /**
  * A prototypical accordion element with no styling. Renders one element which can be
@@ -43,6 +43,10 @@ class ExpandToggle extends React.Component {
      */
     disabled: PropTypes.bool,
     /**
+     * If true, contents are unmounted when the accordion is closed.
+     */
+    unmountClosed: PropTypes.bool,
+    /**
      * react-motion config, see https://github.com/chenglou/react-motion#--spring-val-number-config-springhelperconfig--opaqueconfig
      */
     springConfig: PropTypes.shape({
@@ -60,6 +64,7 @@ class ExpandToggle extends React.Component {
     startExpanded: false,
     springConfig: null,
     disabled: false,
+    unmountClosed: false,
   };
 
   constructor(props) {
@@ -100,7 +105,15 @@ class ExpandToggle extends React.Component {
 
   render() {
     const isExpanded = this.calcIsExpanded();
-    const { children, id, className, springConfig, disabled } = this.props;
+    const {
+      children,
+      id,
+      className,
+      springConfig,
+      disabled,
+      unmountClosed,
+    } = this.props;
+    const CollapseType = unmountClosed ? UnmountClosed : Collapse;
 
     return (
       <div id={id} className={className}>
@@ -110,9 +123,9 @@ class ExpandToggle extends React.Component {
         >
           {this.renderToggle()}
         </div>
-        <Collapse isOpened={isExpanded} springConfig={springConfig}>
+        <CollapseType isOpened={isExpanded} springConfig={springConfig}>
           {children}
-        </Collapse>
+        </CollapseType>
       </div>
     );
   }

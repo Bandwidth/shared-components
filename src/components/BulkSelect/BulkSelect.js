@@ -3,11 +3,15 @@ import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
 import theme from '../../theme';
 import styled from 'styled-components';
-import BulkSelectItem from './styles/BulkSelectItem';
+import ToggleButton from '../ToggleButton';
 import BulkSelectBorder from './styles/BulkSelectBorder';
 import BulkSelectDivider from './styles/BulkSelectDivider';
 import BulkSelectItemContainer from './styles/BulkSelectItemContainer';
 
+/**
+ * @deprecated BulkSelect has been deprecated in favor of using [Grid](/#!/Grid) with
+ * [ToggleButton](/#!/ToggleButton), optionally with [Selectable](/#!/Selectable) and/or [DragBox](/#!/DragBox).
+ */
 class BulkSelect extends React.Component {
   static propTypes = {
     sections: PropTypes.arrayOf(
@@ -59,7 +63,7 @@ class BulkSelect extends React.Component {
       item.get ? item.get('id') : item.id || JSON.stringify(item),
     onItemSelected: () => null,
     onItemDeselected: () => null,
-    Item: BulkSelectItem,
+    Item: ToggleButton,
     Border: BulkSelectBorder,
     Divider: BulkSelectDivider,
     ItemContainer: BulkSelectItemContainer,
@@ -120,6 +124,6 @@ BulkSelect.Small = withProps({ ItemContainer: BulkSelectItemContainer.Small })(
   BulkSelect,
 );
 
-BulkSelect.Colorful = withProps({ Item: BulkSelectItem.Colorful })(BulkSelect);
+BulkSelect.Colorful = withProps({ Item: ToggleButton.Colorful })(BulkSelect);
 
 export default BulkSelect;
