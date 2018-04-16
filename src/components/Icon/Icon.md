@@ -10,16 +10,23 @@ _Available Icons:_
 
 ```javascript
 const icons = require('./icons').map;
-const iconItemStyle = { border: '1px solid #f1f1f1', padding: '2px', margin: '2px', display: 'inline-block' };
 const IconList = () => (
-  <div>
-  {
+  <Table.Small
+    headers={(
+      <Table.Row>
+        <Table.Header>Icon</Table.Header>
+        <Table.Header>Name</Table.Header>
+      </Table.Row>
+    )}
+  > {
     Object.keys(icons).map((icon) => (
-      <span key={icon} style={iconItemStyle}>{icon}&nbsp;<Icon name={icon} /></span>
+      <Table.Row>
+        <Table.Cell><Icon name={icon} /></Table.Cell>
+        <Table.Cell>{icon}</Table.Cell>
+      </Table.Row>
     ))
-  }
-  </div>
+  }</Table.Small>
 );
+
 <IconList />
 ```
-
