@@ -71,6 +71,7 @@ module.exports = {
     Logo: path.join(__dirname, 'tools/styleguide/Logo'),
     Wrapper: path.join(__dirname, 'tools/styleguide/Wrapper'),
     ComponentsList: path.join(__dirname, 'tools/styleguide/ComponentsList'),
+    TableRenderer: path.join(__dirname, 'tools/styleguide/TableRenderer'),
     StyleGuideRenderer: path.join(
       __dirname,
       'tools/styleguide/StyleGuideRenderer',
