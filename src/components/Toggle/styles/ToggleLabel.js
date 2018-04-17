@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 import Input from './ToggleInput';
 
-export const SIZE = '24px';
+export const SIZE = '30px';
 
 export default styled.label`
   cursor: pointer;
   position: relative;
   padding-right: 0;
-  padding-left: calc(${SIZE} * 2 + ${get('spacing.medium')});
+  padding-left: 72px; /* 58px width + 2px border + 2px border + 10px spacing */
   user-select: none;
   transition: all 0.2s ease;
   line-height: calc(${SIZE} * 1.166);
@@ -20,10 +20,9 @@ export default styled.label`
     content: '';
     border-width: ${get('thicknesses.wide')};
     border-style: solid;
-    border-radius: ${SIZE};
-    width: calc(${SIZE} * 2);
+    border-radius: 15px;
+    width: 58px;
     height: ${SIZE};
-    cursor: pointer;
     display: block;
     position: absolute;
     left: 0;
@@ -31,12 +30,17 @@ export default styled.label`
     transform: translateY(-50%);
     transition: all 0.2s ease;
   }
+  
+  
+  ${Input}:enabled + &:hover::before {
+    box-shadow: 0 0 0 5px #e0f7fd;
+  }
 
   &::after {
     content: '';
     border-width: ${get('thicknesses.wide')};
     border-style: solid;
-    border-radius: ${SIZE};
+    border-radius: 15px;
     width: ${SIZE};
     height: ${SIZE};
     position: absolute;
@@ -76,30 +80,20 @@ export default styled.label`
       background: ${get('colors.text.inverted')};
       border-color: ${get('colors.primary.dark')};
     }
-
-    &:hover {
-      &::before {
-        background: ${get('colors.primary.dark')};
-      }
-      &::before,
-      &::after {
-        border-color: ${get('colors.primary.dark')};
-      }
-    }
   }
 
   ${Input}:disabled + & {
+    cursor: default;
+    color: ${get('colors.gray.border')};
+    
     &::before,
     &::after {
-      border-color: ${get('colors.gray.medium')};
-    }
-
-    &::before {
+      border-color: ${get('colors.border.disabled')};
       background: ${get('colors.background.disabled')};
     }
-
-    &::after {
-      background: ${get('colors.background.disabled')};
-    }
+  }
+  
+  ${Input}:checked:disabled + &::before {
+    background: ${get('colors.background.disabledSelected')};
   }
 `;
