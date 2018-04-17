@@ -33,7 +33,7 @@ export default styled.label`
   
   
   ${Input}:enabled + &:hover::before {
-    box-shadow: 0 0 0 5px #e0f7fd;
+    box-shadow: ${get('theme.shadows.focusOutline')};
   }
 
   &::after {
