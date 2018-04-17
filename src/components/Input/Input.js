@@ -103,7 +103,7 @@ class Input extends React.Component {
     /**
      * Suggests to most browsers whether they should auto-complete the field
      */
-    autoComplete: PropTypes.oneOf([PropTypes.string, PropTypes.bool]),
+    autoComplete: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     /**
      * Provides a reference to the input element
      */
