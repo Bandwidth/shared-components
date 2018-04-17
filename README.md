@@ -5,42 +5,26 @@ Shared Component Library for Bandwidth React Apps
 
 # How to use this library
 
-Install the library as an NPM module. `npm i --save @bandwidth/shared-components`
+Install the library as an NPM module. `npm i --save @bandwidth/shared-components styled-components`
 
-Add the `BandwidthThemeProvider` to the root of your React component structure:
+> `styled-components` is a peer dependency and required for usage
+
+Add the `BandwidthProvider` to the root of your React component structure:
 
 ```javascript
-import { BandwidthThemeProvider } from '@bandwidth/shared-components';
+import { BandwidthProvider } from '@bandwidth/shared-components';
 
 ...
 
-<BandwidthThemeProvider>
+<BandwidthProvider>
   <MyApp />
-</BandwidthThemeProvider>
+</BandwidthProvider>
 ```
 
-Now you can start including the components in your code. Require them by traversing the directory structure of the module:
+Now you can start including the components in your code. Require them by name from the module root:
 
 ```javascript
 import { Button } from '@bandwidth/shared-components'`;
-```
-
-If you want to make this easier, you can alias the module in Webpack:
-
-```javascript
-resolve: {
-  modules: ['node_modules'],
-  alias: {
-    'shared-components': '@bandwidth/shared-components',
-  },
-  extensions: ['.js', '.jsx'],
-},
-```
-
-With this alias, you could just type:
-
-```javascript
-import { Button } from 'shared-components';
 ```
 
 # Developing
