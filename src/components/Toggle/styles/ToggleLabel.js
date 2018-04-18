@@ -18,6 +18,7 @@ export default styled.label`
 
   &::before {
     content: '';
+    box-sizing: border-box;
     border-width: ${get('thicknesses.wide')};
     border-style: solid;
     border-radius: 15px;
@@ -33,11 +34,12 @@ export default styled.label`
   
   
   ${Input}:enabled + &:hover::before {
-    box-shadow: ${get('theme.shadows.focusOutline')};
+    box-shadow: ${get('shadows.focusOutline')};
   }
 
   &::after {
     content: '';
+    box-sizing: border-box;
     border-width: ${get('thicknesses.wide')};
     border-style: solid;
     border-radius: 15px;
