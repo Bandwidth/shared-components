@@ -8,7 +8,7 @@ export default styled.label`
   cursor: pointer;
   position: relative;
   padding-right: 0;
-  padding-left: 72px; /* 58px width + 2px border + 2px border + 10px spacing */
+  padding-left: 68px; /* 58px width  + 10px spacing */
   user-select: none;
   transition: all 0.2s ease;
   line-height: calc(${SIZE} * 1.166);
