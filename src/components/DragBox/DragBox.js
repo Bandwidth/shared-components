@@ -274,9 +274,9 @@ class DragBox extends React.Component {
     b1.y <= b2.y + b2.height &&
     b2.y + b2.height <= b1.y + b1.height;
 
-  shouldDrawRect = (rect, minSize = 0) => {
+  shouldDrawRect = rect => {
     const { state: { mouseDown } } = this;
-    return mouseDown && rect.width * rect.height >= minSize;
+    return mouseDown && rect.width * rect.height >= MIN_SIZE_DRAGBOX;
   };
 
   renderRect = rect => {
@@ -339,7 +339,7 @@ class DragBox extends React.Component {
       <DragBoxDiv
         ref={refDragElement}
         onMouseDown={onMouseDown}
-        disablePointerEvents={this.shouldDrawRect(rect, MIN_SIZE_DRAGBOX)}
+        disablePointerEvents={this.shouldDrawRect(rect)}
       >
         {renderRect(rect)}
         {renderContents()}
