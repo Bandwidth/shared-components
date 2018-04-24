@@ -16,16 +16,17 @@ const List = styled.ul`
 `;
 
 const Link = styled.a`
-  text-decoration: none;
+  text-decoration: ${({ deprecated }) =>
+    deprecated ? 'line-through' : 'none'};
   color: inherit;
   font-weight: inherit;
   margin-left: 15px;
-
-  ${({ active }) =>
-    active
-      ? `color: ${get('colors.primary.default')};`
-      : ''} &:focus, &:active {
-    color: ${get('colors.primary.default')};
+  color: ${({ deprecated }) =>
+    deprecated ? get('colors.gray.default') : 'inherit'};
+  &:focus,
+  &:active {
+    color: ${({ deprecated }) =>
+      deprecated ? get('colors.gray.medium') : get('colors.primary.default')};
   }
 `;
 
@@ -35,12 +36,19 @@ export default class ComponentsListRenderer extends React.Component {
     classes: PropTypes.object,
   };
 
+  sectionDeprecated = section =>
+    section &&
+    section.props &&
+    section.props.doclets &&
+    section.props.doclets.deprecated;
+
   renderSection = section =>
     section && (
       <Link
         key={section.name}
         href={`#!/${section.name}`}
         active={`#!/${section.name}` === window.location.hash}
+        deprecated={this.sectionDeprecated(section)}
       >
         {section.name}
       </Link>

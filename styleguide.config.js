@@ -15,22 +15,22 @@ module.exports = {
           name: 'Home',
           content: 'docs/introduction.md',
         },
-        {
-          name: 'Animation',
-          content: 'docs/design/animation.md',
-        },
-        {
-          name: 'Brand',
-          content: 'docs/design/brand.md',
-        },
+        // {
+        //   name: 'Animation',
+        //   content: 'docs/design/animation.md',
+        // },
+        // {
+        //   name: 'Brand',
+        //   content: 'docs/design/brand.md',
+        // },
         {
           name: 'Color',
           content: 'docs/design/color.md',
         },
-        {
-          name: 'Layout',
-          content: 'docs/design/layout.md',
-        },
+        // {
+        //   name: 'Layout',
+        //   content: 'docs/design/layout.md',
+        // },
         {
           name: 'Typography',
           content: 'docs/design/typography.md',
