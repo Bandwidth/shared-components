@@ -41,3 +41,23 @@ It is primarily useful in cases where selection state is ephemeral and doesn't t
   )}
   />
 ```
+
+#### Exclusive example:
+```javascript
+  <Selectable
+    exclusive
+    render={({
+      toggleItem,
+      selected
+    }) => (
+      ["There", "Can", "Only", "Be", "One"].map((text) =>
+      <Toggle
+        key={text}
+        onChange={ev => toggleItem(text)}
+        value={selected.has(text)}
+        description={text}
+      />
+    )
+  )}
+  />
+```

@@ -25,6 +25,10 @@ class Selectable extends React.Component {
      * Callback for when an item is deselected. Passed one argument, which is the key of the item that was deselected.
      */
     onItemDeselected: PropTypes.func,
+    /**
+     * Limits selection to only one item at a time.
+     */
+    exclusive: PropTypes.bool,
   };
   state = { selected: new Set() };
 
@@ -35,9 +39,16 @@ class Selectable extends React.Component {
   };
 
   selectItem = key => {
-    const { props: { onItemSelected }, state: { selected } } = this;
+    const {
+      props: { onItemSelected, exclusive },
+      state: { selected },
+      deselectItem,
+    } = this;
     if (selected.has(key)) {
       return;
+    }
+    if (exclusive) {
+      Array.from(selected).map(deselectItem);
     }
     onItemSelected(key);
     this.setState(state => ({
