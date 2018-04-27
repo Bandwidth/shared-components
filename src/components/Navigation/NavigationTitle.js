@@ -4,6 +4,9 @@ import Logo from '../Logo';
 import NavigationLogoPairWrapper from './styles/NavigationLogoPairWrapper';
 import NavigationHeading from './styles/NavigationHeading';
 
+/**
+ * @private
+ */
 class LogoHeader extends React.Component {
   static propTypes = {
     /**

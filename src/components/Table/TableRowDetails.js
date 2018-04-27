@@ -10,6 +10,9 @@ import TableRowDetailsStyles from './styles/TableRowDetailsStyles';
 // table at time of writing.
 const COLSPAN = 1000;
 
+/**
+ * @private
+ */
 const TableRowDetails = ({ children, rowIndex = 0, Row, Styles }) => (
   <TableBody startIndex={rowIndex}>
     <Row>

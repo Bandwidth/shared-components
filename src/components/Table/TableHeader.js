@@ -9,6 +9,9 @@ import TableHeaderStyles from './styles/TableHeaderStyles';
 import TableHeaderSortArrows from './styles/TableHeaderSortArrows';
 import TableHeaderColumnName from './styles/TableHeaderColumnName';
 
+/**
+ * @private
+ */
 class TableHeader extends React.Component {
   static propTypes = {
     /**

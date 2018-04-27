@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import DefaultHeaderWrapper from './styles/HeaderWrapper';
 import DefaultCardHeaderText from './styles/CardHeaderText';
 
+/**
+ * @private
+ */
 class CardHeader extends React.Component {
   static propTypes = {
     /**

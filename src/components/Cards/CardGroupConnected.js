@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import Card from './Card';
 import themeGet from 'extensions/themeGet';
 
+/**
+ * @private
+ */
 const CardGroupConnected = styled.div`
   display: flex;
   border-width: 0 ${themeGet('thicknesses.normal')}
@@ -36,4 +39,7 @@ const CardGroupConnected = styled.div`
   }
 `;
 
+/**
+ * @component
+ */
 export default CardGroupConnected;

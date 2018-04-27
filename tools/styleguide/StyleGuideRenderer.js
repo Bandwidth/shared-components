@@ -35,30 +35,47 @@ const Footer = styled.div`
   display: block;
 `;
 
-const StyleGuideRenderer = ({
-  classes,
-  title,
-  homepageUrl,
-  children,
-  toc,
-  hasSidebar,
-}) => (
-  <BandwidthProvider ThemeProvider={BandwidthThemeProvider}>
-    <Root>
-      <Content>
-        {children}
-        <Footer>
-          <Markdown
-            text={`Generated with [React Styleguidist](${homepageUrl})`}
-          />
-        </Footer>
-      </Content>
-      <Sidebar>
-        <Logo />
-        {toc}
-      </Sidebar>
-    </Root>
-  </BandwidthProvider>
-);
+class StyleGuideRenderer extends React.Component {
+  mapComponent = component => {
+    return {
+      ...component,
+      name: component.props.doclets.name || component.name,
+    };
+    return component;
+  };
+
+  mapComponents = components => components.map(this.mapComponent);
+
+  mapSection = sections =>
+    sections.map(section => ({
+      components: this.mapComponents(section.components),
+    }));
+
+  render() {
+    const { classes, title, homepageUrl, children, toc } = this.props;
+    return (
+      <BandwidthProvider ThemeProvider={BandwidthThemeProvider}>
+        <Root>
+          <Content>
+            {React.Children.map(children, child =>
+              React.cloneElement(child, {
+                sections: this.mapSection(child.props.sections),
+              }),
+            )}
+            <Footer>
+              <Markdown
+                text={`Generated with [React Styleguidist](${homepageUrl})`}
+              />
+            </Footer>
+          </Content>
+          <Sidebar>
+            <Logo />
+            {toc}
+          </Sidebar>
+        </Root>
+      </BandwidthProvider>
+    );
+  }
+}
 
 export default StyleGuideRenderer;

@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import themeGet from 'extensions/themeGet';
 
+/**
+ * @private
+ */
 const CardSection = styled.div`
   padding: ${themeGet('spacing.medium')};
   &:not(:last-of-type) {

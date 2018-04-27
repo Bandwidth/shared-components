@@ -4,7 +4,8 @@ import { ExpandToggle } from '../../src';
 import styled from 'styled-components';
 import Accordion, { AccordionGroup } from 'components/Accordion';
 import RadioGroupButtonLabel from 'components/RadioGroup/styles/RadioGroupButtonLabel';
-import get from 'extensions/themeGet';
+import themeGet from 'extensions/themeGet';
+import _ from 'lodash';
 
 const List = styled.ul`
   display: flex;
@@ -22,11 +23,13 @@ const Link = styled.a`
   font-weight: inherit;
   margin-left: 15px;
   color: ${({ deprecated }) =>
-    deprecated ? get('colors.gray.default') : 'inherit'};
+    deprecated ? themeGet('colors.gray.default') : 'inherit'};
   &:focus,
   &:active {
     color: ${({ deprecated }) =>
-      deprecated ? get('colors.gray.medium') : get('colors.primary.default')};
+      deprecated
+        ? themeGet('colors.gray.medium')
+        : themeGet('colors.primary.default')};
   }
 `;
 
@@ -36,21 +39,18 @@ export default class ComponentsListRenderer extends React.Component {
     classes: PropTypes.object,
   };
 
-  sectionDeprecated = section =>
-    section &&
-    section.props &&
-    section.props.doclets &&
-    section.props.doclets.deprecated;
+  sectionDoclets = (section, name) => _.get(section, `props.doclets.${name}`);
 
   renderSection = section =>
-    section && (
+    section &&
+    !this.sectionDoclets(section, 'private') && (
       <Link
         key={section.name}
         href={`#!/${section.name}`}
         active={`#!/${section.name}` === window.location.hash}
-        deprecated={this.sectionDeprecated(section)}
+        deprecated={this.sectionDoclets(section, 'deprecated')}
       >
-        {section.name}
+        {this.sectionDoclets(section, 'name') || section.name}
       </Link>
     );
 
