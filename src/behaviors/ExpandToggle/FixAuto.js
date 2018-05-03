@@ -14,7 +14,9 @@ const overwrite = (width, height) => (acc, [name, value]) => ({
 });
 
 /**
- * Correctly calculates 'auto' bound values for animation and interpolation
+ * Using a custom auto-size fixing calculator
+ * while https://github.com/drcmda/react-spring/pull/76#issuecomment-386326322
+ * is still open.
  */
 export default function fixAuto(spring, props) {
   const { native, children, from, to } = props;
@@ -32,12 +34,14 @@ export default function fixAuto(spring, props) {
 
   return (
     <div
-      style={{ overflowY: 'auto', height: 0 }}
+      style={{ visibility: 'hidden', position: 'absolute' }}
       ref={ref => {
         if (ref) {
           // Once it's rendered out, fetch bounds
-          const height = ref.scrollHeight;
+          const height = ref.clientHeight;
           const width = ref.clientWidth;
+
+          console.log(height);
           // Defer to next frame, or else the springs updateToken is canceled
           requestAnimationFrame(() =>
             spring.updateProps(
