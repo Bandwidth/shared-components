@@ -19,7 +19,7 @@ const H4 = styled.h4.withConfig({ displayName: 'H4' }).attrs({
 
 H4.propTypes = {
   /**
-   * Specify a CSS value or an object { top, right, bottom, left } to
+   * Specify a CSS value or an object { top, right, bottom, left } or { vertical, horizontal } to
    * control the spacing around the heading. Defaults to no space.
    */
   spacing: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),

@@ -17,7 +17,7 @@ const H5 = styled.h5.withConfig({ displayName: 'H5' }).attrs({
 
 H5.propTypes = {
   /**
-   * Specify a CSS value or an object { top, right, bottom, left } to
+   * Specify a CSS value or an object { top, right, bottom, left } or { vertical, horizontal } to
    * control the spacing around the heading. Defaults to no space.
    */
   spacing: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),

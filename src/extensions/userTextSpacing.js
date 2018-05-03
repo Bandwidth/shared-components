@@ -18,7 +18,7 @@ import _ from 'lodash';
 import themeGet from './themeGet';
 
 const getSize = (value, props) => {
-  switch (value.toLowerCase()) {
+  switch (`${value}`.toLowerCase()) {
     case 'xs':
     case 'extraSmall':
       return themeGet('spacing.extraSmall')(props);
@@ -60,15 +60,15 @@ const userTextSpacingWithLineHeight = lineHeight => props => {
   }
 
   if (_.isPlainObject(spacing)) {
-    const top = _.get(spacing, 'top', 0);
-    const right = _.get(spacing, 'right', 0);
-    const bottom = _.get(spacing, 'bottom', 0);
-    const left = _.get(spacing, 'left', 0);
+    const top = _.get(spacing, 'top', _.get(spacing, 'vertical', 0));
+    const right = _.get(spacing, 'right', _.get(spacing, 'horizontal', 0));
+    const bottom = _.get(spacing, 'bottom', _.get(spacing, 'vertical', 0));
+    const left = _.get(spacing, 'left', _.get(spacing, 'horizontal', 0));
 
-    return `calc(${topOffset} + ${getSize(top, props)}), ${getSize(
+    return `calc(${topOffset} + ${getSize(top, props)}) ${getSize(
       right,
       props,
-    )}, calc(${bottomOffset} + ${getSize(bottom, props)}), ${getSize(
+    )} calc(${bottomOffset} + ${getSize(bottom, props)}) ${getSize(
       left,
       props,
     )}`;

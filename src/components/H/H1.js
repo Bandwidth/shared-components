@@ -23,7 +23,7 @@ const H1 = styled.h1.withConfig({ displayName: 'H1' }).attrs({
 
 H1.propTypes = {
   /**
-   * Specify a CSS value or an object { top, right, bottom, left } to
+   * Specify a CSS value or an object { top, right, bottom, left } or { vertical, horizontal } to
    * control the spacing around the heading. Defaults to no space.
    */
   spacing: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
