@@ -39,7 +39,7 @@ export const colors = {
   gray: {
     /* aka medium */
     default: '#666',
-    light: '#f3f3f3',
+    light: '#f7f7f7',
     border: '#c2c2c2',
     borderLight: '#e1e1e1',
     disabled: '#e1e1e1',
