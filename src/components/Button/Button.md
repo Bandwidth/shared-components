@@ -6,16 +6,18 @@ Change the color and size with variants.
 <Button rightIcon="checkmark">Ok</Button>
 ```
 
+Size comparisons
+
+```javascript
+<div>
+  <Button.Large>Primary Large</Button.Large>
+  <Button>Primary Medium</Button>
+  <Button.Small>Primary Small</Button.Small>
+</div>
+```
+
 ```javascript
 <Button.Secondary leftIcon="back">Secondary</Button.Secondary>
-```
-
-```javascript
-<Button.Small rightIcon="checkmark">Small</Button.Small>
-```
-
-```javascript
-<Button.Large leftIcon="delete">Large</Button.Large>
 ```
 
 ```javascript
