@@ -60,6 +60,7 @@
     "react-motion": "^0.5.1",
     "react-router-dom": "^4.1.1",
     "react-select": "^1.0.0-rc.10",
+    "react-spring": "^5.1.0",
     "react-syntax-highlighter": "^5.5.0",
     "recompose": "^0.26.0",
     "warning": "^3.0.0"

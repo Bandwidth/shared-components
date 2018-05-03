@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { Collapse, UnmountClosed } from 'react-collapse';
+import { Transition, Spring, animated } from 'react-spring';
+import FixAuto from './FixAuto';
 
 /**
  * A prototypical accordion element with no styling. Renders one element which can be
@@ -25,7 +26,8 @@ class ExpandToggle extends React.Component {
      * Content to render within the toggle area. You may optionally pass a function,
      * which will be called with the current toggle on/off state.
      */
-    toggleContent: PropTypes.node.isRequired,
+    toggleContent: PropTypes.oneOfType([PropTypes.node, PropTypes.func])
+      .isRequired,
     /**
      * Override ('control') toggling behavior, disabling default internal toggle state
      */
@@ -67,12 +69,9 @@ class ExpandToggle extends React.Component {
     unmountClosed: false,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      internalIsExpanded: props.startExpanded,
-    };
-  }
+  state = {
+    internalIsExpanded: this.props.startExpanded,
+  };
 
   handleToggle = () => {
     if (this.props.disabled) {
@@ -103,6 +102,49 @@ class ExpandToggle extends React.Component {
     return toggleContent;
   };
 
+  renderUnmountClosed = () => (
+    <Transition
+      native
+      inject={FixAuto}
+      from={{ height: 0 }}
+      enter={{
+        height: 'auto',
+      }}
+      leave={{
+        height: 0,
+      }}
+    >
+      {this.calcIsExpanded()
+        ? ({ height }) => (
+            <animated.div
+              className="accordionContent"
+              style={{ height, width: '100%', overflow: 'hidden' }}
+            >
+              {this.props.children}
+            </animated.div>
+          )
+        : null}
+    </Transition>
+  );
+
+  renderMountClosed = () => (
+    <Spring
+      native
+      inject={FixAuto}
+      from={{ height: 0 }}
+      to={{ height: this.calcIsExpanded() ? 'auto' : 0 }}
+    >
+      {({ height }) => (
+        <animated.div
+          className="accordionContent"
+          style={{ height, width: '100%', overflow: 'hidden' }}
+        >
+          {this.props.children}
+        </animated.div>
+      )}
+    </Spring>
+  );
+
   render() {
     const isExpanded = this.calcIsExpanded();
     const {
@@ -113,7 +155,6 @@ class ExpandToggle extends React.Component {
       disabled,
       unmountClosed,
     } = this.props;
-    const CollapseType = unmountClosed ? UnmountClosed : Collapse;
 
     return (
       <div id={id} className={className}>
@@ -123,9 +164,7 @@ class ExpandToggle extends React.Component {
         >
           {this.renderToggle()}
         </div>
-        <CollapseType isOpened={isExpanded} springConfig={springConfig}>
-          {children}
-        </CollapseType>
+        {unmountClosed ? this.renderUnmountClosed() : this.renderMountClosed()}
       </div>
     );
   }
