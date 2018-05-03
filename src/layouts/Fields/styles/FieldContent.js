@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const FieldContent = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 53px;
 
   & > * {
     margin: ${props => {

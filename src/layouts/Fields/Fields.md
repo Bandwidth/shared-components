@@ -90,6 +90,22 @@ const Input = require('../../components/Input').default;
 </Fields>
 ```
 
+### Spacing stress-test
+
+```js
+const Input = require('../../components/Input').default;
+const Toggle = require('../../components/Toggle').default;
+
+const longText = new Array(64).fill('Text').join(' ');
+
+<Fields columns={1}>
+  <Fields.Field label="Label"><Input /></Fields.Field>
+  <Fields.Field><Toggle description="description" /></Fields.Field>
+  <Fields.Field label={longText} helpText={longText}><Input /></Fields.Field>
+  <Fields.Field><Toggle description="description" /></Fields.Field>
+</Fields>
+```
+
 ### Error test: a field which is too wide for the fieldset
 
 This layout should fail with an error in the console explaining that the field is too wide.

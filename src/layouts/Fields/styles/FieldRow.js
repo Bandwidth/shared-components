@@ -59,12 +59,7 @@ const calcGridTemplateAreas = (children, columns) =>
 
 const calcGridTemplateRows = children =>
   calcGridAreas(children)
-    .map(
-      area =>
-        [AREA.LABEL, AREA.HELP_TEXT].includes(area)
-          ? 'auto'
-          : 'minmax(53px, auto)',
-    )
+    .map(() => 'auto')
     .join(' ');
 
 const FieldRow = ({ children, columns, theme }) => {
@@ -76,7 +71,7 @@ const FieldRow = ({ children, columns, theme }) => {
         // there's a named area for each column.
         gridTemplateAreas: calcGridTemplateAreas(children, columns),
         // defines spacing between rows and columns
-        gridGap: `${themeGet('spacing.extraSmall')({ theme })} ${themeGet(
+        gridGap: `${themeGet('spacing.small')({ theme })} ${themeGet(
           'spacing.large',
         )({ theme })}`,
         // each column has an equal size. To make fields larger than
