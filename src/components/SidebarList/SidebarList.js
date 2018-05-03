@@ -5,14 +5,19 @@ import SidebarListShowMore from './styles/SidebarListShowMore';
 import SidebarListItem from './SidebarListItem';
 import SidebarListContainer from './styles/SidebarListContainer';
 
-class SidebarList extends React.Component {
+/**
+ * Lays out items vertically in a sidebar. Does not handle scrolling.
+ * Use [SidebarList.Item](/#!/SidebarListItem) as the child elements.
+ *
+ * You can show selected state by either passing an `active` prop to the correct item
+ * or linking your list to your router so that each item is a unique route. If you go that direction,
+ * you can have the items be `<Route/>` components from React Router, and have them utilize RR's
+ * built-in route matching logic to determine rendering appearance.
+ */
+class SidebarList extends React.PureComponent {
   static propTypes = {
     /**
-     * Optional: indicate which item should be considered active.
-     */
-    selectedIndex: PropTypes.number,
-    /**
-     * List items. An 'active' prop will be passed to the item that matches selectedIndex.
+     * List items.
      */
     children: PropTypes.node.isRequired,
     /**
@@ -50,7 +55,6 @@ class SidebarList extends React.Component {
   };
 
   static defaultProps = {
-    selectedIndex: -1,
     hasNextPage: false,
     hasPreviousPage: false,
     onNextPageClicked: () => null,
@@ -79,25 +83,12 @@ class SidebarList extends React.Component {
     return null;
   };
 
-  renderItems = () => {
-    const { selectedIndex } = this.props;
-
-    return React.Children.toArray(this.props.children)
-      .filter(child => child !== null)
-      .map((listItem, idx) =>
-        React.cloneElement(listItem, {
-          key: idx,
-          active: idx === selectedIndex,
-        }),
-      );
-  };
-
   render() {
-    const { className, id, Container } = this.props;
+    const { className, id, Container, children } = this.props;
     return (
       <Container className={className} id={id}>
         {this.renderPrevious()}
-        {this.renderItems()}
+        {children}
         {this.renderNext()}
       </Container>
     );

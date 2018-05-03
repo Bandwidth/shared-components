@@ -6,7 +6,10 @@ import SidebarListItemContainer from './styles/SidebarListItemContainer';
 import SidebarListItemLabel from './styles/SidebarListItemLabel';
 import SidebarListItemDetails from './styles/SidebarListItemDetails';
 
-class SidebarListItem extends React.Component {
+/**
+ * An element of a [SidebarList](/#!/SidebarList).
+ */
+class SidebarListItem extends React.PureComponent {
   static propTypes = {
     /**
      * The main details of the list item.
