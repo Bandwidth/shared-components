@@ -9,7 +9,8 @@ const AccordionContent = styled.div`
 `;
 
 AccordionContent.Small = styled(AccordionContent)`
-  padding: ${get('spacing.medium')};
+  padding: ${get('spacing.large')};
+  padding-top: 0;
 `;
 
 export default AccordionContent;
