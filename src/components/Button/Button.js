@@ -26,7 +26,7 @@ const Button = styled.button`
   color: ${get('colors.text.inverted')};
   background: ${get('colors.primary.default')};
 
-  padding: 11px 38px;
+  padding: 11px 28px;
   display: inline-block;
   position: relative;
   overflow: hidden;
@@ -144,7 +144,7 @@ Button.Small = styled(Button)`
 `;
 
 Button.Large = styled(Button)`
-  padding: 13px 58px;
+  padding: 13px 38px;
   font-size: 0.9rem;
 `;
 
