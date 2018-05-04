@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AnimatedValue } from 'react-spring';
 
-const getValues = object => Object.keys(object).map(k => object[k]);
+const getValues = object => Object.values(object);
 const check = value => value === 'auto';
 const convert = (acc, [name, value]) => ({
   ...acc,
@@ -22,7 +22,7 @@ export default function fixAuto(spring, props) {
   const { native, children, from, to } = props;
 
   // Dry-route props back if nothing's using 'auto' in there
-  if (![...getValues(from), ...getValues(to)].some(check)) return;
+  if (![...Object.values(from), ...Object.values(to)].some(check)) return;
 
   const forward = spring.getForwardProps(props);
   const allProps = Object.entries({ ...from, ...to });
@@ -41,7 +41,6 @@ export default function fixAuto(spring, props) {
           const height = ref.clientHeight;
           const width = ref.clientWidth;
 
-          console.log(height);
           // Defer to next frame, or else the springs updateToken is canceled
           requestAnimationFrame(() =>
             spring.updateProps(
