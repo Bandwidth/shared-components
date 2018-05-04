@@ -17,7 +17,7 @@ const H2 = styled.h2.withConfig({ displayName: 'H2' }).attrs({
 
 H2.propTypes = {
   /**
-   * Specify a CSS value or an object { top, right, bottom, left } to
+   * Specify a CSS value or an object { top, right, bottom, left } or { vertical, horizontal } to
    * control the spacing around the heading. Defaults to no space.
    */
   spacing: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),

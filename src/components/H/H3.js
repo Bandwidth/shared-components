@@ -21,7 +21,7 @@ const H3 = styled.h3.withConfig({ displayName: 'H3' }).attrs({
 
 H3.propTypes = {
   /**
-   * Specify a CSS value or an object { top, right, bottom, left } to
+   * Specify a CSS value or an object { top, right, bottom, left } or { vertical, horizontal } to
    * control the spacing around the heading. Defaults to no space.
    */
   spacing: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
