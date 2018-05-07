@@ -10,6 +10,7 @@ const Icon = styled.i.withConfig({ displayName: 'Icon' })`
   color: inherit;
   font-style: normal;
   display: inline-block;
+  cursor: ${({ onClick }) => (onClick ? 'pointer' : 'inherit')};
   &::before {
     content: "${({ name, iconsHelper }) =>
       iconsHelper(name) || iconsHelper('help_2')}";

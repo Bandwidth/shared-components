@@ -5,7 +5,7 @@ import CheckboxInput from './styles/CheckboxInput';
 import CheckboxLabel from './styles/CheckboxLabel';
 import CheckboxContainer from './styles/CheckboxContainer';
 
-export default class Checkbox extends React.Component {
+export default class Checkbox extends React.PureComponent {
   static propTypes = {
     /**
      * Adds a class name to the input element.
@@ -86,6 +86,7 @@ export default class Checkbox extends React.Component {
       className,
       disabled,
       value,
+      name,
       required,
       description,
       onChange,
@@ -101,6 +102,7 @@ export default class Checkbox extends React.Component {
     return (
       <Container>
         <Input
+          name={name}
           id={id}
           className={className}
           type="checkbox"

@@ -1,4 +1,3 @@
-> **Note:** You must include [BandwidthProvider](/#!/BandwidthProvider) at or near the root of your application to use drag and drop functionality.
 
 A collection of items which can be split up into several named groups.
 
@@ -23,38 +22,6 @@ Here is a brief summary of the rules:
 
 ```javascript
 const React = require ('react');
-
-// a demo component to put in the items
-class ItemContent extends React.Component {
-  render() {
-    const { value, wrapDragHandle } = this.props;
-
-    return (
-      <div style={{ position: 'relative' }}>
-        <Input value={value} />
-        <div style={{
-          position: 'absolute',
-          display: 'flex',
-          flexDirection: 'row',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          right: '15px',
-          color: '#00bef0',
-          fontSize: '18px',
-        }}>
-          <Icon name="settings" />
-          <span style={{ width: '8px' }} />
-          <Icon name="delete3" />
-          <span style={{ width: '8px' }} />
-          {/* Using wrapDragHandle to indicate which element is the handle */}
-          {wrapDragHandle(
-            <Icon name="moveGrabber" />
-          )}
-        </div>
-      </div>
-    )
-  }
-}
 
 // some utility functions
 
@@ -215,7 +182,7 @@ class DemoApp extends React.Component {
                     this.handleItemMoved(itemIdx, fromGroupIdx, toGroupIdx)
                 }
               >
-                <ItemContent value={item.value} />
+                <DragGroup.Container>{item.value}</DragGroup.Container>
               </DragGroup.Item>)
             )}
           </DragGroup>
@@ -232,7 +199,7 @@ class DemoApp extends React.Component {
 </div>
 ```
 
-Note that the code in this example implements the full logic of manpiulating a hypothetical set of groups. It's up to you to determine how to use the events from `DragGroups` to manipulate your own state, and how to then render that state as `DragGroups.Group` and `DragGroups.Item` elements within your JSX structure.
+Note that the code in this example implements the full logic of manipulating a hypothetical set of groups. It's up to you to determine how to use the events from `DragGroup` to manipulate your own state, and how to then render that state as `DragGroup` and `DragGroup.Item` elements within your JSX structure.
 
 ### Note on redux-form
 
@@ -246,38 +213,6 @@ If you want to fully control field manipulation using nested redux-form FieldArr
 
 ```javascript
 const React = require ('react');
-
-// a demo component to put in the items
-class ItemContent extends React.Component {
-  render() {
-    const { value, wrapDragHandle } = this.props;
-
-    return (
-      <div style={{ position: 'relative' }}>
-        <Input value={value} />
-        <div style={{
-          position: 'absolute',
-          display: 'flex',
-          flexDirection: 'row',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          right: '15px',
-          color: '#00bef0',
-          fontSize: '18px',
-        }}>
-          <Icon name="settings" />
-          <span style={{ width: '8px' }} />
-          <Icon name="delete3" />
-          <span style={{ width: '8px' }} />
-          {/* Using wrapDragHandle to indicate which element is the handle */}
-          {wrapDragHandle(
-            <Icon name="moveGrabber" />
-          )}
-        </div>
-      </div>
-    )
-  }
-}
 
 // some utility functions
 
@@ -420,9 +355,8 @@ class DemoApp extends React.Component {
     return (
       <div style={{ display: 'flex', flexDirection: 'row' }}>
         {groups.map((group, groupIdx) => (
-          <div style={{ width: '350px', margin: '0 10px' }}>
+          <div key={group.key} style={{ width: '350px', margin: '0 10px' }}>
             <DragGroup
-              key={group.key}
               groupId={groupIdx}
               name={`Group ${groupIdx + 1}`}
               allowDrag={groups.length > 1}
@@ -439,7 +373,7 @@ class DemoApp extends React.Component {
                       this.handleItemMoved(itemIdx, fromGroupIdx, toGroupIdx)
                   }
                 >
-                  <ItemContent value={item.value} />
+                  <DragGroup.Container>{item.value}</DragGroup.Container>
                 </DragGroup.Item>)
               )}
             </DragGroup>

@@ -15,7 +15,9 @@ const TableRenderer = ({ classes, columns, rows, getRowKey }) => (
   >
     {rows.map(row => (
       <Table.Row key={getRowKey(row)}>
-        {columns.map(column => <Table.Cell>{column.render(row)}</Table.Cell>)}
+        {columns.map(column => (
+          <Table.Cell key={column.caption}>{column.render(row)}</Table.Cell>
+        ))}
       </Table.Row>
     ))}
   </Table.Small>

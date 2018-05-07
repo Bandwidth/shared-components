@@ -5,7 +5,7 @@ import RadioContainer from './styles/RadioContainer';
 import RadioInput from './styles/RadioInput';
 import RadioLabel from './styles/RadioLabel';
 
-class Radio extends React.Component {
+class Radio extends React.PureComponent {
   static propTypes = {
     /**
      * Adds a class name to the input element.

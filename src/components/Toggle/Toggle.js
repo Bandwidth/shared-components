@@ -5,7 +5,7 @@ import ToggleContainer from './styles/ToggleContainer';
 import ToggleInput from './styles/ToggleInput';
 import ToggleLabel from './styles/ToggleLabel';
 
-class Toggle extends React.Component {
+class Toggle extends React.PureComponent {
   static propTypes = {
     /**
      * Adds a class name to the input element.
@@ -67,6 +67,7 @@ class Toggle extends React.Component {
   render() {
     const {
       className,
+      name,
       disabled,
       value,
       required,

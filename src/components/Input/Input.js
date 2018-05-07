@@ -6,7 +6,7 @@ import Anchor from '../Anchor';
 import InputStyles from './styles/InputStyles';
 import InputRevealPasswordWrapper from './styles/InputRevealPasswordWrapper';
 
-class Input extends React.Component {
+class Input extends React.PureComponent {
   static propTypes = {
     /**
      * The value of the input.

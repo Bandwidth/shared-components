@@ -5,6 +5,7 @@ import BandwidthThemeProvider from '../BandwidthThemeProvider';
 import DefaultStyleRoot from './styles/StyleRoot';
 import withDragDropContext from './withDragDropContext';
 import DefaultDragLayer from '../DragLayer';
+import ReactDOM from 'react-dom';
 import './styles/global'; // injects a global stylesheet
 
 class BandwidthProvider extends React.PureComponent {
@@ -19,15 +20,26 @@ class BandwidthProvider extends React.PureComponent {
     StyleRoot: DefaultStyleRoot,
     ThemeProvider: BandwidthThemeProvider,
     DragLayer: DefaultDragLayer,
+    dragLayerPortal: null,
   };
 
   render() {
-    const { StyleRoot, ThemeProvider, DragLayer, children } = this.props;
+    const {
+      StyleRoot,
+      ThemeProvider,
+      DragLayer,
+      dragLayerPortal,
+      children,
+    } = this.props;
     return (
       <ThemeProvider>
         <StyleRoot>
           {children}
-          <DragLayer />
+          {dragLayerPortal ? (
+            ReactDOM.createPortal(<DragLayer />, dragLayerPortal)
+          ) : (
+            <DragLayer />
+          )}
         </StyleRoot>
       </ThemeProvider>
     );
