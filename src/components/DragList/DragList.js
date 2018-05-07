@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'extensions/themeGet';
+import styled from 'styled-components';
 import DragListItem from './DragListItem';
 import DragContainer from 'components/DragContainer';
+
+const StyledDiv = styled.div`
+  & > * {
+    margin-bottom: ${get('spacing.medium')};
+  }
+`;
 
 /**
  * A list of items that can be dragged and reordered.
@@ -18,7 +26,7 @@ class DragList extends React.PureComponent {
   };
 
   render() {
-    return <div>{this.props.children}</div>;
+    return <StyledDiv>{this.props.children}</StyledDiv>;
   }
 }
 

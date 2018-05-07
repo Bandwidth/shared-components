@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'extensions/themeGet';
 import styled from 'styled-components';
 import Icon from 'components/Icon';
 import DefaultContainer from './styles/Container';
 import DefaultChildContainer from './styles/ChildContainer';
 import DefaultIconGroup from './styles/IconGroup';
-import DragContext from './Context';
+import DragContext from './context';
 
 const DragHandle = styled(Icon)`
   &:hover:not(:active) {

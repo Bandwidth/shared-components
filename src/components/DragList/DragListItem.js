@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { DragSource, DropTarget } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
-import DragContext from 'components/DragContainer/Context';
+import DragContext from 'components/DragContainer/context';
 
 /**
  * Represents an item that can be dragged. Simply render a node inside of it that wraps the drag handle using

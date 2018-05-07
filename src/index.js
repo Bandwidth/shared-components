@@ -122,7 +122,7 @@ export {
 export { default as DragBox } from './components/DragBox';
 export { default as DragBoxSelect } from './components/DragBox/DragBoxSelect';
 export { default as DragContainer } from './components/DragContainer';
-export { default as Context } from './components/DragContainer/Context';
+export { default as context } from './components/DragContainer/context';
 export {
   default as ChildContainer,
 } from './components/DragContainer/styles/ChildContainer';

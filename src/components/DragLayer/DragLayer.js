@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { DragLayer as LibDragLayer } from 'react-dnd';
 import DragItemPreviewContainer from './styles/DragItemPreviewContainer';
 import DragLayerOverlay from './styles/DragLayerOverlay';
-import ContainerContext from 'components/DragContainer/Context';
+import DragContext from 'components/DragContainer/context';
 import { identity } from 'lodash';
 
 /**
@@ -78,13 +78,13 @@ class DragLayer extends React.Component {
     };
 
     return (
-      <ContainerContext.Provider value={{ wrapDragHandle: identity }}>
+      <DragContext.Provider value={{ wrapDragHandle: identity }}>
         <Overlay>
           <div style={previewPositionStyles}>
             <PreviewContainer>{this.renderPreviewContent()}</PreviewContainer>
           </div>
         </Overlay>
-      </ContainerContext.Provider>
+      </DragContext.Provider>
     );
   }
 }
