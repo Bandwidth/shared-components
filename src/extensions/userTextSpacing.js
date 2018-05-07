@@ -35,7 +35,12 @@ const getSize = (value, props) => {
     case 'extraLarge':
       return themeGet('spacing.extraLarge')(props);
     default:
-      return value;
+      // if it's a unit string, return it
+      if (isNaN(parseInt(`${value}`, 10))) {
+        return value;
+      }
+      // if the user supplied a number, assume pixels
+      return `${parseInt(`${value}`, 10)}px`;
   }
 };
 
@@ -60,10 +65,10 @@ const userTextSpacingWithLineHeight = lineHeight => props => {
   }
 
   if (_.isPlainObject(spacing)) {
-    const top = _.get(spacing, 'top', _.get(spacing, 'vertical', 0));
-    const right = _.get(spacing, 'right', _.get(spacing, 'horizontal', 0));
-    const bottom = _.get(spacing, 'bottom', _.get(spacing, 'vertical', 0));
-    const left = _.get(spacing, 'left', _.get(spacing, 'horizontal', 0));
+    const top = _.get(spacing, 'top', _.get(spacing, 'vertical', '0px'));
+    const right = _.get(spacing, 'right', _.get(spacing, 'horizontal', '0px'));
+    const bottom = _.get(spacing, 'bottom', _.get(spacing, 'vertical', '0px'));
+    const left = _.get(spacing, 'left', _.get(spacing, 'horizontal', '0px'));
 
     return `calc(${topOffset} + ${getSize(top, props)}) ${getSize(
       right,

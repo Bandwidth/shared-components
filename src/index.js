@@ -244,6 +244,7 @@ export {
   default as NoteContainer,
 } from './components/Note/styles/NoteContainer';
 export { default as NoteCorner } from './components/Note/styles/NoteCorner';
+export { default as P } from './components/P';
 export { default as Pagination } from './components/Pagination';
 export {
   default as PaginationContainer,
@@ -411,10 +412,15 @@ export {
   default as selectItemPrimaryValue,
 } from './extensions/selectItemPrimaryValue';
 export { default as themeGet } from './extensions/themeGet';
+export { default as userTextSpacing } from './extensions/userTextSpacing';
 export { default as layouts } from './layouts';
 export { default as Fields } from './layouts/Fields';
 export { default as Field } from './layouts/Fields/Field';
 export { default as FieldContent } from './layouts/Fields/styles/FieldContent';
+export {
+  default as FieldHelpText,
+} from './layouts/Fields/styles/FieldHelpText';
+export { default as FieldLabel } from './layouts/Fields/styles/FieldLabel';
 export { default as FieldRow } from './layouts/Fields/styles/FieldRow';
 export {
   default as FieldRowContainer,
