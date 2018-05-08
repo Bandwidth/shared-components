@@ -9,8 +9,6 @@ export { default as animations } from './animations';
 export { default as Expand } from './animations/Expand';
 export { default as behaviors } from './behaviors';
 export { default as ExpandToggle } from './behaviors/ExpandToggle';
-export { default as Collapse } from './behaviors/ExpandToggle/Collapse';
-export { default as FixAuto } from './behaviors/ExpandToggle/FixAuto';
 export { default as Selectable } from './behaviors/Selectable';
 export { default as Accordion } from './components/Accordion';
 export {
