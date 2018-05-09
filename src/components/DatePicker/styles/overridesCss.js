@@ -46,7 +46,7 @@ export default css`
   }
 
   .DateInput {
-    border-width: ${get('thicknesses.normal')};
+    border-width: ${get('thicknesses.wide')};
     border-style: solid;
     border-color: ${get('colors.border.light')};
     width: auto;
@@ -102,7 +102,7 @@ export default css`
 
   .DayPicker {
     box-shadow: none;
-    border-width: ${get('thicknesses.normal')};
+    border-width: ${get('thicknesses.wide')};
     border-style: solid;
     border-color: ${get('colors.border.medium')};
     border-radius: 0;
