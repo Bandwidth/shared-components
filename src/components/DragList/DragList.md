@@ -27,7 +27,7 @@
       <DragList>
         {this.state.items.map((item, index) =>
           <DragList.Item itemType="fruit" key={item} index={index} onMove={this.onMove.bind(this)}>
-            <DragList.Container>{item}</DragList.Container>
+            <DragList.Container><Input placeholder={item} /></DragList.Container>
           </DragList.Item>
         )}
       </DragList>

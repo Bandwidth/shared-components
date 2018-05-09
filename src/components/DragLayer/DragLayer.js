@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { DragLayer as LibDragLayer } from 'react-dnd';
 import DragItemPreviewContainer from './styles/DragItemPreviewContainer';
 import DragLayerOverlay from './styles/DragLayerOverlay';
-import DragContext from 'components/DragContainer/context';
+import { DragContext } from 'components/DragContainer';
 import { identity } from 'lodash';
 
 /**

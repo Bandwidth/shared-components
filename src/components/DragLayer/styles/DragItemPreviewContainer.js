@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import get from 'extensions/themeGet';
 
 const pickupAnimation = keyframes`
   from {
@@ -16,8 +17,7 @@ export default styled.div`
   will-change: transform;
   display: block;
   pointer-events: none;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
-    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: ${get('shadows.long')};
 
   & > * {
     width: 100%;

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { DragSource } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import DragItemContainer from './styles/DragItemContainer';
-import DragContext from 'components/DragContainer/context';
+import { DragContext } from 'components/DragContainer';
 
 /**
  * Used to wrap an item used in DragGroup. See DragGroup documentation.

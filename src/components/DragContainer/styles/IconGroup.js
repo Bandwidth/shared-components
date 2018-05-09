@@ -8,7 +8,7 @@ export default styled.div`
   top: 50%;
   transform: translateY(-50%);
   right: 15px;
-  color: #00bef0;
+  color: ${get('colors.primary.default')};
   font-size: 18px;
   opacity: ${({ isDragging }) => (isDragging ? 0 : 1)};
   & > * {

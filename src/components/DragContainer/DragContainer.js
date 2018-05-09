@@ -5,7 +5,7 @@ import Icon from 'components/Icon';
 import DefaultContainer from './styles/Container';
 import DefaultChildContainer from './styles/ChildContainer';
 import DefaultIconGroup from './styles/IconGroup';
-import DragContext from './context';
+import DragContext from './DragContext';
 
 const DragHandle = styled(Icon)`
   &:hover:not(:active) {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { DragSource, DropTarget } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
-import DragContext from 'components/DragContainer/context';
+import { DragContext } from 'components/DragContainer';
 
 /**
  * Represents an item that can be dragged. Simply render a node inside of it that wraps the drag handle using
@@ -109,20 +109,6 @@ const dropTarget = {
 
     // Get pixels to the top
     const hoverClientY = clientOffset.y - hoverBoundingRect.top;
-
-    // Only perform the move when the mouse has crossed half of the items height
-    // When dragging downwards, only move when the cursor is below 50%
-    // When dragging upwards, only move when the cursor is above 50%
-
-    // Dragging downwards
-    if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
-      return;
-    }
-
-    // Dragging upwards
-    if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
-      return;
-    }
 
     // Time to actually perform the action
     props.onMove(dragIndex, hoverIndex);
