@@ -51,7 +51,7 @@ const SelectWrapper = styled.div`
     background-color: ${get('colors.background.default')};
     border-color: ${get('colors.border.light')};
     border-radius: 0;
-    border-width: ${get('thicknesses.normal')};
+    border-width: ${get('thicknesses.wide')};
     border-style: solid;
     color: inherit;
     cursor: default;
@@ -251,7 +251,7 @@ const SelectWrapper = styled.div`
 
   .Select-menu-outer {
     background-color: ${get('colors.background.default')};
-    border: ${get('thicknesses.normal')} solid ${get('colors.border.medium')};
+    border: ${get('thicknesses.wide')} solid ${get('colors.border.medium')};
     border-top-color: ${get('colors.border.light')};
     box-shadow: ${get('shadows.short')};
     box-sizing: border-box;
@@ -316,7 +316,7 @@ const SelectWrapper = styled.div`
     margin-top: 5px;
     vertical-align: top;
     padding: ${get('spacing.extraSmall')};
-    border-width: ${get('thicknesses.normal')};
+    border-width: ${get('thicknesses.wide')};
     border-style: solid;
     border-color: ${get('colors.primary.default')};
   }
@@ -343,7 +343,7 @@ const SelectWrapper = styled.div`
     cursor: pointer;
     border-bottom-left-radius: 2px;
     border-top-left-radius: 2px;
-    border-right-width: ${get('thicknesses.normal')};
+    border-right-width: ${get('thicknesses.wide')};
     border-right-style: solid;
     border-right-color: ${get('colors.primary.default')};
     padding-right: 5px;
@@ -358,14 +358,14 @@ const SelectWrapper = styled.div`
     background-color: ${get('colors.background.disabled')};
     border-color: ${get('colors.gray.default')};
     border-style: solid;
-    border-width: ${get('thicknesses.normal')};
+    border-width: ${get('thicknesses.wide')};
     color: ${get('colors.text.disabled')};
   }
   .Select--multi.is-disabled .Select-value-icon {
     cursor: not-allowed;
     border-right-color: ${get('colors.gray.default')};
     border-right-style: solid;
-    border-right-width: ${get('thicknesses.normal')};
+    border-right-width: ${get('thicknesses.wide')};
   }
   .Select--multi.is-disabled .Select-value-icon:hover,
   .Select--multi.is-disabled .Select-value-icon:focus,

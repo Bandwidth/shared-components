@@ -10,7 +10,7 @@ const TextArea = styled.textarea`
   font-family: ${get('fonts.brand')};
   letter-spacing: 0.02em;
   border-color: ${get('colors.border.light')};
-  border-width: ${get('thicknesses.normal')};
+  border-width: ${get('thicknesses.wide')};
   border-style: solid;
   line-height: 1.5;
   min-height: 100px;
