@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import get from 'extensions/themeGet';
 
 const pickupAnimation = keyframes`
   from {
@@ -6,15 +7,17 @@ const pickupAnimation = keyframes`
   }
 
   to {
-    transform: translate(-50%, -50%) rotate(-3deg);
+    transform: translate(-50%, -50%) rotate(4deg);
   }
 `;
 
 export default styled.div`
   animation: ${pickupAnimation} 0.3s;
   animation-fill-mode: forwards;
+  will-change: transform;
   display: block;
   pointer-events: none;
+  box-shadow: ${get('shadows.long')};
 
   & > * {
     width: 100%;

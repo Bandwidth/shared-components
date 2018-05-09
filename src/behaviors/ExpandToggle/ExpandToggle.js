@@ -64,6 +64,7 @@ class ExpandToggle extends React.Component {
     startExpanded: false,
     springConfig: null,
     disabled: false,
+    toggleContent: null,
     unmountClosed: false,
   };
 

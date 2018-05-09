@@ -9,7 +9,7 @@ import { get } from 'lodash';
  * A single Field element. **Important:** Field cannot be used on its own. Please use Field
  * within the Fields component. See: [Fields](#!/Fields)
  */
-class Field extends React.Component {
+class Field extends React.PureComponent {
   static propTypes = {
     /**
      * **Automatically supplied within <Fields>**

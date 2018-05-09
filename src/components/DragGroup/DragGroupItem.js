@@ -4,11 +4,12 @@ import ReactDOM from 'react-dom';
 import { DragSource } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import DragItemContainer from './styles/DragItemContainer';
+import { DragContext } from 'components/DragContainer';
 
 /**
  * Used to wrap an item used in DragGroup. See DragGroup documentation.
  */
-class DragItem extends React.Component {
+class DragGroupItem extends React.Component {
   static propTypes = {
     /**
      * Must be exactly one node. The children will be passed a
@@ -45,7 +46,7 @@ class DragItem extends React.Component {
      * The element passed to connectDragSource must be a plain
      * React element, not a component. Thus, to do proper
      * vendor prefixing with styling, we assign a class name
-     * and traget it from DragItemContainer's styles; see
+     * and target it from DragItemContainer's styles; see
      * styles/DragItemContainer.js
      */
     this.props.connectDragSource(
@@ -61,17 +62,15 @@ class DragItem extends React.Component {
 
   render() {
     const {
-      connectDragSource,
-      connectDragPreview,
-      isDragging,
-      children,
-    } = this.props;
+      props: { connectDragSource, connectDragPreview, isDragging, children },
+      wrapDragHandle,
+    } = this;
 
     return (
       <DragItemContainer isDragging={isDragging}>
-        {React.cloneElement(React.Children.only(children), {
-          wrapDragHandle: this.wrapDragHandle,
-        })}
+        <DragContext.Provider value={{ isDragging, wrapDragHandle }}>
+          {children}
+        </DragContext.Provider>
       </DragItemContainer>
     );
   }
@@ -107,5 +106,5 @@ const collect = (connect, monitor) => ({
 });
 
 export default DragSource(props => props.itemType, itemSource, collect)(
-  DragItem,
+  DragGroupItem,
 );

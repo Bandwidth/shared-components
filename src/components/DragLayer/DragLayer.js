@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { DragLayer as LibDragLayer } from 'react-dnd';
 import DragItemPreviewContainer from './styles/DragItemPreviewContainer';
 import DragLayerOverlay from './styles/DragLayerOverlay';
+import { DragContext } from 'components/DragContainer';
+import { identity } from 'lodash';
 
 /**
  * Renders a generic layer for drawing dragged items from draggable
@@ -49,9 +51,10 @@ class DragLayer extends React.Component {
 
   renderPreviewContent = () => {
     const { item } = this.props;
+
     return React.cloneElement(item.children, {
       // providing a no-op handle wrapper so the handle is still rendered
-      wrapDragHandle: handle => handle,
+      wrapDragHandle: identity,
     });
   };
 
@@ -75,11 +78,13 @@ class DragLayer extends React.Component {
     };
 
     return (
-      <Overlay>
-        <div style={previewPositionStyles}>
-          <PreviewContainer>{this.renderPreviewContent()}</PreviewContainer>
-        </div>
-      </Overlay>
+      <DragContext.Provider value={{ wrapDragHandle: identity }}>
+        <Overlay>
+          <div style={previewPositionStyles}>
+            <PreviewContainer>{this.renderPreviewContent()}</PreviewContainer>
+          </div>
+        </Overlay>
+      </DragContext.Provider>
     );
   }
 }
