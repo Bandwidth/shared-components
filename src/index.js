@@ -256,6 +256,7 @@ export {
   default as NoteContainer,
 } from './components/Note/styles/NoteContainer';
 export { default as NoteCorner } from './components/Note/styles/NoteCorner';
+export { default as P } from './components/P';
 export { default as Pagination } from './components/Pagination';
 export {
   default as PaginationContainer,

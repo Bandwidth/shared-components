@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import tag from 'clean-tag';
 import get from 'extensions/themeGet';
 import userTextSpacing from 'extensions/userTextSpacing';
 
-const H2 = styled.h2.withConfig({ displayName: 'H2' }).attrs({
-  spacing: userTextSpacing,
-})`
+const H2 = styled(tag.h2)
+  .withConfig({ displayName: 'H2' })
+  .attrs({
+    spacing: userTextSpacing,
+  })`
   color: ${get('colors.text.default')};
   font-weight: 700;
   font-family: ${get('fonts.brand')};
@@ -18,7 +21,7 @@ const H2 = styled.h2.withConfig({ displayName: 'H2' }).attrs({
 H2.propTypes = {
   /**
    * Specify a CSS value or an object { top, right, bottom, left } or { vertical, horizontal } to
-   * control the spacing around the heading. Defaults to no space.
+   * control the spacing around the heading. Defaults to a large space below the element.
    */
   spacing: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
@@ -32,7 +35,7 @@ H2.propTypes = {
 };
 
 H2.defaultProps = {
-  spacing: null,
+  spacing: { bottom: 'lg' },
   className: null,
   id: null,
 };

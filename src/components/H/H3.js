@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import tag from 'clean-tag';
 import get from 'extensions/themeGet';
 import userTextSpacing from 'extensions/userTextSpacing';
 
 const LINE_HEIGHT = 1.25;
 
-const H3 = styled.h3.withConfig({ displayName: 'H3' }).attrs({
-  spacing: userTextSpacing.withLineHeight(LINE_HEIGHT),
-})`
+const H3 = styled(tag.h3)
+  .withConfig({ displayName: 'H3' })
+  .attrs({
+    spacing: userTextSpacing.withLineHeight(LINE_HEIGHT),
+  })`
   color: ${get('colors.text.default')};
   font-weight: 300;
   font-family: ${get('fonts.brand')};
@@ -22,7 +25,7 @@ const H3 = styled.h3.withConfig({ displayName: 'H3' }).attrs({
 H3.propTypes = {
   /**
    * Specify a CSS value or an object { top, right, bottom, left } or { vertical, horizontal } to
-   * control the spacing around the heading. Defaults to no space.
+   * control the spacing around the heading. Defaults to a large space below the element.
    */
   spacing: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
@@ -36,7 +39,7 @@ H3.propTypes = {
 };
 
 H3.defaultProps = {
-  spacing: null,
+  spacing: { bottom: 'lg' },
   className: null,
   id: null,
 };

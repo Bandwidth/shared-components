@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import tag from 'clean-tag';
 import get from 'extensions/themeGet';
 import userTextSpacing from 'extensions/userTextSpacing';
 
-const H4 = styled.h4.withConfig({ displayName: 'H4' }).attrs({
-  spacing: userTextSpacing,
-})`
+const H4 = styled(tag.h4)
+  .withConfig({ displayName: 'H4' })
+  .attrs({
+    spacing: userTextSpacing,
+  })`
   color: ${get('colors.primary.default')};
   font-weight: 900;
   font-family: ${get('fonts.brand')};
@@ -20,7 +23,7 @@ const H4 = styled.h4.withConfig({ displayName: 'H4' }).attrs({
 H4.propTypes = {
   /**
    * Specify a CSS value or an object { top, right, bottom, left } or { vertical, horizontal } to
-   * control the spacing around the heading. Defaults to no space.
+   * control the spacing around the heading. Defaults to a large space below the element.
    */
   spacing: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
@@ -34,7 +37,7 @@ H4.propTypes = {
 };
 
 H4.defaultProps = {
-  spacing: null,
+  spacing: { bottom: 'lg' },
   className: null,
   id: null,
 };

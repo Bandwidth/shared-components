@@ -1,30 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import tag from 'clean-tag';
-import get from 'extensions/themeGet';
 import userTextSpacing from 'extensions/userTextSpacing';
 
-import H2 from './H2';
-import H3 from './H3';
-import H4 from './H4';
-import H5 from './H5';
-
-const H1 = styled(tag.h1)
-  .withConfig({ displayName: 'H1' })
-  .attrs({
-    spacing: userTextSpacing,
-  })`
-  color: ${get('colors.primary.default')};
-  font-weight: 100;
-  font-family: ${get('fonts.brand')};
-  font-size: 2.5em;
+const P = styled(tag.p).attrs({
+  spacing: userTextSpacing,
+})`
   margin: ${props => props.spacing};
-  overflow: hidden;
-  padding: 0;
+  font-size: 1em;
 `;
 
-H1.propTypes = {
+P.propTypes = {
   /**
    * Specify a CSS value or an object { top, right, bottom, left } or { vertical, horizontal } to
    * control the spacing around the heading. Defaults to a large space below the element.
@@ -40,18 +26,10 @@ H1.propTypes = {
   id: PropTypes.string,
 };
 
-H1.defaultProps = {
+P.defaultProps = {
   spacing: { bottom: 'lg' },
   className: null,
   id: null,
 };
 
-H1.H2 = H2;
-H1.H3 = H3;
-H1.H4 = H4;
-H1.H5 = H5;
-
-/**
- * @component
- */
-export default H1;
+export default P;
