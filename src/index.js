@@ -464,6 +464,7 @@ export {
 } from './layouts/Flow/styles/FlowItemMoreContent';
 export { default as FlowRowStyles } from './layouts/Flow/styles/FlowRowStyles';
 export { default as Grid } from './layouts/Grid';
+export { default as Horizontal } from './layouts/Horizontal';
 export { default as Page } from './layouts/Page';
 export { default as Pane } from './layouts/Pane';
 export { default as PaneColumn } from './layouts/Pane/PaneColumn';
