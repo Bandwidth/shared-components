@@ -18,11 +18,16 @@
     "styleguide": "run-s styleguide:*",
     "gen": "studs generate component",
     "precommit": "lint-staged",
-    "prettier": "prettier --single-quote --trailing-comma all --write \"{src,tools,__tests__}/**/*.js\"",
-    "start": "npm run styleguide"
+    "prettier": "prettier --single-quote --trailing-comma all --write \"{src,stories,tools,__tests__}/**/*.js\"",
+    "start": "npm run styleguide",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "lint-staged": {
     "src/**/*.js": [
+      "prettier",
+      "git add"
+    ],
+    "stories/**/*.js": [
       "prettier",
       "git add"
     ]
@@ -66,6 +71,7 @@
     "warning": "^3.0.0"
   },
   "devDependencies": {
+    "@storybook/react": "^3.4.3",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-jest": "^20.0.3",
