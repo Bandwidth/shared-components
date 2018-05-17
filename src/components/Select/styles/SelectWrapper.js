@@ -275,7 +275,9 @@ const SelectWrapper = styled.div`
     cursor: pointer;
     display: block;
     font-size: 14px;
-    padding: ${get('spacing.extraSmall')};
+    padding-left: ${get('spacing.medium')};
+    padding-top: ${get('spacing.extraSmall')};
+    padding-bottom: ${get('spacing.extraSmall')};
   }
   .Select-option.is-geted {
     color: ${get('colors.primary.default')};
