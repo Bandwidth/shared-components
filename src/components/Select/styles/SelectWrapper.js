@@ -269,12 +269,15 @@ const SelectWrapper = styled.div`
   }
   .Select-option {
     box-sizing: border-box;
+    border-bottom: 0.5px solid ${get('colors.gray.border')};
     background-color: ${get('colors.background.default')};
     color: ${get('colors.text.default')};
     cursor: pointer;
     display: block;
     font-size: 14px;
-    padding: ${get('spacing.medium')};
+    padding-left: ${get('spacing.medium')};
+    padding-top: ${get('spacing.extraSmall')};
+    padding-bottom: ${get('spacing.extraSmall')};
   }
   .Select-option.is-geted {
     color: ${get('colors.primary.default')};
