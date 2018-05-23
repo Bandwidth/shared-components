@@ -428,10 +428,6 @@ export { default as layouts } from './layouts';
 export { default as Fields } from './layouts/Fields';
 export { default as Field } from './layouts/Fields/Field';
 export { default as FieldContent } from './layouts/Fields/styles/FieldContent';
-export {
-  default as FieldHelpText,
-} from './layouts/Fields/styles/FieldHelpText';
-export { default as FieldLabel } from './layouts/Fields/styles/FieldLabel';
 export { default as FieldRow } from './layouts/Fields/styles/FieldRow';
 export {
   default as FieldRowContainer,

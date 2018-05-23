@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import get from 'extensions/themeGet';
+import userTextSpacing from 'extensions/userTextSpacing';
 
-const Label = styled.label.withConfig({ displayName: 'Label' })`
+const Label = styled.label.withConfig({ displayName: 'Label' }).attrs({
+  spacing: userTextSpacing,
+})`
   font-size: 1em;
   letter-spacing: 0.02em;
   font-weight: 600;
@@ -12,6 +15,7 @@ const Label = styled.label.withConfig({ displayName: 'Label' })`
   background: transparent;
   line-height: 1.5;
   display: block;
+  margin: ${props => props.spacing};
 
   ${({ disabled }) => (disabled ? 'opacity: 0.5;' : '')} &:disabled {
     opacity: 0.5;
@@ -46,6 +50,11 @@ Label.propTypes = {
    * Adds a red star at the end of the label.
    */
   required: PropTypes.bool,
+  /**
+   * Specify a CSS value or an object { top, right, bottom, left } or { vertical, horizontal } to
+   * control the spacing around the heading. Defaults to a large space below the element.
+   */
+  spacing: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
 Label.defaultProps = {
