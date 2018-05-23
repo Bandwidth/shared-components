@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import LoaderRing from './styles/LoaderRing';
 import LoaderContainer from './styles/LoaderContainer';
 
-class Loader extends React.Component {
+class Loader extends React.PureComponent {
   static propTypes = {
     /**
      * The size of each loader 'dot'. Can be any CSS dimension string.

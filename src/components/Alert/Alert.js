@@ -18,11 +18,11 @@ const getIcon = type => {
   }
 };
 
-const Alert = props => (
-  <props.Border type={props.type}>
-    {!props.textOnly && <props.Icon type={props.type} />}
-    <props.Text>{props.children}</props.Text>
-  </props.Border>
+const Alert = ({ Border, Text, Icon, type, textOnly, spacing, children }) => (
+  <Border type={type} spacing={spacing}>
+    {!textOnly && <Icon type={type} />}
+    <Text>{children}</Text>
+  </Border>
 );
 
 Alert.propTypes = {
@@ -30,6 +30,11 @@ Alert.propTypes = {
    * An alert type; one of [info, success, error].
    */
   type: PropTypes.oneOf(['info', 'success', 'error']),
+  /**
+   * Specify a CSS value or an object { top, right, bottom, left } or { vertical, horizontal } to
+   * control the spacing around the heading. Defaults to a large space below the element.
+   */
+  spacing: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
    * Whether to render only text (true) or an icon alongside text (false).
    */
@@ -61,6 +66,7 @@ Alert.defaultProps = {
   textOnly: false,
   className: null,
   id: null,
+  spacing: { bottom: 'lg' },
   Border: AlertBorder,
   Text: AlertText,
   Icon: AlertIcon,

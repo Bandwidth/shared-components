@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
+import tag from 'clean-tag';
+import userTextSpacing from 'extensions/userTextSpacing';
 
-const AlertBorder = styled.div`
+const AlertBorder = styled(tag.div).attrs({
+  spacing: userTextSpacing.withLineHeight(0),
+})`
   padding: ${get('spacing.small')} ${get('spacing.medium')};
   font-weight: 200;
   border-width: ${get('thicknesses.normal')};
@@ -14,6 +18,7 @@ const AlertBorder = styled.div`
   flex-direction: row;
   min-height: 53px;
   letter-spacing: 0.02em;
+  margin: ${props => props.spacing};
 
   background: ${({ theme, type }) => {
     switch (type) {

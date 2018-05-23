@@ -8,7 +8,7 @@ import selectOptionPrimaryValue from '../../extensions/selectItemPrimaryValue';
 import Loader from '../Loader';
 import SelectWrapper from './styles/SelectWrapper';
 
-class Select extends React.Component {
+class Select extends React.PureComponent {
   static propTypes = {
     /**
      * Whether to blur the component upon selection
