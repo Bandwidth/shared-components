@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DefaultLabel from './styles/FieldLabel';
-import DefaultHelpText from './styles/FieldHelpText';
+import DefaultLabel from 'components/Label';
+import DefaultHelpText from 'components/HelpText';
 import FieldContent from './styles/FieldContent';
 import { get } from 'lodash';
 
