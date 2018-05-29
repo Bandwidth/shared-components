@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NoteContainer from './styles/NoteContainer';
 import NoteCorner from './styles/NoteCorner';
+import { defaultProps } from 'recompose';
 
 const Note = ({ children, Container, Corner }) => (
   <Container>
@@ -29,5 +30,9 @@ Note.defaultProps = {
   Container: NoteContainer,
   Corner: NoteCorner,
 };
+
+Note.Alternate = defaultProps({
+  Container: NoteContainer.Alternate,
+})(Note);
 
 export default Note;
