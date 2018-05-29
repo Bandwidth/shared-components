@@ -21,7 +21,7 @@ const iconStyles = css`
     content: ${({ icon }) => (!!icon ? `"${icons(icon)}"` : '')};
     font-weight: normal;
     margin-right: ${({ icon, children }) =>
-      !!icon && !!children ? '0.5em' : '0'};
+      !!icon && !!children ? '0.35em' : '0'};
   }
 
   & > ${Icon} {
