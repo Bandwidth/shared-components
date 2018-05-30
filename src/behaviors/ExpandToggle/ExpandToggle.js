@@ -68,10 +68,6 @@ class ExpandToggle extends React.Component {
     unmountClosed: false,
   };
 
-  // shouldComponentUpdate = (nextProps, nextState) => {
-  //   return  !_.isEqual(this.state, nextState);
-  // }
-
   constructor(props) {
     super(props);
     this.state = {
@@ -128,7 +124,6 @@ class ExpandToggle extends React.Component {
         >
           {this.renderToggle()}
         </div>
-        {/* {this.state.internalIsExpanded ? children : null} */}
         <CollapseType
           hasNestedCollapse
           isOpened={isExpanded}

@@ -61,6 +61,14 @@ class Accordion extends React.Component {
      */
     id: PropTypes.string,
     /**
+     * react-motion config, see https://github.com/chenglou/react-motion#--spring-val-number-config-springhelperconfig--opaqueconfig
+     */
+    springConfig: PropTypes.shape({
+      stiffness: PropTypes.number,
+      damping: PropTypes.number,
+      precision: PropTypes.number,
+    }),
+    /**
      * A component to render the border
      */
     Border: PropTypes.func,
@@ -91,6 +99,7 @@ class Accordion extends React.Component {
     id: null,
     disabled: false,
     unmountClosed: false,
+    springConfig: null,
     Border: AccordionBorder,
     Label: AccordionLabel,
     Arrow: AccordionArrow,
@@ -127,6 +136,7 @@ class Accordion extends React.Component {
       startExpanded,
       disabled,
       unmountClosed,
+      springConfig,
     } = this.props;
 
     return (
@@ -140,6 +150,7 @@ class Accordion extends React.Component {
           startExpanded={startExpanded}
           disabled={disabled}
           unmountClosed={unmountClosed}
+          springConfig={springConfig}
         >
           <Content>{children}</Content>
         </ExpandToggle>
