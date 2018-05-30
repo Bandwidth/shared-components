@@ -4,7 +4,7 @@ import FieldRowContainer from './styles/FieldRowContainer';
 import FieldRow from './styles/FieldRow';
 import Field from './Field';
 
-class Fields extends React.PureComponent {
+class Fields extends React.Component {
   static Field = Field;
 
   static propTypes = {

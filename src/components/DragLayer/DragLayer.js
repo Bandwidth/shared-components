@@ -52,10 +52,11 @@ class DragLayer extends React.Component {
   renderPreviewContent = () => {
     const { item } = this.props;
 
-    return React.cloneElement(item.children, {
-      // providing a no-op handle wrapper so the handle is still rendered
-      wrapDragHandle: identity,
-    });
+    return React.Children.map(
+      item.children,
+      child =>
+        child ? React.cloneElement(child, { wrapDragHandle: identity }) : null,
+    );
   };
 
   render() {
