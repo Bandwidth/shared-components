@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import tag from 'clean-tag';
 import get from 'extensions/themeGet';
-import userTextSpacing from 'extensions/userTextSpacing';
+import userSpacing from 'extensions/userSpacing';
 
 import H2 from './H2';
 import H3 from './H3';
@@ -13,7 +13,7 @@ import H5 from './H5';
 const H1 = styled(tag.h1)
   .withConfig({ displayName: 'H1' })
   .attrs({
-    spacing: userTextSpacing,
+    spacing: userSpacing.text,
   })`
   color: ${get('colors.primary.default')};
   font-weight: 100;

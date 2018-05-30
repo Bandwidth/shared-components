@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 import tag from 'clean-tag';
-import userTextSpacing from 'extensions/userTextSpacing';
+import userSpacing from 'extensions/userSpacing';
 
 const AlertBorder = styled(tag.div).attrs({
-  spacing: userTextSpacing.withLineHeight(0),
+  spacing: userSpacing,
 })`
   padding: ${get('spacing.small')} ${get('spacing.medium')};
   font-weight: 200;

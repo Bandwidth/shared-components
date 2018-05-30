@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import tag from 'clean-tag';
-import userTextSpacing from 'extensions/userTextSpacing';
+import userSpacing from 'extensions/userSpacing';
 
 const P = styled(tag.p).attrs({
-  spacing: userTextSpacing,
+  spacing: userSpacing.text,
 })`
   margin: ${props => props.spacing};
   font-size: 1em;

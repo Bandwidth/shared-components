@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import tag from 'clean-tag';
 import get from 'extensions/themeGet';
-import userTextSpacing from 'extensions/userTextSpacing';
+import userSpacing from 'extensions/userSpacing';
 
 const H4 = styled(tag.h4)
   .withConfig({ displayName: 'H4' })
   .attrs({
-    spacing: userTextSpacing,
+    spacing: userSpacing.text,
   })`
   color: ${get('colors.primary.default')};
   font-weight: 900;
