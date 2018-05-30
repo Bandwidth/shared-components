@@ -423,6 +423,7 @@ export {
   default as selectItemPrimaryValue,
 } from './extensions/selectItemPrimaryValue';
 export { default as themeGet } from './extensions/themeGet';
+export { default as userSpacing } from './extensions/userSpacing';
 export { default as userTextSpacing } from './extensions/userTextSpacing';
 export { default as layouts } from './layouts';
 export { default as Fields } from './layouts/Fields';

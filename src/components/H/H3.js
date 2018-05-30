@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import tag from 'clean-tag';
 import get from 'extensions/themeGet';
-import userTextSpacing from 'extensions/userTextSpacing';
+import userSpacing from 'extensions/userSpacing';
 
 const LINE_HEIGHT = 1.25;
 
 const H3 = styled(tag.h3)
   .withConfig({ displayName: 'H3' })
   .attrs({
-    spacing: userTextSpacing.withLineHeight(LINE_HEIGHT),
+    spacing: userSpacing.withLineHeight(LINE_HEIGHT),
   })`
   color: ${get('colors.text.default')};
   font-weight: 300;
