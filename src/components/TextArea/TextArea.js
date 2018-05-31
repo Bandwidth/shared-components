@@ -3,22 +3,59 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
 const TextArea = styled.textarea`
-  background: ${get('colors.background.default')};
-  color: ${get('colors.text.default')};
-  font-size: 14px;
-  font-weight: 400;
-  font-family: ${get('fonts.brand')};
+  resize: ${props => props.resize};
   letter-spacing: 0.02em;
-  border-color: ${get('colors.border.light')};
+  line-height: 1.5;
+  font-size: 14px;
+  font-family: ${get('fonts.brand')};
+  transition: all 0.2s ease;
+  padding: ${get('spacing.medium')};
   border-width: ${get('thicknesses.wide')};
   border-style: solid;
-  line-height: 1.5;
-  min-height: 100px;
-  box-shadow: none;
-  transition: all 0.2s ease;
+
+  color: ${get('colors.text.default')};
+  background: ${get('colors.background.default')};
+  opacity: 1;
+  border-color: ${get('colors.border.light')};
+
   outline: none;
   width: 100%;
-  height: ${props => props.height};
+
+  &:required {
+    box-shadow: none;
+  }
+
+  &:focus {
+    box-shadow: inset 0 -5px 0 ${get('colors.primary.light')};
+    border-color: ${get('colors.border.medium')};
+  }
+
+  &:disabled {
+    background: ${get('colors.background.disabled')};
+    border-color: ${get('colors.border.medium')};
+    opacity: 0.5;
+    color: ${get('colors.text.disabled')};
+  }
+
+  &::placeholder {
+    opacity: 0.5;
+  }
+
+  ${props =>
+    props.visited
+      ? css`
+          &:invalid {
+            box-shadow: inset 0 -5px 0 ${get('colors.negative.light')(props)};
+            border-color: ${get('colors.negative.border')(props)};
+          }
+        `
+      : ''} ${props =>
+    props.invalid || props.error
+      ? `
+    box-shadow: inset 0 -5px ${get('colors.negative.light')(props)};
+    border-color: ${get('colors.negative.border')(props)};
+    `
+      : ''};
 `;
 
 TextArea.propTypes = {
@@ -34,12 +71,17 @@ TextArea.propTypes = {
    * Specifies the height of the element.
    */
   height: PropTypes.string,
+  /**
+   * Controls if the textarea can be resized by the user.
+   */
+  resize: PropTypes.oneOf(['vertical', 'horizontal', 'both', 'none']),
 };
 
 TextArea.defaultProps = {
   className: null,
   id: null,
   height: '100px',
+  resize: 'vertical',
 };
 
 /**
