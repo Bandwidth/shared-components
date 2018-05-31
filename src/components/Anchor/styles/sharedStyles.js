@@ -21,7 +21,8 @@ export const base = css`
   white-space: nowrap;
   position: relative;
   height: auto;
-  margin: auto;
+  display: inline-block;
+  margin: ${props => props.spacing};
 
   &:focus {
     outline: none;

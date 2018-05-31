@@ -8,7 +8,6 @@ import { base, positive, negative, dark, inverted } from './sharedStyles';
 
 const iconStyles = css`
   text-decoration: none;
-  display: inline-block;
   text-transform: uppercase;
   font-weight: 700;
 
