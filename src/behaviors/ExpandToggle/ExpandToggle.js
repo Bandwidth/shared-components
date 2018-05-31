@@ -83,7 +83,7 @@ class ExpandToggle extends React.Component {
     if (this.props.onToggle) {
       this.props.onToggle(this.calcIsExpanded());
     }
-    this.setState({ internalIsExpanded: !this.state.internalIsExpanded });
+    this.setState(state => ({ internalIsExpanded: !state.internalIsExpanded }));
   };
 
   calcIsExpanded = () => {
@@ -124,7 +124,11 @@ class ExpandToggle extends React.Component {
         >
           {this.renderToggle()}
         </div>
-        <CollapseType isOpened={isExpanded} springConfig={springConfig}>
+        <CollapseType
+          hasNestedCollapse
+          isOpened={isExpanded}
+          springConfig={springConfig}
+        >
           {children}
         </CollapseType>
       </div>
