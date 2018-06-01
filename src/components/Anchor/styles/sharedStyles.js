@@ -11,12 +11,14 @@ const focusAfterStyles = css`
 `;
 
 const color = get('colors.primary.alternate');
+const disabledColor = get('colors.text.default');
 export const base = css`
-  color: ${color};
+  color: ${({ disabled }) => (disabled ? disabledColor : color)};
   font-family: ${get('fonts.brand')};
+  opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
 
   text-decoration: none;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
   transition: all 0.2s ease;
   white-space: nowrap;
   position: relative;
@@ -28,78 +30,83 @@ export const base = css`
   }
 
   &:active {
-    color: ${get('colors.primary.default')};
+    color: ${({ disabled }) =>
+      disabled ? disabledColor : get('colors.primary.default')};
   }
 
-  &::after {
-    content: '';
-    background: ${color};
-    border-radius: 2em;
-    height: 1px;
-    width: 100%;
-    position: absolute;
-    bottom: -0.1em;
-    left: 0;
-    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
+  ${({ disabled, appearFocused }) =>
+    disabled
+      ? ''
+      : `
+    &::after {
+      content: '';
+      background: ${color};
+      border-radius: 2em;
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      bottom: -0.1em;
+      left: 0;
+      transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
       opacity 0.25s ease;
 
-    ${({ appearFocused }) => (appearFocused ? focusAfterStyles : '')};
-  }
-
-  &:hover::after,
-  &:focus::after {
-    ${focusAfterStyles};
-  }
+      ${appearFocused ? focusAfterStyles : ''};
+    }
+   
+    &:hover::after,
+    &:focus::after {
+      ${focusAfterStyles};
+    }`};
 `;
 
 const dangerColor = get('colors.negative.default');
 export const negative = css`
-  color: ${dangerColor};
+  color: ${({ disabled }) => (disabled ? disabledColor : dangerColor)};
 
   &:active {
-    color: ${get('colors.negative.dark')};
+    color: ${({ disabled }) => (disabled ? '' : get('colors.negative.dark'))};
   }
 
   &::after {
-    background: ${dangerColor};
+    background: ${({ disabled }) => (disabled ? '' : dangerColor)};
   }
 `;
 
 const positiveColor = get('colors.positive.default');
 export const positive = css`
-  color: ${positiveColor};
+  color: ${({ disabled }) => (disabled ? disabledColor : positiveColor)};
 
   &:active {
-    color: ${get('colors.positive.dark')};
+    color: ${({ disabled }) => (disabled ? '' : get('colors.positive.dark'))};
   }
 
   &::after {
-    background: ${positiveColor};
+    background: ${({ disabled }) => (disabled ? '' : positiveColor)};
   }
 `;
 
 const darkColor = get('colors.primary.dark');
 export const dark = css`
-  color: ${darkColor};
+  color: ${({ disabled }) => (disabled ? disabledColor : darkColor)};
 
   &:active {
-    color: ${get('colors.primary.dark')};
+    color: ${({ disabled }) => (disabled ? '' : get('colors.primary.dark'))};
   }
 
   &::after {
-    background: ${darkColor};
+    background: ${({ disabled }) => (disabled ? '' : darkColor)};
   }
 `;
 
 const invertedColor = get('colors.text.inverted');
 export const inverted = css`
-  color: ${invertedColor};
+  color: ${({ disabled }) => (disabled ? disabledColor : invertedColor)};
 
   &:active {
-    color: ${get('colors.text.inverted')};
+    color: ${({ disabled }) => (disabled ? '' : get('colors.text.inverted'))};
   }
 
   &::after {
-    background: ${invertedColor};
+    background: ${({ disabled }) => (disabled ? '' : invertedColor)};
   }
 `;

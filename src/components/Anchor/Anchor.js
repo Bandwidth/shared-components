@@ -83,6 +83,11 @@ class Anchor extends React.Component {
      */
     appearFocused: PropTypes.bool,
     /**
+     * If set to true, disables the Anchor.  While disabled, the Anchor will neither react to mouseover events
+     * nor will it react to onclick events.
+     */
+    disabled: PropTypes.bool,
+    /**
      * Renders a text anchor linking to an external site
      */
     ExternalTextAnchor: PropTypes.func,
@@ -119,6 +124,7 @@ class Anchor extends React.Component {
     newTab: false,
     appearFocused: false,
     external: undefined,
+    disabled: false,
     ExternalTextAnchor: DefaultExternalTextAnchor,
     ExternalIconAnchor: DefaultExternalIconAnchor,
     ExternalContentAnchor: DefaultExternalContentAnchor,
@@ -163,7 +169,9 @@ class Anchor extends React.Component {
   };
 
   handleClick = event => {
-    const { onClick, to } = this.props;
+    const { onClick, to, disabled } = this.props;
+    // Don't handle clicks if disabled
+    if (disabled) return;
     // if the user isn't using this link to navigate,
     // prevent default navigation
     if (onClick && to === '#') {
@@ -193,9 +201,10 @@ class Anchor extends React.Component {
 
   // provides extra properties based on certain factors to the underlying element
   extraProps = () => {
-    const { to, newTab } = this.props;
-    const newTabProps = newTab ? { rel: 'noopener', target: '_blank' } : {};
-    if (this.isExternal()) {
+    const { to, newTab, disabled } = this.props;
+    const newTabProps =
+      newTab && !disabled ? { rel: 'noopener', target: '_blank' } : {};
+    if (this.isExternal() && !disabled) {
       return {
         href: to,
         ...newTabProps,
@@ -220,6 +229,7 @@ class Anchor extends React.Component {
       appearFocused,
       onMouseEnter,
       onMouseLeave,
+      disabled,
     } = this.props;
     const Component = this.getComponentType();
 
@@ -238,6 +248,7 @@ class Anchor extends React.Component {
             appearFocused={appearFocused}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
+            disabled={disabled}
           >
             {this.childrenWithProps({ active: !!match })}
           </Component>
