@@ -127,7 +127,7 @@ class Anchor extends React.Component {
     newTab: false,
     appearFocused: false,
     external: undefined,
-    spacing: {},
+    spacing: { horizontal: 'auto' },
     ExternalTextAnchor: DefaultExternalTextAnchor,
     ExternalIconAnchor: DefaultExternalIconAnchor,
     ExternalContentAnchor: DefaultExternalContentAnchor,
