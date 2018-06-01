@@ -208,6 +208,19 @@ class Anchor extends React.Component {
     }
   };
 
+  isActive(to, match, exact) {
+    let active;
+    if (!exact) {
+      // use the default behavior for non-exact matches
+      active = !!match;
+    } else {
+      // when we expect an exact match, dont allow react-router null
+      // value, additionally verify special chars are used
+      active = match == null ? false : match.url === to;
+    }
+    return active;
+  }
+
   render() {
     const {
       to,
@@ -239,7 +252,9 @@ class Anchor extends React.Component {
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
           >
-            {this.childrenWithProps({ active: !!match })}
+            {this.childrenWithProps({
+              active: this.isActive(to, match, exact),
+            })}
           </Component>
         )}
       />
