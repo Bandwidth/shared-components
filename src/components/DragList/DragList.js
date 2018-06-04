@@ -6,8 +6,8 @@ import DragListItem from './DragListItem';
 import DragContainer from 'components/DragContainer';
 
 const StyledDiv = styled.div`
-  & > * {
-    margin-bottom: ${get('spacing.medium')};
+  & > * + * {
+    margin-top: ${get('spacing.medium')};
   }
 `;
 
