@@ -30,8 +30,8 @@ const InputStyles = styled.input`
 
   &:disabled {
     background: ${get('colors.background.disabled')};
-    border-color: ${get('colors.border.medium')};
-    opacity: 0.5;
+    border-color: ${get('colors.border.disabled')};
+    opacity: 1;
     color: ${get('colors.text.disabled')};
   }
 
