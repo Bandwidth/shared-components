@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
-import Label from '../../Label';
 import Input from './CheckboxInput';
 import icons from 'components/Icon/icons';
 
@@ -8,10 +7,12 @@ const SIZE = '30px';
 const CHECK_SIZE = '21px';
 
 // Builds off the base label
-export default styled(Label)`
-  padding: 5px 0 5px calc(${SIZE} + 10px);
+export default styled.label`
+  display: block;
+  padding: 4px 0 5px calc(${SIZE} + 10px);
   min-height: ${SIZE};
   min-width: ${SIZE};
+  line-height: 1.5;
 
   cursor: pointer;
   position: relative;

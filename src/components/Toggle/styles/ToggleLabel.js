@@ -3,18 +3,22 @@ import get from 'extensions/themeGet';
 import Input from './ToggleInput';
 
 export const SIZE = '30px';
+const TOGGLE_WIDTH = '58px';
 
 export default styled.label`
+  display: block;
   cursor: pointer;
   position: relative;
-  padding-right: 0;
-  padding-left: 68px; /* 58px width  + 10px spacing */
   user-select: none;
+
+  padding-right: 0;
+  padding-left: calc(${TOGGLE_WIDTH} + 10px);
+  padding-top: 4px;
+  padding-bottom: 5px;
   transition: all 0.2s ease;
-  line-height: calc(${SIZE} * 1.166);
+  line-height: 1.5;
   font-family: ${get('fonts.brand')};
   font-weight: 300;
-  display: inline;
 
   &::before {
     content: '';
@@ -31,8 +35,8 @@ export default styled.label`
     transform: translateY(-50%);
     transition: all 0.2s ease;
   }
-  
-  
+
+
   ${Input}:enabled + &:hover::before {
     box-shadow: ${get('shadows.focusOutline')};
   }
@@ -87,14 +91,14 @@ export default styled.label`
   ${Input}:disabled + & {
     cursor: default;
     color: ${get('colors.gray.border')};
-    
+
     &::before,
     &::after {
       border-color: ${get('colors.border.disabled')};
       background: ${get('colors.background.disabled')};
     }
   }
-  
+
   ${Input}:checked:disabled + &::before {
     background: ${get('colors.background.disabledSelected')};
   }

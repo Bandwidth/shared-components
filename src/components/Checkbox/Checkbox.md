@@ -4,6 +4,7 @@ A simple checkbox input.
 ```js
 <div>
   <Checkbox description="Foo" />
+  <Checkbox description="Bar" />
 </div>
 ```
 
