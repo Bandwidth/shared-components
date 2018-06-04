@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
 import { Route } from 'react-router-dom';
+import userSpacing from 'extensions/userSpacing';
+import { withTheme } from 'styled-components';
+
 import DefaultExternalContentAnchor from './styles/ExternalContentAnchor';
 import DefaultExternalIconAnchor from './styles/ExternalIconAnchor';
 import DefaultExternalTextAnchor from './styles/ExternalTextAnchor';
@@ -83,6 +86,11 @@ class Anchor extends React.Component {
      */
     appearFocused: PropTypes.bool,
     /**
+     * Specify a CSS value or an object { top, right, bottom, left } or { vertical, horizontal } to
+     * control the spacing around the heading. Defaults to a large space below the element.
+     */
+    spacing: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    /**
      * Renders a text anchor linking to an external site
      */
     ExternalTextAnchor: PropTypes.func,
@@ -119,6 +127,7 @@ class Anchor extends React.Component {
     newTab: false,
     appearFocused: false,
     external: undefined,
+    spacing: { horizontal: 'auto' },
     ExternalTextAnchor: DefaultExternalTextAnchor,
     ExternalIconAnchor: DefaultExternalIconAnchor,
     ExternalContentAnchor: DefaultExternalContentAnchor,
@@ -251,6 +260,7 @@ class Anchor extends React.Component {
             appearFocused={appearFocused}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
+            spacing={userSpacing.text(this.props)}
           >
             {this.childrenWithProps({
               active: this.isActive(to, match, exact),
@@ -262,32 +272,34 @@ class Anchor extends React.Component {
   }
 }
 
-Anchor.Danger = Anchor.Negative = withProps({
+const ThemedAnchor = withTheme(Anchor);
+
+ThemedAnchor.Danger = ThemedAnchor.Negative = withProps({
   ExternalTextAnchor: DefaultExternalTextAnchor.Danger,
   ExternalIconAnchor: DefaultExternalIconAnchor.Danger,
   InternalTextAnchor: DefaultInternalTextAnchor.Danger,
   InternalIconAnchor: DefaultInternalIconAnchor.Danger,
-})(Anchor);
+})(ThemedAnchor);
 
-Anchor.Positive = withProps({
+ThemedAnchor.Positive = withProps({
   ExternalTextAnchor: DefaultExternalTextAnchor.Positive,
   ExternalIconAnchor: DefaultExternalIconAnchor.Positive,
   InternalTextAnchor: DefaultInternalTextAnchor.Positive,
   InternalIconAnchor: DefaultInternalIconAnchor.Positive,
-})(Anchor);
+})(ThemedAnchor);
 
-Anchor.Dark = withProps({
+ThemedAnchor.Dark = withProps({
   ExternalTextAnchor: DefaultExternalTextAnchor.Dark,
   ExternalIconAnchor: DefaultExternalIconAnchor.Dark,
   InternalTextAnchor: DefaultInternalTextAnchor.Dark,
   InternalIconAnchor: DefaultInternalIconAnchor.Dark,
-})(Anchor);
+})(ThemedAnchor);
 
-Anchor.Inverted = withProps({
+ThemedAnchor.Inverted = withProps({
   ExternalTextAnchor: DefaultExternalTextAnchor.Inverted,
   ExternalIconAnchor: DefaultExternalIconAnchor.Inverted,
   InternalTextAnchor: DefaultInternalTextAnchor.Inverted,
   InternalIconAnchor: DefaultInternalIconAnchor.Inverted,
-})(Anchor);
+})(ThemedAnchor);
 
-export default Anchor;
+export default ThemedAnchor;
