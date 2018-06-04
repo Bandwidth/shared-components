@@ -25,7 +25,7 @@ export const base = css`
   height: auto;
   margin: auto;
 
-  &:focus {
+  ${({ disabled }) => (disabled ? 'pointer-events: none' : '')} &:focus {
     outline: none;
   }
 

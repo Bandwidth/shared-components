@@ -170,8 +170,6 @@ class Anchor extends React.Component {
 
   handleClick = event => {
     const { onClick, to, disabled } = this.props;
-    // Don't handle clicks if disabled
-    if (disabled) return;
     // if the user isn't using this link to navigate,
     // prevent default navigation
     if (onClick && to === '#') {
