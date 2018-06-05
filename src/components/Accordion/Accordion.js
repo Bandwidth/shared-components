@@ -164,7 +164,6 @@ Accordion.Small = defaultProps({
   Border: AccordionBorder.Small,
   Arrow: AccordionArrow.Small,
   Label: AccordionLabel.Small,
-  Content: AccordionContent.Small,
   spacing: '20px',
 })(Accordion);
 Accordion.Group = AccordionGroup;
