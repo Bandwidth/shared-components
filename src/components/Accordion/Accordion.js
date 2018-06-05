@@ -105,6 +105,7 @@ class Accordion extends React.Component {
     Arrow: AccordionArrow,
     LabelText: AccordionLabelText,
     Content: AccordionContent,
+    spacing: 'lg',
   };
 
   coalesceIsExpandedProps = () => {
@@ -119,7 +120,7 @@ class Accordion extends React.Component {
   };
 
   renderLabel = (isExpanded, disabled) => (
-    <this.props.Label disabled={disabled}>
+    <this.props.Label spacing={this.props.spacing} disabled={disabled}>
       <this.props.Arrow isExpanded={isExpanded} name="forward" size={21} />
       <this.props.LabelText>{this.props.label}</this.props.LabelText>
     </this.props.Label>
@@ -164,6 +165,7 @@ Accordion.Small = defaultProps({
   Arrow: AccordionArrow.Small,
   Label: AccordionLabel.Small,
   Content: AccordionContent.Small,
+  spacing: '20px',
 })(Accordion);
 Accordion.Group = AccordionGroup;
 
