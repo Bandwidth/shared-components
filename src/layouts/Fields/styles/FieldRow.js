@@ -18,8 +18,8 @@ const copyArea = (input, times) =>
 const hasLabel = children =>
   React.Children.toArray(children).some(
     child =>
-      child.props.Label != null &&
-      child.props.label != null &&
+      child.props.Label !== null &&
+      child.props.label !== null &&
       (typeof child.props.label !== 'string' || child.props.label.length > 0),
   );
 
@@ -27,8 +27,8 @@ const hasLabel = children =>
 const hasHelpText = children =>
   React.Children.toArray(children).some(
     child =>
-      child.props.HelpText != null &&
-      child.props.helpText != null &&
+      child.props.HelpText !== null &&
+      child.props.helpText !== null &&
       (typeof child.props.label !== 'string' ||
         child.props.helpText.length > 0),
   );
