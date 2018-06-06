@@ -12,7 +12,7 @@ export default styled.label`
   user-select: none;
 
   padding-right: 0;
-  padding-left: calc(${TOGGLE_WIDTH} + 10px);
+  padding-left: calc(${TOGGLE_WIDTH} + ${get('spacing.small')});
   padding-top: 4px;
   padding-bottom: 5px;
   transition: all 0.2s ease;
@@ -26,7 +26,7 @@ export default styled.label`
     border-width: ${get('thicknesses.wide')};
     border-style: solid;
     border-radius: 15px;
-    width: 58px;
+    width: ${TOGGLE_WIDTH};
     height: ${SIZE};
     display: block;
     position: absolute;

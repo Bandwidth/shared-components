@@ -13,29 +13,25 @@ const sizes = ['2.5em', '2em', '1.75em', '1.25em', '1.15em', '1em', '0.8em'];
 
 const Font = withTheme(({theme, name}) =>
   (
-    <Gutter>
-      <Spacing style={{
+      <div style={{
           fontFamily: theme['bandwidth-shared'].fonts[name],
           fontSize: '1.75em',
         }} >
-          {text.map(t => <div key={t}>{Array.from(t).join('\n')}</div>)}
-        </Spacing>
-    </Gutter>
+          {text.map(t => <Section key={t}><P spacing="lg">{Array.from(t).join(' ')}</P></Section>)}
+        </div>
   )
 );
 
 const FontSizes = withTheme(({theme, name}) =>
   (
-    <Gutter>
-        {sizes.map((size) =>
-          <Section key={size}>
+        sizes.map((size) =>
+          <Section key={size} title={size}>
             <P style={{
               fontFamily: theme['bandwidth-shared'].fonts[name],
               fontSize: size,
-            }} spacing="lg">ABCDEFGHIJKLMNOPQRSTUVWXYZ</P>
+            }} spacing="lg">{sentence}</P>
           </Section>
-        )}
-    </Gutter>
+        )
   )
 );
 
@@ -49,7 +45,8 @@ const Section = (props) =>
   <Gutter>
     <RedLine />
     <BlueLine style={{top: '30px' }} />
-      {props.children}
+    {props.title && <div style={{position: 'absolute', left: "8px", color: 'rgba(0, 0, 0, .35)'}}>{props.title}</div>}
+    {props.children}
     <BlueLine style={{bottom: '30px' }} />
     <RedLine />
   </Gutter>
@@ -64,42 +61,6 @@ const Space = () => (
       <H1 spacing="lg">
         Heading with Spacing Applied
       </H1>
-    </Section>
-
-    <Section>
-      <H1 spacing="lg">
-        ABCDEFGHIJKLMNOPQRSTUVWXYZ
-      </H1>
-    </Section>
-
-    <Section>
-      <H2 spacing="lg">
-        ABCDEFGHIJKLMNOPQRSTUVWXYZ
-      </H2>
-    </Section>
-
-    <Section>
-      <H3 spacing="lg">
-        ABCDEFGHIJKLMNOPQRSTUVWXYZ
-      </H3>
-    </Section>
-
-    <Section>
-      <H4 spacing="lg">
-        ABCDEFGHIJKLMNOPQRSTUVWXYZ
-      </H4>
-    </Section>
-
-    <Section>
-      <H5 spacing="lg">
-        ABCDEFGHIJKLMNOPQRSTUVWXYZ
-      </H5>
-    </Section>
-
-    <Section>
-      <P spacing="lg">
-        ABCDEFGHIJKLMNOPQRSTUVWXYZ
-      </P>
     </Section>
 
     <Section>
