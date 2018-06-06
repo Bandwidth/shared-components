@@ -394,6 +394,7 @@ export { default as TabContainer } from './components/Tabs/styles/TabContainer';
 export { default as TabContent } from './components/Tabs/styles/TabContent';
 export { default as TabList } from './components/Tabs/styles/TabList';
 export { default as TextArea } from './components/TextArea';
+export { default as TextDiv } from './components/TextDiv';
 export { default as Toast } from './components/Toast';
 export { default as Toggle } from './components/Toggle';
 export {
