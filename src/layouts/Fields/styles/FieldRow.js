@@ -20,7 +20,7 @@ const hasLabel = children =>
     child =>
       child.props.Label != null &&
       child.props.label != null &&
-      child.props.label.length > 0,
+      (typeof child.props.label !== 'string' || child.props.label.length > 0),
   );
 
 // Returns true if at least one child uses help text
@@ -29,7 +29,8 @@ const hasHelpText = children =>
     child =>
       child.props.HelpText != null &&
       child.props.helpText != null &&
-      child.props.helpText.length > 0,
+      (typeof child.props.label !== 'string' ||
+        child.props.helpText.length > 0),
   );
 
 /*

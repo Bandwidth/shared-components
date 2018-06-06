@@ -96,19 +96,17 @@ class Field extends React.Component {
 
     const labelFor = get(children, 'props.id', null);
 
+    const labelProps = {
+      disabled,
+      required,
+      htmlFor: labelFor,
+      style: this.stylesFor('label'),
+    };
+
     if (typeof label === 'string') {
-      return (
-        <Label
-          disabled={disabled}
-          required={required}
-          htmlFor={labelFor}
-          style={this.stylesFor('label')}
-        >
-          {label}
-        </Label>
-      );
+      return <Label {...labelProps}>{label}</Label>;
     }
-    return React.cloneElement(label, { htmlFor: labelFor });
+    return React.cloneElement(label, labelProps);
   };
 
   renderHelpText = () => {
@@ -118,10 +116,14 @@ class Field extends React.Component {
       return null;
     }
 
+    const helpTextProps = {
+      style: this.stylesFor('helpText'),
+    };
+
     if (typeof helpText === 'string') {
-      return <HelpText style={this.stylesFor('helpText')}>{helpText}</HelpText>;
+      return <HelpText {...helpTextProps}>{helpText}</HelpText>;
     }
-    return helpText;
+    return React.cloneElement(helpText, helpTextProps);
   };
 
   render() {
