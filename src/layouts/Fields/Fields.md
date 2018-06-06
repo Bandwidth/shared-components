@@ -106,6 +106,25 @@ const longText = new Array(64).fill('Text').join(' ');
 </Fields>
 ```
 
+### Providing customized label and helpText
+
+```js
+const Input = require('../../components/Input').default;
+const Accordion = require('../../components/Accordion').default;
+
+<Fields columns={1}>
+  <Fields.Field
+    label={<i>This is a customized label</i>}
+    helpText={<Accordion.Small label="A very customized helptext">This probably isn't your use-case</Accordion.Small>}
+  >
+    <Input />
+  </Fields.Field>
+  <Fields.Field label="Just a regular field">
+    <Input />
+  </Fields.Field>
+</Fields>
+```
+
 ### Error test: a field which is too wide for the fieldset
 
 This layout should fail with an error in the console explaining that the field is too wide.
