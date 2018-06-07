@@ -6,7 +6,6 @@ import icons from 'components/Icon/icons';
 const SIZE = '30px';
 const CHECK_SIZE = '21px';
 
-// Builds off the base label
 export default styled.label`
   display: block;
   padding: 4px 0 5px calc(${SIZE} + 10px);
