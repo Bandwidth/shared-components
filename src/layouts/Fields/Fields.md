@@ -17,7 +17,7 @@ const longLabel = `a ${(new Array(16).fill('very, ').join(''))} very long label!
   <Fields.Field helpText="some help text" label={longLabel}><Input /></Fields.Field>
   <Fields.Field alignContent="right" alignContentVertically="center"><Toggle description="Toggle me!" /></Fields.Field>
   <Fields.Field label="label"><Input /></Fields.Field>
-  <Fields.Field label="required:" required={true}><Input /></Fields.Field>
+  <Fields.Field label="required:"><Input required /></Fields.Field>
   <Fields.Field><Input /></Fields.Field>
   <Fields.Field label="options" alignContent="left">
     <RadioGroup options={['one', 'two', 'three']} />
@@ -29,6 +29,53 @@ const longLabel = `a ${(new Array(16).fill('very, ').join(''))} very long label!
 ```
 
 By default, Fields uses 2 columns.
+
+### Props
+
+**Group Props**
+
+```js
+const Table = require('../../components/Table').default;
+
+const headers = ['Prop name', 'type', 'default', 'description'];
+const rows = [
+  ['columns', 'number', '2', 'The number of columns in the field layout'],
+  ['id', 'string', 'null', 'An id to assign to the group element'],
+  ['className', 'string', 'field-group', 'A class name to assign to the group element'],
+  ['style', 'object', '{}', 'Style overrides for the group element'],
+];
+
+<Table.Small>
+  <Table.Row>{headers.map(header => <Table.Header key={header}>{header}</Table.Header>)}</Table.Row>
+  {rows.map((row, idx) => (<Table.Row key={idx}>{row.map(item => <Table.Cell key={item}>{item}</Table.Cell>)}</Table.Row>))}
+</Table.Small>
+```
+
+**Field Props**
+
+```js
+const Table = require('../../components/Table').default;
+
+const headers = ['Prop name', 'type', 'default', 'description'];
+const rows = [
+  ['label', 'string | node | func', 'null', 'A label for the field'],
+  ['helpText', 'string | node | func', 'null', 'Help text for the field'],
+  ['required', 'bool', 'false', 'Whether the field is required (affects label render)'],
+  ['columnSpan', 'number', '1', 'How many columns the field should take up'],
+  ['contentHorizontalAlign', 'string', 'left', 'How content should align horizontally'],
+  ['contentVerticalAlign', 'string', 'top', 'How content should align vertically'],
+  ['alignContent', 'string', 'left', 'Alias for contentHorizontalAlign'],
+  ['alignContentVertically', 'string', 'top', 'Alias for contentVerticalAlign'],
+  ['labelHorizontalAlign', 'string', 'left', 'How the label should align horizontally'],
+  ['labelVerticalAlign', 'string', 'bottom', 'How the label should align vertically'],
+  ['helpTextHorizontalAlign', 'string', 'left', 'How the help text should align horizontally'],
+];
+
+<Table.Small>
+  <Table.Row>{headers.map(header => <Table.Header key={header}>{header}</Table.Header>)}</Table.Row>
+  {rows.map((row, idx) => (<Table.Row key={idx}>{row.map(item => <Table.Cell key={item}>{item}</Table.Cell>)}</Table.Row>))}
+</Table.Small>
+```
 
 ### HTML output & accessibility
 
