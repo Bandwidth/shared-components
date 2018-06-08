@@ -1,5 +1,7 @@
 Fields does form field layout automatically. Specify the number of columns and column span values for individual fields. The Fields component will handle grouping fields into rows and aligning them automatically.
 
+> Note: Fields is based on the [field-day](https://github.com/a-type/field-day) React library.
+
 ### Behavior gallery
 
 ```js
@@ -13,7 +15,7 @@ const longLabel = `a ${(new Array(16).fill('very, ').join(''))} very long label!
 <Fields>
   <Fields.Field label="label"><Input id="firstInput"/></Fields.Field>
   <Fields.Field helpText="some help text" label={longLabel}><Input /></Fields.Field>
-  <Fields.Field><Toggle description="Toggle me!" /></Fields.Field>
+  <Fields.Field alignContent="right" alignContentVertically="center"><Toggle description="Toggle me!" /></Fields.Field>
   <Fields.Field label="label"><Input /></Fields.Field>
   <Fields.Field label="required:" required={true}><Input /></Fields.Field>
   <Fields.Field><Input /></Fields.Field>
@@ -43,17 +45,14 @@ Actually produces HTML like this:
 
 ```html
 <div>
-  <!-- an auto-generated row element -->
-  <div>
-    <!-- start of the first field -->
-    <label>foo</label>
-    <input />
-    <div>bar</div>
-    <!-- start of the second field -->
-    <label>thud</label>
-    <input />
-    <div>baz</div>
-  </div>
+  <!-- start of the first field -->
+  <label>foo</label>
+  <input />
+  <div>bar</div>
+  <!-- start of the second field -->
+  <label>thud</label>
+  <input />
+  <div>baz</div>
 </div>
 ```
 
@@ -62,6 +61,8 @@ To make sure that forms are accessible, Fields supports associating labels with 
 ```js static
 <Field label="foo"><Input id="foo" /></Field>
 ```
+
+If you can't supply an `id` prop to the root content component, you can also supply `fieldId` to the Field itself.
 
 ### Spanning multiple columns
 
@@ -89,6 +90,14 @@ const Input = require('../../components/Input').default;
   <Fields.Field label="label" columnSpan={1}><Input /></Fields.Field>
 </Fields>
 ```
+
+### A note about HelpText
+
+The `helpText` prop is just a shortcut to place a `HelpText` element below the field content. Help text is not aligned in its own row like labels are, on purpose. If you had a textarea in one column, for instance, you wouldn't want the help text in the column next to it to vertically align to the bottom of the adjacent textarea; you would want it to align to the bottom of its own content element.
+
+### Group spacing
+
+There is a large spacing margin below the field group when it's rendered. This is meant to flow well into other content. It also allows you to stack two sets of FieldGroups above each other with no extra code and get seamless spacing.
 
 ### Spacing stress-test
 
