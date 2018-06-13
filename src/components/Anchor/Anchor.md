@@ -60,6 +60,11 @@ _A negative "combo" anchor_
 <Anchor.Negative to="#foo" icon="unicorn">Unicorns</Anchor.Negative>
 ```
 
+_A disabled negative "combo" anchor_
+```javascript
+<Anchor.Negative to="#foo" icon="pokemon" disabled>Danger zone</Anchor.Negative>
+```
+
 _A positive anchor_
 ```javascript
 <Anchor.Positive to="#foo">Stay posi</Anchor.Positive>

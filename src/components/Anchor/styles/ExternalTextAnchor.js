@@ -31,7 +31,8 @@ const newTabIconStyles = css`
 `;
 
 const ExternalTextAnchor = styled.a`
-  ${base} ${({ newTab }) => (newTab ? newTabIconStyles : '')};
+  ${base} ${({ newTab, disabled }) =>
+    newTab && !disabled ? newTabIconStyles : ''};
 `;
 
 ExternalTextAnchor.Negative = styled(ExternalTextAnchor)`
