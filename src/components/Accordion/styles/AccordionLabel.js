@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
+import userSpacing from 'extensions/userSpacing';
 
-const AccordionLabel = styled.div`
-  padding: ${get('spacing.large')};
+const AccordionLabel = styled.div.attrs({
+  spacing: userSpacing.text,
+})`
+  padding: ${props => props.spacing};
   color: ${get('colors.primary.default')};
   font-family: ${get('fonts.brand')};
   font-size: 1.5em;
+  line-height: 1.5;
   text-transform: none;
   font-weight: 400;
   cursor: ${({ disabled }) => (disabled ? 'auto' : 'pointer')};
@@ -15,7 +19,6 @@ const AccordionLabel = styled.div`
 `;
 
 AccordionLabel.Small = styled(AccordionLabel)`
-  padding: ${get('spacing.medium')};
   color: ${get('colors.text.default')};
   font-weight: 600;
   font-size: 1em;
