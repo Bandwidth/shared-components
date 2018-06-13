@@ -48,6 +48,8 @@ class Wrapper extends React.Component {
 <div>
   <div>A basic select:</div>
   <Wrapper options={options} />
+  <div>An invalid select:</div>
+  <Wrapper invalid options={options} />
   <div>A searchable select:</div>
   <Wrapper searchable options={options}/>
   <div>A required select:</div>

@@ -37,6 +37,10 @@ class Field extends React.Component {
      */
     required: PropTypes.bool,
     /**
+     * Indicates if the field is in an error state.
+     */
+    error: PropTypes.bool,
+    /**
      * Disables the form label.
      */
     disabled: PropTypes.bool,
@@ -110,7 +114,7 @@ class Field extends React.Component {
   };
 
   renderHelpText = () => {
-    const { helpText, HelpText } = this.props;
+    const { helpText, error, HelpText } = this.props;
 
     if (!helpText) {
       return null;
@@ -118,6 +122,7 @@ class Field extends React.Component {
 
     const helpTextProps = {
       style: this.stylesFor('helpText'),
+      error,
     };
 
     if (typeof helpText === 'string') {

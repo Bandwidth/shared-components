@@ -111,6 +111,10 @@ class Select extends React.PureComponent {
      */
     required: PropTypes.bool,
     /**
+     * Styles this field as being invalid
+     */
+    invalid: PropTypes.bool,
+    /**
      * A list of selection options. Can be complex objects.
      */
     options: PropTypes.array.isRequired,
@@ -166,6 +170,7 @@ class Select extends React.PureComponent {
     disabled: false,
     required: false,
     allowNone: false,
+    invalid: false,
     placeholder: 'None',
     renderOption: selectOptionPrimaryValue,
     getOptionValue: selectOptionPrimaryValue,
@@ -218,13 +223,14 @@ class Select extends React.PureComponent {
       allowNone,
       isLoading,
       loading,
+      invalid,
       Wrapper,
     } = this.props;
     const combinedLoading = loading || isLoading;
     const combinedPlaceholder = placeholder || noneText;
 
     return (
-      <Wrapper>
+      <Wrapper invalid={invalid}>
         <LibSelect
           {...this.props}
           options={this.convertOptions()}

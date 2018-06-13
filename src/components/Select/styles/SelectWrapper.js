@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import get from 'extensions/themeGet';
 import arrowImage from '../arrow.png';
 
@@ -47,9 +47,13 @@ const SelectWrapper = styled.div`
     pointer-events: none;
     opacity: 0.5;
   }
+
   .Select-control {
     background-color: ${get('colors.background.default')};
-    border-color: ${get('colors.border.light')};
+    border-color: ${props =>
+      props.invalid
+        ? get('colors.negative.border')
+        : get('colors.border.light')};
     border-radius: 0;
     border-width: ${get('thicknesses.wide')};
     border-style: solid;
@@ -64,7 +68,14 @@ const SelectWrapper = styled.div`
     min-height: 53px;
   }
 
-  .Select-control .Select-input:focus {
+  ${props =>
+    props.invalid
+      ? css`
+          .Select:not(.is-open) > .Select-control {
+            box-shadow: inset 0 -5px 0 ${get('colors.negative.light')};
+          }
+        `
+      : ''} .Select-control .Select-input:focus {
     outline: none;
   }
 
