@@ -1,7 +1,10 @@
 import styled from 'styled-components';
+import get from 'extensions/themeGet';
 
 export default styled.div`
-  position: relative;
   display: block;
-  margin-bottom: 5px;
+  position: relative;
+  & + & {
+    margin-top: ${get('spacing.extraSmall')};
+  }
 `;

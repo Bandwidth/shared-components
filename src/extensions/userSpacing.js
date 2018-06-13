@@ -55,8 +55,8 @@ const userTextSpacingWithLineHeight = lineHeight => props => {
    * smaller or larger, so we further scale the value based on its difference
    * from 1.5. Experiments suggest this produces reasonably accurate results.
    */
-  const topOffset = `${lineHeight / -6.0 * (lineHeight / 1.5)}em`;
-  const bottomOffset = `${lineHeight / -3.0 * (lineHeight / 1.5)}em`;
+  const topOffset = `${lineHeight / -5.25 * (lineHeight / 1.5)}em`;
+  const bottomOffset = `${lineHeight / -3.5 * (lineHeight / 1.5)}em`;
 
   if (!spacing) {
     // this is default 'no spacing', will align adjacent elements

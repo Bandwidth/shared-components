@@ -1,6 +1,10 @@
 import styled from 'styled-components';
+import get from 'extensions/themeGet';
 
 export default styled.div`
-  display: inline-block;
+  display: block;
   position: relative;
+  & + & {
+    margin-top: ${get('spacing.extraSmall')};
+  }
 `;

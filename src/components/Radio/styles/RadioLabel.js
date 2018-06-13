@@ -15,9 +15,12 @@ export default styled.label`
   display: block;
   cursor: pointer;
   position: relative;
+  user-select: none;
+
   padding-left: calc(${SIZE} + 10px);
   padding-top: 4px;
-  line-height: 1.5em;
+  padding-bottom: 5px;
+  line-height: 1.5;
   min-height: ${SIZE};
   color: ${calcLabelColor};
   /*

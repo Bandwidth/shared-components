@@ -8,9 +8,4 @@ const AccordionContent = styled.div`
   flex-direction: column;
 `;
 
-AccordionContent.Small = styled(AccordionContent)`
-  padding: ${get('spacing.large')};
-  padding-top: ${get('spacing.extraSmall')};
-`;
-
 export default AccordionContent;

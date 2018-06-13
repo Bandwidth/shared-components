@@ -33,7 +33,7 @@ const ControlsAccordionLabel = AccordionLabel.Small.extend`
   font-size: 12px;
 `;
 
-const ControlsAccordionContent = AccordionContent.Small.extend`
+const ControlsAccordionContent = AccordionContent.extend`
   padding: ${get('spacing.extraSmall')};
   color: inherit;
 `;

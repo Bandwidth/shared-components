@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
 import { Route } from 'react-router-dom';
+import userSpacing from 'extensions/userSpacing';
+import { withTheme } from 'styled-components';
+
 import DefaultExternalContentAnchor from './styles/ExternalContentAnchor';
 import DefaultExternalIconAnchor from './styles/ExternalIconAnchor';
 import DefaultExternalTextAnchor from './styles/ExternalTextAnchor';
@@ -87,6 +90,10 @@ class Anchor extends React.Component {
      * nor will it react to onclick events.
      */
     disabled: PropTypes.bool,
+     * Specify a CSS value or an object { top, right, bottom, left } or { vertical, horizontal } to
+     * control the spacing around the heading. Defaults to a large space below the element.
+     */
+    spacing: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     /**
      * Renders a text anchor linking to an external site
      */
@@ -125,6 +132,7 @@ class Anchor extends React.Component {
     appearFocused: false,
     external: undefined,
     disabled: false,
+    spacing: { horizontal: 'auto' },
     ExternalTextAnchor: DefaultExternalTextAnchor,
     ExternalIconAnchor: DefaultExternalIconAnchor,
     ExternalContentAnchor: DefaultExternalContentAnchor,
@@ -219,6 +227,19 @@ class Anchor extends React.Component {
     }
   };
 
+  isActive(to, match, exact) {
+    let active;
+    if (!exact) {
+      // use the default behavior for non-exact matches
+      active = !!match;
+    } else {
+      // when we expect an exact match, dont allow react-router null
+      // value, additionally verify special chars are used
+      active = match == null ? false : match.url === to;
+    }
+    return active;
+  }
+
   render() {
     const {
       to,
@@ -251,8 +272,11 @@ class Anchor extends React.Component {
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             disabled={disabled}
+            spacing={userSpacing.text(this.props)}
           >
-            {this.childrenWithProps({ active: !!match })}
+            {this.childrenWithProps({
+              active: this.isActive(to, match, exact),
+            })}
           </Component>
         )}
       />
@@ -260,32 +284,34 @@ class Anchor extends React.Component {
   }
 }
 
-Anchor.Danger = Anchor.Negative = withProps({
+const ThemedAnchor = withTheme(Anchor);
+
+ThemedAnchor.Danger = ThemedAnchor.Negative = withProps({
   ExternalTextAnchor: DefaultExternalTextAnchor.Danger,
   ExternalIconAnchor: DefaultExternalIconAnchor.Danger,
   InternalTextAnchor: DefaultInternalTextAnchor.Danger,
   InternalIconAnchor: DefaultInternalIconAnchor.Danger,
-})(Anchor);
+})(ThemedAnchor);
 
-Anchor.Positive = withProps({
+ThemedAnchor.Positive = withProps({
   ExternalTextAnchor: DefaultExternalTextAnchor.Positive,
   ExternalIconAnchor: DefaultExternalIconAnchor.Positive,
   InternalTextAnchor: DefaultInternalTextAnchor.Positive,
   InternalIconAnchor: DefaultInternalIconAnchor.Positive,
-})(Anchor);
+})(ThemedAnchor);
 
-Anchor.Dark = withProps({
+ThemedAnchor.Dark = withProps({
   ExternalTextAnchor: DefaultExternalTextAnchor.Dark,
   ExternalIconAnchor: DefaultExternalIconAnchor.Dark,
   InternalTextAnchor: DefaultInternalTextAnchor.Dark,
   InternalIconAnchor: DefaultInternalIconAnchor.Dark,
-})(Anchor);
+})(ThemedAnchor);
 
-Anchor.Inverted = withProps({
+ThemedAnchor.Inverted = withProps({
   ExternalTextAnchor: DefaultExternalTextAnchor.Inverted,
   ExternalIconAnchor: DefaultExternalIconAnchor.Inverted,
   InternalTextAnchor: DefaultInternalTextAnchor.Inverted,
   InternalIconAnchor: DefaultInternalIconAnchor.Inverted,
-})(Anchor);
+})(ThemedAnchor);
 
-export default Anchor;
+export default ThemedAnchor;

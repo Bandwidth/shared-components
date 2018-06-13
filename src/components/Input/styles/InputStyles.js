@@ -7,7 +7,7 @@ const InputStyles = styled.input`
   font-size: 14px;
   font-family: ${get('fonts.brand')};
   transition: all 0.2s ease;
-  padding: ${get('spacing.medium')};
+  padding: calc(${get('spacing.medium')} - 1px);
   border-width: ${get('thicknesses.wide')};
   border-style: solid;
 
@@ -30,8 +30,8 @@ const InputStyles = styled.input`
 
   &:disabled {
     background: ${get('colors.background.disabled')};
-    border-color: ${get('colors.border.medium')};
-    opacity: 0.5;
+    border-color: ${get('colors.border.disabled')};
+    opacity: 1;
     color: ${get('colors.text.disabled')};
   }
 

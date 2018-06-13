@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import get from 'extensions/themeGet';
 
 const focusAfterStyles = css`
-  height: calc(100% + 0.2em);
+  height: 100%;
   width: calc(100% + 0.6em);
   left: -0.3em;
   opacity: 0.125;
@@ -21,7 +21,7 @@ const reactiveStyles = appearFocused => css`
     height: 1px;
     width: 100%;
     position: absolute;
-    bottom: -0.1em;
+    bottom: 0;
     left: 0;
     transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
       opacity 0.25s ease;
