@@ -12,6 +12,29 @@ const focusAfterStyles = css`
 
 const color = get('colors.primary.alternate');
 const disabledColor = get('colors.text.default');
+
+const reactiveStyles = appearFocused => css`
+  &::after {
+    content: '';
+    background: ${color};
+    border-radius: 2em;
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    bottom: -0.1em;
+    left: 0;
+    transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
+      opacity 0.25s ease;
+
+    ${appearFocused ? focusAfterStyles : ''};
+  }
+
+  &:hover::after,
+  &:focus::after {
+    ${focusAfterStyles};
+  }
+`;
+
 export const base = css`
   color: ${({ disabled }) => (disabled ? disabledColor : color)};
   font-family: ${get('fonts.brand')};
@@ -25,7 +48,7 @@ export const base = css`
   height: auto;
   margin: auto;
 
-  ${({ disabled }) => (disabled ? 'pointer-events: none' : '')} &:focus {
+  ${({ disabled }) => (disabled ? 'pointer-events: none;' : '')} &:focus {
     outline: none;
   }
 
@@ -35,28 +58,7 @@ export const base = css`
   }
 
   ${({ disabled, appearFocused }) =>
-    disabled
-      ? ''
-      : `
-    &::after {
-      content: '';
-      background: ${color};
-      border-radius: 2em;
-      height: 1px;
-      width: 100%;
-      position: absolute;
-      bottom: -0.1em;
-      left: 0;
-      transition: height 0.15s ease, width 0.15s ease, left 0.15s ease,
-      opacity 0.25s ease;
-
-      ${appearFocused ? focusAfterStyles : ''};
-    }
-   
-    &:hover::after,
-    &:focus::after {
-      ${focusAfterStyles};
-    }`};
+    disabled ? '' : reactiveStyles(appearFocused)};
 `;
 
 const dangerColor = get('colors.negative.default');
