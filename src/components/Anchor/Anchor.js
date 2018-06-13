@@ -90,6 +90,7 @@ class Anchor extends React.Component {
      * nor will it react to onclick events.
      */
     disabled: PropTypes.bool,
+    /**
      * Specify a CSS value or an object { top, right, bottom, left } or { vertical, horizontal } to
      * control the spacing around the heading. Defaults to a large space below the element.
      */
