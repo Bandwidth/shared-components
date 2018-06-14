@@ -1,24 +1,26 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import get from 'extensions/themeGet';
 import tag from 'clean-tag';
 import userSpacing from 'extensions/userSpacing';
 
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+
 const AlertBorder = styled(tag.div).attrs({
   spacing: userSpacing,
 })`
-  padding: ${get('spacing.small')} ${get('spacing.medium')};
   font-weight: 200;
   border-width: ${get('thicknesses.normal')};
   border-style: solid;
   width: auto;
   font-size: 14px;
   line-height: 1.5em;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  min-height: 53px;
   letter-spacing: 0.02em;
   margin: ${props => props.spacing};
+  animation: ${fadeIn} 0.2s ease;
+  transition: opacity 0.2s ease;
 
   background: ${({ theme, type }) => {
     switch (type) {
@@ -52,12 +54,12 @@ const AlertBorder = styled(tag.div).attrs({
         return get('colors.primary.dark');
     }
   }};
+
+  opacity: ${props => (props.closing ? '0' : '1')};
 `;
 
 AlertBorder.Small = styled(AlertBorder)`
-  padding: 5px;
   font-size: 0.8em;
-  min-height: 30px;
   font-weight: 300;
 `;
 

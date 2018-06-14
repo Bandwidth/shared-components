@@ -34,6 +34,13 @@ export {
 } from './components/Accordion/styles/AccordionLabelText';
 export { default as Alert } from './components/Alert';
 export { default as AlertBorder } from './components/Alert/styles/AlertBorder';
+export {
+  default as AlertCloseButton,
+} from './components/Alert/styles/AlertCloseButton';
+export {
+  default as AlertContent,
+} from './components/Alert/styles/AlertContent';
+export { default as AlertGroup } from './components/Alert/styles/AlertGroup';
 export { default as AlertIcon } from './components/Alert/styles/AlertIcon';
 export { default as AlertText } from './components/Alert/styles/AlertText';
 export { default as Anchor } from './components/Anchor';

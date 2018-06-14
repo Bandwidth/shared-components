@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 import icons from 'components/Icon/icons';
-import AlertBorder from './AlertBorder';
+import AlertContent from './AlertContent';
 
 export const SIZE = '31px';
 const SMALL_SIZE = '18px';
@@ -43,23 +43,39 @@ const getAlertIcon = size => styled.i`
           return get('fonts.brand');
       }
     }};
+    font-weight: ${props => {
+      switch (props.type) {
+        case 'success':
+          return 'normal';
+        default:
+          return 500;
+      }
+    }};
+    border-color: ${({ theme, type }) => {
+      switch (type) {
+        case 'success':
+          return get('colors.positive.border');
+        case 'error':
+          return get('colors.negative.border');
+        default:
+          return get('colors.primary.border');
+      }
+    }};
     text-align: center;
     border-radius: 100%;
-    font-size: 1em;
+    font-size: 22px;
     position: absolute;
     font-style: normal;
-  }
-
-  ${AlertBorder} > & {
-    margin: 0 10px auto 0;
-    flex: 0 0 auto;
   }
 `;
 
 const AlertIcon = getAlertIcon(SIZE);
 AlertIcon.Small = getAlertIcon(SMALL_SIZE).extend`
-  
-  ${AlertBorder.Small} > & {
+  &::before {
+    font-size: 14px;
+  }
+
+  ${AlertContent.Small} > & {
     margin: 0 5px auto 0;
   }
 `;

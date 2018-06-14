@@ -12,7 +12,7 @@ export const colors = {
   },
   /* aka 'green' */
   positive: {
-    default: '#6cbf0d',
+    default: '#00aa6c',
     light: '#e0fff7',
     border: '#00fbb9',
     dark: '#005c44',
