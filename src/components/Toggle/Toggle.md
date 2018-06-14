@@ -1,8 +1,15 @@
+_Uncontrolled (interactive) toggle_
 ```javascript
 <div>
-  <Toggle value={true} description="On" />
-  <Toggle value={false} description="Off" />
-  <Toggle disabled description="Disabled" />
-  <Toggle value={true} disabled description="Disabled, on" />
+  <Toggle value="foo" description="Foo" />
+</div>
+```
+
+```javascript
+<div>
+  <Toggle checked value="foo" description="On" />
+  <Toggle checked={false} value="bar" description="Off" />
+  <Toggle disabled value="baz" description="Disabled" />
+  <Toggle checked disabled value="corge" description="Disabled, on" />
 </div>
 ```

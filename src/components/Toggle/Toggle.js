@@ -16,9 +16,15 @@ class Toggle extends React.PureComponent {
      */
     id: PropTypes.string,
     /**
-     * The value of the toggle.
+     * The value of the toggle. DEPRECATION WARNING: this prop
+     * used to be used for the 'checked' boolean state. You should use
+     * `checked` for that instead.
      */
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    /**
+     * Whether the toggle is 'on' or 'off'.
+     */
+    checked: PropTypes.bool,
     /**
      * Whether the toggle is required for form submission.
      */
@@ -27,6 +33,10 @@ class Toggle extends React.PureComponent {
      * Whether the user is prevented from interacting with the toggle.
      */
     disabled: PropTypes.bool,
+    /**
+     * Adds a name to the underlying input.
+     */
+    name: PropTypes.string,
     /**
      * A description to display next to the toggle.
      */
@@ -53,6 +63,7 @@ class Toggle extends React.PureComponent {
     className: null,
     id: null,
     value: false,
+    name: null,
     required: false,
     disabled: false,
     description: null,
@@ -64,13 +75,37 @@ class Toggle extends React.PureComponent {
 
   defaultId = generateId('toggle');
 
+  computeChecked = () => {
+    const { value, checked } = this.props;
+
+    if (typeof checked === 'boolean') {
+      return checked;
+    }
+
+    if (typeof value === 'boolean') {
+      return value;
+    }
+
+    return undefined;
+  };
+
+  computeValue = () => {
+    const { value, checked } = this.props;
+    // assume user is using value correctly if checked is defined
+    // or if value isn't boolean
+    if (checked !== undefined || typeof value !== 'boolean') {
+      return value;
+    }
+
+    return undefined;
+  };
+
   render() {
     const {
       className,
-      name,
       disabled,
-      value,
       required,
+      name,
       description,
       onChange,
       Container,
@@ -83,9 +118,11 @@ class Toggle extends React.PureComponent {
         <Input
           id={id}
           className={className}
+          name={name}
           type="checkbox"
           disabled={disabled}
-          checked={!!value}
+          checked={this.computeChecked()}
+          value={this.computeValue()}
           required={required}
           onChange={onChange}
         />
