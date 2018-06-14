@@ -19,10 +19,6 @@ const InputStyles = styled.input`
   outline: none;
   width: 100%;
 
-  &:required {
-    box-shadow: none;
-  }
-
   &:focus {
     box-shadow: inset 0 -5px 0 ${get('colors.primary.light')};
     border-color: ${get('colors.border.medium')};

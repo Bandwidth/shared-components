@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import get from 'extensions/themeGet';
 
 const TextArea = styled.textarea`
@@ -9,7 +9,7 @@ const TextArea = styled.textarea`
   font-size: 14px;
   font-family: ${get('fonts.brand')};
   transition: all 0.2s ease;
-  padding: ${get('spacing.medium')};
+  padding: calc(${get('spacing.medium')} - 1px);
   border-width: ${get('thicknesses.wide')};
   border-style: solid;
 
