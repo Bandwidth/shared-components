@@ -7,4 +7,12 @@ export default styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
+
+  &::-webkit-scrollbar-thumb {
+    background: ${get('colors.gray.light')};
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${get('colors.gray.dark')};
+  }
 `;
