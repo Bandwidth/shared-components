@@ -17,11 +17,11 @@ class DragLayer extends React.Component {
      * Contains details needed to render an item preview
      */
     item: PropTypes.shape({
-      children: PropTypes.node.isRequired,
+      children: PropTypes.node,
       dimensions: PropTypes.shape({
-        width: PropTypes.number.isRequired,
-        height: PropTypes.number.isRequired,
-      }).isRequired,
+        width: PropTypes.number,
+        height: PropTypes.number,
+      }),
     }),
     /**
      * Provided by
@@ -52,10 +52,15 @@ class DragLayer extends React.Component {
   renderPreviewContent = () => {
     const { item } = this.props;
 
-    return React.Children.map(
-      item.children,
-      child =>
-        child ? React.cloneElement(child, { wrapDragHandle: identity }) : null,
+    return (
+      item.children &&
+      React.Children.map(
+        item.children,
+        child =>
+          child
+            ? React.cloneElement(child, { wrapDragHandle: identity })
+            : null,
+      )
     );
   };
 
@@ -74,8 +79,8 @@ class DragLayer extends React.Component {
 
     const previewPositionStyles = {
       transform: `translate(${clientOffset.x}px, ${clientOffset.y}px)`,
-      width: item.dimensions.width + 'px',
-      height: item.dimensions.height + 'px',
+      width: item.dimensions ? item.dimensions.width + 'px' : '0px',
+      height: item.dimensions ? item.dimensions.height + 'px' : '0px',
     };
 
     return (
