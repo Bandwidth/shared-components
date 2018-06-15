@@ -18,9 +18,9 @@ const Sidebar = styled.div`
   grid-area: sidebar;
   background-color: white;
   overflow-y: scroll;
-  border: 1px;
+  border-width: 0 ${get('thicknesses.normal')} 0 0;
   border-style: solid;
-  border-color: ${get('colors.border.light')};
+  border-color: ${get('colors.border.medium')};
 `;
 
 const Content = styled.main`

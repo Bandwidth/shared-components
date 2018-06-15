@@ -2,9 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ExpandToggle } from '../../src';
 import styled from 'styled-components';
-import Accordion, { AccordionGroup } from 'components/Accordion';
+import Accordion, {
+  AccordionGroup,
+  AccordionBorder,
+} from 'components/Accordion';
 import RadioGroupButtonLabel from 'components/RadioGroup/styles/RadioGroupButtonLabel';
 import get from 'extensions/themeGet';
+
+const CustomBorder = styled(AccordionBorder)`
+  border-left-width: 0;
+  border-right-width: 0;
+`;
 
 const List = styled.ul`
   display: flex;
@@ -55,7 +63,7 @@ export default class ComponentsListRenderer extends React.Component {
     );
 
   renderTopLevel = ({ name, content, sections, components }) => (
-    <Accordion.Small key={name} label={name}>
+    <Accordion.Small key={name} label={name} Border={CustomBorder}>
       {(sections.length > 0 ? sections : components).map(this.renderSection)}
     </Accordion.Small>
   );
