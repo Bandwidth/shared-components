@@ -55,21 +55,6 @@ const bootstrapFromTheme = theme => {
       font-weight: normal;
       font-style: normal;
     }
-
-    /* scrollbars */
-
-    ::-webkit-scrollbar {
-      width: 0.5em;
-      height: 0.5em;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, 0.25);
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #f3f3f3;
-    }
   `;
 };
 
