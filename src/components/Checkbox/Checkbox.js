@@ -81,6 +81,17 @@ export default class Checkbox extends React.PureComponent {
     return undefined;
   };
 
+  computeValue = () => {
+    const { value, checked } = this.props;
+    // assume user is using value correctly if checked is defined
+    // or if value isn't boolean
+    if (checked !== undefined || typeof value !== 'boolean') {
+      return value;
+    }
+
+    return undefined;
+  };
+
   render() {
     const {
       className,
@@ -108,6 +119,7 @@ export default class Checkbox extends React.PureComponent {
           type="checkbox"
           disabled={disabled}
           checked={isChecked}
+          value={this.computeValue()}
           required={required}
           onChange={onChange}
         />
