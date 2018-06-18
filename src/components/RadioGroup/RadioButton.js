@@ -130,7 +130,7 @@ export default class RadioButton extends React.Component {
     const id = this.props.id || `radio-${name}>${value}`;
 
     return (
-      <Container>
+      <Container className={disabled && 'disabled'}>
         <Input
           type="radio"
           id={id}

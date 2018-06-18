@@ -5,22 +5,20 @@ export default styled.div`
   position: relative;
 
   &:first-of-type > label {
-    border-radius: 3px 0 0 3px;
-  }
-
-  &:first-of-type > label::after {
-    border-radius: 0 0 0 3px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
   }
 
   &:last-of-type > label {
-    border-radius: 0 3px 3px 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
 
-  &:last-of-type > label::after {
-    border-radius: 0 0 3px 0;
-  }
-
-  &:not(:first-of-type) > label {
+  &:not(.disabled) + & > label {
     border-left: 0;
+  }
+
+  &.disabled:not(:last-of-type) > label {
+    border-right: 0;
   }
 `;
