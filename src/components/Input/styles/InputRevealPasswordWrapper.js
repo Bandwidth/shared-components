@@ -7,7 +7,7 @@ const InputRevealPasswordContainer = styled.div`
 
   div {
     position: absolute;
-    right: 10px;
+    right: ${get('spacing.medium')};
     top: 30%;
     z-index: 10;
   }
