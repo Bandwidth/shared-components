@@ -7,15 +7,15 @@ const InputRevealPasswordContainer = styled.div`
 
   div {
     position: absolute;
-    right: 10px;
+    right: ${get('spacing.medium')};
     top: 30%;
     z-index: 10;
   }
 
   input[type='password'],
   input[type='text'] {
-    padding: ${get('spacing.medium')} ${get('spacing.extraLarge')}
-      ${get('spacing.medium')} ${get('spacing.medium')} !important;
+    padding-right: ${get('spacing.extraLarge')};
+    padding-left: ${get('spacing.medium')};
   }
 `;
 
