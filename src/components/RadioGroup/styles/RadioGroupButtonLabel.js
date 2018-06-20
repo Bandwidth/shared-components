@@ -6,7 +6,7 @@ const RadioGroupButtonLabel = styled.label`
   border-width: ${get('thicknesses.thick')};
   border-style: solid;
   border-color: ${get('colors.primary.dark')};
-  padding: 1em 1.4em;
+  padding: 1em;
   cursor: pointer;
   position: relative;
   display: flex;
@@ -14,74 +14,68 @@ const RadioGroupButtonLabel = styled.label`
   align-content: flex-start;
   background: ${get('colors.background.default')};
   color: ${get('colors.primary.dark')};
-  transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease;
+  transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1em;
   height: 100%;
+  min-width: 53px;
+  box-shadow: inset 0 0 0 ${get('colors.primary.default')};
 
-  &::after {
-    content: '';
-    background: ${get('colors.primary.default')};
-    height: 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: block;
-    transition: height 0.2s ease, opacity 0.2s ease;
+  ${Input}:not(:checked):focus:not(:disabled) + &,
+  ${Input}:not(:checked):hover:not(:disabled) + & {
+    z-index: 3;
   }
 
   ${Input}:focus:not(:disabled) + &,
+  ${Input}:hover:not(:disabled) + &,
   ${Input}:active:not(:disabled) + & {
-    box-shadow: ${get('shadows.focusOutline')};
-  }
-
-  ${Input}:hover:not(:disabled):not(:checked) + &,
-  ${Input}:focus:not(:disabled):not(:checked) + & {
-    &::after {
-      height: 5px;
-      opacity: 0.5;
+    &::before {
+      content: '';
+      box-shadow: ${get('shadows.focusOutline')};
+      position: absolute;
+      bottom: -2px;
+      left: -2px;
+      right: -2px;
+      top: -2px;
+      z-index: 2;
+      border-radius: 3px;
     }
-  }
-
-  ${Input}:checked:hover:not(:disabled) + & {
   }
 
   ${Input}:checked + & {
-    opacity: 1;
     background: ${get('colors.primary.dark')};
     color: ${get('colors.text.inverted')};
-    &::after {
-      height: 5px;
-    }
+    box-shadow: inset 0 -5px 0 ${get('colors.primary.default')};
+    z-index: 1;
   }
 
   ${Input}:disabled + & {
-    color: ${get('colors.text.default')};
-    opacity: 0.5;
-    background-color: ${get('colors.gray.disabled')};
-    border-color: ${get('colors.border.medium')};
-    cursor: auto;
-    &::after {
-      background: ${get('colors.gray.border')};
-    }
+    z-index; -1;
+    cursor: default;
+    color: ${get('colors.text.disabled')};
+    background-color: ${get('colors.background.disabled')};
+    border-color: ${get('colors.border.disabled')};
+  }
+  ${Input}:checked:disabled + & {
+    color: ${get('colors.text.inverted')};
+    background-color: ${get('colors.background.disabledSelected')};
+    box-shadow: inset 0 -5px 0 ${get('colors.background.disabled')};
   }
 `;
 
 RadioGroupButtonLabel.Small = styled(RadioGroupButtonLabel)`
   font-size: 0.8em;
-  padding: 0.83em 1em;
+  padding: 5px 10px;
   font-weight: normal;
 
-  ${Input}:hover + &::after,
-  ${Input}:checked + &::after {
-    height: 2px;
+  ${Input}:checked + & {
+    box-shadow: inset 0 -4px 0 ${get('colors.primary.default')};
   }
-`;
 
-RadioGroupButtonLabel.Large = styled(RadioGroupButtonLabel)`
-  padding: ${get('spacing.large')};
+  ${Input}:checked:disabled + & {
+    box-shadow: inset 0 -4px 0 ${get('colors.background.disabled')};
+  }
 `;
 
 export default RadioGroupButtonLabel;
