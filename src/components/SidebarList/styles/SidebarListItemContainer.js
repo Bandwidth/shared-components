@@ -17,5 +17,4 @@ export default styled.li`
         : get('colors.border.medium')(props)};
   position: relative;
   overflow-x: visible;
-  z-index: 100;
 `;
