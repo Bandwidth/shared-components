@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 import icons from 'components/Icon/icons';
+import Input from './RadioInput';
 
 const SIZE = '30px';
 const PADDING = '0.5em';
@@ -23,16 +24,10 @@ export default styled.label`
   line-height: 1.5;
   min-height: ${SIZE};
   color: ${calcLabelColor};
-  /*
-    We need to attach the hover to the label because it isn't
-    hidden from view like the checkbox is. However, <label>
-    doesn't support the disabled attribute natively.
-  */
-  &:hover::after,
-  &:focus::after,
-  &:active::after {
-    box-shadow: ${({ disabled }) =>
-      disabled ? '' : get('shadows.focusOutline')};
+
+  ${Input}:enabled + &:hover::after,
+  ${Input}:enabled:focus + &::after {
+    box-shadow: ${get('shadows.focusOutline')};
   }
 
   /* the check */
