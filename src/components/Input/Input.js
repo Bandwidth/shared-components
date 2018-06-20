@@ -103,7 +103,7 @@ class Input extends React.PureComponent {
     /**
      * Suggests to most browsers whether they should autocomplete the field
      */
-    autocomplete: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    autoComplete: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     /**
      * Provides a reference to the input element
      */
@@ -145,7 +145,7 @@ class Input extends React.PureComponent {
     maxLength: null,
     min: null,
     max: null,
-    autocomplete: true,
+    autoComplete: true,
   };
 
   componentDidMount() {
