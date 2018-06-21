@@ -101,7 +101,7 @@ class Input extends React.PureComponent {
      */
     disableShowPassword: PropTypes.bool,
     /**
-     * Suggests to most browsers whether they should auto-complete the field
+     * Suggests to most browsers whether they should autocomplete the field
      */
     autoComplete: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     /**
@@ -160,7 +160,6 @@ class Input extends React.PureComponent {
   }
 
   onBlur = event => {
-    console.log(event);
     this.setState({ visited: true });
     if (this.props.onBlur) {
       this.props.onBlur(event);
@@ -168,8 +167,17 @@ class Input extends React.PureComponent {
   };
 
   getAutoComplete = () => {
-    const { autoComplete } = this.props;
-    return autoComplete === true || autoComplete === 'on' ? 'on' : 'off';
+    const { autocomplete, autoComplete } = this.props;
+    if (
+      autocomplete === true ||
+      autocomplete === 'on' ||
+      autoComplete === true ||
+      autoComplete === 'on'
+    )
+      return 'on';
+    // Prevent browsers from completing this field like a password.
+    if (this.state._type === 'password') return 'new-password';
+    return 'off';
   };
 
   renderPasswordField = () => {
@@ -226,7 +234,6 @@ class Input extends React.PureComponent {
       maxLength,
       min,
       max,
-      autoComplete,
     } = this.props;
 
     const { visited, _type: type } = this.state;
