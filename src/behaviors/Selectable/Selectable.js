@@ -29,8 +29,15 @@ class Selectable extends React.Component {
      * Limits selection to only one item at a time.
      */
     exclusive: PropTypes.bool,
+    initial: PropTypes.object,
   };
-  state = { selected: new Set() };
+
+  constructor(props) {
+    super(props);
+    const selected = new Set();
+    if (props.initial) selected.add(props.initial);
+    this.state = { selected };
+  }
 
   static defaultProps = {
     render: noop,
@@ -44,12 +51,14 @@ class Selectable extends React.Component {
       state: { selected },
       deselectItem,
     } = this;
+    console.log('selectItem', key);
     if (selected.has(key)) {
       return;
     }
     if (exclusive) {
       Array.from(selected).map(deselectItem);
     }
+    console.log('onItemSelected', key);
     onItemSelected(key);
     this.setState(state => ({
       selected: state.selected.add(key),

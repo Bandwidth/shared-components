@@ -2,10 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
 import LogoImage from './styles/LogoImage';
-import logo from './logo.png';
+import logoWhite from './logo.png';
+import logoBlue from './logoBlue.png';
 
-const Logo = ({ id, className, Image }) => (
-  <Image src={logo} id={id} className={className} />
+const variantLookup = {
+  white: logoWhite,
+  blue: logoBlue,
+};
+
+const Logo = ({ variant, id, className, Image }) => (
+  <Image src={variantLookup[variant]} id={id} className={className} />
 );
 
 Logo.propTypes = {
@@ -18,6 +24,10 @@ Logo.propTypes = {
    */
   id: PropTypes.string,
   /**
+   * Logo style variant
+   */
+  variant: PropTypes.oneOf(['blue', 'white']),
+  /**
    * An img element component to render the image itself
    */
   Image: PropTypes.func,
@@ -27,6 +37,7 @@ Logo.defaultProps = {
   className: null,
   id: null,
   Image: LogoImage,
+  variant: 'white',
 };
 
 Logo.Small = withProps({

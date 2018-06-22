@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import { BandwidthProvider, BandwidthThemeProvider } from '../../src';
 import { Router } from 'react-router';
 import { createMemoryHistory } from 'history';
-import XRay from 'react-x-ray';
 import styled from 'styled-components';
 import get from '../../src/extensions/themeGet';
-import WrapperControls from './WrapperControls';
 
 const history = createMemoryHistory('/');
 
@@ -49,17 +47,9 @@ export default class Wrapper extends React.Component {
 
     return (
       <Router history={history}>
-        <BandwidthProvider ThemeProvider={this.getThemeProvider()}>
+        <BandwidthProvider StyleRoot={React.Fragment}>
           <Container>
-            <WrapperControls
-              theme={theme}
-              xray={xray}
-              setTheme={this.setTheme}
-              setXRay={this.setXRay}
-            />
-            <Content>
-              <XRay disabled={!xray}>{this.props.children}</XRay>
-            </Content>
+              {this.props.children}
           </Container>
         </BandwidthProvider>
       </Router>

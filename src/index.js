@@ -487,5 +487,6 @@ export { default as PaneStyles } from './layouts/Pane/styles/PaneStyles';
 export { default as SidebarLayout } from './layouts/SidebarLayout';
 export { default as theme } from './theme';
 export { default as catapultTheme } from './theme/catapultTheme';
+export { default as cssvars } from './theme/cssvars';
 export { default as index } from './theme/index';
 export { default as irisTheme } from './theme/irisTheme';

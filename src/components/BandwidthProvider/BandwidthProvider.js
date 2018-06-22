@@ -36,7 +36,7 @@ class BandwidthProvider extends React.PureComponent {
       children,
     } = this.props;
     return (
-      <ThemeProvider>
+      <ThemeProvider theme={customTheme}>
         <StyleRoot customTheme={customTheme}>
           {children}
           {dragLayerPortal ? (
