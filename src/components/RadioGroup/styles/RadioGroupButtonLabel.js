@@ -32,7 +32,7 @@ const RadioGroupButtonLabel = styled.label`
   ${Input}:active:not(:disabled) + & {
     &::before {
       content: '';
-      box-shadow: ${get('shadows.focusOutline')};
+      box-shadow: var(--shadows-focus-outline);
       position: absolute;
       bottom: -2px;
       left: -2px;

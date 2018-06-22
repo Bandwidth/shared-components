@@ -8,7 +8,9 @@ import irisTheme, { catapult as catapultTheme, NAMESPACE } from '../../theme';
  * @deprecated Please see [BandwidthProvider](/#!/BandwidthProvider)
  */
 const BandwidthThemeProvider = ({ children, theme }) => (
-  <ThemeProvider theme={{ [NAMESPACE]: theme }}>{children}</ThemeProvider>
+  <ThemeProvider theme={{ [NAMESPACE]: theme }}>
+    {React.cloneElement(children, { customTheme: theme })}
+  </ThemeProvider>
 );
 
 BandwidthThemeProvider.defaultProps = {

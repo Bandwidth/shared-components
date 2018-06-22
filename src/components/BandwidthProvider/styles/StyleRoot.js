@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import get from 'extensions/themeGet';
+import cssvars from 'theme/cssvars';
 
 export default styled.div`
   font-family: ${get('fonts.default')};
@@ -11,4 +12,9 @@ export default styled.div`
 
   width: 100%;
   height: 100%;
+
+  ${({ customTheme }) =>
+    css`
+      ${cssvars(customTheme)};
+    `};
 `;

@@ -6,6 +6,7 @@ import DefaultStyleRoot from './styles/StyleRoot';
 import withDragDropContext from './withDragDropContext';
 import DefaultDragLayer from '../DragLayer';
 import ReactDOM from 'react-dom';
+import irisTheme from 'theme/irisTheme';
 import './styles/global'; // injects a global stylesheet
 
 class BandwidthProvider extends React.PureComponent {
@@ -13,6 +14,7 @@ class BandwidthProvider extends React.PureComponent {
     StyleRoot: PropTypes.func,
     ThemeProvider: PropTypes.func,
     DragLayer: PropTypes.func,
+    customTheme: PropTypes.object,
     children: PropTypes.node.isRequired,
   };
 
@@ -20,6 +22,7 @@ class BandwidthProvider extends React.PureComponent {
     StyleRoot: DefaultStyleRoot,
     ThemeProvider: BandwidthThemeProvider,
     DragLayer: DefaultDragLayer,
+    customTheme: irisTheme,
     dragLayerPortal: null,
   };
 
@@ -29,11 +32,12 @@ class BandwidthProvider extends React.PureComponent {
       ThemeProvider,
       DragLayer,
       dragLayerPortal,
+      customTheme,
       children,
     } = this.props;
     return (
       <ThemeProvider>
-        <StyleRoot>
+        <StyleRoot customTheme={customTheme}>
           {children}
           {dragLayerPortal ? (
             ReactDOM.createPortal(<DragLayer />, dragLayerPortal)
