@@ -14,6 +14,7 @@ export default styled.div`
   height: 100%;
 
   ${({ customTheme }) =>
+    customTheme &&
     css`
       ${cssvars(customTheme)};
     `};

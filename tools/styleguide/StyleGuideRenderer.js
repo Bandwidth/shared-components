@@ -5,9 +5,11 @@ import Logo from './Logo';
 import Markdown from 'rsg-components/Markdown';
 import get from 'extensions/themeGet';
 import BandwidthProvider from 'components/BandwidthProvider';
-import BandwidthThemeProvider from 'components/BandwidthThemeProvider';
 import Topbar from './Topbar';
 import { iris, catapult } from 'theme';
+import bootstrap from 'bootstrap';
+
+bootstrap();
 
 const Root = styled.div`
   display: grid;
@@ -46,7 +48,7 @@ class StyleGuideRenderer extends React.Component {
   };
 
   onThemeSelect = theme => {
-    const newTheme = theme === 'iris' ? iris : catapult
+    const newTheme = theme === 'iris' ? iris : catapult;
     this.setState({
       theme: newTheme,
     });
