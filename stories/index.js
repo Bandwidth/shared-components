@@ -4,6 +4,7 @@ import './Alert';
 import './Anchor';
 import './Button';
 import './Checkbox';
+import './DragBox';
 import './Fields';
 import './Header';
 import './Input';

@@ -8,6 +8,12 @@ import StyledButton from './styles/StyledToggleButton';
 import ColorfulButton from './styles/ColorfulButton';
 import SmallButton from './styles/SmallButton';
 
+/**
+ * **ToggleButton** is a simple styled button with some extra functionality built-in for handling selection. Control
+ * it by setting `selected`, then use its `onClick` or `onSelect/onDeselect` handlers to implement selection or hook
+ * into the [Selectable](/#!/Selectable) behavior. Set `name` to keep track of which button was pressed when a
+ * click handler fires.
+ */
 class ToggleButton extends React.PureComponent {
   static propTypes = {
     /**
@@ -63,7 +69,6 @@ class ToggleButton extends React.PureComponent {
     const { props: { onClick, onDeselect, onSelect, selected, name } } = this;
     onClick(name, selected);
     selected ? onDeselect(name) : onSelect(name);
-    this.handleMouseLeave();
   };
 
   handleMouseEnter = () => this.setState({ internalHovered: true });
@@ -80,6 +85,7 @@ class ToggleButton extends React.PureComponent {
       <Button
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
+        onMouseUp={this.handleMouseLeave}
         onClick={handleClick}
         hovered={
           hovered !== null && hovered != undefined ? hovered : internalHovered

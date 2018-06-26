@@ -28,24 +28,20 @@ export default styled.button`
     cursor: default;
   }
 
-  ${({ hovered }) =>
-    hovered &&
+  &:hover:not(:disabled) {
+    box-shadow: ${get('shadows.focusOutline')};
+  }
+
+  ${({ selected }) =>
+    selected &&
     css`
-      box-shadow: ${get('shadows.focusOutline')};
-    `} ${({ selected }) =>
-    selected
-      ? css`
-          background: ${get('colors.primary.dark')};
-          color: ${get('colors.text.inverted')};
-          border-color: ${get('colors.primary.dark')};
-          &:disabled {
-            background-color: ${get('colors.background.disabledSelected')};
-            border-color: ${get('colors.border.disabled')};
-            color: ${get('colors.text.inverted')};
-          }
-          &:hover:not(:disabled) {
-            box-shadow: ${get('shadows.focusOutline')};
-          }
-        `
-      : ''};
+      background: ${get('colors.primary.dark')};
+      color: ${get('colors.text.inverted')};
+      border-color: ${get('colors.primary.dark')};
+      &:disabled {
+        background-color: ${get('colors.background.disabledSelected')};
+        border-color: ${get('colors.border.disabled')};
+        color: ${get('colors.text.inverted')};
+      }
+    `};
 `;
