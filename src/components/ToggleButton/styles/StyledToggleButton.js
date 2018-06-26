@@ -18,6 +18,7 @@ export default styled.button`
   user-select: none;
   transition: 0.2s ease;
   font-size: 14px;
+  font-family: ${get('fonts.brand')};
   height: 53px;
 
   &:disabled {
