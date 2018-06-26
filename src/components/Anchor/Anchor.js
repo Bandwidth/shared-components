@@ -158,7 +158,7 @@ class Anchor extends React.Component {
     InternalTextAnchor: DefaultInternalTextAnchor,
     InternalIconAnchor: DefaultInternalIconAnchor,
     InternalContentAnchor: DefaultInternalContentAnchor,
-    isActive: matchReactRouter,
+    active: matchReactRouter,
   };
 
   isExternal = () => {
@@ -262,6 +262,7 @@ class Anchor extends React.Component {
       disabled,
       active,
     } = this.props;
+
     const Component = this.getComponentType();
 
     return (
