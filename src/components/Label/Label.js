@@ -16,10 +16,11 @@ const Label = styled.label.withConfig({ displayName: 'Label' }).attrs({
   line-height: 1.5;
   display: block;
   margin: ${props => props.spacing};
-
-  ${({ disabled }) => (disabled ? 'opacity: 0.5;' : '')} &:disabled {
-    opacity: 0.5;
-  }
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      color: ${get('colors.text.disabled')};
+    `};
 
   ${({ required }) =>
     required

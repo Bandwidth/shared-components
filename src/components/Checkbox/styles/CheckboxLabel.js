@@ -80,7 +80,7 @@ export default styled.label`
     }
 
     &::before {
-      color: ${get('colors.text.disabled')};
+      color: ${get('colors.text.inverted')};
     }
   }
   ${Input}:checked + &::before {
