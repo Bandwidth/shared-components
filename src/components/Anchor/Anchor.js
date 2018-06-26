@@ -136,7 +136,7 @@ class Anchor extends React.Component {
      * Resolves whether a link is active. Specifying custom rules for whether
      * a link is active may be necessary when using custom onClick logic
      */
-    isActive: PropTypes.func,
+    active: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   };
 
   static defaultProps = {
@@ -260,7 +260,7 @@ class Anchor extends React.Component {
       onMouseEnter,
       onMouseLeave,
       disabled,
-      isActive,
+      active,
     } = this.props;
     const Component = this.getComponentType();
 
@@ -283,7 +283,10 @@ class Anchor extends React.Component {
             spacing={userSpacing.text(this.props)}
           >
             {this.childrenWithProps({
-              active: isActive(to, match, exact),
+              active:
+                typeof active === 'function'
+                  ? active(to, match, exact)
+                  : !!active,
             })}
           </Component>
         )}
