@@ -31,6 +31,10 @@ class ToggleButton extends React.PureComponent {
      * Whether the button is selected or not
      */
     selected: PropTypes.bool,
+    /**
+     * Whether the button is hovered or not
+     */
+    hovered: PropTypes.bool,
   };
 
   static Small = defaultPropsComponent({
@@ -46,7 +50,12 @@ class ToggleButton extends React.PureComponent {
     onDeselect: noop,
     onSelect: noop,
     selected: false,
+    hovered: null,
     Button: StyledButton,
+  };
+
+  state = {
+    internalHovered: false,
   };
 
   handleClick = ev => {
@@ -54,11 +63,30 @@ class ToggleButton extends React.PureComponent {
     const { props: { onClick, onDeselect, onSelect, selected, name } } = this;
     onClick(name, selected);
     selected ? onDeselect(name) : onSelect(name);
+    this.handleMouseLeave();
   };
 
+  handleMouseEnter = () => this.setState({ internalHovered: true });
+
+  handleMouseLeave = () => this.setState({ internalHovered: false });
+
   render() {
-    const { props: { Button, onClick, ...rest }, handleClick } = this;
-    return <Button onClick={handleClick} {...rest} />;
+    const {
+      props: { Button, onClick, hovered, ...rest },
+      state: { internalHovered },
+      handleClick,
+    } = this;
+    return (
+      <Button
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+        onClick={handleClick}
+        hovered={
+          hovered !== null && hovered != undefined ? hovered : internalHovered
+        }
+        {...rest}
+      />
+    );
   }
 }
 

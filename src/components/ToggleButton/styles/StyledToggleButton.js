@@ -19,6 +19,7 @@ export default styled.button`
   transition: 0.2s ease;
   font-size: 14px;
   height: 53px;
+  outline: unset;
 
   &:disabled {
     color: ${get('colors.text.disabled')};
@@ -27,7 +28,11 @@ export default styled.button`
     cursor: default;
   }
 
-  ${({ selected }) =>
+  ${({ hovered }) =>
+    hovered &&
+    css`
+      box-shadow: ${get('shadows.focusOutline')};
+    `} ${({ selected }) =>
     selected
       ? css`
           background: ${get('colors.primary.dark')};

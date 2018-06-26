@@ -49,27 +49,25 @@ class DragBoxSelect extends React.Component {
     renderRect: PropTypes.func,
   };
 
-  render() {
+  renderDragBox = selectableProps => {
     const { props: { renderContents } } = this;
     return (
-      <Selectable
-        render={selectableProps => (
-          <DragBox
-            {...this.props}
-            onCollisionBegin={items =>
-              items.forEach(selectableProps.toggleItem)
-            }
-            onCollisionEnd={items => items.forEach(selectableProps.toggleItem)}
-            renderContents={dragBoxProps =>
-              renderContents({
-                ...dragBoxProps,
-                ...selectableProps,
-              })
-            }
-          />
-        )}
+      <DragBox
+        {...this.props}
+        onCollisionBegin={items => items.forEach(selectableProps.toggleItem)}
+        onCollisionEnd={items => items.forEach(selectableProps.toggleItem)}
+        renderContents={dragBoxProps =>
+          renderContents({
+            ...dragBoxProps,
+            ...selectableProps,
+          })
+        }
       />
     );
+  };
+
+  render() {
+    return <Selectable render={this.renderDragBox} />;
   }
 }
 
