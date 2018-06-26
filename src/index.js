@@ -67,6 +67,9 @@ export { default as BandwidthProvider } from './components/BandwidthProvider';
 export {
   default as StyleRoot,
 } from './components/BandwidthProvider/styles/StyleRoot';
+export {
+  default as BandwidthThemeProvider,
+} from './components/BandwidthThemeProvider';
 export { default as Breadcrumb } from './components/Breadcrumb';
 export { default as Breadcrumbs } from './components/Breadcrumb/Breadcrumbs';
 export { default as BulkSelect } from './components/BulkSelect';
