@@ -2,7 +2,8 @@
  * Import this in your main file to bootstrap some global CSS and font properties
  */
 
-import { injectGlobal } from 'styled-components';
+import { injectGlobal, css } from 'styled-components';
+import cssvars from 'theme/cssvars';
 
 import catapultTheme from './theme/catapultTheme';
 import irisTheme from './theme/irisTheme';
@@ -27,13 +28,17 @@ const bootstrapFromTheme = theme => {
     body, html {
       width: 100%;
       height: 100%;
-      font-family: ${theme.fonts.brand};
+      font-family: var(--fonts-brand);
       font-size: 14px;
       letter-spacing: 0.28px;
       margin: 0;
       line-height: 1.5;
-      background: ${theme.colors.background.default};
-      color: ${theme.colors.text.default};
+      background: var(--colors-background-default);
+      color: var(--colors-text-default);
+    }
+
+    :root {
+      ${cssvars(theme)}
     }
 
     #main {

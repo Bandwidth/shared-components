@@ -24,9 +24,8 @@ export default styled.div`
 
     z-index: 1;
 
-    background: ${get
-      .if(props => props.isOver, 'colors.gray.light')
-      .else('colors.background.default')};
+    background: ${({ isOver }) =>
+      isOver ? 'var(--colors-gray-light)' : 'var(--colors-background-default)'};
   }
 
   &::after {

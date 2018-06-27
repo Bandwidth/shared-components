@@ -29,8 +29,18 @@ class Selectable extends React.Component {
      * Limits selection to only one item at a time.
      */
     exclusive: PropTypes.bool,
+    /**
+     * Control the inital selection.
+     */
+    initial: PropTypes.object,
   };
-  state = { selected: new Set() };
+
+  constructor(props) {
+    super(props);
+    const selected = new Set();
+    if (props.initial) selected.add(props.initial);
+    this.state = { selected };
+  }
 
   static defaultProps = {
     render: noop,

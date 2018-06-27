@@ -53,6 +53,7 @@
     "change-case": "^3.0.1",
     "clean-tag": "^1.0.4",
     "dedent": "^0.7.0",
+    "flat": "^4.0.0",
     "functional-easing": "^1.0.8",
     "hex-to-hsl": "^1.0.2",
     "provinces": "^1.11.0",

@@ -5,12 +5,17 @@ import Logo from './Logo';
 import Markdown from 'rsg-components/Markdown';
 import get from 'extensions/themeGet';
 import BandwidthProvider from 'components/BandwidthProvider';
-import BandwidthThemeProvider from 'components/BandwidthThemeProvider';
+import Topbar from './Topbar';
+import { iris, catapult } from 'theme';
+import bootstrap from 'bootstrap';
+
+bootstrap();
 
 const Root = styled.div`
   display: grid;
   grid-template-columns: fit-content(25%) auto;
-  grid-template-areas: 'sidebar main';
+  grid-template-rows: 85px auto;
+  grid-template-areas: 'topbar topbar' 'sidebar main';
   height: 100vh;
 `;
 
@@ -35,30 +40,53 @@ const Footer = styled.div`
   display: block;
 `;
 
-const StyleGuideRenderer = ({
-  classes,
-  title,
-  homepageUrl,
-  children,
-  toc,
-  hasSidebar,
-}) => (
-  <BandwidthProvider ThemeProvider={BandwidthThemeProvider}>
-    <Root>
-      <Content>
-        {children}
-        <Footer>
-          <Markdown
-            text={`Generated with [React Styleguidist](${homepageUrl})`}
-          />
-        </Footer>
-      </Content>
-      <Sidebar>
-        <Logo />
-        {toc}
-      </Sidebar>
-    </Root>
-  </BandwidthProvider>
-);
+// export const themeEvents = new EventEmitter();
+
+class StyleGuideRenderer extends React.Component {
+  state = {
+    theme: iris,
+  };
+
+  onThemeSelect = theme => {
+    const newTheme = theme === 'iris' ? iris : catapult;
+    this.setState({
+      theme: newTheme,
+    });
+    // themeEvents.emit('change', newTheme);
+  };
+
+  render() {
+    const {
+      classes,
+      title,
+      homepageUrl,
+      children,
+      toc,
+      hasSidebar,
+    } = this.props;
+
+    const { theme } = this.state;
+
+    return (
+      <BandwidthProvider customTheme={theme}>
+        <Root>
+          <Topbar initialTheme="iris" onThemeSelect={this.onThemeSelect} />
+          <Content>
+            {children}
+            <Footer>
+              <Markdown
+                text={`Generated with [React Styleguidist](${homepageUrl})`}
+              />
+            </Footer>
+          </Content>
+          <Sidebar>
+            <Logo />
+            {toc}
+          </Sidebar>
+        </Root>
+      </BandwidthProvider>
+    );
+  }
+}
 
 export default StyleGuideRenderer;

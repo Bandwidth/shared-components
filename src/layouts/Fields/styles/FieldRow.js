@@ -70,9 +70,7 @@ const FieldRow = ({ children, columns, theme }) => {
         // there's a named area for each column.
         gridTemplateAreas: calcGridTemplateAreas(children, columns),
         // defines spacing between rows and columns
-        gridGap: `${themeGet('spacing.small')({ theme })} ${themeGet(
-          'spacing.large',
-        )({ theme })}`,
+        gridGap: 'var(--spacing-small) var(--spacing-large)',
         // each column has an equal size. To make fields larger than
         // adjacent fields, use the columnSpan prop on Field to span
         // multiple columns. This keeps all field sizes directly proportional

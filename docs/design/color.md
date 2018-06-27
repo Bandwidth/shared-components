@@ -1,9 +1,10 @@
 Our colors are available as part of themes. Use [BandwidthProvider](/#!/BandwidthProvider) to provide themes in your app,
-then use the names below with the `themeGet()` function provided by the library.
+then use CSS variables to reference the colors (e.g.,  `var(--colors-primary-light)`).
 
 ```javascript
 const hexToHSL = require('hex-to-hsl');
-const withTheme = require('styled-components').withTheme;
+const irisTheme = require('theme/irisTheme');
+const {cssvarKey} = require('theme/cssvars');
 
 const getLightness = (hex) => hexToHSL(hex)[2]
 
@@ -16,7 +17,7 @@ const Color = ({color, hexColor}) => {
       margin: '0',
       padding: '20px 20px',
       color: bright ? 'black' : 'white',
-      background: hexColor
+      background: `var(${color})`
     }}>
       <span style={{float: 'left'}}>{color}</span>
       <span style={{float: 'right'}}>{hexColor}</span>
@@ -24,8 +25,8 @@ const Color = ({color, hexColor}) => {
   );
 }
 
-const ColorGroup = withTheme(({name, theme }) => {
-  const colors = theme['bandwidth-shared'].colors[name];
+const ColorGroup = ({name}) => {
+  const colors = irisTheme.colors[name];
   return (<div>
     <h3>{name.toUpperCase()}</h3>
     <div style={{
@@ -41,10 +42,10 @@ const ColorGroup = withTheme(({name, theme }) => {
           const bLight = getLightness(colors[b]);
           return aLight < bLight ? 1 : (aLight > bLight ? -1 : a.localeCompare(b));
         })
-        .map(key => <Color key={key} color={`${name}.${key}`} hexColor={colors[key]}/>)}
+        .map(key => <Color key={key} color={cssvarKey(`colors.${name}.${key}`)} hexColor={colors[key]}/>)}
     </div>
   </div>)
-});
+}
 
 <Grid columns={2} gridGap="25px 100px">
   <ColorGroup name="primary"/>
