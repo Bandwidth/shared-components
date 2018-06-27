@@ -31,7 +31,8 @@ purely functional component.
             key={text}
             name={text}
             onClick={toggleItem}
-            selected={collisions.has(text) !== selected.has(text)}
+            selected={collisions.size > 0 ? selected.has(text) || collisions.has(text) : selected.has(text)}
+            hovered={collisions.size > 0 ? selected.has(text) && collisions.has(text) : null}
           >{text}</ToggleButton.Colorful>
         )
       }</Grid>

@@ -10,7 +10,7 @@ import DragBoxSelect from './DragBoxSelect';
 // avoid missed clicks on buttons when moving the mouse inaccurately.
 // TODO: We should probably turn on drag box once this size is met and not turn it off until
 // the mouse button is released
-const MIN_SIZE_DRAGBOX = 10;
+const MIN_SIZE_DRAGBOX = 16;
 
 const Rect = styled.div`
   border-width: 2px;
@@ -83,6 +83,10 @@ class DragBox extends React.Component {
      * The selector for the element to attach the scroll listener to. Defaults to page body. Do not change after initial call.
      */
     scrollSelector: PropTypes.string,
+    /**
+     * Disables mouse events (such as hover) on children while dragging.
+     */
+    disablePointerEventsWhileDragging: PropTypes.bool,
   };
 
   state = {
@@ -102,6 +106,7 @@ class DragBox extends React.Component {
     onCollisionEnd: noop,
     renderContents: noop,
     scrollSelector: 'body',
+    disablePointerEventsWhileDragging: false,
     renderRect: ({ left, top, width, height }) => (
       <Rect
         style={{
@@ -276,7 +281,9 @@ class DragBox extends React.Component {
 
   shouldDrawRect = rect => {
     const { state: { mouseDown } } = this;
-    return mouseDown && rect.width * rect.height >= MIN_SIZE_DRAGBOX;
+    return (
+      mouseDown && (rect.width + 1) * (rect.height + 1) >= MIN_SIZE_DRAGBOX
+    );
   };
 
   renderRect = rect => {
@@ -333,13 +340,16 @@ class DragBox extends React.Component {
       renderRect,
       renderContents,
       calcRect,
+      props: { disablePointerEventsWhileDragging },
     } = this;
     const rect = calcRect();
     return (
       <DragBoxDiv
         ref={refDragElement}
         onMouseDown={onMouseDown}
-        disablePointerEvents={this.shouldDrawRect(rect)}
+        disablePointerEvents={
+          disablePointerEventsWhileDragging && this.shouldDrawRect(rect)
+        }
       >
         {renderRect(rect)}
         {renderContents()}

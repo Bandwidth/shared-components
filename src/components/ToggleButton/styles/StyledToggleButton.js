@@ -20,6 +20,7 @@ export default styled.button`
   font-size: 14px;
   font-family: ${get('fonts.brand')};
   height: 53px;
+  outline: unset;
 
   &:disabled {
     color: ${get('colors.text.disabled')};
@@ -28,20 +29,20 @@ export default styled.button`
     cursor: default;
   }
 
+  &:hover:not(:disabled) {
+    box-shadow: ${get('shadows.focusOutline')};
+  }
+
   ${({ selected }) =>
-    selected
-      ? css`
-          background: ${get('colors.primary.dark')};
-          color: ${get('colors.text.inverted')};
-          border-color: ${get('colors.primary.dark')};
-          &:disabled {
-            background-color: ${get('colors.background.disabledSelected')};
-            border-color: ${get('colors.border.disabled')};
-            color: ${get('colors.text.inverted')};
-          }
-          &:hover:not(:disabled) {
-            box-shadow: ${get('shadows.focusOutline')};
-          }
-        `
-      : ''};
+    selected &&
+    css`
+      background: ${get('colors.primary.dark')};
+      color: ${get('colors.text.inverted')};
+      border-color: ${get('colors.primary.dark')};
+      &:disabled {
+        background-color: ${get('colors.background.disabledSelected')};
+        border-color: ${get('colors.border.disabled')};
+        color: ${get('colors.text.inverted')};
+      }
+    `};
 `;

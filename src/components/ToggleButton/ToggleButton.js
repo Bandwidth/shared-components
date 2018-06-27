@@ -8,6 +8,12 @@ import StyledButton from './styles/StyledToggleButton';
 import ColorfulButton from './styles/ColorfulButton';
 import SmallButton from './styles/SmallButton';
 
+/**
+ * **ToggleButton** is a simple styled button with some extra functionality built-in for handling selection. Control
+ * it by setting `selected`, then use its `onClick` or `onSelect/onDeselect` handlers to implement selection or hook
+ * into the [Selectable](/#!/Selectable) behavior. Set `name` to keep track of which button was pressed when a
+ * click handler fires.
+ */
 class ToggleButton extends React.PureComponent {
   static propTypes = {
     /**
@@ -31,6 +37,10 @@ class ToggleButton extends React.PureComponent {
      * Whether the button is selected or not
      */
     selected: PropTypes.bool,
+    /**
+     * Whether the button is hovered or not
+     */
+    hovered: PropTypes.bool,
   };
 
   static Small = defaultPropsComponent({
@@ -46,7 +56,12 @@ class ToggleButton extends React.PureComponent {
     onDeselect: noop,
     onSelect: noop,
     selected: false,
+    hovered: null,
     Button: StyledButton,
+  };
+
+  state = {
+    internalHovered: false,
   };
 
   handleClick = ev => {
@@ -56,9 +71,28 @@ class ToggleButton extends React.PureComponent {
     selected ? onDeselect(name) : onSelect(name);
   };
 
+  handleMouseEnter = () => this.setState({ internalHovered: true });
+
+  handleMouseLeave = () => this.setState({ internalHovered: false });
+
   render() {
-    const { props: { Button, onClick, ...rest }, handleClick } = this;
-    return <Button onClick={handleClick} {...rest} />;
+    const {
+      props: { Button, onClick, hovered, ...rest },
+      state: { internalHovered },
+      handleClick,
+    } = this;
+    return (
+      <Button
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+        onMouseUp={this.handleMouseLeave}
+        onClick={handleClick}
+        hovered={
+          hovered !== null && hovered != undefined ? hovered : internalHovered
+        }
+        {...rest}
+      />
+    );
   }
 }
 
