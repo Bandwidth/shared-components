@@ -6,6 +6,7 @@ import ModalBlocker from './styles/ModalBlocker';
 import ModalContent from './styles/ModalContent';
 import ModalTitle from './styles/ModalTitle';
 import ModalWindow from './styles/ModalWindow';
+import Anchor from 'components/Anchor';
 
 class Modal extends React.Component {
   static propTypes = {
@@ -18,9 +19,9 @@ class Modal extends React.Component {
      */
     title: PropTypes.string,
     /**
-     * Handles click events on the backdrop behind the modal. Use this to close it if desired.
+     * Handles click events on the backdrop behind the modal or on the X in the title bar.
      */
-    onBlockerClicked: PropTypes.func,
+    onClose: PropTypes.func,
     /**
      * Sets a natural CSS width for the modal window. Defaults to 'auto'.
      */
@@ -77,25 +78,34 @@ class Modal extends React.Component {
     event.stopPropagation();
   };
 
+  renderTitle = () => {
+    const { title, onClose, Title } = this.props;
+    if (!title) return null;
+    return (
+      <Title>
+        {title}
+        <Anchor icon="delete2" onClick={onClose} />
+      </Title>
+    );
+  };
+
   render() {
     const {
       id,
       className,
-      onBlockerClicked,
-      title,
+      onClose,
       children,
       actionContent,
       Blocker,
       Content,
       Window,
       ActionContent,
-      Title,
     } = this.props;
 
     return (
-      <Blocker onClick={onBlockerClicked}>
+      <Blocker onClick={onClose}>
         <Window onClick={this.handleModalClicked} id={id} className={className}>
-          {title ? <Title>{title}</Title> : null}
+          {this.renderTitle()}
           <Content>{children}</Content>
           {actionContent && <ActionContent>{actionContent}</ActionContent>}
         </Window>
