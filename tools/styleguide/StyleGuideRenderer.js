@@ -14,7 +14,8 @@ bootstrap();
 const Root = styled.div`
   display: grid;
   grid-template-columns: fit-content(25%) auto;
-  grid-template-rows: 85px auto;
+  /* fix for chrome scroll-reset bug: use minmax(1px, 1fr) instead of auto / 1fr */
+  grid-template-rows: 85px minmax(1px, 1fr);
   grid-template-areas: 'topbar topbar' 'sidebar main';
   height: 100vh;
 `;
