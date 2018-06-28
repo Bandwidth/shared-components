@@ -31,7 +31,7 @@ const getCheckboxLabel = (size, checkSize) => styled.label`
     display: block;
     position: absolute;
     top: 50%;
-    left: calc(${checkSize} / 2);
+    left: calc(${size} / 2);
     transform: translate(-50%, -48%);
     z-index: 1;
     box-sizing: border-box;
