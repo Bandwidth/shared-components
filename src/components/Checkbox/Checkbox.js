@@ -4,7 +4,7 @@ import generateId from '../../extensions/generateId';
 import CheckboxInput from './styles/CheckboxInput';
 import CheckboxLabel from './styles/CheckboxLabel';
 import CheckboxContainer from './styles/CheckboxContainer';
-import { withProps } from 'recompose';
+import { defaultProps } from 'recompose';
 
 export default class Checkbox extends React.PureComponent {
   static propTypes = {
@@ -68,7 +68,7 @@ export default class Checkbox extends React.PureComponent {
     Container: CheckboxContainer,
   };
 
-  static Small = withProps({
+  static Small = defaultProps({
     Label: CheckboxLabel.Small,
   })(Checkbox);
 

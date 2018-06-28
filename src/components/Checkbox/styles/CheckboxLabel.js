@@ -8,11 +8,11 @@ const CHECK_SIZE = '21px';
 const SMALL_SIZE = '20px';
 const SMALL_CHECK_SIZE = '1em';
 
-const getCheckboxLabel = (size, checkSize) => styled.label`
+const CheckboxLabel = styled.label`
   display: block;
-  padding: 4px 0 5px calc(${size} + 10px);
-  min-height: ${size};
-  min-width: ${size};
+  padding: 4px 0 5px calc(${SIZE} + 10px);
+  min-height: ${SIZE};
+  min-width: ${SIZE};
   line-height: 1.5;
 
   cursor: pointer;
@@ -26,12 +26,12 @@ const getCheckboxLabel = (size, checkSize) => styled.label`
     color: ${get('colors.text.inverted')};
 
     font-family: ${get('fonts.icon')};
-    font-size: ${checkSize};
+    font-size: ${CHECK_SIZE};
 
     display: block;
     position: absolute;
     top: 50%;
-    left: calc(${size} / 2);
+    left: calc(${SIZE} / 2);
     transform: translate(-50%, -48%);
     z-index: 1;
     box-sizing: border-box;
@@ -48,8 +48,8 @@ const getCheckboxLabel = (size, checkSize) => styled.label`
     border-style: solid;
     border-radius: 3px;
 
-    width: ${size};
-    height: ${size};
+    width: ${SIZE};
+    height: ${SIZE};
     position: absolute;
     top: 50%;
     left: 0;
@@ -90,7 +90,20 @@ const getCheckboxLabel = (size, checkSize) => styled.label`
   }
 `;
 
-const CheckboxLabel = getCheckboxLabel(SIZE, CHECK_SIZE);
-CheckboxLabel.Small = getCheckboxLabel(SMALL_SIZE, SMALL_CHECK_SIZE);
+CheckboxLabel.Small = styled(CheckboxLabel)`
+  padding: 4px 0 5px calc(${SMALL_SIZE} + 10px);
+  min-height: ${SMALL_SIZE};
+  min-width: ${SMALL_SIZE};
+
+  &::before {
+    font-size: ${SMALL_CHECK_SIZE};
+    left: calc(${SMALL_SIZE} / 2);
+  }
+
+  &::after {
+    width: ${SMALL_SIZE};
+    height: ${SMALL_SIZE};
+  }
+`;
 
 export default CheckboxLabel;
