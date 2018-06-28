@@ -1,6 +1,5 @@
 import React from 'react';
 import themeGet from 'extensions/themeGet';
-import { withTheme } from 'styled-components';
 
 const AREA = {
   LABEL: 'label',
@@ -89,4 +88,4 @@ FieldRow.defaultProps = {
   columnCount: 2,
 };
 
-export default withTheme(FieldRow);
+export default FieldRow;
