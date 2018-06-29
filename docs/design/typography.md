@@ -1,7 +1,7 @@
 
 
 ```js
-const withTheme = require('styled-components').withTheme;
+const irisTheme = require('theme/irisTheme');
 
 const text = [
   'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -22,18 +22,17 @@ const Font = withTheme(({theme, name}) =>
   )
 );
 
-const FontSizes = withTheme(({theme, name}) =>
+const FontSizes = ({name}) =>
   (
         sizes.map((size) =>
           <Section key={size} title={size}>
             <P style={{
-              fontFamily: theme['bandwidth-shared'].fonts[name],
+              fontFamily: irisTheme.fonts[name],
               fontSize: size,
             }} spacing="lg">{sentence}</P>
           </Section>
         )
   )
-);
 
 const BlueLine = (props) =>
   <div style={{ pointerEvents: 'none', float: 'left', borderBottom: '1px dashed rgba(0, 0, 255, 0.25)', height: '1px', width: '100%', position: 'relative', ...props.style}} />
