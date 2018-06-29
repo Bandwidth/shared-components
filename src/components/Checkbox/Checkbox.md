@@ -17,3 +17,8 @@ A simple checkbox input.
 ```js
 <Checkbox disabled checked description="Bop" />
 ```
+
+*Small checkbox (used for tables)*
+```js
+<Checkbox.Small />
+```
