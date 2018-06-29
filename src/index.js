@@ -218,7 +218,6 @@ export {
 } from './components/Loader/styles/LoaderContainer';
 export { default as LoaderRing } from './components/Loader/styles/LoaderRing';
 export { default as Logo } from './components/Logo';
-export { default as LogoImage } from './components/Logo/styles/LogoImage';
 export { default as MethodTag } from './components/MethodTag';
 export { default as Modal } from './components/Modal';
 export {

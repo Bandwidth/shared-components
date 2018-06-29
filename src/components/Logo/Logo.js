@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { defaultProps } from 'recompose';
-import LogoImage from './styles/LogoImage';
 import LogoSvg from './logo.svg';
 import styled from 'styled-components';
 
