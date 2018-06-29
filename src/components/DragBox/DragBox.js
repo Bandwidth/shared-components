@@ -2,7 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { each, mapValues, partition, filter, noop, debounce } from 'lodash';
+import {
+  each,
+  mapValues,
+  partition,
+  filter,
+  noop,
+  throttle,
+  pick,
+} from 'lodash';
 
 import DragBoxSelect from './DragBoxSelect';
 
@@ -121,29 +129,31 @@ class DragBox extends React.Component {
 
   childElements = {};
 
-  componentDidMount = () => {
-    const el =
-      window.document.querySelector(this.props.scrollSelector) ||
-      window.document;
-    el.addEventListener('scroll', this.debouncedScroll, 16);
+  getScrollElement = () =>
+    window.document.querySelector(this.props.scrollSelector) || window.document;
+
+  getScroll = () => pick(this.getScrollElement(), ['scrollLeft', 'scrollTop']);
+
+  attachScrollSelector = () => {
+    const el = this.getScrollElement();
+    el.addEventListener('scroll', this.throttledScroll);
     window.document.addEventListener('mousemove', this.onMouseMove);
     window.document.addEventListener('mouseup', this.onMouseUp);
   };
 
-  componentWillUnmount = () => {
-    const el =
-      window.document.querySelector(this.props.scrollSelector) ||
-      window.document;
-    el.removeEventListener('scroll', this.debouncedScroll);
+  detachScrollSelector = () => {
+    const el = this.getScrollElement();
+    el.removeEventListener('scroll', this.throttledScroll);
     window.document.removeEventListener('mousemove', this.onMouseMove);
     window.document.removeEventListener('mouseup', this.onMouseUp);
   };
 
   // Add scroll delta to our mouse position
-  getMousePosition = ev => this.addScroll({ x: ev.pageX, y: ev.pageY });
+  getMousePosition = (ev, customScroll = null) =>
+    this.addScroll({ x: ev.pageX, y: ev.pageY }, customScroll);
 
   // We can't get the new mouse position on scroll, so we determine the scroll delta
-  // and recalculate the mouse position from that. Use debouncedScroll instead of using this function directly.
+  // and recalculate the mouse position from that. Use throttledScroll instead of using this function directly.
   __handleScroll = ev => {
     const {
       state: {
@@ -152,8 +162,7 @@ class DragBox extends React.Component {
         end: lastEnd,
       },
     } = this;
-    const el = ev.target;
-    const { scrollLeft, scrollTop } = el;
+    const { scrollLeft, scrollTop } = this.getScroll();
     // If the mouse is being held down as we scroll, we need to adjust the rectangle
     const end = lastEnd
       ? {
@@ -165,21 +174,31 @@ class DragBox extends React.Component {
     this.checkChildrenBoxCollisions();
   };
 
-  debouncedScroll = debounce(this.__handleScroll, 16);
+  // Scrolling is throttled so that we avoid doing costly collision calculations
+  // and rerenders on every frame. Instead, we limit it to 20 times a second,
+  // which still gives high visual fidelity.
+  throttledScroll = throttle(this.__handleScroll, 50);
 
-  addScroll = ({ x, y }) => ({
-    x: x + this.state.scrollLeft,
-    y: y + this.state.scrollTop,
+  addScroll = ({ x, y }, customScroll = null) => ({
+    x: x + (customScroll || this.state).scrollLeft,
+    y: y + (customScroll || this.state).scrollTop,
   });
 
   onMouseDown = ev => {
     const { props: { onMouseDown }, getMousePosition } = this;
     // Left click
     if (ev.button !== 0) return;
+    this.attachScrollSelector();
+    // When we start dragging, it's possible that we dragged a bunch
+    // and now our scroll state is invalid. We update the scroll state
+    // while using the new scroll state to calculate the mouse positions
+    const { scrollLeft, scrollTop } = this.getScroll();
     this.setState({
+      scrollLeft,
+      scrollTop,
       mouseDown: true,
-      start: this.getMousePosition(ev),
-      end: this.getMousePosition(ev),
+      start: this.getMousePosition(ev, { scrollLeft, scrollTop }),
+      end: this.getMousePosition(ev, { scrollLeft, scrollTop }),
     });
     this.props.onMouseDown();
   };
@@ -188,6 +207,8 @@ class DragBox extends React.Component {
     if (!this.state.mouseDown) {
       return;
     }
+    if (ev.button !== 0) return;
+    this.detachScrollSelector();
     this.props.onMouseUp(this.state.collisions);
     this.setState({
       mouseDown: false,

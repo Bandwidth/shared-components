@@ -419,9 +419,6 @@ export {
   default as StyledToggleButton,
 } from './components/ToggleButton/styles/StyledToggleButton';
 export { default as childrenWithProps } from './extensions/childrenWithProps';
-export {
-  default as defaultPropsComponent,
-} from './extensions/defaultPropsComponent';
 export { default as formatMoney } from './extensions/formatMoney';
 export { default as generateId } from './extensions/generateId';
 export { default as parseFlex } from './extensions/parseFlex';

@@ -4,6 +4,7 @@ import generateId from '../../extensions/generateId';
 import CheckboxInput from './styles/CheckboxInput';
 import CheckboxLabel from './styles/CheckboxLabel';
 import CheckboxContainer from './styles/CheckboxContainer';
+import { defaultProps } from 'recompose';
 
 export default class Checkbox extends React.PureComponent {
   static propTypes = {
@@ -66,6 +67,10 @@ export default class Checkbox extends React.PureComponent {
     Label: CheckboxLabel,
     Container: CheckboxContainer,
   };
+
+  static Small = defaultProps({
+    Label: CheckboxLabel.Small,
+  })(Checkbox);
 
   computeChecked = () => {
     const { value, checked } = this.props;

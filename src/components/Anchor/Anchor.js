@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withProps } from 'recompose';
+import { defaultProps } from 'recompose';
 import { Route } from 'react-router-dom';
 import userSpacing from 'extensions/userSpacing';
-import { withTheme } from 'styled-components';
 
 import DefaultExternalContentAnchor from './styles/ExternalContentAnchor';
 import DefaultExternalIconAnchor from './styles/ExternalIconAnchor';
@@ -296,34 +295,32 @@ class Anchor extends React.Component {
   }
 }
 
-const ThemedAnchor = withTheme(Anchor);
-
-ThemedAnchor.Danger = ThemedAnchor.Negative = withProps({
+Anchor.Danger = Anchor.Negative = defaultProps({
   ExternalTextAnchor: DefaultExternalTextAnchor.Danger,
   ExternalIconAnchor: DefaultExternalIconAnchor.Danger,
   InternalTextAnchor: DefaultInternalTextAnchor.Danger,
   InternalIconAnchor: DefaultInternalIconAnchor.Danger,
-})(ThemedAnchor);
+})(Anchor);
 
-ThemedAnchor.Positive = withProps({
+Anchor.Positive = defaultProps({
   ExternalTextAnchor: DefaultExternalTextAnchor.Positive,
   ExternalIconAnchor: DefaultExternalIconAnchor.Positive,
   InternalTextAnchor: DefaultInternalTextAnchor.Positive,
   InternalIconAnchor: DefaultInternalIconAnchor.Positive,
-})(ThemedAnchor);
+})(Anchor);
 
-ThemedAnchor.Dark = withProps({
+Anchor.Dark = defaultProps({
   ExternalTextAnchor: DefaultExternalTextAnchor.Dark,
   ExternalIconAnchor: DefaultExternalIconAnchor.Dark,
   InternalTextAnchor: DefaultInternalTextAnchor.Dark,
   InternalIconAnchor: DefaultInternalIconAnchor.Dark,
-})(ThemedAnchor);
+})(Anchor);
 
-ThemedAnchor.Inverted = withProps({
+Anchor.Inverted = defaultProps({
   ExternalTextAnchor: DefaultExternalTextAnchor.Inverted,
   ExternalIconAnchor: DefaultExternalIconAnchor.Inverted,
   InternalTextAnchor: DefaultInternalTextAnchor.Inverted,
   InternalIconAnchor: DefaultInternalIconAnchor.Inverted,
-})(ThemedAnchor);
+})(Anchor);
 
-export default ThemedAnchor;
+export default Anchor;

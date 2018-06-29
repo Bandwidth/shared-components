@@ -5,8 +5,10 @@ import icons from 'components/Icon/icons';
 
 const SIZE = '30px';
 const CHECK_SIZE = '21px';
+const SMALL_SIZE = '20px';
+const SMALL_CHECK_SIZE = '1em';
 
-export default styled.label`
+const CheckboxLabel = styled.label`
   display: block;
   padding: 4px 0 5px calc(${SIZE} + 10px);
   min-height: ${SIZE};
@@ -87,3 +89,21 @@ export default styled.label`
     content: "${icons('checkmark')}";
   }
 `;
+
+CheckboxLabel.Small = styled(CheckboxLabel)`
+  padding: 4px 0 5px calc(${SMALL_SIZE} + 10px);
+  min-height: ${SMALL_SIZE};
+  min-width: ${SMALL_SIZE};
+
+  &::before {
+    font-size: ${SMALL_CHECK_SIZE};
+    left: calc(${SMALL_SIZE} / 2);
+  }
+
+  &::after {
+    width: ${SMALL_SIZE};
+    height: ${SMALL_SIZE};
+  }
+`;
+
+export default CheckboxLabel;
