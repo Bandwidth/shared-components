@@ -10,7 +10,7 @@ const normalize = size => {
   switch (size) {
     case 'xs':
     case 'extraSmall':
-      return 'extraSmall';
+      return 'extra-small';
     case 'sm':
     case 'small':
       return 'small';
@@ -19,7 +19,7 @@ const normalize = size => {
       return 'large';
     case 'xl':
     case 'extraLarge':
-      return 'extraLarge';
+      return 'extra-large';
     case 'md':
     case 'medium':
       return 'medium';
@@ -30,7 +30,7 @@ const normalize = size => {
 
 const getSpacing = (props, size) => {
   try {
-    return get(`spacing.${normalize(size)}`)(props);
+    return `var(--spacing-${normalize(size)})`;
   } catch (err) {
     return size;
   }

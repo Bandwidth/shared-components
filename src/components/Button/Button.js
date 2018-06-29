@@ -18,16 +18,16 @@ const Button = styled.button`
   font-size: 0.8rem;
   text-decoration: none;
   font-weight: 700;
-  font-family: ${get('fonts.brand')};
+  font-family: var(--fonts-brand);
   text-transform: uppercase;
 
-  border-width: ${get('thicknesses.normal')};
+  border-width: var(--thicknesses-normal);
   border-style: solid;
   border-radius: 3em;
-  border-color: ${get('colors.primary.default')};
+  border-color: var(--colors-primary-default);
 
-  color: ${get('colors.text.inverted')};
-  background: ${get('colors.primary.default')};
+  color: var(--colors-text-inverted);
+  background: var(--colors-primary-default);
 
   padding: 12px 28px 10px 28px;
   display: inline-block;
@@ -53,15 +53,15 @@ const Button = styled.button`
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
-    background: ${get('colors.primary.dark')};
-    border-color: ${get('colors.primary.dark')};
-    box-shadow: ${get('shadows.short')};
+    background: var(--colors-primary-dark);
+    border-color: var(--colors-primary-dark);
+    box-shadow: var(--shadows-short);
   }
 
   &:disabled {
-    background: ${get('colors.background.disabled')};
-    color: ${get('colors.text.disabled')};
-    border-color: ${get('colors.background.disabled')};
+    background: var(--colors-background-disabled);
+    color: var(--colors-text-disabled);
+    border-color: var(--colors-background-disabled);
     cursor: default;
     opacity: 0.5;
   }
@@ -72,7 +72,7 @@ const Button = styled.button`
     color: inherit;
     transition: all 0.3s;
     speak: none;
-    font-family: ${get('fonts.icon')};
+    font-family: var(--fonts-icon);
   }
 
   &::before {
@@ -129,15 +129,15 @@ Button.defaultProps = {
 Button.Submit = SubmitButton;
 
 Button.Secondary = styled(Button)`
-  color: ${get('colors.primary.dark')};
-  border-color: ${get('colors.primary.dark')};
+  color: var(--colors-primary-dark);
+  border-color: var(--colors-primary-dark);
   background: transparent;
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
-    color: ${get('colors.text.inverted')};
-    background: ${get('colors.primary.dark')};
-    border-color: ${get('colors.primary.dark')};
+    color: var(--colors-text-inverted);
+    background: var(--colors-primary-dark);
+    border-color: var(--colors-primary-dark);
   }
 `;
 
@@ -152,13 +152,13 @@ Button.Large = styled(Button)`
 `;
 
 Button.Danger = styled(Button)`
-  border-color: ${get('colors.negative.default')};
-  background: ${get('colors.negative.default')};
+  border-color: var(--colors-negative-default);
+  background: var(--colors-negative-default);
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
-    background: ${get('colors.negative.dark')};
-    border-color: ${get('colors.negative.dark')};
+    background: var(--colors-negative-dark);
+    border-color: var(--colors-negative-dark);
   }
 `;
 

@@ -12,14 +12,14 @@ const processMethod = method => {
 };
 
 const methodColors = {
-  post: get('colors.primary.default'),
-  get: get('colors.positive.default'),
-  put: get('colors.accents[0].default'),
-  del: get('colors.negative.default'),
+  post: 'var(--colors-primary-default)',
+  get: 'var(--colors-positive-default)',
+  put: 'var(--colors-accents-0-default)',
+  del: 'var(--colors-negative-default)',
 };
 
 const MethodTag = styled.pre`
-  color: ${get('colors.text.inverted')};
+  color: var(--colors-text-inverted);
   font-size: 1em;
   line-height: 1em;
   padding: 0.5em 1em;
@@ -31,7 +31,7 @@ const MethodTag = styled.pre`
 
   background: ${props => {
     const method = processMethod(props.children);
-    return methodColors[method](props);
+    return methodColors[method];
   }};
 `;
 

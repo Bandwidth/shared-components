@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
 const FormBox = styled.div.withConfig({ displayName: 'FormBox' })`
-  background: ${get('colors.background.default')};
-  border-width: ${get('thicknesses.normal')};
+  background: var(--colors-background-default);
+  border-width: var(--thicknesses-normal);
   border-style: solid;
-  border-color: ${get('colors.border.medium')};
-  padding: ${get('spacing.large')};
+  border-color: var(--colors-border-medium);
+  padding: var(--spacing-large);
 `;
 
 FormBox.propTypes = {

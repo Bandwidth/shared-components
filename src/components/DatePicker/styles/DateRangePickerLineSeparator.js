@@ -3,7 +3,7 @@ import get from 'extensions/themeGet';
 
 export default styled.div`
   width: 10px;
-  margin: auto ${get('spacing.small')};
-  height: ${get('thicknesses.normal')};
-  background: ${get('colors.border.medium')};
+  margin: auto var(--spacing-small);
+  height: var(--thicknesses-normal);
+  background: var(--colors-border-medium);
 `;

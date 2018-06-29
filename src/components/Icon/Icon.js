@@ -5,7 +5,7 @@ import icons from './icons';
 import get from 'extensions/themeGet';
 
 const Icon = styled.i.withConfig({ displayName: 'Icon' })`
-  font-family: ${get('fonts.icon')};
+  font-family: var(--fonts-icon);
   font-size: inherit;
   color: inherit;
   font-style: normal;

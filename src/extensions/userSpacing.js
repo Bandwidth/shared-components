@@ -21,19 +21,19 @@ const getSize = (value, props) => {
   switch (`${value}`.toLowerCase()) {
     case 'xs':
     case 'extraSmall':
-      return themeGet('spacing.extraSmall')(props);
+      return 'var(--spacing-extra-small)';
     case 'sm':
     case 'small':
-      return themeGet('spacing.small')(props);
+      return 'var(--spacing-small)';
     case 'md':
     case 'medium':
-      return themeGet('spacing.medium')(props);
+      return 'var(--spacing-medium)';
     case 'lg':
     case 'large':
-      return themeGet('spacing.large')(props);
+      return 'var(--spacing-large)';
     case 'xl':
     case 'extraLarge':
-      return themeGet('spacing.extraLarge')(props);
+      return 'var(--spacing-extra-large)';
     default:
       // if it's a unit string, return it
       if (isNaN(parseInt(`${value}`, 10))) {

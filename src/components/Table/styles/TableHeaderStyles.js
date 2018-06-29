@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
 const TableHeaderStyles = styled.th`
-  background: ${get('colors.primary.dark')};
-  color: ${get('colors.text.inverted')};
+  background: var(--colors-primary-dark);
+  color: var(--colors-text-inverted);
   text-transform: uppercase;
   font-weight: 300;
-  font-family: ${get('fonts.brand')};
-  padding: ${get('spacing.small')} ${get('spacing.medium')};
+  font-family: var(--fonts-brand);
+  padding: var(--spacing-small) var(--spacing-medium);
   text-align: left;
   white-space: nowrap;
 
@@ -20,7 +20,7 @@ const TableHeaderStyles = styled.th`
     color: inherit;
   }
   & > a::after {
-    background: ${get('colors.text.inverted')};
+    background: var(--colors-text-inverted);
   }
 `;
 

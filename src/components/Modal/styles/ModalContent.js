@@ -3,5 +3,5 @@ import get from 'extensions/themeGet';
 
 export default styled.div`
   overflow-y: auto;
-  padding: ${get('spacing.large')};
+  padding: var(--spacing-large);
 `;

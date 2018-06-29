@@ -8,15 +8,15 @@ const NUMBER_SIZE = '2.5em';
 export default styled.div.attrs({
   number: props => (props.complete ? icons('checkmark') : props.number),
   numberFont: props =>
-    props.complete ? get('fonts.icon')(props) : get('fonts.default')(props),
+    props.complete ? 'var(--fonts-icon)' : 'var(--fonts-default)',
   numberColor: props =>
     props.complete
-      ? get('colors.positive.dark')(props)
-      : get('colors.text.default')(props),
+      ? 'var(--colors-positive-dark)'
+      : 'var(--colors-text-default)',
   numberBorderColor: props =>
     props.complete
-      ? get('colors.positive.border')(props)
-      : get('colors.shadow.light')(props),
+      ? 'var(--colors-positive-border)'
+      : 'var(--colors-shadow-light)',
 })`
   &:before {
     display: inline-block;
@@ -25,9 +25,9 @@ export default styled.div.attrs({
     width: ${NUMBER_SIZE};
     height: ${NUMBER_SIZE};
     line-height: ${NUMBER_SIZE};
-    background-color: ${get('colors.background.default')};
+    background-color: var(--colors-background-default);
     border-radius: 2em;
-    border-width: ${get('thicknesses.normal')};
+    border-width: var(--thicknesses-normal);
     border-style: solid;
     border-color: ${props => props.numberBorderColor};
     text-align: center;

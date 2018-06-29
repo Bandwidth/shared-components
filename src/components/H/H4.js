@@ -10,9 +10,9 @@ const H4 = styled(tag.h4)
   .attrs({
     spacing: userSpacing.text,
   })`
-  color: ${get('colors.primary.default')};
+  color: var(--colors-primary-default);
   font-weight: 900;
-  font-family: ${get('fonts.brand')};
+  font-family: var(--fonts-brand);
   font-size: 1.25em;
   letter-spacing: 0.1em;
   text-transform: uppercase;

@@ -4,7 +4,7 @@ import get from 'extensions/themeGet';
 export default styled.div`
   position: relative;
   display: flex;
-  height: ${get('spacing.medium')};
+  height: var(--spacing-medium);
 
   cursor: pointer;
   user-select: none;
@@ -20,8 +20,8 @@ export default styled.div`
     width: 100%;
     position: absolute;
     top: calc(50% - 1px);
-    border-bottom-width: ${get('thicknesses.normal')};
+    border-bottom-width: var(--thicknesses-normal);
     border-bottom-style: dashed;
-    border-bottom-color: ${get('colors.gray.medium')};
+    border-bottom-color: var(--colors-gray-medium);
   }
 `;

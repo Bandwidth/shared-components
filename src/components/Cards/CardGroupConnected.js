@@ -4,12 +4,12 @@ import themeGet from 'extensions/themeGet';
 
 const CardGroupConnected = styled.div`
   display: flex;
-  border-width: 0 ${themeGet('thicknesses.normal')}
-    ${themeGet('thicknesses.normal')} ${themeGet('thicknesses.normal')};
-  border-color: ${themeGet('colors.border.medium')};
+  border-width: 0 var(--thicknesses-normal) var(--thicknesses-normal)
+    var(--thicknesses-normal);
+  border-color: var(--colors-border-medium);
   border-style: solid;
   border-radius: 5px;
-  box-shadow: ${themeGet('shadows.long')};
+  box-shadow: var(--shadows-long);
 
   & > * {
     margin: 0;
@@ -31,8 +31,7 @@ const CardGroupConnected = styled.div`
   }
 
   & > ${Card}:not(:first-of-type) {
-    border-left: ${themeGet('thicknesses.normal')} solid
-      ${themeGet('colors.border.medium')};
+    border-left: var(--thicknesses-normal) solid var(--colors-border-medium);
   }
 `;
 

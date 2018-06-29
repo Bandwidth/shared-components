@@ -22,7 +22,7 @@ const LoaderRing = styled.div.withConfig({ displayName: 'LoaderRing' })`
 
   border-width: 2px;
   border-style: solid;
-  border-color: ${get('colors.primary.default')};
+  border-color: var(--colors-primary-default);
   border-radius: 50%;
   margin: 0 5px;
   transform: scale(0);

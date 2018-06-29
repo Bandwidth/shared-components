@@ -3,8 +3,8 @@ import DragGroupSeparatorContainer from './DragGroupSeparatorContainer';
 import get from 'extensions/themeGet';
 
 export default styled.div`
-  background: ${get('colors.background.default')};
-  color: ${get('colors.gray.medium')};
+  background: var(--colors-background-default);
+  color: var(--colors-gray-medium);
   text-transform: uppercase;
   position: relative;
   z-index: 10;

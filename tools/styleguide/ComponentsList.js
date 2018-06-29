@@ -30,11 +30,13 @@ const Link = styled.a`
   font-weight: inherit;
   margin-left: 15px;
   color: ${({ deprecated }) =>
-    deprecated ? get('colors.gray.default') : 'inherit'};
+    deprecated ? 'var(--colors-gray-default)' : 'inherit'};
   &:focus,
   &:active {
     color: ${({ deprecated }) =>
-      deprecated ? get('colors.gray.medium') : get('colors.primary.default')};
+      deprecated
+        ? 'var(--colors-gray-medium)'
+        : 'var(--colors-primary-default)'};
   }
 `;
 

@@ -6,9 +6,9 @@ import get from 'extensions/themeGet';
 const TableCell = styled.td`
   background: transparent;
   text-align: left;
-  border-right: ${get('thicknesses.normal')} solid ${get('colors.shadow.light')};
+  border-right: var(--thicknesses-normal) solid var(--colors-shadow-light);
   white-space: nowrap;
-  padding: ${get('spacing.small')} ${get('spacing.medium')};
+  padding: var(--spacing-small) var(--spacing-medium);
   transition: 0.2s ease all;
 
   &:last-child {

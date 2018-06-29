@@ -21,7 +21,7 @@ const spin = keyframes`
 
 const SelectWrapper = styled.div`
   width: 100%;
-  color: ${get('colors.text.default')};
+  color: var(--colors-text-default);
 
   .Select {
     position: relative;
@@ -37,7 +37,7 @@ const SelectWrapper = styled.div`
     box-sizing: border-box;
   }
   .Select.is-disabled > .Select-control {
-    background-color: ${get('colors.background.disabled')};
+    background-color: var(--colors-background-disabled);
   }
   .Select.is-disabled > .Select-control:hover {
     box-shadow: none;
@@ -49,13 +49,13 @@ const SelectWrapper = styled.div`
   }
 
   .Select-control {
-    background-color: ${get('colors.background.default')};
+    background-color: var(--colors-background-default);
     border-color: ${props =>
       props.invalid
-        ? get('colors.negative.border')
-        : get('colors.border.light')};
+        ? 'var(--colors-negative-border)'
+        : 'var(--colors-border-light)'};
     border-radius: 0;
-    border-width: ${get('thicknesses.wide')};
+    border-width: var(--thicknesses-wide);
     border-style: solid;
     color: inherit;
     cursor: default;
@@ -72,7 +72,7 @@ const SelectWrapper = styled.div`
     props.invalid
       ? css`
           .Select:not(.is-open) > .Select-control {
-            box-shadow: inset 0 -5px 0 ${get('colors.negative.light')};
+            box-shadow: inset 0 -5px 0 var(--colors-negative-light);
           }
         `
       : ''} .Select-control .Select-input:focus {
@@ -90,11 +90,11 @@ const SelectWrapper = styled.div`
   }
 
   .is-focused > .Select-control {
-    border-color: ${get('colors.border.medium')};
+    border-color: var(--colors-border-medium);
   }
 
   .is-focused:not(.is-open) > .Select-control {
-    box-shadow: inset 0 -5px 0 ${get('colors.primary.light')};
+    box-shadow: inset 0 -5px 0 var(--colors-primary-light);
   }
 
   .Select-placeholder,
@@ -104,7 +104,7 @@ const SelectWrapper = styled.div`
     left: 0;
     font-size: inherit;
     line-height: 1.5;
-    padding: ${get('spacing.medium')};
+    padding: var(--spacing-medium);
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -129,7 +129,7 @@ const SelectWrapper = styled.div`
     > .Select-control
     .Select-value
     a.Select-value-label:hover {
-    color: ${get('colors.primary.default')};
+    color: var(--colors-primary-default);
     outline: none;
   }
   .has-value.Select--single
@@ -140,7 +140,7 @@ const SelectWrapper = styled.div`
     > .Select-control
     .Select-value
     a.Select-value-label:focus {
-    color: ${get('colors.primary.default')};
+    color: var(--colors-primary-default);
     outline: none;
   }
 
@@ -153,7 +153,7 @@ const SelectWrapper = styled.div`
   .Select-input {
     font-size: inherit;
     line-height: 1.5;
-    padding: ${get('spacing.medium')};
+    padding: var(--spacing-medium);
     vertical-align: middle;
   }
   .Select-input > input {
@@ -261,10 +261,10 @@ const SelectWrapper = styled.div`
   }
 
   .Select-menu-outer {
-    background-color: ${get('colors.background.default')};
-    border: ${get('thicknesses.wide')} solid ${get('colors.border.medium')};
-    border-top-color: ${get('colors.border.light')};
-    box-shadow: ${get('shadows.short')};
+    background-color: var(--colors-background-default);
+    border: var(--thicknesses-wide) solid var(--colors-border-medium);
+    border-top-color: var(--colors-border-light);
+    box-shadow: var(--shadows-short);
     box-sizing: border-box;
     margin-top: -1px;
     max-height: 200px;
@@ -280,34 +280,34 @@ const SelectWrapper = styled.div`
   }
   .Select-option {
     box-sizing: border-box;
-    border-bottom: 0.5px solid ${get('colors.gray.border')};
-    background-color: ${get('colors.background.default')};
-    color: ${get('colors.text.default')};
+    border-bottom: 0.5px solid var(--colors-gray-border);
+    background-color: var(--colors-background-default);
+    color: var(--colors-text-default);
     cursor: pointer;
     display: block;
     font-size: 14px;
-    padding-left: ${get('spacing.medium')};
-    padding-top: ${get('spacing.extraSmall')};
-    padding-bottom: ${get('spacing.extraSmall')};
+    padding-left: var(--spacing-medium);
+    padding-top: var(--spacing-extra-small);
+    padding-bottom: var(--spacing-extra-small);
   }
   .Select-option.is-geted {
-    color: ${get('colors.primary.default')};
+    color: var(--colors-primary-default);
   }
   .Select-option.is-focused {
-    background-color: ${get('colors.primary.light')};
-    color: ${get('colors.text.default')};
+    background-color: var(--colors-primary-light);
+    color: var(--colors-text-default);
   }
   .Select-option.is-disabled {
-    color: ${get('colors.gray.medium')};
+    color: var(--colors-gray-medium);
     cursor: default;
   }
   .Select-noresults {
     box-sizing: border-box;
-    color: ${get('colors.gray.medium')};
+    color: var(--colors-gray-medium);
     cursor: default;
     display: block;
     font-size: 14px;
-    padding: ${get('spacing.medium')};
+    padding: var(--spacing-medium);
   }
   .Select--multi .Select-input {
     vertical-align: middle;
@@ -318,9 +318,9 @@ const SelectWrapper = styled.div`
     margin-left: 5px;
   }
   .Select--multi .Select-value {
-    background-color: ${get('colors.primary.light')};
+    background-color: var(--colors-primary-light);
     border-radius: 5px;
-    color: ${get('colors.primary.default')};
+    color: var(--colors-primary-default);
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -329,10 +329,10 @@ const SelectWrapper = styled.div`
     margin-left: 5px;
     margin-top: 5px;
     vertical-align: top;
-    padding: ${get('spacing.extraSmall')};
-    border-width: ${get('thicknesses.wide')};
+    padding: var(--spacing-extra-small);
+    border-width: var(--thicknesses-wide);
     border-style: solid;
-    border-color: ${get('colors.primary.default')};
+    border-color: var(--colors-primary-default);
   }
   .Select--multi .Select-value-icon,
   .Select--multi .Select-value-label {
@@ -346,7 +346,7 @@ const SelectWrapper = styled.div`
     cursor: default;
   }
   .Select--multi a.Select-value-label {
-    color: ${get('colors.primary.default')};
+    color: var(--colors-primary-default);
     cursor: pointer;
     text-decoration: none;
   }
@@ -357,35 +357,35 @@ const SelectWrapper = styled.div`
     cursor: pointer;
     border-bottom-left-radius: 2px;
     border-top-left-radius: 2px;
-    border-right-width: ${get('thicknesses.wide')};
+    border-right-width: var(--thicknesses-wide);
     border-right-style: solid;
-    border-right-color: ${get('colors.primary.default')};
+    border-right-color: var(--colors-primary-default);
     padding-right: 5px;
   }
   .Select--multi .Select-value-icon:hover,
   .Select--multi .Select-value-icon:focus,
   .Select--multi .Select-value-icon:active {
-    color: ${get('colors.text.inverted')};
-    background: ${get('colors.primary.default')};
+    color: var(--colors-text-inverted);
+    background: var(--colors-primary-default);
   }
   .Select--multi.is-disabled .Select-value {
-    background-color: ${get('colors.background.disabled')};
-    border-color: ${get('colors.gray.default')};
+    background-color: var(--colors-background-disabled);
+    border-color: var(--colors-gray-default);
     border-style: solid;
-    border-width: ${get('thicknesses.wide')};
-    color: ${get('colors.text.disabled')};
+    border-width: var(--thicknesses-wide);
+    color: var(--colors-text-disabled);
   }
   .Select--multi.is-disabled .Select-value-icon {
     cursor: not-allowed;
-    border-right-color: ${get('colors.gray.default')};
+    border-right-color: var(--colors-gray-default);
     border-right-style: solid;
-    border-right-width: ${get('thicknesses.wide')};
+    border-right-width: var(--thicknesses-wide);
   }
   .Select--multi.is-disabled .Select-value-icon:hover,
   .Select--multi.is-disabled .Select-value-icon:focus,
   .Select--multi.is-disabled .Select-value-icon:active {
-    background-color: ${get('colors.background.disabled')};
-    color: ${get('colors.text.disabled')};
+    background-color: var(--colors-background-disabled);
+    color: var(--colors-text-disabled);
   }
 `;
 

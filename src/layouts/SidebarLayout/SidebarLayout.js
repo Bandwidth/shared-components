@@ -15,10 +15,10 @@ const SidebarLayout = styled.div.withConfig({ displayName: 'SidebarLayout' })`
 
   & > *:last-child {
     flex: 6;
-    background: ${get('colors.gray.light')};
-    border-left-width: ${get('thicknesses.normal')};
+    background: var(--colors-gray-light);
+    border-left-width: var(--thicknesses-normal);
     border-left-style: solid;
-    border-left-color: ${get('colors.border.light')};
+    border-left-color: var(--colors-border-light);
     margin-left: -1px;
   }
 `;

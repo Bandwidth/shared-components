@@ -12,17 +12,17 @@ const openAnimation = keyframes`
 `;
 
 export default styled.div`
-  background: ${get('colors.background.default')};
+  background: var(--colors-background-default);
   color: inherit;
 
-  padding: ${get('spacing.small')} ${get('spacing.medium')};
+  padding: var(--spacing-small) var(--spacing-medium);
 
   border-radius: 3px;
   border-style: solid;
-  border-width: ${get('thicknesses.normal')};
-  border-color: ${get('colors.border.medium')};
+  border-width: var(--thicknesses-normal);
+  border-color: var(--colors-border-medium);
 
-  box-shadow: ${get('shadows.short')};
+  box-shadow: var(--shadows-short);
 
   max-width: 300px;
 

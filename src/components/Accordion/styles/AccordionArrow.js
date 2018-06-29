@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
 const AccordionArrow = styled(Icon)`
-  color: ${get('colors.gray.default')};
+  color: var(--colors-gray-default);
   margin: auto 1em auto auto;
   transform: ${({ isExpanded }) =>
     isExpanded ? 'rotate(90deg)' : 'rotate(0)'};
@@ -18,7 +18,7 @@ const AccordionArrow = styled(Icon)`
 `;
 
 AccordionArrow.Small = styled(AccordionArrow)`
-  color: ${get('colors.text.default')};
+  color: var(--colors-text-default);
 
   &:after {
     font-size: 1em;

@@ -12,7 +12,7 @@ const AlertBorder = styled(tag.div).attrs({
   spacing: userSpacing,
 })`
   font-weight: 200;
-  border-width: ${get('thicknesses.normal')};
+  border-width: var(--thicknesses-normal);
   border-style: solid;
   width: auto;
   font-size: 14px;
@@ -25,33 +25,33 @@ const AlertBorder = styled(tag.div).attrs({
   background: ${({ theme, type }) => {
     switch (type) {
       case 'success':
-        return get('colors.positive.light');
+        return 'var(--colors-positive-light)';
       case 'error':
-        return get('colors.negative.light');
+        return 'var(--colors-negative-light)';
       default:
-        return get('colors.primary.light');
+        return 'var(--colors-primary-light)';
     }
   }};
 
   border-color: ${({ theme, type }) => {
     switch (type) {
       case 'success':
-        return get('colors.positive.border');
+        return 'var(--colors-positive-border)';
       case 'error':
-        return get('colors.negative.border');
+        return 'var(--colors-negative-border)';
       default:
-        return get('colors.primary.border');
+        return 'var(--colors-primary-border)';
     }
   }};
 
   color: ${({ theme, type }) => {
     switch (type) {
       case 'success':
-        return get('colors.positive.dark');
+        return 'var(--colors-positive-dark)';
       case 'error':
-        return get('colors.negative.dark');
+        return 'var(--colors-negative-dark)';
       default:
-        return get('colors.primary.dark');
+        return 'var(--colors-primary-dark)';
     }
   }};
 

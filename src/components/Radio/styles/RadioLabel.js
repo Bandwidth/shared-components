@@ -8,8 +8,8 @@ const PADDING = '0.5em';
 const BORDER_WIDTH = '2px';
 
 const calcLabelColor = ({ disabled }) => {
-  if (disabled) return get('colors.text.disabled');
-  return get('colors.text.default');
+  if (disabled) return 'var(--colors-text-disabled)';
+  return 'var(--colors-text-default)';
 };
 
 export default styled.label`
@@ -27,15 +27,15 @@ export default styled.label`
 
   ${Input}:enabled + &:hover::after,
   ${Input}:enabled:focus + &::after {
-    box-shadow: ${get('shadows.focusOutline')};
+    box-shadow: var(--shadows-focus-outline);
   }
 
   /* the check */
 
   &::before {
     /* label color will take precedence over this unless we mark it important */
-    color: ${get('colors.text.inverted')} !important;
-    font-family: ${get('fonts.icon')};
+    color: var(--colors-text-inverted) !important;
+    font-family: var(--fonts-icon);
     text-align: center;
     width: ${SIZE};
     height: ${SIZE};

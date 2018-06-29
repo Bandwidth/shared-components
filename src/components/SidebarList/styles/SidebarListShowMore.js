@@ -3,13 +3,11 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
 const ShowMore = styled.div`
-  background: ${get('colors.primary.light')};
-  color: ${get('colors.primary.alternate')};
-  padding: ${get('spacing.medium')} ${get('spacing.large')};
-  border-bottom: ${get('thicknesses.normal')} solid
-    ${get('colors.gray.borderLight')};
-  border-right: ${get('thicknesses.normal')} solid
-    ${get('colors.gray.borderLight')};
+  background: var(--colors-primary-light);
+  color: var(--colors-primary-alternate);
+  padding: var(--spacing-medium) var(--spacing-large);
+  border-bottom: var(--thicknesses-normal) solid var(--colors-gray-border-light);
+  border-right: var(--thicknesses-normal) solid var(--colors-gray-border-light);
   cursor: pointer;
 `;
 

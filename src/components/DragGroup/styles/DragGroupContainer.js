@@ -3,6 +3,6 @@ import get from 'extensions/themeGet';
 
 export default styled.div`
   & + & {
-    padding-top: ${get('spacing.small')};
+    padding-top: var(--spacing-small);
   }
 `;

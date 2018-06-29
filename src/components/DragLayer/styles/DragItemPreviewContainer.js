@@ -17,7 +17,7 @@ export default styled.div`
   will-change: transform;
   display: block;
   pointer-events: none;
-  box-shadow: ${get('shadows.long')};
+  box-shadow: var(--shadows-long);
 
   & > * {
     width: 100%;

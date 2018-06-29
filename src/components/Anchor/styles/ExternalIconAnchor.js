@@ -16,7 +16,7 @@ const iconStyles = css`
   }
 
   &::before {
-    font-family: ${get('fonts.icon')};
+    font-family: var(--fonts-icon);
     content: ${({ icon }) => (!!icon ? `"${icons(icon)}"` : '')};
     font-weight: normal;
     margin-right: ${({ icon, children }) =>

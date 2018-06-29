@@ -4,8 +4,8 @@ import get from 'extensions/themeGet';
 
 const SearchBoxSuggestionsList = styled.div`
   border-style: solid;
-  border-color: ${get('colors.border.medium')};
-  border-width: ${get('thicknesses.normal')};
+  border-color: var(--colors-border-medium);
+  border-width: var(--thicknesses-normal);
   margin-top: -1px;
 
   & ul {

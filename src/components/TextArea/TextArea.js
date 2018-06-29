@@ -7,16 +7,16 @@ const TextArea = styled.textarea`
   letter-spacing: 0.02em;
   line-height: 1.5;
   font-size: 14px;
-  font-family: ${get('fonts.brand')};
+  font-family: var(--fonts-brand);
   transition: all 0.2s ease;
-  padding: calc(${get('spacing.medium')} - 1px);
-  border-width: ${get('thicknesses.wide')};
+  padding: calc(var(--spacing-medium) - 1px);
+  border-width: var(--thicknesses-wide);
   border-style: solid;
 
-  color: ${get('colors.text.default')};
-  background: ${get('colors.background.default')};
+  color: var(--colors-text-default);
+  background: var(--colors-background-default);
   opacity: 1;
-  border-color: ${get('colors.border.light')};
+  border-color: var(--colors-border-light);
 
   outline: none;
   width: 100%;
@@ -26,15 +26,15 @@ const TextArea = styled.textarea`
   }
 
   &:focus {
-    box-shadow: inset 0 -5px 0 ${get('colors.primary.light')};
-    border-color: ${get('colors.border.medium')};
+    box-shadow: inset 0 -5px 0 var(--colors-primary-light);
+    border-color: var(--colors-border-medium);
   }
 
   &:disabled {
-    background: ${get('colors.background.disabled')};
-    border-color: ${get('colors.border.medium')};
+    background: var(--colors-background-disabled);
+    border-color: var(--colors-border-medium);
     opacity: 0.5;
-    color: ${get('colors.text.disabled')};
+    color: var(--colors-text-disabled);
   }
 
   &::placeholder {
@@ -45,15 +45,15 @@ const TextArea = styled.textarea`
     props.visited
       ? css`
           &:invalid {
-            box-shadow: inset 0 -5px 0 ${get('colors.negative.light')(props)};
-            border-color: ${get('colors.negative.border')(props)};
+            box-shadow: inset 0 -5px 0 var(--colors-negative-light);
+            border-color: var(--colors-negative-border);
           }
         `
       : ''} ${props =>
     props.invalid || props.error
       ? `
-    box-shadow: inset 0 -5px ${get('colors.negative.light')(props)};
-    border-color: ${get('colors.negative.border')(props)};
+    box-shadow: inset 0 -5px var(--colors-negative-light);
+    border-color: var(--colors-negative-border);
     `
       : ''};
 `;

@@ -8,10 +8,12 @@ const HelpText = styled.div.withConfig({ displayName: 'HelpText' }).attrs({
   spacing: userTextSpacing,
 })`
   color: ${props =>
-    props.error ? get('colors.negative.default') : get('colors.gray.medium')};
+    props.error
+      ? 'var(--colors-negative-default)'
+      : 'var(--colors-gray-medium)'};
   font-style: italic;
   font-weight: 300;
-  font-family: ${get('fonts.brand')};
+  font-family: var(--fonts-brand);
   margin: ${props => props.spacing};
 `;
 

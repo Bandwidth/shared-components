@@ -25,8 +25,8 @@ export default styled.button`
     width: ${ACTIVE_SIZE};
     height: ${ACTIVE_SIZE};
     line-height: ${ACTIVE_SIZE};
-    background: ${get('colors.primary.default')};
-    color: ${get('colors.text.inverted')};
+    background: var(--colors-primary-default);
+    color: var(--colors-text-inverted);
     text-align: center;
     border-radius: 100%;
     transition: 0.2s all ease;
@@ -34,9 +34,9 @@ export default styled.button`
   }
 
   &:not(:disabled):hover::before {
-    background: ${get('colors.primary.alternate')};
-    color: ${get('colors.text.inverted')};
-    box-shadow: ${get('shadows.short')};
+    background: var(--colors-primary-alternate);
+    color: var(--colors-text-inverted);
+    box-shadow: var(--shadows-short);
   }
 
   &:disabled::before {
@@ -45,9 +45,9 @@ export default styled.button`
     top: 0.25em;
     line-height: ${INACTIVE_SIZE};
     font-size: 1em;
-    left: calc(-${INACTIVE_SIZE} - ${get('spacing.small')});
-    background: ${get('colors.background.default')};
-    color: ${get('colors.text.disabled')};
+    left: calc(-${INACTIVE_SIZE} - var(--spacing-small));
+    background: var(--colors-background-default);
+    color: var(--colors-text-disabled);
     cursor: default;
   }
 `;

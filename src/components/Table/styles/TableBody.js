@@ -6,7 +6,7 @@ const TableBody = styled.tbody`
     &:nth-child(odd) {
       background: ${props =>
         props.zebraStripe && props.startIndex % 2 === 1
-          ? get('colors.shadow.extraLight')(props)
+          ? 'var(--colors-shadow-extra-light)'
           : 'transparent'};
     }
 
@@ -15,7 +15,7 @@ const TableBody = styled.tbody`
         props.zebraStripe
           ? props.startIndex % 2 === 1
             ? 'transparent'
-            : get('colors.shadow.extraLight')(props)
+            : 'var(--colors-shadow-extra-light)'
           : 'transparent'};
     }
   }

@@ -17,7 +17,7 @@ const H1 = styled(tag.h1)
   })`
   color: var(--colors-primary-default);
   font-weight: 100;
-  font-family: ${get('fonts.brand')};
+  font-family: var(--fonts-brand);
   font-size: 2.5em;
   margin: ${props => props.spacing};
   overflow: hidden;

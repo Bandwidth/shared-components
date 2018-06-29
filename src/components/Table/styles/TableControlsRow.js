@@ -4,7 +4,7 @@ import get from 'extensions/themeGet';
 export default styled.div`
   display: flex;
   flex-direction: row;
-  margin: 0 0 ${get('spacing.small')} 0;
+  margin: 0 0 var(--spacing-small) 0;
 
   & > h1 {
     flex: 1;
@@ -15,7 +15,7 @@ export default styled.div`
   & > div {
     flex: 0 0 auto;
     & > a {
-      margin-left: ${get('spacing.medium')};
+      margin-left: var(--spacing-medium);
     }
   }
 `;

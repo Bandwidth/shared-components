@@ -3,8 +3,8 @@ import get from 'extensions/themeGet';
 
 export default styled.div`
   position: relative;
-  padding: ${get('spacing.large')} 0;
-  margin: 0 ${get('spacing.large')};
+  padding: var(--spacing-large) 0;
+  margin: 0 var(--spacing-large);
 
   &::before {
     position: absolute;
@@ -12,8 +12,8 @@ export default styled.div`
     left: 0;
     right: 0;
     top: 0;
-    border-top-width: ${get('thicknesses.normal')};
+    border-top-width: var(--thicknesses-normal);
     border-top-style: solid;
-    border-top-color: ${get('colors.border.light')};
+    border-top-color: var(--colors-border-light);
   }
 `;

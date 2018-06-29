@@ -17,27 +17,27 @@ export default styled.input`
   /* the bubble */
 
   & + label::after {
-    border-color: ${get('colors.border.dark')};
+    border-color: var(--colors-border-dark);
   }
 
   &:disabled + label::after {
-    border-color: ${get('colors.border.disabled')};
+    border-color: var(--colors-border-disabled);
   }
 
   &:disabled:checked + label::after {
-    background-color: ${get('colors.background.disabledSelected')};
+    background-color: var(--colors-background-disabled-selected);
   }
 
   &:disabled:not(:checked) + label::after {
-    background-color: ${get('colors.background.disabled')};
+    background-color: var(--colors-background-disabled);
   }
 
   &:checked:not(:disabled) + label::after {
-    background-color: ${get('colors.background.dark')};
+    background-color: var(--colors-background-dark);
   }
 
   &:not(:checked):not(:disabled) + label::after {
-    background-color: ${get('colors.background.default')};
+    background-color: var(--colors-background-default);
   }
 
 `;

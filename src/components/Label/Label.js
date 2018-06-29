@@ -10,8 +10,8 @@ const Label = styled.label.withConfig({ displayName: 'Label' }).attrs({
   font-size: 1em;
   letter-spacing: 0.02em;
   font-weight: 600;
-  font-family: ${get('fonts.brand')};
-  color: ${get('colors.text.default')};
+  font-family: var(--fonts-brand);
+  color: var(--colors-text-default);
   background: transparent;
   line-height: 1.5;
   display: block;
@@ -19,7 +19,7 @@ const Label = styled.label.withConfig({ displayName: 'Label' }).attrs({
   ${({ disabled }) =>
     disabled &&
     css`
-      color: ${get('colors.text.disabled')};
+      color: var(--colors-text-disabled);
     `};
 
   ${({ required }) =>

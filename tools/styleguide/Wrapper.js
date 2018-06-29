@@ -11,12 +11,12 @@ const history = createMemoryHistory('/');
 const Container = styled.div`
   position: relative;
   margin: 0;
-  background: ${get('colors.background.default')};
-  color: ${get('colors.text.default')};
+  background: var(--colors-background-default);
+  color: var(--colors-text-default);
 `;
 
 const Content = styled.div`
-  margin-top: ${get('spacing.medium')};
+  margin-top: var(--spacing-medium);
 `;
 
 export default class Wrapper extends React.Component {

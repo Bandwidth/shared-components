@@ -9,14 +9,14 @@ export default styled.div`
   color: inherit;
 
   & > ${NavigationHeading} {
-    border-left: ${get('thicknesses.normal')} solid
-      ${get('colors.text.inverted')};
+    border-left: var(--thicknesses-normal) solid
+      var(--colors-text-inverted);
     margin: auto;
     margin-left: 0.5em;
     padding-left: 0.5em;
   }
 
   ${NavigationBar} > &, ${NavigationBar.Dark} > &, ${NavigationBar.Sub} > & {
-    margin: auto ${get('spacing.small')} auto 0;
+    margin: auto var(--spacing-small) auto 0;
   }
 `;

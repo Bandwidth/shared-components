@@ -6,26 +6,26 @@ export default styled.span`
   white-space: nowrap;
 
   & > a {
-    color: ${get('colors.gray.medium')};
+    color: var(--colors-gray-medium);
   }
   & > a:focus {
-    color: ${get('colors.text.inverted')};
+    color: var(--colors-text-inverted);
   }
   & > a::after {
-    background: ${get('colors.gray.medium')};
+    background: var(--colors-gray-medium);
   }
 
   ${props => {
     if (props.sortOrder > 0) {
       return css`
         & > *:first-child {
-          color: ${get('colors.text.inverted')(props)};
+          color: var(--colors-text-inverted);
         }
       `;
     } else if (props.sortOrder < 0) {
       return css`
         & > *:last-child {
-          color: ${get('colors.text.inverted')(props)};
+          color: var(--colors-text-inverted);
         }
       `;
     }

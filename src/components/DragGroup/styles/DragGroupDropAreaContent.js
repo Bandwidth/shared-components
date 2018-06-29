@@ -14,9 +14,9 @@ export default styled.div`
     top: 0;
     bottom: 0;
 
-    border-width: ${get('thicknesses.wide')};
+    border-width: var(--thicknesses-wide);
     border-style: solid;
-    border-color: ${get('colors.gray.light')};
+    border-color: var(--colors-gray-light);
 
     opacity: ${props => (props.canDrop ? 1 : 0)};
     pointer-events: none;
@@ -32,7 +32,7 @@ export default styled.div`
     display: ${({ canDrop }) => (canDrop ? 'block' : 'none')};
     content: 'Drop here';
     text-transform: uppercase;
-    color: ${get('colors.gray.medium')};
+    color: var(--colors-gray-medium);
     font-size: 1em;
     font-weight: 700;
     position: absolute;

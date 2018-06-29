@@ -7,7 +7,7 @@ import DragContainer from 'components/DragContainer';
 
 const StyledDiv = styled.div`
   & > * + * {
-    margin-top: ${get('spacing.medium')};
+    margin-top: var(--spacing-medium);
   }
 `;
 

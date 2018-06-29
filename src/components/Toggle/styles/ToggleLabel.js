@@ -12,18 +12,18 @@ export default styled.label`
   user-select: none;
 
   padding-right: 0;
-  padding-left: calc(${TOGGLE_WIDTH} + ${get('spacing.small')});
+  padding-left: calc(${TOGGLE_WIDTH} + var(--spacing-small));
   padding-top: 4px;
   padding-bottom: 5px;
   transition: all 0.2s ease;
   line-height: 1.5;
-  font-family: ${get('fonts.brand')};
+  font-family: var(--fonts-brand);
   font-weight: 300;
 
   &::before {
     content: '';
     box-sizing: border-box;
-    border-width: ${get('thicknesses.wide')};
+    border-width: var(--thicknesses-wide);
     border-style: solid;
     border-radius: 15px;
     width: ${TOGGLE_WIDTH};
@@ -38,13 +38,13 @@ export default styled.label`
 
 
   ${Input}:enabled + &:hover::before {
-    box-shadow: ${get('shadows.focusOutline')};
+    box-shadow: var(--shadows-focus-outline);
   }
 
   &::after {
     content: '';
     box-sizing: border-box;
-    border-width: ${get('thicknesses.wide')};
+    border-width: var(--thicknesses-wide);
     border-style: solid;
     border-radius: 15px;
     width: ${SIZE};
@@ -58,48 +58,48 @@ export default styled.label`
   }
 
   ${Input}:focus + &::before {
-    box-shadow: ${get('shadows.focusOutline')};
+    box-shadow: var(--shadows-focus-outline);
   }
 
   ${Input} + &::before {
-    background: ${get('colors.background.default')};
-    border-color: ${get('colors.primary.dark')};
+    background: var(--colors-background-default);
+    border-color: var(--colors-primary-dark);
   }
 
   ${Input} + &::after {
-    background: ${get('colors.text.inverted')};
-    border-color: ${get('colors.primary.dark')};
+    background: var(--colors-text-inverted);
+    border-color: var(--colors-primary-dark);
   }
 
   ${Input} + &:hover::before, ${Input} + &:hover::after {
-    border-color: ${get('colors.primary.dark')};
+    border-color: var(--colors-primary-dark);
   }
 
   ${Input}:checked + & {
     &::before {
-      background: ${get('colors.primary.dark')};
-      border-color: ${get('colors.primary.dark')};
+      background: var(--colors-primary-dark);
+      border-color: var(--colors-primary-dark);
     }
 
     &::after {
       left: ${SIZE};
-      background: ${get('colors.text.inverted')};
-      border-color: ${get('colors.primary.dark')};
+      background: var(--colors-text-inverted);
+      border-color: var(--colors-primary-dark);
     }
   }
 
   ${Input}:disabled + & {
     cursor: default;
-    color: ${get('colors.gray.border')};
+    color: var(--colors-gray-border);
 
     &::before,
     &::after {
-      border-color: ${get('colors.border.disabled')};
-      background: ${get('colors.background.disabled')};
+      border-color: var(--colors-border-disabled);
+      background: var(--colors-background-disabled);
     }
   }
 
   ${Input}:checked:disabled + &::before {
-    background: ${get('colors.background.disabledSelected')};
+    background: var(--colors-background-disabled-selected);
   }
 `;

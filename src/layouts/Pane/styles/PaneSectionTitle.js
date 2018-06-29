@@ -4,7 +4,5 @@ import styled from 'styled-components';
 
 export default styled(SectionTitle)`
   width: auto;
-  margin: 0 -${get('spacing.large')} ${get('spacing.small')} -${get(
-      'spacing.large',
-    )};
+  margin: 0 -var(--spacing-large) var(--spacing-small) calc(-1 * var(--spacing-large));
 `;

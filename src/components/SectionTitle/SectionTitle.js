@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
 export default styled.h3`
-  background: ${get('colors.gray.mediumLight')};
-  color: ${get('colors.text.default')};
+  background: var(--colors-gray-medium-light);
+  color: var(--colors-text-default);
   display: block;
-  padding: ${get('spacing.extraSmall')} ${get('spacing.large')};
+  padding: var(--spacing-extra-small) var(--spacing-large);
   margin: 0;
   font-size: 0.9em;
   font-weight: 600;

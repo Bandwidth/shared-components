@@ -12,9 +12,9 @@ const H3 = styled(tag.h3)
   .attrs({
     spacing: userSpacing.withLineHeight(LINE_HEIGHT),
   })`
-  color: ${get('colors.text.default')};
+  color: var(--colors-text-default);
   font-weight: 300;
-  font-family: ${get('fonts.brand')};
+  font-family: var(--fonts-brand);
   font-size: 1.75em;
   line-height: ${LINE_HEIGHT};
   letter-spacing: 0;
@@ -45,7 +45,7 @@ H3.defaultProps = {
 };
 
 H3.Primary = styled(H3)`
-  color: ${get('colors.primary.default')};
+  color: var(--colors-primary-default);
 `;
 
 /**

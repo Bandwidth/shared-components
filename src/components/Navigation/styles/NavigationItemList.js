@@ -14,7 +14,7 @@ const NavigationItemList = styled.div.withConfig({
   color: inherit;
 
   & > * {
-    margin-right: ${get('spacing.large')};
+    margin-right: var(--spacing-large);
     margin-top: auto;
   }
 

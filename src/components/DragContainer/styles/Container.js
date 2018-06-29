@@ -8,13 +8,13 @@ export default styled.div`
   border: 1px solid
     ${({ isDragging }) =>
       isDragging
-        ? get('colors.background.disabled')
-        : get('colors.border.medium')}; */
+        ? 'var(--colors-background-disabled)'
+        : 'var(--colors-border-medium)'}; */
   }
   background-color: ${({ isDragging }) =>
     isDragging
-      ? get('colors.background.disabled')
-      : get('colors.background.default')};
+      ? 'var(--colors-background-disabled)'
+      : 'var(--colors-background-default)'};
 
   ${({ isDragging }) =>
     isDragging &&

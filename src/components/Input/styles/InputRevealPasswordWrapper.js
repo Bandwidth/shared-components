@@ -7,23 +7,23 @@ const InputRevealPasswordContainer = styled.div`
 
   div {
     position: absolute;
-    right: ${get('spacing.medium')};
+    right: var(--spacing-medium);
     top: 30%;
     z-index: 10;
   }
 
   input[type='password'],
   input[type='text'] {
-    padding-right: ${get('spacing.extraLarge')};
-    padding-left: ${get('spacing.medium')};
+    padding-right: var(--spacing-extra-large);
+    padding-left: var(--spacing-medium);
   }
 `;
 
 InputRevealPasswordContainer.Small = styled(InputRevealPasswordContainer)`
   input[type='password'],
   input[type='text'] {
-    padding: ${get('spacing.small')} ${get('spacing.extraLarge')}
-      ${get('spacing.small')} ${get('spacing.small')} !important;
+    padding: var(--spacing-small) var(--spacing-extra-large)
+      var(--spacing-small) var(--spacing-small) !important;
   }
 `;
 

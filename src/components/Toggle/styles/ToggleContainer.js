@@ -5,6 +5,6 @@ export default styled.div`
   display: block;
   position: relative;
   & + & {
-    margin-top: ${get('spacing.extraSmall')};
+    margin-top: var(--spacing-extra-small);
   }
 `;

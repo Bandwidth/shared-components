@@ -3,11 +3,11 @@ import get from 'extensions/themeGet';
 import TabContainer from './TabContainer';
 
 const TabContent = styled.div`
-  padding: ${get('spacing.medium')};
+  padding: var(--spacing-medium);
 
-  border-width: ${get('thicknesses.normal')};
+  border-width: var(--thicknesses-normal);
   border-style: solid;
-  border-color: ${get('colors.border.medium')};
+  border-color: var(--colors-border-medium);
 
   ${TabContainer} > & {
     flex: 0 0 auto;

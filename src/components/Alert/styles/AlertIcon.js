@@ -25,11 +25,11 @@ const getAlertIcon = size => styled.i`
     }};
 
     box-sizing: border-box;
-    border-width: ${get('thicknesses.normal')};
+    border-width: var(--thicknesses-normal);
     border-style: solid;
     border-color: inherit;
 
-    background: ${get('colors.background.default')};
+    background: var(--colors-background-default);
     width: ${size};
     height: ${size};
     display: inline-block;
@@ -37,10 +37,10 @@ const getAlertIcon = size => styled.i`
     font-family: ${props => {
       switch (props.type) {
         case 'success':
-          return get('fonts.icon');
+          return 'var(--fonts-icon)';
         case 'error':
         default:
-          return get('fonts.brand');
+          return 'var(--fonts-brand)';
       }
     }};
     font-weight: ${props => {
@@ -54,11 +54,11 @@ const getAlertIcon = size => styled.i`
     border-color: ${({ theme, type }) => {
       switch (type) {
         case 'success':
-          return get('colors.positive.border');
+          return 'var(--colors-positive-border)';
         case 'error':
-          return get('colors.negative.border');
+          return 'var(--colors-negative-border)';
         default:
-          return get('colors.primary.border');
+          return 'var(--colors-primary-border)';
       }
     }};
     text-align: center;

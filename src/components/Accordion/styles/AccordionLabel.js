@@ -6,8 +6,8 @@ const AccordionLabel = styled.div.attrs({
   spacing: userSpacing.text,
 })`
   padding: ${props => props.spacing};
-  color: ${get('colors.primary.default')};
-  font-family: ${get('fonts.brand')};
+  color: var(--colors-primary-default);
+  font-family: var(--fonts-brand);
   font-size: 1.5em;
   line-height: 1.5;
   text-transform: none;
@@ -19,7 +19,7 @@ const AccordionLabel = styled.div.attrs({
 `;
 
 AccordionLabel.Small = styled(AccordionLabel)`
-  color: ${get('colors.text.default')};
+  color: var(--colors-text-default);
   font-weight: 600;
   font-size: 1em;
   text-transform: uppercase;

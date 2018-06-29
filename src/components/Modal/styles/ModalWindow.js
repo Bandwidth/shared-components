@@ -5,7 +5,7 @@ import get from 'extensions/themeGet';
 // to show everything.
 
 export default styled.div`
-  background: ${get('colors.background.default')};
+  background: var(--colors-background-default);
   width: auto;
   max-width: 70%;
   min-width: 20%;
@@ -16,6 +16,6 @@ export default styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  box-shadow: ${get('shadows.long')};
+  box-shadow: var(--shadows-long);
   position: relative;
 `;

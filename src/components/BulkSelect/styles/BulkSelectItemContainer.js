@@ -9,7 +9,7 @@ const BulkSelectItemContainer = styled.div`
   & > button {
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: calc((1 / 5 - ${get('spacing.small')}));
+    flex-basis: calc((1 / 5 - var(--spacing-small)));
     height: 53px;
     margin: 7.5px;
     padding: 0 10px;

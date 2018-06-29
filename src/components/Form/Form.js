@@ -15,9 +15,9 @@ const Form = styled.form.withConfig({ displayName: 'Form' })`
   }
 
   &:invalid button[type='submit'] {
-    background: ${get('colors.background.disabled')};
-    color: ${get('colors.text.disabled')};
-    border-color: ${get('colors.background.disabled')};
+    background: var(--colors-background-disabled);
+    color: var(--colors-text-disabled);
+    border-color: var(--colors-background-disabled);
     cursor: default;
     box-shadow: none;
   }

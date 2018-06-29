@@ -3,8 +3,8 @@ import icons from 'components/Icon/icons';
 import get from 'extensions/themeGet';
 
 export default css`
-  font-family: ${get('fonts.brand')};
-  color: ${get('colors.text.default')};
+  font-family: var(--fonts-brand);
+  color: var(--colors-text-default);
   box-sizing: border-box;
 
   .DateRangePicker {
@@ -32,8 +32,8 @@ export default css`
     background: transparent;
 
     & > .DateInput {
-      background: ${get('colors.background.disabled')};
-      border-color: ${get('colors.border.medium')};
+      background: var(--colors-background-disabled);
+      border-color: var(--colors-border-medium);
     }
   }
   .DateRangePicker_picker__openDown,
@@ -46,9 +46,9 @@ export default css`
   }
 
   .DateInput {
-    border-width: ${get('thicknesses.wide')};
+    border-width: var(--thicknesses-wide);
     border-style: solid;
-    border-color: ${get('colors.border.light')};
+    border-color: var(--colors-border-light);
     width: auto;
 
     &::before, &::after {
@@ -64,25 +64,25 @@ export default css`
   }
   .DateInput__openDown,
   .DateInput__openUp {
-    box-shadow: inset 0 -5px 0 ${get('colors.primary.light')};
-    border-color: ${get('colors.border.medium')};
+    box-shadow: inset 0 -5px 0 var(--colors-primary-light);
+    border-color: var(--colors-border-medium);
   }
 
   .DateInput_displayText {
-    font-family: ${get('fonts.brand')};
+    font-family: var(--fonts-brand);
     font-size: 14px;
     font-weight: normal;
-    color: ${get('colors.text.default')};
+    color: var(--colors-text-default);
     position: relative;
     padding-right: 2.5em;
     z-index: 0;
 
     &::after {
       content: "${icons('calendar')}";
-      font-family: ${get('fonts.icon')};
+      font-family: var(--fonts-icon);
       font-size: 1.5em;
-      color: ${get('colors.gray.medium')};
-      padding: 0 0 0 ${get('spacing.small')};
+      color: var(--colors-gray-medium);
+      padding: 0 0 0 var(--spacing-small);
       position: absolute;
       right: 0;
       top: 3px;
@@ -93,7 +93,7 @@ export default css`
     background: transparent;
 
     &::after {
-      color: ${get('colors.primary.default')};
+      color: var(--colors-primary-default);
     }
   }
   .DateInput_displayText__disabled {
@@ -102,24 +102,24 @@ export default css`
 
   .DayPicker {
     box-shadow: none;
-    border-width: ${get('thicknesses.wide')};
+    border-width: var(--thicknesses-wide);
     border-style: solid;
-    border-color: ${get('colors.border.medium')};
+    border-color: var(--colors-border-medium);
     border-radius: 0;
     width: auto !important;
   }
 
   .CalendarMonth {
-    background: ${get('colors.background.default')};
-    padding: 0 ${get('spacing.large')} 0 0;
-    color: ${get('colors.text.default')};
+    background: var(--colors-background-default);
+    padding: 0 var(--spacing-large) 0 0;
+    color: var(--colors-text-default);
   }
 
   .CalendarMonth_caption {
     font-size: 14px;
-    margin: 0 0 ${get('spacing.large')} 0;
-    color: ${get('colors.text.default')};
-    padding: ${get('spacing.small')};
+    margin: 0 0 var(--spacing-large) 0;
+    color: var(--colors-text-default);
+    padding: var(--spacing-small);
   }
 
   .CalendarMonthGrid__horizontal {
@@ -127,34 +127,34 @@ export default css`
   }
 
   .CalendarDay_container {
-    border-color: ${get('colors.border.light')};
-    background: ${get('colors.background.default')};
-    color: ${get('colors.text.default')};
+    border-color: var(--colors-border-light);
+    background: var(--colors-background-default);
+    color: var(--colors-text-default);
 
     &:hover {
-      background: ${get('colors.primary.light')};
+      background: var(--colors-primary-light);
     }
   }
 
   .CalendarDay__selected_span {
-    background: ${get('colors.primary.light')};
+    background: var(--colors-primary-light);
   }
 
   .CalendarDay__selected,
   .CalendarDay__selected:active,
   .CalendarDay__selected:hover {
-    background: ${get('colors.primary.default')};
-    color: ${get('colors.text.inverted')};
+    background: var(--colors-primary-default);
+    color: var(--colors-text-inverted);
   }
 
   .CalendarDay__blocked_out_of_range {
-    color: ${get('colors.text.disabled')};
-    background: ${get('colors.gray.light')};
+    color: var(--colors-text-disabled);
+    background: var(--colors-gray-light);
     cursor: normal;
 
     &:hover {
-      background: ${get('colors.gray.light')};
-      color: ${get('colors.text.disabled')};
+      background: var(--colors-gray-light);
+      color: var(--colors-text-disabled);
     }
   }
 
@@ -165,7 +165,7 @@ export default css`
   .DayPickerNavigation_button {
     background: transparent;
     border: none;
-    color: ${get('colors.text.default')};
+    color: var(--colors-text-default);
   }
 
   .DayPickerNavigation_leftButton__horizontal {

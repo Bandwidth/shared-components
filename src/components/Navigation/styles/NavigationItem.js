@@ -7,7 +7,7 @@ import NavigationBar from './NavigationBar';
 
 const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
   border: 0;
-  padding: ${get('spacing.large')} 0 ${get('spacing.large')} 0;
+  padding: var(--spacing-large) 0 var(--spacing-large) 0;
   line-height: 1;
   opacity: 1;
   transition: all 0.2s ease;
@@ -19,7 +19,7 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
 
   &::before {
     content: '';
-    background: ${get('colors.primary.dark')};
+    background: var(--colors-primary-dark);
     width: 104%;
     height: ${props => (props.active ? '5px' : 0)};
     display: block;
@@ -40,7 +40,7 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
 
   ${NavigationBar.Dark} &, ${NavigationBar.Sub} & {
     &::before {
-      background: ${get('colors.primary.default')};
+      background: var(--colors-primary-default);
     }
 
     /* hover state must be repeated for specificity */
@@ -55,13 +55,13 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
 
   ${NavigationBar.Sub} & {
     color: ${props =>
-      props.active ? get('colors.primary.default')(props) : 'inherit'};
+      props.active ? 'var(--colors-primary-default)' : 'inherit'};
   }
 
   /* make items smaller when they're inside a small list */
 
   ${NavigationItemList.Small} & {
-    padding: ${get('spacing.large')} 0 0 0;
+    padding: var(--spacing-large) 0 0 0;
     margin-bottom: 10px;
     font-size: 0.8em;
 
@@ -83,7 +83,7 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
   */
 
   ${NavigationItemListStack} > ${NavigationItemList}:not(:first-child) :not(:only-child) & {
-    padding-top: ${get('spacing.medium')};
+    padding-top: var(--spacing-medium);
   }
 `;
 

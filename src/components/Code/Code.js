@@ -6,13 +6,13 @@ import get from 'extensions/themeGet';
 import Block from './CodeBlock';
 
 const Code = styled.pre.withConfig({ displayName: 'Code' })`
-  font-family: ${get('fonts.monospace')};
+  font-family: var(--fonts-monospace);
   font-size: 0.85em;
 
-  background: ${get('colors.gray.light')};
-  color: ${get('colors.text.default')};
-  border-color: ${get('colors.border.medium')};
-  border-width: ${get('thicknesses.normal')};
+  background: var(--colors-gray-light);
+  color: var(--colors-text-default);
+  border-color: var(--colors-border-medium);
+  border-width: var(--thicknesses-normal);
   border-style: solid;
   border-radius: 3px;
 

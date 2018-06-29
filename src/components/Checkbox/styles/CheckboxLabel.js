@@ -23,9 +23,9 @@ const CheckboxLabel = styled.label`
   &::before {
     content: "";
 
-    color: ${get('colors.text.inverted')};
+    color: var(--colors-text-inverted);
 
-    font-family: ${get('fonts.icon')};
+    font-family: var(--fonts-icon);
     font-size: ${CHECK_SIZE};
 
     display: block;
@@ -42,9 +42,9 @@ const CheckboxLabel = styled.label`
   &::after {
     content: "";
 
-    background: ${get('colors.background.default')};
-    border-color: ${get('colors.primary.dark')};
-    border-width: ${get('thicknesses.wide')};
+    background: var(--colors-background-default);
+    border-color: var(--colors-primary-dark);
+    border-width: var(--thicknesses-wide);
     border-style: solid;
     border-radius: 3px;
 
@@ -61,28 +61,28 @@ const CheckboxLabel = styled.label`
   ${Input}:hover:not(:disabled) + &::after,
   ${Input}:focus:not(:disabled) + &::after,
   ${Input}:active:not(:disabled) + &::after {
-    box-shadow: ${get('shadows.focusOutline')};
+    box-shadow: var(--shadows-focus-outline);
   }
   ${Input}:checked + &::after {
-    background: ${get('colors.primary.dark')};
+    background: var(--colors-primary-dark);
   }
 
   ${Input}:disabled + & {
-    color: ${get('colors.text.disabled')};
+    color: var(--colors-text-disabled);
     cursor: default;
   }
   ${Input}:disabled + &::after {
-    background: ${get('colors.background.disabled')};
-    border-color: ${get('colors.border.disabled')};
+    background: var(--colors-background-disabled);
+    border-color: var(--colors-border-disabled);
   }
   ${Input}:disabled:checked + & {
     &::after {
-      background: ${get('colors.background.disabledSelected')};
-      border-color: ${get('colors.border.disabled')};
+      background: var(--colors-background-disabled-selected);
+      border-color: var(--colors-border-disabled);
     }
 
     &::before {
-      color: ${get('colors.text.inverted')};
+      color: var(--colors-text-inverted);
     }
   }
   ${Input}:checked + &::before {

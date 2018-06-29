@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
 const Gutter = styled.div.withConfig({ displayName: 'Gutter' })`
-  background: ${get('colors.gray.light')};
+  background: var(--colors-gray-light);
 `;
 
 Gutter.propTypes = {

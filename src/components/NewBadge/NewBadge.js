@@ -8,7 +8,7 @@ const NewBadge = styled.span`
   &::after {
     content: 'New:';
     display: inline-block;
-    color: ${get('colors.primary.default')};
+    color: var(--colors-primary-default);
     font-weight: bold;
     font-size: 0.85em;
     margin: 0 1em 0 0;

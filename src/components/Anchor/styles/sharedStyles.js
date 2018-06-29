@@ -10,8 +10,8 @@ const focusAfterStyles = css`
     opacity 0s ease;
 `;
 
-const color = get('colors.primary.alternate');
-const disabledColor = get('colors.text.default');
+const color = 'var(--colors-primary-alternate)';
+const disabledColor = 'var(--colors-text-default)';
 
 const reactiveStyles = appearFocused => css`
   &::after {
@@ -37,7 +37,7 @@ const reactiveStyles = appearFocused => css`
 
 export const base = css`
   color: ${({ disabled }) => (disabled ? disabledColor : color)};
-  font-family: ${get('fonts.brand')};
+  font-family: var(--fonts-brand);
   opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
 
   text-decoration: none;
@@ -54,19 +54,19 @@ export const base = css`
 
   &:active {
     color: ${({ disabled }) =>
-      disabled ? disabledColor : get('colors.primary.default')};
+      disabled ? disabledColor : 'var(--colors-primary-default)'};
   }
 
   ${({ disabled, appearFocused }) =>
     disabled ? '' : reactiveStyles(appearFocused)};
 `;
 
-const dangerColor = get('colors.negative.default');
+const dangerColor = 'var(--colors-negative-default)';
 export const negative = css`
   color: ${({ disabled }) => (disabled ? disabledColor : dangerColor)};
 
   &:active {
-    color: ${({ disabled }) => (disabled ? '' : get('colors.negative.dark'))};
+    color: ${({ disabled }) => (disabled ? '' : 'var(--colors-negative-dark)')};
   }
 
   &::after {
@@ -74,12 +74,12 @@ export const negative = css`
   }
 `;
 
-const positiveColor = get('colors.positive.default');
+const positiveColor = 'var(--colors-positive-default)';
 export const positive = css`
   color: ${({ disabled }) => (disabled ? disabledColor : positiveColor)};
 
   &:active {
-    color: ${({ disabled }) => (disabled ? '' : get('colors.positive.dark'))};
+    color: ${({ disabled }) => (disabled ? '' : 'var(--colors-positive-dark)')};
   }
 
   &::after {
@@ -87,12 +87,12 @@ export const positive = css`
   }
 `;
 
-const darkColor = get('colors.primary.dark');
+const darkColor = 'var(--colors-primary-dark)';
 export const dark = css`
   color: ${({ disabled }) => (disabled ? disabledColor : darkColor)};
 
   &:active {
-    color: ${({ disabled }) => (disabled ? '' : get('colors.primary.dark'))};
+    color: ${({ disabled }) => (disabled ? '' : 'var(--colors-primary-dark)')};
   }
 
   &::after {
@@ -100,12 +100,12 @@ export const dark = css`
   }
 `;
 
-const invertedColor = get('colors.text.inverted');
+const invertedColor = 'var(--colors-text-inverted)';
 export const inverted = css`
   color: ${({ disabled }) => (disabled ? disabledColor : invertedColor)};
 
   &:active {
-    color: ${({ disabled }) => (disabled ? '' : get('colors.text.inverted'))};
+    color: ${({ disabled }) => (disabled ? '' : 'var(--colors-text-inverted)')};
   }
 
   &::after {

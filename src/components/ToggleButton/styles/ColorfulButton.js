@@ -7,12 +7,12 @@ export default styled(StyledButton)`
     selected
       ? css`
           background-color: ${hovered
-            ? get('colors.negative.medium')
-            : get('colors.positive.medium')};
+            ? 'var(--colors-negative-medium)'
+            : 'var(--colors-positive-medium)'};
           border-color: ${hovered
-            ? get('colors.negative.medium')
-            : get('colors.positive.medium')};
-          color: ${get('colors.text.inverted')};
+            ? 'var(--colors-negative-medium)'
+            : 'var(--colors-positive-medium)'};
+          color: var(--colors-text-inverted);
         `
       : ''};
 `;

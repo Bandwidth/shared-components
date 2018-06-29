@@ -6,15 +6,15 @@ export default styled.span`
   font-size: 10px;
   font-weight: bold;
 
-  margin-left: ${get('spacing.small')};
+  margin-left: var(--spacing-small);
 
-  border-width: ${get('thicknesses.normal')};
+  border-width: var(--thicknesses-normal);
   border-style: solid;
-  border-color: ${get('colors.border.medium')};
+  border-color: var(--colors-border-medium);
   border-radius: 3px;
 
-  padding: 0 ${get('spacing.small')};
+  padding: 0 var(--spacing-small);
   padding-top: 1px;
-  background: ${get('colors.background.default')};
+  background: var(--colors-background-default);
   text-transform: uppercase;
 `;

@@ -9,6 +9,6 @@ export default styled.tr`
     background: transparent;
   }
   &:nth-child(even) {
-    background: ${get('colors.shadow.extraLight')};
+    background: var(--colors-shadow-extra-light);
   }
 `;

@@ -4,11 +4,10 @@ import get from 'extensions/themeGet';
 const NavigationBar = styled.header.withConfig({
   displayName: 'NavigationBar',
 })`
-  background: ${get('colors.primary.default')};
-  color: ${get('colors.text.inverted')};
-  border-bottom: ${get('thicknesses.normal')} solid
-    ${get('colors.shadow.default')};
-  padding: 0 ${get('spacing.large')};
+  background: var(--colors-primary-default);
+  color: var(--colors-text-inverted);
+  border-bottom: var(--thicknesses-normal) solid var(--colors-shadow-default);
+  padding: 0 var(--spacing-large);
   display: flex;
   flex-shrink: 0;
   justify-content: space-between;
@@ -22,12 +21,12 @@ const NavigationBar = styled.header.withConfig({
 `;
 
 NavigationBar.Sub = styled(NavigationBar)`
-  background: ${get('colors.gray.light')};
-  color: ${get('colors.text.default')};
+  background: var(--colors-gray-light);
+  color: var(--colors-text-default);
 `;
 
 NavigationBar.Dark = styled(NavigationBar)`
-  background: ${get('colors.primary.dark')};
+  background: var(--colors-primary-dark);
 `;
 
 export default NavigationBar;

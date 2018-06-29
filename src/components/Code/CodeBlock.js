@@ -5,11 +5,11 @@ import get from 'extensions/themeGet';
  * @component
  */
 export default styled.pre`
-  font-family: ${get('fonts.monospace')};
+  font-family: var(--fonts-monospace);
   font-size: 1em;
 
-  background: ${get('colors.background.inverted')};
-  color: ${get('colors.text.inverted')};
+  background: var(--colors-background-inverted);
+  color: var(--colors-text-inverted);
 
   padding: 2em;
   margin: 0;

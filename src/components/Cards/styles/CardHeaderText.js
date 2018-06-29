@@ -3,7 +3,7 @@ import H3 from 'components/H/H3';
 import styled from 'styled-components';
 
 const CardHeaderText = styled(H3)`
-  color: ${themeGet('colors.text.inverted')};
+  color: var(--colors-text-inverted);
 `;
 
 export default CardHeaderText;

@@ -5,13 +5,13 @@ import PaneRow from '../PaneRow';
 
 export default styled.section`
   ${PaneStyles} > & {
-    margin: ${get('spacing.large')} 0 0 0;
+    margin: var(--spacing-large) 0 0 0;
 
     &:first-of-type {
       margin-top: 0;
     }
     &:last-of-type {
-      margin-bottom: ${get('spacing.large')};
+      margin-bottom: var(--spacing-large);
     }
   }
 

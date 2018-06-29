@@ -12,31 +12,31 @@ export default styled.li`
   line-height: ${SIZE};
   text-align: center;
   cursor: pointer;
-  border-width: ${get('thicknesses.normal')};
+  border-width: var(--thicknesses-normal);
   border-style: solid;
-  border-color: ${get('colors.border.medium')};
+  border-color: var(--colors-border-medium);
   border-right: none;
   user-select: none;
-  background: ${get('colors.background.default')};
-  color: ${get('colors.text.default')};
+  background: var(--colors-background-default);
+  color: var(--colors-text-default);
 
   ${props =>
     props.selected
       ? `
-      background: ${get('colors.primary.default')(props)};
-      border-color: ${get('colors.primary.default')(props)};
-      color: ${get('colors.text.inverted')(props)};
+      background: var(--colors-primary-default);
+      border-color: var(--colors-primary-default);
+      color: var(--colors-text-inverted);
 
       & + li {
-        border-left-color: ${get('colors.primary.default')(props)};
+        border-left-color: var(--colors-primary-default);
       }
     `
       : `
       &:hover {
-        background: ${get('colors.primary.light')(props)};
+        background: var(--colors-primary-light);
       }
     `} &:active {
-    background: ${get('colors.primary.default')};
+    background: var(--colors-primary-default);
   }
 
   &:first-of-type {
@@ -45,7 +45,6 @@ export default styled.li`
 
   &:last-of-type {
     border-radius: 0px 3px 3px 0px;
-    border-right: ${get('thicknesses.normal')} solid
-      ${get('colors.border.medium')};
+    border-right: var(--thicknesses-normal) solid var(--colors-border-medium);
   }
 `;

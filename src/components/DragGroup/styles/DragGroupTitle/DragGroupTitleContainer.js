@@ -7,11 +7,11 @@ export default styled.div`
   display: flex;
   flex-direction: row;
   position: relative;
-  margin-bottom: ${get('spacing.small')};
+  margin-bottom: var(--spacing-small);
 
   &::before {
     content: "${icons('expandArrow')}";
-    font-family: ${get('fonts.icon')};
+    font-family: var(--fonts-icon);
     font-size: 10px;
     transform: ${({ expanded }) =>
       expanded ? 'rotate(0deg)' : 'rotate(-90deg)'};
@@ -22,9 +22,9 @@ export default styled.div`
 
   &::after {
     content: '';
-    border-bottom-width: ${get('thicknesses.normal')};
+    border-bottom-width: var(--thicknesses-normal);
     border-bottom-style: dashed;
-    border-bottom-color: ${get('colors.border.medium')};
+    border-bottom-color: var(--colors-border-medium);
     flex: 1 0 0;
     margin: auto;
   }
@@ -33,9 +33,9 @@ export default styled.div`
     display: none;
     position: absolute;
     right: 0;
-    background: ${get('colors.background.default')};
+    background: var(--colors-background-default);
     font-size: 12px;
-    color: ${get('colors.text.default')};
+    color: var(--colors-text-default);
   }
 
   &:hover > ${Icon} {

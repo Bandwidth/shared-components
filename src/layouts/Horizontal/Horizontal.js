@@ -12,19 +12,19 @@ const normalize = size => {
   switch (size) {
     case 'xs':
     case 'extraSmall':
-      return themeGet('spacing.extraSmall');
+      return 'var(--spacing-extra-small)';
     case 'sm':
     case 'small':
-      return themeGet('spacing.small');
+      return 'var(--spacing-small)';
     case 'lg':
     case 'large':
-      return themeGet('spacing.large');
+      return 'var(--spacing-large)';
     case 'xl':
     case 'extraLarge':
-      return themeGet('spacing.extraLarge');
+      return 'var(--spacing-extra-large)';
     case 'md':
     case 'medium':
-      return themeGet('spacing.medium');
+      return 'var(--spacing-medium)';
     default:
       return size;
   }

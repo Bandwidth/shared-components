@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
 const TableRow = styled.tr`
-  border-top: ${get('thicknesses.normal')} solid ${get('colors.shadow.light')};
+  border-top: var(--thicknesses-normal) solid var(--colors-shadow-light);
 
   &:first-of-type {
     border-top: none;

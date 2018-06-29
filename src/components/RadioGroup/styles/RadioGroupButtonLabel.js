@@ -3,24 +3,24 @@ import get from 'extensions/themeGet';
 import Input from './RadioGroupButtonInput';
 
 const RadioGroupButtonLabel = styled.label`
-  border-width: ${get('thicknesses.thick')};
+  border-width: var(--thicknesses-thick);
   border-style: solid;
-  border-color: ${get('colors.primary.dark')};
+  border-color: var(--colors-primary-dark);
   padding: 1em;
   cursor: pointer;
   position: relative;
   display: flex;
   flex-direction: column;
   align-content: flex-start;
-  background: ${get('colors.background.default')};
-  color: ${get('colors.primary.dark')};
+  background: var(--colors-background-default);
+  color: var(--colors-primary-dark);
   transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1em;
   height: 100%;
   min-width: 53px;
-  box-shadow: inset 0 0 0 ${get('colors.primary.default')};
+  box-shadow: inset 0 0 0 var(--colors-primary-default);
 
   ${Input}:not(:checked):focus:not(:disabled) + &,
   ${Input}:not(:checked):hover:not(:disabled) + & {
@@ -44,23 +44,23 @@ const RadioGroupButtonLabel = styled.label`
   }
 
   ${Input}:checked + & {
-    background: ${get('colors.primary.dark')};
-    color: ${get('colors.text.inverted')};
-    box-shadow: inset 0 -5px 0 ${get('colors.primary.default')};
+    background: var(--colors-primary-dark);
+    color: var(--colors-text-inverted);
+    box-shadow: inset 0 -5px 0 var(--colors-primary-default);
     z-index: 1;
   }
 
   ${Input}:disabled + & {
     z-index; -1;
     cursor: default;
-    color: ${get('colors.text.disabled')};
-    background-color: ${get('colors.background.disabled')};
-    border-color: ${get('colors.border.disabled')};
+    color: var(--colors-text-disabled);
+    background-color: var(--colors-background-disabled);
+    border-color: var(--colors-border-disabled);
   }
   ${Input}:checked:disabled + & {
-    color: ${get('colors.text.inverted')};
-    background-color: ${get('colors.background.disabledSelected')};
-    box-shadow: inset 0 -5px 0 ${get('colors.background.disabled')};
+    color: var(--colors-text-inverted);
+    background-color: var(--colors-background-disabled-selected);
+    box-shadow: inset 0 -5px 0 var(--colors-background-disabled);
   }
 `;
 
@@ -70,11 +70,11 @@ RadioGroupButtonLabel.Small = styled(RadioGroupButtonLabel)`
   font-weight: normal;
 
   ${Input}:checked + & {
-    box-shadow: inset 0 -4px 0 ${get('colors.primary.default')};
+    box-shadow: inset 0 -4px 0 var(--colors-primary-default);
   }
 
   ${Input}:checked:disabled + & {
-    box-shadow: inset 0 -4px 0 ${get('colors.background.disabled')};
+    box-shadow: inset 0 -4px 0 var(--colors-background-disabled);
   }
 `;
 

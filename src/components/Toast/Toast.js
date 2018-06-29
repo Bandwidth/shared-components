@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
 const Toast = styled.div.withConfig({ displayName: 'Toast' })`
-  background: ${get('colors.background.default')};
+  background: var(--colors-background-default);
   width: 400px;
-  padding: ${get('spacing.small')};
+  padding: var(--spacing-small);
   text-align: center;
   top: 120px;
-  border-width: ${get('thicknesses.normal')};
+  border-width: var(--thicknesses-normal);
   border-style: solid;
-  border-color: ${get('colors.border.medium')};
+  border-color: var(--colors-border-medium);
   border-radius: 3px;
   position: fixed;
   z-index: 10000000;

@@ -4,11 +4,11 @@ import TabList from './TabList';
 import TabContainer from './TabContainer';
 
 const verticalStyles = css`
-  border-bottom-color: ${get('colors.border.medium')};
+  border-bottom-color: var(--colors-border-medium);
   border-right-color: ${props =>
     props.active
-      ? get('colors.background.default')(props)
-      : get('colors.border.medium')(props)};
+      ? 'var(--colors-background-default)'
+      : 'var(--colors-border-medium)'};
 
   &:last-child {
     border-radius: 0 0 0 3px;
@@ -21,8 +21,8 @@ const verticalStyles = css`
         &:hover {
           border-bottom-color: ${props =>
             props.active
-              ? get('colors.border.medium')(props)
-              : get('colors.primary.default')(props)};
+              ? 'var(--colors-border-medium)'
+              : 'var(--colors-primary-default)'};
         }
       `;
     }
@@ -47,8 +47,8 @@ const Tab = styled.li`
   color: inherit;
   background: ${props =>
     props.disabled
-      ? get('colors.background.disabled')(props)
-      : get('colors.background.default')(props)};
+      ? 'var(--colors-background-disabled)'
+      : 'var(--colors-background-default)'};
 
   font-weight: bold;
   text-transform: uppercase;
@@ -56,14 +56,14 @@ const Tab = styled.li`
 
   transition: opacity 0.2s ease, border-color 0.2s ease;
 
-  border-width: ${get('thicknesses.normal')};
+  border-width: var(--thicknesses-normal);
   border-style: solid;
-  border-color: ${get('colors.border.medium')};
+  border-color: var(--colors-border-medium);
 
   border-bottom-color: ${props =>
     props.active
-      ? get('colors.background.default')(props)
-      : get('colors.border.medium')(props)};
+      ? 'var(--colors-background-default)'
+      : 'var(--colors-border-medium)'};
 
   &:first-child {
     border-radius: 3px 0 0 0;
@@ -80,8 +80,8 @@ const Tab = styled.li`
         &:hover {
           border-color: ${props =>
             props.active
-              ? get('colors.border.medium')(props)
-              : get('colors.primary.default')(props)};
+              ? 'var(--colors-border-medium)'
+              : 'var(--colors-primary-default)'};
           opacity: 1;
           z-index: 1;
         }

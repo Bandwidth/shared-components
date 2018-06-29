@@ -10,9 +10,9 @@ const H2 = styled(tag.h2)
   .attrs({
     spacing: userSpacing.text,
   })`
-  color: ${get('colors.text.default')};
+  color: var(--colors-text-default);
   font-weight: 700;
-  font-family: ${get('fonts.brand')};
+  font-family: var(--fonts-brand);
   font-size: 2em;
   margin: ${props => props.spacing};
   padding: 0;

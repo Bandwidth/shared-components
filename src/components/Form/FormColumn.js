@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
 const FormColumn = styled.section`
-  padding-left: ${get('spacing.large')};
-  padding-right: ${get('spacing.large')};
-  border-right-width: ${get('thicknesses.normal')};
+  padding-left: var(--spacing-large);
+  padding-right: var(--spacing-large);
+  border-right-width: var(--thicknesses-normal);
   border-right-style: solid;
-  border-right-color: ${get('colors.border.light')};
+  border-right-color: var(--colors-border-light);
 
   &:first-of-type {
     padding-left: 0;

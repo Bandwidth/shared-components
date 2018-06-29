@@ -3,7 +3,7 @@ import get from 'extensions/themeGet';
 import icons from 'components/Icon/icons';
 import { base, positive, negative, dark, inverted } from './sharedStyles';
 
-const color = get('colors.primary.alternate');
+const color = 'var(--colors-primary-alternate)';
 
 const focusBeforeStyles = css`
   right: -1.5em;
@@ -14,9 +14,9 @@ const focusBeforeStyles = css`
 const newTabIconStyles = css`
   &::before {
     content: "${icons('openInWindow')}";
-    font-family: ${get('fonts.icon')};
+    font-family: var(--fonts-icon);
     opacity: 0;
-    background: ${get('colors.background.default')};
+    background: var(--colors-background-default);
     position: absolute;
     right: 0;
     z-index: 1;
