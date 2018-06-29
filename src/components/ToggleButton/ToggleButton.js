@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import defaultPropsComponent from 'extensions/defaultPropsComponent';
+import { defaultProps } from 'recompose';
 import get from 'extensions/themeGet';
 import { noop } from 'lodash';
 import StyledButton from './styles/StyledToggleButton';
@@ -43,11 +43,11 @@ class ToggleButton extends React.PureComponent {
     hovered: PropTypes.bool,
   };
 
-  static Small = defaultPropsComponent({
+  static Small = defaultProps({
     Button: SmallButton,
   })(ToggleButton);
 
-  static Colorful = defaultPropsComponent({
+  static Colorful = defaultProps({
     Button: ColorfulButton,
   })(ToggleButton);
 
