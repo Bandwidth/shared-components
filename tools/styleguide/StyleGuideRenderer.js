@@ -9,8 +9,6 @@ import Topbar from './Topbar';
 import { iris, catapult } from 'theme';
 import bootstrap from 'bootstrap';
 
-bootstrap();
-
 const Root = styled.div`
   display: grid;
   grid-template-columns: fit-content(25%) auto;
@@ -30,7 +28,7 @@ const Sidebar = styled.div`
 
 const Content = styled.main`
   grid-area: main;
-  background-color: white;
+  background-color: var(--colors--background-default);
   display: block;
   padding: 30px;
   overflow-y: auto;

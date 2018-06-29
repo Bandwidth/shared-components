@@ -15,12 +15,11 @@ const Color = ({color, hexColor}) => {
       flex: '1',
       flexBasis: 'auto',
       margin: '0',
-      padding: '20px 20px',
+      padding: '15px',
       color: bright ? 'black' : 'white',
       background: `var(${color})`
     }}>
       <span style={{float: 'left'}}>{color}</span>
-      <span style={{float: 'right'}}>{hexColor}</span>
     </div>
   );
 }
@@ -30,7 +29,7 @@ const ColorGroup = ({name}) => {
   return (<div>
     <h3>{name.toUpperCase()}</h3>
     <div style={{
-      border: '2px solid #272b2d',
+      border: '1px solid #272b2d',
       width: '100%',
       display: 'flex',
       flexDirection: 'column',

@@ -11,9 +11,9 @@ Bandwidth and the BW logo are trademarks of Bandwidth.com, Inc.  Bandwidth reser
   <div><Logo.Large /></div>
 </div>
 <div style={{background: 'white', width: '100%', textAlign: 'center', padding: '10px'}}>
-  <div><Logo.Small variant="blue"/></div>
-  <div><Logo variant="blue" /></div>
-  <div><Logo.Large variant="blue" /></div>
+  <div><Logo.Primary.Small/></div>
+  <div><Logo.Primary /></div>
+  <div><Logo.Primary.Large /></div>
 </div>
 </React.Fragment>
 ```

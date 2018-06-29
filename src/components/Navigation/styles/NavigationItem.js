@@ -19,7 +19,7 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
 
   &::before {
     content: '';
-    background: ${get('colors.primary.dark')};
+    background: var(--nav-color-highlight);
     width: 104%;
     height: ${props => (props.active ? '5px' : 0)};
     display: block;
@@ -35,20 +35,6 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
     opacity: 0.5;
     height: 5px;
   }
-
-  /* items that are children of a dark and sub nav have different colors */
-
-  ${NavigationBar.Dark} &, ${NavigationBar.Sub} & {
-    &::before {
-      background: ${get('colors.primary.default')};
-    }
-
-    /* hover state must be repeated for specificity */
-
-    &:hover::before {
-      opacity: 0.5;
-      height: 5px;
-    }
   }
 
   /* sub nav items use a color for active state as well */

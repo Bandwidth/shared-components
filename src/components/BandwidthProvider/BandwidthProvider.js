@@ -27,7 +27,7 @@ class BandwidthProvider extends React.PureComponent {
     /**
      * Custom StyleRoot component
      */
-    StyleRoot: PropTypes.func,
+    StyleRoot: PropTypes.oneOfType([PropTypes.func, PropTypes.symbol]),
     /**
      * Custom drag layer component
      */
@@ -50,8 +50,10 @@ class BandwidthProvider extends React.PureComponent {
       customTheme,
       children,
     } = this.props;
+    const styleRootProps = {};
+    if (customTheme) styleRootProps.customTheme = customTheme;
     return (
-      <StyleRoot customTheme={customTheme}>
+      <StyleRoot className="styleroot" {...styleRootProps}>
         {children}
         {dragLayerPortal ? (
           ReactDOM.createPortal(<DragLayer />, dragLayerPortal)

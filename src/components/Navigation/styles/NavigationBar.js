@@ -4,8 +4,14 @@ import get from 'extensions/themeGet';
 const NavigationBar = styled.header.withConfig({
   displayName: 'NavigationBar',
 })`
-  background: ${get('colors.primary.default')};
-  color: ${get('colors.text.inverted')};
+  /* General text color to use */
+  --nav-color-text: var(--colors-text-inverted);
+  /* Accent color for highlighting links */
+  --nav-color-highlight: var(--colors-primary-dark);
+  --nav-color-background: var(--colors-primary-default);
+
+  background: var(--nav-color-background);
+  color: var(--nav-color-text);
   border-bottom: ${get('thicknesses.normal')} solid
     ${get('colors.shadow.default')};
   padding: 0 ${get('spacing.large')};
@@ -22,12 +28,18 @@ const NavigationBar = styled.header.withConfig({
 `;
 
 NavigationBar.Sub = styled(NavigationBar)`
-  background: ${get('colors.gray.light')};
-  color: ${get('colors.text.default')};
+  --nav-color-background: ${get('colors.gray.light')};
+  --nav-color-text: ${get('colors.text.default')};
 `;
 
 NavigationBar.Dark = styled(NavigationBar)`
-  background: ${get('colors.primary.dark')};
+  --nav-color-highlight: var(--colors-primary-default);
+  --nav-color-background: ${get('colors.primary.dark')};
+`;
+
+NavigationBar.Light = styled(NavigationBar)`
+  --nav-color-text: var(--colors-text-default);
+  --nav-color-background: var(--colors-background-default);
 `;
 
 export default NavigationBar;

@@ -1,17 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withProps } from 'recompose';
+import { defaultProps } from 'recompose';
 import LogoImage from './styles/LogoImage';
-import logoWhite from './logo.png';
-import logoBlue from './logoBlue.png';
+import LogoSvg from './logo.svg';
+import styled from 'styled-components';
 
-const variantLookup = {
-  white: logoWhite,
-  blue: logoBlue,
-};
-
-const Logo = ({ variant, id, className, Image }) => (
-  <Image src={variantLookup[variant]} id={id} className={className} />
+const Logo = ({ width, height, color, style, ...rest }) => (
+  <LogoSvg style={{ width, height, fill: color, ...style }} {...rest} />
 );
 
 Logo.propTypes = {
@@ -24,27 +19,45 @@ Logo.propTypes = {
    */
   id: PropTypes.string,
   /**
-   * Logo style variant
+   * Sets the color of the logo.
    */
-  variant: PropTypes.oneOf(['blue', 'white']),
+  color: PropTypes.string,
   /**
-   * An img element component to render the image itself
+   * Manually control the width of the logo. If only width is set, height
+   * will be based on the aspect ratio.
    */
-  Image: PropTypes.func,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /**
+   * Manually control the width of the logo. If only height is set, width
+   * will be based on the aspect ratio.
+   */
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 Logo.defaultProps = {
   className: null,
   id: null,
-  Image: LogoImage,
-  variant: 'white',
+  color: 'var(--colors-text-inverted)',
+  height: 'var(--spacing-large)',
 };
 
-Logo.Small = withProps({
-  Image: LogoImage.Small,
+Logo.Small = defaultProps({
+  height: 'var(--spacing-medium)',
 })(Logo);
-Logo.Large = withProps({
-  Image: LogoImage.Large,
+Logo.Large = defaultProps({
+  height: 'var(--spacing-extra-large)',
+})(Logo);
+
+Logo.Primary = defaultProps({
+  color: 'var(--colors-primary-default)',
+})(Logo);
+Logo.Primary.Small = defaultProps({
+  color: 'var(--colors-primary-default)',
+  height: 'var(--spacing-medium)',
+})(Logo);
+Logo.Primary.Large = defaultProps({
+  color: 'var(--colors-primary-default)',
+  height: 'var(--spacing-extra-large)',
 })(Logo);
 
 export default Logo;

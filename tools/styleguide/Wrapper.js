@@ -47,7 +47,7 @@ export default class Wrapper extends React.Component {
 
     return (
       <Router history={history}>
-        <BandwidthProvider StyleRoot={React.Fragment}>
+        <BandwidthProvider StyleRoot={React.Fragment} customTheme={null}>
           <Container>{this.props.children}</Container>
         </BandwidthProvider>
       </Router>
