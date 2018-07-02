@@ -21,9 +21,9 @@ class BandwidthProvider extends React.PureComponent {
      */
     customTheme: PropTypes.object,
     /**
-     * Where to attach the drag layer. By default, attaches it to this component
+     * The DOM element to attach the drag layer. By default, attaches it to this component
      */
-    dragLayerPortal: PropTypes.string,
+    dragLayerPortal: PropTypes.object,
     /**
      * Custom StyleRoot component
      */
@@ -36,7 +36,7 @@ class BandwidthProvider extends React.PureComponent {
   };
 
   static defaultProps = {
-    customTheme: null,
+    customTheme: irisTheme,
     dragLayerPortal: null,
     StyleRoot: DefaultStyleRoot,
     DragLayer: DefaultDragLayer,
