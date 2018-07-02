@@ -22,6 +22,7 @@ class Modal extends React.Component {
      */
     onClose: PropTypes.func,
     /**
+     * @deprecated
      * Handles click events on the backdrop, deprecated in favor of onClose
      */
     onBlockerClicked: PropTypes.func,
