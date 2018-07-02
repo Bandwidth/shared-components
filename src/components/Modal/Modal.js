@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import ModalActionContent from './styles/ModalActionContent';
 import ModalBlocker from './styles/ModalBlocker';
 import ModalContent from './styles/ModalContent';
 import ModalTitle from './styles/ModalTitle';
 import ModalWindow from './styles/ModalWindow';
-import Anchor from 'components/Anchor';
+import ModalCloseButton from './styles/ModalCloseButton';
 
 class Modal extends React.Component {
   static propTypes = {
@@ -22,6 +21,10 @@ class Modal extends React.Component {
      * Handles click events on the backdrop behind the modal or on the X in the title bar.
      */
     onClose: PropTypes.func,
+    /**
+     * Handles click events on the backdrop, deprecated in favor of onClose
+     */
+    onBlockerClicked: PropTypes.func,
     /**
      * Sets a natural CSS width for the modal window. Defaults to 'auto'.
      */
@@ -58,6 +61,10 @@ class Modal extends React.Component {
      * A component to render the window container of the modal
      */
     Window: PropTypes.func,
+    /**
+     * A component to render the close button of the modal
+     */
+    CloseButton: PropTypes.func,
   };
 
   static defaultProps = {
@@ -71,6 +78,7 @@ class Modal extends React.Component {
     Content: ModalContent,
     Title: ModalTitle,
     Window: ModalWindow,
+    CloseButton: ModalCloseButton,
   };
 
   handleModalClicked = event => {
@@ -79,14 +87,15 @@ class Modal extends React.Component {
   };
 
   renderTitle = () => {
-    const { title, onClose, Title } = this.props;
+    const { title, Title } = this.props;
     if (!title) return null;
-    return (
-      <Title>
-        {title}
-        <Anchor icon="delete2" onClick={onClose} />
-      </Title>
-    );
+    return <Title>{title}</Title>;
+  };
+
+  renderCloseButton = () => {
+    const { CloseButton, onClose } = this.props;
+    if (!onClose) return null;
+    return <CloseButton onClose={onClose} />;
   };
 
   render() {
@@ -94,6 +103,7 @@ class Modal extends React.Component {
       id,
       className,
       onClose,
+      onBlockerClicked,
       children,
       actionContent,
       Blocker,
@@ -103,9 +113,10 @@ class Modal extends React.Component {
     } = this.props;
 
     return (
-      <Blocker onClick={onClose}>
+      <Blocker onClick={onClose || onBlockerClicked}>
         <Window onClick={this.handleModalClicked} id={id} className={className}>
           {this.renderTitle()}
+          {this.renderCloseButton()}
           <Content>{children}</Content>
           {actionContent && <ActionContent>{actionContent}</ActionContent>}
         </Window>
