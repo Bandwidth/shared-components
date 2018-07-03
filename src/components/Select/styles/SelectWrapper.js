@@ -169,6 +169,7 @@ const SelectWrapper = styled.div`
     line-height: 1;
     font-size: inherit;
     min-height: 1em;
+    font: var(--fonts-brand);
     /* For IE 8 compatibility */
     -webkit-appearance: none;
   }
@@ -280,7 +281,7 @@ const SelectWrapper = styled.div`
   }
   .Select-option {
     box-sizing: border-box;
-    border-bottom: 0.5px solid ${get('colors.gray.border')};
+    border-bottom: var(--thicknesses-normal) solid ${get('colors.gray.border')};
     background-color: ${get('colors.background.default')};
     color: ${get('colors.text.default')};
     cursor: pointer;

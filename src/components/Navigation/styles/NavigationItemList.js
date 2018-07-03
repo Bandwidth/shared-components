@@ -13,14 +13,15 @@ const NavigationItemList = styled.div.withConfig({
   background: transparent;
   color: inherit;
 
-  & > * {
-    margin-right: ${get('spacing.large')};
-    margin-top: auto;
+  padding-top: 20px;
+
+  & + & {
+    padding-top: 10px;
   }
 
-  & > *:last-child {
-    margin: auto 0 0 0;
-    padding-right: 0;
+  & > * + * {
+    margin-left: ${get('spacing.large')};
+    padding-top: auto;
   }
 `;
 

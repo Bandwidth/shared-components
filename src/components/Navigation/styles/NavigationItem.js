@@ -4,11 +4,13 @@ import get from 'extensions/themeGet';
 import NavigationItemList from './NavigationItemList';
 import NavigationItemListStack from './NavigationItemListStack';
 import NavigationBar from './NavigationBar';
+import { calcTopOffset, calcBottomOffset } from 'extensions/userSpacing';
 
 const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
   border: 0;
-  padding: ${get('spacing.large')} 0 ${get('spacing.large')} 0;
-  line-height: 1;
+  padding-bottom: calc(${calcBottomOffset(1.5)} + 20px);
+  margin-top: ${calcTopOffset(1.5)};
+  line-height: 1.5;
   opacity: 1;
   transition: all 0.2s ease;
   position: relative;
@@ -37,39 +39,19 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
   }
   }
 
-  /* sub nav items use a color for active state as well */
-
-  ${NavigationBar.Sub} & {
-    color: ${props =>
-      props.active ? get('colors.primary.default')(props) : 'inherit'};
+  ${NavigationItemList}:not(:last-child) & {
+    padding-bottom: calc(${calcBottomOffset(1.5)} + 10px);
   }
 
   /* make items smaller when they're inside a small list */
 
   ${NavigationItemList.Small} & {
-    padding: ${get('spacing.large')} 0 0 0;
-    margin-bottom: 10px;
     font-size: 0.8em;
-
-    &::before {
-      height: ${props => (props.active ? '5px' : 0)};
-      top: calc(100% + 10px);
-      bottom: auto;
-    }
 
     &:hover::before {
       opacity: 0.5;
       height: 5px;
     }
-  }
-
-  /*
-    when items are in a stack, but not part of the first list in the stack,
-    they get squished down a bit on the top.
-  */
-
-  ${NavigationItemListStack} > ${NavigationItemList}:not(:first-child) :not(:only-child) & {
-    padding-top: ${get('spacing.medium')};
   }
 `;
 
