@@ -21,9 +21,10 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
 
   &::before {
     content: '';
+    opacity: ${({ active }) => (active ? 1 : 0)};
     background: var(--nav-color-highlight);
     width: 104%;
-    height: ${props => (props.active ? '5px' : 0)};
+    height: ${({ active }) => (active ? '5px' : 0)};
     display: block;
     position: absolute;
     bottom: 0;
@@ -32,14 +33,26 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
     transform: translateX(-50%);
     transition: height 0.2s ease, opacity 0.2s ease;
   }
+  ${({ active }) =>
+    active ||
+    css`
+      &:focus,
+      &:active {
+        opacity: 0.7;
+      }
 
-  &:hover::before {
-    opacity: 0.5;
-    height: 5px;
-  }
-  }
+      &:hover::before {
+        opacity: 0.25;
+      }
 
-  ${NavigationItemList}:not(:last-child) & {
+      &:hover,
+      &:focus,
+      &:active {
+        &:before {
+          height: 5px;
+        }
+      }
+    `} ${NavigationItemList}:not(:last-child) & {
     padding-bottom: calc(${calcBottomOffset(1.5)} + 10px);
   }
 
@@ -47,11 +60,6 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
 
   ${NavigationItemList.Small} & {
     font-size: 0.8em;
-
-    &:hover::before {
-      opacity: 0.5;
-      height: 5px;
-    }
   }
 `;
 
