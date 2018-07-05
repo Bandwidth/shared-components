@@ -19,6 +19,17 @@ const spin = keyframes`
   }
 `;
 
+const expand = keyframes`
+  from {
+    transform: translateY(-50%) scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+  }
+`;
+
 const SelectWrapper = styled.div`
   width: 100%;
   color: ${get('colors.text.default')};
@@ -264,16 +275,17 @@ const SelectWrapper = styled.div`
   .Select-menu-outer {
     background-color: ${get('colors.background.default')};
     border: ${get('thicknesses.wide')} solid ${get('colors.border.medium')};
-    border-top-color: ${get('colors.border.light')};
+    border-top-width: 0;
     box-shadow: ${get('shadows.short')};
     box-sizing: border-box;
-    margin-top: -1px;
     max-height: 200px;
     position: absolute;
     top: 100%;
     width: 100%;
     z-index: 1000000;
     -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    animation: ${expand} 200ms;
   }
   .Select-menu {
     max-height: 198px;
