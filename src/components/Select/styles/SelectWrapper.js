@@ -115,7 +115,7 @@ const SelectWrapper = styled.div`
     left: 0;
     font-size: inherit;
     line-height: 1.5;
-    padding: ${get('spacing.medium')};
+    padding: calc(var(--spacing-medium) - 1px) var(--spacing-medium);
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -164,7 +164,7 @@ const SelectWrapper = styled.div`
   .Select-input {
     font-size: inherit;
     line-height: 1.5;
-    padding: ${get('spacing.medium')};
+    padding: calc(var(--spacing-medium) - 1px) var(--spacing-medium);
     vertical-align: middle;
   }
   .Select-input > input {
@@ -240,7 +240,7 @@ const SelectWrapper = styled.div`
     position: absolute;
     right: 0;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-54%);
     display: block;
   }
   .Select-arrow {
@@ -253,6 +253,7 @@ const SelectWrapper = styled.div`
     background-size: ${ARROW_SIZE};
     background-position: center;
     transition: 0.2s;
+    transform-origin: 50% 53.5%;
   }
   .is-open .Select-arrow,
   .Select-arrow-zone:hover > .Select-arrow {
