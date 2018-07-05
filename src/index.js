@@ -227,6 +227,9 @@ export {
   default as ModalBlocker,
 } from './components/Modal/styles/ModalBlocker';
 export {
+  default as ModalCloseButton,
+} from './components/Modal/styles/ModalCloseButton';
+export {
   default as ModalContent,
 } from './components/Modal/styles/ModalContent';
 export { default as ModalTitle } from './components/Modal/styles/ModalTitle';

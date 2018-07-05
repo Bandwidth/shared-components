@@ -22,7 +22,7 @@ class ModalShow extends React.Component {
       <div>
         <Button onClick={toggle}>toggle</Button>
         {this.state.show &&
-          <Modal title="Hello" actionContent={<Button onClick={toggle}>Close</Button>}>
+          <Modal title="Hello" actionContent={<Button onClick={toggle}>Close</Button>} onClose={toggle}>
             <div style={{fontSize: '72px'}}>
               Hello, here's some modal content.<br/>
               It's fairly big.<br/>

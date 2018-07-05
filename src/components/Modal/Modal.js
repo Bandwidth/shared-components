@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import ModalActionContent from './styles/ModalActionContent';
 import ModalBlocker from './styles/ModalBlocker';
 import ModalContent from './styles/ModalContent';
 import ModalTitle from './styles/ModalTitle';
 import ModalWindow from './styles/ModalWindow';
+import ModalCloseButton from './styles/ModalCloseButton';
 
 class Modal extends React.Component {
   static propTypes = {
@@ -18,7 +18,12 @@ class Modal extends React.Component {
      */
     title: PropTypes.string,
     /**
-     * Handles click events on the backdrop behind the modal. Use this to close it if desired.
+     * Handles click events on the backdrop behind the modal or on the X in the title bar.
+     */
+    onClose: PropTypes.func,
+    /**
+     * @deprecated
+     * Handles click events on the backdrop, deprecated in favor of onClose
      */
     onBlockerClicked: PropTypes.func,
     /**
@@ -57,6 +62,10 @@ class Modal extends React.Component {
      * A component to render the window container of the modal
      */
     Window: PropTypes.func,
+    /**
+     * A component to render the close button of the modal
+     */
+    CloseButton: PropTypes.func,
   };
 
   static defaultProps = {
@@ -70,6 +79,7 @@ class Modal extends React.Component {
     Content: ModalContent,
     Title: ModalTitle,
     Window: ModalWindow,
+    CloseButton: ModalCloseButton,
   };
 
   handleModalClicked = event => {
@@ -77,25 +87,37 @@ class Modal extends React.Component {
     event.stopPropagation();
   };
 
+  renderTitle = () => {
+    const { title, Title } = this.props;
+    if (!title) return null;
+    return <Title>{title}</Title>;
+  };
+
+  renderCloseButton = () => {
+    const { CloseButton, onClose } = this.props;
+    if (!onClose) return null;
+    return <CloseButton onClose={onClose} />;
+  };
+
   render() {
     const {
       id,
       className,
+      onClose,
       onBlockerClicked,
-      title,
       children,
       actionContent,
       Blocker,
       Content,
       Window,
       ActionContent,
-      Title,
     } = this.props;
 
     return (
-      <Blocker onClick={onBlockerClicked}>
+      <Blocker onClick={onClose || onBlockerClicked}>
         <Window onClick={this.handleModalClicked} id={id} className={className}>
-          {title ? <Title>{title}</Title> : null}
+          {this.renderTitle()}
+          {this.renderCloseButton()}
           <Content>{children}</Content>
           {actionContent && <ActionContent>{actionContent}</ActionContent>}
         </Window>
