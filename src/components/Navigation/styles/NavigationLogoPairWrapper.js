@@ -9,8 +9,7 @@ export default styled.div`
   color: inherit;
 
   & > ${NavigationHeading} {
-    border-left: ${get('thicknesses.normal')} solid
-      ${get('colors.text.inverted')};
+    border-left: ${get('thicknesses.normal')} solid var(--nav-color-text);
     margin: auto;
     margin-left: 0.5em;
     padding-left: 0.5em;

@@ -2,26 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
-import Anchor from 'components/Anchor';
+import { H5 } from 'components/H';
 import Logo from 'components/Logo';
-import { H3, H5 } from 'components/H';
-
-const CustomHeader = styled(H3)`
-  font-size: 1.55em;
-  border-left: 1px solid #333;
-  color: #333;
-  margin-left: var(--spacing-small);
-  padding-left: var(--spacing-small);
-`;
-
-const TopbarDiv = styled.div`
-  grid-area: topbar;
-  background-color: var(--colors-background-default);
-  border-bottom: 1px solid var(--colors-border-medium);
-  display: grid;
-  grid-template-areas: 'logo spacing theme';
-  grid-template-columns: fit-content(40%) auto fit-content(40%);
-`;
+import Navigation from 'components/Navigation';
 
 const RadioGroup = styled.div`
   grid-area: theme;
@@ -31,12 +14,15 @@ const RadioGroup = styled.div`
   margin-right: var(--spacing-large);
 `;
 
-const LogoDiv = styled.div`
-  grid-area: logo;
-  display: flex;
-  align-items: center;
-  margin-left: var(--spacing-large);
+const CustomNav = styled(Navigation.Light)`
+  grid-area: topbar;
 `;
+
+const LinkedLogo = () => (
+  <a href="/" style={{ display: 'inline-block', 'line-height': 0 }}>
+    <Logo.Primary />
+  </a>
+);
 
 class Topbar extends React.Component {
   renderItem = ({ selectItem, selected }) => (
@@ -58,20 +44,17 @@ class Topbar extends React.Component {
   render() {
     const { onThemeSelect, initialTheme } = this.props;
     return (
-      <TopbarDiv>
-        <LogoDiv>
-          <a href="https://www.bandwidth.com">
-            <Logo variant="blue" />
-          </a>
-          <CustomHeader spacing="0">Shared Component Library</CustomHeader>
-        </LogoDiv>
+      <CustomNav>
+        <Navigation.Title Logo={LinkedLogo}>
+          Shared Component Library
+        </Navigation.Title>
         <Selectable
           exclusive
           initial={initialTheme}
           onItemSelected={onThemeSelect}
           render={this.renderItem}
         />
-      </TopbarDiv>
+      </CustomNav>
     );
   }
 }

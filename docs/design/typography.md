@@ -11,16 +11,15 @@ const text = [
 const sentence = "The quick brown fox jumps over the lazy dog."
 const sizes = ['2.5em', '2em', '1.75em', '1.25em', '1.15em', '1em', '0.8em'];
 
-const Font = withTheme(({theme, name}) =>
+const Font = ({theme, name}) =>
   (
       <div style={{
-          fontFamily: theme['bandwidth-shared'].fonts[name],
+          fontFamily: irisTheme.fonts[name],
           fontSize: '1.75em',
         }} >
           {text.map(t => <Section key={t}><P spacing="lg">{Array.from(t).join(' ')}</P></Section>)}
         </div>
   )
-);
 
 const FontSizes = ({name}) =>
   (
