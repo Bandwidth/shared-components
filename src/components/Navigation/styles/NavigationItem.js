@@ -33,6 +33,17 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
     transform: translateX(-50%);
     transition: height 0.2s ease, opacity 0.2s ease;
   }
+
+  ${NavigationItemList}:not(:last-child) & {
+    padding-bottom: calc(${calcBottomOffset(1.5)} + 10px);
+  }
+
+  /* make items smaller when they're inside a small list */
+
+  ${NavigationItemList.Small} & {
+    font-size: 0.8em;
+  }
+
   ${({ active }) =>
     active ||
     css`
@@ -52,15 +63,7 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
           height: 5px;
         }
       }
-    `} ${NavigationItemList}:not(:last-child) & {
-    padding-bottom: calc(${calcBottomOffset(1.5)} + 10px);
-  }
-
-  /* make items smaller when they're inside a small list */
-
-  ${NavigationItemList.Small} & {
-    font-size: 0.8em;
-  }
+    `};
 `;
 
 NavigationItem.propTypes = {
