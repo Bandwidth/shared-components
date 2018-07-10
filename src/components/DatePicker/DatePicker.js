@@ -13,7 +13,6 @@ import DateRangePicker from './DateRangePicker';
 const DatePicker = ({ Wrapper, ...props }) => (
   <Wrapper>
     <LibDatePicker
-      {...props}
       navPrev={<Icon name="back" size="12px" />}
       navNext={<Icon name="forward" size="12px" />}
       weekDayFormat="dd"
@@ -21,6 +20,8 @@ const DatePicker = ({ Wrapper, ...props }) => (
       daySize={37}
       horizontalMargin={0}
       numberOfMonths={1}
+      hideKeyboardShortcutsPanel
+      {...props}
     />
   </Wrapper>
 );

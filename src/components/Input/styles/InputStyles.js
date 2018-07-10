@@ -54,7 +54,7 @@ const InputStyles = styled.input`
 
 InputStyles.Small = styled(InputStyles)`
   font-size: 12px;
-  padding: ${get('spacing.small')};
+  padding: calc(var(--spacing-extra-small) - 1px);
 `;
 
 export default InputStyles;

@@ -20,6 +20,7 @@ const DateRangePicker = ({ Wrapper, LineSeparator, ...props }) => (
       customArrowIcon={<LineSeparator />}
       daySize={37}
       horizontalMargin={0}
+      hideKeyboardShortcutsPanel
     />
   </Wrapper>
 );

@@ -127,7 +127,7 @@ export default css`
   }
 
   .CalendarDay_container {
-    border-color: ${get('colors.border.light')};
+    border-color: ${get('colors.border.medium')};
     background: ${get('colors.background.default')};
     color: ${get('colors.text.default')};
 
@@ -149,7 +149,7 @@ export default css`
 
   .CalendarDay__blocked_out_of_range {
     color: ${get('colors.text.disabled')};
-    background: ${get('colors.gray.light')};
+    background: ${get('colors.background.disabled')};
     cursor: normal;
 
     &:hover {
