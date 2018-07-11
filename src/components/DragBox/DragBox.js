@@ -324,7 +324,7 @@ class DragBox extends React.Component {
 
   // Keep track of collidable child refs; ref functions are called with null when they are unmounted.
   getRef = key => el => {
-    if (el === null) delete this.childElements[el];
+    if (el === null) delete this.childElements[key];
     else this.childElements[key] = el;
   };
 
