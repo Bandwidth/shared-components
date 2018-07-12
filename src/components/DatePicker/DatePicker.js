@@ -9,12 +9,16 @@ import Icon from '../Icon';
 import DatePickerWrapper from './styles/DatePickerWrapper';
 
 import DateRangePicker from './DateRangePicker';
+import moment from 'moment';
+moment.updateLocale('en', {
+  weekdaysMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+});
 
 const DatePicker = ({ Wrapper, ...props }) => (
   <Wrapper>
     <LibDatePicker
-      navPrev={<Icon name="back" size="12px" />}
-      navNext={<Icon name="forward" size="12px" />}
+      navPrev={<Icon name="back" />}
+      navNext={<Icon name="forward" />}
       weekDayFormat="dd"
       displayFormat="MMM DD YYYY"
       daySize={37}

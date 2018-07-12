@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import baseCss from './reactDatesCss';
+import baseCss from './baseCss';
 import overridesCss from './overridesCss';
 
 const WIDTH = 550;

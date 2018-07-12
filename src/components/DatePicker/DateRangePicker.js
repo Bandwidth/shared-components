@@ -12,7 +12,6 @@ import DateRangePickerLineSeparator from './styles/DateRangePickerLineSeparator'
 const DateRangePicker = ({ Wrapper, LineSeparator, ...props }) => (
   <Wrapper>
     <LibDateRangePicker
-      {...props}
       navPrev={<Icon name="back" size="12px" />}
       navNext={<Icon name="forward" size="12px" />}
       weekDayFormat="dd"
@@ -21,6 +20,7 @@ const DateRangePicker = ({ Wrapper, LineSeparator, ...props }) => (
       daySize={37}
       horizontalMargin={0}
       hideKeyboardShortcutsPanel
+      {...props}
     />
   </Wrapper>
 );

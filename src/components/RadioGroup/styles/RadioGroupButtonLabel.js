@@ -68,6 +68,7 @@ RadioGroupButtonLabel.Small = styled(RadioGroupButtonLabel)`
   font-size: 0.8em;
   padding: 5px 10px;
   font-weight: normal;
+  min-width: 30px;
 
   ${Input}:checked + & {
     box-shadow: inset 0 -4px 0 ${get('colors.primary.default')};
