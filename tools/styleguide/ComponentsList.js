@@ -117,7 +117,6 @@ export default class ComponentsListRenderer extends React.Component {
   render() {
     let { classes, items } = this.props;
     items = items.filter(item => item.name);
-    console.log('ITEMS: ', items);
 
     if (!items.length) {
       return null;
