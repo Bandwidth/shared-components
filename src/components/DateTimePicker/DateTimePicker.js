@@ -6,7 +6,18 @@ import TimePickerContainer from './styles/DateTimePickerContainer';
 import DateTimeRangePicker from './DateTimeRangePicker';
 import moment from 'moment';
 
-class DateTimePicker extends React.Component {
+/**
+ * **DateTimePicker** combines the functionality of DatePicker and TimePicker
+ * into a single interface. It passes all of its props into DatePicker.
+ */
+class DateTimePicker extends React.PureComponent {
+  static propTypes = {
+    /**
+     * A function to handle the datetime when it changes.
+     */
+    onDateTimeChange: PropTypes.func.isRequired,
+  };
+
   state = {
     datetime: moment(), // Combination of date and time.
   };

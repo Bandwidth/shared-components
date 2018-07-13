@@ -9,7 +9,18 @@ import Icon from '../Icon';
 import DateRangePickerWrapper from './styles/DateRangePickerWrapper';
 import DateRangePickerLineSeparator from './styles/DateRangePickerLineSeparator';
 
-class DateRangePicker extends React.Component {
+/**
+ * This is a styling wrapper around [react-dates](https://github.com/airbnb/react-dates).
+ * Please see [here](https://github.com/airbnb/react-dates#singledatepicker) for prop types.
+ *
+ * The picker can be controlled by setting the props `startDate`, `endDate` and `onDatesChange`.
+ * `startDate` and `endDate` should be set to moment objects of the currently selected dates,
+ * while `onDatesChange` should be a function that handles the dates when they
+ * change.
+ *
+ * **NOTE: ** The range picker uses `onDatesChange` not `onDateChange`.
+ */
+class DateRangePicker extends React.PureComponent {
   static propTypes = {
     ...DateRangePickerShape,
     startDateId: PropTypes.string,

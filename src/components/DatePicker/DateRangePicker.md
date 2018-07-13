@@ -1,5 +1,3 @@
-This is a styling wrapper around [react-dates](https://github.com/airbnb/react-dates). Please see [here](https://github.com/airbnb/react-dates#daterangepicker) for prop types.
-
 ```javascript
 class Wrapper extends React.Component {
   constructor(props) {

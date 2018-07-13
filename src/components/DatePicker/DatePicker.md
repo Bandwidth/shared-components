@@ -1,10 +1,8 @@
-This is a styling wrapper around [react-dates](https://github.com/airbnb/react-dates). Please see [here](https://github.com/airbnb/react-dates#singledatepicker) for prop types.
-
 ```javascript
 class Wrapper extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { date: null, focused: false };
+    this.state = { date: null};
   }
 
   render() {
@@ -15,8 +13,6 @@ class Wrapper extends React.Component {
         onDateChange={(date) => {
           this.setState({ date })
         }}
-        focused={this.state.focused}
-        onFocusChange={({ focused }) => this.setState({ focused })}
       />
     );
   }

@@ -5,7 +5,15 @@ import TimePicker from 'components/TimePicker/TimePicker';
 import TimePickerContainer from './styles/DateTimeRangePickerContainer';
 import moment from 'moment';
 
+/**
+ * **DateTimeRangePicker** combines the functionality of DatePicker.Range and TimePicker
+ * into a single interface. It passes all of its props into DatePicker.Range.
+ */
 class DateTimeRangePicker extends React.PureComponent {
+  static propTypes = {
+    onDateTimesChange: PropTypes.func.isRequired,
+  };
+
   state = {
     // Combination of date and time.
     startDatetime: moment(),
@@ -30,7 +38,6 @@ class DateTimeRangePicker extends React.PureComponent {
   };
 
   handleDatesChange = ({ startDate, endDate }) => {
-    console.log({ startDate, endDate });
     // Set time from existing datetime on incoming date, since it's easier to set hours/minutes than year/month/day
     this.setState(({ startDatetime, endDatetime }) => {
       const newState = {

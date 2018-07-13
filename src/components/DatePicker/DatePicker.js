@@ -14,7 +14,16 @@ moment.updateLocale('en', {
   weekdaysMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
 });
 
-class DatePicker extends React.Component {
+/**
+ * This is a styling wrapper around [react-dates](https://github.com/airbnb/react-dates).
+ * Please see [here](https://github.com/airbnb/react-dates#singledatepicker) for prop types.
+ *
+ * The picker can be controlled by setting the props `date` and `onDateChange`.
+ * `date` should be set to a moment object of the currently selected date,
+ * while `onDateChange` should be a function that handles the date when it
+ * changes.
+ */
+class DatePicker extends React.PureComponent {
   static Range = DateRangePicker;
 
   static propTypes = {
