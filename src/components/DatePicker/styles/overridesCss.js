@@ -1,6 +1,17 @@
-import { css } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 import icons from 'components/Icon/icons';
 import get from 'extensions/themeGet';
+
+const expand = keyframes`
+  from {
+    transform: translateY(-50%) scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+  }
+`;
 
 export default css`
   font-family: ${get('fonts.brand')};
@@ -15,6 +26,7 @@ export default css`
   .DateRangePicker_picker,
   .SingleDatePicker_picker {
     top: 51px !important;
+    animation: ${expand} 200ms;
   }
 
   .DateRangePickerInput,
@@ -52,6 +64,7 @@ export default css`
 
   .DateInput {
     width: auto;
+    transition: color 200ms;
     &::after {
       position: absolute;
       right: var(--spacing-medium);
@@ -65,6 +78,19 @@ export default css`
       display: none;
     }
   }
+
+  &.focused .DateInput {
+    color: var(--colors-primary-default);
+  }
+
+  &.focused-startDate .DateInput:first-child {
+    color: var(--colors-primary-default);
+  }
+
+  &.focused-endDate & .DateInput:last-child {
+    color: var(--colors-primary-default);
+  }
+
   .DateInput_input {
     z-index: 100;
     transition: all 200ms;
@@ -137,7 +163,8 @@ export default css`
     color: ${get('colors.text.default')};
 
     &:hover {
-      background: ${get('colors.primary.light')};
+      background: ${get('colors.primary.default')};
+      color: ${get('colors.text.inverted')};
     }
   }
 

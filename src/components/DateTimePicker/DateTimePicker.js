@@ -31,7 +31,6 @@ class DateTimePicker extends React.Component {
     const { datetime } = this.state;
     return (
       <DatePicker
-        {...this.props}
         displayFormat="MMM DD YYYY [at] hh:mm A"
         date={datetime}
         onDateChange={this.handleDateChange}
@@ -45,6 +44,7 @@ class DateTimePicker extends React.Component {
             />
           </TimePickerContainer>
         )}
+        {...this.props}
       />
     );
   }

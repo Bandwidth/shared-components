@@ -6,7 +6,6 @@ import DatePicker from 'components/DatePicker';
 class ConnectedDatePicker extends React.Component {
   state = {
     date: null,
-    focused: false,
   };
 
   render() {
@@ -14,7 +13,6 @@ class ConnectedDatePicker extends React.Component {
       <DatePicker
         {...this.state}
         onDateChange={date => this.setState({ date })}
-        onFocusChange={({ focused }) => this.setState({ focused })}
       />
     );
   }
@@ -23,7 +21,6 @@ class ConnectedDateRangePicker extends React.Component {
   state = {
     startDate: null,
     endDate: null,
-    focusedInput: null,
   };
 
   render() {
@@ -33,7 +30,6 @@ class ConnectedDateRangePicker extends React.Component {
         onDatesChange={({ startDate, endDate }) =>
           this.setState({ startDate, endDate })
         }
-        onFocusChange={focusedInput => this.setState({ focusedInput })}
       />
     );
   }

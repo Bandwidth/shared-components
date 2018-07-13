@@ -14,35 +14,49 @@ moment.updateLocale('en', {
   weekdaysMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
 });
 
-const DatePicker = ({ Wrapper, ...props }) => (
-  <Wrapper>
-    <LibDatePicker
-      navPrev={<Icon name="back" />}
-      navNext={<Icon name="forward" />}
-      weekDayFormat="dd"
-      displayFormat="MMM DD YYYY"
-      daySize={37}
-      horizontalMargin={0}
-      numberOfMonths={1}
-      hideKeyboardShortcutsPanel
-      {...props}
-    />
-  </Wrapper>
-);
+class DatePicker extends React.Component {
+  static Range = DateRangePicker;
 
-DatePicker.propTypes = {
-  ...SingleDatePickerShape,
-  id: PropTypes.string,
-  /**
-   * A component to wrap and control styles of the underlying react-dates DatePicker
-   */
-  Wrapper: PropTypes.func,
-};
+  static propTypes = {
+    ...SingleDatePickerShape,
+    id: PropTypes.string,
+    /**
+     * A component to wrap and control styles of the underlying react-dates DatePicker
+     */
+    Wrapper: PropTypes.func,
+  };
 
-DatePicker.defaultProps = {
-  Wrapper: DatePickerWrapper,
-};
+  static defaultProps = {
+    Wrapper: DatePickerWrapper,
+  };
 
-DatePicker.Range = DateRangePicker;
+  state = {
+    focused: false,
+  };
+
+  handleFocusChange = ({ focused }) => this.setState({ focused });
+
+  render() {
+    const { Wrapper, ...rest } = this.props;
+    const { focused } = this.state;
+    return (
+      <Wrapper className={focused && 'focused'}>
+        <LibDatePicker
+          navPrev={<Icon name="back" />}
+          navNext={<Icon name="forward" />}
+          weekDayFormat="dd"
+          displayFormat="MMM DD YYYY"
+          daySize={37}
+          horizontalMargin={0}
+          numberOfMonths={1}
+          hideKeyboardShortcutsPanel
+          focused={focused}
+          onFocusChange={this.handleFocusChange}
+          {...rest}
+        />
+      </Wrapper>
+    );
+  }
+}
 
 export default DatePicker;
