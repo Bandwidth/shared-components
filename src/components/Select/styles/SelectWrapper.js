@@ -2,8 +2,6 @@ import styled, { css, keyframes } from 'styled-components';
 import get from 'extensions/themeGet';
 import arrowImage from '../arrow.png';
 
-const ARROW_SIZE = '35px';
-
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -16,6 +14,17 @@ const fadeIn = keyframes`
 const spin = keyframes`
   to {
     transform: rotate(1turn);
+  }
+`;
+
+const expand = keyframes`
+  from {
+    transform: translateY(-50%) scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
   }
 `;
 
@@ -48,6 +57,14 @@ const SelectWrapper = styled.div`
     opacity: 0.5;
   }
 
+  .Select-placeholder ~ .Select-input,
+  .Select-value ~ .Select-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+
   .Select-control {
     background-color: ${get('colors.background.default')};
     border-color: ${props =>
@@ -66,6 +83,13 @@ const SelectWrapper = styled.div`
     position: relative;
     width: 100%;
     min-height: 53px;
+    display: flex;
+    & > * {
+      flex: 0 1 auto;
+    }
+    & > .Select-multi-value-wrapper {
+      flex: 1 1 auto;
+    }
   }
 
   ${props =>
@@ -99,18 +123,14 @@ const SelectWrapper = styled.div`
 
   .Select-placeholder,
   .Select--single > .Select-control .Select-value {
-    bottom: 0;
     color: inherit;
-    left: 0;
     font-size: inherit;
     line-height: 1.5;
-    padding: ${get('spacing.medium')};
+    padding: calc(var(--spacing-medium) - 1px) var(--spacing-medium);
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    position: absolute;
-    left: 0;
   }
   .has-value.Select--single > .Select-control .Select-value .Select-value-label,
   .has-value.is-pseudo-focused.Select--single
@@ -153,7 +173,7 @@ const SelectWrapper = styled.div`
   .Select-input {
     font-size: inherit;
     line-height: 1.5;
-    padding: ${get('spacing.medium')};
+    padding: calc(var(--spacing-medium) - 1px) var(--spacing-medium);
     vertical-align: middle;
   }
   .Select-input > input {
@@ -169,6 +189,7 @@ const SelectWrapper = styled.div`
     line-height: 1;
     font-size: inherit;
     min-height: 1em;
+    font: var(--fonts-brand);
     /* For IE 8 compatibility */
     -webkit-appearance: none;
   }
@@ -205,12 +226,8 @@ const SelectWrapper = styled.div`
     color: inherit;
     opacity: 0.5;
     cursor: pointer;
-    position: absolute;
     text-align: center;
-    width: 17px;
-    right: 35px;
-    top: 50%;
-    transform: translateY(-50%);
+    padding: 9px 10px;
   }
   .Select-clear-zone:hover {
     opacity: 1;
@@ -225,22 +242,16 @@ const SelectWrapper = styled.div`
   }
   .Select-arrow-zone {
     cursor: pointer;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    display: block;
+    display: inline-block;
   }
   .Select-arrow {
     display: block;
-    width: ${ARROW_SIZE};
-    height: ${ARROW_SIZE};
-    position: relative;
-    background-image: url(${arrowImage});
-    background-repeat: no-repeat;
-    background-size: ${ARROW_SIZE};
-    background-position: center;
-    transition: 0.2s;
+    padding: calc(var(--spacing-medium) - 1px) var(--spacing-medium);
+    transition: transform 200ms;
+    &::before {
+      font-family: var(--fonts-icon);
+      content: '\\f117';
+    }
   }
   .is-open .Select-arrow,
   .Select-arrow-zone:hover > .Select-arrow {
@@ -263,16 +274,17 @@ const SelectWrapper = styled.div`
   .Select-menu-outer {
     background-color: ${get('colors.background.default')};
     border: ${get('thicknesses.wide')} solid ${get('colors.border.medium')};
-    border-top-color: ${get('colors.border.light')};
+    border-top-width: 0;
     box-shadow: ${get('shadows.short')};
     box-sizing: border-box;
-    margin-top: -1px;
     max-height: 200px;
     position: absolute;
     top: 100%;
     width: 100%;
     z-index: 1000000;
     -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    animation: ${expand} 200ms;
   }
   .Select-menu {
     max-height: 198px;
@@ -280,15 +292,12 @@ const SelectWrapper = styled.div`
   }
   .Select-option {
     box-sizing: border-box;
-    border-bottom: 0.5px solid ${get('colors.gray.border')};
+    border-bottom: var(--thicknesses-normal) solid ${get('colors.gray.border')};
     background-color: ${get('colors.background.default')};
     color: ${get('colors.text.default')};
     cursor: pointer;
     display: block;
-    font-size: 14px;
-    padding-left: ${get('spacing.medium')};
-    padding-top: ${get('spacing.extraSmall')};
-    padding-bottom: ${get('spacing.extraSmall')};
+    padding: calc(var(--spacing-extra-small) - 1px) var(--spacing-medium);
   }
   .Select-option.is-geted {
     color: ${get('colors.primary.default')};
@@ -303,11 +312,10 @@ const SelectWrapper = styled.div`
   }
   .Select-noresults {
     box-sizing: border-box;
-    color: ${get('colors.gray.medium')};
+    color: ${get('colors.text.default')};
     cursor: default;
     display: block;
-    font-size: 14px;
-    padding: ${get('spacing.medium')};
+    padding: calc(var(--spacing-extra-small) - 1px) var(--spacing-medium);
   }
   .Select--multi .Select-input {
     vertical-align: middle;

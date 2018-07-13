@@ -132,6 +132,33 @@ Sub-nav
   </Navigation.ItemList>
 </Navigation.Sub>
 ```
+Sub-nav dark
+```javascript
+<Navigation.Sub.Dark>
+  <Navigation.ItemList>
+    <Anchor to="/voice" exact>
+      <Navigation.Item>
+        Voice
+      </Navigation.Item>
+    </Anchor>
+    <Anchor to="/messaging">
+      <Navigation.Item>
+        Messaging
+      </Navigation.Item>
+    </Anchor>
+    <Anchor to="/numberManagement">
+      <Navigation.Item>
+        Number Management
+      </Navigation.Item>
+    </Anchor>
+    <Anchor to="/e911">
+      <Navigation.Item>
+        9-1-1
+      </Navigation.Item>
+    </Anchor>
+  </Navigation.ItemList>
+</Navigation.Sub.Dark>
+```
 
 ### Unconventional content
 
