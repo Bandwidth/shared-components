@@ -20,31 +20,7 @@ const Content = styled.div`
 `;
 
 export default class Wrapper extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { theme: 'iris', xray: false };
-  }
-
-  setXRay = val => {
-    this.setState({ xray: val });
-  };
-
-  setTheme = val => {
-    this.setState({ theme: val });
-  };
-
-  getThemeProvider = () => {
-    switch (this.state.theme) {
-      case 'catapult':
-        return BandwidthThemeProvider.CatapultThemeProvider;
-      default:
-        return BandwidthThemeProvider;
-    }
-  };
-
   render() {
-    const { theme, xray } = this.state;
-
     return (
       <Router history={history}>
         <BandwidthProvider StyleRoot={React.Fragment} customTheme={null}>
