@@ -5,6 +5,7 @@ import TimePicker from 'components/TimePicker/TimePicker';
 import TimePickerContainer from './styles/DateTimePickerContainer';
 import DateTimeRangePicker from './DateTimeRangePicker';
 import moment from 'moment';
+import { noop } from 'lodash';
 
 /**
  * **DateTimePicker** combines the functionality of DatePicker and TimePicker
@@ -16,6 +17,12 @@ class DateTimePicker extends React.PureComponent {
      * A function to handle the datetime when it changes.
      */
     onDateTimeChange: PropTypes.func.isRequired,
+    displayFormat: PropTypes.string,
+  };
+
+  static defaultProps = {
+    onDateTimeChange: noop,
+    displayFormat: 'MMM DD YYYY [at] hh:mm A',
   };
 
   state = {
@@ -24,25 +31,36 @@ class DateTimePicker extends React.PureComponent {
 
   handleTimeChange = time => {
     // Set time on existing datetime
-    this.setState(({ datetime }) => ({
-      datetime: moment(datetime.hours(time.hours()).minutes(time.minutes())),
-    }));
+    this.setState(({ datetime }) => {
+      const newDateTime = moment(
+        datetime.hours(time.hours()).minutes(time.minutes()),
+      );
+      this.props.onDateTimeChange(newDateTime);
+      return {
+        datetime: newDateTime,
+      };
+    });
   };
 
   handleDateChange = date => {
+    console.log('DATE CHANGE: ', date.format('LLLL'));
     // Set time from existing datetime on incoming date, since it's easier to set hours/minutes than year/month/day
-    this.setState(({ datetime }) => ({
-      datetime: moment(
+    this.setState(({ datetime }) => {
+      const newDateTime = moment(
         date.hours(datetime.hours()).minutes(datetime.minutes()),
-      ),
-    }));
+      );
+      this.props.onDateTimeChange(newDateTime);
+      return {
+        datetime: newDateTime,
+      };
+    });
   };
 
   render() {
+    const { onDateTimeChange, ...rest } = this.props;
     const { datetime } = this.state;
     return (
       <DatePicker
-        displayFormat="MMM DD YYYY [at] hh:mm A"
         date={datetime}
         onDateChange={this.handleDateChange}
         calendarInfoPosition="top"
@@ -55,7 +73,7 @@ class DateTimePicker extends React.PureComponent {
             />
           </TimePickerContainer>
         )}
-        {...this.props}
+        {...rest}
       />
     );
   }

@@ -121,8 +121,9 @@ export default css`
       color: ${get('colors.primary.default')};
     }
   }
-  .DateInput_displayText__disabled {
+  .DateInput_input__disabled {
     font-style: normal;
+    color: var(--colors-text-disabled);
   }
 
   .DayPicker {
