@@ -8,34 +8,46 @@ import Accordion, {
 } from 'components/Accordion';
 import RadioGroupButtonLabel from 'components/RadioGroup/styles/RadioGroupButtonLabel';
 import get from 'extensions/themeGet';
+import { some } from 'lodash';
 
-const CustomBorder = styled(AccordionBorder)`
-  border-left-width: 0;
-  border-right-width: 0;
+const Container = styled.div`
+  padding: 0 var(--spacing-medium) var(--spacing-extra-large);
 `;
 
 const List = styled.ul`
   display: flex;
   flex-direction: column;
   padding: 0;
-  color: rgb(0, 141, 177);
-  font-weight: bold;
   margin: 0;
 `;
 
-const Link = styled.a`
-  text-decoration: ${({ deprecated }) =>
-    deprecated ? 'line-through' : 'none'};
-  color: inherit;
-  font-weight: inherit;
-  margin-left: 15px;
-  color: ${({ deprecated }) =>
-    deprecated ? get('colors.gray.default') : 'inherit'};
-  &:focus,
-  &:active {
-    color: ${({ deprecated }) =>
-      deprecated ? get('colors.gray.medium') : get('colors.primary.default')};
+const SectionHeader = styled.div`
+  flex: 1 1 auto;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  font-weight: bold;
+  color: #5f5f5f;
+  * + & {
+    margin-top: var(--spacing-small);
   }
+`;
+
+const Link = styled.a`
+  text-decoration: none;
+  & > span {
+    text-decoration: ${({ deprecated }) =>
+      deprecated ? 'line-through' : 'none'};
+  }
+  color: inherit;
+  font-weight: lighter;
+  font-family: var(--fonts-brand);
+  letter-spacing: 0.2px;
+  text-rendering: optimizeLegibility;
+  margin-left: var(--spacing-medium);
+  color: ${({ deprecated, active }) =>
+    active
+      ? 'var(--colors-primary-default)'
+      : deprecated ? 'var(--colors-text-disabled)' : 'var(--colors-gray-dark)'};
 `;
 
 export default class ComponentsListRenderer extends React.Component {
@@ -44,29 +56,63 @@ export default class ComponentsListRenderer extends React.Component {
     classes: PropTypes.object,
   };
 
-  sectionDeprecated = section =>
+  sectionJsDocAttr = attrName => section =>
     section &&
     section.props &&
     section.props.doclets &&
-    section.props.doclets.deprecated;
+    section.props.doclets[attrName];
+
+  sectionActive = section => `#!/${section.name}` === window.location.hash;
+
+  sectionChildrenFunc = (section, func) =>
+    func(section) ||
+    some(section.sections, s => this.sectionChildrenFunc(s, func)) ||
+    some(section.components, s => this.sectionChildrenFunc(s, func));
+
+  sectionChildrenDeprecated = section =>
+    this.sectionChildrenFunc(section, this.sectionJsDocAttr('deprecated'));
+
+  sectionChildrenActive = section =>
+    this.sectionChildrenFunc(section, this.sectionActive);
 
   renderSection = section =>
     section && (
       <Link
         key={section.name}
         href={`#!/${section.name}`}
-        active={`#!/${section.name}` === window.location.hash}
-        deprecated={this.sectionDeprecated(section)}
+        active={this.sectionActive(section)}
+        deprecated={this.sectionChildrenDeprecated(section)}
       >
-        {section.name}
+        {this.renderTopLevel(section)}
       </Link>
     );
 
-  renderTopLevel = ({ name, content, sections, components }) => (
-    <Accordion.Small key={name} label={name} Border={CustomBorder}>
-      {(sections.length > 0 ? sections : components).map(this.renderSection)}
-    </Accordion.Small>
-  );
+  renderTopLevel = (section, topLevel = false) => {
+    const { name, content, sections = [], components = [] } = section;
+    let listItems = [];
+    if (sections.length > 0) listItems = sections;
+    else if (components.length > 0) listItems = components;
+    listItems = listItems.filter(s => s.name !== name);
+    if (topLevel) {
+      return (
+        <React.Fragment>
+          <SectionHeader>{name}</SectionHeader>
+          {listItems &&
+            listItems.length > 0 && (
+              <List>{listItems.map(this.renderSection)}</List>
+            )}
+        </React.Fragment>
+      );
+    }
+    return (
+      <React.Fragment>
+        <span>{name}</span>
+        {this.sectionChildrenActive(section) && (
+          <List>{listItems.map(this.renderSection)}</List>
+        )}
+      </React.Fragment>
+    );
+  };
 
   render() {
     let { classes, items } = this.props;
@@ -77,9 +123,9 @@ export default class ComponentsListRenderer extends React.Component {
     }
 
     return (
-      <List>
-        <AccordionGroup>{items.map(this.renderTopLevel)}</AccordionGroup>
-      </List>
+      <Container>
+        <List>{items.map(i => this.renderTopLevel(i, true))}</List>
+      </Container>
     );
   }
 }

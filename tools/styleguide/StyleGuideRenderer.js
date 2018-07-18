@@ -11,7 +11,7 @@ import bootstrap from 'bootstrap';
 
 const Root = styled.div`
   display: grid;
-  grid-template-columns: fit-content(25%) auto;
+  grid-template-columns: 250px auto;
   /* fix for chrome scroll-reset bug: use minmax(1px, 1fr) instead of auto / 1fr */
   grid-template-rows: 85px minmax(1px, 1fr);
   grid-template-areas: 'topbar topbar' 'sidebar main';
@@ -20,7 +20,7 @@ const Root = styled.div`
 
 const Sidebar = styled.div`
   grid-area: sidebar;
-  background-color: white;
+  background-color: var(--colors-gray-light);
   overflow-y: scroll;
   border-width: 0 ${get('thicknesses.normal')} 0 0;
   border-style: solid;
@@ -51,7 +51,6 @@ class StyleGuideRenderer extends React.Component {
     this.setState({
       theme: newTheme,
     });
-    // themeEvents.emit('change', newTheme);
   };
 
   render() {

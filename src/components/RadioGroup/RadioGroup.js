@@ -5,9 +5,6 @@ import RadioGroupButton from './RadioButton';
 import RadioGroupContainer from './styles/RadioGroupContainer';
 import generateId from 'extensions/generateId';
 
-/**
- * @deprecated RadioGroup has been deprecated in favor of using RadioButton directly
- */
 class RadioGroup extends React.Component {
   static propTypes = {
     /**
