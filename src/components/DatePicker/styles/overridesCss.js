@@ -40,10 +40,14 @@ export default css`
       openDirection === 'up' ? 'inherit' : '51px !important'};
     bottom: ${({ openDirection }) =>
       openDirection === 'up' ? '51px !important' : 'inherit'};
-    width: ${({ disabled }) => (disabled ? '50%' : '100%')};
+    width: ${({ disabled }) => (disabled ? '263px' : '100%')};
     animation: ${({ openDirection }) =>
       openDirection === 'up' ? expandUp : expandDown} 200ms;
     overflow: hidden;
+  }
+
+  .DayPicker_transitionContainer {
+    width: inherit !important;
   }
 
   .DateRangePickerInput,

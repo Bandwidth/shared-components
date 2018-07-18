@@ -1,35 +1,35 @@
 ```
 <React.Fragment>
 <DateTimePicker.Range
-  onDateTimeChange={({startDatetime, endDatetime}) =>
+  onChange={({startDatetime, endDatetime}) =>
     console.log(startDatetime.format("LLLL"), endDatetime.format("LLLL"))
   }
 />
 <br />
 <DateTimePicker.Range
   openDirection="up"
-  onDateTimeChange={({startDatetime, endDatetime}) =>
+  onChange={({startDatetime, endDatetime}) =>
     console.log(startDatetime.format("LLLL"), endDatetime.format("LLLL"))
   }
 />
 <br />
 <DateTimePicker.Range
   disabled
-  onDateTimeChange={({startDatetime, endDatetime}) =>
+  onChange={({startDatetime, endDatetime}) =>
     console.log(startDatetime.format("LLLL"), endDatetime.format("LLLL"))
   }
 />
 <br />
 <DateTimePicker.Range
   disabled="endDate"
-  onDateTimeChange={({startDatetime, endDatetime}) =>
+  onChange={({startDatetime, endDatetime}) =>
     console.log(startDatetime.format("LLLL"), endDatetime.format("LLLL"))
   }
 />
 <br />
 <DateTimePicker.Range
   disabled="startDate"
-  onDateTimeChange={({startDatetime, endDatetime}) =>
+  onChange={({startDatetime, endDatetime}) =>
     console.log(startDatetime.format("LLLL"), endDatetime.format("LLLL"))
   }
 />

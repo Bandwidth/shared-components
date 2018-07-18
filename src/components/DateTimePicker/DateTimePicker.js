@@ -16,12 +16,15 @@ class DateTimePicker extends React.PureComponent {
     /**
      * A function to handle the datetime when it changes.
      */
-    onDateTimeChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    /**
+     * Moment date time format to display in the input
+     */
     displayFormat: PropTypes.string,
   };
 
   static defaultProps = {
-    onDateTimeChange: noop,
+    onChange: noop,
     displayFormat: 'MMM DD YYYY [at] hh:mm A',
   };
 
@@ -35,7 +38,7 @@ class DateTimePicker extends React.PureComponent {
       const newDateTime = moment(
         datetime.hours(time.hours()).minutes(time.minutes()),
       );
-      this.props.onDateTimeChange(newDateTime);
+      this.props.onChange(newDateTime);
       return {
         datetime: newDateTime,
       };
@@ -43,13 +46,12 @@ class DateTimePicker extends React.PureComponent {
   };
 
   handleDateChange = date => {
-    console.log('DATE CHANGE: ', date.format('LLLL'));
     // Set time from existing datetime on incoming date, since it's easier to set hours/minutes than year/month/day
     this.setState(({ datetime }) => {
       const newDateTime = moment(
         date.hours(datetime.hours()).minutes(datetime.minutes()),
       );
-      this.props.onDateTimeChange(newDateTime);
+      this.props.onChange(newDateTime);
       return {
         datetime: newDateTime,
       };
@@ -57,7 +59,7 @@ class DateTimePicker extends React.PureComponent {
   };
 
   render() {
-    const { onDateTimeChange, ...rest } = this.props;
+    const { onChange, ...rest } = this.props;
     const { datetime } = this.state;
     return (
       <DatePicker

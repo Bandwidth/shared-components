@@ -8,8 +8,4 @@ export default styled.div`
   ${baseCss} ${overridesCss} .DateRangePicker {
     width: ${WIDTH}px;
   }
-
-  .DayPicker_transitionContainer {
-    width: ${WIDTH - 2}px !important;
-  }
 `;

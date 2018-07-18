@@ -12,12 +12,19 @@ import { noop } from 'lodash';
  */
 class DateTimeRangePicker extends React.PureComponent {
   static propTypes = {
-    onDateTimeChange: PropTypes.func.isRequired,
+    /**
+     * Callback invoked when the datetime is changed. Includes an object with the signature `{startDatetime, endDatetime}`.
+     * The values are provided as moment objects.
+     */
+    onChange: PropTypes.func.isRequired,
+    /**
+     * Moment date time format to display in the input
+     */
     displayFormat: PropTypes.string,
   };
 
   static defaultProps = {
-    onDateTimeChange: noop,
+    onChange: noop,
     displayFormat: 'MMM DD YYYY [at] hh:mm A',
   };
 
@@ -43,7 +50,7 @@ class DateTimeRangePicker extends React.PureComponent {
         ),
         endDatetime,
       };
-      this.props.onDateTimeChange(newState);
+      this.props.onChange(newState);
       return newState;
     });
   };
@@ -56,7 +63,7 @@ class DateTimeRangePicker extends React.PureComponent {
           endDatetime.hours(time.hours()).minutes(time.minutes()),
         ),
       };
-      this.props.onDateTimeChange(newState);
+      this.props.onChange(newState);
       return newState;
     });
   };
@@ -64,19 +71,20 @@ class DateTimeRangePicker extends React.PureComponent {
   handleDatesChange = ({ startDate, endDate }) => {
     // Set time from existing datetime on incoming date, since it's easier to set hours/minutes than year/month/day
     this.setState(({ startDatetime, endDatetime }) => {
-      const newState = {
-        startDatetime: moment(
+      const newState = { startDatetime, endDatetime };
+      if (startDate) {
+        newState.startDatetime = moment(
           startDate
             .hours(startDatetime.hours())
             .minutes(startDatetime.minutes()),
-        ),
-      };
-      newState.endDatetime = endDate
-        ? moment(
-            endDate.hours(endDatetime.hours()).minutes(endDatetime.minutes()),
-          )
-        : newState.startDatetime;
-      this.props.onDateTimeChange(newState);
+        );
+      }
+      if (endDate) {
+        newState.endDatetime = moment(
+          endDate.hours(endDatetime.hours()).minutes(endDatetime.minutes()),
+        );
+      }
+      this.props.onChange(newState);
       return newState;
     });
   };
@@ -86,7 +94,7 @@ class DateTimeRangePicker extends React.PureComponent {
   endDateDisabled = () => [true, 'endDate'].includes(this.props.disabled);
 
   render() {
-    const { onDateTimeChange, ...rest } = this.props;
+    const { onChange, ...rest } = this.props;
     const { startDatetime, endDatetime } = this.state;
     return (
       <DatePicker.Range
@@ -98,19 +106,18 @@ class DateTimeRangePicker extends React.PureComponent {
         calendarInfoPosition="top"
         renderCalendarInfo={() => (
           <TimePickerContainer>
-            {this.startDateDisabled() && (
+            {this.startDateDisabled() || (
               <TimePicker
                 name="start-time-picker"
-                value={startDatetime}
+                initialValue={startDatetime}
                 onChange={this.handleStartTimeChange}
               />
             )}
-            {this.endDateDisabled() && (
+            {this.endDateDisabled() || (
               <TimePicker
                 name="end-time-picker"
-                value={endDatetime}
+                initialValue={endDatetime}
                 onChange={this.handleEndTimeChange}
-                disabled={this.endDateDisabled()}
               />
             )}
           </TimePickerContainer>

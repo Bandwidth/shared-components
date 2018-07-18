@@ -41,17 +41,25 @@ class DateRangePicker extends React.PureComponent {
   };
 
   state = {
-    focusedInput: null,
+    internalFocusedInput: null,
   };
 
-  handleFocusChange = focusedInput => this.setState({ focusedInput });
+  handleFocusChange = internalFocusedInput =>
+    this.setState({ internalFocusedInput });
+
+  get focusedInput() {
+    return (
+      this.props.disabled !== this.state.internalFocusedInput &&
+      this.state.internalFocusedInput
+    );
+  }
 
   render() {
     const { Wrapper, LineSeparator, ...rest } = this.props;
     const { focusedInput } = this.state;
     return (
       <Wrapper
-        className={focusedInput && 'focused-' + focusedInput}
+        className={this.focusedInput && 'focused-' + this.focusedInput}
         openDirection={this.props.openDirection}
         disabled={this.props.disabled}
       >
@@ -65,7 +73,9 @@ class DateRangePicker extends React.PureComponent {
           horizontalMargin={0}
           hideKeyboardShortcutsPanel
           numberOfMonths={this.props.disabled ? 1 : 2}
-          focusedInput={focusedInput}
+          minimumNights={0}
+          focusedInput={this.focusedInput}
+          anchorDirection={this.focusedInput === 'endDate' ? 'right' : 'left'}
           onFocusChange={this.handleFocusChange}
           {...rest}
         />

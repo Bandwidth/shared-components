@@ -27,11 +27,27 @@ const StyledInput = styled(Input.Small)`
   }
 `;
 
-class TimePicker extends React.Component {
+class TimePicker extends React.PureComponent {
+  static propTypes = {
+    /**
+     * Passed through moment and format to set the initial value. By default, uses the current time.
+     */
+    initialValue: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    /**
+     * Time format to pass to moment to format the string. Probably hh:mm or hh:mm:ss.
+     */
+    timeFormat: PropTypes.string,
+  };
+
+  static defaultProps = {
+    initialValue: undefined,
+    timeFormat: 'hh:mm',
+  };
+
   constructor(props) {
     super(props);
-    const value = props.value || moment();
-    const amSelected = value.hours() <= 11;
+    const value = moment(props.initialValue).format(this.props.timeFormat);
+    const amSelected = moment(value, this.props.timeFormat).hours() <= 11;
     this.state = {
       value,
       amSelected,
@@ -39,15 +55,19 @@ class TimePicker extends React.Component {
   }
 
   handleOnChange = ({ value, amSelected }) => {
-    const hours = amSelected === value.hours() >= 12 ? 12 : 0;
+    if (!value) {
+      return;
+    }
+    const timeValue = moment(value, this.props.timeFormat);
+    const hours = amSelected === timeValue.hours() >= 12 ? 12 : 0;
     const sign = amSelected ? -1 : 1;
-    const newValue = value.add(sign * hours, 'hours');
+    const newValue = timeValue.add(sign * hours, 'hours');
     this.props.onChange(newValue);
   };
 
   handleTimeChange = ev => {
     const { amSelected } = this.state;
-    const value = moment(ev.target.value, 'hh:mm');
+    const value = ev.target.value;
     this.setState({ value });
     this.handleOnChange({ value, amSelected });
   };
@@ -68,7 +88,7 @@ class TimePicker extends React.Component {
           type="time"
           onChange={this.handleTimeChange}
           autoComplete={false}
-          value={value.format('hh:mm')}
+          value={value}
         />
         <RadioContainer>
           <RadioButton.Small
