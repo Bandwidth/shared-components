@@ -28,13 +28,18 @@ const NavigationBar = styled.header.withConfig({
 `;
 
 NavigationBar.Sub = styled(NavigationBar)`
-  --nav-color-background: ${get('colors.gray.light')};
-  --nav-color-text: ${get('colors.text.default')};
+  --nav-color-background: var(--colors-gray-light);
+  --nav-color-text: var(--colors-text-default);
 `;
 
 NavigationBar.Dark = styled(NavigationBar)`
   --nav-color-highlight: var(--colors-primary-default);
-  --nav-color-background: ${get('colors.primary.dark')};
+  --nav-color-background: var(--colors-primary-dark);
+`;
+
+NavigationBar.Sub.Dark = styled(NavigationBar)`
+  --nav-color-highlight: var(--colors-primary-default);
+  --nav-color-background: var(--colors-primary-dark);
 `;
 
 NavigationBar.Light = styled(NavigationBar)`

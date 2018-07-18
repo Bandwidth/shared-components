@@ -7,12 +7,4 @@ export default styled.div.withConfig({
   display: flex;
   flex-direction: column;
   color: inherit;
-
-  & > div {
-    margin-top: auto;
-  }
-
-  ${NavigationBar} > &, ${NavigationBar.Dark} > &, ${NavigationBar.Sub} > & {
-    margin-bottom: 0;
-  }
 `;
