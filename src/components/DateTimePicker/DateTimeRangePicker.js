@@ -27,6 +27,14 @@ class DateTimeRangePicker extends React.PureComponent {
     endDatetime: moment(),
   };
 
+  get startDateEnabled() {
+    ![true, 'startDate'].includes(this.props.disabled);
+  }
+
+  get endDateEnabled() {
+    ![true, 'endDate'].includes(this.props.disabled);
+  }
+
   handleStartTimeChange = time => {
     this.setState(({ startDatetime, endDatetime }) => {
       const newState = {
@@ -73,27 +81,38 @@ class DateTimeRangePicker extends React.PureComponent {
     });
   };
 
+  startDateDisabled = () => [true, 'startDate'].includes(this.props.disabled);
+
+  endDateDisabled = () => [true, 'endDate'].includes(this.props.disabled);
+
   render() {
     const { onDateTimeChange, ...rest } = this.props;
     const { startDatetime, endDatetime } = this.state;
     return (
       <DatePicker.Range
-        startDate={startDatetime}
-        endDate={endDatetime}
+        startDatePlaceholderText="Now"
+        endDatePlaceholderText="Forever"
+        startDate={this.startDateDisabled() ? null : startDatetime}
+        endDate={this.endDateDisabled() ? null : endDatetime}
         onDatesChange={this.handleDatesChange}
         calendarInfoPosition="top"
         renderCalendarInfo={() => (
           <TimePickerContainer>
-            <TimePicker
-              name="start-time-picker"
-              value={startDatetime}
-              onChange={this.handleStartTimeChange}
-            />
-            <TimePicker
-              name="end-time-picker"
-              value={endDatetime}
-              onChange={this.handleEndTimeChange}
-            />
+            {this.startDateDisabled() && (
+              <TimePicker
+                name="start-time-picker"
+                value={startDatetime}
+                onChange={this.handleStartTimeChange}
+              />
+            )}
+            {this.endDateDisabled() && (
+              <TimePicker
+                name="end-time-picker"
+                value={endDatetime}
+                onChange={this.handleEndTimeChange}
+                disabled={this.endDateDisabled()}
+              />
+            )}
           </TimePickerContainer>
         )}
         {...rest}

@@ -28,6 +28,7 @@ class Wrapper extends React.Component {
     <Wrapper />
   </div>
   <Wrapper openDirection="up" />
+  <Wrapper disabled="endDate" />
   <Wrapper disabled />
 </div>
 ```

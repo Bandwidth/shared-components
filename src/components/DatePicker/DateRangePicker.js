@@ -50,7 +50,11 @@ class DateRangePicker extends React.PureComponent {
     const { Wrapper, LineSeparator, ...rest } = this.props;
     const { focusedInput } = this.state;
     return (
-      <Wrapper className={focusedInput && 'focused-' + focusedInput}>
+      <Wrapper
+        className={focusedInput && 'focused-' + focusedInput}
+        openDirection={this.props.openDirection}
+        disabled={this.props.disabled}
+      >
         <LibDateRangePicker
           navPrev={<Icon name="back" size="12px" />}
           navNext={<Icon name="forward" size="12px" />}
@@ -60,6 +64,7 @@ class DateRangePicker extends React.PureComponent {
           daySize={37}
           horizontalMargin={0}
           hideKeyboardShortcutsPanel
+          numberOfMonths={this.props.disabled ? 1 : 2}
           focusedInput={focusedInput}
           onFocusChange={this.handleFocusChange}
           {...rest}

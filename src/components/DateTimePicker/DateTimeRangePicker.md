@@ -7,6 +7,13 @@
 />
 <br />
 <DateTimePicker.Range
+  openDirection="up"
+  onDateTimeChange={({startDatetime, endDatetime}) =>
+    console.log(startDatetime.format("LLLL"), endDatetime.format("LLLL"))
+  }
+/>
+<br />
+<DateTimePicker.Range
   disabled
   onDateTimeChange={({startDatetime, endDatetime}) =>
     console.log(startDatetime.format("LLLL"), endDatetime.format("LLLL"))

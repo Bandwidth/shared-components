@@ -2,9 +2,20 @@ import { css, keyframes } from 'styled-components';
 import icons from 'components/Icon/icons';
 import get from 'extensions/themeGet';
 
-const expand = keyframes`
+const expandDown = keyframes`
   from {
     transform: translateY(-50%) scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+  }
+`;
+
+const expandUp = keyframes`
+  from {
+    transform: translateY(50%) scaleY(0);
     opacity: 0;
   }
   to {
@@ -25,8 +36,14 @@ export default css`
 
   .DateRangePicker_picker,
   .SingleDatePicker_picker {
-    top: 51px !important;
-    animation: ${expand} 200ms;
+    top: ${({ openDirection }) =>
+      openDirection === 'up' ? 'inherit' : '51px !important'};
+    bottom: ${({ openDirection }) =>
+      openDirection === 'up' ? '51px !important' : 'inherit'};
+    width: ${({ disabled }) => (disabled ? '50%' : '100%')};
+    animation: ${({ openDirection }) =>
+      openDirection === 'up' ? expandUp : expandDown} 200ms;
+    overflow: hidden;
   }
 
   .DateRangePickerInput,
@@ -87,7 +104,7 @@ export default css`
     color: var(--colors-primary-default);
   }
 
-  &.focused-endDate & .DateInput:last-child {
+  &.focused-endDate .DateInput:last-child {
     color: var(--colors-primary-default);
   }
 
