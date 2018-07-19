@@ -136,14 +136,14 @@ class DateTimeRangePicker extends React.PureComponent {
             {this.startDateDisabled() || (
               <TimePicker
                 name="start-time-picker"
-                initialValue={startDatetime}
+                value={startDatetime}
                 onChange={this.handleStartTimeChange}
               />
             )}
             {this.endDateDisabled() || (
               <TimePicker
                 name="end-time-picker"
-                initialValue={endDatetime}
+                value={endDatetime}
                 onChange={this.handleEndTimeChange}
               />
             )}

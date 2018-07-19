@@ -12,9 +12,9 @@ import StyledInput from './styles/StyledInput';
 class TimePicker extends React.PureComponent {
   static propTypes = {
     /**
-     * Passed through moment and format to set the initial value. By default, uses the current time.
+     * TODO: Rewrite this description
      */
-    initialValue: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    value: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
     /**
      * Time format to pass to moment to format the string. Probably hh:mm or hh:mm:ss.
      */
@@ -22,19 +22,13 @@ class TimePicker extends React.PureComponent {
   };
 
   static defaultProps = {
-    initialValue: undefined,
+    value: undefined,
     timeFormat: 'hh:mm',
   };
 
-  constructor(props) {
-    super(props);
-    const value = moment(props.initialValue).format(this.props.timeFormat);
-    const amSelected = moment(props.initialValue).hours() <= 11;
-    this.state = {
-      value,
-      amSelected,
-    };
-  }
+  state = {
+    internalValue: undefined,
+  };
 
   handleOnChange = ({ value, amSelected }) => {
     if (!value) {
@@ -44,45 +38,49 @@ class TimePicker extends React.PureComponent {
     const hours = amSelected === timeValue.hours() >= 12 ? 12 : 0;
     const sign = amSelected ? -1 : 1;
     const newValue = timeValue.add(sign * hours, 'hours');
+    this.setState({ internalValue: newValue });
     this.props.onChange(newValue);
   };
 
-  handleTimeChange = ev => {
-    const { amSelected } = this.state;
-    const value = ev.target.value;
-    this.setState({ value });
-    this.handleOnChange({ value, amSelected });
-  };
+  handleTimeChange = ev =>
+    this.handleOnChange({ value: ev.target.value, amSelected: this.isAm });
 
-  handleAmPm = am => ev => {
-    const { value } = this.state;
-    const amSelected = am;
-    this.setState({ amSelected });
-    this.handleOnChange({ value, amSelected });
-  };
+  handleAmPm = amSelected => ev =>
+    this.handleOnChange({ value: this.momentValue, amSelected });
+
+  get value() {
+    return this.props.value ? this.props.value : this.state.internalValue;
+  }
+
+  get momentValue() {
+    return moment.isMoment(this.value) ? this.value : moment(this.value);
+  }
+
+  get isAm() {
+    return this.momentValue.hours() <= 11;
+  }
 
   render() {
     const { name } = this.props;
-    const { value, amSelected } = this.state;
     return (
       <Container>
         <StyledInput
           type="time"
           onChange={this.handleTimeChange}
           autoComplete={false}
-          value={value}
+          value={this.momentValue.format(this.props.timeFormat)}
         />
         <RadioContainer>
           <RadioButton.Small
             onChange={this.handleAmPm(true)}
-            checked={amSelected}
+            checked={this.isAm}
             name={`${name}-ampm`}
             value="am"
             label="AM"
           />
           <RadioButton.Small
             onChange={this.handleAmPm(false)}
-            checked={!amSelected}
+            checked={!this.isAm}
             name={`${name}-ampm`}
             value="pm"
             label="PM"
