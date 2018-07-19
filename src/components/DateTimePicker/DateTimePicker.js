@@ -21,21 +21,34 @@ class DateTimePicker extends React.PureComponent {
      * Moment date time format to display in the input
      */
     displayFormat: PropTypes.string,
+    /**
+     * Use UTC datetime.
+     */
+    utc: PropTypes.bool,
   };
 
   static defaultProps = {
     onChange: noop,
     displayFormat: 'MMM DD YYYY [at] hh:mm A',
+    utc: false,
   };
 
-  state = {
-    datetime: moment(), // Combination of date and time.
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      // Combination of date and time.
+      datetime: this.moment(),
+    };
+  }
+
+  get moment() {
+    return this.props.utc ? moment.utc : moment;
+  }
 
   handleTimeChange = time => {
     // Set time on existing datetime
     this.setState(({ datetime }) => {
-      const newDateTime = moment(
+      const newDateTime = this.moment(
         datetime.hours(time.hours()).minutes(time.minutes()),
       );
       this.props.onChange(newDateTime);
@@ -48,7 +61,7 @@ class DateTimePicker extends React.PureComponent {
   handleDateChange = date => {
     // Set time from existing datetime on incoming date, since it's easier to set hours/minutes than year/month/day
     this.setState(({ datetime }) => {
-      const newDateTime = moment(
+      const newDateTime = this.moment(
         date.hours(datetime.hours()).minutes(datetime.minutes()),
       );
       this.props.onChange(newDateTime);

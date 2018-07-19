@@ -33,10 +33,25 @@ class DatePicker extends React.PureComponent {
      * A component to wrap and control styles of the underlying react-dates DatePicker
      */
     Wrapper: PropTypes.func,
+    /**
+     * Format to pass to moment to control the input's value
+     */
+    displayFormat: PropTypes.string,
+    /**
+     * Set to true if the component's value is invalid
+     */
+    invalid: PropTypes.bool,
+    /**
+     * Set to true if the component should be disabled.
+     */
+    disabled: PropTypes.bool,
   };
 
   static defaultProps = {
     Wrapper: DatePickerWrapper,
+    displayFormat: 'MMM DD YYYY',
+    invalid: false,
+    disabled: false,
   };
 
   state = {
@@ -59,7 +74,6 @@ class DatePicker extends React.PureComponent {
           navPrev={<Icon name="back" />}
           navNext={<Icon name="forward" />}
           weekDayFormat="dd"
-          displayFormat="MMM DD YYYY"
           daySize={37}
           horizontalMargin={0}
           numberOfMonths={1}

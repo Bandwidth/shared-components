@@ -7,6 +7,10 @@ import moment from 'moment';
 storiesOf('Date Time Picker', module)
   .add('standard', () => <DateTimePicker onChange={action('onChange')} />)
   .add('range', () => <DateTimePicker.Range onChange={action('onChange')} />)
+  .add('utc', () => <DateTimePicker.Range utc onChange={action('onChange')} />)
+  .add('invalid', () => (
+    <DateTimePicker.Range invalid onChange={action('onChange')} />
+  ))
   .add('disabled', () => (
     <DateTimePicker.Range disabled onChange={action('onChange')} />
   ))

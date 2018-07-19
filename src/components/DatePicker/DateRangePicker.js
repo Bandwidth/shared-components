@@ -33,11 +33,22 @@ class DateRangePicker extends React.PureComponent {
      * A component that renders the separator line between the two inputs
      */
     LineSeparator: PropTypes.func,
+    /**
+     * Set to true if the component's value is invalid
+     */
+    invalid: PropTypes.bool,
+    /**
+     * Set to true if the component should be disabled. Alternatively, set to either 'startDate' or 'endDate'
+     * to disable a particular part of the component.
+     */
+    disabled: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   };
 
   static defaultProps = {
     Wrapper: DateRangePickerWrapper,
     LineSeparator: DateRangePickerLineSeparator,
+    invalid: false,
+    disabled: false,
   };
 
   state = {

@@ -25,7 +25,13 @@ class DateTimeRangePicker extends React.PureComponent {
      * Use UTC datetime.
      */
     utc: PropTypes.bool,
+    /**
+     * Text to use when the start date is disabled.
+     */
     disabledStartText: PropTypes.string,
+    /**
+     * Text to use when the end date is disabled.
+     */
     disabledEndText: PropTypes.string,
   };
 
@@ -41,8 +47,8 @@ class DateTimeRangePicker extends React.PureComponent {
     super(props);
     this.state = {
       // Combination of date and time.
-      startDatetime: this.getMoment()(),
-      endDatetime: this.getMoment()(),
+      startDatetime: this.moment(),
+      endDatetime: this.moment(),
     };
   }
 
@@ -50,7 +56,9 @@ class DateTimeRangePicker extends React.PureComponent {
 
   endDateDisabled = () => [true, 'endDate'].includes(this.props.disabled);
 
-  getMoment = () => (this.props.utc ? moment.utc : moment);
+  get moment() {
+    return this.props.utc ? moment.utc : moment;
+  }
 
   // Trigger onChange prop
   triggerOnChange = ({ startDatetime, endDatetime }) =>
@@ -62,7 +70,7 @@ class DateTimeRangePicker extends React.PureComponent {
   handleStartTimeChange = time => {
     this.setState(({ startDatetime, endDatetime }) => {
       const newState = {
-        startDatetime: this.getMoment()(
+        startDatetime: this.moment(
           startDatetime.hours(time.hours()).minutes(time.minutes()),
         ),
         endDatetime,
@@ -76,7 +84,7 @@ class DateTimeRangePicker extends React.PureComponent {
     this.setState(({ startDatetime, endDatetime }) => {
       const newState = {
         startDatetime,
-        endDatetime: this.getMoment()(
+        endDatetime: this.moment(
           endDatetime.hours(time.hours()).minutes(time.minutes()),
         ),
       };
@@ -90,14 +98,14 @@ class DateTimeRangePicker extends React.PureComponent {
     this.setState(({ startDatetime, endDatetime }) => {
       const newState = { startDatetime, endDatetime };
       if (startDate) {
-        newState.startDatetime = this.getMoment()(
+        newState.startDatetime = this.moment(
           startDate
             .hours(startDatetime.hours())
             .minutes(startDatetime.minutes()),
         );
       }
       if (endDate) {
-        newState.endDatetime = this.getMoment()(
+        newState.endDatetime = this.moment(
           endDate.hours(endDatetime.hours()).minutes(endDatetime.minutes()),
         );
       }

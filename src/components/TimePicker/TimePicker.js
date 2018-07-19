@@ -5,27 +5,9 @@ import Input from 'components/Input';
 import RadioGroup from 'components/RadioGroup';
 const RadioButton = RadioGroup.Button;
 import moment from 'moment';
-
-const Container = styled.div`
-  display: flex;
-  & > * + * {
-    margin-left: var(--spacing-small);
-  }
-`;
-
-const RadioContainer = styled.div`
-  display: flex;
-  flex: 1 1 content;
-`;
-
-const StyledInput = styled(Input.Small)`
-  max-width: 52px;
-  &::-webkit-datetime-edit-ampm-field,
-  &::-webkit-clear-button,
-  &::-webkit-inner-spin-button {
-    display: none;
-  }
-`;
+import Container from './styles/Container';
+import RadioContainer from './styles/RadioContainer';
+import StyledInput from './styles/StyledInput';
 
 class TimePicker extends React.PureComponent {
   static propTypes = {

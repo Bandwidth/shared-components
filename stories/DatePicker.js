@@ -40,6 +40,8 @@ class ConnectedDateRangePicker extends React.Component {
 storiesOf('Date Picker', module)
   .add('standard', () => <ConnectedDatePicker />)
   .add('range', () => <ConnectedDateRangePicker />)
+  .add('utc', () => <ConnectedDateRangePicker utc />)
+  .add('invalid', () => <ConnectedDateRangePicker invalid />)
   .add('disabled', () => <ConnectedDatePicker disabled />)
   .add('disabled start', () => (
     <ConnectedDateRangePicker disabled="startDate" />
