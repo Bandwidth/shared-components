@@ -25,6 +25,11 @@ class DateTimePicker extends React.PureComponent {
      * Use UTC datetime.
      */
     utc: PropTypes.bool,
+    /**
+     * The current datetime being displayed. If unset, the component will track its own internal state.
+     * Datetime should be provided as a moment object.
+     */
+    value: PropTypes.object,
   };
 
   static defaultProps = {

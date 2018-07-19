@@ -1,7 +1,7 @@
 ```js
   <DateTimePicker
-    onChange={(datetime) =>
-      console.log(datetime && datetime.format("LLLL"))
+    onChange={(value) =>
+      console.log(value && value.format("LLLL"))
     }
   />
 ```
@@ -10,8 +10,8 @@
   <DateTimePicker
     utc
     displayFormat="MMM DD YYYY [at] hh:mm A [(UTC)]"
-    onChange={(datetime) =>
-      console.log(datetime && datetime.format("LLLL"))
+    onChange={(value) =>
+      console.log(value && value.format("LLLL"))
     }
   />
 ```
@@ -20,29 +20,29 @@
 <React.Fragment>
   <DateTimePicker
     invalid
-    onChange={(datetime) =>
-      console.log(datetime && datetime.format("LLLL"))
+    onChange={(value) =>
+      console.log(value && value.format("LLLL"))
     }
   />
   <br />
   <DateTimePicker
     disabled
-    onChange={(datetime) =>
-      console.log(datetime && datetime.format("LLLL"))
+    onChange={(value) =>
+      console.log(value && value.format("LLLL"))
     }
   />
   <br />
   <DateTimePicker
     disabled="endDate"
-    onChange={(datetime) =>
-      console.log(datetime && datetime.format("LLLL"))
+    onChange={(value) =>
+      console.log(value && value.format("LLLL"))
     }
   />
   <br />
   <DateTimePicker
     disabled="startDate"
-    onChange={(datetime) =>
-      console.log(datetime && datetime.format("LLLL"))
+    onChange={(value) =>
+      console.log(value && value.format("LLLL"))
     }
   />
 </React.Fragment>

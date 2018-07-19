@@ -13,6 +13,15 @@ storiesOf('Date Time Picker', module)
     />
   ))
   .add('range', () => <DateTimePicker.Range onChange={action('onChange')} />)
+  .add('fixed time range', () => (
+    <DateTimePicker.Range
+      value={{
+        start: moment('July 19, 2018 3:15 PM', 'LLL'),
+        end: moment('July 25, 2018 8:20 AM', 'LLL'),
+      }}
+      onChange={action('onChange')}
+    />
+  ))
   .add('utc', () => <DateTimePicker.Range utc onChange={action('onChange')} />)
   .add('invalid', () => (
     <DateTimePicker.Range invalid onChange={action('onChange')} />
