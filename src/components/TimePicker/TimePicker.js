@@ -53,7 +53,7 @@ class TimePicker extends React.PureComponent {
   }
 
   get momentValue() {
-    return moment.isMoment(this.value) ? this.value : moment(this.value);
+    return moment(this.value);
   }
 
   get isAm() {

@@ -31,59 +31,55 @@ class DateTimePicker extends React.PureComponent {
     onChange: noop,
     displayFormat: 'MMM DD YYYY [at] hh:mm A',
     utc: false,
+    value: undefined,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      // Combination of date and time.
-      datetime: this.moment(),
-    };
-  }
+  state = {
+    internalValue: undefined,
+  };
 
   get moment() {
     return this.props.utc ? moment.utc : moment;
   }
 
+  get value() {
+    return this.props.value ? this.props.value : this.state.internalValue;
+  }
+
+  get momentValue() {
+    return this.moment(this.value);
+  }
+
   handleTimeChange = time => {
     // Set time on existing datetime
-    this.setState(({ datetime }) => {
-      const newDateTime = this.moment(
-        datetime.hours(time.hours()).minutes(time.minutes()),
-      );
-      this.props.onChange(newDateTime);
-      return {
-        datetime: newDateTime,
-      };
-    });
+    const newDatetime = this.momentValue
+      .hours(time.hours())
+      .minutes(time.minutes());
+    this.props.onChange(newDatetime);
+    this.setState({ internalValue: newDatetime });
   };
 
   handleDateChange = date => {
     // Set time from existing datetime on incoming date, since it's easier to set hours/minutes than year/month/day
-    this.setState(({ datetime }) => {
-      const newDateTime = this.moment(
-        date.hours(datetime.hours()).minutes(datetime.minutes()),
-      );
-      this.props.onChange(newDateTime);
-      return {
-        datetime: newDateTime,
-      };
-    });
+    const newDatetime = this.moment(date)
+      .hours(this.momentValue.hours())
+      .minutes(this.momentValue.minutes());
+    this.props.onChange(newDatetime);
+    this.setState({ internalValue: newDatetime });
   };
 
   render() {
     const { onChange, ...rest } = this.props;
-    const { datetime } = this.state;
     return (
       <DatePicker
-        date={datetime}
+        date={this.momentValue}
         onDateChange={this.handleDateChange}
         calendarInfoPosition="top"
         renderCalendarInfo={() => (
           <TimePickerContainer>
             <TimePicker
               name="time-picker"
-              value={datetime}
+              value={this.momentValue}
               onChange={this.handleTimeChange}
             />
           </TimePickerContainer>
