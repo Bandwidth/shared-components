@@ -56,12 +56,12 @@ class DateRangePicker extends React.PureComponent {
 
   render() {
     const { Wrapper, LineSeparator, ...rest } = this.props;
-    const { focusedInput } = this.state;
     return (
       <Wrapper
         className={this.focusedInput && 'focused-' + this.focusedInput}
         openDirection={this.props.openDirection}
         disabled={this.props.disabled}
+        invalid={this.props.invalid}
       >
         <LibDateRangePicker
           navPrev={<Icon name="back" size="12px" />}

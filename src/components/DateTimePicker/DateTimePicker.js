@@ -70,7 +70,7 @@ class DateTimePicker extends React.PureComponent {
           <TimePickerContainer>
             <TimePicker
               name="time-picker"
-              value={datetime}
+              initialValue={datetime}
               onChange={this.handleTimeChange}
             />
           </TimePickerContainer>

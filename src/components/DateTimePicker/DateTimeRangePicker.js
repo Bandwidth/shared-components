@@ -21,36 +21,53 @@ class DateTimeRangePicker extends React.PureComponent {
      * Moment date time format to display in the input
      */
     displayFormat: PropTypes.string,
+    /**
+     * Use UTC datetime.
+     */
+    utc: PropTypes.bool,
+    disabledStartText: PropTypes.string,
+    disabledEndText: PropTypes.string,
   };
 
   static defaultProps = {
     onChange: noop,
     displayFormat: 'MMM DD YYYY [at] hh:mm A',
+    utc: false,
+    disabledStartText: 'Now',
+    disabledEndText: 'Forever',
   };
 
-  state = {
-    // Combination of date and time.
-    startDatetime: moment(),
-    endDatetime: moment(),
-  };
-
-  get startDateEnabled() {
-    ![true, 'startDate'].includes(this.props.disabled);
+  constructor(props) {
+    super(props);
+    this.state = {
+      // Combination of date and time.
+      startDatetime: this.getMoment()(),
+      endDatetime: this.getMoment()(),
+    };
   }
 
-  get endDateEnabled() {
-    ![true, 'endDate'].includes(this.props.disabled);
-  }
+  startDateDisabled = () => [true, 'startDate'].includes(this.props.disabled);
+
+  endDateDisabled = () => [true, 'endDate'].includes(this.props.disabled);
+
+  getMoment = () => (this.props.utc ? moment.utc : moment);
+
+  // Trigger onChange prop
+  triggerOnChange = ({ startDatetime, endDatetime }) =>
+    this.props.onChange({
+      startDatetime: this.startDateDisabled() ? null : startDatetime,
+      endDatetime: this.endDateDisabled() ? null : endDatetime,
+    });
 
   handleStartTimeChange = time => {
     this.setState(({ startDatetime, endDatetime }) => {
       const newState = {
-        startDatetime: moment(
+        startDatetime: this.getMoment()(
           startDatetime.hours(time.hours()).minutes(time.minutes()),
         ),
         endDatetime,
       };
-      this.props.onChange(newState);
+      this.triggerOnChange(newState);
       return newState;
     });
   };
@@ -59,11 +76,11 @@ class DateTimeRangePicker extends React.PureComponent {
     this.setState(({ startDatetime, endDatetime }) => {
       const newState = {
         startDatetime,
-        endDatetime: moment(
+        endDatetime: this.getMoment()(
           endDatetime.hours(time.hours()).minutes(time.minutes()),
         ),
       };
-      this.props.onChange(newState);
+      this.triggerOnChange(newState);
       return newState;
     });
   };
@@ -73,33 +90,35 @@ class DateTimeRangePicker extends React.PureComponent {
     this.setState(({ startDatetime, endDatetime }) => {
       const newState = { startDatetime, endDatetime };
       if (startDate) {
-        newState.startDatetime = moment(
+        newState.startDatetime = this.getMoment()(
           startDate
             .hours(startDatetime.hours())
             .minutes(startDatetime.minutes()),
         );
       }
       if (endDate) {
-        newState.endDatetime = moment(
+        newState.endDatetime = this.getMoment()(
           endDate.hours(endDatetime.hours()).minutes(endDatetime.minutes()),
         );
       }
-      this.props.onChange(newState);
+      this.triggerOnChange(newState);
       return newState;
     });
   };
 
-  startDateDisabled = () => [true, 'startDate'].includes(this.props.disabled);
-
-  endDateDisabled = () => [true, 'endDate'].includes(this.props.disabled);
-
   render() {
-    const { onChange, ...rest } = this.props;
+    const {
+      onChange,
+      disabledStartText,
+      disabledEndText,
+      ...rest
+    } = this.props;
     const { startDatetime, endDatetime } = this.state;
+
     return (
       <DatePicker.Range
-        startDatePlaceholderText="Now"
-        endDatePlaceholderText="Forever"
+        startDatePlaceholderText={disabledStartText}
+        endDatePlaceholderText={disabledEndText}
         startDate={this.startDateDisabled() ? null : startDatetime}
         endDate={this.endDateDisabled() ? null : endDatetime}
         onDatesChange={this.handleDatesChange}

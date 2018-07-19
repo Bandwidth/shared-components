@@ -11,6 +11,7 @@ class ConnectedDatePicker extends React.Component {
   render() {
     return (
       <DatePicker
+        {...this.props}
         {...this.state}
         onDateChange={date => this.setState({ date })}
       />
@@ -26,6 +27,7 @@ class ConnectedDateRangePicker extends React.Component {
   render() {
     return (
       <DatePicker.Range
+        {...this.props}
         {...this.state}
         onDatesChange={({ startDate, endDate }) =>
           this.setState({ startDate, endDate })
@@ -37,4 +39,9 @@ class ConnectedDateRangePicker extends React.Component {
 
 storiesOf('Date Picker', module)
   .add('standard', () => <ConnectedDatePicker />)
-  .add('range', () => <ConnectedDateRangePicker />);
+  .add('range', () => <ConnectedDateRangePicker />)
+  .add('disabled', () => <ConnectedDatePicker disabled />)
+  .add('disabled start', () => (
+    <ConnectedDateRangePicker disabled="startDate" />
+  ))
+  .add('disabled end', () => <ConnectedDateRangePicker disabled="endDate" />);

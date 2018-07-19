@@ -11,7 +11,7 @@ import SidebarListContainer from './styles/SidebarListContainer';
  *
  * You can show selected state by either passing an `active` prop to the correct item
  * or linking your list to your router so that each item is a unique route. If you go that direction,
- * you can have the items be `<Route/>` components from React Router, and have them utilize RR's
+ * you can wrap the items with `<Route/>` components from React Router, and have them utilize RR's
  * built-in route matching logic to determine rendering appearance.
  */
 class SidebarList extends React.PureComponent {

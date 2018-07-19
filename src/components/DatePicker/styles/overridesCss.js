@@ -46,6 +46,15 @@ export default css`
     overflow: hidden;
   }
 
+  ${({ invalid }) =>
+    invalid &&
+    css`
+      .DateInput_input:not(.DateInput_input__focused) {
+        border-color: var(--colors-negative-border) !important;
+        box-shadow: inset 0 -5px 0 ${get('colors.negative.light')};
+      }
+    `}
+
   .DayPicker_transitionContainer {
     width: inherit !important;
   }

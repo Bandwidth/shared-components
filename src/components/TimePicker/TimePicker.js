@@ -47,7 +47,7 @@ class TimePicker extends React.PureComponent {
   constructor(props) {
     super(props);
     const value = moment(props.initialValue).format(this.props.timeFormat);
-    const amSelected = moment(value, this.props.timeFormat).hours() <= 11;
+    const amSelected = moment(props.initialValue).hours() <= 11;
     this.state = {
       value,
       amSelected,

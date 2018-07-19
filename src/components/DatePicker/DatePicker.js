@@ -52,6 +52,8 @@ class DatePicker extends React.PureComponent {
       <Wrapper
         className={focused && 'focused'}
         openDirection={this.props.openDirection}
+        invalid={this.props.invalid}
+        disabled={this.props.disabled}
       >
         <LibDatePicker
           navPrev={<Icon name="back" />}
