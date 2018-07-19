@@ -39,6 +39,15 @@ class DateTimeRangePicker extends React.PureComponent {
      * is a moment object.
      */
     value: PropTypes.object,
+    /**
+     * Set to true if the component's value is invalid
+     */
+    invalid: PropTypes.bool,
+    /**
+     * Set to true if the component should be disabled. Alternatively, set to either 'startDate' or 'endDate'
+     * to disable a particular part of the component.
+     */
+    disabled: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   };
 
   static defaultProps = {
@@ -48,6 +57,8 @@ class DateTimeRangePicker extends React.PureComponent {
     disabledStartText: 'Now',
     disabledEndText: 'Forever',
     value: undefined,
+    invalid: false,
+    disabled: false,
   };
 
   state = {

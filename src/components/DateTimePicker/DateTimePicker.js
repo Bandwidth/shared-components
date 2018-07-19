@@ -30,6 +30,14 @@ class DateTimePicker extends React.PureComponent {
      * Datetime should be provided as a moment object.
      */
     value: PropTypes.object,
+    /**
+     * Set to true if the component's value is invalid
+     */
+    invalid: PropTypes.bool,
+    /**
+     * Set to true if the component should be disabled.
+     */
+    disabled: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -37,6 +45,8 @@ class DateTimePicker extends React.PureComponent {
     displayFormat: 'MMM DD YYYY [at] hh:mm A',
     utc: false,
     value: undefined,
+    invalid: false,
+    disabled: false,
   };
 
   state = {
