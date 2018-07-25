@@ -1,11 +1,7 @@
 import styled from 'styled-components';
-import Input from 'components/Input';
+import { TimePicker as LibTimePicker } from '@blueprintjs/datetime';
+import baseCss from './baseCss';
 
-export default styled(Input.Small)`
-  max-width: 52px;
-  &::-webkit-datetime-edit-ampm-field,
-  &::-webkit-clear-button,
-  &::-webkit-inner-spin-button {
-    display: none;
-  }
+export default styled(LibTimePicker)`
+  ${baseCss};
 `;

@@ -19,6 +19,10 @@ class ControlledTimePicker extends React.Component {
 
 storiesOf('Time Picker', module)
   .add('standard', () => <TimePicker onChange={action('onChange')} />)
+  .add('disabled', () => <TimePicker disabled onChange={action('onChange')} />)
+  .add('24 hour', () => (
+    <TimePicker twentyFourHour onChange={action('onChange')} />
+  ))
   .add('fixed value', () => (
     <TimePicker value={moment('4:56', 'hh:mm')} onChange={action('onChange')} />
   ))

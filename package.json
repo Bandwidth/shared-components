@@ -49,6 +49,7 @@
     "prop-types": "^15.5.8"
   },
   "dependencies": {
+    "@blueprintjs/datetime": "^3.0.0",
     "animation-timer": "^1.0.12",
     "change-case": "^3.0.1",
     "clean-tag": "^1.0.4",
