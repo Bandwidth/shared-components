@@ -40,7 +40,12 @@ class ConnectedDateRangePicker extends React.Component {
 storiesOf('Date Picker', module)
   .add('standard', () => <ConnectedDatePicker />)
   .add('range', () => <ConnectedDateRangePicker />)
-  .add('utc', () => <ConnectedDateRangePicker utc />)
+  .add('utc', () => (
+    <ConnectedDateRangePicker
+      utc
+      displayFormat="MMM DD YYYY [at] HH:mm [(UTC)]"
+    />
+  ))
   .add('invalid', () => <ConnectedDateRangePicker invalid />)
   .add('disabled', () => <ConnectedDatePicker disabled />)
   .add('disabled start', () => (

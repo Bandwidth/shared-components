@@ -22,7 +22,23 @@ storiesOf('Date Time Picker', module)
       onChange={action('onChange')}
     />
   ))
-  .add('utc', () => <DateTimePicker.Range utc onChange={action('onChange')} />)
+  .add('utc', () => (
+    <DateTimePicker.Range
+      utc
+      displayFormat="MMM DD YYYY [at] HH:mm [(UTC)]"
+      timeDisplayFormat="HH:mm"
+      onChange={action('onChange')}
+    />
+  ))
+  .add('utc disabled', () => (
+    <DateTimePicker.Range
+      disabled="startDate"
+      utc
+      displayFormat="MMM DD YYYY [at] HH:mm [(UTC)]"
+      timeDisplayFormat="HH:mm"
+      onChange={action('onChange')}
+    />
+  ))
   .add('invalid', () => (
     <DateTimePicker.Range invalid onChange={action('onChange')} />
   ))

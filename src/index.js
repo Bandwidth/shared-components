@@ -414,6 +414,18 @@ export { default as TabContent } from './components/Tabs/styles/TabContent';
 export { default as TabList } from './components/Tabs/styles/TabList';
 export { default as TextArea } from './components/TextArea';
 export { default as TimePicker } from './components/TimePicker';
+export {
+  default as InternalTimePicker,
+} from './components/TimePicker/InternalTimePicker';
+export {
+  default as TimeContainer,
+} from './components/TimePicker/styles/TimeContainer';
+export {
+  default as TimeInputContainer,
+} from './components/TimePicker/styles/TimeInputContainer';
+export {
+  default as TimeRadioContainer,
+} from './components/TimePicker/styles/TimeRadioContainer';
 export { default as Toast } from './components/Toast';
 export { default as Toggle } from './components/Toggle';
 export {

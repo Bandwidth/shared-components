@@ -22,6 +22,10 @@ class DateTimeRangePicker extends React.PureComponent {
      */
     displayFormat: PropTypes.string,
     /**
+     * Moment date time format to display in the time picker
+     */
+    timeDisplayFormat: PropTypes.string,
+    /**
      * Use UTC datetime.
      */
     utc: PropTypes.bool,
@@ -53,6 +57,7 @@ class DateTimeRangePicker extends React.PureComponent {
   static defaultProps = {
     onChange: noop,
     displayFormat: 'MMM DD YYYY [at] hh:mm A',
+    timeDisplayFormat: 'hh:mm',
     utc: false,
     disabledStartText: 'Now',
     disabledEndText: 'Forever',
@@ -161,6 +166,7 @@ class DateTimeRangePicker extends React.PureComponent {
             {this.startDateDisabled() || (
               <TimePicker
                 name="start-time-picker"
+                timeFormat={this.props.timeDisplayFormat}
                 value={this.momentStartValue}
                 onChange={this.handleStartTimeChange}
               />
@@ -168,6 +174,7 @@ class DateTimeRangePicker extends React.PureComponent {
             {this.endDateDisabled() || (
               <TimePicker
                 name="end-time-picker"
+                timeFormat={this.props.timeDisplayFormat}
                 value={this.momentEndValue}
                 onChange={this.handleEndTimeChange}
               />

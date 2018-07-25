@@ -8,6 +8,7 @@ import {
 import Icon from '../Icon';
 import DateRangePickerWrapper from './styles/DateRangePickerWrapper';
 import DateRangePickerLineSeparator from './styles/DateRangePickerLineSeparator';
+import { omit, pick } from 'lodash';
 
 /**
  * This is a styling wrapper around [react-dates](https://github.com/airbnb/react-dates).
@@ -22,7 +23,7 @@ import DateRangePickerLineSeparator from './styles/DateRangePickerLineSeparator'
  */
 class DateRangePicker extends React.PureComponent {
   static propTypes = {
-    ...DateRangePickerShape,
+    ...omit(DateRangePickerShape, ['onFocusChange']),
     startDateId: PropTypes.string,
     endDateId: PropTypes.string,
     /**
@@ -88,7 +89,7 @@ class DateRangePicker extends React.PureComponent {
           focusedInput={this.focusedInput}
           anchorDirection={this.focusedInput === 'endDate' ? 'right' : 'left'}
           onFocusChange={this.handleFocusChange}
-          {...rest}
+          {...pick(rest, Object.keys(DateRangePickerShape))}
         />
       </Wrapper>
     );

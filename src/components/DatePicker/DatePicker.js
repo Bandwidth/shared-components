@@ -13,6 +13,7 @@ import moment from 'moment';
 moment.updateLocale('en', {
   weekdaysMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
 });
+import { omit, pick } from 'lodash';
 
 /**
  * This is a styling wrapper around [react-dates](https://github.com/airbnb/react-dates).
@@ -27,7 +28,7 @@ class DatePicker extends React.PureComponent {
   static Range = DateRangePicker;
 
   static propTypes = {
-    ...SingleDatePickerShape,
+    ...omit(SingleDatePickerShape, ['onFocusChange']),
     id: PropTypes.string,
     /**
      * A component to wrap and control styles of the underlying react-dates DatePicker
@@ -80,7 +81,7 @@ class DatePicker extends React.PureComponent {
           hideKeyboardShortcutsPanel
           focused={focused}
           onFocusChange={this.handleFocusChange}
-          {...rest}
+          {...pick(rest, Object.keys(SingleDatePickerShape))}
         />
       </Wrapper>
     );
