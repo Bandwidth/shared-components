@@ -99,6 +99,8 @@ const TwoThirds = () => (
   </SidebarLayout>
 </div>
 ```
+In this library we allow you to create a 1/3 & 2/3 view easily via the [SidebarLayout](/#!/SidebarLayout) component. This view is recommended when you want to split apart primary and secondary content. The component layout from left-to-right should represent the flow of content on your webpage, so the 1/3 component on the left should be the first thing the user is supposed to look at.
+
 
 ## Sidebar List Layout
 ```jsx
@@ -198,21 +200,19 @@ class SidebarContent extends React.Component {
   </SidebarLayout>
 </div>
 ```
-In certain situations, it makes sense to display a list items of the same type in the sidebar. When an item is clicked, the content on the right is updated to display information relevant to that item. This layout follows one third / two thirds layout rule described above.
+In certain situations, it makes sense to display a list items of the same type in the sidebar. Above is an implementation of this using the [SidebarLayout](/#!/SidebarLayout) and [SidebarList](/#!/SidebarList) components. When an item is clicked, the content on the right is updated to display information relevant to that item. This layout follows 1/3 & 2/3 layout rule described above.
 
-## Solar System for anchors
+## The Anchor Solar System
 
 ```jsx
-const sc = require('styled-components');
-
 <Spacing>
   <Horizontal spacing='md' style={{alignItems: 'center'}}>
     <H2>Phone Numbers</H2>
-    <Anchor icon="msExcel">
-      Export
-    </Anchor>
     <Anchor icon="viewMore">
       View all
+    </Anchor>
+    <Anchor icon="msExcel">
+      Export
     </Anchor>
     <Anchor icon="copy">
       Copy to clipboard
@@ -222,5 +222,7 @@ const sc = require('styled-components');
 ```
 Toolbar anchors —usually represented by an icon and uppercase text that’s not underlined- act as actions for a given set of functionality. They generally appear next to a heading, but sometimes may appear next to a submit button depending on the context. Since pages can be subdivided into layout panes, sections, or blocks of content, it can be unclear where in the hierarchy to place these actions.
 
-As much as possible, actions should gravitate to the largest or highest content grouping that makes sense for those actions (“gravitate”, “solar system”… see what we did there).
+As much as possible, actions should gravitate to the largest or highest content grouping that makes sense for those actions (“gravitate”, “solar system”… see what we did there). The order of sibling toolbar anchors also follows this idea of 'graviation'. The most utilized anchors should be closest to the heading / button which they are 'orbiting'. In the example above, the order of importance / most utilized is "View All" -> "Export" -> "Copy to Clipboard"
+
+Clicking a toolbar anchor should disable any other sibling anchors. This should be represented by turning the link and icon grey (#666) and setting both to 0.5 opacity. When that function is complete or cancelled, all anchors should transition back to their previous color (likely #008db1) and opacity (1).
 
