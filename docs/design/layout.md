@@ -1,3 +1,5 @@
+This section is intended to show you how the developers of the Bandwidth Shared Component Library use the library to build layouts. We aim to highlight certain design principles which we recommend you to follow if you are creating a Bandwidth application.
+
 ## 1/3 & 2/3 Split Layout
 
 ```jsx
@@ -99,7 +101,7 @@ const TwoThirds = () => (
   </SidebarLayout>
 </div>
 ```
-In this library we allow you to create a 1/3 & 2/3 view easily via the [SidebarLayout](/#!/SidebarLayout) component. This view is recommended when you want to split apart primary and secondary content. The component layout from left-to-right should represent the flow of content on your webpage, so the 1/3 component on the left should be the first thing the user is supposed to look at.
+In this library we allow you to create a 1/3 & 2/3 view easily via the [SidebarLayout](/#!/SidebarLayout) component. This view is recommended when you want to split primary and secondary content. Your webpage should flow from left-to-right. In this particular view, the page should be designed such that the user would ideally interact with or look at the 1/3 component on the left before interacting with the content on the right.
 
 
 ## Sidebar List Layout
@@ -218,6 +220,28 @@ In certain situations, it makes sense to display a list items of the same type i
       Copy to clipboard
     </Anchor>
   </Horizontal>
+</Spacing>
+```
+```jsx
+<Spacing>
+  <div style={{display: 'flex', flexDirection: 'row', alignItems:'center'}}>
+    <div style={{float: 'right', marginRight:'0', marginLeft: 'auto'}}>
+      <Anchor icon="copy">
+        Copy to clipboard
+      </Anchor>
+    </div>
+    <div style={{float: 'right', marginRight:'0', marginLeft: '20px'}}>
+      <Anchor icon="msExcel">
+        Export
+      </Anchor>
+    </div>
+    <div style={{float: 'right', marginRight:'0', marginLeft: '20px'}}>
+      <Anchor icon="viewMore">
+        View all
+      </Anchor>
+    </div>
+    <Button style={{float: 'right', marginRight:'0', marginLeft: '20px'}}>Primary Medium</Button>
+  </div>
 </Spacing>
 ```
 Toolbar anchors —usually represented by an icon and uppercase text that’s not underlined- act as actions for a given set of functionality. They generally appear next to a heading, but sometimes may appear next to a submit button depending on the context. Since pages can be subdivided into layout panes, sections, or blocks of content, it can be unclear where in the hierarchy to place these actions.
