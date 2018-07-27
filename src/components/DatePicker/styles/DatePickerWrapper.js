@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import baseCss from './reactDatesCss';
+import baseCss from './baseCss';
 import overridesCss from './overridesCss';
 
-const WIDTH = 260;
+const WIDTH = 262;
 
 export default styled.div`
   ${baseCss} ${overridesCss} .SingleDatePicker {

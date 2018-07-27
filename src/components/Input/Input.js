@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withProps } from 'recompose';
+import { defaultProps } from 'recompose';
 import styled, { css } from 'styled-components';
 import Anchor from '../Anchor';
 import InputStyles from './styles/InputStyles';
@@ -282,7 +282,7 @@ class Input extends React.PureComponent {
   }
 }
 
-Input.Small = withProps({
+Input.Small = defaultProps({
   Styles: InputStyles.Small,
 })(Input);
 

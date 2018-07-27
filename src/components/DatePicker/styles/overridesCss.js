@@ -1,6 +1,28 @@
-import { css } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 import icons from 'components/Icon/icons';
 import get from 'extensions/themeGet';
+
+const expandDown = keyframes`
+  from {
+    transform: translateY(-50%) scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+  }
+`;
+
+const expandUp = keyframes`
+  from {
+    transform: translateY(50%) scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+  }
+`;
 
 export default css`
   font-family: ${get('fonts.brand')};
@@ -10,6 +32,31 @@ export default css`
   .DateRangePicker {
     display: block;
     box-sizing: border-box;
+  }
+
+  .DateRangePicker_picker,
+  .SingleDatePicker_picker {
+    top: ${({ openDirection }) =>
+      openDirection === 'up' ? 'inherit' : '51px !important'};
+    bottom: ${({ openDirection }) =>
+      openDirection === 'up' ? '51px !important' : 'inherit'};
+    width: ${({ disabled }) => (disabled ? '262px' : '100%')};
+    animation: ${({ openDirection }) =>
+      openDirection === 'up' ? expandUp : expandDown} 200ms;
+    overflow: hidden;
+  }
+
+  ${({ invalid }) =>
+    invalid &&
+    css`
+      .DateInput_input:not(.DateInput_input__focused) {
+        border-color: var(--colors-negative-border) !important;
+        box-shadow: inset 0 -5px 0 ${get('colors.negative.light')};
+      }
+    `}
+
+  .DayPicker_transitionContainer {
+    width: inherit !important;
   }
 
   .DateRangePickerInput,
@@ -46,26 +93,46 @@ export default css`
   }
 
   .DateInput {
-    border-width: ${get('thicknesses.wide')};
-    border-style: solid;
-    border-color: ${get('colors.border.light')};
     width: auto;
-
-    &::before, &::after {
-      content: none;
-      border: none;
-      background: transparent;
+    transition: color 200ms;
+    &::after {
+      position: absolute;
+      right: var(--spacing-medium);
+      top: 50%;
+      content: "${icons('calendar')}";
+      font-family: var(--fonts-icon);
+      font-size: 1.5em;
+      transform: translateY(-50%);
+    }
+    .DateInput_fang {
       display: none;
-      z-index: -100;
     }
   }
+
+  &.focused .DateInput {
+    color: var(--colors-primary-default);
+  }
+
+  &.focused-startDate .DateInput:first-child {
+    color: var(--colors-primary-default);
+  }
+
+  &.focused-endDate .DateInput:last-child {
+    color: var(--colors-primary-default);
+  }
+
   .DateInput_input {
     z-index: 100;
+    transition: all 200ms;
+    font-family: var(--fonts-brand);
+    font-size: 14px;
+    line-height: 1.5;
+    padding: calc(var(--spacing-medium) - 1px) var(--spacing-medium);
+    border: ${get('thicknesses.wide')} solid ${get('colors.border.light')};
   }
-  .DateInput__openDown,
-  .DateInput__openUp {
+  .DateInput_input__focused {
     box-shadow: inset 0 -5px 0 ${get('colors.primary.light')};
-    border-color: ${get('colors.border.medium')};
+    border-color: var(--colors-border-medium);
   }
 
   .DateInput_displayText {
@@ -76,18 +143,6 @@ export default css`
     position: relative;
     padding-right: 2.5em;
     z-index: 0;
-
-    &::after {
-      content: "${icons('calendar')}";
-      font-family: ${get('fonts.icon')};
-      font-size: 1.5em;
-      color: ${get('colors.gray.medium')};
-      padding: 0 0 0 ${get('spacing.small')};
-      position: absolute;
-      right: 0;
-      top: 3px;
-      cursor: pointer;
-    }
   }
   .DateInput_displayText__focused {
     background: transparent;
@@ -96,8 +151,9 @@ export default css`
       color: ${get('colors.primary.default')};
     }
   }
-  .DateInput_displayText__disabled {
+  .DateInput_input__disabled {
     font-style: normal;
+    color: var(--colors-text-disabled);
   }
 
   .DayPicker {
@@ -107,7 +163,14 @@ export default css`
     border-color: ${get('colors.border.medium')};
     border-radius: 0;
     width: auto !important;
+    & > div > div {
+      width: auto !important;
+    }
   }
+
+  .CalendarMonth_table {
+    margin-top: var(--spacing-medium);
+   }
 
   .CalendarMonth {
     background: ${get('colors.background.default')};
@@ -117,27 +180,31 @@ export default css`
 
   .CalendarMonth_caption {
     font-size: 14px;
-    margin: 0 0 ${get('spacing.large')} 0;
     color: ${get('colors.text.default')};
-    padding: ${get('spacing.small')};
+    padding: var(--spacing-medium);
   }
 
   .CalendarMonthGrid__horizontal {
     left: 0;
   }
 
-  .CalendarDay_container {
-    border-color: ${get('colors.border.light')};
+  .CalendarDay__default {
+    border-color: ${get('colors.border.medium')};
     background: ${get('colors.background.default')};
     color: ${get('colors.text.default')};
 
     &:hover {
-      background: ${get('colors.primary.light')};
+      background: ${get('colors.primary.default')};
+      color: ${get('colors.text.inverted')};
     }
   }
 
   .CalendarDay__selected_span {
     background: ${get('colors.primary.light')};
+    &:hover {
+      background: var(--colors-primary-default);
+      color: var(--colors-text-inverted);
+    }
   }
 
   .CalendarDay__selected,
@@ -148,13 +215,14 @@ export default css`
   }
 
   .CalendarDay__blocked_out_of_range {
-    color: ${get('colors.text.disabled')};
-    background: ${get('colors.gray.light')};
+    color: ${get('colors.text.disabled')} ;
+    background: ${get('colors.background.disabled')};
     cursor: normal;
 
     &:hover {
-      background: ${get('colors.gray.light')};
-      color: ${get('colors.text.disabled')};
+      color: ${get('colors.text.disabled')} ;
+      background: ${get('colors.background.disabled')};
+      border-color: ${get('colors.border.medium')};
     }
   }
 
@@ -162,21 +230,19 @@ export default css`
     cursor: pointer;
   }
 
+  .DayPickerNavigation {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-medium);
+    position: absolute;
+    width: 100%;
+  }
+
   .DayPickerNavigation_button {
     background: transparent;
     border: none;
     color: ${get('colors.text.default')};
-  }
-
-  .DayPickerNavigation_leftButton__horizontal {
-    left: 4px;
-  }
-  .DayPickerNavigation_rightButton__horizontal {
-    right: 4px;
-  }
-  .DayPickerNavigation_leftButton__horizontal,
-  .DayPickerNavigation_rightButton__horizontal {
-    top: 8px;
+    font-size: 1em;
   }
 
   .DayPicker_weekHeaders__horizontal {
@@ -185,7 +251,9 @@ export default css`
 
   .DayPicker_weekHeader {
     padding: 0;
-    top: 40px;
+    top: 45px;
+    white-space: nowrap;
+    color: var(--colors-text-default);
 
     &:not(:first-of-type) {
       transform: translateX(4px);

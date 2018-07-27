@@ -49,6 +49,7 @@
     "prop-types": "^15.5.8"
   },
   "dependencies": {
+    "@blueprintjs/datetime": "^3.0.0",
     "animation-timer": "^1.0.12",
     "change-case": "^3.0.1",
     "clean-tag": "^1.0.4",
@@ -60,7 +61,7 @@
     "react-addons-shallow-compare": "^15.6.2",
     "react-autosuggest": "^9.3.2",
     "react-collapse": "^4.0.3",
-    "react-dates": "^13.0.6",
+    "react-dates": "^17.0.0",
     "react-dnd": "^2.5.4",
     "react-dnd-html5-backend": "^2.5.4",
     "react-dropzone": "^3.13.1",
@@ -69,6 +70,7 @@
     "react-select": "^1.0.0-rc.10",
     "react-syntax-highlighter": "^5.5.0",
     "recompose": "^0.26.0",
+    "time-input": "^1.6.0",
     "warning": "^3.0.0"
   },
   "devDependencies": {

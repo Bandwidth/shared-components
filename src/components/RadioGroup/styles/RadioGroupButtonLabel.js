@@ -21,6 +21,7 @@ const RadioGroupButtonLabel = styled.label`
   height: 100%;
   min-width: 53px;
   box-shadow: inset 0 0 0 ${get('colors.primary.default')};
+  user-select: none;
 
   ${Input}:not(:checked):focus:not(:disabled) + &,
   ${Input}:not(:checked):hover:not(:disabled) + & {
@@ -68,6 +69,7 @@ RadioGroupButtonLabel.Small = styled(RadioGroupButtonLabel)`
   font-size: 0.8em;
   padding: 5px 10px;
   font-weight: normal;
+  min-width: 30px;
 
   ${Input}:checked + & {
     box-shadow: inset 0 -4px 0 ${get('colors.primary.default')};
