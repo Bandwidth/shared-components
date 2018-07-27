@@ -1,5 +1,6 @@
 import React from 'react';
 import themeGet from 'extensions/themeGet';
+import styled from 'styled-components';
 
 const AREA = {
   LABEL: 'label',
@@ -60,16 +61,23 @@ const calcGridTemplateRows = children =>
     .map(() => 'auto')
     .join(' ');
 
+const FieldRowDiv = styled.div`
+  @supports (display: grid) {
+    display: grid;
+    /* defines spacing between rows and columns */
+    grid-gap: var(--spacing-small) var(--spacing-large);
+  }
+
+  display: flex;
+`;
+
 const FieldRow = ({ children, columns, theme }) => {
   return (
-    <div
+    <FieldRowDiv
       style={{
-        display: 'grid',
         // each row has 3 sub-rows: label, content, helpText.
         // there's a named area for each column.
         gridTemplateAreas: calcGridTemplateAreas(children, columns),
-        // defines spacing between rows and columns
-        gridGap: 'var(--spacing-small) var(--spacing-large)',
         // each column has an equal size. To make fields larger than
         // adjacent fields, use the columnSpan prop on Field to span
         // multiple columns. This keeps all field sizes directly proportional
@@ -80,7 +88,7 @@ const FieldRow = ({ children, columns, theme }) => {
       }}
     >
       {children}
-    </div>
+    </FieldRowDiv>
   );
 };
 
