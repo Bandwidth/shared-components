@@ -69,6 +69,33 @@ const TwoThirds = () => (
 ```
 In this library we allow you to create a 1/3 & 2/3 view easily via the [SidebarLayout](/#!/SidebarLayout) component. This view is recommended when you want to split primary and secondary content. Your webpage should flow from left-to-right. In this particular view, the page should be designed such that the user would ideally interact with or look at the 1/3 component on the left before interacting with the content on the right.
 
+```jsx
+const NavBar = () => (
+  <Navigation>
+    <Anchor to="/">
+      <Navigation.Title>
+        Bandwidth App
+      </Navigation.Title>
+    </Anchor>
+    <Navigation.ItemList>
+      <Anchor to="/about" exact>
+        <Navigation.Item>
+          About
+        </Navigation.Item>
+      </Anchor>
+    </Navigation.ItemList>
+  </Navigation>
+);
+
+<div>
+  <NavBar/>
+  <SidebarLayout right>
+    <div style={{height:'400px'}}/>
+    <div style={{height:'400px'}}/>
+  </SidebarLayout>
+</div>
+```
+If you have supplemental information which should be viewed after looking after the main content, the sidebar should be placed on the right, as shown above.
 
 ## Sidebar List Layout
 ```jsx
