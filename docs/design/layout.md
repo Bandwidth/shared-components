@@ -163,6 +163,78 @@ class SidebarContent extends React.Component {
 ```
 In certain situations, it makes sense to display a list items of the same type in the sidebar. Above is an implementation of this using the [SidebarLayout](/#!/SidebarLayout) and [SidebarList](/#!/SidebarList) components. When an item is clicked, the content on the right is updated to display information relevant to that item. This layout follows 1/3 & 2/3 layout rule described above.
 
+## Content Layout
+
+```jsx
+const React = require('react');
+
+const NavBar = () => (
+  <Navigation>
+    <Anchor to="/">
+      <Navigation.Title>
+        Bandwidth App
+      </Navigation.Title>
+    </Anchor>
+    <Navigation.ItemList>
+      <Anchor to="/about" exact>
+        <Navigation.Item>
+          About
+        </Navigation.Item>
+      </Anchor>
+    </Navigation.ItemList>
+  </Navigation>
+);
+
+const Section = (props) => (
+  <div style={{
+    width: '100%',
+    paddingBottom: '30px',
+    marginBottom: '30px',
+  }}>
+    {props.children}
+  </div>
+);
+
+const Content = (props) => (
+  <div style={{
+    margin: '30px',
+    maxWidth: '900px',
+  }}>
+    {props.children}
+  </div>
+);
+
+<div>
+  <NavBar />
+  <Content>
+    <Pane.Column>
+      <Section>
+        <H1 spacing='0'> H1 Page Title </H1>
+      </Section>
+      <Section>
+        <H2 spacing={{bottom: 'sm'}}> H2 Section 1 </H2>
+        <HelpText spacing={{bottom: 'lg'}}> Help text to explain the section </HelpText>
+        <P spacing='0'> 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla pellentesque dignissim enim sit amet venenatis urna. Quisque sagittis purus sit amet volutpat consequat mauris nunc congue. Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Pretium quam vulputate dignissim suspendisse in. Facilisis magna etiam tempor orci. Volutpat diam ut venenatis tellus in. Augue mauris augue neque gravida in fermentum et sollicitudin. At lectus urna duis convallis. Nunc aliquet bibendum enim facilisis gravida neque. Morbi tincidunt ornare massa eget egestas purus viverra accumsan.
+        </P>
+      </Section>
+      <Section>
+        <H2 spacing={{bottom: 'sm'}} style={{display: 'inline-block'}}> H2 Section 2 </H2> <H3 spacing={{bottom: 'sm'}} style={{display: 'inline-block'}}> (H3 quantity) </H3>
+        <HelpText spacing={{bottom: 'lg'}}> Help text to explain the section </HelpText>
+        <H4> H4 Sub-Section 2.1 </H4>
+        <P>
+            Diam vulputate ut pharetra sit amet. Venenatis urna cursus eget nunc scelerisque viverra mauris. Enim nunc faucibus a pellentesque sit. Etiam sit amet nisl purus in mollis nunc. Odio ut sem nulla pharetra diam. Velit dignissim sodales ut eu. Facilisis mauris sit amet massa vitae tortor condimentum lacinia quis. Dui sapien eget mi proin sed libero enim sed. Viverra accumsan in nisl nisi scelerisque eu ultrices vitae. Tincidunt lobortis feugiat vivamus at. Tortor posuere ac ut consequat semper viverra nam. Cras ornare arcu dui vivamus arcu felis bibendum ut tristique. Enim ut sem viverra aliquet. Eget magna fermentum iaculis eu non diam phasellus vestibulum. Leo vel orci porta non. Faucibus et molestie ac feugiat sed lectus. Volutpat blandit aliquam etiam erat velit scelerisque in. Nisl condimentum id venenatis a condimentum. 
+        </P>
+        <H4> H4 Sub-Section 2.2 </H4>
+        <P>
+        In nisl nisi scelerisque eu ultrices vitae. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et. Diam donec adipiscing tristique risus nec. Fames ac turpis egestas sed tempus urna et pharetra pharetra. Feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Viverra vitae congue eu consequat ac felis donec. Urna neque viverra justo nec ultrices. Cursus metus aliquam eleifend mi in nulla. Enim lobortis scelerisque fermentum dui faucibus in ornare. Aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis. Tortor at risus viverra adipiscing at.
+        </P>
+      </Section>
+    </Pane.Column>
+  </Content>
+</div>
+```
+
 ## The Anchor Solar System
 
 ```jsx
