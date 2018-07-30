@@ -15,7 +15,7 @@ const H1 = styled(tag.h1)
   .attrs({
     spacing: userSpacing.text,
   })`
-  color: var(--colors-primary-default);
+  color: ${get('colors.primary.default')};
   font-weight: 100;
   font-family: ${get('fonts.brand')};
   font-size: 2.5em;
