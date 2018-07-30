@@ -1,12 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import themeGet from 'extensions/themeGet';
 import { defaultProps } from 'recompose';
+import irisTheme from 'theme/irisTheme';
 import LogoSvg from './logo.svg';
 import styled from 'styled-components';
 
-const Logo = ({ width, height, color, style, ...rest }) => (
-  <LogoSvg style={{ width, height, fill: color, ...style }} {...rest} />
-);
+// const Logo = ({ width, height, color, style, ...rest }) => (
+//   <LogoSvg style={{ width, height, fill: color, ...style }} {...rest} />
+// );
+//
+const Logo = styled(LogoSvg)`
+  width: ${({ width }) => width};
+  fill: ${({ color }) => (color ? color : themeGet('colors.text.inverted'))};
+  height: ${({ height }) => (height ? height : themeGet('spacing.large'))};
+`;
 
 Logo.propTypes = {
   /**
@@ -36,27 +44,27 @@ Logo.propTypes = {
 Logo.defaultProps = {
   className: null,
   id: null,
-  color: 'var(--colors-text-inverted)',
-  height: 'var(--spacing-large)',
+  color: null,
+  height: null,
 };
 
-Logo.Small = defaultProps({
-  height: 'var(--spacing-medium)',
-})(Logo);
-Logo.Large = defaultProps({
-  height: 'var(--spacing-extra-large)',
-})(Logo);
+Logo.Small = styled(Logo)`
+  height: ${themeGet('spacing.medium')};
+`;
+Logo.Large = styled(Logo)`
+  height: ${themeGet('spacing.extraLarge')};
+`;
 
-Logo.Primary = defaultProps({
-  color: 'var(--colors-primary-default)',
-})(Logo);
-Logo.Primary.Small = defaultProps({
-  color: 'var(--colors-primary-default)',
-  height: 'var(--spacing-medium)',
-})(Logo);
-Logo.Primary.Large = defaultProps({
-  color: 'var(--colors-primary-default)',
-  height: 'var(--spacing-extra-large)',
-})(Logo);
+Logo.Primary = styled(Logo)`
+  fill: ${themeGet('colors.primary.default')};
+`;
+Logo.Primary.Small = styled(Logo)`
+  fill: ${themeGet('colors.primary.default')};
+  height: ${themeGet('spacing.medium')};
+`;
+Logo.Primary.Large = styled(Logo)`
+  fill: ${themeGet('colors.primary.default')};
+  height: ${themeGet('spacing.extraLarge')};
+`;
 
 export default Logo;

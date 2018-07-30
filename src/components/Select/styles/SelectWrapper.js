@@ -126,7 +126,7 @@ const SelectWrapper = styled.div`
     color: inherit;
     font-size: inherit;
     line-height: 1.5;
-    padding: calc(var(--spacing-medium) - 1px) var(--spacing-medium);
+    padding: calc(${get('spacing.medium')} - 1px) ${get('spacing.medium')};
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -173,7 +173,7 @@ const SelectWrapper = styled.div`
   .Select-input {
     font-size: inherit;
     line-height: 1.5;
-    padding: calc(var(--spacing-medium) - 1px) var(--spacing-medium);
+    padding: calc(${get('spacing.medium')} - 1px) ${get('spacing.medium')};
     vertical-align: middle;
   }
   .Select-input > input {
@@ -189,7 +189,7 @@ const SelectWrapper = styled.div`
     line-height: 1;
     font-size: inherit;
     min-height: 1em;
-    font: var(--fonts-brand);
+    font: ${get('fonts.brand')};
     /* For IE 8 compatibility */
     -webkit-appearance: none;
   }
@@ -246,16 +246,16 @@ const SelectWrapper = styled.div`
   }
   .Select-arrow {
     display: block;
-    padding: calc(var(--spacing-medium) - 1px) var(--spacing-medium);
+    padding: calc(${get('spacing.medium')} - 1px) ${get('spacing.medium')};
     transition: transform 200ms;
     &::before {
-      font-family: var(--fonts-icon);
+      font-family: ${get('fonts.icon')};
       content: '\\f117';
     }
   }
   .is-open .Select-arrow,
   .Select-arrow-zone:hover > .Select-arrow {
-    border-top-color: #666;
+    border-top-color: ${get('colors.gray.default')};
   }
   .Select--multi .Select-multi-value-wrapper {
     display: flex;
@@ -292,12 +292,13 @@ const SelectWrapper = styled.div`
   }
   .Select-option {
     box-sizing: border-box;
-    border-bottom: var(--thicknesses-normal) solid ${get('colors.gray.border')};
+    border-bottom: ${get('thicknesses.normal')} solid
+      ${get('colors.gray.border')};
     background-color: ${get('colors.background.default')};
     color: ${get('colors.text.default')};
     cursor: pointer;
     display: block;
-    padding: calc(var(--spacing-extra-small) - 1px) var(--spacing-medium);
+    padding: calc(${get('spacing.extraSmall')} - 1px) ${get('spacing.medium')};
   }
   .Select-option.is-geted {
     color: ${get('colors.primary.default')};
@@ -315,7 +316,7 @@ const SelectWrapper = styled.div`
     color: ${get('colors.text.default')};
     cursor: default;
     display: block;
-    padding: calc(var(--spacing-extra-small) - 1px) var(--spacing-medium);
+    padding: calc(${get('spacing.extraSmall')} - 1px) ${get('spacing.medium')};
   }
   .Select--multi .Select-input {
     vertical-align: middle;

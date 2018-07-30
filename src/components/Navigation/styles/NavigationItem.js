@@ -22,7 +22,7 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
   &::before {
     content: '';
     opacity: ${({ active }) => (active ? 1 : 0)};
-    background: var(--nav-color-highlight);
+    background: ${get('colors.primary.dark')};
     width: 104%;
     height: ${({ active }) => (active ? '5px' : 0)};
     display: block;
@@ -32,6 +32,10 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
     left: 50%;
     transform: translateX(-50%);
     transition: height 0.2s ease, opacity 0.2s ease;
+  }
+
+  ${NavigationBar.Dark} &, ${NavigationBar.Sub.Dark} & {
+    &:before {background: ${get('colors.primary.default')}; }
   }
 
   ${NavigationItemList}:not(:last-child) & {

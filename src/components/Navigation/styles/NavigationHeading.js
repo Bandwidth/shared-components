@@ -8,6 +8,5 @@ export default styled.h1`
   height: 30px;
   line-height: 30px;
   display: inline-block;
-  color: var(--nav-color-text);
   white-space: nowrap;
 `;
