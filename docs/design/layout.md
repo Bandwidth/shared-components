@@ -183,23 +183,23 @@ In certain situations, it makes sense to display a list items of the same type i
 ```
 ```jsx
 <Spacing>
-  <div style={{display: 'flex', flexDirection: 'row', alignItems:'center'}}>
-    <div style={{float: 'right', marginRight:'0', marginLeft: 'auto'}}>
-      <Anchor icon="copy">
+  <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems:'center'}}>
+    <div style={{marginRight:'0', marginLeft: '20px'}}>
+      <Anchor icon="copy" >
         Copy to clipboard
       </Anchor>
     </div>
-    <div style={{float: 'right', marginRight:'0', marginLeft: '20px'}}>
-      <Anchor icon="msExcel">
+    <div style={{marginRight:'0', marginLeft: '20px'}}>
+      <Anchor icon="msExcel" style={{marginRight:'0', marginLeft: '20px'}}>
         Export
       </Anchor>
     </div>
-    <div style={{float: 'right', marginRight:'0', marginLeft: '20px'}}>
-      <Anchor icon="viewMore">
+    <div style={{marginRight:'0', marginLeft: '20px'}}>
+      <Anchor icon="viewMore" style={{marginRight:'0', marginLeft: '20px'}}>
         View all
       </Anchor>
     </div>
-    <Button style={{float: 'right', marginRight:'0', marginLeft: '20px'}}>Primary Medium</Button>
+    <Button style={{marginRight:'0', marginLeft: '20px'}}>Primary Medium</Button>
   </div>
 </Spacing>
 ```
