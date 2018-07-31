@@ -8,11 +8,6 @@ import FileLoaderPreview from './styles/FileLoaderPreview';
 export default class FileLoader extends React.Component {
   static propTypes = {
     /**
-     * A FileList object to use as the value of the input.
-     * Using undefined makes this an 'uncontrolled' input
-     */
-    value: PropTypes.instanceOf(FileList),
-    /**
      * Handler for the onChange event on the input.
      */
     onChange: PropTypes.func,
