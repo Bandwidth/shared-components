@@ -9,7 +9,7 @@ const Label = styled.label.withConfig({ displayName: 'Label' }).attrs({
 })`
   font-size: 1em;
   letter-spacing: 0.02em;
-  font-weight: 600;
+  font-weight: 700;
   font-family: ${get('fonts.brand')};
   color: ${get('colors.text.default')};
   background: transparent;
