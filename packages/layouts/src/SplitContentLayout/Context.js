@@ -39,6 +39,19 @@ export class Provider extends React.PureComponent {
      */
     window.addEventListener('scroll', this.updateHeight);
     window.addEventListener('resize', this.updateHeight);
+
+    /**
+     *  fonts loading in can change the layout unexpectedly. We may need to calculate
+     * the absolute top again once fonts are loaded in.
+     */
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        const { layerElement, rootElement } = this.state;
+        if (layerElement && rootElement) {
+          this.updateAbsoluteTop(rootElement, layerElement);
+        }
+      });
+    }
   }
 
   componentWillUnmount() {
