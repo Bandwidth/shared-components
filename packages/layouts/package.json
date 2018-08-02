@@ -1,0 +1,58 @@
+{
+  "name": "@bandwidth/layout",
+  "version": "5.0.0-alpha.f32e4a8",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "docs": "webpack-serve docs/src/webpack.config.js",
+    "build:src": "babel --copy-files --out-dir dist src",
+    "build:docs": "webpack --config docs/src/webpack.config.js --out-dir docs",
+    "build": "run-s build:*",
+    "watch:src": "babel --watch --copy-files --out-dir dist src",
+    "prepublish": "npm run build"
+  },
+  "author": "Grant Forrest <gforrest@bandwidth.com>",
+  "license": "ISC",
+  "peerDependencies": {
+    "@bandwidth/shared-components": "5.0.0-alpha.f32e4a8",
+    "react": "16.x.x",
+    "styled-components": "^3.3.3"
+  },
+  "devDependencies": {
+    "@bandwidth/shared-components": "5.0.0-alpha.f32e4a8",
+    "@storybook/addon-actions": "^3.4.8",
+    "@storybook/addon-links": "^3.4.8",
+    "@storybook/addons": "^3.4.8",
+    "@storybook/react": "^3.4.8",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+    "connect-history-api-fallback": "^1.5.0",
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "history": "^4.7.2",
+    "html-webpack-plugin": "^3.2.0",
+    "koa-connect": "^2.0.1",
+    "npm-run-all": "^4.1.3",
+    "object-assign": "^4.1.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1",
+    "react-syntax-highlighter": "^8.0.1",
+    "resize-observer": "^0.1.0",
+    "style-loader": "^0.21.0",
+    "styled-components": "^3.3.3",
+    "text-encoding": "^0.6.4",
+    "webpack": "^4.16.3",
+    "webpack-cli": "^3.1.0",
+    "webpack-serve": "^2.0.2"
+  },
+  "dependencies": {
+    "lodash.throttle": "^4.1.1",
+    "react-transition-group": "^2.4.0"
+  },
+  "gitHead": "f32e4a8b617e717a6d259a3f4b756d224a80a163"
+}
