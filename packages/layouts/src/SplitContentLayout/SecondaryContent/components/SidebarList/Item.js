@@ -6,24 +6,16 @@ import { ItemContainer, ItemLabel, ItemDetails } from './components';
 /**
  * An element of a [SidebarList](/#!/SidebarList).
  */
-class SidebarListItem extends React.PureComponent {
+export default class SidebarListItem extends React.PureComponent {
   static propTypes = {
     /**
-     * The main details of the list item.
+     * Content to render inside the item.
      */
-    label: PropTypes.string,
-    /**
-     * Extra details to render on another line.
-     */
-    details: PropTypes.node,
+    children: PropTypes.node.isRequired,
     /**
      * Renders the item as the one currently selected.
      */
     active: PropTypes.bool,
-    /**
-     * Adds a new badge to the list item.
-     */
-    isNew: PropTypes.bool,
     /**
      * Adds a class name to the outer item element.
      */
@@ -36,14 +28,6 @@ class SidebarListItem extends React.PureComponent {
      * A component for rendering a container of an item
      */
     Container: PropTypes.func,
-    /**
-     * A component for rendering an item label
-     */
-    Label: PropTypes.func,
-    /**
-     * A component for rendering the details container in the item
-     */
-    Details: PropTypes.func,
   };
 
   static defaultProps = {
@@ -53,23 +37,27 @@ class SidebarListItem extends React.PureComponent {
     isNew: false,
     className: null,
     id: null,
-    Container: SidebarListItemContainer,
-    Details: SidebarListItemDetails,
-    Label: SidebarListItemLabel,
+    Container: ItemContainer,
   };
 
   static Label = ItemLabel;
   static Details = ItemDetails;
 
   render() {
-    const { active, isNew, id, className, Container, children } = this.props;
+    const {
+      active,
+      isNew,
+      id,
+      className,
+      Container,
+      children,
+      ...rest
+    } = this.props;
 
     return (
-      <Container active={active} className={className} id={id}>
+      <Container active={active} className={className} id={id} {...rest}>
         {children}
       </Container>
     );
   }
 }
-
-export default SidebarListItem;

@@ -13,7 +13,7 @@ import Item from './Item';
  * you can wrap the items with `<Route/>` components from React Router, and have them utilize RR's
  * built-in route matching logic to determine rendering appearance.
  */
-class SidebarList extends React.PureComponent {
+export default class SidebarList extends React.PureComponent {
   static propTypes = {
     /**
      * List items.
@@ -36,20 +36,18 @@ class SidebarList extends React.PureComponent {
   static defaultProps = {
     className: null,
     id: null,
-    Container: SidebarListContainer,
+    Container: Container,
   };
 
   static ShowMore = ShowMoreComponent;
+  static Item = Item;
 
   render() {
-    const { className, id, Container, children } = this.props;
+    const { className, id, Container, children, ...rest } = this.props;
     return (
-      <Container className={className} id={id}>
+      <Container className={className} id={id} {...rest}>
         {children}
       </Container>
     );
   }
 }
-
-SidebarList.Item = SidebarListItem;
-export default SidebarList;

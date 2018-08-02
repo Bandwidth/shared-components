@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 import { themeGet } from '@bandwidth/shared-components';
-import {
-  SidebarListContainer,
-  SidebarListItemContainer,
-} from './SidebarList/components';
 import { ACTION_BAR_HEIGHT } from '../../constants';
 
 const getBottomSpaceFromState = props => {
@@ -36,26 +32,4 @@ export default styled.div`
   padding: ${props =>
     props.overlapBorder ? '0' : themeGet('spacing.large')(props)};
   padding-bottom: ${getBottomSpaceFromState};
-
-  /*
-   * Modifying child list behavior a bit to make things more seamless.
-   * Some usages wrap SidebarListItem in an Anchor, so we do some
-   * internal selecting here.
-   * TODO: move this change into the default for SCL
-  */
-
-  & ${SidebarListContainer} > * {
-    border-top: ${themeGet('thicknesses.normal')} solid
-      ${themeGet('colors.gray.border')};
-    border-bottom: 0;
-  }
-  & ${SidebarListContainer} > *:last-child {
-    border-bottom: ${themeGet('thicknesses.normal')} solid
-      ${themeGet('colors.gray.border')};
-  }
-
-  & > ${SidebarListContainer} > * > ${SidebarListItemContainer} {
-    border-bottom: 0;
-    border-top: 0;
-  }
 `;

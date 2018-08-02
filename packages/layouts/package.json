@@ -1,5 +1,5 @@
 {
-  "name": "@bandwidth/layout",
+  "name": "@bandwidth/layouts",
   "version": "5.0.0-alpha.f32e4a8",
   "description": "",
   "main": "dist/index.js",
