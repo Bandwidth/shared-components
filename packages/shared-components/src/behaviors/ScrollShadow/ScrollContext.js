@@ -86,16 +86,22 @@ export class Provider extends React.PureComponent {
   };
 
   update = () => {
-    const currentMode = this.calcShadowMode();
+    if (this.animationFrame) {
+      cancelAnimationFrame(this.animationFrame);
+    }
 
-    Object.values(this.shadowElementRegistrations).forEach(registration => {
-      const { ref, outer, mode } = registration;
-      // we don't want to recalculate styles needlessly, so we also ensure
-      // the mode has changed since last style assignment
-      if (ref.current && mode !== currentMode) {
-        ref.current.style.boxShadow = shadows(currentMode, outer);
-        registration.mode = currentMode;
-      }
+    this.animationFrame = requestAnimationFrame(() => {
+      const currentMode = this.calcShadowMode();
+
+      Object.values(this.shadowElementRegistrations).forEach(registration => {
+        const { ref, outer, mode } = registration;
+        // we don't want to recalculate styles needlessly, so we also ensure
+        // the mode has changed since last style assignment
+        if (ref.current && mode !== currentMode) {
+          ref.current.style.boxShadow = shadows(currentMode, outer);
+          registration.mode = currentMode;
+        }
+      });
     });
   };
 
