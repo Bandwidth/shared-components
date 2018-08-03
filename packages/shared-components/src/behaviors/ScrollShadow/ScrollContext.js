@@ -1,5 +1,7 @@
-import React, { createContext } from 'react';
+import React, { createContext, createRef } from 'react';
+import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
+import shadows from './shadows';
 
 const { Provider: _Provider, Consumer: _Consumer } = createContext({
   mode: 'none',
@@ -10,15 +12,38 @@ const { Provider: _Provider, Consumer: _Consumer } = createContext({
  * based on whether there should be a shadow above, below, or both.
  */
 export class Provider extends React.PureComponent {
-  state = {
-    mode: 'none',
+  static propTypes = {
+    global: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    global: false,
   };
 
   scrollElement = null;
 
+  componentDidMount() {
+    if (this.props.global) {
+      if (window.addEventListener) {
+        window.addEventListener('scroll', this.handleScrollResize);
+      } else {
+        window.onscroll = this.handleScrollResize;
+      }
+
+      this.scrollElement = window.document.documentElement;
+      this.scrollResizeObserver.observe(this.scrollElement);
+
+      this.update();
+    }
+  }
+
   componentWillUnmount() {
     if (this.scrollElement && this.scrollResizeObserver) {
       this.scrollResizeObserver.unobserve(this.scrollElement);
+    }
+
+    if (this.props.global && window.removeEventListener) {
+      window.removeEventListener('scroll', this.handleScrollResize);
     }
   }
 
@@ -61,12 +86,36 @@ export class Provider extends React.PureComponent {
   };
 
   update = () => {
-    this.setState({ mode: this.calcShadowMode() });
+    const currentMode = this.calcShadowMode();
+
+    Object.values(this.shadowElementRegistrations).forEach(registration => {
+      const { ref, outer, mode } = registration;
+      // we don't want to recalculate styles needlessly, so we also ensure
+      // the mode has changed since last style assignment
+      if (ref.current && mode !== currentMode) {
+        ref.current.style.boxShadow = shadows(currentMode, outer);
+        registration.mode = currentMode;
+      }
+    });
   };
 
   handleScrollResize = throttle(this.update, 100);
 
   scrollResizeObserver = new window.ResizeObserver(this.handleScrollResize);
+
+  shadowElementRegistrations = {};
+
+  getShadowElementRef = (name, outer) => {
+    if (!this.shadowElementRegistrations[name]) {
+      console.info('creating new ref', name);
+      this.shadowElementRegistrations[name] = {
+        ref: createRef(),
+      };
+    }
+
+    this.shadowElementRegistrations[name].outer = outer;
+    return this.shadowElementRegistrations[name].ref;
+  };
 
   renderChildren = () => {
     const { children } = this.props;
@@ -76,11 +125,16 @@ export class Provider extends React.PureComponent {
         scrollElementRef: this.scrollElementRef,
       });
     }
+
     return children;
   };
 
   render() {
-    return <_Provider value={this.state}>{this.renderChildren()}</_Provider>;
+    return (
+      <_Provider value={this.getShadowElementRef}>
+        {this.renderChildren()}
+      </_Provider>
+    );
   }
 }
 

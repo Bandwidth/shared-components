@@ -14,9 +14,6 @@ export {
   default as DefaultContainer,
 } from './behaviors/ScrollShadow/DefaultContainer';
 export {
-  default as GlobalScrollContext,
-} from './behaviors/ScrollShadow/GlobalScrollContext';
-export {
   default as ScrollContext,
 } from './behaviors/ScrollShadow/ScrollContext';
 export {

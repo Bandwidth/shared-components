@@ -51,6 +51,7 @@
     "webpack-serve": "^2.0.2"
   },
   "dependencies": {
+    "@bandwidth/shared-components": "^5.0.0-alpha.f430584",
     "lodash.throttle": "^4.1.1",
     "react-transition-group": "^2.4.0"
   },

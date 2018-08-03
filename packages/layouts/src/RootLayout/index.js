@@ -3,9 +3,8 @@ import { Layout } from './components';
 import { ScrollShadow } from '@bandwidth/shared-components';
 
 export default ({ children, scrollShadowProps, ...rest }) => (
-  <ScrollShadow.GlobalObserver>
+  <ScrollShadow.Observer global>
     <ScrollShadow
-      global
       entireViewport
       {...scrollShadowProps}
       Container={Layout}
@@ -13,5 +12,5 @@ export default ({ children, scrollShadowProps, ...rest }) => (
     >
       {children}
     </ScrollShadow>
-  </ScrollShadow.GlobalObserver>
+  </ScrollShadow.Observer>
 );

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Consumer as LocalConsumer } from './ScrollContext';
-import { Consumer as GlobalConsumer } from './GlobalScrollContext';
+import { Consumer } from './ScrollContext';
 import DefaultContainer from './DefaultContainer';
 import ShadowOverlay from './ShadowOverlay';
 
@@ -23,36 +22,38 @@ import ShadowOverlay from './ShadowOverlay';
  * container by providing a Container prop. Make sure your Container
  * has position: relative.
  */
-export default ({
-  children,
-  outer,
-  entireViewport,
-  disabled,
-  global,
-  theme,
-  Container = DefaultContainer,
-  ...extraProps
-}) => {
-  const shadowPlacement = outer ? 'outer' : 'inner';
+export default class ScrollShadow extends React.Component {
+  defaultName = `${Math.floor(Math.random() * 100000000)}`;
 
-  const Consumer = global ? GlobalConsumer : LocalConsumer;
+  render() {
+    const {
+      children,
+      outer,
+      entireViewport,
+      disabled,
+      theme,
+      name = this.defaultName,
+      Container = DefaultContainer,
+      ...extraProps
+    } = this.props;
 
-  return (
-    <Container className="scroll-shadow-container" {...extraProps}>
-      {children}
-      {!disabled && (
-        <Consumer>
-          {({ mode }) => (
-            <ShadowOverlay
-              className="scroll-shadow"
-              global={global}
-              mode={mode}
-              placement={shadowPlacement}
-              entireViewport={entireViewport}
-            />
-          )}
-        </Consumer>
-      )}
-    </Container>
-  );
-};
+    const shadowPlacement = outer ? 'outer' : 'inner';
+
+    return (
+      <Container className="scroll-shadow-container" {...extraProps}>
+        {children}
+        {!disabled && (
+          <Consumer>
+            {getShadowElementRef => (
+              <ShadowOverlay
+                className="scroll-shadow"
+                entireViewport={entireViewport}
+                innerRef={getShadowElementRef(name, outer)}
+              />
+            )}
+          </Consumer>
+        )}
+      </Container>
+    );
+  }
+}

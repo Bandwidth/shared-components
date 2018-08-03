@@ -1,11 +1,8 @@
-import { Provider as LocalProvider } from './ScrollContext';
-import { Provider as GlobalProvider } from './GlobalScrollContext';
+import { Provider } from './ScrollContext';
 import ScrollShadow from './ScrollShadow';
 
-export const Observer = LocalProvider;
-export const GlobalObserver = GlobalProvider;
+export const Observer = Provider;
 
-ScrollShadow.Observer = LocalProvider;
-ScrollShadow.GlobalObserver = GlobalProvider;
+ScrollShadow.Observer = Provider;
 
 export default ScrollShadow;
