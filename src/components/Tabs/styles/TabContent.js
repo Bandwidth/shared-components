@@ -3,7 +3,7 @@ import get from 'extensions/themeGet';
 import TabContainer from './TabContainer';
 
 const TabContent = styled.div`
-  padding: ${get('spacing.medium')};
+  padding: ${get('spacing.large')};
 
   border-width: ${get('thicknesses.normal')};
   border-style: solid;
