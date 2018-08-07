@@ -1,6 +1,6 @@
 {
   "name": "@bandwidth/layouts",
-  "version": "5.0.0-alpha.f430584",
+  "version": "5.1.0-alpha.10a89ea",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -56,9 +56,8 @@
     "webpack-serve": "^2.0.2"
   },
   "dependencies": {
-    "@bandwidth/shared-components": "^5.0.0-alpha.f430584",
     "lodash.throttle": "^4.1.1",
     "react-transition-group": "^2.4.0"
   },
-  "gitHead": "f32e4a8b617e717a6d259a3f4b756d224a80a163"
+  "gitHead": "10a89ea0dfcfcc3697a88ac9c1b892ee198955ec"
 }

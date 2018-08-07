@@ -1,16 +1,14 @@
 {
   "name": "@bandwidth/shared-components",
-  "version": "5.0.0-alpha.f430584",
+  "version": "5.1.0-alpha.10a89ea",
   "description": "Shared Component Library for Bandwidth React Apps",
   "main": "dist/index.js",
   "scripts": {
     "test": "cross-env NODE_PATH=src jest --config jestConfig.json --coverage",
-    "watch:run":
-      "npm run build:index && cross-env NODE_PATH=src babel --watch --copy-files --out-dir dist src",
+    "watch:run": "npm run build:index && cross-env NODE_PATH=src babel --watch --copy-files --out-dir dist src",
     "watch": "run-s watch:*",
     "build:clean": "rimraf dist",
-    "build:dist":
-      "cross-env NODE_PATH=src babel --copy-files --out-dir dist src",
+    "build:dist": "cross-env NODE_PATH=src babel --copy-files --out-dir dist src",
     "build:index": "node ./tools/generateIndices.js",
     "build:docs": "cross-env NODE_PATH=src styleguidist build",
     "build": "run-s build:*",
@@ -108,5 +106,5 @@
     "webpack": "^4.16.4",
     "webpack-command": "^0.4.1"
   },
-  "gitHead": "f32e4a8b617e717a6d259a3f4b756d224a80a163"
+  "gitHead": "10a89ea0dfcfcc3697a88ac9c1b892ee198955ec"
 }
