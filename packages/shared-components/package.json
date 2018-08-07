@@ -1,6 +1,6 @@
 {
   "name": "@bandwidth/shared-components",
-  "version": "5.0.1-5.0.0-beta.0",
+  "version": "5.0.0-beta.0",
   "description": "Shared Component Library for Bandwidth React Apps",
   "main": "dist/index.js",
   "scripts": {
@@ -106,5 +106,5 @@
     "webpack": "^4.16.4",
     "webpack-command": "^0.4.1"
   },
-  "gitHead": "10a89ea0dfcfcc3697a88ac9c1b892ee198955ec"
+  "gitHead": "c26b853f3b89860fc104f3bdece69a011c1a87c9"
 }
