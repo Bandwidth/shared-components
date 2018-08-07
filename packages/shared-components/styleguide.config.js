@@ -2,27 +2,32 @@ const path = require('path');
 const defaultResolver = require('react-docgen').resolver
   .findAllExportedComponentDefinitions;
 const annotationResolver = require('react-docgen-annotation-resolver').default;
-const {readdirSync, lstatSync, existsSync} = require('fs');
+const { readdirSync, lstatSync, existsSync } = require('fs');
 
 const isDirectory = s => lstatSync(s).isDirectory();
 const isFile = s => lstatSync(s).isFile();
-const getDirectories = s => readdirSync(s).map(name => path.join(s, name)).filter(isDirectory)
-const getFiles = s => readdirSync(s).map(name => path.join(s, name)).filter(isFile)
+const getDirectories = s =>
+  readdirSync(s)
+    .map(name => path.join(s, name))
+    .filter(isDirectory);
+const getFiles = s =>
+  readdirSync(s)
+    .map(name => path.join(s, name))
+    .filter(isFile);
 
-const componentSections = (p) => {
-  return (
-    getDirectories(p)
-    .map(name => {
-      const section = {
-        name: path.basename(name),
-        components: getFiles(name).filter(f => path.basename(f) !== 'index.js' && path.extname(f) === '.js')
-      }
+const componentSections = p => {
+  return getDirectories(p).map(name => {
+    const section = {
+      name: path.basename(name),
+      components: getFiles(name).filter(
+        f => path.basename(f) !== 'index.js' && path.extname(f) === '.js',
+      ),
+    };
     if (existsSync(path.join(name, 'README.md')))
       section.content = path.join(name, 'README.md');
     return section;
-  })
-  )
-}
+  });
+};
 
 module.exports = {
   title: 'Bandwidth Shared React Components',
@@ -49,7 +54,7 @@ module.exports = {
     },
     {
       name: 'Components',
-      sections: componentSections('./src/components')
+      sections: componentSections('./src/components'),
     },
     {
       name: 'Layouts',
@@ -70,7 +75,7 @@ module.exports = {
     },
     fontFamily: {
       base: '"Overpass", Raleway, "Open Sans", arial, sans-serif',
-      monospace: '"Source Code Pro", monospace'
+      monospace: '"Source Code Pro", monospace',
     },
   },
   ignore: [
@@ -112,10 +117,6 @@ module.exports = {
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
-            options: {
-              plugins: ['styled-components'],
-              presets: ['es2015', 'react', 'stage-0'],
-            },
           },
         },
         {

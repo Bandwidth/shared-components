@@ -4,7 +4,7 @@ import { Form, SidebarList, ActionBarExpandingContent } from '../widgets';
 import { H2, Button, Anchor } from '@bandwidth/shared-components';
 
 export default () => (
-  <SplitContentLayout mainContentLocation="left">
+  <SplitContentLayout mainContentLocation="left" gutter>
     <SplitContentLayout.SecondaryContent>
       <H2>Form</H2>
       <Form columns={1} />
@@ -36,7 +36,7 @@ export default () => (
         </SplitContentLayout.ActionBar>
       </Form>
     </SplitContentLayout.SecondaryContent>
-    <SplitContentLayout.MainContent gutter>
+    <SplitContentLayout.MainContent>
       <H2>Content</H2>
       <SplitContentLayout.MainContent.Box>
         <Form />

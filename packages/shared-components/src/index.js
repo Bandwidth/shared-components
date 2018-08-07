@@ -14,8 +14,8 @@ export {
   default as DefaultContainer,
 } from './behaviors/ScrollShadow/DefaultContainer';
 export {
-  default as ScrollContext,
-} from './behaviors/ScrollShadow/ScrollContext';
+  default as DefaultScrollContainer,
+} from './behaviors/ScrollShadow/DefaultScrollContainer';
 export { default as Sentinel } from './behaviors/ScrollShadow/Sentinel';
 export {
   default as ShadowOverlay,
