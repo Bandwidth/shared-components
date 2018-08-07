@@ -1,2 +1,2 @@
-export default from './Code';
-export CodeBlock from './CodeBlock';
+export { default } from './Code';
+export { default as CodeBlock } from './CodeBlock';

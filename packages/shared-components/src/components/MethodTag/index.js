@@ -1,1 +1,1 @@
-export default from './MethodTag';
+export { default } from './MethodTag';

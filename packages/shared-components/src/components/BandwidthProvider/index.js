@@ -1,1 +1,1 @@
-export default from './BandwidthProvider';
+export { default } from './BandwidthProvider';

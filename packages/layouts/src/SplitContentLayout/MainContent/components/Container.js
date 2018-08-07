@@ -20,18 +20,11 @@ const getRightFromState = props =>
   props.mainContentLocation === 'left' ? ONE_THIRD : '0';
 
 export default styled.div`
-  position: absolute;
-  left: ${getLeftFromState};
-  right: ${getRightFromState};
+  position: relative;
+  margin-left: ${getLeftFromState};
+  margin-right: ${getRightFromState};
   display: flex;
   flex-direction: column;
   padding: ${themeGet('spacing.large')};
   padding-bottom: ${getBottomSpaceFromState};
-  min-height: 100%;
-  height: 100%;
-  height: auto;
-  background: ${props =>
-    props.gutter
-      ? themeGet('colors.gray.light')(props)
-      : themeGet('colors.background.default')(props)};
 `;

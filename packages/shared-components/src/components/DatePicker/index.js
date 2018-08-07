@@ -1,2 +1,2 @@
-export default from './DatePicker';
-export DateRangePicker from './DateRangePicker';
+export { default } from './DatePicker';
+export { default as DateRangePicker } from './DateRangePicker';

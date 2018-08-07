@@ -9,7 +9,7 @@ import throttle from 'lodash.throttle';
 
 export default class SplitContentLayout extends React.PureComponent {
   render() {
-    const { children, mainContentLocation } = this.props;
+    const { children, mainContentLocation, gutter, ...rest } = this.props;
 
     return (
       <Provider mainContentLocation={mainContentLocation}>
@@ -17,6 +17,8 @@ export default class SplitContentLayout extends React.PureComponent {
           <RootLayout
             innerRef={rootElementRef}
             className="content-layout split-content-layout"
+            gutter={gutter}
+            {...rest}
           >
             {children}
             <FixedLayer layerRef={layerElementRef} />

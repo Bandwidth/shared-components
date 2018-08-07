@@ -1,6 +1,6 @@
-export default from './Table';
-export Header from './TableHeader';
-export Row from './styles/TableRow';
-export Cell from './styles/TableCell';
-export Controls from './TableControls';
-export SimpleTable from './SimpleTable';
+export { default } from './Table';
+export { default as Header } from './TableHeader';
+export { default as Row } from './styles/TableRow';
+export { default as Cell } from './styles/TableCell';
+export { default as Controls } from './TableControls';
+export { default as SimpleTable } from './SimpleTable';

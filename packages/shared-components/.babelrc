@@ -1,10 +1,26 @@
 {
-  "plugins": [
-    "styled-components",
-    ["module-resolver", {
-      "root": ["./src"]
-    }],
-    ["inline-react-svg", {"ignorePattern": "fonts/*"}]
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": ["> 1%", "last 2 versions"]
+        }
+      }
+    ],
+    "react"
   ],
-  "presets": ["react", "es2015", "stage-0"]
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-runtime",
+    "babel-plugin-transform-class-properties",
+    ["inline-react-svg", { "ignorePattern": "fonts/*" }],
+    "styled-components",
+    [
+      "module-resolver",
+      {
+        "root": ["./src"]
+      }
+    ]
+  ]
 }

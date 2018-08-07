@@ -1,1 +1,1 @@
-export default from './Expand';
+export { default } from './Expand';

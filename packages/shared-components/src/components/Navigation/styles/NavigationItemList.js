@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
-import NavigationItem from './NavigationItem';
 import NavigationBar from './NavigationBar';
 
 const NavigationItemList = styled.div.withConfig({

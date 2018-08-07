@@ -1,4 +1,4 @@
-export default from './Accordion';
+export { default } from './Accordion';
 export { default as AccordionGroup } from './AccordionGroup';
 
 export { default as AccordionArrow } from './styles/AccordionArrow';

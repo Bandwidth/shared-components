@@ -82,40 +82,32 @@ export default class ActionBar extends React.Component {
         {layoutState =>
           layoutState.renderElement(
             'actionBar',
-            <React.Fragment>
-              <PresenceNotifier
-                updateActionBarPresence={layoutState.updateActionBarPresence}
-              />
-              <CSSTransition in={expanded} classNames="expand" timeout={200}>
-                <ScrollShadow
-                  global={
-                    layoutState.actionBarLocation ===
-                    layoutState.mainContentLocation
-                  }
-                  outer
-                  disabled={expanded}
-                  Container={Bar}
-                  actionBarLocation={layoutState.actionBarLocation}
-                  mainContentLocation={layoutState.mainContentLocation}
+            <CSSTransition in={expanded} classNames="expand" timeout={200}>
+              <Bar
+                mainContentLocation={layoutState.mainContentLocation}
+                actionBarLocation={layoutState.actionBarLocation}
+              >
+                <PresenceNotifier
+                  updateActionBarPresence={layoutState.updateActionBarPresence}
+                />
+                {renderExpandingContent && (
+                  <ExpandingContainer className="action-bar-expanding-container">
+                    {renderExpandingContent({
+                      expanded,
+                      toggleExpanded,
+                      barHeight: ACTION_BAR_HEIGHT,
+                    })}
+                  </ExpandingContainer>
+                )}
+                <BottomContent
+                  expanded={expanded}
+                  className="action-bar-bottom-content"
                 >
-                  {renderExpandingContent && (
-                    <ExpandingContainer className="action-bar-expanding-container">
-                      {renderExpandingContent({
-                        expanded,
-                        toggleExpanded,
-                        barHeight: ACTION_BAR_HEIGHT,
-                      })}
-                    </ExpandingContainer>
-                  )}
-                  <BottomContent
-                    expanded={expanded}
-                    className="action-bar-bottom-content"
-                  >
-                    {this.renderChildren()}
-                  </BottomContent>
-                </ScrollShadow>
-              </CSSTransition>
-            </React.Fragment>,
+                  {this.renderChildren()}
+                </BottomContent>
+                <ScrollShadow.ConnectedShadow outer disabled={expanded} />
+              </Bar>
+            </CSSTransition>,
           )
         }
       </Consumer>

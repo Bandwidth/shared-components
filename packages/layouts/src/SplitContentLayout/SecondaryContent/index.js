@@ -13,26 +13,17 @@ const SecondaryContent = ({ children, overlapBorder, ...rest }) => (
     {layoutContext =>
       layoutContext.renderElement(
         'secondaryContent',
-        <ScrollShadow.Observer>
-          {({ scrollElementRef }) => (
-            <ScrollShadow
-              Container={ShadowContainer}
-              mainContentLocation={layoutContext.mainContentLocation}
-              overlapBorder={overlapBorder}
-            >
-              <Container
-                innerRef={scrollElementRef}
-                actionBarPresent={layoutContext.actionBarPresent}
-                actionBarLocation={layoutContext.actionBarLocation}
-                mainContentLocation={layoutContext.mainContentLocation}
-                overlapBorder={overlapBorder}
-                {...rest}
-              >
-                {children}
-              </Container>
-            </ScrollShadow>
-          )}
-        </ScrollShadow.Observer>,
+        <ScrollShadow
+          Container={ShadowContainer}
+          ScrollContainer={Container}
+          actionBarPresent={layoutContext.actionBarPresent}
+          actionBarLocation={layoutContext.actionBarLocation}
+          mainContentLocation={layoutContext.mainContentLocation}
+          overlapBorder={overlapBorder}
+          {...rest}
+        >
+          {children}
+        </ScrollShadow>,
       )
     }
   </Consumer>

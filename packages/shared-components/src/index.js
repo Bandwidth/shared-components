@@ -16,6 +16,7 @@ export {
 export {
   default as ScrollContext,
 } from './behaviors/ScrollShadow/ScrollContext';
+export { default as Sentinel } from './behaviors/ScrollShadow/Sentinel';
 export {
   default as ShadowOverlay,
 } from './behaviors/ScrollShadow/ShadowOverlay';

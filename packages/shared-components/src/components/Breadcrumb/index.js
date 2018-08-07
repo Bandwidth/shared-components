@@ -1,2 +1,2 @@
-export default from './Breadcrumb';
-export Breadcrumbs from './Breadcrumbs';
+export { default } from './Breadcrumb';
+export { default as Breadcrumbs } from './Breadcrumbs';

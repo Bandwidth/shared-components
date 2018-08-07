@@ -1,3 +1,3 @@
-export default from './UnorderedList';
-export Ordered from './OrderedList';
-export Item from './ListItem';
+export { default } from './UnorderedList';
+export { default as Ordered } from './OrderedList';
+export { default as Item } from './ListItem';

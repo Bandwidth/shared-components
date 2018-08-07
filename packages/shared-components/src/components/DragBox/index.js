@@ -1,2 +1,2 @@
-export default from './DragBox';
-export DragBoxSelect from './DragBoxSelect';
+export { default } from './DragBox';
+export { default as DragBoxSelect } from './DragBoxSelect';

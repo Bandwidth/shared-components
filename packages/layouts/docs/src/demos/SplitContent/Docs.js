@@ -27,7 +27,7 @@ const examples = [
 </SplitContentLayout>
 `,
   `// with an action bar, sidebar list, and a gray-colored main content background.
-<SplitContentLayout>
+<SplitContentLayout gutter>
   {/*
     the overlapBorder prop makes the secondary content draw over the layout border,
     perfect for interfacing with the shared-component's SidebarList
@@ -36,8 +36,7 @@ const examples = [
     <H2>Sidebar Title</H2>
     <SidebarList />
   </SplitContentLayout.SecondaryContent>
-  {/* adding 'gutter' changes the main content background */}
-  <SplitContentLayout.MainContent gutter>
+  <SplitContentLayout.MainContent>
     <H2>Content Title</H2>
     <SplitContentLayout.MainContent.Box>
       <CustomForm />
@@ -71,12 +70,12 @@ const examples = [
 </SplitContentLayout>
 `,
   `// let's add some expanding content to that action bar
-<SplitContentLayout>
+<SplitContentLayout gutter>
   <SplitContentLayout.SecondaryContent overlapBorder>
     <H2>Sidebar Title</H2>
     <SidebarList />
   </SplitContentLayout.SecondaryContent>
-  <SplitContentLayout.MainContent gutter>
+  <SplitContentLayout.MainContent>
     <H2>Content Title</H2>
     <SplitContentLayout.MainContent.Box>
       <CustomForm />
@@ -136,14 +135,15 @@ export default () => (
             <Code>left</Code>, determines which side the main (large) content
             goes on.
           </List.Item>
-        </List>
-        <H3 spacing={{ vertical: 'lg' }}>SplitContentLayout.MainContent</H3>
-        <P>The main content of the page. Takes up 2/3 of the space.</P>
-        <List>
           <List.Item>
-            <Code>gutter</Code>: if true, will make the background a light gray.
+            <Code>gutter</Code>: <Code>true</Code> or <Code>false</Code>, if
+            true, makes the background of the main content gray
           </List.Item>
         </List>
+        <H3 spacing={{ vertical: 'lg' }}>SplitContentLayout.MainContent</H3>
+        <P>
+          The main content of the page. Takes up 2/3 of the space. Has no props.
+        </P>
         <H3 spacing={{ vertical: 'lg' }}>SplitContentLayout.MainContent.Box</H3>
         <P>A simple box which looks nice inside MainContent. Has no props.</P>
         <H3 spacing={{ vertical: 'lg' }}>
@@ -214,6 +214,8 @@ export default () => (
       </Accordion>
     </Spacing>
     <H2 spacing={{ horizontal: 'lg', bottom: 'lg' }}>Code Examples</H2>
-    {examples.map((code, idx) => <Example key={idx}>{code}</Example>)}
+    {examples.map((code, idx) => (
+      <Example key={idx}>{code}</Example>
+    ))}
   </React.Fragment>
 );
