@@ -1,13 +1,16 @@
 {
-  "packages": ["packages/*"],
-  "version": "5.0.0",
-
+  "packages": [
+    "packages/*"
+  ],
+  "version": "5.0.1-5.0.0-beta.0",
   "command": {
     "publish": {
-      "ignoreChanges": ["*.md", "**/docs/**/*"]
+      "ignoreChanges": [
+        "*.md",
+        "**/docs/**/*"
+      ]
     }
   },
-
   "publishConfig": {
     "access": "public"
   }
