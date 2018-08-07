@@ -20,6 +20,6 @@ fs.copySync(PATHS.SCL_DOCS, PATHS.DOCS);
 console.info(`copying Layouts docs from ${PATHS.LAYOUT_DOCS}`);
 
 // layout has its own subdomain
-fs.copySync(PATHS.LAYOUT_DOCS, path.resolve(PATHS.DOCS, 'layout'));
+fs.copySync(PATHS.LAYOUT_DOCS, path.resolve(PATHS.DOCS, 'layouts'));
 
 console.info('done.');
