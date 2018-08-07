@@ -102,47 +102,47 @@ module.exports = {
     const defaultComponents = defaultResolver(ast, recast);
     return annotatedComponents.concat(defaultComponents);
   },
-  webpackConfig: {
-    devtool: 'cheap-module-eval-source-map',
-    resolve: {
-      modules: ['node_modules'].concat(
-        process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
-      ),
-    },
-    module: {
-      rules: [
-        // Babel loader, will use your project’s .babelrc
-        {
-          test: /\.js?$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-          },
-        },
-        {
-          test: /\.css$/,
-          use: [
-            'style-loader',
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                importLoaders: 1,
-                localIdentName: 'cat__[local]_[path]',
-              },
-            },
-            'postcss-loader',
-          ],
-        },
-        {
-          test: /\.(jpg|jpeg|png|webp|ico)$/,
-          use: 'file-loader',
-        },
-        {
-          test: /\.(svg|woff|woff2|eot|otf|ttf)$/,
-          use: 'file-loader',
-        },
-      ],
-    },
-  },
+  // webpackConfig: {
+  //   devtool: 'cheap-module-eval-source-map',
+  //   resolve: {
+  //     modules: ['node_modules'].concat(
+  //       process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
+  //     ),
+  //   },
+  //   module: {
+  //     rules: [
+  //       // Babel loader, will use your project’s .babelrc
+  //       {
+  //         test: /\.js?$/,
+  //         exclude: /node_modules/,
+  //         use: {
+  //           loader: 'babel-loader',
+  //         },
+  //       },
+  //       {
+  //         test: /\.css$/,
+  //         use: [
+  //           'style-loader',
+  //           {
+  //             loader: 'css-loader',
+  //             options: {
+  //               modules: true,
+  //               importLoaders: 1,
+  //               localIdentName: 'cat__[local]_[path]',
+  //             },
+  //           },
+  //           'postcss-loader',
+  //         ],
+  //       },
+  //       {
+  //         test: /\.(jpg|jpeg|png|webp|ico)$/,
+  //         use: 'file-loader',
+  //       },
+  //       {
+  //         test: /\.(svg|woff|woff2|eot|otf|ttf)$/,
+  //         use: 'file-loader',
+  //       },
+  //     ],
+  //   },
+  // },
 };

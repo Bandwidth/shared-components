@@ -61,7 +61,7 @@
     "warning": "^3.0.0"
   },
   "devDependencies": {
-    "@storybook/react": "^3.4.3",
+    "@storybook/react": "^4.0.0-alpha.16",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^20.0.3",
