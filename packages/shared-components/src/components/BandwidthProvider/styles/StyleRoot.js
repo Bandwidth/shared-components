@@ -11,7 +11,7 @@ export default styled.div`
   letter-spacing: 0.28px;
 
   width: 100%;
-  min-height: 100%;
+  height: 100%;
 
   ${({ customTheme }) =>
     customTheme &&

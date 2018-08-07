@@ -3,7 +3,7 @@ import { Layout } from './components';
 import { ScrollShadow } from '@bandwidth/shared-components';
 
 export default ({ children, scrollShadowProps, ...rest }) => (
-  <ScrollShadow global {...scrollShadowProps} Container={Layout} {...rest}>
-    {children}
+  <ScrollShadow global {...scrollShadowProps} {...rest}>
+    <Layout>{children}</Layout>
   </ScrollShadow>
 );

@@ -3,14 +3,16 @@
 Creates a scrolling wrapping container that has a shadow effect to indicate that there is content above or below.
 
 ```js
-<ScrollShadow>
-  <div style={{ height: '5000px', width: '100%' }}>Some scrolling child content</div>
-</ScrollShadow>
+<div style={{ height: '500px', overflow: 'hidden' }}>
+  <ScrollShadow>
+    <div style={{ height: '5000px', width: '100%' }}>Some scrolling child content</div>
+  </ScrollShadow>
+</div>
 ```
 
 You can also connect to the global scroll state by passing the `global` prop to the `ScrollShadow` component. You should only ever have one global observer in your React tree.
 
-```js
+```js static
 <ScrollShadow global>
   <div>App layout</div>
 </ScrollShadow>
