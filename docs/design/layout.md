@@ -295,3 +295,27 @@ As much as possible, actions should gravitate to the largest or highest content 
 
 Clicking a toolbar anchor should disable any other sibling anchors. This should be represented by turning the link and icon grey (#666) and setting both to 0.5 opacity. When that function is complete or cancelled, all anchors should transition back to their previous color (likely #008db1) and opacity (1).
 
+## CSS Variables
+
+### Spacing
+
+```jsx
+<div>
+  <P spacing={{ bottom: 'xs' }}> P with bottom spacing: 'xs' </P>
+  <P spacing={{ bottom: 'sm' }}> P with bottom spacing: 'sm' </P>
+  <P spacing={{ bottom: 'md' }}> P with bottom spacing: 'md' </P>
+  <P spacing={{ bottom: 'lg' }}> P with bottom spacing: 'lg' </P>
+  <P spacing={{ bottom: 'xl' }}> P with bottom spacing: 'xl' </P>
+  <P> P with default bottom spacing: 'lg' </P>
+</div>
+```
+
+Many components in the Shared Component Library accept a 'spacing' property which essentially, allow you to set the margins of a component with ease. We provide presets to cover most scenarios in which spacing is needed.
+
+* Spacing Presets:
+  * xs: 5px
+  * sm: 10px
+  * md: 15px
+  * lg: 30px
+  * xl: 60px
+
