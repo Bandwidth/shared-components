@@ -234,6 +234,20 @@ const Content = (props) => (
   </Content>
 </div>
 ```
+When designing the main content of a webpage, we recommend to follow these design rules:
+H1's are generally only used once per page, for the title. H2's should be used for the title of all sections on the page. H3's are used to display supplemental information to the title, such as a value. H4's should be used for sub-section titles. Sections should be divided with a 1 pixel thick divider. 
+
+If the main content is the only content on the page (there is no sidebar), the main content should not take up the full width of the available space. Generally the max-width value of the main content is set to 900px. This is to help maintain readability.
+
+Above is an example of a well-designed webpage which makes use of the Shared Component Library. We provide it's specifications for your convenience.
+
+Margin specifications:
+  * Left:  30px
+  * Top:  30px
+  * Above and below dividers:  30px
+  * Between H2 and HelpText:  10px
+  * After paragraph:  30px
+  * After H4 sub-section:  30px
 
 ## The Anchor Solar System
 
