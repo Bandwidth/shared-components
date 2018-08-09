@@ -148,6 +148,10 @@ export {
 } from './components/DateTimePicker/styles/DateTimeRangePickerContainer';
 export { default as DragBox } from './components/DragBox';
 export { default as DragBoxSelect } from './components/DragBox/DragBoxSelect';
+export { default as DragBoxDiv } from './components/DragBox/styles/DragBoxDiv';
+export {
+  default as DragBoxRect,
+} from './components/DragBox/styles/DragBoxRect';
 export { default as DragContainer } from './components/DragContainer';
 export { default as DragContext } from './components/DragContainer/DragContext';
 export {

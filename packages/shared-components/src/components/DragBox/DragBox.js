@@ -13,6 +13,8 @@ import {
 } from 'lodash';
 
 import DragBoxSelect from './DragBoxSelect';
+import DragBoxRect from './styles/DragBoxRect';
+import DragBoxDiv from './styles/DragBoxDiv';
 
 // Minimum size for the dragbox to become active and prevent click through. This value is based on feel - it helps
 // avoid missed clicks on buttons when moving the mouse inaccurately.
@@ -20,27 +22,25 @@ import DragBoxSelect from './DragBoxSelect';
 // the mouse button is released
 const MIN_SIZE_DRAGBOX = 16;
 
-const Rect = styled.div`
-  border-width: 2px;
-  border-color: black;
-  border-style: dotted;
-  z-index: 100000;
-  position: fixed;
-  pointer-events: none;
-`;
+//Empty class to attach ref to.
+class DragBoxItem extends React.Component {
+  render() {
+    return this.props.children;
+  }
+}
 
-// Div that allows us to disable pointer events on children - this helps to avoid the hoverable behavior on children.
-const DragBoxDiv = styled.div`
-  ${({ disablePointerEvents }) =>
-    disablePointerEvents
-      ? css`
-          & > * {
-            pointer-events: none;
-          }
-        `
-      : null};
-`;
-
+/**
+ * **DragBox** creates an area where the user can drag a box that can then control other types of behavior. It is intended to
+ * be used with the [Selectable](/#!/Selectable) behavior, though it can be used for general purposes. For a prebuilt implementation
+ * of **DragBox** with [Selectable](/#!/Selectable), use [DragBox.Select](#!/DragBoxSelect).
+ *
+ * **DragBox** uses render props, which means that it takes functions that it passes several arguments and uses the result
+ * of that function to perform renders. This allows it to be easily composed with other types of components.
+ *
+ * **DragBox** requires that the `getRef()` function be passed down and called in the `ref` property of each React
+ * component that should be selectable. Note that this requires that the component have an instance - it cannot be a
+ * purely functional component. **DragBox.Item** is provided as a simple wrapper component for this purpose.
+ */
 class DragBox extends React.Component {
   static propTypes = {
     /**
@@ -116,7 +116,7 @@ class DragBox extends React.Component {
     scrollSelector: 'body',
     disablePointerEventsWhileDragging: false,
     renderRect: ({ left, top, width, height }) => (
-      <Rect
+      <DragBoxRect
         style={{
           left,
           top,
@@ -126,6 +126,8 @@ class DragBox extends React.Component {
       />
     ),
   };
+
+  static Item = DragBoxItem;
 
   childElements = {};
 
@@ -185,7 +187,10 @@ class DragBox extends React.Component {
   });
 
   onMouseDown = ev => {
-    const { props: { onMouseDown }, getMousePosition } = this;
+    const {
+      props: { onMouseDown },
+      getMousePosition,
+    } = this;
     // Left click
     if (ev.button !== 0) return;
     this.attachScrollSelector();
@@ -228,7 +233,9 @@ class DragBox extends React.Component {
   };
 
   calcRect = () => {
-    const { state: { start, end, scrollLeft, scrollTop } } = this;
+    const {
+      state: { start, end, scrollLeft, scrollTop },
+    } = this;
     if (!start || !end) return {};
     const parent = this.dragElement;
     return {
@@ -301,7 +308,9 @@ class DragBox extends React.Component {
     b2.y + b2.height <= b1.y + b1.height;
 
   shouldDrawRect = rect => {
-    const { state: { mouseDown } } = this;
+    const {
+      state: { mouseDown },
+    } = this;
     return (
       mouseDown && (rect.width + 1) * (rect.height + 1) >= MIN_SIZE_DRAGBOX
     );
