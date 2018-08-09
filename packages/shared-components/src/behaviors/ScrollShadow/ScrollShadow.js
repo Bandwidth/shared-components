@@ -10,14 +10,32 @@ import DefaultScrollContainer from './DefaultScrollContainer';
 const { Provider, Consumer } = createContext(() => () => {});
 
 /**
- * Monitors the scroll position of a ref'd element and updates a scroll 'mode'
- * based on whether there should be a shadow above, below, or both.
+ * A scrolling container which has a shadow effect to indicate that there is more
+ * content above or below. This element also creates a context which can inform
+ * components below it in the tree of the scroll state of the scrolling container.
  */
 export default class ScrollShadow extends React.Component {
   static propTypes = {
+    /**
+     * This ScrollShadow should listen to the global window scroll value. Only one
+     * such ScrollShadow should be present in your application.
+     */
     global: PropTypes.bool,
+    /**
+     * Customize the outer container element by passing a component here. Your element
+     * MUST have relative or absolute positioning applied!
+     */
     Container: PropTypes.func,
+    /**
+     * Customize the scroll container element by passing a component here. Your element
+     * MUST have relative or absolute positioning, an overflow mode, and accept an
+     * innerRef prop!
+     */
     ScrollContainer: PropTypes.func,
+    /**
+     * Flip this to true to show a red line where the scroll sentinel elements are.
+     * Can be useful for debugging if the shadows don't seem to work correctly.
+     */
     debugShowSentinels: PropTypes.bool,
   };
 
@@ -28,17 +46,37 @@ export default class ScrollShadow extends React.Component {
     debugShowSentinels: false,
   };
 
+  /**
+   * A sentinel is an invisible element which is used to track the scroll boundaries.
+   * We place them at the top and bottom of the content. When either of them becomes
+   * visible, we know that the user has hit that particular scroll boundary.
+   */
   topSentinelRef = createRef();
   bottomSentinelRef = createRef();
+  /**
+   * We are not storing this information in this.state on purpose. We will actually
+   * be skipping the React update cycle entirely for changing the shadow styles
+   * on the shadow element to avoid unnecessary work for a simple aesthetic change.
+   */
   isTopSentinelVisible = true;
   isBottomSentinelVisible = false;
 
   componentDidMount() {
     if (this.props.global) {
+      /**
+       * In global mode, the entire window is our scroll context. We can do that by
+       * passing 'null' as the context element for the IntersectionObserver.
+       * As documented, it will use the visible window area as the intersection
+       * boundary.
+       */
       this.scrollElementRef(null);
     }
   }
 
+  /**
+   * Simply figures out where the shadows should be based on which boundaries
+   * are visible right now.
+   */
   calcShadowMode = () => {
     const top = !this.isTopSentinelVisible;
     const bottom = !this.isBottomSentinelVisible;
@@ -54,8 +92,11 @@ export default class ScrollShadow extends React.Component {
     }
   };
 
+  /**
+   * This will be called every time the intersection state of either sentinel changes.
+   */
   handleSentinelIntersection = (entries, observer) => {
-    console.info(entries);
+    // `entries` is an array of records, one per changed sentinel.
     entries.forEach(entry => {
       if (entry.target === this.topSentinelRef.current) {
         this.isTopSentinelVisible = entry.isIntersecting;
@@ -65,14 +106,17 @@ export default class ScrollShadow extends React.Component {
 
       const currentMode = this.calcShadowMode();
 
+      /**
+       * Iterate over every registered shadow element to update their styles
+       * if they need to change.
+       */
       Object.values(this.shadowElementRegistrations).forEach(registration => {
         const { ref, mode } = registration;
         // we don't want to recalculate styles needlessly, so we also ensure
         // the mode has changed since last style assignment
         if (ref.current && mode !== currentMode) {
-          ref.current.classList.remove('top');
-          ref.current.classList.remove('bottom');
-          ref.current.classList.remove('both');
+          // reset classes
+          ref.current.classList.remove('top', 'bottom', 'both');
           ref.current.classList.add(currentMode);
           registration.mode = currentMode;
         }
@@ -95,6 +139,11 @@ export default class ScrollShadow extends React.Component {
     this.sentinelIntersectionObserver.observe(this.bottomSentinelRef.current);
   };
 
+  /**
+   * A map of elements which have registered that they want a shadow applied to them.
+   * Elements can register by using the `getShadowElementRef` function we pass through
+   * the Context.
+   */
   shadowElementRegistrations = {};
 
   getShadowElementRef = name => {
@@ -135,6 +184,7 @@ export default class ScrollShadow extends React.Component {
       ...extraProps
     } = this.props;
 
+    // we will be rendering something slightly different if we are in global mode
     if (global) {
       return (
         <React.Fragment>
@@ -182,12 +232,19 @@ export default class ScrollShadow extends React.Component {
     return (
       <Provider value={this.getShadowElementRef}>
         {this.renderChildren()}
-        {this.props.global && this.renderGlobalSentinels()}
       </Provider>
     );
   }
 }
 
+/**
+ * A ConnectedShadow is a shadow element which gets its shadow mode from
+ * a ScrollShadow context higher in the React tree. Using this, you can
+ * add some shadows to 'unrelated' elements which respond to the
+ * scroll state of the containing scroll element. This is good for
+ * advanced use cases, like rendering an element which hovers over
+ * a scroll container.
+ */
 export class ConnectedShadow extends React.PureComponent {
   generatedName = `shadow${Math.floor(Math.random() * 100000)}`;
 
