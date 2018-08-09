@@ -95,11 +95,62 @@ const NavBar = () => (
   </Navigation>
 );
 
+const Section = (props) => (
+  <div style={{
+    width: '100%',
+    paddingBottom: '30px',
+    marginBottom: '30px',
+  }}>
+    {props.children}
+  </div>
+);
+
+const MainContent = (props) => (
+  <div style={{minHeight:'400px'}}>
+    <div style={{margin: '30px'}}>
+      <Pane.Column>
+        <Section>
+          <H1 spacing='0'> Main Content Title </H1>
+        </Section>
+
+        <Section>
+          <H2> Main Content Section 1 </H2>
+          <P spacing='0'> 
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla pellentesque dignissim enim sit amet venenatis urna. Quisque sagittis purus sit amet volutpat consequat mauris nunc congue. Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Pretium quam vulputate dignissim suspendisse in. Facilisis magna etiam tempor orci. Volutpat diam ut venenatis tellus in. Augue mauris augue neque gravida in fermentum et sollicitudin. At lectus urna duis convallis. Nunc aliquet bibendum enim facilisis gravida neque. Morbi tincidunt ornare massa eget egestas purus viverra accumsan.
+          </P>
+        </Section>
+      </Pane.Column>
+    </div>
+  </div>
+);
+
+const SupplementalContent = (props) => (
+  <div style={{minHeight:'400px'}}>
+    <div style={{margin: '30px'}}>
+      <Pane.Column>
+        <Section>
+          <H2> Supplemental Info Section 1 </H2>
+          <P spacing='0'> 
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla pellentesque dignissim enim sit amet venenatis urna. Quisque sagittis purus sit amet volutpat consequat mauris nunc congue.
+          </P>
+        </Section>
+
+        <Section>
+          <H2> Supplemental Info Section 2 </H2>
+          <P spacing='0'> 
+          Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Pretium quam vulputate dignissim suspendisse in. Facilisis magna etiam tempor orci. Volutpat diam ut venenatis tellus in. Augue mauris augue neque gravida in fermentum et sollicitudin.
+          </P>
+        </Section>
+      </Pane.Column>
+    </div>
+  </div>
+);
+
 <div>
   <NavBar/>
   <SidebarLayout right>
-    <div style={{height:'400px'}}/>
-    <div style={{height:'400px'}}/>
+    <MainContent/>
+    <SupplementalContent/>
   </SidebarLayout>
 </div>
 ```
