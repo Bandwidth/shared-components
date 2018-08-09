@@ -29,7 +29,7 @@ import { Button } from '@bandwidth/shared-components'`;
 
 # Developing
 
-To develop locally, run `npm run styleguide`. The docs should then be available at `http://localhost:6060`. Live reloading, etc should work as well.
+To develop locally, run `npm run start`. The docs should then be available at `http://localhost:6060`. Live reloading, etc should work as well. Alternatively, you can develop against Storybook by running `npm run storybook` and visiting `http://localhost:9001`.
 
 Please refer to the [contributing guide](https://github.com/Bandwidth/shared-components/blob/master/.github/CONTRIBUTING.md) and read through the pull request template before submitting a PR!
 
