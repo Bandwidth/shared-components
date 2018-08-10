@@ -11,8 +11,6 @@ This section is intended to show you how the developers of the Bandwidth Shared 
 ## 1/3 & 2/3 Split Layout
 
 ```jsx
-const irisTheme = require('theme/irisTheme');
-
 const NavBar = () => (
   <Navigation>
     <Anchor to="/">
@@ -32,7 +30,7 @@ const NavBar = () => (
 
 const OneThird = () => (
   <div style={{
-    background: irisTheme.colors.positive.border,
+    background: 'var(--colors-positive-border)',
     padding: '2vw',
     backgroundClip: 'content-box',
     height: '400px',
@@ -50,7 +48,7 @@ const OneThird = () => (
 
 const TwoThirds = () => (
   <div style={{
-    background: irisTheme.colors.negative.border,
+    background: 'var(--colors-negative-border)',
     padding: '2vw',
     backgroundClip: 'content-box',
     height: '400px',
@@ -159,7 +157,6 @@ If you have supplemental information which should be viewed after looking after 
 ## Sidebar List Layout
 ```jsx
 const React = require('react');
-const irisTheme = require('theme/irisTheme');
 
 const NavBar = () => (
   <Navigation>
@@ -187,7 +184,7 @@ const SelectedContainer = (props) => (
 const SelectedContent = (props) => (
   <div>
     <H3> Selected Content Title </H3>
-    <div style={{backgroundColor: irisTheme.colors.background.default, width: '100%', height: '310px', border: 'solid 1px', borderColor: irisTheme.colors.border.medium}}/>
+    <div style={{backgroundColor: 'var(--colors-background-default)', width: '100%', height: '310px', border: 'solid 1px', borderColor: 'var(--colors-border-medium)'}}/>
   </div>
 );
 
@@ -241,8 +238,6 @@ In certain situations, it makes sense to display a list items of the same type i
 ## Content Layout
 
 ```jsx
-const React = require('react');
-
 const NavBar = () => (
   <Navigation>
     <Anchor to="/">
@@ -364,7 +359,7 @@ Margin specifications:
   </div>
 </Spacing>
 ```
-Toolbar anchors —usually represented by an icon and uppercase text that’s not underlined- act as actions for a given set of functionality. They generally appear next to a heading, but sometimes may appear next to a submit button depending on the context. Since pages can be subdivided into layout panes, sections, or blocks of content, it can be unclear where in the hierarchy to place these actions.
+Toolbar anchors—usually represented by an icon and uppercase text that’s not underlined—act as actions for a given set of functionality. They generally appear next to a heading, but sometimes may appear next to a submit button depending on the context. Since pages can be subdivided into layout panes, sections, or blocks of content, it can be unclear where in the hierarchy to place these actions.
 
 As much as possible, actions should gravitate to the largest or highest content grouping that makes sense for those actions (“gravitate”, “solar system”… see what we did there). The order of sibling toolbar anchors also follows this idea of 'graviation'. The most utilized anchors should be closest to the heading / button which they are 'orbiting'. In the example above, the order of importance / most utilized is "View All" -> "Export" -> "Copy to Clipboard"
 
