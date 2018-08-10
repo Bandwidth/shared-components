@@ -58,11 +58,11 @@ const Space = () => (
 
       <h4 style={{marginBottom: '0', paddingBottom: '0'}}>Spacing Presets:</h4>
       <ul style={{marginTop: '0', paddingTop: '0'}}>
-        <li>xs: 5px</li>
-        <li>sm: 10px</li>
-        <li>md: 15px</li>
-        <li>lg: 30px</li>
-        <li>xl: 60px</li>
+        <li>xs: {irisTheme.spacing.extraSmall} </li>
+        <li>sm: {irisTheme.spacing.small} </li>
+        <li>md: {irisTheme.spacing.medium} </li>
+        <li>lg: {irisTheme.spacing.large} </li>
+        <li>xl: {irisTheme.spacing.extraLarge} </li>
       </ul>
     </P>
 
