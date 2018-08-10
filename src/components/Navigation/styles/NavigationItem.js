@@ -18,6 +18,7 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
   color: inherit;
   font-size: 1em;
   font-weight: 200;
+  pointer-events: ${({disabled}) => disabled ? 'none' : 'inherit'};
 
   &::before {
     content: '';
@@ -48,8 +49,8 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
     font-size: 0.8em;
   }
 
-  ${({ active }) =>
-    active ||
+  ${({ active, disabled }) =>
+    active || disabled ||
     css`
       &:focus,
       &:active {
@@ -80,11 +81,21 @@ NavigationItem.propTypes = {
    * Adds an id to the element.
    */
   id: PropTypes.string,
+  /**
+   * Determines if a navigation item is active or not
+   */
+  active: PropTypes.bool,
+  /**
+   * Determines if a navigation item is disabled or not
+   */
+  disabled: PropTypes.bool,
 };
 
 NavigationItem.defaultProps = {
   className: null,
   id: null,
+  active: false,
+  disabled: false,
 };
 
 export default NavigationItem;
