@@ -1,9 +1,8 @@
-# bandwidth-shared-components
-Shared Component Library for Bandwidth React Apps
+# Bandwidth UI Shared Tools
 
-## [Documentation](http://dev.bandwidth.com/shared-components)
+Contains multiple NPM packages we use at Bandwidth to build powerful, consistent, and engaging user experiences.
 
-# How to use this library
+Code is located under `/packages`. The `shared-components` package is published to NPM at `@bandwidth/shared-components`, and the `layouts` package is published to `@bandwidth/layouts`.
 
 Install the library as an NPM module. `npm i --save @bandwidth/shared-components styled-components`
 
