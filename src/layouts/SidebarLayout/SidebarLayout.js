@@ -9,17 +9,21 @@ const SidebarLayout = styled.div.withConfig({ displayName: 'SidebarLayout' })`
   margin: 0;
   padding: 0;
 
-  & > *:first-child {
+  & > *:${props => (props.right ? 'last-child' : 'first-child')} {
     flex: 3;
   }
 
-  & > *:last-child {
+  & > *:${props => (props.right ? 'first-child' : 'last-child')} {
     flex: 6;
     background: ${get('colors.gray.light')};
-    border-left-width: ${get('thicknesses.normal')};
-    border-left-style: solid;
-    border-left-color: ${get('colors.border.light')};
-    margin-left: -1px;
+    border-${props => (props.right ? 'right' : 'left')}-width: ${get(
+  'thicknesses.normal',
+)};
+    border-${props => (props.right ? 'right' : 'left')}-style: solid;
+    border-${props => (props.right ? 'right' : 'left')}-color: ${get(
+  'colors.border.light',
+)};
+    margin-${props => (props.right ? 'right' : 'left')}: -1px;
   }
 `;
 
@@ -32,11 +36,16 @@ SidebarLayout.propTypes = {
    * Adds a class name to the element.
    */
   className: PropTypes.string,
+  /**
+   * Sidebar is put on the right side instead of left.
+   */
+  right: PropTypes.bool,
 };
 
 SidebarLayout.defaultProps = {
   id: null,
   className: null,
+  right: false,
 };
 
 /**

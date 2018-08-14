@@ -45,6 +45,10 @@ module.exports = {
           name: 'Typography',
           content: 'docs/design/typography.md',
         },
+        {
+          name: 'Layout',
+          content: 'docs/design/layout.md',
+        },
       ],
     },
     {
