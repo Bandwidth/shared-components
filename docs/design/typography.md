@@ -53,17 +53,6 @@ const Space = () => (
   <div>
     <P>
       Text components, like <Code>P</Code>, <Code>H1</Code>, and <Code>H2</Code>, support the <Code>spacing</Code> prop. <Code>spacing</Code> provides a dynamic way to specify the margins around a text component in relationship to the cap and base lines of the outer text. Unlike normal CSS margins, which align to the logical top and bottom of the element, the margins calculated by <Code>spacing</Code> will visually align with the text content itself, leading to a more consistent experience for the user.
-
-      We provide presets to cover most scenarios in which spacing is needed.
-
-      <h4 style={{marginBottom: '0', paddingBottom: '0'}}>Spacing Presets:</h4>
-      <ul style={{marginTop: '0', paddingTop: '0'}}>
-        <li>xs: {irisTheme.spacing.extraSmall} </li>
-        <li>sm: {irisTheme.spacing.small} </li>
-        <li>md: {irisTheme.spacing.medium} </li>
-        <li>lg: {irisTheme.spacing.large} </li>
-        <li>xl: {irisTheme.spacing.extraLarge} </li>
-      </ul>
     </P>
 
     <Section>
@@ -80,15 +69,6 @@ const Space = () => (
 
     <Section>
       <P spacing="lg">A line with an <Anchor>inline link</Anchor></P>
-    </Section>
-
-    <Section>
-      <P spacing={{ left: 'lg', top: 'lg', bottom: 'xs' }}> P with bottom spacing: 'xs' </P>
-      <P spacing={{ left: 'lg', bottom: 'sm' }}> P with bottom spacing: 'sm' </P>
-      <P spacing={{ left: 'lg', bottom: 'md' }}> P with bottom spacing: 'md' </P>
-      <P spacing={{ left: 'lg', bottom: 'lg' }}> P with bottom spacing: 'lg' </P>
-      <P spacing={{ left: 'lg', bottom: 'xl' }}> P with bottom spacing: 'xl' </P>
-      <P spacing={{ left: 'lg', bottom: 'lg'}} > P with default bottom spacing: 'lg' </P>
     </Section>
   </div>
 );
