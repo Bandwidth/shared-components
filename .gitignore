@@ -2,5 +2,5 @@ node_modules/
 *.swp
 .idea/
 dist/
-shared-components.iml
+*.iml
 
