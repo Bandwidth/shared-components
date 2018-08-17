@@ -20,6 +20,8 @@ import { omit, pick } from 'lodash';
  * change.
  *
  * **NOTE: ** The range picker uses `onDatesChange` not `onDateChange`.
+ *
+ * @visibleName DatePicker.Range
  */
 class DateRangePicker extends React.PureComponent {
   static propTypes = {

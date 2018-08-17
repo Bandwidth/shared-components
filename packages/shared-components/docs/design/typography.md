@@ -1,6 +1,6 @@
 
 
-```js
+```js noeditor
 const irisTheme = require('theme/irisTheme');
 
 const text = [

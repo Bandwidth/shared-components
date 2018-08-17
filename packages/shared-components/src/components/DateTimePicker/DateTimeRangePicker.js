@@ -9,6 +9,7 @@ import { noop } from 'lodash';
 /**
  * **DateTimeRangePicker** combines the functionality of DatePicker.Range and TimePicker
  * into a single interface. It passes all of its props into DatePicker.Range.
+ * @visibleName DateTimePicker.Range
  */
 class DateTimeRangePicker extends React.PureComponent {
   static propTypes = {

@@ -58,11 +58,13 @@ module.exports = {
     },
     {
       name: 'Components',
-      sections: componentSections('./src/components'),
+      components: 'src/components/**/[A-Z]*.js',
+      // sections: componentSections('./src/components'),
     },
     {
       name: 'Layouts',
-      sections: componentSections('./src/layouts'),
+      components: 'src/layouts/**/[A-Z]*.js',
+      // sections: componentSections('./src/layouts'),
     },
     {
       name: 'Behaviors',
