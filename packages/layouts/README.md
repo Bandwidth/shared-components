@@ -2,6 +2,10 @@
 
 The Bandwidth React layout library
 
+## Developing
+
+You can run the docs locally with `npm run docs`. You can also run Storybook with `npm run storybook`.
+
 ## Documentation
 
-Clone or download the library and open `docs/index.html`. We'll make this public eventually.
+[Docs are here!](http://dev.bandwidth.com/shared-components/layouts/#/)

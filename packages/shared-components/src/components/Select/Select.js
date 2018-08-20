@@ -154,7 +154,7 @@ class Select extends React.PureComponent {
      */
     allowNone: PropTypes.bool,
     /**
-     * DEPRECATED: use placeholder
+     * The text to use when no option is selected. If this value is not provided, the text will default to placeholder
      */
     noneText: PropTypes.string,
     /**
@@ -227,7 +227,7 @@ class Select extends React.PureComponent {
       Wrapper,
     } = this.props;
     const combinedLoading = loading || isLoading;
-    const combinedPlaceholder = placeholder || noneText;
+    const combinedPlaceholder = (noneText !== undefined) ? noneText : placeholder;
 
     return (
       <Wrapper invalid={invalid}>
