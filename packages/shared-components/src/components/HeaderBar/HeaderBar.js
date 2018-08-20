@@ -1,8 +1,11 @@
 import styled from 'styled-components';
+import irisTheme from 'theme/irisTheme';
 
 const HeaderBar = styled.div.withConfig({ displayName: 'HeaderBar' })`
   height: 50px;
-  border-bottom: 1px solid #c2c2c2;
+  display: flex;
+  align-items: center;
+  border-bottom: ${irisTheme.thicknesses.normal} solid ${irisTheme.colors.gray.border};
 `;
 
 /**

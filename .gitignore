@@ -3,4 +3,5 @@ node_modules/
 .idea/
 dist/
 *.iml
+packages/**/build/*
 

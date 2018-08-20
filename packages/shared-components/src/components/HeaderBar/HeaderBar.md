@@ -5,7 +5,7 @@ pre-defined sizes our designers like.
 <div style={{ padding: '30px' }}>
     <H1>The navigation menu is here</H1>
     <HeaderBar>
-      Header bar content with some link
+      <Label>Header bar content with some link</Label>
       <Anchor>You messaging URI</Anchor>
     </HeaderBar>
 </div>
