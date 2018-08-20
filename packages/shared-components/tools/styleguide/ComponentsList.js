@@ -88,7 +88,7 @@ export default class ComponentsListRenderer extends React.Component {
     );
 
   renderTopLevel = (section, topLevel = false) => {
-    const { name, content, sections = [], components = [] } = section;
+    const { name, visibleName, content, sections = [], components = [] } = section;
     let listItems = [];
     if (sections.length > 0) listItems = sections;
     else if (components.length > 0) listItems = components;
@@ -106,7 +106,7 @@ export default class ComponentsListRenderer extends React.Component {
     }
     return (
       <React.Fragment>
-        <span>{name}</span>
+        <span>{visibleName || name}</span>
         {this.sectionChildrenActive(section) && (
           <List>{listItems.map(this.renderSection)}</List>
         )}

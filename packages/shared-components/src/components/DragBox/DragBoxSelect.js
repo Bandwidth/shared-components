@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
  *  provided as a convenience as it is a commonly used group of components. All properties available in both
  *  [Selectable](/#!/Selectable) and [DragBox](/#!/DragBox) are passed into the `renderContents`
  *  render prop for **DragBoxSelect**.
+ * @visibleName DragBox.Select
  */
 class DragBoxSelect extends React.Component {
   static propTypes = {

@@ -8,6 +8,7 @@ import SidebarListItemDetails from './styles/SidebarListItemDetails';
 
 /**
  * An element of a [SidebarList](/#!/SidebarList).
+ * @visibleName SidebarList.Item
  */
 class SidebarListItem extends React.PureComponent {
   static propTypes = {

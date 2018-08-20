@@ -1,7 +1,7 @@
 Our colors are available as part of themes. Use [BandwidthProvider](/#!/BandwidthProvider) to provide themes in your app,
 then use CSS variables to reference the colors (e.g.,  `var(--colors-primary-light)`).
 
-```javascript
+```javascript noeditor
 const hexToHSL = require('hex-to-hsl');
 const irisTheme = require('theme/irisTheme');
 const {cssvarKey} = require('theme/cssvars');

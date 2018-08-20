@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AccordionGroupContainer from './styles/AccordionGroupContainer';
 
+/**
+ * @visibleName Accordion.Group
+ */
 export default class AccordionGroup extends React.Component {
   static propTypes = {
     /**
