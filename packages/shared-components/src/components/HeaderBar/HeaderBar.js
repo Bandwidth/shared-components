@@ -6,6 +6,8 @@ const HeaderBar = styled.div.withConfig({ displayName: 'HeaderBar' })`
   display: flex;
   align-items: center;
   border-bottom: ${irisTheme.thicknesses.normal} solid ${irisTheme.colors.gray.border};
+  padding-right: ${irisTheme.spacing.medium}; 
+  padding-left: ${irisTheme.spacing.medium};
 `;
 
 /**
