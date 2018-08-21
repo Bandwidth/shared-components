@@ -116,6 +116,7 @@ export { default as H2 } from './components/H/H2';
 export { default as H3 } from './components/H/H3';
 export { default as H4 } from './components/H/H4';
 export { default as H5 } from './components/H/H5';
+export { default as HeaderBar } from './components/HeaderBar';
 export { default as HelpText } from './components/HelpText';
 export { default as Icon } from './components/Icon';
 export { default as icons } from './components/Icon/icons';
