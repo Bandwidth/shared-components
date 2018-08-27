@@ -14,6 +14,7 @@ export default styled.div`
   .expand-enter-active &,
   .expand-enter-done & {
     background: ${themeGet('colors.background.default')};
+    overflow-y: auto;
     overflow-y: overlay;
     z-index: 0;
     pointer-events: initial;
