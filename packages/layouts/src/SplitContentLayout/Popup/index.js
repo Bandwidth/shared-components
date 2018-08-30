@@ -1,55 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Consumer } from '../Context';
-import { CSSTransition } from 'react-transition-group';
 import { Container, CloseButton } from './components';
-import { TRANSITION_MS } from './constants';
 
 export default class Modal extends React.Component {
   static propTypes = {
+    /**
+     * The contents of the popup. These contents will be padded.
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * Use this handler to detect when the popup has been closed by the user using the
+     * built-in close button
+     */
     onClose: PropTypes.func.isRequired,
-  };
-
-  state = {
-    expanded: true,
-  };
-
-  handleClose = () => {
-    this.setState({
-      expanded: false,
-    });
-
-    setTimeout(this.props.onClose, TRANSITION_MS);
-  };
-
-  renderChildren = () => {
-    const { children } = this.props;
-
-    if (typeof children === 'function') {
-      return children({
-        expanded: this.state.expanded,
-        close: this.handleClose,
-      });
-    }
-
-    return children;
+    /**
+     * Supplies the expanded state to the popup. If false, the popup will not
+     * be visible.
+     */
+    expanded: PropTypes.bool.isRequired,
   };
 
   render() {
-    const {
-      state: { expanded },
-      handleClose,
-    } = this;
+    const { expanded, onClose, children } = this.props;
 
     return (
       <Consumer>
         {layoutState =>
           layoutState.renderElement(
-            'modal',
+            'popup',
             <Container expanded={expanded}>
-              <CloseButton onClick={handleClose} />
-              {this.renderChildren()}
+              <CloseButton onClick={onClose} />
+              {children}
             </Container>,
           )
         }

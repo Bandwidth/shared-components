@@ -139,7 +139,7 @@ export class Provider extends React.PureComponent {
     if (
       name === 'secondaryContent' ||
       name === 'actionBar' ||
-      name === 'modal'
+      name === 'popup'
     ) {
       return this.state.layerElement
         ? createPortal(jsx, this.state.layerElement, name)

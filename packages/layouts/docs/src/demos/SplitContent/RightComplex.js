@@ -62,11 +62,12 @@ export default class RightComplexDemo extends React.Component {
               </SplitContentLayout.ActionBar>
             </Form>
           </SplitContentLayout.MainContent.Box>
-          {showPopup && (
-            <SplitContentLayout.Popup onClose={this.hidePopup}>
-              <Form />
-            </SplitContentLayout.Popup>
-          )}
+          <SplitContentLayout.Popup
+            onClose={this.hidePopup}
+            expanded={showPopup}
+          >
+            <Form />
+          </SplitContentLayout.Popup>
         </SplitContentLayout.MainContent>
       </SplitContentLayout>
     );
