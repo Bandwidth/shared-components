@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { Consumer } from '../Context';
 import { CSSTransition } from 'react-transition-group';
 import { Container, CloseButton } from './components';
-
-const TRANSITION_DURATION = 200;
+import { TRANSITION_MS } from './constants';
 
 export default class Modal extends React.Component {
   static propTypes = {
@@ -21,7 +20,7 @@ export default class Modal extends React.Component {
       expanded: false,
     });
 
-    setTimeout(this.props.onClose, TRANSITION_DURATION);
+    setTimeout(this.props.onClose, TRANSITION_MS);
   };
 
   renderChildren = () => {

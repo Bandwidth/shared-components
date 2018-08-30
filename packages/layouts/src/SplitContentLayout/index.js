@@ -4,7 +4,7 @@ import { Provider } from './Context';
 import MainContent from './MainContent';
 import SecondaryContent from './SecondaryContent';
 import ActionBar from './ActionBar';
-import Modal from './Modal';
+import Popup from './Popup';
 import FixedLayer from './FixedLayer';
 import throttle from 'lodash.throttle';
 
@@ -33,4 +33,4 @@ export default class SplitContentLayout extends React.PureComponent {
 SplitContentLayout.MainContent = MainContent;
 SplitContentLayout.SecondaryContent = SecondaryContent;
 SplitContentLayout.ActionBar = ActionBar;
-SplitContentLayout.Modal = Modal;
+SplitContentLayout.Popup = Popup;

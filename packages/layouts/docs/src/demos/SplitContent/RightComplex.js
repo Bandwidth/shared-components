@@ -5,14 +5,14 @@ import { H2, Button, Anchor } from '@bandwidth/shared-components';
 
 export default class RightComplexDemo extends React.Component {
   state = {
-    showModal: false,
+    showPopup: false,
   };
 
-  showModal = () => this.setState({ showModal: true });
-  hideModal = () => this.setState({ showModal: false });
+  showPopup = () => this.setState({ showPopup: true });
+  hidePopup = () => this.setState({ showPopup: false });
 
   render() {
-    const { showModal } = this.state;
+    const { showPopup } = this.state;
 
     return (
       <SplitContentLayout gutter>
@@ -55,17 +55,17 @@ export default class RightComplexDemo extends React.Component {
                 {({ toggleExpanded }) => (
                   <React.Fragment>
                     <Anchor onClick={toggleExpanded}>Toggle expanded</Anchor>
-                    <Anchor onClick={this.showModal}>Show modal</Anchor>
+                    <Anchor onClick={this.showPopup}>Show popup</Anchor>
                     <Button>Submit</Button>
                   </React.Fragment>
                 )}
               </SplitContentLayout.ActionBar>
             </Form>
           </SplitContentLayout.MainContent.Box>
-          {showModal && (
-            <SplitContentLayout.Modal onClose={this.hideModal}>
+          {showPopup && (
+            <SplitContentLayout.Popup onClose={this.hidePopup}>
               <Form />
-            </SplitContentLayout.Modal>
+            </SplitContentLayout.Popup>
           )}
         </SplitContentLayout.MainContent>
       </SplitContentLayout>
