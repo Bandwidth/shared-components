@@ -84,9 +84,9 @@ class SidebarList extends React.PureComponent {
   };
 
   render() {
-    const { className, id, Container, children } = this.props;
+    const { Container, children, ...rest } = this.props;
     return (
-      <Container className={className} id={id}>
+      <Container {...rest}>
         {this.renderPrevious()}
         {children}
         {this.renderNext()}

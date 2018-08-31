@@ -251,15 +251,8 @@ class Anchor extends React.Component {
       to,
       exact,
       children,
-      className,
-      id,
-      icon,
-      newTab,
-      appearFocused,
-      onMouseEnter,
-      onMouseLeave,
-      disabled,
       active,
+      ...rest
     } = this.props;
 
     const Component = this.getComponentType();
@@ -272,15 +265,8 @@ class Anchor extends React.Component {
           <Component
             {...this.extraProps()}
             onClick={this.handleClick}
-            className={className}
-            id={id}
-            icon={icon}
-            newTab={newTab}
-            appearFocused={appearFocused}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-            disabled={disabled}
             spacing={userSpacing.text(this.props)}
+            {...rest}
           >
             {this.childrenWithProps({
               active:

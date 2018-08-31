@@ -77,21 +77,13 @@ class SubmitButton extends React.Component {
       pristine,
       loading,
       disabled,
-      leftIcon,
-      rightIcon,
-      id,
-      className,
-      onClick,
+      ...rest
     } = this.props;
     return (
       <Button
         disabled={pristine || loading || disabled}
-        leftIcon={leftIcon}
-        rightIcon={rightIcon}
         type="submit"
-        id={id}
-        className={className}
-        onClick={onClick}
+        {...rest}
       >
         {this.renderContents()}
       </Button>
