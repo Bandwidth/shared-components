@@ -148,6 +148,7 @@ class DragGroup extends React.Component {
         (withSeparators, child, idx) => [
           ...withSeparators,
           <Separator
+            className="dragGroupSeparator"
             onClick={() => onSplit(idx)}
             key={`separator${child.key || idx}`}
           >
@@ -176,10 +177,11 @@ class DragGroup extends React.Component {
       itemType,
       groupId,
       canDrop,
+      ...rest
     } = this.props;
 
     return (
-      <Container>
+      <Container {...rest}>
         <ExpandToggle
           startExpanded
           toggleContent={this.renderTitle}

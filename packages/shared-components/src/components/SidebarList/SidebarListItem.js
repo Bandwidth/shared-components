@@ -66,17 +66,15 @@ class SidebarListItem extends React.PureComponent {
     const {
       label,
       details,
-      active,
       isNew,
-      id,
-      className,
       Container,
       Label,
       Details,
+      ...rest
     } = this.props;
 
     return (
-      <Container active={active} className={className} id={id}>
+      <Container {...rest}>
         <Label>
           {isNew ? <NewBadge /> : null}
           {label}

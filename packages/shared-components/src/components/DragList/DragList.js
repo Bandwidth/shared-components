@@ -26,7 +26,8 @@ class DragList extends React.PureComponent {
   };
 
   render() {
-    return <StyledDiv>{this.props.children}</StyledDiv>;
+    const {children, ...rest} = this.props;
+    return <StyledDiv {...rest}>{children}</StyledDiv>;
   }
 }
 

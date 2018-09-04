@@ -151,16 +151,16 @@ export default class Alert extends React.PureComponent {
       Content,
       type,
       textOnly,
-      spacing,
       children,
       onClose,
+      ...rest,
     } = this.props;
     const { closing } = this.state;
 
     const CloseButton = this.getCloseButtonType();
 
     return (
-      <Border type={type} spacing={spacing} closing={closing}>
+      <Border type={type} closing={closing} {...rest}>
         <UnmountClosed
           isOpened={!closing}
           forceInitialAnimation

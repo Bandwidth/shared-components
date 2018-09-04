@@ -57,10 +57,11 @@ class DragContainer extends React.PureComponent {
       Container,
       ChildContainer,
       IconGroup,
+      ...rest
     } = this.props;
 
     return (
-      <Container isDragging={isDragging}>
+      <Container isDragging={isDragging} {...rest}>
         <ChildContainer isDragging={isDragging}>{children}</ChildContainer>
         <IconGroup isDragging={isDragging}>
           {controls}

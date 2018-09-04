@@ -72,34 +72,29 @@ class Radio extends React.PureComponent {
 
   render() {
     const {
-      className,
+      id,
       disabled,
-      value,
       checked,
-      name,
       required,
       description,
-      onChange,
       Container,
       Input,
       Label,
+      ...rest
     } = this.props;
-    const id = this.props.id || generateId('toggle');
+    const finalId = id || generateId('toggle');
     return (
       <Container>
         <Input
-          id={id}
-          className={className}
+          id={finalId}
           type="radio"
-          value={value}
-          name={name}
           disabled={!!disabled}
           checked={!!checked}
           required={!!required}
-          onChange={onChange}
+          {...rest}
         />
         <Label
-          htmlFor={id}
+          htmlFor={finalId}
           checked={!!checked}
           disabled={!!disabled}
           required={!!required}
