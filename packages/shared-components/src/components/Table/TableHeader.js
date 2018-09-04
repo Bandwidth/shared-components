@@ -86,6 +86,7 @@ class TableHeader extends React.Component {
     if (sortable) {
       return (
         <Anchor
+          className="toggleSort"
           type="text"
           onClick={this.createClickHandler(sortOrder === 0 ? 1 : -sortOrder)}
         >
@@ -103,23 +104,22 @@ class TableHeader extends React.Component {
       sortOrder,
       handleClick,
       onClick,
-      id,
-      className,
       Styles,
       SortArrows,
       Anchor,
       Icon,
+      ...rest
     } = this.props;
 
     return (
-      <Styles sortable={sortable} className={className} id={id}>
+      <Styles sortable={sortable} {...rest}>
         {this.renderColumnName()}
         {sortable && (
           <SortArrows sortOrder={sortOrder}>
-            <Anchor type="icon" onClick={this.createClickHandler(1)}>
+            <Anchor className="sortUp" type="icon" onClick={this.createClickHandler(1)}>
               <Icon name="up" />
             </Anchor>
-            <Anchor type="icon" onClick={this.createClickHandler(-1)}>
+            <Anchor className="sortDown" type="icon" onClick={this.createClickHandler(-1)}>
               <Icon name="down" />
             </Anchor>
           </SortArrows>

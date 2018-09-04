@@ -72,16 +72,15 @@ class Table extends React.Component {
       children,
       headers,
       loading,
-      className,
-      id,
       wrapBody,
       Wrap,
       Styles,
       Overlay,
+      ...rest
     } = this.props;
     return (
       <Wrap>
-        <Styles cellPadding={0} cellSpacing={0} className={className} id={id}>
+        <Styles cellPadding={0} cellSpacing={0} {...rest}>
           <thead>{headers}</thead>
           {wrapBody ? <TableBody>{children}</TableBody> : children}
         </Styles>

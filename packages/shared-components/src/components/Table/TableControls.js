@@ -93,13 +93,12 @@ class TableControls extends React.Component {
       children,
       onDelete,
       onAdd,
-      id,
-      className,
       onSearch,
       Container,
       ControlsRow,
       ControlsIcons,
       Anchor,
+      ...rest
     } = this.props;
 
     if (!title && !enableAdd && !enableDelete && !enableSearch && !children) {
@@ -108,7 +107,7 @@ class TableControls extends React.Component {
 
     return (
       <Container>
-        <ControlsRow id={id} className={className}>
+        <ControlsRow {...rest}>
           <H1>{title}</H1>
           <ControlsIcons>
             {enableAdd ? <Anchor onClick={onAdd} icon="plusMath" /> : null}
