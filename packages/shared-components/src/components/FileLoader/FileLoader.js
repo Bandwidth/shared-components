@@ -59,7 +59,7 @@ export default class FileLoader extends React.Component {
       return (
         <DropArea>
           <Icon name="file" />
-          <Preview>Drop a file here, or click to browse.</Preview>
+          <Preview><span>DROP A FILE HERE, OR </span><span>CLICK TO BROWSE</span></Preview>
         </DropArea>
       );
     }
