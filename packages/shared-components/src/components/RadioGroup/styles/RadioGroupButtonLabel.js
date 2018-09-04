@@ -6,7 +6,7 @@ const RadioGroupButtonLabel = styled.label`
   border-width: ${get('thicknesses.thick')};
   border-style: solid;
   border-color: ${get('colors.primary.dark')};
-  padding: 1em;
+  padding: 1em 15px;
   cursor: pointer;
   position: relative;
   display: flex;
@@ -67,7 +67,7 @@ const RadioGroupButtonLabel = styled.label`
 
 RadioGroupButtonLabel.Small = styled(RadioGroupButtonLabel)`
   font-size: 0.8em;
-  padding: 5px 10px;
+  padding: 3px 10px;
   font-weight: normal;
   min-width: 30px;
 
