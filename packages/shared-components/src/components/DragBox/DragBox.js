@@ -113,7 +113,7 @@ class DragBox extends React.Component {
     onCollisionBegin: noop,
     onCollisionEnd: noop,
     renderContents: noop,
-    scrollSelector: 'body',
+    scrollSelector: null,
     disablePointerEventsWhileDragging: false,
     renderRect: ({ left, top, width, height }) => (
       <DragBoxRect
@@ -132,7 +132,7 @@ class DragBox extends React.Component {
   childElements = {};
 
   getScrollElement = () =>
-    window.document.querySelector(this.props.scrollSelector) || window.document;
+    (this.props.scrollSelector && window.document.querySelector(this.props.scrollSelector)) || window.document.documentElement;
 
   getScroll = () => pick(this.getScrollElement(), ['scrollLeft', 'scrollTop']);
 
@@ -150,9 +150,15 @@ class DragBox extends React.Component {
     window.document.removeEventListener('mouseup', this.onMouseUp);
   };
 
-  // Add scroll delta to our mouse position
-  getMousePosition = (ev, customScroll = null) =>
-    this.addScroll({ x: ev.pageX, y: ev.pageY }, customScroll);
+  // Add scroll delta to our mouse position if the scroll context element
+  // is not already the window.
+  getMousePosition = (ev, customScroll = null) => {
+    if (this.getScrollElement() === window.document.documentElement) {
+      return ({ x: ev.pageX, y: ev.pageY });
+
+    }
+    return this.addScroll({ x: ev.pageX, y: ev.pageY }, customScroll);
+  };
 
   // We can't get the new mouse position on scroll, so we determine the scroll delta
   // and recalculate the mouse position from that. Use throttledScroll instead of using this function directly.
@@ -168,9 +174,9 @@ class DragBox extends React.Component {
     // If the mouse is being held down as we scroll, we need to adjust the rectangle
     const end = lastEnd
       ? {
-          x: lastEnd.x + (scrollLeft - lastScrollLeft),
-          y: lastEnd.y + (scrollTop - lastScrollTop),
-        }
+        x: lastEnd.x + (scrollLeft - lastScrollLeft),
+        y: lastEnd.y + (scrollTop - lastScrollTop),
+      }
       : null;
     this.setState({ end, scrollLeft, scrollTop });
     this.checkChildrenBoxCollisions();
