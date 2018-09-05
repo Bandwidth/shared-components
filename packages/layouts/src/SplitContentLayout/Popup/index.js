@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Consumer } from '../Context';
 import { Container, CloseButton } from './components';
 
-export default class Modal extends React.Component {
+export default class Popup extends React.Component {
   static propTypes = {
     /**
      * The contents of the popup. These contents will be padded.
