@@ -260,7 +260,9 @@ class DragBox extends React.Component {
     } = this;
     const collisionBox = this.calcRect();
     // Divide all clickable refs into two arrays based on whether they are colliding or not.
-    const itemElements = document.querySelectorAll('[data-drag-box-key]');
+    const itemElements = this.dragElement.querySelectorAll(
+      '[data-drag-box-key]',
+    );
     const [collidingNodes, notCollidingNodes] = partition(
       itemElements,
       node => {
@@ -406,7 +408,7 @@ class DragBox extends React.Component {
     const rect = calcRect();
     return (
       <DragBoxDiv
-        ref={refDragElement}
+        innerRef={refDragElement}
         onMouseDown={onMouseDown}
         disablePointerEvents={
           disablePointerEventsWhileDragging && this.shouldDrawRect(rect)
