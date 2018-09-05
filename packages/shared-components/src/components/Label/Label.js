@@ -27,7 +27,7 @@ const Label = styled.label.withConfig({ displayName: 'Label' }).attrs({
       ? css`
           &::after {
             content: '*';
-            color: ${get('colors.negative.default')}
+            color: ${get('colors.negative.default')};
             padding-left: 0.3em;
           }
         `
