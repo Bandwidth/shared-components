@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Bar, BottomContent, ExpandingContainer } from './components';
+import {
+  Bar,
+  BottomContent,
+  ExpandingContainer,
+  ControlArea,
+} from './components';
 import { ACTION_BAR_HEIGHT } from '../constants';
 import { Consumer } from '../Context';
 import { ScrollShadow } from '@bandwidth/shared-components';
@@ -103,7 +108,7 @@ export default class ActionBar extends React.Component {
                   expanded={expanded}
                   className="action-bar-bottom-content"
                 >
-                  {this.renderChildren()}
+                  <ControlArea>{this.renderChildren()}</ControlArea>
                 </BottomContent>
                 <ScrollShadow.ConnectedShadow outer disabled={expanded} />
               </Bar>

@@ -21,16 +21,4 @@ export default styled.div`
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     justify-content: flex-start;
   }
-
-  & > * {
-    pointer-events: initial;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: ${themeGet('spacing.medium')};
-    margin-left: 0;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
 `;
