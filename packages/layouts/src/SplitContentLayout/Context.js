@@ -136,7 +136,11 @@ export class Provider extends React.PureComponent {
    * to regular old rendering.
    */
   renderElement = (name, jsx) => {
-    if (name === 'secondaryContent' || name === 'actionBar') {
+    if (
+      name === 'secondaryContent' ||
+      name === 'actionBar' ||
+      name === 'popup'
+    ) {
       return this.state.layerElement
         ? createPortal(jsx, this.state.layerElement, name)
         : null;

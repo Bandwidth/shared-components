@@ -69,7 +69,7 @@ const examples = [
   </SplitContentLayout.MainContent>
 </SplitContentLayout>
 `,
-  `// let's add some expanding content to that action bar
+  `// let's add some expanding content to that action bar, and a popup!
 <SplitContentLayout gutter>
   <SplitContentLayout.SecondaryContent overlapBorder>
     <H2>Sidebar Title</H2>
@@ -97,6 +97,13 @@ const examples = [
         )}
       </SplitContentLayout.ActionBar>
     </SplitContentLayout.MainContent.Box>
+    {/* you control the popup visibility state */}
+    <SplitContentLayout.Popup
+      expanded={this.state.popupExpanded}
+      onClose={this.closePopup}
+    >
+      <ContentStuff />
+    </SplitContent.Popup>
   </SplitContentLayout.MainContent>
 </SplitContentLayout>
 `,
@@ -209,6 +216,31 @@ export default () => (
             receive an object which contains a <Code>toggleExpanded</Code> key.
             Assign this to a button click handler to quickly and easily create a
             expanding toggle.
+          </List.Item>
+        </List>
+        <H3 spacing={{ vertical: 'lg' }}>SplitContentLayout.Popup</H3>
+        <P>
+          A pop-up modal screen which can be used for deep exploration into
+          data. You toggle whether it is visible or not.
+        </P>
+        <P>
+          Popup is a layout section, so there should only be one on the page at
+          a time. If you want to render different types of content at different
+          times in the popup, you should use conditional rendering within the
+          children.
+        </P>
+        <List>
+          <List.Item>
+            <Code>expanded</Code>: provide a boolean to determine whether the
+            popup is visible on the screen.
+          </List.Item>
+          <List.Item>
+            <Code>onClose</Code>: a function that is called when the internal
+            close button is clicked on the popup. Please use this callback to
+            set the expanded state.
+          </List.Item>
+          <List.Item>
+            <Code>children</Code>: content you'd like to render in the popup.
           </List.Item>
         </List>
       </Accordion>
