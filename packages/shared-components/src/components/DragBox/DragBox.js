@@ -113,7 +113,7 @@ class DragBox extends React.Component {
     onCollisionBegin: noop,
     onCollisionEnd: noop,
     renderContents: noop,
-    scrollSelector: 'body',
+    scrollSelector: null,
     disablePointerEventsWhileDragging: false,
     renderRect: ({ left, top, width, height }) => (
       <DragBoxRect
@@ -129,10 +129,10 @@ class DragBox extends React.Component {
 
   static Item = DragBoxItem;
 
-  childElements = {};
-
   getScrollElement = () =>
-    window.document.querySelector(this.props.scrollSelector) || window.document;
+    (this.props.scrollSelector &&
+      window.document.querySelector(this.props.scrollSelector)) ||
+    window.document.documentElement;
 
   getScroll = () => pick(this.getScrollElement(), ['scrollLeft', 'scrollTop']);
 
@@ -150,9 +150,14 @@ class DragBox extends React.Component {
     window.document.removeEventListener('mouseup', this.onMouseUp);
   };
 
-  // Add scroll delta to our mouse position
-  getMousePosition = (ev, customScroll = null) =>
-    this.addScroll({ x: ev.pageX, y: ev.pageY }, customScroll);
+  // Add scroll delta to our mouse position if the scroll context element
+  // is not already the window.
+  getMousePosition = (ev, customScroll = null) => {
+    if (this.getScrollElement() === window.document.documentElement) {
+      return { x: ev.pageX, y: ev.pageY };
+    }
+    return this.addScroll({ x: ev.pageX, y: ev.pageY }, customScroll);
+  };
 
   // We can't get the new mouse position on scroll, so we determine the scroll delta
   // and recalculate the mouse position from that. Use throttledScroll instead of using this function directly.
@@ -255,10 +260,12 @@ class DragBox extends React.Component {
     } = this;
     const collisionBox = this.calcRect();
     // Divide all clickable refs into two arrays based on whether they are colliding or not.
-    const [colliding, notColliding] = partition(
-      Object.keys(this.childElements),
-      key => {
-        const node = ReactDOM.findDOMNode(this.childElements[key]);
+    const itemElements = this.dragElement.querySelectorAll(
+      '[data-drag-box-key]',
+    );
+    const [collidingNodes, notCollidingNodes] = partition(
+      itemElements,
+      node => {
         const childRect = node.getBoundingClientRect();
         // We are looking for intersections of the edges of the rectangle.
         return (
@@ -266,6 +273,13 @@ class DragBox extends React.Component {
           !this.checkBoxContains(childRect, collisionBox)
         );
       },
+    );
+
+    const colliding = collidingNodes.map(node =>
+      node.getAttribute('data-drag-box-key'),
+    );
+    const notColliding = notCollidingNodes.map(node =>
+      node.getAttribute('data-drag-box-key'),
     );
 
     // Pull out elements that haven't changed their collision state.
@@ -290,22 +304,24 @@ class DragBox extends React.Component {
   };
 
   // Checks if b1 collides with b2
+  // prettier-ignore
   checkBoxCollision = (b1, b2) =>
-    b1.x < b2.x + b2.width &&
-    b1.x + b1.width > b2.x &&
-    b1.y < b2.y + b2.height &&
-    b1.height + b1.y > b2.y;
+    (b1.x < b2.x + b2.width) &&
+    (b1.x + b1.width > b2.x) &&
+    (b1.y < b2.y + b2.height) &&
+    (b1.height + b1.y > b2.y);
 
   // Checks if b1 contains b2
+  // prettier-ignore
   checkBoxContains = (b1, b2) =>
-    b1.x <= b2.x &&
-    b2.x <= b1.x + b1.width &&
-    b1.x <= b2.x + b2.width &&
-    b2.x + b2.width <= b1.x + b1.width &&
-    b1.y <= b2.y &&
-    b2.y <= b1.y + b1.height &&
-    b1.y <= b2.y + b2.height &&
-    b2.y + b2.height <= b1.y + b1.height;
+    (b1.x <= b2.x) &&
+    (b2.x <= b1.x + b1.width) &&
+    (b1.x <= b2.x + b2.width) &&
+    (b2.x + b2.width <= b1.x + b1.width) &&
+    (b1.y <= b2.y) &&
+    (b2.y <= b1.y + b1.height) &&
+    (b1.y <= b2.y + b2.height) &&
+    (b2.y + b2.height <= b1.y + b1.height);
 
   shouldDrawRect = rect => {
     const {
@@ -333,8 +349,22 @@ class DragBox extends React.Component {
 
   // Keep track of collidable child refs; ref functions are called with null when they are unmounted.
   getRef = key => el => {
-    if (el === null) delete this.childElements[key];
-    else this.childElements[key] = el;
+    if (el !== null) {
+      el.setAttribute('data-drag-box-key', key);
+    }
+  };
+
+  itemRef = el => {
+    if (el === null) {
+      return;
+    }
+
+    const key = el.getAttribute('data-drag-box-key');
+    if (!key) {
+      throw new Error(
+        "You used the `ref` mode for DragBox, but did not provide a `data-drag-box-key` attribute to the referenced element. This is not allowed. If you can't provide a custom data prop to the element, please use the `getRef(key)` mode",
+      );
+    }
   };
 
   renderContents = () => {
@@ -349,6 +379,7 @@ class DragBox extends React.Component {
       },
       state: { collisions },
       getRef,
+      itemRef,
     } = this;
     return renderContents({
       onMouseDown,
@@ -358,6 +389,7 @@ class DragBox extends React.Component {
       onCollisionEnd,
       collisions,
       getRef,
+      ref: itemRef,
     });
   };
 
@@ -370,12 +402,13 @@ class DragBox extends React.Component {
       renderRect,
       renderContents,
       calcRect,
-      props: { disablePointerEventsWhileDragging },
+      renderItem,
+      props: { disablePointerEventsWhileDragging, children },
     } = this;
     const rect = calcRect();
     return (
       <DragBoxDiv
-        ref={refDragElement}
+        innerRef={refDragElement}
         onMouseDown={onMouseDown}
         disablePointerEvents={
           disablePointerEventsWhileDragging && this.shouldDrawRect(rect)
