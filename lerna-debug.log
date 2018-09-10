@@ -1,0 +1,99 @@
+0 silly argv { _: [ 'publish' ],
+0 silly argv   progress: true,
+0 silly argv   sort: true,
+0 silly argv   ci: false,
+0 silly argv   loglevel: 'info',
+0 silly argv   lernaVersion: '3.0.0-rc.0',
+0 silly argv   '$0':
+0 silly argv    '..\\..\\..\\AppData\\Roaming\\npm\\node_modules\\lerna\\cli.js' }
+1 info version 3.0.0-rc.0
+2 verbose rootPath C:\Users\gforrest\Documents\Git\shared-components
+3 info current version 5.0.0
+4 silly isAnythingCommitted
+5 verbose isAnythingCommitted 1
+6 silly currentBranch
+7 verbose currentBranch master
+8 silly isBehindUpstream
+9 silly isBehindUpstream master is behind origin/master by 0 commit(s) and ahead by 0
+10 silly hasTags
+11 verbose hasTags true
+12 info Looking for changed packages since v5.0.1.
+13 silly diffSinceIn v5.0.1 packages/layouts
+14 silly diff packages/layouts/docs/bundle.js
+14 silly diff packages/layouts/docs/src/demos/SplitContent/Docs.js
+14 silly diff packages/layouts/docs/src/demos/SplitContent/RightComplex.js
+14 silly diff packages/layouts/package-lock.json
+14 silly diff packages/layouts/package.json
+14 silly diff packages/layouts/src/SplitContentLayout/ActionBar/components/BottomContent.js
+14 silly diff packages/layouts/src/SplitContentLayout/ActionBar/components/ControlArea.js
+14 silly diff packages/layouts/src/SplitContentLayout/ActionBar/components/ExpandingContainer.js
+14 silly diff packages/layouts/src/SplitContentLayout/ActionBar/components/index.js
+14 silly diff packages/layouts/src/SplitContentLayout/ActionBar/index.js
+14 silly diff packages/layouts/src/SplitContentLayout/Context.js
+14 silly diff packages/layouts/src/SplitContentLayout/Popup/components/CloseButton.js
+14 silly diff packages/layouts/src/SplitContentLayout/Popup/components/Container.js
+14 silly diff packages/layouts/src/SplitContentLayout/Popup/components/index.js
+14 silly diff packages/layouts/src/SplitContentLayout/Popup/constants.js
+14 silly diff packages/layouts/src/SplitContentLayout/Popup/index.js
+14 silly diff packages/layouts/src/SplitContentLayout/index.js
+15 silly diffSinceIn v5.0.1 packages/shared-components
+16 silly diff packages/shared-components/docs/index.html
+16 silly diff packages/shared-components/src/components/DragBox/DragBox.js
+16 silly diff packages/shared-components/src/components/FileLoader/FileLoader.js
+16 silly diff packages/shared-components/src/components/Label/Label.js
+16 silly diff packages/shared-components/src/components/RadioGroup/styles/RadioGroupButtonLabel.js
+16 silly diff packages/shared-components/src/components/RadioGroup/styles/RadioGroupButtonLabelText.js
+16 silly diff packages/shared-components/src/components/SearchBox/styles/SearchBoxSearchButton.js
+16 silly diff packages/shared-components/stories/DragBox.js
+16 silly diff packages/shared-components/stories/index.js
+17 verbose updated @bandwidth/layouts
+18 verbose updated @bandwidth/shared-components
+19 silly batched [ PackageGraphNode {
+19 silly batched     name: '@bandwidth/layouts',
+19 silly batched     externalDependencies:
+19 silly batched      Map {
+19 silly batched        'lodash.throttle' => [Object],
+19 silly batched        'react-transition-group' => [Object] },
+19 silly batched     localDependencies: Map {},
+19 silly batched     localDependents: Map {} },
+19 silly batched   PackageGraphNode {
+19 silly batched     name: '@bandwidth/shared-components',
+19 silly batched     externalDependencies:
+19 silly batched      Map {
+19 silly batched        'animation-timer' => [Object],
+19 silly batched        'change-case' => [Object],
+19 silly batched        'clean-tag' => [Object],
+19 silly batched        'create-react-class' => [Object],
+19 silly batched        'dedent' => [Object],
+19 silly batched        'flat' => [Object],
+19 silly batched        'functional-easing' => [Object],
+19 silly batched        'hex-to-hsl' => [Object],
+19 silly batched        'provinces' => [Object],
+19 silly batched        'react-addons-shallow-compare' => [Object],
+19 silly batched        'react-autosuggest' => [Object],
+19 silly batched        'react-collapse' => [Object],
+19 silly batched        'react-dates' => [Object],
+19 silly batched        'react-dnd' => [Object],
+19 silly batched        'react-dnd-html5-backend' => [Object],
+19 silly batched        'react-dropzone' => [Object],
+19 silly batched        'react-motion' => [Object],
+19 silly batched        'react-router-dom' => [Object],
+19 silly batched        'react-select' => [Object],
+19 silly batched        'react-syntax-highlighter' => [Object],
+19 silly batched        'recompose' => [Object],
+19 silly batched        'time-input' => [Object],
+19 silly batched        'warning' => [Object] },
+19 silly batched     localDependencies: Map {},
+19 silly batched     localDependents: Map {} } ]
+20 warn ENOLICENSE Packages @bandwidth/layouts are missing a license
+21 silly gitAdd [ 'C:\\Users\\gforrest\\Documents\\Git\\shared-components\\packages\\layouts\\package.json',
+21 silly gitAdd   'C:\\Users\\gforrest\\Documents\\Git\\shared-components\\packages\\shared-components\\package.json',
+21 silly gitAdd   'C:\\Users\\gforrest\\Documents\\Git\\shared-components\\lerna.json' ]
+22 silly gitCommit v5.0.1
+23 verbose commit [ 'commit', '--no-verify', '-m', 'v5.0.1' ]
+24 silly gitTag v5.0.1
+25 error Error: Command failed: git tag v5.0.1 -m v5.0.1
+25 error fatal: tag 'v5.0.1' already exists
+25 error
+25 error     at makeError (C:\Users\gforrest\Documents\Git\shared-components\node_modules\@lerna\child-process\node_modules\execa\index.js:172:9)
+25 error     at Promise.all.then.arr (C:\Users\gforrest\Documents\Git\shared-components\node_modules\@lerna\child-process\node_modules\execa\index.js:277:16)
