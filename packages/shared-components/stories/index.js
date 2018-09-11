@@ -18,3 +18,4 @@ import './Table';
 import './TimePicker';
 import './Toggle';
 import './ToggleButton';
+import './TimeScrubber';
