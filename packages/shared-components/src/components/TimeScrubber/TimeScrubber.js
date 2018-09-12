@@ -205,9 +205,9 @@ class TimeScrubber extends React.Component {
   incrementTime = () => this.stepTime(15);
   decrementTime = () => this.stepTime(-15);
   canIncrementTime = () =>
-    toHours(this.state.internalValue) < this.props.allowedRange[1];
+    toHours(this.state.internalValue) + 0.25 <= this.props.allowedRange[1];
   canDecrementTime = () =>
-    toHours(this.state.internalValue) > this.props.allowedRange[0];
+    toHours(this.state.internalValue) - 0.25 >= this.props.allowedRange[0];
 
   /**
    * Forces the timeline element's position to be synchronized with
