@@ -6,7 +6,7 @@ import Icon from '../../Icon';
 const NudgeButtonBorder = styled.button`
   padding: ${themeGet('spacing.medium')} ${themeGet('spacing.small')};
   border: ${themeGet('thicknesses.wide')} solid
-    ${themeGet('colors.border.medium')};
+    ${themeGet('colors.border.light')};
   background: ${themeGet('colors.background.default')};
   color: ${themeGet('colors.gray.default')};
   outline: none;

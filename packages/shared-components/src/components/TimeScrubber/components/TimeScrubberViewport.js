@@ -35,7 +35,7 @@ const Window = styled.div`
     ${props =>
       props.disabled
         ? themeGet('colors.border.disabled')(props)
-        : themeGet('colors.border.medium')(props)};
+        : themeGet('colors.border.light')(props)};
   border-left: 0;
   border-right: 0;
   height: 53px;
@@ -49,6 +49,7 @@ const Window = styled.div`
     outline: 0;
 
     box-shadow: inset 0 -5px 0 ${themeGet('colors.primary.light')};
+    border-color: ${themeGet('colors.border.medium')};
   }
 
   &:active {
