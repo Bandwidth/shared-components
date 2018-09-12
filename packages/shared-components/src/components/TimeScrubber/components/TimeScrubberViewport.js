@@ -50,6 +50,10 @@ const Window = styled.div`
 
     box-shadow: inset 0 -5px 0 ${themeGet('colors.primary.light')};
   }
+
+  &:active {
+    cursor: grabbing;
+  }
 `;
 
 const Centered = styled.div`

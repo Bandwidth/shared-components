@@ -95,6 +95,8 @@ class TimeScrubber extends React.Component {
   componentDidMount() {
     window.addEventListener('mousemove', this.handleDrag);
     window.addEventListener('mouseup', this.handleRelease);
+    window.addEventListener('touchmove', this.handleDrag);
+    window.addEventListener('touchend', this.handleRelease);
     this.enforceTimeRounding();
   }
 
@@ -111,6 +113,8 @@ class TimeScrubber extends React.Component {
   componentWillUnmount() {
     window.removeEventListener('mousemove', this.handleDrag);
     window.removeEventListener('mouseup', this.handleRelease);
+    window.removeEventListener('touchmove', this.handleDrag);
+    window.removeEventListener('touchend', this.handleRelease);
   }
 
   /**
@@ -219,12 +223,19 @@ class TimeScrubber extends React.Component {
     }
   };
 
+  getEventPosition = ev => {
+    if (ev.touches) {
+      return ev.touches.item(0).clientX;
+    }
+    return ev.clientX;
+  };
+
   /**
    * Called when the user first starts manipulating the timeline.
    */
   handleGrab = ev => {
     ev.preventDefault();
-    const grabPoint = ev.clientX;
+    const grabPoint = this.getEventPosition(ev);
     this.setState(({ offset }) => ({
       dragging: true,
       grabPoint,
@@ -242,7 +253,7 @@ class TimeScrubber extends React.Component {
       return;
     }
 
-    const dragPoint = ev.clientX;
+    const dragPoint = this.getEventPosition(ev);
     this.offset = dragPoint - this.state.grabPoint;
     this.syncTimelinePosition();
 
@@ -339,6 +350,7 @@ class TimeScrubber extends React.Component {
         />
         <Viewport
           onMouseDown={this.handleGrab}
+          onTouchStart={this.handleGrab}
           disabled={disabled}
           time={potentialTime || internalValue}
           innerRef={this.viewportRef}

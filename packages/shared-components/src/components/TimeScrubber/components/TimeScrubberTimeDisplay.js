@@ -9,6 +9,7 @@ const Display = styled(Label)`
   left: 0;
   right: 0;
   text-align: center;
+  pointer-events: none;
 `;
 
 /**
