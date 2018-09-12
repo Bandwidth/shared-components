@@ -228,6 +228,13 @@ export { default as InternalTimePicker } from './components/TimePicker/InternalT
 export { default as TimeContainer } from './components/TimePicker/styles/TimeContainer';
 export { default as TimeInputContainer } from './components/TimePicker/styles/TimeInputContainer';
 export { default as TimeRadioContainer } from './components/TimePicker/styles/TimeRadioContainer';
+export { default as TimeScrubber } from './components/TimeScrubber';
+export { default as components } from './components/TimeScrubber/components';
+export { default as TimeScrubberContainer } from './components/TimeScrubber/components/TimeScrubberContainer';
+export { default as TimeScrubberNudgeButton } from './components/TimeScrubber/components/TimeScrubberNudgeButton';
+export { default as TimeScrubberTimeDisplay } from './components/TimeScrubber/components/TimeScrubberTimeDisplay';
+export { default as TimeScrubberTimeline } from './components/TimeScrubber/components/TimeScrubberTimeline';
+export { default as TimeScrubberViewport } from './components/TimeScrubber/components/TimeScrubberViewport';
 export { default as Toast } from './components/Toast';
 export { default as Toggle } from './components/Toggle';
 export { default as ToggleContainer } from './components/Toggle/styles/ToggleContainer';

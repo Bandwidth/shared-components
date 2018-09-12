@@ -46,22 +46,30 @@ const getTickLabel = idx => {
 
 const rangeContains = (range, value) => value >= range[0] && value <= range[1];
 
-const Timeline = ({ tickSpacing, allowedRange, ...rest }) => (
-  <Bar tickSpacing={tickSpacing} {...rest}>
-    {new Array(97).fill(null).map((_, idx) => (
-      <Tick
-        key={idx}
-        primary={idx % 4 === 0}
-        label={getTickLabel(idx)}
-        enabled={idx !== 96 && rangeContains(allowedRange, idx / 4.0)}
-      />
-    ))}
-  </Bar>
-);
+/**
+ * Draws a timeline with times, tickmarks
+ */
+class Timeline extends React.PureComponent {
+  static defaultProps = {
+    tickSpacing: 11,
+    allowedRange: [0, 23.75],
+  };
 
-Timeline.defaultProps = {
-  tickSpacing: 11,
-  allowedRange: [0, 24],
-};
+  render() {
+    const { tickSpacing, allowedRange, ...rest } = this.props;
+    return (
+      <Bar tickSpacing={tickSpacing} {...rest}>
+        {new Array(97).fill(null).map((_, idx) => (
+          <Tick
+            key={idx}
+            primary={idx % 4 === 0}
+            label={getTickLabel(idx)}
+            enabled={idx !== 96 && rangeContains(allowedRange, idx / 4.0)}
+          />
+        ))}
+      </Bar>
+    );
+  }
+}
 
 export default Timeline;

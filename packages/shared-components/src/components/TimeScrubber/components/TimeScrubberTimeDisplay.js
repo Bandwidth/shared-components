@@ -11,6 +11,9 @@ const Display = styled(Label)`
   text-align: center;
 `;
 
+/**
+ * Displays the provided time within a TimeScrubber viewport
+ */
 const TimeDisplay = ({ time }) => (
   <Display>{time && time.format('h:mm A')}</Display>
 );

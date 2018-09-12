@@ -4,7 +4,9 @@ import TimeScrubber from 'components/TimeScrubber';
 import moment from 'moment';
 
 class ControlledTimeScrubber extends React.Component {
-  state = {};
+  state = {
+    value: moment(),
+  };
 
   handleChange = value => {
     this.setState({ value });

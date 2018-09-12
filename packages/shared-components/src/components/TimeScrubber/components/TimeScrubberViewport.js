@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import themeGet from 'extensions/themeGet';
-import Timeline from './Timeline';
-import TimeDisplay from './TimeDisplay';
+import TimeDisplay from './TimeScrubberTimeDisplay';
 
 const Indicator = styled.div`
   position: absolute;
@@ -11,7 +10,7 @@ const Indicator = styled.div`
   transform: translateX(-1px);
   background: ${themeGet('colors.text.default')};
   width: 3px;
-  height: 4px;
+  height: 5px;
   bottom: 0;
 `;
 
@@ -33,11 +32,17 @@ const Window = styled.div`
   cursor: ${props => (props.disabled ? 'default' : 'grab')};
   pointer-events: ${props => (props.disabled ? 'none' : 'initial')};
   border: ${themeGet('thicknesses.wide')} solid
-    ${themeGet('colors.border.medium')};
+    ${props =>
+      props.disabled
+        ? themeGet('colors.border.disabled')(props)
+        : themeGet('colors.border.medium')(props)};
   border-left: 0;
   border-right: 0;
   height: 53px;
-  background: ${themeGet('colors.background.default')};
+  background: ${props =>
+    props.disabled
+      ? themeGet('colors.background.disabled')(props)
+      : themeGet('colors.background.default')(props)};
   transition: all 0.2s ease;
 
   &:focus {
@@ -54,6 +59,11 @@ const Centered = styled.div`
   top: 0;
 `;
 
+/**
+ * A limited viewport area in which the Timeline bar moves. Automatically
+ * starts all content at the center of the visible viewport. Use relative
+ * offsets on content to move content within the viewport.
+ */
 const Viewport = ({ children, time, ...rest }) => (
   <Window {...rest} tabIndex={0}>
     <Centered>{children}</Centered>

@@ -24,4 +24,7 @@ const TimeScrubberContainer = styled.div`
   }
 `;
 
+/**
+ * A simple outer container that controls layout and border radius
+ */
 export default TimeScrubberContainer;
