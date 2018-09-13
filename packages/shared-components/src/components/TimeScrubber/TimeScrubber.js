@@ -347,6 +347,7 @@ class TimeScrubber extends React.Component {
           direction="left"
           onClick={this.decrementTime}
           disabled={disabled || !this.canDecrementTime()}
+          type="button"
         />
         <Viewport
           onMouseDown={this.handleGrab}
@@ -366,6 +367,7 @@ class TimeScrubber extends React.Component {
           direction="right"
           onClick={this.incrementTime}
           disabled={disabled || !this.canIncrementTime()}
+          type="button"
         />
       </Container>
     );
