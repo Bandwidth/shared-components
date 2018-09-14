@@ -3,6 +3,7 @@ import './Accordion';
 import './Alert';
 import './Anchor';
 import './Button';
+import './Callout';
 import './Checkbox';
 import './DatePicker';
 import './DateTimePicker';
