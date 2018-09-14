@@ -20,7 +20,8 @@ export default styled.div.attrs({
 })`
   &:before {
     display: inline-block;
-    font-size: ${(CIRCLE_SIZE * 2) / 3}px;
+    font-size: ${props =>
+      props.complete ? (CIRCLE_SIZE * 2) / 3 : (CIRCLE_SIZE * 2) / 5}px;
     content: "${props => props.number}";
     font-family: ${props => props.numberFont};
     width: ${CIRCLE_SIZE}px;
