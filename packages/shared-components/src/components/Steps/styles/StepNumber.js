@@ -18,6 +18,9 @@ export default styled.div.attrs({
       ? get('colors.positive.default')(props)
       : get('colors.border.light')(props),
 })`
+  width: ${CIRCLE_SIZE}px;
+  height: ${CIRCLE_SIZE}px;
+
   &:before {
     display: inline-block;
     font-size: ${props =>
