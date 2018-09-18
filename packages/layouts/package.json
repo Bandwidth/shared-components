@@ -1,6 +1,6 @@
 {
   "name": "@bandwidth/layouts",
-  "version": "5.0.2",
+  "version": "5.0.4",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -16,12 +16,12 @@
   "author": "Grant Forrest <gforrest@bandwidth.com>",
   "license": "ISC",
   "peerDependencies": {
-    "@bandwidth/shared-components": "5.0.1",
+    "@bandwidth/shared-components": "5.0.4",
     "react": "16.x.x",
     "styled-components": "^3.3.3"
   },
   "devDependencies": {
-    "@bandwidth/shared-components": "^5.0.2",
+    "@bandwidth/shared-components": "^5.0.4",
     "@storybook/addon-actions": "^3.4.8",
     "@storybook/addon-links": "^3.4.8",
     "@storybook/addons": "^3.4.8",
