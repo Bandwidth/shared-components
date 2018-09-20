@@ -20,7 +20,12 @@ const src = path.resolve(__dirname, '..', 'src');
 const appendExports = (dir, subDirs, files) => {
   const relativeToSrc = posix.relative(src, dir);
   const dirName = dir.split(posix.sep).pop();
-  if (files.includes('index.js') && dir !== src) {
+  if (
+    files.includes('index.js') &&
+    dir !== src &&
+    dirName !== 'components' &&
+    dirName !== 'styles'
+  ) {
     exportItems.push({ name: dirName, path: relativeToSrc });
   }
 
