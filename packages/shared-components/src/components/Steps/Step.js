@@ -48,10 +48,11 @@ export default class Step extends React.Component {
       Content,
       Container,
       Number,
+      ...rest
     } = this.props;
 
     return (
-      <Container>
+      <Container {...rest}>
         <Number complete={complete} number={number} />
         <Content>{children}</Content>
       </Container>
