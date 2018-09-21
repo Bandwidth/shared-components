@@ -4,4 +4,4 @@ node_modules/
 dist/
 *.iml
 packages/**/build/*
-
+lerna-debug.log
