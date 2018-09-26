@@ -1,24 +1,18 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Callout from 'components/Callout';
-import HelpCallout from 'components/HelpCallout';
+import Icon from 'components/Icon';
 
 storiesOf('Callout', module).add('types', () => (
   <React.Fragment>
-    <h2>Standard</h2>
-    <div style={{ width: '200px', border: '1px solid gray', padding: '12px' }}>
-      <Callout content="hi there">Hover me</Callout>
+    <div>
+      <Callout content="hi there" placement="bottom-start">Hover me</Callout>
     </div>
-    <h2>Help</h2>
-    <HelpCallout content="This is a helpful description">
-      Default placement
-    </HelpCallout>
-    <HelpCallout placement="bottom" content="This is a helpful description">
-      Bottom placement
-    </HelpCallout>
-    <div style={{ display: 'flex' }}>
+    <div>
       Only icon
-      <HelpCallout content="This is a helpful description" />
+      <Callout content="This is a helpful description" placement="bottom-start">
+        <Icon name="help" />
+      </Callout>
     </div>
   </React.Fragment>
 ));

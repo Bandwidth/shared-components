@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DefaultLabel from 'components/Label';
 import DefaultHelpText from 'components/HelpText';
+import Callout from 'components/Callout';
 import FieldContent from './styles/FieldContent';
+import HelpIcon from './styles/HelpIcon';
+import LabelContainer from './styles/LabelContainer';
 import { get } from 'lodash';
 
 /**
@@ -60,6 +63,31 @@ class Field extends React.Component {
      * A component prop to override the component used to wrap field content. Defaults to library FieldContent.
      */
     Content: PropTypes.func,
+    /**
+     * Content to render inside the callout.
+     */
+    helpCallout: PropTypes.node,
+    /**
+     * Additional props for callout
+     */
+    helpCalloutProps: PropTypes.shape({
+      /**
+       * Miliseconds to wait before showing the callout.
+       */
+      delay: PropTypes.number,
+      /**
+       * Where to place the element. Use a value from react-popper
+       */
+      placement: PropTypes.string,
+      /**
+       * Boundary for the callout; either a selector or a DOM element
+       */
+      boundary: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+      /**
+       * Maximum width of the callout
+       */
+      maxWidth: PropTypes.number,
+    }),
   };
 
   static defaultProps = {
@@ -72,6 +100,8 @@ class Field extends React.Component {
     label: null,
     required: false,
     disabled: false,
+    helpCallout: null,
+    helpCalloutProps: {},
   };
 
   stylesFor = gridName => {
@@ -88,7 +118,7 @@ class Field extends React.Component {
   };
 
   renderLabel = () => {
-    const { label, disabled, required, Label, children } = this.props;
+    const { label, disabled, required, Label, children, helpCallout, helpCalloutProps } = this.props;
 
     if (!label) {
       return null;
@@ -100,13 +130,24 @@ class Field extends React.Component {
       disabled,
       required,
       htmlFor: labelFor,
-      style: this.stylesFor('label'),
     };
 
-    if (typeof label === 'string') {
-      return <Label {...labelProps}>{label}</Label>;
-    }
-    return React.cloneElement(label, labelProps);
+    const HelpCallout = helpCallout && (
+      <Callout content={helpCallout} {...helpCalloutProps}>
+        <HelpIcon name="help" />
+      </Callout>
+    );
+
+    const LabelComponent = typeof label === 'string'
+      ? <Label {...labelProps}>{label}</Label>
+      : React.cloneElement(label, labelProps);
+
+    return (
+      <LabelContainer style={this.stylesFor('label')}>
+        { LabelComponent }
+        { HelpCallout }
+      </LabelContainer>
+    );
   };
 
   renderHelpText = () => {

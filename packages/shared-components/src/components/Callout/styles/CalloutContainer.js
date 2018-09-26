@@ -18,6 +18,12 @@ const HelpCalloutContainer = styled.div`
   &[data-placement*='bottom'] {
     margin-top: 6px;
   }
+  &[data-placement*='right'] {
+    margin-left: 6px;
+  }
+  &[data-placement*='left'] {
+    margin-right: 6px;
+  }
 `;
 
 export default HelpCalloutContainer;

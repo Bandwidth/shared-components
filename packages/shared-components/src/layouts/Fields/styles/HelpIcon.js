@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import themeGet from 'extensions/themeGet';
 import Icon from 'components/Icon';
 
 export default styled(Icon)`
-  color: ${themeGet('colors.primary.alternate')};
+  color: var(--colors-primary-alternate);
   margin: auto;
-  margin-left: ${themeGet('spacing.small')};
+  margin-left: var(--spacing-extra-small);
   font-weight: normal;
 `;
