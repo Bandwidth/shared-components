@@ -1,0 +1,95 @@
+kind: Template
+apiVersion: v1
+metadata:
+  name: scl-pipelines
+  annotations:
+    description: "SCL CI/CD Pipelines"
+labels:
+  app: scl
+  template: scl-pipelines
+parameters:
+  - name: BUILD_TYPE
+    description: "Build tool used to compile and test application codebase."
+    required: true
+    value: "node"
+
+  - name: ENVIRONMENT
+    description: "The name of the target environment."
+    required: true
+    value: "dev"
+
+  - name: GIT_SOURCE_URL
+    description: "URL to the target git project."
+    required: true
+    value: "https://github.com/Bandwidth/shared-components"
+
+  - name: JENKINS_GIT_SOURCE_REF
+    description: "Commit/tag/branch of the target git project."
+    required: true
+    value: "master"
+
+  - name: TARGET_NAMESPACE
+    description: "Name of the target Kubernetes namespace"
+    required: true
+    value: "scl"
+objects:
+  - kind: BuildConfig
+    apiVersion: v1
+    metadata:
+      name: continuous-integration
+      labels:
+        webhook-proxy-push: "master"
+    spec:
+      runPolicy: Parallel
+      source:
+        git:
+          uri: ${GIT_SOURCE_URL}
+          ref: ${GIT_SOURCE_REF} # literal string instead of placeholder for OpenShift template substitution
+        sourceSecret:
+          name: "github-access-token"
+      strategy:
+        jenkinsPipelineStrategy:
+          jenkinsfilePath: operations/jenkins/build-master.groovy
+          env:
+            - name: BUILD_TYPE
+              value: "${BUILD_TYPE}"
+            - name: ENVIRONMENT
+              value: "${ENVIRONMENT}"
+            - name: GIT_SOURCE_REF
+              value: "${JENKINS_GIT_SOURCE_REF}"
+            - name: PROMOTE_ON_SUCCESS
+              value: "false"
+            - name: TARGET_NAMESPACE
+              value: "${TARGET_NAMESPACE}"
+            - name: WORKFLOW
+              value: "ci"
+  - kind: BuildConfig
+    apiVersion: v1
+    metadata:
+      name: continuous-deployment
+      labels:
+        webhook-proxy-push: "prod"
+    spec:
+      runPolicy: Parallel
+      source:
+        git:
+          uri: ${GIT_SOURCE_URL}
+          ref: ${GIT_SOURCE_REF} # literal string instead of placeholder for OpenShift template substitution
+        sourceSecret:
+          name: "github-access-token"
+      strategy:
+        jenkinsPipelineStrategy:
+          jenkinsfilePath: operations/jenkins/build-prod.groovy
+          env:
+            - name: BUILD_TYPE
+              value: "${BUILD_TYPE}"
+            - name: ENVIRONMENT
+              value: "${ENVIRONMENT}"
+            - name: GIT_SOURCE_REF
+              value: "${JENKINS_GIT_SOURCE_REF}"
+            - name: PROMOTE_ON_SUCCESS
+              value: "false"
+            - name: TARGET_NAMESPACE
+              value: "${TARGET_NAMESPACE}"
+            - name: WORKFLOW
+              value: "ci"
