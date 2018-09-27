@@ -1,3 +1,5 @@
+gitSourceRef = "${params.GIT_SOURCE_REF}"
+
 def reportGithubStatus(context,status,description) {
   githubNotify credentialsId: 'scl-github-access-token',
     description: description,
@@ -13,7 +15,7 @@ node('master') {
     reportGithubStatus('jenkins/1unit','PENDING','Unit Tests in Progress')
     reportGithubStatus('jenkins/2build','PENDING','Bundle Build in Progress')
 }
- 
+
 node {
   withCredentials([
   ]) {

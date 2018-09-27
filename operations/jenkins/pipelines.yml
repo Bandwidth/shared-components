@@ -92,4 +92,32 @@ objects:
             - name: TARGET_NAMESPACE
               value: "${TARGET_NAMESPACE}"
             - name: WORKFLOW
-              value: "ci"
+              value: "deploy"
+  - kind: BuildConfig
+    apiVersion: v1
+    metadata:
+      name: pull-request
+      labels:
+        webhook-proxy-pull-request: "true"
+    spec:
+      runPolicy: Parallel
+      source:
+        git:
+          uri: ${GIT_SOURCE_URL}
+          ref: ${GIT_SOURCE_REF} # literal string instead of placeholder for OpenShift template substitution
+        sourceSecret:
+          name: "github-access-token"
+      strategy:
+        jenkinsPipelineStrategy:
+          jenkinsfilePath: operations/jenkins/build-pull.groovy
+          env:
+            - name: BUILD_TYPE
+              value: "${BUILD_TYPE}"
+            - name: ENVIRONMENT
+              value: "${ENVIRONMENT}"
+            - name: GIT_SOURCE_REF
+              value: "${JENKINS_GIT_SOURCE_REF}"
+            - name: TARGET_NAMESPACE
+              value: "${TARGET_NAMESPACE}"
+            - name: WORKFLOW
+              value: "pr"
