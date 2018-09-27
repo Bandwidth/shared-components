@@ -13,7 +13,6 @@ def reportGithubStatus(context,status,description) {
 node('master') {
     currentBuild.displayName = "SCL Pipeline » #${env.BUILD_NUMBER} - ${env.GIT_SOURCE_REF}"
     reportGithubStatus('jenkins/1unit','PENDING','Unit Tests in Progress')
-    reportGithubStatus('jenkins/2build','PENDING','Bundle Build in Progress')
 }
 
 node {
