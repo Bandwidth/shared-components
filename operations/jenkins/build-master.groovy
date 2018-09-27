@@ -51,13 +51,13 @@ node {
         }
         container('node') {
           stage('Install NPM dependencies') {
-            sh 'npm config set cache "/home/jenkins/.npm"'
-            sh 'cd ./packages/shared-components'
-            sh 'npm install'
+
           }
           stage('Run Unit Tests') {
             try {
-              sh 'npm test'
+              dir("./packages/shared-components") {
+                sh 'npm test'
+              }
               reportGithubStatus('jenkins/1unit','SUCCESS',"Unit Tests Successful")
             } catch (e) {
               reportGithubStatus('jenkins/1unit','FAILURE','Unit Tests Failed')
