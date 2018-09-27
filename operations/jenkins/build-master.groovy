@@ -19,7 +19,7 @@ node('master') {
 node {
   withCredentials([
   ]) {
-    def label = "apollo-${UUID.randomUUID().toString()}"
+    def label = "scl-${UUID.randomUUID().toString()}"
     podTemplate(label: label, cloud: 'openshift', containers: [
       containerTemplate(
         name: 'node',
@@ -36,7 +36,7 @@ node {
       )
     ],
     volumes: [
-      persistentVolumeClaim(mountPath: '/home/jenkins/.npm', claimName: 'npm-cache-scl', readOnly: false)
+      persistentVolumeClaim(mountPath: '/home/jenkins/.npm', claimName: 'npm-cache-apollo', readOnly: false)
     ]) {
       node(label) {
         stage("Git Clone") {
