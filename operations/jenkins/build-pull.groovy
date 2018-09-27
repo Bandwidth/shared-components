@@ -34,7 +34,7 @@ node {
           envVar(key: 'NPM_TOKEN', value: "test")
         ]
       )
-    ],
+    ], 
     volumes: [
       persistentVolumeClaim(mountPath: '/home/jenkins/.npm', claimName: 'npm-cache-apollo', readOnly: false)
     ]) {
