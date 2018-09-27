@@ -33,7 +33,7 @@ node {
         resourceRequestMemory: '1Gi',
         resourceLimitMemory: '3Gi',
         envVars: [
-          envVar(key: 'NPM_TOKEN', value: value: "$TOKEN")
+          envVar(key: 'NPM_TOKEN', value: "$TOKEN")
         ]
       )
     ],
