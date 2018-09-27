@@ -51,7 +51,10 @@ node {
         }
         container('node') {
           stage('Install NPM dependencies') {
-
+            dir("./packages/shared-components") {
+              sh 'npm config set cache "/home/jenkins/.npm"'
+              sh 'npm install'
+            }
           }
           stage('Run Unit Tests') {
             try {
