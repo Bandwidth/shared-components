@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { defaultProps } from 'recompose';
-import styled, { css } from 'styled-components';
 import Anchor from '../Anchor';
 import InputStyles from './styles/InputStyles';
 import InputRevealPasswordWrapper from './styles/InputRevealPasswordWrapper';
@@ -181,9 +180,8 @@ class Input extends React.PureComponent {
   };
 
   renderPasswordField = () => {
-    const { RevealPasswordWrapper } = this.props;
-    const toggleState = () =>
-      this.state._type === 'password' ? 'text' : 'password';
+    const toggleState = (type) =>
+      type === 'password' ? 'text' : 'password';
     const handleClick = evt => {
       evt.preventDefault();
       this.setState({
@@ -226,7 +224,6 @@ class Input extends React.PureComponent {
       error,
       placeholder,
       inputRef,
-      onBlur,
       Styles,
       inlineContent,
       readonly,
@@ -257,7 +254,6 @@ class Input extends React.PureComponent {
         readonly={readonly}
         placeholder={placeholder}
         innerRef={inputRef}
-        onBlur={onBlur}
         inlineContent={inlineContent}
         maxLength={maxLength}
         min={min}
