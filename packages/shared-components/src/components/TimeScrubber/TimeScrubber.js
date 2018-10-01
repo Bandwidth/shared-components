@@ -334,6 +334,7 @@ class TimeScrubber extends React.Component {
       NudgeButton,
       Viewport,
       Timeline,
+      ...rest,
     } = this.props;
 
     const maximum = this.props.tickSpacing * 4 * 25;
@@ -342,7 +343,7 @@ class TimeScrubber extends React.Component {
     const position = this.getPosition();
 
     return (
-      <Container onKeyDown={this.handleKey} onKeyUp={this.handleKeyUp}>
+      <Container onKeyDown={this.handleKey} onKeyUp={this.handleKeyUp} {...rest}>
         <NudgeButton
           direction="left"
           onClick={this.decrementTime}

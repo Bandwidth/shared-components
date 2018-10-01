@@ -10,7 +10,7 @@ export default styled.div`
   }
 
   .DayPicker_transitionContainer {
-    width: ${WIDTH - 2}px !important;
+    width: ${WIDTH - 4}px !important;
   }
 
   .DayPicker_weekHeader_li {
