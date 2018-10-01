@@ -1,9 +1,14 @@
 {
-  "packages": ["packages/*"],
-  "version": "5.0.8",
+  "packages": [
+    "packages/*"
+  ],
+  "version": "5.0.9",
   "command": {
     "publish": {
-      "ignoreChanges": ["*.md", "**/docs/**/*"]
+      "ignoreChanges": [
+        "*.md",
+        "**/docs/**/*"
+      ]
     }
   },
   "publishConfig": {
