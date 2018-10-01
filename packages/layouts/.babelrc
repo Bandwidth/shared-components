@@ -11,8 +11,8 @@
     "react"
   ],
   "plugins": [
-    "transform-object-rest-spread",
-    "transform-runtime",
+    "babel-plugin-transform-object-rest-spread",
+    "babel-plugin-transform-runtime",
     "babel-plugin-transform-class-properties",
     "styled-components"
   ]
