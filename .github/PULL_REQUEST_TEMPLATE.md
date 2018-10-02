@@ -6,6 +6,7 @@ Check these before submitting your pull request:
 - [ ] Exported components are documented with examples
 - [ ] Props have JSDoc comments
 - [ ] All relevant visual sub-components can be overridden via props
+- [ ] Any extra props are spread into the outermost rendered element
 
 ## Breaking Changes
 
