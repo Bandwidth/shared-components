@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LibSelect from 'react-select';
-import arrowImage from './arrow.png';
-import theme from '../../theme';
 import _ from 'lodash';
 import selectOptionPrimaryValue from '../../extensions/selectItemPrimaryValue';
 import Loader from '../Loader';
@@ -171,7 +169,7 @@ class Select extends React.PureComponent {
     required: false,
     allowNone: false,
     invalid: false,
-    placeholder: 'None',
+    placeholder: 'Select one',
     renderOption: selectOptionPrimaryValue,
     getOptionValue: selectOptionPrimaryValue,
     searchable: false,
@@ -224,13 +222,14 @@ class Select extends React.PureComponent {
       isLoading,
       loading,
       invalid,
+      value,
       Wrapper,
     } = this.props;
     const combinedLoading = loading || isLoading;
-    const combinedPlaceholder = (noneText !== undefined) ? noneText : placeholder;
+    const combinedPlaceholder = noneText !== undefined ? noneText : placeholder;
 
     return (
-      <Wrapper invalid={invalid}>
+      <Wrapper invalid={invalid} value={value}>
         <LibSelect
           {...this.props}
           options={this.convertOptions()}

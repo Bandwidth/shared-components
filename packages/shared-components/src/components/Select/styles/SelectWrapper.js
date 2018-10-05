@@ -1,6 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
 import get from 'extensions/themeGet';
-import arrowImage from '../arrow.png';
 
 const fadeIn = keyframes`
   from {
@@ -8,12 +7,6 @@ const fadeIn = keyframes`
   }
   to {
     opacity: 1;
-  }
-`;
-
-const spin = keyframes`
-  to {
-    transform: rotate(1turn);
   }
 `;
 
@@ -123,7 +116,7 @@ const SelectWrapper = styled.div`
 
   .Select-placeholder,
   .Select--single > .Select-control .Select-value {
-    color: inherit;
+    color: ${({ value }) => (value ? 'inherit' : get('colors.text.disabled'))};
     font-size: inherit;
     line-height: 1.5;
     padding: calc(${get('spacing.medium')} - 1px) ${get('spacing.medium')};
