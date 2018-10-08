@@ -33,7 +33,7 @@ node {
         resourceRequestMemory: '1Gi',
         resourceLimitMemory: '3Gi',
         envVars: [
-          envVar(key: 'NPM_TOKEN', value: value: "$TOKEN")
+          envVar(key: 'NPM_TOKEN', value: "$TOKEN")
         ]
       )
     ],
@@ -47,7 +47,8 @@ node {
             userRemoteConfigs: [[
               credentialsId: 'scl-github-access-token',
               url: 'https://github.com/Bandwidth/shared-components.git'
-            ]]
+            ]],
+            extensions: [[$class: 'LocalBranch', localBranch: '**']]
           ])
 
         }
