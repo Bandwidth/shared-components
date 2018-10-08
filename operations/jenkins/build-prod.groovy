@@ -47,7 +47,7 @@ node {
             userRemoteConfigs: [[
               credentialsId: 'scl-github-access-token',
               url: 'https://github.com/Bandwidth/shared-components.git'
-            ]]
+            ]],
             extensions: [[$class: 'LocalBranch', localBranch: '**']]
           ])
 
