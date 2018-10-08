@@ -6,7 +6,8 @@
     "build:assemble-docs": "node scripts/assembleDocs.js",
     "build": "run-s build:*",
     "bootstrap": "lerna bootstrap --hoist",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "publish": "lerna publish"
   },
   "lint-staged": {
     "packages/**/(src|stories)/**/*.js": [
