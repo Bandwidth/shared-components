@@ -65,23 +65,18 @@ node {
                 reportGithubStatus('jenkins/1unit','FAILURE','Unit Tests Failed')
               }
             }
-            stage('Prepublish') {
-              try {
-                //sh 'npm test'
-                sh 'npm run prepublish'
-                reportGithubStatus('jenkins/2prepublish','SUCCESS',"Prepared for NPM")
-              } catch (e) {
-                reportGithubStatus('jenkins/2prepublish','FAILURE','Prepare script failed')
-              }
-            }
-            stage('Deploy to NPM!') {
-              try {
-                //sh 'npm test'
-                sh 'npm publish'
-                reportGithubStatus('jenkins/3deploy','SUCCESS',"Published on NPM")
-              } catch (e) {
-                reportGithubStatus('jenkins/3deploy','FAILURE','Failed to Publish')
-              }
+          }
+          stage('Lerna Install') {
+            sh 'npm config set cache "/home/jenkins/.npm"'
+            sh 'npm install'
+          }
+          stage('Lerna Publish') {
+            try {
+              //sh 'npm test'
+              sh 'npm run publish'
+              reportGithubStatus('jenkins/2prepublish','SUCCESS',"Prepared for NPM")
+            } catch (e) {
+              reportGithubStatus('jenkins/2prepublish','FAILURE','Prepare script failed')
             }
           }
         }

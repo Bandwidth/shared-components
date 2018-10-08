@@ -139,3 +139,25 @@ const Input = require('../../components/Input').default;
   <Fields.Field label="label" columnSpan={1}><Input /></Fields.Field>
 </Fields>
 ```
+
+### Providing customized label and helpCallout
+
+```js
+const Input = require('../../components/Input').default;
+
+<Fields columns={1}>
+  <Fields.Field
+    label={<i>This is a customized label</i>}
+    helpCallout="Description"
+  >
+    <Input />
+  </Fields.Field>
+  <Fields.Field
+    label="Field with required mark and helpCallout"
+    required
+    helpCallout="Description"
+  >
+    <Input />
+  </Fields.Field>
+</Fields>
+```
