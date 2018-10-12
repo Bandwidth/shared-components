@@ -289,6 +289,7 @@ export { default as PaneSectionTitle } from './layouts/Pane/styles/PaneSectionTi
 export { default as PaneSectionWrap } from './layouts/Pane/styles/PaneSectionWrap';
 export { default as PaneStyles } from './layouts/Pane/styles/PaneStyles';
 export { default as SidebarLayout } from './layouts/SidebarLayout';
+export { default as Blob } from './skeletons/Blob';
 export { default as theme } from './theme';
 export { default as catapultTheme } from './theme/catapultTheme';
 export { default as cssvars } from './theme/cssvars';

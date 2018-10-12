@@ -14,6 +14,7 @@ import './Input';
 import './Paragraph';
 import './Radio';
 import './Select';
+import './Skeletons';
 import './Sidebar';
 import './Table';
 import './TimePicker';
