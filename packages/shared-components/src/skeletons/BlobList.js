@@ -23,6 +23,7 @@ const BlobListContainer = styled.div`
 `;
 
 const BlobListRow = styled.div`
+  width: ${({ width }) => width};
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -31,7 +32,8 @@ const BlobListRow = styled.div`
   }
   animation: ${pulse} ${PULSE_RATE} ease-in-out infinite alternate;
   animation-delay: ${({ index = 0 }) => `calc(${index} / 4 * ${PULSE_RATE})`};
-  animation-play-state: ${({ loading }) => (loading ? 'running' : 'paused')};
+  animation-play-state: ${({ disableAnimation }) =>
+    disableAnimation ? 'paused' : 'running'};
 `;
 
 const BlobListItem = styled.div`
@@ -43,20 +45,20 @@ const BlobListItem = styled.div`
 `;
 
 const BlobList = ({
-  loading,
+  disableAnimation,
   width,
   rowHeight = '41px',
   rows = 4,
   marginBetween = '3px',
 }) => (
   <BlobListContainer
-    loading={loading}
+    disableAnimation={disableAnimation}
     width={width}
     marginBetween={marginBetween}
   >
     {Array.from(Array(rows).keys()).map(rowIdx => (
       <BlobListRow
-        loading={loading}
+        disableAnimation={disableAnimation}
         marginBetween={marginBetween}
         key={rowIdx}
         index={rowIdx}

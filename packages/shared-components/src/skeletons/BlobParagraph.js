@@ -28,18 +28,19 @@ const BlobParagraphRow = styled.div`
   border-radius: 1em;
   animation: ${pulse} ${PULSE_RATE} ease-in-out infinite alternate;
   animation-delay: ${({ index = 0 }) => `calc(${index} / 8 * ${PULSE_RATE})`};
-  animation-play-state: ${({ loading }) => (loading ? 'running' : 'paused')};
+  animation-play-state: ${({ disableAnimation }) =>
+    disableAnimation ? 'paused' : 'running'};
 `;
 
 export default ({
-  loading,
+  disableAnimation,
   width,
   rowHeight = '14px',
   lines = 4,
   marginBetween = '8px',
 }) => (
   <BlobParagraphContainer
-    loading={loading}
+    disableAnimation={disableAnimation}
     width={width}
     marginBetween={marginBetween}
   >
@@ -47,7 +48,7 @@ export default ({
       <BlobParagraphRow
         key={rowIdx}
         index={rowIdx}
-        loading={loading}
+        disableAnimation={disableAnimation}
         height={rowHeight}
         width={`${Math.random() * 20 + 80}%`}
       />

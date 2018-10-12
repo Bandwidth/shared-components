@@ -46,7 +46,8 @@ const BlobFieldContainer = styled.div`
   animation: ${pulse} ${PULSE_RATE} ease-in-out infinite alternate;
   animation-delay: ${({ __fieldIdx = 0 }) =>
     `calc(${__fieldIdx} / 5 * ${PULSE_RATE})`};
-  animation-play-state: ${({ loading }) => (loading ? 'running' : 'paused')};
+  animation-play-state: ${({ disableAnimation }) =>
+    disableAnimation ? 'paused' : 'running'};
 `;
 
 const BlobFieldContent = styled.div`
@@ -59,7 +60,7 @@ const BlobFieldContent = styled.div`
 `;
 
 const BlobField = ({
-  loading,
+  disableAnimation,
   marginBetween = '8px',
   columnSpan,
   helpText,
@@ -67,7 +68,7 @@ const BlobField = ({
 }) => (
   <BlobFieldContainer
     __fieldIdx={__fieldIdx}
-    loading={loading}
+    disableAnimation={disableAnimation}
     marginBetween={marginBetween}
     columnSpan={columnSpan}
   >

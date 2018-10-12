@@ -6,7 +6,6 @@ import Grid from 'layouts/Grid';
 
 storiesOf('Sidebar', module).add('types', () => (
   <Grid columns={1} maxSize="600px">
-    <h2>Standard</h2>
     <SidebarList>
       <SidebarList.Item isNew label="First" />
       <SidebarList.Item active label="Second" />

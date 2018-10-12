@@ -5,20 +5,22 @@ import BlobTable from 'skeletons/BlobTable';
 import BlobField from 'skeletons/BlobField';
 import BlobParagraph from 'skeletons/BlobParagraph';
 import BlobList from 'skeletons/BlobList';
+import BlobSidebarList from 'skeletons/BlobSidebarList';
 
 storiesOf('Skeletons', module)
-  .add('blob', () => <Blob loading width="200px" height="50px" />)
-  .add('table', () => <BlobTable loading />)
-  .add('small table', () => <BlobTable.Small loading />)
-  .add('paragraph', () => <BlobParagraph loading />)
-  .add('list', () => <BlobList loading />)
+  .add('blob', () => <Blob width="200px" height="50px" />)
+  .add('table', () => <BlobTable />)
+  .add('small table', () => <BlobTable.Small />)
+  .add('paragraph', () => <BlobParagraph />)
+  .add('sidebar', () => <BlobSidebarList />)
+  // .add('list', () => <BlobList />)
   .add('field', () => (
     <BlobField.Grid>
-      <BlobField loading />
-      <BlobField loading helpText />
-      <BlobField loading helpText />
-      <BlobField loading helpText />
-      <BlobField loading helpText />
-      <BlobField columnSpan={2} loading helpText />
+      <BlobField />
+      <BlobField helpText />
+      <BlobField helpText />
+      <BlobField helpText />
+      <BlobField helpText />
+      <BlobField columnSpan={2} helpText />
     </BlobField.Grid>
   ));

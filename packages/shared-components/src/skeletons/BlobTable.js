@@ -28,7 +28,8 @@ const BlobTableHeader = styled.div`
     themeGet(props.color || 'colors.gray.mediumLight')(props)};
   border-radius: 0.5em;
   animation: ${pulse} ${PULSE_RATE} ease-in-out infinite alternate;
-  animation-play-state: ${({ loading }) => (loading ? 'running' : 'paused')};
+  animation-play-state: ${({ disableAnimation }) =>
+    disableAnimation ? 'running' : 'paused'};
 `;
 
 const BlobTableRow = styled.div`
@@ -49,11 +50,12 @@ const BlobTableCell = styled.div`
   animation: ${pulse} ${ROW_PULSE_RATE} ease-in-out infinite alternate;
   animation-delay: ${({ pctOffset = 0 }) =>
     `calc(${pctOffset} * ${ROW_PULSE_RATE})`};
-  animation-play-state: ${({ loading }) => (loading ? 'running' : 'paused')};
+  animation-play-state: ${({ disableAnimation }) =>
+    disableAnimation ? 'paused' : 'running'};
 `;
 
 const BlobTable = ({
-  loading,
+  disableAnimation,
   width,
   rowHeight = '41px',
   columns = 3,
@@ -61,18 +63,18 @@ const BlobTable = ({
   marginBetween = '3px',
 }) => (
   <BlobTableContainer
-    loading={loading}
+    disableAnimation={disableAnimation}
     width={width}
     marginBetween={marginBetween}
   >
-    <BlobTableHeader loading={loading} height={rowHeight} />
+    <BlobTableHeader disableAnimation={disableAnimation} height={rowHeight} />
     {Array.from(Array(rows).keys()).map(rowIdx => (
       <BlobTableRow marginBetween={marginBetween} key={rowIdx}>
         {Array.from(Array(columns).keys()).map(colIdx => (
           <BlobTableCell
             pctOffset={colIdx / columns}
             key={colIdx}
-            loading={loading}
+            disableAnimation={disableAnimation}
             height={rowHeight}
           />
         ))}
