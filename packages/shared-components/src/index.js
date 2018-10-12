@@ -290,6 +290,10 @@ export { default as PaneSectionWrap } from './layouts/Pane/styles/PaneSectionWra
 export { default as PaneStyles } from './layouts/Pane/styles/PaneStyles';
 export { default as SidebarLayout } from './layouts/SidebarLayout';
 export { default as Blob } from './skeletons/Blob';
+export { default as BlobField } from './skeletons/BlobField';
+export { default as BlobList } from './skeletons/BlobList';
+export { default as BlobParagraph } from './skeletons/BlobParagraph';
+export { default as BlobTable } from './skeletons/BlobTable';
 export { default as theme } from './theme';
 export { default as catapultTheme } from './theme/catapultTheme';
 export { default as cssvars } from './theme/cssvars';

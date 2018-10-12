@@ -52,12 +52,12 @@ const BlobTableCell = styled.div`
   animation-play-state: ${({ loading }) => (loading ? 'running' : 'paused')};
 `;
 
-export default ({
+const BlobTable = ({
   loading,
   width,
   rowHeight = '41px',
-  columnCount = 3,
-  rowCount = 4,
+  columns = 3,
+  rows = 4,
   marginBetween = '3px',
 }) => (
   <BlobTableContainer
@@ -66,11 +66,11 @@ export default ({
     marginBetween={marginBetween}
   >
     <BlobTableHeader loading={loading} height={rowHeight} />
-    {Array.from(Array(rowCount).keys()).map(rowIdx => (
+    {Array.from(Array(rows).keys()).map(rowIdx => (
       <BlobTableRow marginBetween={marginBetween} key={rowIdx}>
-        {Array.from(Array(columnCount).keys()).map(colIdx => (
+        {Array.from(Array(columns).keys()).map(colIdx => (
           <BlobTableCell
-            pctOffset={colIdx / columnCount}
+            pctOffset={colIdx / columns}
             key={colIdx}
             loading={loading}
             height={rowHeight}
@@ -80,3 +80,7 @@ export default ({
     ))}
   </BlobTableContainer>
 );
+
+BlobTable.Small = props => <BlobTable rowHeight="21px" {...props} />;
+
+export default BlobTable;
