@@ -1,7 +1,8 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import themeGet from 'extensions/themeGet';
 import pulse from 'skeletons/common/pulse';
+import Blob from './Blob';
 
 const BlobTableContainer = styled.div`
   display: flex;
@@ -11,15 +12,9 @@ const BlobTableContainer = styled.div`
   }
 `;
 
-const BlobTableHeader = styled.div`
-  height: ${({ height }) => height || '1em'};
-  background: ${props =>
-    themeGet(props.color || 'skeleton.colors.dark')(props)};
+const BlobTableHeader = styled(Blob.Animated)`
+  background: var(--skeleton-colors-dark);
   border-radius: 0.5em;
-  animation: ${pulse} var(--skeleton-pulse-normal) ease-in-out infinite
-    alternate;
-  animation-play-state: ${({ disableAnimation }) =>
-    disableAnimation ? 'running' : 'paused'};
 `;
 
 const BlobTableRow = styled.div`
@@ -33,16 +28,11 @@ const BlobTableRow = styled.div`
   }
 `;
 
-const BlobTableCell = styled.div`
-  height: ${({ height }) => height || '1em'};
-  background: ${props =>
-    themeGet(props.color || 'skeleton.colors.default')(props)};
+const BlobTableCell = styled(Blob.Animated)`
   border-radius: 0.5em;
-  animation: ${pulse} var(--skeleton-pulse-fast) ease-in-out infinite alternate;
+  animation-duration: var(--skeleton-pulse-fast);
   animation-delay: ${({ pctOffset = 0 }) =>
     `calc(${pctOffset} * var(--skeleton-pulse-fast))`};
-  animation-play-state: ${({ disableAnimation }) =>
-    disableAnimation ? 'paused' : 'running'};
 `;
 
 const BlobTable = ({

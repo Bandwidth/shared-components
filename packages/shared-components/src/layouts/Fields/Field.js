@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import DefaultLabel from 'components/Label';
 import DefaultHelpText from 'components/HelpText';
 import Callout from 'components/Callout';
+import BlobField from 'skeletons/BlobField';
 import FieldContent from './styles/FieldContent';
 import HelpIcon from './styles/HelpIcon';
 import LabelContainer from './styles/LabelContainer';
@@ -118,7 +119,15 @@ class Field extends React.Component {
   };
 
   renderLabel = () => {
-    const { label, disabled, required, Label, children, helpCallout, helpCalloutProps } = this.props;
+    const {
+      label,
+      disabled,
+      required,
+      Label,
+      children,
+      helpCallout,
+      helpCalloutProps,
+    } = this.props;
 
     if (!label) {
       return null;
@@ -138,14 +147,17 @@ class Field extends React.Component {
       </Callout>
     );
 
-    const LabelComponent = typeof label === 'string'
-      ? <Label {...labelProps}>{label}</Label>
-      : React.cloneElement(label, labelProps);
+    const LabelComponent =
+      typeof label === 'string' ? (
+        <Label {...labelProps}>{label}</Label>
+      ) : (
+        React.cloneElement(label, labelProps)
+      );
 
     return (
       <LabelContainer style={this.stylesFor('label')}>
-        { LabelComponent }
-        { HelpCallout }
+        {LabelComponent}
+        {HelpCallout}
       </LabelContainer>
     );
   };
@@ -182,5 +194,7 @@ class Field extends React.Component {
     );
   }
 }
+
+Field.Skeleton = BlobField;
 
 export default Field;

@@ -1,20 +1,31 @@
-import styled, { keyframes } from 'styled-components';
+import React from 'react';
+import styled, { css } from 'styled-components';
 import themeGet from 'extensions/themeGet';
 import pulse from 'skeletons/common/pulse';
 
 /**
  * @component
  */
-export default styled.div`
-  height: ${({ height }) => height || '1em'};
-  width: ${({ width }) => width || '1em'};
+const Blob = styled.div`
+  height: ${({ height }) => height};
+  width: ${({ width }) => width};
   background: ${props =>
     themeGet(props.color || 'skeleton.colors.default')(props)};
-  border-radius: 1em;
+  border-radius: ${({ borderRadius = '1em' }) => borderRadius};
   display: inline-block;
-  animation-delay: ${({ index = 0 }) =>
-    `calc(${index / 4} * var(--skeleton-pulse-normal))`};
-  animation: ${pulse} var(--skeleton-pulse-normal) ease-in-out infinite
-    alternate;
-  animation-play-state: ${({ loading }) => (loading ? 'running' : 'paused')};
+
+  ${({ animated }) =>
+    animated &&
+    css`
+      animation: ${pulse} var(--skeleton-pulse-normal) ease-in-out infinite
+        alternate;
+      animation-delay: ${({ index = 0 }) =>
+        `calc(${index / 4} * var(--skeleton-pulse-normal))`};
+      animation-play-state: ${({ disableAnimation }) =>
+        disableAnimation ? 'paused' : 'running'};
+    `};
 `;
+
+Blob.Animated = props => <Blob {...props} animated />;
+
+export default Blob;

@@ -1,7 +1,8 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import themeGet from 'extensions/themeGet';
 import pulse from 'skeletons/common/pulse';
+import Blob from './Blob';
 
 const BlobFieldGridContainer = styled.div`
   display: grid;
@@ -41,13 +42,9 @@ const BlobFieldContainer = styled.div`
     disableAnimation ? 'paused' : 'running'};
 `;
 
-const BlobFieldContent = styled.div`
+const BlobFieldContent = styled(Blob)`
   min-width: ${({ minWidth }) => minWidth};
-  width: ${({ width }) => width};
-  height: ${({ height }) => height || '1em'};
   visibility: ${({ hide }) => (hide ? 'hidden' : 'visible')};
-  background: ${props =>
-    themeGet(props.color || 'skeleton.colors.default')(props)};
   border-radius: 0.5em;
 `;
 

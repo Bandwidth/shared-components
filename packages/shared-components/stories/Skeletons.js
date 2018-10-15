@@ -13,7 +13,7 @@ storiesOf('Skeletons', module)
   .add('small table', () => <BlobTable.Small />)
   .add('paragraph', () => <BlobParagraph />)
   .add('sidebar', () => <BlobSidebarList />)
-  // .add('list', () => <BlobList />)
+  .add('list', () => <BlobList />)
   .add('field', () => (
     <BlobField.Grid>
       <BlobField />

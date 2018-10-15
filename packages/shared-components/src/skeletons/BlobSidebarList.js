@@ -1,7 +1,8 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import themeGet from 'extensions/themeGet';
 import pulse from 'skeletons/common/pulse';
+import Blob from './Blob';
 
 const BlobSidebarListContainer = styled.div`
   width: ${({ width }) => width};
@@ -24,24 +25,16 @@ const BlobSidebarListRow = styled.div`
   }
   &:first-child {
     border-top: ${({ dividerSize }) => dividerSize} solid
-      ${props => themeGet(props.color || 'skeleton.colors.dark')(props)};
+      var(--skeleton-colors-dark);
   }
   border-bottom: ${({ dividerSize }) => dividerSize} solid
-    ${props => themeGet(props.color || 'skeleton.colors.dark')(props)};
+    var(--skeleton-colors-dark);
   animation: ${pulse} var(--skeleton-pulse-normal) ease-in-out infinite
     alternate;
   animation-delay: ${({ index = 0 }) =>
     `calc(${index} / 4 * var(--skeleton-pulse-normal))`};
   animation-play-state: ${({ disableAnimation }) =>
     disableAnimation ? 'paused' : 'running'};
-`;
-
-const BlobSidebarListItem = styled.div`
-  width: ${({ width }) => width};
-  height: ${({ height }) => height || '1em'};
-  background: ${props =>
-    themeGet(props.color || 'skeleton.colors.default')(props)};
-  border-radius: 1em;
 `;
 
 const BlobList = ({
@@ -64,7 +57,7 @@ const BlobList = ({
         key={rowIdx}
         index={rowIdx}
       >
-        <BlobSidebarListItem
+        <Blob
           height={itemHeight}
           width={
             contentWidth
@@ -72,7 +65,7 @@ const BlobList = ({
               : `${Math.random() * 20 + 80}%`
           }
         />
-        <BlobSidebarListItem
+        <Blob
           height={itemHeight}
           width={
             contentWidth

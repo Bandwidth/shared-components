@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import BlobField from 'skeletons/BlobField';
 import FieldRowContainer from './styles/FieldRowContainer';
 import FieldRow from './styles/FieldRow';
 import Field from './Field';
@@ -92,4 +93,5 @@ class Fields extends React.Component {
   }
 }
 
+Fields.Skeleton = BlobField.Grid;
 export default Fields;

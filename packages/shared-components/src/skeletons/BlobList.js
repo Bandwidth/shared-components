@@ -1,7 +1,8 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import themeGet from 'extensions/themeGet';
 import pulse from 'skeletons/common/pulse';
+import Blob from './Blob';
 
 const BlobListContainer = styled.div`
   width: ${({ width }) => width};
@@ -28,12 +29,7 @@ const BlobListRow = styled.div`
     disableAnimation ? 'paused' : 'running'};
 `;
 
-const BlobListItem = styled.div`
-  width: ${({ width }) => width};
-  height: ${({ height }) => height || '1em'};
-  background: ${props =>
-    themeGet(props.color || 'skeleton.colors.default')(props)};
-  border-radius: ${({ borderRadius }) => borderRadius || '1em'};
+const BlobListItem = styled(Blob)`
   flex-grow: ${({ flexGrow }) => (flexGrow ? 1 : 0)};
 `;
 
@@ -58,7 +54,7 @@ const BlobList = ({
         index={rowIdx}
         width={`${Math.random() * 20 + 80}%`}
       >
-        <BlobListItem borderRadius="2em" width={rowHeight} height={rowHeight} />
+        <Blob borderRadius="2em" width={rowHeight} height={rowHeight} />
         <BlobListItem flexGrow height={itemHeight} />
       </BlobListRow>
     ))}

@@ -1,9 +1,15 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import themeGet from 'extensions/themeGet';
 import pulse from 'skeletons/common/pulse';
+import tag from 'clean-tag';
+import userSpacing from 'extensions/userSpacing';
+import Blob from './Blob';
 
-const BlobParagraphContainer = styled.div`
+const BlobParagraphContainer = styled(tag.div).attrs({
+  spacing: userSpacing,
+})`
+  margin: ${props => props.spacing};
   display: flex;
   flex-direction: column;
   & > * + * {
@@ -11,24 +17,11 @@ const BlobParagraphContainer = styled.div`
   }
 `;
 
-const BlobParagraphRow = styled.div`
-  width: ${({ width }) => width};
-  height: ${({ height }) => height || '1em'};
-  background: ${props =>
-    themeGet(props.color || 'skeleton.colors.default')(props)};
-  border-radius: 1em;
-  animation: ${pulse} var(--skeleton-pulse-normal) ease-in-out infinite
-    alternate;
-  animation-delay: ${({ index = 0 }) =>
-    `calc(${index} / 8 * var(--skeleton-pulse-normal))`};
-  animation-play-state: ${({ disableAnimation }) =>
-    disableAnimation ? 'paused' : 'running'};
-`;
-
 /**
  * @component
  */
 export default ({
+  spacing,
   disableAnimation,
   width,
   rowHeight = '14px',
@@ -36,15 +29,14 @@ export default ({
   marginBetween = '8px',
 }) => (
   <BlobParagraphContainer
-    disableAnimation={disableAnimation}
+    spacing={spacing}
     width={width}
     marginBetween={marginBetween}
   >
     {Array.from(Array(lines).keys()).map(rowIdx => (
-      <BlobParagraphRow
+      <Blob.Animated
         key={rowIdx}
         index={rowIdx}
-        disableAnimation={disableAnimation}
         height={rowHeight}
         width={`${(1 - Math.random() * Math.random()) * 70 + 30}%`}
       />

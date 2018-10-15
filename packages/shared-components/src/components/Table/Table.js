@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
 
+import BlobTable from 'skeletons/BlobTable';
+
 import Loader from '../Loader';
 
 import TableStyles from './styles/TableStyles';
@@ -103,9 +105,11 @@ Table.Simple = Simple;
 Table.RowDetails = RowDetails;
 Table.Wrap = TableWrap;
 Table.Body = TableBody;
+Table.Skeleton = BlobTable;
 
 Table.Small = withProps({
   Styles: TableStyles.Small,
 })(Table);
+Table.Small.Skeleton = BlobTable.Small;
 
 export default Table;
