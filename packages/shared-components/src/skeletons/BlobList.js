@@ -1,17 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import themeGet from 'extensions/themeGet';
-
-const PULSE_RATE = '1.6s';
-
-const pulse = keyframes`
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.5;
-  }
-`;
+import pulse from 'skeletons/common/pulse';
 
 const BlobListContainer = styled.div`
   width: ${({ width }) => width};
@@ -30,8 +20,10 @@ const BlobListRow = styled.div`
   & > * + * {
     margin-left: ${({ marginBetween }) => marginBetween};
   }
-  animation: ${pulse} ${PULSE_RATE} ease-in-out infinite alternate;
-  animation-delay: ${({ index = 0 }) => `calc(${index} / 4 * ${PULSE_RATE})`};
+  animation: ${pulse} var(--skeleton-pulse-normal) ease-in-out infinite
+    alternate;
+  animation-delay: ${({ index = 0 }) =>
+    `calc(${index} / 4 * var(--skeleton-pulse-normal))`};
   animation-play-state: ${({ disableAnimation }) =>
     disableAnimation ? 'paused' : 'running'};
 `;
@@ -39,7 +31,8 @@ const BlobListRow = styled.div`
 const BlobListItem = styled.div`
   width: ${({ width }) => width};
   height: ${({ height }) => height || '1em'};
-  background: ${props => themeGet(props.color || 'colors.gray.light')(props)};
+  background: ${props =>
+    themeGet(props.color || 'skeleton.colors.default')(props)};
   border-radius: ${({ borderRadius }) => borderRadius || '1em'};
   flex-grow: ${({ flexGrow }) => (flexGrow ? 1 : 0)};
 `;
@@ -48,6 +41,7 @@ const BlobList = ({
   disableAnimation,
   width,
   rowHeight = '41px',
+  itemHeight = '14px',
   rows = 4,
   marginBetween = '3px',
 }) => (
@@ -65,10 +59,13 @@ const BlobList = ({
         width={`${Math.random() * 20 + 80}%`}
       >
         <BlobListItem borderRadius="2em" width={rowHeight} height={rowHeight} />
-        <BlobListItem flexGrow height="14px" />
+        <BlobListItem flexGrow height={itemHeight} />
       </BlobListRow>
     ))}
   </BlobListContainer>
 );
 
+/**
+ * @component
+ */
 export default BlobList;

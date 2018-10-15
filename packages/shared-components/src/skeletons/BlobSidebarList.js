@@ -1,17 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import themeGet from 'extensions/themeGet';
-
-const PULSE_RATE = '1.6s';
-
-const pulse = keyframes`
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.5;
-  }
-`;
+import pulse from 'skeletons/common/pulse';
 
 const BlobSidebarListContainer = styled.div`
   width: ${({ width }) => width};
@@ -25,7 +15,7 @@ const BlobSidebarListContainer = styled.div`
 const BlobSidebarListRow = styled.div`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
-  padding: 0 15px;
+  padding: 0 var(--spacing-medium);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,13 +23,15 @@ const BlobSidebarListRow = styled.div`
     margin-top: ${({ marginBetween }) => marginBetween};
   }
   &:first-child {
-    border-top: ${themeGet('thicknesses.normal')} solid
-      ${props => themeGet(props.color || 'colors.gray.mediumLight')(props)};
+    border-top: ${({ dividerSize }) => dividerSize} solid
+      ${props => themeGet(props.color || 'skeleton.colors.dark')(props)};
   }
-  border-bottom: ${themeGet('thicknesses.normal')} solid
-    ${props => themeGet(props.color || 'colors.gray.mediumLight')(props)};
-  animation: ${pulse} ${PULSE_RATE} ease-in-out infinite alternate;
-  animation-delay: ${({ index = 0 }) => `calc(${index} / 4 * ${PULSE_RATE})`};
+  border-bottom: ${({ dividerSize }) => dividerSize} solid
+    ${props => themeGet(props.color || 'skeleton.colors.dark')(props)};
+  animation: ${pulse} var(--skeleton-pulse-normal) ease-in-out infinite
+    alternate;
+  animation-delay: ${({ index = 0 }) =>
+    `calc(${index} / 4 * var(--skeleton-pulse-normal))`};
   animation-play-state: ${({ disableAnimation }) =>
     disableAnimation ? 'paused' : 'running'};
 `;
@@ -47,7 +39,8 @@ const BlobSidebarListRow = styled.div`
 const BlobSidebarListItem = styled.div`
   width: ${({ width }) => width};
   height: ${({ height }) => height || '1em'};
-  background: ${props => themeGet(props.color || 'colors.gray.light')(props)};
+  background: ${props =>
+    themeGet(props.color || 'skeleton.colors.default')(props)};
   border-radius: 1em;
 `;
 
@@ -55,20 +48,24 @@ const BlobList = ({
   disableAnimation,
   width,
   contentWidth,
+  dividerSize = 'var(--thicknesses-normal)',
+  marginBetween = '8px',
   rowHeight = '82px',
+  itemHeight = '14px',
   rows = 4,
 }) => (
   <BlobSidebarListContainer disableAnimation={disableAnimation} width={width}>
     {Array.from(Array(rows).keys()).map(rowIdx => (
       <BlobSidebarListRow
+        dividerSize={dividerSize}
         disableAnimation={disableAnimation}
-        marginBetween="8px"
+        marginBetween={marginBetween}
         height={rowHeight}
         key={rowIdx}
         index={rowIdx}
       >
         <BlobSidebarListItem
-          height="14px"
+          height={itemHeight}
           width={
             contentWidth
               ? `calc(${Math.random() * 0.2 + 0.8} * ${contentWidth})`
@@ -76,7 +73,7 @@ const BlobList = ({
           }
         />
         <BlobSidebarListItem
-          height="14px"
+          height={itemHeight}
           width={
             contentWidth
               ? `calc(${Math.random() * 0.2 + 0.8} * ${contentWidth})`
@@ -88,4 +85,7 @@ const BlobList = ({
   </BlobSidebarListContainer>
 );
 
+/**
+ * @component
+ */
 export default BlobList;

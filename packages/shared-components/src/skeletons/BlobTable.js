@@ -1,18 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import themeGet from 'extensions/themeGet';
-
-const PULSE_RATE = '1.6s';
-const ROW_PULSE_RATE = '.8s';
-
-const pulse = keyframes`
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.5;
-  }
-`;
+import pulse from 'skeletons/common/pulse';
 
 const BlobTableContainer = styled.div`
   display: flex;
@@ -25,9 +14,10 @@ const BlobTableContainer = styled.div`
 const BlobTableHeader = styled.div`
   height: ${({ height }) => height || '1em'};
   background: ${props =>
-    themeGet(props.color || 'colors.gray.mediumLight')(props)};
+    themeGet(props.color || 'skeleton.colors.dark')(props)};
   border-radius: 0.5em;
-  animation: ${pulse} ${PULSE_RATE} ease-in-out infinite alternate;
+  animation: ${pulse} var(--skeleton-pulse-normal) ease-in-out infinite
+    alternate;
   animation-play-state: ${({ disableAnimation }) =>
     disableAnimation ? 'running' : 'paused'};
 `;
@@ -45,11 +35,12 @@ const BlobTableRow = styled.div`
 
 const BlobTableCell = styled.div`
   height: ${({ height }) => height || '1em'};
-  background: ${props => themeGet(props.color || 'colors.gray.light')(props)};
+  background: ${props =>
+    themeGet(props.color || 'skeleton.colors.default')(props)};
   border-radius: 0.5em;
-  animation: ${pulse} ${ROW_PULSE_RATE} ease-in-out infinite alternate;
+  animation: ${pulse} var(--skeleton-pulse-fast) ease-in-out infinite alternate;
   animation-delay: ${({ pctOffset = 0 }) =>
-    `calc(${pctOffset} * ${ROW_PULSE_RATE})`};
+    `calc(${pctOffset} * var(--skeleton-pulse-fast))`};
   animation-play-state: ${({ disableAnimation }) =>
     disableAnimation ? 'paused' : 'running'};
 `;
@@ -57,10 +48,10 @@ const BlobTableCell = styled.div`
 const BlobTable = ({
   disableAnimation,
   width,
-  rowHeight = '41px',
+  rowHeight = '40px',
   columns = 3,
   rows = 4,
-  marginBetween = '3px',
+  marginBetween = '2px',
 }) => (
   <BlobTableContainer
     disableAnimation={disableAnimation}
@@ -83,6 +74,9 @@ const BlobTable = ({
   </BlobTableContainer>
 );
 
-BlobTable.Small = props => <BlobTable rowHeight="21px" {...props} />;
+BlobTable.Small = props => <BlobTable rowHeight="23px" {...props} />;
 
+/**
+ * @component
+ */
 export default BlobTable;

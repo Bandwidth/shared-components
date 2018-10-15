@@ -1,17 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import themeGet from 'extensions/themeGet';
-
-const PULSE_RATE = '1.6s';
-
-const pulse = keyframes`
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.5;
-  }
-`;
+import pulse from 'skeletons/common/pulse';
 
 const BlobParagraphContainer = styled.div`
   display: flex;
@@ -24,19 +14,25 @@ const BlobParagraphContainer = styled.div`
 const BlobParagraphRow = styled.div`
   width: ${({ width }) => width};
   height: ${({ height }) => height || '1em'};
-  background: ${props => themeGet(props.color || 'colors.gray.light')(props)};
+  background: ${props =>
+    themeGet(props.color || 'skeleton.colors.default')(props)};
   border-radius: 1em;
-  animation: ${pulse} ${PULSE_RATE} ease-in-out infinite alternate;
-  animation-delay: ${({ index = 0 }) => `calc(${index} / 8 * ${PULSE_RATE})`};
+  animation: ${pulse} var(--skeleton-pulse-normal) ease-in-out infinite
+    alternate;
+  animation-delay: ${({ index = 0 }) =>
+    `calc(${index} / 8 * var(--skeleton-pulse-normal))`};
   animation-play-state: ${({ disableAnimation }) =>
     disableAnimation ? 'paused' : 'running'};
 `;
 
+/**
+ * @component
+ */
 export default ({
   disableAnimation,
   width,
   rowHeight = '14px',
-  lines = 4,
+  lines = 5,
   marginBetween = '8px',
 }) => (
   <BlobParagraphContainer
@@ -50,7 +46,7 @@ export default ({
         index={rowIdx}
         disableAnimation={disableAnimation}
         height={rowHeight}
-        width={`${Math.random() * 20 + 80}%`}
+        width={`${(1 - Math.random() * Math.random()) * 70 + 30}%`}
       />
     ))}
   </BlobParagraphContainer>
