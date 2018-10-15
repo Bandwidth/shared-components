@@ -110,6 +110,10 @@ export const thicknesses = {
   extraLarge: '3px',
 };
 
+export const fontSizes = {
+  default: '14px',
+};
+
 export default {
   name: 'iris',
   colors,
@@ -117,4 +121,5 @@ export default {
   shadows,
   spacing,
   thicknesses,
+  fontSizes,
 };

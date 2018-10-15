@@ -29,7 +29,7 @@ const bootstrapFromTheme = theme => {
       width: 100%;
       height: 100%;
       font-family: var(--fonts-brand);
-      font-size: 14px;
+      font-size: var(--font-sizes-default);
       letter-spacing: 0.28px;
       margin: 0;
       line-height: 1.5;
