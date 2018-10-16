@@ -1,13 +1,20 @@
 import styled from 'styled-components';
+import themeGet from 'extensions/themeGet';
 
 const HelpCalloutContainer = styled.div`
-  background-color: var(--colors-background-default);
-  border: 1px solid var(--colors-border-medium);
+  /* reset text styles */
+
+  color: ${themeGet('colors.text.default')};
+  font-style: normal;
+  font-size: ${themeGet('fontSizes.default')};
+
+  background-color: ${themeGet('colors.background.default')};
+  border: 1px solid ${themeGet('colors.border.medium')};
   border-radius: 4px;
   overflow-y: auto;
-  box-shadow: var(--shadows-short);
+  box-shadow: ${themeGet('shadows.short')};
   z-index: 100000;
-  padding: var(--spacing-medium);
+  padding: ${themeGet('spacing.medium')};
   pointer-events: none;
   max-width: ${({ maxWidth }) =>
     typeof maxWidth === 'number' ? maxWidth + 'px' : maxWidth};
