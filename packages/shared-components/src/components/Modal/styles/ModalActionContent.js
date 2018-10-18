@@ -3,7 +3,7 @@ import get from 'extensions/themeGet';
 
 export default styled.div`
   position: relative;
-  padding: ${get('spacing.large')} 0;
+  padding: ${get('spacing.medium')} 0;
   margin: 0 ${get('spacing.large')};
 
   &::before {

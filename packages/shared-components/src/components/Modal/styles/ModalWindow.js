@@ -12,7 +12,7 @@ export default styled.div`
   flex: 0 1 auto;
   min-height: 1em;
   max-height: 70vh;
-  margin: 180px auto auto auto;
+  margin: 150px auto auto auto;
   display: flex;
   flex-direction: column;
   border-radius: 5px;

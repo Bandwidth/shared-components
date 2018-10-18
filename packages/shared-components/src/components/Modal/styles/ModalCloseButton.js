@@ -1,7 +1,6 @@
 import { mapProps } from 'recompose';
 import Anchor from 'components/Anchor';
 import styled from 'styled-components';
-import { omit } from 'lodash';
 
 const CloseButton = styled(Anchor)`
   position: absolute;
@@ -11,8 +10,8 @@ const CloseButton = styled(Anchor)`
   font-size: 0.9em;
 `;
 
-export default mapProps(props => ({
-  ...omit(props, 'onClose'),
+export default mapProps(({ onClose, ...rest }) => ({
+  ...rest,
   icon: 'delete2',
-  onClick: props.onClose,
+  onClick: onClose,
 }))(CloseButton);
