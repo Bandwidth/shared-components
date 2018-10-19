@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
 import NewBadge from '../NewBadge';
+import Blob from 'skeletons/Blob';
+import PulseGroup from 'skeletons/PulseGroup';
 import SidebarListItemContainer from './styles/SidebarListItemContainer';
 import SidebarListItemLabel from './styles/SidebarListItemLabel';
 import SidebarListItemDetails from './styles/SidebarListItemDetails';
@@ -84,5 +85,30 @@ class SidebarListItem extends React.PureComponent {
     );
   }
 }
+
+const PulseContainer = PulseGroup(SidebarListItemContainer);
+SidebarListItem.Skeleton = ({ details, ...rest }) => (
+  <SidebarListItem
+    {...rest}
+    Container={PulseContainer}
+    Label={() => (
+      <Blob
+        display="block"
+        width={`${Math.random() * 20 + 80}%`}
+        height="14px"
+      />
+    )}
+    Details={() =>
+      details ? (
+        <Blob
+          style={{ marginTop: '8px' }}
+          display="block"
+          width={`${Math.random() * 20 + 80}%`}
+          height="14px"
+        />
+      ) : null
+    }
+  />
+);
 
 export default SidebarListItem;

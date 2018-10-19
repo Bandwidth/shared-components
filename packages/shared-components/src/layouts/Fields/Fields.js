@@ -4,6 +4,7 @@ import BlobField from 'skeletons/BlobField';
 import FieldRowContainer from './styles/FieldRowContainer';
 import FieldRow from './styles/FieldRow';
 import Field from './Field';
+import PulseGroup from 'skeletons/PulseGroup';
 
 class Fields extends React.Component {
   static Field = Field;
@@ -93,5 +94,8 @@ class Fields extends React.Component {
   }
 }
 
-Fields.Skeleton = BlobField.Grid;
+const PulseFieldRow = PulseGroup(FieldRow);
+Fields.Skeleton = ({ ...rest }) => (
+  <Fields Row={props => <PulseFieldRow {...props} />} {...rest} />
+);
 export default Fields;

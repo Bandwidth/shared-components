@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import themeGet from 'extensions/themeGet';
-import pulse from 'skeletons/common/pulse';
 import tag from 'clean-tag';
 import userSpacing from 'extensions/userSpacing';
-import Blob from './Blob';
+import Blob from 'skeletons/Blob';
 
 const BlobParagraphContainer = styled(tag.div).attrs({
   spacing: userSpacing,
@@ -34,9 +32,9 @@ export default ({
     marginBetween={marginBetween}
   >
     {Array.from(Array(lines).keys()).map(rowIdx => (
-      <Blob.Animated
+      <Blob
+        animated={!disableAnimation}
         key={rowIdx}
-        index={rowIdx}
         height={rowHeight}
         width={`${(1 - Math.random() * Math.random()) * 70 + 30}%`}
       />

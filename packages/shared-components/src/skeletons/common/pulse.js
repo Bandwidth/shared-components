@@ -5,6 +5,6 @@ export default keyframes`
     opacity: 1;
   }
   to {
-    opacity: 0.5;
+    opacity: var(--skeleton-pulse-opacity);
   }
 `;

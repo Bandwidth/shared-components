@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import tag from 'clean-tag';
 import userSpacing from 'extensions/userSpacing';
-import BlobParagraph from 'skeletons/BlobParagraph';
+import BlobParagraph from './BlobParagraph';
 
 const P = styled(tag.p).attrs({
   spacing: userSpacing.text,

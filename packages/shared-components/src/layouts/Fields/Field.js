@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import DefaultLabel from 'components/Label';
 import DefaultHelpText from 'components/HelpText';
 import Callout from 'components/Callout';
-import BlobField from 'skeletons/BlobField';
+import Blob from 'skeletons/Blob';
 import FieldContent from './styles/FieldContent';
 import HelpIcon from './styles/HelpIcon';
-import LabelContainer from './styles/LabelContainer';
+import DefaultLabelContainer from './styles/LabelContainer';
 import { get } from 'lodash';
 
 /**
@@ -57,6 +57,10 @@ class Field extends React.Component {
      */
     Label: PropTypes.func,
     /**
+     * A component prop to override the component used to render the label container. Defaults to library LabelContainer.
+     */
+    LabelContainer: PropTypes.func,
+    /**
      * A component prop to override the component used to render help text. Defaults to library HelpText.
      */
     HelpText: PropTypes.func,
@@ -95,6 +99,7 @@ class Field extends React.Component {
     column: 0,
     columnSpan: 1,
     Label: DefaultLabel,
+    LabelContainer: DefaultLabelContainer,
     HelpText: DefaultHelpText,
     Content: FieldContent,
     helpText: null,
@@ -124,6 +129,7 @@ class Field extends React.Component {
       disabled,
       required,
       Label,
+      LabelContainer,
       children,
       helpCallout,
       helpCalloutProps,
@@ -195,6 +201,22 @@ class Field extends React.Component {
   }
 }
 
-Field.Skeleton = BlobField;
+Field.Skeleton = ({ label, helpText, ...rest }) => (
+  <Field
+    label={label}
+    helpText={helpText}
+    {...rest}
+    LabelContainer={({ children, ...rest }) =>
+      label ? (
+        <Blob {...rest} width={`${Math.random() * 20 + 80}%`} height="14px" />
+      ) : null
+    }
+    HelpText={({ children, ...rest }) =>
+      helpText ? (
+        <Blob {...rest} width={`${Math.random() * 20 + 80}%`} height="14px" />
+      ) : null
+    }
+  />
+);
 
 export default Field;

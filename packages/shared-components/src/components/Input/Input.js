@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { defaultProps } from 'recompose';
 import Anchor from '../Anchor';
+import Blob from 'skeletons/Blob';
 import InputStyles from './styles/InputStyles';
 import InputRevealPasswordWrapper from './styles/InputRevealPasswordWrapper';
 
@@ -180,8 +181,7 @@ class Input extends React.PureComponent {
   };
 
   renderPasswordField = () => {
-    const toggleState = (type) =>
-      type === 'password' ? 'text' : 'password';
+    const toggleState = type => (type === 'password' ? 'text' : 'password');
     const handleClick = evt => {
       evt.preventDefault();
       this.setState({
@@ -278,8 +278,12 @@ class Input extends React.PureComponent {
   }
 }
 
+Input.Skeleton = ({ height = '53px' }) => <Blob height={height} />;
+
 Input.Small = defaultProps({
   Styles: InputStyles.Small,
 })(Input);
+
+Input.Small.Skeleton = ({ height = '30px' }) => <Blob height={height} />;
 
 export default Input;

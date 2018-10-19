@@ -116,8 +116,9 @@ export const skeleton = {
     dark: 'var(--colors-gray-medium-light)',
   },
   pulse: {
-    normal: '1.6s',
-    fast: '0.8s',
+    opacity: '0.6',
+    normal: '1.2s',
+    fast: '0.6s',
   },
 };
 
