@@ -294,6 +294,7 @@ export { default as Blob } from './skeletons/Blob';
 export { default as BlobList } from './skeletons/BlobList';
 export { default as BlobTable } from './skeletons/BlobTable';
 export { default as PulseGroup } from './skeletons/PulseGroup';
+export { default as SkeletonTransition } from './skeletons/SkeletonTransition';
 export { default as theme } from './theme';
 export { default as catapultTheme } from './theme/catapultTheme';
 export { default as cssvars } from './theme/cssvars';
