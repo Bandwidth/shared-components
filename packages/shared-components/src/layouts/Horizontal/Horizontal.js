@@ -35,6 +35,7 @@ const normalize = size => {
  */
 const Horizontal = styled.div`
   display: flex;
+  align-items: ${({ alignItems }) => alignItems};
   & > * {
     margin: 0;
   }
