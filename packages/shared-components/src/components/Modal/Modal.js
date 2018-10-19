@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'components/Button';
 import ModalActionContent from './styles/ModalActionContent';
 import ModalBlocker from './styles/ModalBlocker';
 import ModalContent from './styles/ModalContent';
@@ -71,7 +70,7 @@ class Modal extends React.Component {
     /**
      * Space between buttons
      */
-    buttonSpace: PropTypes.oneOf([
+    spaceBetweenButtons: PropTypes.oneOf([
       'xs',
       'extraSmall',
       'sm',
@@ -83,14 +82,6 @@ class Modal extends React.Component {
       'xl',
       'extraLarge',
     ]),
-    /**
-     * Render Cancel button which on click will call onClose function
-     */
-    withCancelButton: PropTypes.bool,
-    /**
-     * Render Close button which on click will call onClose function
-     */
-    withCloseButton: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -106,9 +97,7 @@ class Modal extends React.Component {
     Window: ModalWindow,
     CloseIcon: ModalCloseIcon,
     alignButtons: 'right',
-    buttonSpace: 'sm',
-    withCancelButton: false,
-    withCloseButton: false,
+    spaceBetweenButtons: 'sm',
   };
 
   handleModalClicked = event => {
@@ -123,13 +112,8 @@ class Modal extends React.Component {
   };
 
   renderCloseIcon = () => {
-    const {
-      CloseIcon,
-      onClose,
-      withCancelButton,
-      withCloseButton,
-    } = this.props;
-    if (!onClose || withCloseButton || withCancelButton) return null;
+    const { CloseIcon, onClose } = this.props;
+    if (!onClose) return null;
     return <CloseIcon onClick={onClose} />;
   };
 
@@ -138,26 +122,13 @@ class Modal extends React.Component {
       actionContent,
       ActionContent,
       alignButtons,
-      buttonSpace,
-      withCloseButton,
-      withCancelButton,
-      onClose,
+      spaceBetweenButtons,
     } = this.props;
 
-    const isCloseCancelButton =
-      (withCloseButton || withCancelButton) && onClose != null;
-
-    const closeButton = isCloseCancelButton ? (
-      <Button.Secondary onClick={onClose}>
-        {(withCloseButton && 'Close') || (withCancelButton && 'Cancel')}
-      </Button.Secondary>
-    ) : null;
-
     return (
-      (actionContent || isCloseCancelButton) && (
+      actionContent && (
         <ActionContent>
-          <ButtonContainer align={alignButtons} spacing={buttonSpace}>
-            {CloseButton}
+          <ButtonContainer align={alignButtons} spacing={spaceBetweenButtons}>
             {actionContent}
           </ButtonContainer>
         </ActionContent>

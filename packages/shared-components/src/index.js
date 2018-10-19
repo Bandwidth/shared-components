@@ -258,7 +258,7 @@ export {
   default as ModalBlocker,
 } from './components/Modal/styles/ModalBlocker';
 export {
-  default as ModalCloseButton,
+  default as ModalCloseIcon,
 } from './components/Modal/styles/ModalCloseIcon';
 export {
   default as ModalContent,

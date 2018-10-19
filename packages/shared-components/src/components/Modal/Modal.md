@@ -21,7 +21,7 @@ class ModalShow extends React.Component {
       <div>
         <Button onClick={toggle}>toggle</Button>
         {this.state.show &&
-          <Modal title="Hello" withCloseButton onClose={toggle}>
+          <Modal title="Hello" actionContent={<Button.Secondary onClick={toggle}>Cancel</Button.Secondary>}>
             <div style={{fontSize: '72px'}}>
               Hello, here's some modal content.<br/>
               It's fairly big.<br/>
@@ -58,38 +58,6 @@ class ModalShow extends React.Component {
         <Button onClick={toggle}>show</Button>
         {this.state.show &&
           <Modal title="Custom buttons" onClose={toggle} actionContent={<Button onClick={toggle}>OK</Button>}>
-            <div style={{fontSize: '72px'}}>
-              Hello, here's some modal content.
-            </div>
-          </Modal>
-        }
-      </div>
-    )
-  }
-}
-
-<ModalShow />
-```
-
-## Modal with cancel button
-```javascript
-const React = require('react');
-const Button = require('../Button').default;
-
-class ModalShow extends React.Component {
-  constructor(props) {
-    this.state = {
-      show: false,
-    };
-  }
-
-  render() {
-    const toggle = () => this.setState({ show: !this.state.show});
-    return (
-      <div>
-        <Button onClick={toggle}>show</Button>
-        {this.state.show &&
-          <Modal title="Custom buttons" withCancelButton onClose={toggle} actionContent={<Button onClick={toggle}>OK</Button>}>
             <div style={{fontSize: '72px'}}>
               Hello, here's some modal content.
             </div>
