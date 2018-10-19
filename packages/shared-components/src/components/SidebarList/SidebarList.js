@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BlobSidebarList from 'skeletons/BlobSidebarList';
 import SidebarListShowMore from './styles/SidebarListShowMore';
 import SidebarListItem from './SidebarListItem';
 import SidebarListContainer from './styles/SidebarListContainer';
@@ -96,5 +95,4 @@ class SidebarList extends React.PureComponent {
 }
 
 SidebarList.Item = SidebarListItem;
-SidebarList.Skeleton = BlobSidebarList;
 export default SidebarList;

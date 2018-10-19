@@ -4,6 +4,7 @@ import LibSelect from 'react-select';
 import _ from 'lodash';
 import selectOptionPrimaryValue from '../../extensions/selectItemPrimaryValue';
 import Loader from '../Loader';
+import Blob from 'skeletons/Blob';
 import SelectWrapper from './styles/SelectWrapper';
 
 class Select extends React.PureComponent {
@@ -244,5 +245,7 @@ class Select extends React.PureComponent {
     );
   }
 }
+
+Select.Skeleton = props => <Blob height="53px" />;
 
 export default Select;

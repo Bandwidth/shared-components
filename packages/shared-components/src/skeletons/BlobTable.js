@@ -31,8 +31,6 @@ const BlobTableRow = styled.div`
 const BlobTableCell = styled(Blob.Animated)`
   border-radius: 0.5em;
   animation-duration: var(--skeleton-pulse-fast);
-  animation-delay: ${({ pctOffset = 0 }) =>
-    `calc(${pctOffset} * var(--skeleton-pulse-fast))`};
 `;
 
 const BlobTable = ({

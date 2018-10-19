@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Table from 'components/Table';
+import BlobTable from 'skeletons/BlobTable';
 
 storiesOf('Table', module)
   .add('standard', () => (
@@ -36,6 +37,7 @@ storiesOf('Table', module)
       </Table.Row>
     </Table>
   ))
+  .add('skeleton', () => <BlobTable />)
   .add('small', () => (
     <Table.Small
       headers={
@@ -68,36 +70,4 @@ storiesOf('Table', module)
       </Table.Row>
     </Table.Small>
   ))
-  .add('loading', () => (
-    <Table
-      loading={true}
-      headers={
-        <Table.Row>
-          <Table.Header>One</Table.Header>
-          <Table.Header>Two</Table.Header>
-          <Table.Header sortable>Three</Table.Header>
-        </Table.Row>
-      }
-    >
-      <Table.Row>
-        <Table.Cell>1</Table.Cell>
-        <Table.Cell>Foo</Table.Cell>
-        <Table.Cell>Bar</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>2</Table.Cell>
-        <Table.Cell>Foo</Table.Cell>
-        <Table.Cell>Bar</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>3</Table.Cell>
-        <Table.Cell>Foo</Table.Cell>
-        <Table.Cell>Bar</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>4</Table.Cell>
-        <Table.Cell>Foo</Table.Cell>
-        <Table.Cell>Bar</Table.Cell>
-      </Table.Row>
-    </Table>
-  ));
+  .add('small skeleton', () => <BlobTable.Small />);
