@@ -147,7 +147,7 @@ class Modal extends React.Component {
     const isCloseCancelButton =
       (withCloseButton || withCancelButton) && onClose != null;
 
-    const CloseButton = isCloseCancelButton ? (
+    const closeButton = isCloseCancelButton ? (
       <Button.Secondary onClick={onClose}>
         {(withCloseButton && 'Close') || (withCancelButton && 'Cancel')}
       </Button.Secondary>
