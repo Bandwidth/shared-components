@@ -2,7 +2,7 @@ import { mapProps } from 'recompose';
 import Anchor from 'components/Anchor';
 import styled from 'styled-components';
 
-const CloseButton = styled(Anchor)`
+const CloseIcon = styled(Anchor)`
   position: absolute;
   top: 0;
   right: 0;
@@ -10,8 +10,7 @@ const CloseButton = styled(Anchor)`
   font-size: 0.9em;
 `;
 
-export default mapProps(({ onClose, ...rest }) => ({
-  ...rest,
+export default mapProps(props => ({
+  ...props,
   icon: 'delete2',
-  onClick: onClose,
-}))(CloseButton);
+}))(CloseIcon);

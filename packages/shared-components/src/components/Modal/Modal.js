@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from 'components/Button';
 import ModalActionContent from './styles/ModalActionContent';
 import ModalBlocker from './styles/ModalBlocker';
 import ModalContent from './styles/ModalContent';
 import ModalTitle from './styles/ModalTitle';
 import ModalWindow from './styles/ModalWindow';
-import ModalCloseButton from './styles/ModalCloseButton';
+import ModalCloseIcon from './styles/ModalCloseIcon';
+import ButtonContainer from './styles/ButtonContainer';
 
 class Modal extends React.Component {
   static propTypes = {
@@ -26,10 +28,6 @@ class Modal extends React.Component {
      * Handles click events on the backdrop, deprecated in favor of onClose
      */
     onBlockerClicked: PropTypes.func,
-    /**
-     * Sets a natural CSS width for the modal window. Defaults to 'auto'.
-     */
-    naturalWidth: PropTypes.string,
     /**
      * Adds a class name to the modal window element.
      */
@@ -63,9 +61,36 @@ class Modal extends React.Component {
      */
     Window: PropTypes.func,
     /**
-     * A component to render the close button of the modal
+     * A component to render the close icon in the right-top corner of the modal
      */
-    CloseButton: PropTypes.func,
+    CloseIcon: PropTypes.func,
+    /**
+     * Align action buttons
+     */
+    alignButtons: PropTypes.oneOf(['right', 'left', 'center']),
+    /**
+     * Space between buttons
+     */
+    buttonSpace: PropTypes.oneOf([
+      'xs',
+      'extraSmall',
+      'sm',
+      'small',
+      'md',
+      'medium',
+      'lg',
+      'large',
+      'xl',
+      'extraLarge',
+    ]),
+    /**
+     * Render Cancel button which on click will call onClose function
+     */
+    withCancelButton: PropTypes.bool,
+    /**
+     * Render Close button which on click will call onClose function
+     */
+    withCloseButton: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -79,7 +104,11 @@ class Modal extends React.Component {
     Content: ModalContent,
     Title: ModalTitle,
     Window: ModalWindow,
-    CloseButton: ModalCloseButton,
+    CloseIcon: ModalCloseIcon,
+    alignButtons: 'right',
+    buttonSpace: 'sm',
+    withCancelButton: false,
+    withCloseButton: false,
   };
 
   handleModalClicked = event => {
@@ -93,10 +122,47 @@ class Modal extends React.Component {
     return <Title>{title}</Title>;
   };
 
-  renderCloseButton = () => {
-    const { CloseButton, onClose } = this.props;
-    if (!onClose) return null;
-    return <CloseButton onClose={onClose} />;
+  renderCloseIcon = () => {
+    const {
+      CloseIcon,
+      onClose,
+      withCancelButton,
+      withCloseButton,
+    } = this.props;
+    if (!onClose || withCloseButton || withCancelButton) return null;
+    return <CloseIcon onClick={onClose} />;
+  };
+
+  renderActions = () => {
+    const {
+      actionContent,
+      ActionContent,
+      alignButtons,
+      buttonSpace,
+      withCloseButton,
+      withCancelButton,
+      onClose,
+    } = this.props;
+
+    const isCloseCancelButton =
+      (withCloseButton || withCancelButton) && onClose != null;
+
+    const CloseButton = isCloseCancelButton ? (
+      <Button.Secondary onClick={onClose}>
+        {(withCloseButton && 'Close') || (withCancelButton && 'Cancel')}
+      </Button.Secondary>
+    ) : null;
+
+    return (
+      (actionContent || isCloseCancelButton) && (
+        <ActionContent>
+          <ButtonContainer align={alignButtons} spacing={buttonSpace}>
+            {CloseButton}
+            {actionContent}
+          </ButtonContainer>
+        </ActionContent>
+      )
+    );
   };
 
   render() {
@@ -106,20 +172,18 @@ class Modal extends React.Component {
       onClose,
       onBlockerClicked,
       children,
-      actionContent,
       Blocker,
       Content,
       Window,
-      ActionContent,
     } = this.props;
 
     return (
       <Blocker onClick={onClose || onBlockerClicked}>
         <Window onClick={this.handleModalClicked} id={id} className={className}>
           {this.renderTitle()}
-          {this.renderCloseButton()}
+          {this.renderCloseIcon()}
           <Content>{children}</Content>
-          {actionContent && <ActionContent>{actionContent}</ActionContent>}
+          {this.renderActions()}
         </Window>
       </Blocker>
     );
