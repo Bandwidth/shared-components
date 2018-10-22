@@ -29,10 +29,6 @@ const normalize = size => {
   }
 };
 
-/**
- * Horizontal is a simple layout tool that lays items out horizontally left-aligned
- * with spacing. It uses `display: flexbox;` to lay items out.
- */
 const Horizontal = styled.div`
   display: flex;
   & > * {
@@ -53,5 +49,6 @@ Horizontal.propTypes = {
    */
   spacing: PropTypes.string,
 };
+
 //@component
 export default Horizontal;

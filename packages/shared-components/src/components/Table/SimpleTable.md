@@ -1,10 +1,6 @@
 `SimpleTable` is meant to provide a quick but limited implementation of a table with sorting and details support. `SimpleTable` doesn't implement sorting internally (you must do this), but does provide props you can utilize to key on sorting events.
 
 ```javascript
-const Money = require('../Money').default;
-const Table = require('./Table').default;
-const Spacing = require('../Spacing').default;
-
 const data = [
   { foo: 'bar', bar: 0, baz: { corge: 'bop' } },
   { foo: 'bar2', bar: 3, baz: { iffy: 'plink' } },
@@ -28,10 +24,12 @@ const columns = [
   { name: 'baz' },
 ];
 
-const renderRow = (item) => (
+const renderRow = item => (
   <Table.Row>
     <Table.Cell>{item.foo}</Table.Cell>
-    <Table.Cell><Money value={item.bar} /></Table.Cell>
+    <Table.Cell>
+      <Money value={item.bar} />
+    </Table.Cell>
     <Table.Cell>{JSON.stringify(item.baz)}</Table.Cell>
   </Table.Row>
 );
@@ -40,6 +38,6 @@ const renderRow = (item) => (
   items={data}
   columns={columns}
   renderRow={renderRow}
-  renderDetails={(item) => <Spacing>{JSON.stringify(item, null, '\t')}</Spacing>}
-/>
+  renderDetails={item => <Spacing>{JSON.stringify(item, null, '\t')}</Spacing>}
+/>;
 ```

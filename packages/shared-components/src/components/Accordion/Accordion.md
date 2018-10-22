@@ -3,23 +3,23 @@ Expands and collapses when the label is clicked. Or, you can provide the `isColl
 Accepts `label` to define what's rendered in the label.
 
 Also exports `ContentPadding`, which you can use on any content contained inside the accordion to achieve consistent padding.
+
 ```javascript
-<Accordion label="Hello">
-  Some content
-</Accordion>
+<Accordion label="Hello">Some content</Accordion>
 ```
 
 _Small_
 
 ```javascript
-const Button = require('../Button').default;
 <Accordion.Small label="Small!">
-  Some content<br />
+  Some content
+  <br />
   <Button>A normal Button</Button>
 </Accordion.Small>
 ```
 
 _Start open_
+
 ```javascript
 <Accordion label="Hello" startExpanded>
   Some content
@@ -27,6 +27,7 @@ _Start open_
 ```
 
 _Disabled_
+
 ```javascript
 <Accordion label="Disabled" disabled>
   Content
@@ -34,6 +35,7 @@ _Disabled_
 ```
 
 _Disabled, start expanded_
+
 ```javascript
 <Accordion label="Disabled" startExpanded disabled>
   Visible content
@@ -41,6 +43,7 @@ _Disabled, start expanded_
 ```
 
 _Small disabled_
+
 ```javascript
 <Accordion.Small label="Small disabled" disabled>
   Some content
