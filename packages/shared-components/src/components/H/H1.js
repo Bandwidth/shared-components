@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import tag from 'clean-tag';
 import get from 'extensions/themeGet';
 import userSpacing from 'extensions/userSpacing';
+import Blob from 'skeletons/Blob';
 
 import H2 from './H2';
 import H3 from './H3';
@@ -45,6 +46,8 @@ H1.defaultProps = {
   className: null,
   id: null,
 };
+
+H1.Skeleton = () => <Blob width="200px" height="2.5em" />;
 
 H1.H2 = H2;
 H1.H3 = H3;

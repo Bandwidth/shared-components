@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import tag from 'clean-tag';
 import get from 'extensions/themeGet';
 import userSpacing from 'extensions/userSpacing';
+import Blob from 'skeletons/Blob';
 
 const H5 = styled(tag.h5)
   .withConfig({ displayName: 'H5' })
@@ -39,6 +40,7 @@ H5.defaultProps = {
   className: null,
   id: null,
 };
+H5.Skeleton = () => <Blob width="200px" height="1.15em" />;
 
 /**
  * @component
