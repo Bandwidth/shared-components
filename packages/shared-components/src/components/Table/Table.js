@@ -70,8 +70,8 @@ class Table extends React.Component {
   render() {
     const {
       children,
-      headers,
       loading,
+      headers,
       wrapBody,
       Wrap,
       Styles,
