@@ -1,7 +1,6 @@
 import React, { createContext, createRef } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-import throttle from 'lodash.throttle';
 import Sentinel from './Sentinel';
 import ShadowOverlay from './ShadowOverlay';
 import DefaultContainer from './DefaultContainer';

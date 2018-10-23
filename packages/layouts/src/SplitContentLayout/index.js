@@ -6,7 +6,6 @@ import SecondaryContent from './SecondaryContent';
 import ActionBar from './ActionBar';
 import Popup from './Popup';
 import FixedLayer from './FixedLayer';
-import throttle from 'lodash.throttle';
 
 export default class SplitContentLayout extends React.PureComponent {
   render() {
