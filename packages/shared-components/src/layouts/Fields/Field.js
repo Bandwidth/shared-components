@@ -9,7 +9,9 @@ import LabelContainer from './styles/LabelContainer';
 import { get } from 'lodash';
 
 /**
- * A single Field element. **Important:** Field cannot be used on its own. Please use Field
+ * A single Field element.
+ *
+ * **Important:** Field cannot be used on its own. Please use Field
  * within the Fields component. See: [Fields](#!/Fields)
  */
 class Field extends React.Component {
@@ -118,7 +120,15 @@ class Field extends React.Component {
   };
 
   renderLabel = () => {
-    const { label, disabled, required, Label, children, helpCallout, helpCalloutProps } = this.props;
+    const {
+      label,
+      disabled,
+      required,
+      Label,
+      children,
+      helpCallout,
+      helpCalloutProps,
+    } = this.props;
 
     if (!label) {
       return null;
@@ -138,14 +148,17 @@ class Field extends React.Component {
       </Callout>
     );
 
-    const LabelComponent = typeof label === 'string'
-      ? <Label {...labelProps}>{label}</Label>
-      : React.cloneElement(label, labelProps);
+    const LabelComponent =
+      typeof label === 'string' ? (
+        <Label {...labelProps}>{label}</Label>
+      ) : (
+        React.cloneElement(label, labelProps)
+      );
 
     return (
       <LabelContainer style={this.stylesFor('label')}>
-        { LabelComponent }
-        { HelpCallout }
+        {LabelComponent}
+        {HelpCallout}
       </LabelContainer>
     );
   };

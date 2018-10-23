@@ -1,6 +1,4 @@
 ```javascript
-const Button = require('../Button').default;
-
 class ShowToast extends React.Component {
   constructor(props) {
     super(props);
@@ -12,12 +10,14 @@ class ShowToast extends React.Component {
 
     return (
       <div>
-        <Button onClick={() => this.setState({ show: !show })}>Toggle Show</Button>
+        <Button onClick={() => this.setState({ show: !show })}>
+          Toggle Show
+        </Button>
         {show && <Toast>Hello there!</Toast>}
       </div>
-    )
+    );
   }
 }
 
-<ShowToast />
+<ShowToast />;
 ```

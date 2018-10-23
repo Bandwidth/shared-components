@@ -1,7 +1,7 @@
 ```javascript
 <div>
-  <Radio value="a" description="Check me"/>
-  <Radio value="foo" checked description="I'm already checked"/>
+  <Radio value="a" description="Check me" />
+  <Radio value="foo" checked description="I'm already checked" />
   <Radio
     value="bar"
     checked
@@ -12,16 +12,14 @@
       </div>
     }
   />
-  <Radio disabled value="hello" description="Can't check this"/>
-  <Radio disabled checked value="hello" description="Can't uncheck this"/>
+  <Radio disabled value="hello" description="Can't check this" />
+  <Radio disabled checked value="hello" description="Can't uncheck this" />
 </div>
 ```
 
 Radios assembled in a single field:
 
 ```javascript
-const Button = require('../Button').default;
-
 <form
   onSubmit={ev => {
     ev.preventDefault();
@@ -35,5 +33,4 @@ const Button = require('../Button').default;
   <Radio name="radios" value="three" checked description="Three" />
   <Button.Submit>Show value</Button.Submit>
 </form>
-
 ```
