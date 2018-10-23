@@ -11,46 +11,46 @@ export default class Checkbox extends React.PureComponent {
     /**
      * Adds a class name to the input element.
      */
-    className: PropTypes.string
+    className: PropTypes.string,
     /**
      * Adds an id to the input element.
-     */,
-    id: PropTypes.string
+     */
+    id: PropTypes.string,
     /**
      * The value of the checkbox.
-     */,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+     */
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     /**
      * Whether the checkbox is checked or not.
-     */,
-    checked: PropTypes.bool
+     */
+    checked: PropTypes.bool,
     /**
      * Whether the checkbox is required for form submission.
-     */,
-    required: PropTypes.bool
+     */
+    required: PropTypes.bool,
     /**
      * Whether the user is prevented from interacting with the checkbox.
-     */,
-    disabled: PropTypes.bool
+     */
+    disabled: PropTypes.bool,
     /**
      * A description to display next to the checkbox.
-     */,
-    description: PropTypes.node
+     */
+    description: PropTypes.node,
     /**
      * Callback for the onChange event of the input.
-     */,
-    onChange: PropTypes.func
+     */
+    onChange: PropTypes.func,
     /**
      * A component to render an input, by default hidden.
-     */,
-    Input: PropTypes.func
+     */
+    Input: PropTypes.func,
     /**
      * A component to render a label. By default this component renders the checkbox itself as a pseudoelement pair.
-     */,
-    Label: PropTypes.func
+     */
+    Label: PropTypes.func,
     /**
      * A component to render the wrapping element of the assembled checkbox/label
-     */,
+     */
     Container: PropTypes.func,
   };
 
