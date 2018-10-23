@@ -7,4 +7,3 @@ const LabelContainer = styled.div`
 `;
 
 export default LabelContainer;
-

@@ -6,4 +6,5 @@ export default styled(Icon)`
   margin: auto;
   margin-left: var(--spacing-extra-small);
   font-weight: normal;
+  position: absolute;
 `;

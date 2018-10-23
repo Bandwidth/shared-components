@@ -143,7 +143,11 @@ class Field extends React.Component {
     };
 
     const HelpCallout = helpCallout && (
-      <Callout content={helpCallout} {...helpCalloutProps}>
+      <Callout
+        style={{ position: 'relative', top: '-15px' }}
+        content={helpCallout}
+        {...helpCalloutProps}
+      >
         <HelpIcon name="help" />
       </Callout>
     );
