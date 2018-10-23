@@ -63,8 +63,10 @@ class RadioGroup extends React.Component {
     name: undefined,
   };
 
+  defaultId = generateId('radioGroup');
+
   getOptions = () => this.props.options || this.props.choices;
-  getName = () => this.props.name || generateId('radioGroup');
+  getName = () => this.props.name || this.defaultId;
 
   optionsToButtons = () => {
     const { value, onChange, disabled, required, Button } = this.props;
