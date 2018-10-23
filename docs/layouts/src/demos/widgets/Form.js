@@ -1,8 +1,8 @@
 import React from 'react';
-import { Form, Fields, Input, Toggle } from '@bandwidth/shared-components';
+import { Fields, Input, Toggle } from '../../../../../src';
 
 export default ({ children, columns = 2 }) => (
-  <Form>
+  <form>
     <Fields columns={columns}>
       <Fields.Field label="Input 1" required>
         <Input value="Value 1" required />
@@ -18,5 +18,5 @@ export default ({ children, columns = 2 }) => (
       </Fields.Field>
     </Fields>
     {children}
-  </Form>
+  </form>
 );

@@ -1,7 +1,6 @@
 import React from 'react';
-import { SplitContentLayout } from '../../../../src';
+import { SplitContentLayout, H2, Button, Anchor } from '../../../../../src';
 import { Form, SidebarList, ActionBarExpandingContent } from '../widgets';
-import { H2, Button, Anchor } from '@bandwidth/shared-components';
 
 export default class RightComplexDemo extends React.Component {
   state = {

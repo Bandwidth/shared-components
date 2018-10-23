@@ -3,8 +3,8 @@ then use CSS variables to reference the colors (e.g.,  `var(--colors-primary-lig
 
 ```javascript noeditor
 const hexToHSL = require('hex-to-hsl');
-const irisTheme = require('theme/irisTheme');
-const {cssvarKey} = require('theme/cssvars');
+const irisTheme = require('themes/irisTheme');
+const {cssvarKey} = require('themes/cssvars');
 
 const getLightness = (hex) => hexToHSL(hex)[2]
 

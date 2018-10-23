@@ -1,245 +1,14 @@
-```jsx
-<H3>
-  <NewBadge /> <Code>@bandwidth/layouts</Code> library! See the docs <Anchor to="https://dev.bandwidth.com/shared-components/layouts">here!</Anchor>
-</H3>
-```
-
 This section is intended to show you how the developers of the Bandwidth Shared Component Library use the library to build layouts. We aim to highlight certain design principles which we recommend you to follow if you are creating a Bandwidth application.
 
 ### Sections
-  * 1/3 & 2/3 Split Layout
-  * Sidebar List Layout
+  * Page Layouts
   * Content Layout
   * The Anchor Solar System
   * Data Presentation
 
+## Page Layouts
 
-## 1/3 & 2/3 Split Layout
-
-```jsx
-const NavBar = () => (
-  <Navigation>
-    <Anchor to="/">
-      <Navigation.Title>
-        Bandwidth App
-      </Navigation.Title>
-    </Anchor>
-    <Navigation.ItemList>
-      <Anchor to="/about" exact>
-        <Navigation.Item>
-          About
-        </Navigation.Item>
-      </Anchor>
-    </Navigation.ItemList>
-  </Navigation>
-);
-
-const OneThird = () => (
-  <div style={{
-    background: 'var(--colors-positive-border)',
-    padding: '2vw',
-    backgroundClip: 'content-box',
-    height: '400px',
-  }}>
-    <p style={{
-      color: 'white',
-      fontSize: '100px',
-      fontWeight: 'bold',
-      textAlign: 'center',
-    }}>
-      1/3
-    </p>
-  </div>
-);
-
-const TwoThirds = () => (
-  <div style={{
-    background: 'var(--colors-negative-border)',
-    padding: '2vw',
-    backgroundClip: 'content-box',
-    height: '400px',
-  }}>
-    <p style={{
-      color: 'white',
-      fontSize: '100px',
-      fontWeight: 'bold',
-      textAlign: 'center',
-    }}>
-      2/3
-    </p>
-  </div>
-);
-
-// html which gets rendered above
-<div>
-  <NavBar/>
-  <SidebarLayout>
-    <OneThird/>
-    <TwoThirds/>
-  </SidebarLayout>
-</div>
-```
-In this library we allow you to create a 1/3 & 2/3 view easily via the [SidebarLayout](/#!/SidebarLayout) component. This view is recommended when you want to split primary and secondary content. Your webpage should flow from left-to-right. In this particular view, the page should be designed such that the user would ideally interact with or look at the 1/3 component on the left before interacting with the content on the right.
-
-```jsx
-const NavBar = () => (
-  <Navigation>
-    <Anchor to="/">
-      <Navigation.Title>
-        Bandwidth App
-      </Navigation.Title>
-    </Anchor>
-    <Navigation.ItemList>
-      <Anchor to="/about" exact>
-        <Navigation.Item>
-          About
-        </Navigation.Item>
-      </Anchor>
-    </Navigation.ItemList>
-  </Navigation>
-);
-
-const Section = (props) => (
-  <div style={{
-    width: '100%',
-    paddingBottom: '30px',
-    marginBottom: '30px',
-  }}>
-    {props.children}
-  </div>
-);
-
-const MainContent = (props) => (
-  <div style={{minHeight:'400px'}}>
-    <div style={{margin: '30px'}}>
-      <Pane.Column>
-        <Section>
-          <H1 spacing='0'> Main Content Title </H1>
-        </Section>
-
-        <Section>
-          <H2> Main Content Section 1 </H2>
-          <P spacing='0'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla pellentesque dignissim enim sit amet venenatis urna. Quisque sagittis purus sit amet volutpat consequat mauris nunc congue. Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Pretium quam vulputate dignissim suspendisse in. Facilisis magna etiam tempor orci. Volutpat diam ut venenatis tellus in. Augue mauris augue neque gravida in fermentum et sollicitudin. At lectus urna duis convallis. Nunc aliquet bibendum enim facilisis gravida neque. Morbi tincidunt ornare massa eget egestas purus viverra accumsan.
-          </P>
-        </Section>
-      </Pane.Column>
-    </div>
-  </div>
-);
-
-const SupplementalContent = (props) => (
-  <div style={{minHeight:'400px'}}>
-    <div style={{margin: '30px'}}>
-      <Pane.Column>
-        <Section>
-          <H2> Supplemental Info Section 1 </H2>
-          <P spacing='0'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla pellentesque dignissim enim sit amet venenatis urna. Quisque sagittis purus sit amet volutpat consequat mauris nunc congue.
-          </P>
-        </Section>
-
-        <Section>
-          <H2> Supplemental Info Section 2 </H2>
-          <P spacing='0'>
-          Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Pretium quam vulputate dignissim suspendisse in. Facilisis magna etiam tempor orci. Volutpat diam ut venenatis tellus in. Augue mauris augue neque gravida in fermentum et sollicitudin.
-          </P>
-        </Section>
-      </Pane.Column>
-    </div>
-  </div>
-);
-
-<div>
-  <NavBar/>
-  <SidebarLayout right>
-    <MainContent/>
-    <SupplementalContent/>
-  </SidebarLayout>
-</div>
-```
-If you have supplemental information which should be viewed after looking after the main content, the sidebar should be placed on the right, as shown above.
-
-## Sidebar List Layout
-```jsx
-const React = require('react');
-
-const NavBar = () => (
-  <Navigation>
-    <Anchor to="/">
-      <Navigation.Title>
-        Bandwidth App
-      </Navigation.Title>
-    </Anchor>
-    <Navigation.ItemList>
-      <Anchor to="/about" exact>
-        <Navigation.Item>
-          About
-        </Navigation.Item>
-      </Anchor>
-    </Navigation.ItemList>
-  </Navigation>
-);
-
-const SelectedContainer = (props) => (
-  <div style={{width: '100%', padding: '30px'}}>
-    {props.children}
-  </div>
-);
-
-const SelectedContent = (props) => (
-  <div>
-    <H3> Selected Content Title </H3>
-    <div style={{backgroundColor: 'var(--colors-background-default)', width: '100%', height: '310px', border: 'solid 1px', borderColor: 'var(--colors-border-medium)'}}/>
-  </div>
-);
-
-class SidebarContent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { activeItemId: 1 }
-  }
-
-  handleClick(id) {
-    this.setState({ activeItemId: id });
-  }
-
-  render() {
-    return (
-      <SidebarList>
-        <SidebarList.Item Label={()=>(<H1 spacing={{ vertical: 'md' }} >Group Title</H1>)} />
-        <Anchor active={this.state.activeItemId === 1} onClick={()=>(this.handleClick(1))}>
-          <SidebarList.Item label="One" />
-        </Anchor>
-        <Anchor active={this.state.activeItemId === 2} onClick={()=>(this.handleClick(2))}>
-          <SidebarList.Item label="Two" details="Details" />
-        </Anchor>
-        <Anchor active={this.state.activeItemId === 3} onClick={()=>(this.handleClick(3))}>
-          <SidebarList.Item label="Three" />
-        </Anchor>
-        <Anchor active={this.state.activeItemId === 4} onClick={()=>(this.handleClick(4))}>
-          <SidebarList.Item label="Four" />
-        </Anchor>
-        <Anchor active={this.state.activeItemId === 5} onClick={()=>(this.handleClick(5))}>
-          <SidebarList.Item label="Five" />
-        </Anchor>
-      </SidebarList>
-    );
-  }
-}
-
-// html which gets rendered above
-<div>
-  <NavBar />
-  <SidebarLayout>
-    <SidebarContent/>
-    <SelectedContainer>
-      <SelectedContent/>
-    </SelectedContainer>
-  </SidebarLayout>
-</div>
-```
-In certain situations, it makes sense to display a list items of the same type in the sidebar. Above is an implementation of this using the [SidebarLayout](/#!/SidebarLayout) and [SidebarList](/#!/SidebarList) components. When an item is clicked, the content on the right is updated to display information relevant to that item. This layout follows 1/3 & 2/3 layout rule described above.
+This library contains a few layout components that can help create complex, interactive layouts for whole pages. You can find more documentation for these [here](/shared-components/layouts)
 
 ## Content Layout
 
@@ -311,7 +80,12 @@ const Content = (props) => (
 </div>
 ```
 When designing the main content of a webpage, we recommend to follow these design rules:
-H1's are generally only used once per page, for the title. H2's should be used for the title of all sections on the page. H3's are used to display supplemental information to the title, such as a value. H4's should be used for sub-section titles. Sections should be divided with a 1 pixel thick divider.
+
+* H1s are generally only used once per page, for the title.
+* H2s should be used for the title of all sections on the page.
+* H3s are used to display supplemental information to the title, such as a value.
+* H4s should be used for sub-section titles.
+* Sections should be divided with a 1 pixel thick divider.
 
 If the main content is the only content on the page (there is no sidebar), the main content should not take up the full width of the available space. Generally the max-width value of the main content is set to 900px. This is to help maintain readability.
 

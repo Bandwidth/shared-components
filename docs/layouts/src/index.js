@@ -3,14 +3,13 @@ import ReactDom from 'react-dom';
 
 import './index.css';
 
-import { BandwidthProvider } from '@bandwidth/shared-components';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 
 import Home from './Home';
 import Navigation from './Navigation';
 import * as demos from './demos';
 
-import { RootLayout } from '../../src';
+import { RootLayout, BandwidthProvider } from '../../../src';
 
 ReactDom.render(
   <BandwidthProvider>

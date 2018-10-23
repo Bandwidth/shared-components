@@ -8,7 +8,7 @@ import {
   Code,
   Spacing,
   Accordion,
-} from '@bandwidth/shared-components';
+} from '../../../../../src';
 import { Example } from '../common';
 
 const examples = [

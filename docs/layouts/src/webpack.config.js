@@ -24,19 +24,19 @@ module.exports = {
           options: {
             presets: [
               [
-                'env',
+                '@babel/preset-env',
                 {
                   targets: {
                     browsers: ['last 2 versions'],
                   },
                 },
               ],
-              'react',
+              '@babel/preset-react',
             ],
             plugins: [
-              'transform-object-rest-spread',
-              'transform-runtime',
-              'babel-plugin-transform-class-properties',
+              '@babel/transform-runtime',
+              '@babel/proposal-object-rest-spread',
+              '@babel/proposal-class-properties',
             ],
           },
         },
