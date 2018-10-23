@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigation, Anchor } from '@bandwidth/shared-components';
+import { Navigation, Anchor } from '../../../src';
 import { Route, Switch } from 'react-router-dom';
 
 const SubNav = () => (

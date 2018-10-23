@@ -12,12 +12,8 @@ if (typeof Promise === 'undefined') {
 // It will use the native implementation if it's present and isn't buggy.
 Object.assign = require('object-assign');
 
-require('babel-polyfill');
+require('@babel/polyfill');
 
 // ResizeObserver is a polyfill for a tool that subscribes to resize
 // events on an element https://wicg.github.io/ResizeObserver/
 require('resize-observer');
-
-const encoding = require('text-encoding');
-window.TextEncoder = encoding.TextEncoder;
-window.TextDecoder = encoding.TextDecoder;

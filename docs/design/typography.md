@@ -1,7 +1,7 @@
 
 
 ```js noeditor
-const irisTheme = require('theme/irisTheme');
+const irisTheme = require('themes/irisTheme');
 
 const text = [
   'ABCDEFGHIJKLMNOPQRSTUVWXYZ',

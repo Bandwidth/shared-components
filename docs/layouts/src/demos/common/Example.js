@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeBlock } from '@bandwidth/shared-components';
+import { Code } from '../../../../../src';
 import SyntaxHighlighter, {
   registerLanguage,
 } from 'react-syntax-highlighter/prism-light';
@@ -9,9 +9,9 @@ import { tomorrow } from 'react-syntax-highlighter/styles/prism';
 registerLanguage('jsx', jsx);
 
 export default props => (
-  <CodeBlock>
+  <Code.Block>
     <SyntaxHighlighter language="jsx" style={tomorrow}>
       {props.children}
     </SyntaxHighlighter>
-  </CodeBlock>
+  </Code.Block>
 );
