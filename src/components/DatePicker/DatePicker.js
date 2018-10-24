@@ -34,7 +34,7 @@ class DatePicker extends React.PureComponent {
     /**
      * A component to wrap and control styles of the underlying react-dates DatePicker
      */
-    Wrapper: PropTypes.func,
+    Wrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Format to pass to moment to control the input's value
      */

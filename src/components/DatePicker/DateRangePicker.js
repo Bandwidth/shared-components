@@ -32,11 +32,11 @@ class DateRangePicker extends React.PureComponent {
     /**
      * A component to wrap and control styles of the underlying react-dates DatePicker
      */
-    Wrapper: PropTypes.func,
+    Wrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component that renders the separator line between the two inputs
      */
-    LineSeparator: PropTypes.func,
+    LineSeparator: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Set to true if the component's value is invalid
      */

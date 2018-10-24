@@ -43,15 +43,15 @@ export default class Checkbox extends React.PureComponent {
     /**
      * A component to render an input, by default hidden.
      */
-    Input: PropTypes.func,
+    Input: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render a label. By default this component renders the checkbox itself as a pseudoelement pair.
      */
-    Label: PropTypes.func,
+    Label: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the wrapping element of the assembled checkbox/label
      */
-    Container: PropTypes.func,
+    Container: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

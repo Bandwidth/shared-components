@@ -9,7 +9,7 @@ class Card extends React.Component {
     /**
      * A component which controls the styles for the outline of the Card.
      */
-    CardWrapper: PropTypes.func,
+    CardWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

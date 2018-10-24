@@ -1,10 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
-import mapValues from 'lodash.mapvalues';
 import partition from 'lodash.partition';
-import filter from 'lodash.filter';
 import throttle from 'lodash.throttle';
 import pick from 'lodash.pick';
 import noop from 'lodash.noop';
@@ -18,13 +14,6 @@ import DragBoxDiv from './styles/DragBoxDiv';
 // TODO: We should probably turn on drag box once this size is met and not turn it off until
 // the mouse button is released
 const MIN_SIZE_DRAGBOX = 16;
-
-//Empty class to attach ref to.
-class DragBoxItem extends React.Component {
-  render() {
-    return this.props.children;
-  }
-}
 
 /**
  * **DragBox** creates an area where the user can drag a box that can then control other types of behavior. It is intended to
@@ -123,8 +112,6 @@ class DragBox extends React.Component {
       />
     ),
   };
-
-  static Item = DragBoxItem;
 
   getScrollElement = () =>
     (this.props.scrollSelector &&

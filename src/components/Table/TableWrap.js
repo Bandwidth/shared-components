@@ -13,7 +13,7 @@ class TableWrap extends React.Component {
      * Passed a prop, 'shadow'=['left'|'right'|'both'], to indicate
      * the scroll position and what side of the wrapper should be shadowed.
      */
-    Styles: PropTypes.func.isRequired,
+    Styles: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
   };
 
   static defaultProps = {

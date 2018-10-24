@@ -8,20 +8,20 @@ export default class Steps extends React.Component {
     /**
      * Children must be an array of Step components
      */
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired
     /**
      * Override the component that renders the list container
-     */
-    List: PropTypes.func,
+     */,
+    List: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
-  static defaultProps = {
-    List: StepList,
-  };
+  static defaultProps = { List: StepList };
 
   renderSteps = () =>
     React.Children.map(this.props.children, (step, index) =>
-      React.cloneElement(step, { number: index + 1 }),
+      React.cloneElement(step, {
+        number: index + 1,
+      }),
     );
 
   render() {

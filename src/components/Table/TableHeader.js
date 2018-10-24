@@ -39,7 +39,7 @@ class TableHeader extends React.Component {
     /**
      * A component for rendering an icon, used for sort arrows.
      */
-    Icon: PropTypes.func,
+    Icon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A link component. Defaults Link
      */
@@ -47,15 +47,15 @@ class TableHeader extends React.Component {
     /**
      * A component for rendering the th element styles
      */
-    Styles: PropTypes.func,
+    Styles: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component for rendering the sort arrow container
      */
-    SortArrows: PropTypes.func,
+    SortArrows: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component for rendering the column name text
      */
-    ColumnName: PropTypes.func,
+    ColumnName: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

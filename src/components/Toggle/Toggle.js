@@ -48,15 +48,15 @@ class Toggle extends React.PureComponent {
     /**
      * A component to render the container around the toggle and label
      */
-    Container: PropTypes.func,
+    Container: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the input element, usually hidden
      */
-    Input: PropTypes.func,
+    Input: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the label, which usually also renders the toggle itself
      */
-    Label: PropTypes.func,
+    Label: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

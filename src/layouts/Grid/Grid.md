@@ -3,18 +3,21 @@
 **NOTE:** If `columns` is unchanged or set to `'auto-fill'` or `'auto-fit'`, then `minSize` must be set.
 
 Sample `minSize` layout:
+
 ```javascript
-<Grid minSize="50px">{
-  Array.from(Array(20).keys()).map((key) =>
-    <ToggleButton key={key}>{key+1}</ToggleButton>
-  )
-}</Grid>
+<Grid minSize="50px">
+  {Array.from(Array(20).keys()).map(key => (
+    <ToggleButton key={key}>{key + 1}</ToggleButton>
+  ))}
+</Grid>
 ```
+
 Sample `columns` layout:
+
 ```javascript
-<Grid columns={5}>{
-  Array.from(Array(20).keys()).map((key) =>
-    <ToggleButton key={key}>{key+1}</ToggleButton>
-  )
-}</Grid>
+<Grid columns={5}>
+  {Array.from(Array(20).keys()).map(key => (
+    <ToggleButton key={key}>{key + 1}</ToggleButton>
+  ))}
+</Grid>
 ```

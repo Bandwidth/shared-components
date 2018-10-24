@@ -32,7 +32,7 @@ class ToggleButton extends React.PureComponent {
      * Has no effect on rendering; acts as a key that you can use to identify the
      * **ToggleButton** when it invokes `onClick`, `onSelect`, or `onDeselect`.
      */
-    name: PropTypes.any.isRequired,
+    name: PropTypes.any,
     /**
      * Whether the button is selected or not
      */

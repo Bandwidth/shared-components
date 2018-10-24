@@ -30,15 +30,15 @@ class Pagination extends React.Component {
     /**
      * A component to render a container for the pagination
      */
-    Container: PropTypes.func,
+    Container: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render a single pagination item
      */
-    Item: PropTypes.func,
+    Item: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render a placeholder space for a pagination item
      */
-    ItemPlaceholder: PropTypes.func,
+    ItemPlaceholder: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

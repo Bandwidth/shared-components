@@ -1,13 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import get from 'extensions/themeGet';
 import { H5 } from 'components/H';
 import Logo from 'components/Logo';
-import RadioButton from 'components/RadioGroup/RadioButton';
+import RadioButton from 'components/RadioButton';
 import Navigation from 'components/Navigation';
 
-const RadioGroup = styled.div`
+const RadioContainer = styled.div`
   grid-area: theme;
   display: flex;
   flex-direction: row;
@@ -20,26 +18,28 @@ const CustomNav = styled(Navigation.Light)`
 `;
 
 const LinkedLogo = () => (
-  <a href="/" style={{ display: 'inline-block', 'line-height': 0 }}>
+  <a href="/" style={{ display: 'inline-block', lineHeight: 0 }}>
     <Logo.Primary />
   </a>
 );
 
 class Topbar extends React.Component {
   renderItem = ({ selectItem, selected }) => (
-    <RadioGroup>
+    <RadioContainer>
       <H5 spacing={{ right: 'md' }}>Theme:</H5>
       <RadioButton.Group>
         {['iris', 'catapult'].map(name => (
           <RadioButton.Small
+            key={name}
             name={name}
+            value={name}
             label={name}
             checked={selected.has(name)}
             onChange={ev => selectItem(name)}
           />
         ))}
       </RadioButton.Group>
-    </RadioGroup>
+    </RadioContainer>
   );
 
   render() {

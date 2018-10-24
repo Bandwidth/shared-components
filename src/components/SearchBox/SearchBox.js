@@ -88,27 +88,30 @@ class SearchBox extends React.Component {
     /**
      * A component to render a wrapper around the box
      */
-    Wrapper: PropTypes.func,
+    Wrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the list of suggestions
      */
-    SuggestionsList: PropTypes.func,
+    SuggestionsList: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render a search button integrated into the field
      */
-    SearchButton: PropTypes.func,
+    SearchButton: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render a section title in the suggestions list
      */
-    SuggestionsSectionTitle: PropTypes.func,
+    SuggestionsSectionTitle: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+    ]),
     /**
      * A component to render a suggestion item
      */
-    Suggestion: PropTypes.func,
+    Suggestion: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the input element (defaults Input)
      */
-    Input: PropTypes.func,
+    Input: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

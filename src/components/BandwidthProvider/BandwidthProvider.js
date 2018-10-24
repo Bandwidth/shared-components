@@ -25,9 +25,13 @@ class BandwidthProvider extends React.PureComponent {
      */
     dragLayerPortal: PropTypes.object,
     /**
+     * Should the global style be skipped. Defaults to false.
+     */
+    skipGlobalStyle: PropTypes.bool,
+    /**
      * Custom StyleRoot component
      */
-    StyleRoot: PropTypes.oneOfType([PropTypes.func, PropTypes.symbol]),
+    StyleRoot: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Custom drag layer component
      */
@@ -40,6 +44,7 @@ class BandwidthProvider extends React.PureComponent {
     dragLayerPortal: null,
     StyleRoot: DefaultStyleRoot,
     DragLayer: DefaultDragLayer,
+    skipGlobalStyle: false,
   };
 
   render() {
@@ -48,6 +53,7 @@ class BandwidthProvider extends React.PureComponent {
       DragLayer,
       dragLayerPortal,
       customTheme,
+      skipGlobalStyle,
       children,
     } = this.props;
     const styleRootProps = {};
@@ -62,7 +68,7 @@ class BandwidthProvider extends React.PureComponent {
             <DragLayer />
           )}
         </StyleRoot>
-        <GlobalStyle />
+        {skipGlobalStyle || <GlobalStyle />}
       </React.Fragment>
     );
   }

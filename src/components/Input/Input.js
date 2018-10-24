@@ -38,7 +38,7 @@ class Input extends React.PureComponent {
     /**
      * Controls whether the user can modify the element - typically displays differently from disabled.
      */
-    readonly: PropTypes.bool,
+    readOnly: PropTypes.bool,
     /**
      * Limits the maximum length of the input.
      */
@@ -110,12 +110,15 @@ class Input extends React.PureComponent {
     /**
      * A component that renders the internal input element
      */
-    Styles: PropTypes.func,
+    Styles: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component that wraps the whole element and helps control spacing
      * when reveal password is enabled
      */
-    RevealPasswordWrapper: PropTypes.func,
+    RevealPasswordWrapper: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+    ]),
     /**
      * A react node that is displayed inside input element
      */
@@ -125,7 +128,7 @@ class Input extends React.PureComponent {
   static defaultProps = {
     disabled: false,
     required: false,
-    readonly: false,
+    readOnly: false,
     id: null,
     name: null,
     type: 'text',
@@ -225,7 +228,7 @@ class Input extends React.PureComponent {
       inputRef,
       Styles,
       inlineContent,
-      readonly,
+      readOnly,
       name,
       maxLength,
       min,
@@ -250,7 +253,7 @@ class Input extends React.PureComponent {
         type={type}
         error={error}
         disabled={disabled}
-        readonly={readonly}
+        readOnly={readOnly}
         placeholder={placeholder}
         ref={inputRef}
         inlineContent={inlineContent}

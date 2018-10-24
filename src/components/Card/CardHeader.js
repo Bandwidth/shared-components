@@ -16,11 +16,11 @@ class CardHeader extends React.Component {
     /**
      * A component which controls the styling of the CardHeader
      */
-    HeaderWrapper: PropTypes.func,
+    HeaderWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component which controls the appearance of the text in the Card Header
      */
-    CardHeaderText: PropTypes.func,
+    CardHeaderText: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

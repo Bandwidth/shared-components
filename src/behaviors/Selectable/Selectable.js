@@ -31,7 +31,7 @@ class Selectable extends React.Component {
     /**
      * Control the inital selection.
      */
-    initial: PropTypes.object,
+    initial: PropTypes.any,
   };
 
   constructor(props) {

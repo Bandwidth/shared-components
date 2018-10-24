@@ -30,15 +30,15 @@ TableRowDetails.propTypes = {
   /**
    * A component to render the styles of the tr
    */
-  Row: PropTypes.func,
+  Row: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   /**
    * A component to render the styles of the td
    */
-  Styles: PropTypes.func,
+  Styles: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   /**
    * A tbody element
    */
-  TableBody: PropTypes.func,
+  TableBody: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
 TableRowDetails.defaultProps = {
