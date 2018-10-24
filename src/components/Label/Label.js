@@ -4,9 +4,7 @@ import styled, { css } from 'styled-components';
 import get from 'extensions/themeGet';
 import userTextSpacing from 'extensions/userTextSpacing';
 
-const Label = styled.label.withConfig({ displayName: 'Label' }).attrs({
-  spacing: userTextSpacing,
-})`
+const Label = styled.label.withConfig({ displayName: 'Label' })`
   font-size: 1em;
   letter-spacing: 0.02em;
   font-weight: 700;
@@ -15,7 +13,7 @@ const Label = styled.label.withConfig({ displayName: 'Label' }).attrs({
   background: transparent;
   line-height: 1.5;
   display: block;
-  margin: ${props => props.spacing};
+  margin: ${userTextSpacing};
   ${({ disabled }) =>
     disabled &&
     css`

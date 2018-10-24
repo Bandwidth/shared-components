@@ -2,10 +2,8 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 import userSpacing from 'extensions/userSpacing';
 
-const AccordionLabel = styled.div.attrs({
-  spacing: userSpacing.text,
-})`
-  padding: ${props => props.spacing};
+const AccordionLabel = styled.div`
+  padding: ${userSpacing.text};
   color: ${get('colors.primary.default')};
   font-family: ${get('fonts.brand')};
   font-size: 1.5em;

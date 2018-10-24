@@ -1,6 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 import get from 'extensions/themeGet';
-import tag from 'clean-tag';
 import userSpacing from 'extensions/userSpacing';
 
 const fadeIn = keyframes`
@@ -8,9 +7,7 @@ const fadeIn = keyframes`
   to { opacity: 1; }
 `;
 
-const AlertBorder = styled(tag.div).attrs({
-  spacing: userSpacing,
-})`
+const AlertBorder = styled.div`
   font-weight: 200;
   border-width: ${get('thicknesses.normal')};
   border-style: solid;
@@ -18,7 +15,7 @@ const AlertBorder = styled(tag.div).attrs({
   font-size: 14px;
   line-height: 1.5em;
   letter-spacing: 0.02em;
-  margin: ${props => props.spacing};
+  margin: ${userSpacing};
   animation: ${fadeIn} 0.2s ease;
   transition: opacity 0.2s ease;
 
