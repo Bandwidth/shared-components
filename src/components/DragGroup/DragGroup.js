@@ -170,6 +170,7 @@ class DragGroup extends React.Component {
 
   render() {
     const {
+      Title,
       Container,
       ItemsContainer,
       ExpandContentContainer,
@@ -177,6 +178,9 @@ class DragGroup extends React.Component {
       itemType,
       groupId,
       canDrop,
+      onSplit,
+      onRemoved,
+      onItemDropped,
       ...rest
     } = this.props;
 

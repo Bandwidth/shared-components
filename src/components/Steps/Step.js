@@ -13,7 +13,7 @@ export default class Step extends React.Component {
     /**
      * Step number
      */
-    number: PropTypes.number.isRequired,
+    number: PropTypes.number,
     /**
      * Whether the step has been completed
      */

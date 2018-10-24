@@ -1,7 +1,4 @@
-import styled from 'styled-components';
-import get from 'extensions/themeGet';
 import NavigationItemListStack from './styles/NavigationItemListStack';
-import NavigationLogoPairWrapper from './styles/NavigationLogoPairWrapper';
 import NavigationTitle from './NavigationTitle';
 import NavigationItemList from './styles/NavigationItemList';
 import NavigationItem from './styles/NavigationItem';

@@ -28,13 +28,13 @@ export default class ScrollShadow extends React.Component {
      * Customize the outer container element by passing a component here. Your element
      * MUST have relative or absolute positioning applied!
      */
-    Container: PropTypes.func,
+    Container: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Customize the scroll container element by passing a component here. Your element
      * MUST have relative or absolute positioning, an overflow mode, and accept a
      * ref prop!
      */
-    ScrollContainer: PropTypes.func,
+    ScrollContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Flip this to true to show a red line where the scroll sentinel elements are.
      * Can be useful for debugging if the shadows don't seem to work correctly.

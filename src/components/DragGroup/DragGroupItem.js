@@ -28,7 +28,7 @@ class DragGroupItem extends React.Component {
      * Provided by parent DragGroup
      * Indicates the current parent's group id.
      */
-    groupId: PropTypes.func,
+    groupId: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
   };
 
   componentDidMount() {
