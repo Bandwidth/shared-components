@@ -14,6 +14,7 @@ class Container extends React.Component {
           {['Apple', 'Banana', 'Lemon', 'Watermelon'].map(text => (
             <DragBox.Item>
               <ToggleButton.Colorful
+                data-drag-box-key={text}
                 innerRef={ref}
                 key={text}
                 name={text}

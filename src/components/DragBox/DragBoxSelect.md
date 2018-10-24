@@ -5,6 +5,7 @@
       {['Apple', 'Banana', 'Lemon', 'Watermelon'].map(text => (
         <DragBox.Item>
           <ToggleButton
+            data-drag-box-key={text}
             innerRef={ref}
             key={text}
             name={text}

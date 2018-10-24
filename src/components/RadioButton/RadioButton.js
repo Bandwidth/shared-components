@@ -9,10 +9,11 @@ import RadioGroupButtonLabelText from './styles/RadioGroupButtonLabelText';
 import RadioGroupContainer from './styles/RadioGroupContainer';
 
 /**
- * A stylized `<input type="radio">` meant to be used in a
- * group with others. Reference the group container by `RadioButton.Group`.
+ * A stylized `<input type="radio">` meant to be used in a group with others. You can either include individual `RadioButton`
+ * elements inside a `RadioButton.Group`, or you can use `RadioButton.Options` if you just need to render a simple
+ * list of options from an array.
  */
-export default class RadioButton extends React.Component {
+class RadioButton extends React.Component {
   static propTypes = {
     /**
      * Whether or not the button is currently selected.
@@ -91,15 +92,6 @@ export default class RadioButton extends React.Component {
     LabelText: RadioGroupButtonLabelText,
   };
 
-  static Small = withProps({
-    Label: RadioGroupButtonLabel.Small,
-  })(RadioButton);
-  static Large = withProps({
-    Label: RadioGroupButtonLabel.Large,
-  })(RadioButton);
-
-  static Group = RadioGroupContainer;
-
   renderChildren = () => {
     const { children, checked } = this.props;
 
@@ -149,3 +141,14 @@ export default class RadioButton extends React.Component {
     );
   }
 }
+
+RadioButton.Small = withProps({
+  Label: RadioGroupButtonLabel.Small,
+})(RadioButton);
+RadioButton.Large = withProps({
+  Label: RadioGroupButtonLabel.Large,
+})(RadioButton);
+
+RadioButton.Group = RadioGroupContainer;
+
+export default RadioButton;
