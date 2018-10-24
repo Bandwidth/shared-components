@@ -21,6 +21,10 @@ export default class ScrollShadow extends React.Component {
      */
     global: PropTypes.bool,
     /**
+     * Switches the scrolling to horizontal mode
+     */
+    horizontal: PropTypes.bool,
+    /**
      * Customize the outer container element by passing a component here. Your element
      * MUST have relative or absolute positioning applied!
      */
@@ -40,6 +44,7 @@ export default class ScrollShadow extends React.Component {
 
   static defaultProps = {
     global: false,
+    horizontal: false,
     Container: DefaultContainer,
     ScrollContainer: DefaultScrollContainer,
     debugShowSentinels: false,
@@ -50,15 +55,15 @@ export default class ScrollShadow extends React.Component {
    * We place them at the top and bottom of the content. When either of them becomes
    * visible, we know that the user has hit that particular scroll boundary.
    */
-  topSentinelRef = createRef();
-  bottomSentinelRef = createRef();
+  startSentinelRef = createRef();
+  endSentinelRef = createRef();
   /**
    * We are not storing this information in this.state on purpose. We will actually
    * be skipping the React update cycle entirely for changing the shadow styles
    * on the shadow element to avoid unnecessary work for a simple aesthetic change.
    */
-  isTopSentinelVisible = true;
-  isBottomSentinelVisible = false;
+  isStartSentinelVisible = true;
+  isEndSentinelVisible = false;
 
   componentDidMount() {
     if (this.props.global) {
@@ -77,15 +82,16 @@ export default class ScrollShadow extends React.Component {
    * are visible right now.
    */
   calcShadowMode = () => {
-    const top = !this.isTopSentinelVisible;
-    const bottom = !this.isBottomSentinelVisible;
+    const { horizontal } = this.props;
+    const start = !this.isStartSentinelVisible;
+    const end = !this.isEndSentinelVisible;
 
-    if (top && bottom) {
-      return 'both';
-    } else if (top) {
-      return 'top';
-    } else if (bottom) {
-      return 'bottom';
+    if (start && end) {
+      return horizontal ? 'leftRight' : 'topBottom';
+    } else if (start) {
+      return horizontal ? 'left' : 'top';
+    } else if (end) {
+      return horizontal ? 'right' : 'bottom';
     } else {
       return 'none';
     }
@@ -97,10 +103,10 @@ export default class ScrollShadow extends React.Component {
   handleSentinelIntersection = (entries, observer) => {
     // `entries` is an array of records, one per changed sentinel.
     entries.forEach(entry => {
-      if (entry.target === this.topSentinelRef.current) {
-        this.isTopSentinelVisible = entry.isIntersecting;
-      } else if (entry.target === this.bottomSentinelRef.current) {
-        this.isBottomSentinelVisible = entry.isIntersecting;
+      if (entry.target === this.startSentinelRef.current) {
+        this.isStartSentinelVisible = entry.isIntersecting;
+      } else if (entry.target === this.endSentinelRef.current) {
+        this.isEndSentinelVisible = entry.isIntersecting;
       }
 
       const currentMode = this.calcShadowMode();
@@ -115,7 +121,14 @@ export default class ScrollShadow extends React.Component {
         // the mode has changed since last style assignment
         if (ref.current && mode !== currentMode) {
           // reset classes
-          ref.current.classList.remove('top', 'bottom', 'both');
+          ref.current.classList.remove(
+            'top',
+            'bottom',
+            'topBottom',
+            'left',
+            'right',
+            'leftRight',
+          );
           ref.current.classList.add(currentMode);
           registration.mode = currentMode;
         }
@@ -134,8 +147,8 @@ export default class ScrollShadow extends React.Component {
         root: el,
       },
     );
-    this.sentinelIntersectionObserver.observe(this.topSentinelRef.current);
-    this.sentinelIntersectionObserver.observe(this.bottomSentinelRef.current);
+    this.sentinelIntersectionObserver.observe(this.startSentinelRef.current);
+    this.sentinelIntersectionObserver.observe(this.endSentinelRef.current);
   };
 
   /**
@@ -155,22 +168,29 @@ export default class ScrollShadow extends React.Component {
     return this.shadowElementRegistrations[name].ref;
   };
 
-  renderGlobalSentinels = () =>
-    createPortal(
+  renderGlobalSentinels = () => {
+    const { horizontal } = this.props;
+
+    return createPortal(
       <React.Fragment>
         <Sentinel
-          ref={this.topSentinelRef}
-          className="scroll-shadow-sentinel top global"
+          ref={this.startSentinelRef}
+          className={`scroll-shadow-sentinel ${
+            horizontal ? 'left' : 'top'
+          } global`}
           debugShow={this.props.debugShowSentinels}
         />
         <Sentinel
-          ref={this.bottomSentinelRef}
-          className="scroll-shadow-sentinel bottom global"
+          ref={this.endSentinelRef}
+          className={`scroll-shadow-sentinel ${
+            horizontal ? 'right' : 'bottom'
+          } global`}
           debugShow={this.props.debugShowSentinels}
         />
       </React.Fragment>,
       window.document.body,
     );
+  };
 
   renderChildren = () => {
     const {
@@ -180,6 +200,7 @@ export default class ScrollShadow extends React.Component {
       ScrollContainer,
       disabled,
       outer,
+      horizontal,
       ...extraProps
     } = this.props;
 
@@ -203,17 +224,27 @@ export default class ScrollShadow extends React.Component {
     const shadowPlacement = outer ? 'outer' : 'inner';
 
     return (
-      <Container className="scroll-shadow-container" {...extraProps}>
-        <ScrollContainer ref={this.scrollElementRef} {...extraProps}>
+      <Container
+        horizontal={horizontal}
+        className="scroll-shadow-container"
+        {...extraProps}
+      >
+        <ScrollContainer
+          horizontal={horizontal}
+          ref={this.scrollElementRef}
+          {...extraProps}
+        >
           <Sentinel
-            ref={this.topSentinelRef}
-            className="scroll-shadow-sentinel top"
+            ref={this.startSentinelRef}
+            className={`scroll-shadow-sentinel ${horizontal ? 'left' : 'top'}`}
             debugShow={this.props.debugShowSentinels}
           />
           {children}
           <Sentinel
-            ref={this.bottomSentinelRef}
-            className="scroll-shadow-sentinel bottom"
+            ref={this.endSentinelRef}
+            className={`scroll-shadow-sentinel ${
+              horizontal ? 'right' : 'bottom'
+            }`}
             debugShow={this.props.debugShowSentinels}
           />
         </ScrollContainer>
