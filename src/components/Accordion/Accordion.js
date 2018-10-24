@@ -2,17 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { defaultProps } from 'recompose';
 
-import ExpandToggle from '../../behaviors/ExpandToggle';
+import ExpandToggle from 'behaviors/ExpandToggle';
 import AccordionLabel from './styles/AccordionLabel';
 import AccordionArrow from './styles/AccordionArrow';
 import AccordionBorder from './styles/AccordionBorder';
 import AccordionLabelText from './styles/AccordionLabelText';
 import AccordionContent from './styles/AccordionContent';
-import AccordionGroup from './AccordionGroup';
 
 /**
- * Accordion works like a controllable component. Provide the
- * isExpanded prop to control it, or don't to let it control itself.
+ * Accordion expands and collapses when the label is clicked. Alternatively, you can provide the `isExpanded` prop to force open/closed state.
+ * You can also provide a hook to `onToggle`. Your `onToggle` function will be called with one parameter, a boolean representing whether
+ * the component is currently collapsed at the time it was clicked.
+ *
+ * Accepts `label` to define what's rendered in the label.
  */
 class Accordion extends React.Component {
   static propTypes = {
@@ -166,6 +168,5 @@ Accordion.Small = defaultProps({
   Label: AccordionLabel.Small,
   labelSpacing: '20px',
 })(Accordion);
-Accordion.Group = AccordionGroup;
 
 export default Accordion;

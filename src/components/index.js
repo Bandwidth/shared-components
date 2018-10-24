@@ -41,7 +41,7 @@ export { default as Note } from './Note';
 export { default as P } from './P';
 export { default as Pagination } from './Pagination';
 export { default as Radio } from './Radio';
-export { default as RadioGroup } from './RadioGroup';
+export { default as RadioButton } from './RadioButton';
 export { default as SearchBox } from './SearchBox';
 export { default as SectionTitle } from './SectionTitle';
 export { default as Select } from './Select';

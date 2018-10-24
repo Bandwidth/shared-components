@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LibSelect from 'react-select';
-import selectOptionPrimaryValue from '../../extensions/selectItemPrimaryValue';
+import selectOptionPrimaryValue from 'extensions/selectItemPrimaryValue';
 import Loader from '../Loader';
 import SelectWrapper from './styles/SelectWrapper';
 
