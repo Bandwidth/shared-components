@@ -31,6 +31,37 @@
 </Table>
 ```
 
+_A long table_
+```javascript
+const lipsum = require('lorem-ipsum');
+
+<Table
+  headers={(
+    <Table.Row>
+      <Table.Header>One</Table.Header>
+      <Table.Header>Two</Table.Header>
+      <Table.Header>Three</Table.Header>
+      <Table.Header>Four</Table.Header>
+      <Table.Header>Five</Table.Header>
+      <Table.Header>Six</Table.Header>
+      <Table.Header>Seven</Table.Header>
+    </Table.Row>
+  )}
+>
+  {(new Array(4).fill(null).map((_, idx) => (
+    <Table.Row key={idx}>
+      <Table.Cell>{lipsum(3)}</Table.Cell>
+      <Table.Cell>{lipsum(3)}</Table.Cell>
+      <Table.Cell>{lipsum(3)}</Table.Cell>
+      <Table.Cell>{lipsum(3)}</Table.Cell>
+      <Table.Cell>{lipsum(3)}</Table.Cell>
+      <Table.Cell>{lipsum(3)}</Table.Cell>
+      <Table.Cell>{lipsum(3)}</Table.Cell>
+    </Table.Row>
+  )))}
+</Table>
+```
+
 _A small table_
 
 ```javascript

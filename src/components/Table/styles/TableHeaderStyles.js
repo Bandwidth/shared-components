@@ -15,6 +15,7 @@ const TableHeaderStyles = styled.th`
 
   & > a {
     color: inherit;
+    text-transform: uppercase;
   }
   & > a:focus {
     color: inherit;
