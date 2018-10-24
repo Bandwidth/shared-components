@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, P, Spacing, Code, Anchor } from '@bandwidth/shared-components';
+import { H1, P, Spacing, Code, Link } from '@bandwidth/shared-components';
 
 export default () => (
   <Spacing>
@@ -11,9 +11,9 @@ export default () => (
     <P>
       This documentation is built with the library itself, plus{' '}
       <Code>@bandwidth/shared-components</Code>. You can see the code{' '}
-      <Anchor to="https://github.com/Bandwidth/layout" newTab>
+      <Link to="https://github.com/Bandwidth/layout" newTab>
         here
-      </Anchor>
+      </Link>
       .
     </P>
   </Spacing>

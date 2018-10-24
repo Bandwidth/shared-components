@@ -3,7 +3,7 @@ import {
   SplitContentLayout,
   H2,
   Button,
-  Anchor,
+  Link,
 } from '@bandwidth/shared-components';
 import { Form, SidebarList, ActionBarExpandingContent } from '../widgets';
 
@@ -58,8 +58,8 @@ export default class RightComplexDemo extends React.Component {
               >
                 {({ toggleExpanded }) => (
                   <React.Fragment>
-                    <Anchor onClick={toggleExpanded}>Toggle expanded</Anchor>
-                    <Anchor onClick={this.showPopup}>Show popup</Anchor>
+                    <Link onClick={toggleExpanded}>Toggle expanded</Link>
+                    <Link onClick={this.showPopup}>Show popup</Link>
                     <Button>Submit</Button>
                   </React.Fragment>
                 )}

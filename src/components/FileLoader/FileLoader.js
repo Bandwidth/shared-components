@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
-import Icon from '../Icon';
-import Anchor from '../Anchor';
+import Icon from 'components/Icon';
+import Link from 'components/Link';
 import FileLoaderDropArea from './styles/FileLoaderDropArea';
 import FileLoaderPreview from './styles/FileLoaderPreview';
 
@@ -60,7 +60,10 @@ export default class FileLoader extends React.Component {
       return (
         <DropArea>
           <Icon name="file" />
-          <Preview>DROP A FILE HERE, OR&nbsp;<Anchor>CLICK TO BROWSE</Anchor></Preview>
+          <Preview>
+            DROP A FILE HERE, OR&nbsp;
+            <Link>CLICK TO BROWSE</Link>
+          </Preview>
         </DropArea>
       );
     }

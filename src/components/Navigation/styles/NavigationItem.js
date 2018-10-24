@@ -6,6 +6,25 @@ import NavigationItemListStack from './NavigationItemListStack';
 import NavigationBar from './NavigationBar';
 import { calcTopOffset, calcBottomOffset } from 'extensions/userSpacing';
 
+const hoverOpacityEffects = css`
+  &:focus,
+  &:active {
+    opacity: 0.7;
+  }
+
+  &:hover::before {
+    opacity: 0.25;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    &:before {
+      height: 5px;
+    }
+  }
+`;
+
 const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
   border: 0;
   padding-bottom: calc(${calcBottomOffset(1.5)} + 20px);
@@ -39,7 +58,8 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
     &:before {background: ${get('colors.primary.default')}; }
   }
 
-  ${NavigationItemList}:not(:last-child) & {
+  ${NavigationItemList}:not(:last-child) &,
+  ${NavigationItemList.Small}:not(:last-child) & {
     padding-bottom: calc(${calcBottomOffset(1.5)} + 10px);
   }
 
@@ -49,27 +69,20 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
     font-size: 0.8em;
   }
 
-  ${({ active, disabled }) =>
-    active ||
-    disabled ||
-    css`
-      &:focus,
-      &:active {
-        opacity: 0.7;
-      }
+  ${({ active, disabled }) => (!active && !disabled ? hoverOpacityEffects : '')}
 
-      &:hover::before {
-        opacity: 0.25;
-      }
+  /* for convenience, apply active styles if parent has active class */
 
-      &:hover,
-      &:focus,
-      &:active {
-        &:before {
-          height: 5px;
-        }
-      }
-    `};
+  *.active > & {
+    &::before {
+      opacity: 1;
+      height: 5px;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+  }
 `;
 
 NavigationItem.propTypes = {

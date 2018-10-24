@@ -76,7 +76,7 @@ export default class Alert extends React.PureComponent {
      */
     Content: PropTypes.func,
     /**
-     * The anchor component to use when rendering a close button
+     * The link component to use when rendering a close button
      */
     CloseButton: PropTypes.func,
   };

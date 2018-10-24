@@ -5,12 +5,14 @@
 * `@bandwidth/layouts` will NO LONGER BE PUBLISHED.
 * "configuration components" (i.e. all components which are not used directly, but are exported so they can be overriden and passed as props to "main" components) are no longer exported directly from the library. To use them, you must import them manually using the full path (ex: `import AccordionArrow from '@bandwidth/scale/dist/components/Accordion/styles/AccordionArrow';`)
 * *We now use styled-components v4!* Please update your local styled-components dependency and run their [code mod](https://github.com/styled-components/styled-components-codemods) for migration if necessary.
+* `Anchor` is now `Link`! This is a high-profile rework of the unstable Anchor component. The new naming is meant to be more intuitive for those unfamiliar with the history of the `<a>` tag. See full migration docs below.
 * Several deprecated and unsupported components were removed:
   * `Flow` is gone! Use `Fields`!
   * `Form` is gone! Use a regular `<form>`!
   * `SidebarList` is gone! Migrate to use the `SplitContentLayout`!
   * `userTextSpacing` is gone! Use `userSpacing.text`!
   * `BulkSelect` is gone! Use `DragBox.Select` + `Grid` + `ToggleButton`!
+  * `TableControls` is gone! This pattern is no longer considered part of our best practices. You might want to replace it with a "Link solar system" instead (see the Layout guidance docs)
 * Some exports have changed:
   * `RadioButton` is no longer exported directly from the library. Reference `RadioGroup.Button` instead.
   * `DateTimeRangePicker` is no longer exported directly from the library. Reference `DateTimePicker.Range` instead.
@@ -19,6 +21,20 @@
   * `CodeBlock` is no longer exported directly from the library. Reference `Code.Block` instead.
   * Table sub-components (`TableCell`, `TableHeader`, etc) are no longer exported directly from the library. Reference them as static fields of `Table` instead.
 * We now use Rollup to package the library.
+
+#### Anchor -> Link migration
+
+To migrate from Anchor to Link:
+
+Firstly, if you are using React Router, read the new Link [docs](http://dev.bandwidth.com/shared-components/#!/Link) for information on how to integrate React Router's `<Link>` with ours. **We no longer ship with a React Router dependency, this will not work out of the box**.
+
+Other usage migration details:
+
+* For most use cases, you can just replace `<Anchor>` with `<Link>`.
+* The `type` prop is now gone. Links will automatically be text links. If you pass `icon`, it will become an icon link.
+  * If you want a "transparent" link (that doesn't style anything), use `<Link.Wrap>` (i.e. if you used to use `type="wrap"`)
+* For icon "combo" links (or links which are just icons), be sure to provide an `icon="name"` prop if you don't already
+* External links should be detected automatically and opened in a new tab. If you want to force a link to open in a new tab, you can still use the `newTab` prop.
 
 #### For contributors
 

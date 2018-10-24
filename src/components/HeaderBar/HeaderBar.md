@@ -1,4 +1,4 @@
-A horizontal 'header bar' for use between the navigation menu and the main content on any page. Has 
+A horizontal 'header bar' for use between the navigation menu and the main content on any page. Has
 pre-defined sizes our designers like.
 
 ```javascript
@@ -6,7 +6,7 @@ pre-defined sizes our designers like.
     <H1>The navigation menu is here</H1>
     <HeaderBar>
       <Label>Header bar content with some link</Label>
-      <Anchor>You messaging URI</Anchor>
+      <Link>You messaging URI</Link>
     </HeaderBar>
 </div>
 ```
