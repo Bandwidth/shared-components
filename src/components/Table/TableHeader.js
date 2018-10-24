@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
 import styled, { css } from 'styled-components';
 import { sentence } from 'change-case';
-import DefaultAnchor from '../Anchor';
+import DefaultLink from 'components/Link';
 import TableHeaderSortArrowIcon from './styles/TableHeaderSortArrowIcon';
 import TableHeaderStyles from './styles/TableHeaderStyles';
 import TableHeaderSortArrows from './styles/TableHeaderSortArrows';
 import TableHeaderColumnName from './styles/TableHeaderColumnName';
+import noop from 'lodash.noop';
 
 class TableHeader extends React.Component {
   static propTypes = {
@@ -15,10 +16,6 @@ class TableHeader extends React.Component {
      * Contents of the header cell.
      */
     children: PropTypes.node.isRequired,
-    /**
-     * [Deprecated] use onClick
-     */
-    handleClick: PropTypes.func,
     /**
      * Called when the user clicks the header cell.
      */
@@ -44,9 +41,9 @@ class TableHeader extends React.Component {
      */
     Icon: PropTypes.func,
     /**
-     * An anchor component. Defaults Anchor
+     * A link component. Defaults Link
      */
-    Anchor: PropTypes.func,
+    Link: PropTypes.func,
     /**
      * A component for rendering the th element styles
      */
@@ -64,34 +61,35 @@ class TableHeader extends React.Component {
   static defaultProps = {
     sortable: false,
     sortOrder: 0,
-    handleClick: () => null,
-    onClick: () => null,
+    onClick: noop,
     className: null,
     id: null,
     Icon: TableHeaderSortArrowIcon,
-    Anchor: DefaultAnchor,
+    Link: DefaultLink,
     Styles: TableHeaderStyles,
     SortArrows: TableHeaderSortArrows,
     ColumnName: TableHeaderColumnName,
   };
 
-  createClickHandler = naturalOrder => () =>
-    this.props.onClick
-      ? this.props.onClick(naturalOrder)
-      : this.props.handleClick(naturalOrder);
+  createClickHandler = naturalOrder => ev => {
+    ev.preventDefault();
+
+    this.props.onClick && this.props.onClick(naturalOrder);
+  };
+
+  sortUp = this.createClickHandler(1);
+  sortDown = this.createClickHandler(-1);
 
   renderColumnName = () => {
-    const { sortable, children, sortOrder, Anchor, ColumnName } = this.props;
+    const { sortable, children, sortOrder, Link, ColumnName } = this.props;
 
     if (sortable) {
+      const titleSortHandler = sortOrder > 0 ? this.sortDown : this.sortUp;
+
       return (
-        <Anchor
-          className="toggleSort"
-          type="text"
-          onClick={this.createClickHandler(sortOrder === 0 ? 1 : -sortOrder)}
-        >
+        <Link onClick={titleSortHandler}>
           <ColumnName sortable>{children}</ColumnName>
-        </Anchor>
+        </Link>
       );
     }
 
@@ -104,24 +102,21 @@ class TableHeader extends React.Component {
       sortOrder,
       handleClick,
       onClick,
+      id,
+      className,
       Styles,
       SortArrows,
-      Anchor,
+      Link,
       Icon,
-      ...rest
     } = this.props;
 
     return (
-      <Styles sortable={sortable} {...rest}>
+      <Styles sortable={sortable} className={className} id={id}>
         {this.renderColumnName()}
         {sortable && (
           <SortArrows sortOrder={sortOrder}>
-            <Anchor className="sortUp" type="icon" onClick={this.createClickHandler(1)}>
-              <Icon name="up" />
-            </Anchor>
-            <Anchor className="sortDown" type="icon" onClick={this.createClickHandler(-1)}>
-              <Icon name="down" />
-            </Anchor>
+            <Link icon="up" onClick={this.sortUp} />
+            <Link icon="down" onClick={this.sortDown} />
           </SortArrows>
         )}
       </Styles>

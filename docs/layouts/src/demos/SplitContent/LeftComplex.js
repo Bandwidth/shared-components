@@ -3,7 +3,7 @@ import {
   SplitContentLayout,
   H2,
   Button,
-  Anchor,
+  Link,
 } from '@bandwidth/shared-components';
 import { Form, SidebarList, ActionBarExpandingContent } from '../widgets';
 
@@ -33,7 +33,7 @@ export default () => (
         >
           {({ toggleExpanded }) => (
             <React.Fragment>
-              <Anchor onClick={toggleExpanded}>Show expanded</Anchor>
+              <Link onClick={toggleExpanded}>Show expanded</Link>
               <Button>Submit</Button>
             </React.Fragment>
           )}

@@ -1,8 +1,8 @@
 import { mapProps } from 'recompose';
-import Anchor from 'components/Anchor';
+import Link from 'components/Link';
 import styled from 'styled-components';
 
-const CloseIcon = styled(Anchor)`
+const CloseIcon = styled(Link)`
   position: absolute;
   top: 0;
   right: 0;

@@ -42,7 +42,7 @@ const examples = [
       <CustomForm />
       {/* action bar can be placed anywhere inside the layout */}
       <SplitContentLayout.ActionBar>
-        <Anchor>Click</Anchor>
+        <Link>Click</Link>
         <Button>Continue</Button>
       </SplitContentLayout.ActionBar>
     </SplitContentLayout.MainContent.Box>
@@ -57,7 +57,7 @@ const examples = [
     <H2>Sidebar Title</H2>
     <CustomForm />
     <SplitContentLayout.ActionBar>
-      <Anchor>Click</Anchor>
+      <Link>Click</Link>
       <Button>Continue</Button>
     </SplitContentLayout.ActionBar>
   </SplitContentLayout.SecondaryContent>

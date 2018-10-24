@@ -17,6 +17,7 @@ const defaultValueRenderer = val =>
  * This component may be moved out of the library in the future.
  *
  * @class SimpleTable
+ * @visibleName Table.Simple
  * @extends {React.Component}
  */
 class SimpleTable extends React.Component {

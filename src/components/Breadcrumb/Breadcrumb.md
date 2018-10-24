@@ -8,7 +8,7 @@ Although `Breadcrumb` normally contains a link to another layer in the navigatio
 <div style={{display: 'flex'}}>
   <Breadcrumb.Group>
     <Breadcrumb>
-      <Anchor to="https://www.bandwidth.com">Anchors are fine</Anchor>
+      <Link to="https://www.bandwidth.com">Links are fine</Link>
     </Breadcrumb>
     <Breadcrumb>
       <div>You can use divs, too</div>
