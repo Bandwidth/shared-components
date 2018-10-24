@@ -1,5 +1,10 @@
 import React from 'react';
-import { SplitContentLayout, H2, Button, Anchor } from '../../../../../src';
+import {
+  SplitContentLayout,
+  H2,
+  Button,
+  Anchor,
+} from '@bandwidth/shared-components';
 import { Form, SidebarList, ActionBarExpandingContent } from '../widgets';
 
 export default () => (
