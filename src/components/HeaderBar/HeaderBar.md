@@ -3,34 +3,34 @@ A horizontal 'header bar' for use between the navigation menu and the main conte
 ```javascript
 <div style={{ padding: '30px' }}>
   <Navigation>
-    <Anchor to="/">
+    <Link to="/">
       <Navigation.Title>Bandwidth App</Navigation.Title>
-    </Anchor>
+    </Link>
     <Navigation.ItemListStack>
       <Navigation.ItemList.Small>
-        <Anchor newTab to="https://bandwidth.com">
+        <Link newTab to="https://bandwidth.com">
           <Navigation.Item>Why Bandwidth</Navigation.Item>
-        </Anchor>
-        <Anchor newTab to="https://dev.bandwidth.com">
+        </Link>
+        <Link newTab to="https://dev.bandwidth.com">
           <Navigation.Item>Docs for Developers</Navigation.Item>
-        </Anchor>
-        <Anchor to="/login">
+        </Link>
+        <Link to="/login">
           <Navigation.Item>Login</Navigation.Item>
-        </Anchor>
+        </Link>
       </Navigation.ItemList.Small>
       <Navigation.ItemList>
-        <Anchor to="/services" exact>
+        <Link to="/services" exact>
           <Navigation.Item>Services</Navigation.Item>
-        </Anchor>
-        <Anchor to="/useCases">
+        </Link>
+        <Link to="/useCases">
           <Navigation.Item>Use Cases</Navigation.Item>
-        </Anchor>
-        <Anchor to="/pricing">
+        </Link>
+        <Link to="/pricing">
           <Navigation.Item>Pricing</Navigation.Item>
-        </Anchor>
-        <Anchor to="/trial">
+        </Link>
+        <Link to="/trial">
           <Navigation.Item>Try for Free</Navigation.Item>
-        </Anchor>
+        </Link>
       </Navigation.ItemList>
     </Navigation.ItemListStack>
   </Navigation>
