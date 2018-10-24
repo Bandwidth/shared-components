@@ -1,30 +1,30 @@
 # v6.0.0
 
+## Highlights
+
 * Merged `@bandwidth/shared-components` and `@bandwidth/layouts`.
 * Library will now be published to `@bandwidth/scale` in addition to `@bandwidth/shared-components`.
 * `@bandwidth/layouts` will NO LONGER BE PUBLISHED.
 * "configuration components" (i.e. all components which are not used directly, but are exported so they can be overriden and passed as props to "main" components) are no longer exported directly from the library. To use them, you must import them manually using the full path (ex: `import AccordionArrow from '@bandwidth/scale/dist/components/Accordion/styles/AccordionArrow';`)
 * *We now use styled-components v4!* Please update your local styled-components dependency and run their [code mod](https://github.com/styled-components/styled-components-codemods) for migration if necessary.
 * `Anchor` is now `Link`! This is a high-profile rework of the unstable Anchor component. The new naming is meant to be more intuitive for those unfamiliar with the history of the `<a>` tag. See full migration docs below.
-* Several deprecated and unsupported components were removed:
-  * `Flow` is gone! Use `Fields`!
-  * `Form` is gone! Use a regular `<form>`!
-  * `SidebarList` is gone! Migrate to use the `SplitContentLayout`!
-  * `userTextSpacing` is gone! Use `userSpacing.text`!
-  * `BulkSelect` is gone! Use `DragBox.Select` + `Grid` + `ToggleButton`!
-  * `TableControls` is gone! This pattern is no longer considered part of our best practices. You might want to replace it with a "Link solar system" instead (see the Layout guidance docs)
-  * `provinces` helper is no longer provided. Please check out the `provinces` NPM package yourself.
-* Some exports have changed:
-  * `RadioButton` is no longer exported directly from the library. Reference `RadioGroup.Button` instead.
-  * `DateTimeRangePicker` is no longer exported directly from the library. Reference `DateTimePicker.Range` instead.
-  * `SubmitButton` is no longer exported directly from the library. Reference `Button.Submit` instead.
-  * `CardGroup` is no longer exported directly from the library. Reference `Card.Group` instead.
-  * `CodeBlock` is no longer exported directly from the library. Reference `Code.Block` instead.
-  * Table sub-components (`TableCell`, `TableHeader`, etc) are no longer exported directly from the library. Reference them as static fields of `Table` instead.
 * We now use Rollup to package the library.
-* `ScrollShadow` now has a `horizontal` prop.
+* Lots of components have moved. We don't export as many components from the root level anymore, and instead encourage you to reference static sub-components. See more detailed changes per-component below.
+* We removed a lot of deprecated or otherwise unsupported stuff which no longer represents the design and interaction goals at Bandwidth.
 
-#### Anchor -> Link migration
+## Deprecated / Removed
+
+* `Flow` is gone! Use `Fields`!
+* `Form` is gone! Use a regular `<form>`!
+* `SidebarList` is gone! Migrate to use the `SplitContentLayout`!
+* `userTextSpacing` is gone! Use `userSpacing.text`!
+* `BulkSelect` is gone! Use `DragBox.Select` + `Grid` + `ToggleButton`!
+* `TableControls` is gone! This pattern is no longer considered part of our best practices. You might want to replace it with a "Link solar system" instead (see the Layout guidance docs)
+* `provinces` helper is no longer provided. Please check out the `provinces` NPM package yourself.
+
+## Changes by Component
+
+### Anchor -> Link migration
 
 To migrate from Anchor to Link:
 
@@ -38,7 +38,39 @@ Other usage migration details:
 * For icon "combo" links (or links which are just icons), be sure to provide an `icon="name"` prop if you don't already
 * External links should be detected automatically and opened in a new tab. If you want to force a link to open in a new tab, you can still use the `newTab` prop.
 
-#### For contributors
+### Input
+
+* `readonly` prop is now `readOnly`.
+
+### RadioGroup
+
+No longer exported. Use `RadioButton.Group`.
+
+### CardGroup
+
+No longer exported. Use `Card.Group`.
+
+### CodeBlock
+
+No longer exported. Use `Code.Block`.
+
+### DateTimeRangePicker
+
+No longer exported. Use `DateTimePicker.Range`.
+
+### SubmitButton
+
+No longer exported. Use `Button.Submit`.
+
+### TableCell, TableHeader, TableBody, TableRow ...
+
+Table sub-components are no longer exported. Use their attached static versions from Table instead, like `Table.Cell`, etc.
+
+### ScrollShadow
+
+Added `horizontal` prop, which creates a horizontally scrolling shadowed element.
+
+## For contributors
 
 * Since the libraries are now merged, you'll find all relevant code in `src/`.
 * Automatic index creation has been removed. If you add a module, you must manage the exporting of it manually. This may be less convenient, but it's easier to maintain long-term.
