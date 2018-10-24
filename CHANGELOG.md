@@ -13,6 +13,7 @@
   * `userTextSpacing` is gone! Use `userSpacing.text`!
   * `BulkSelect` is gone! Use `DragBox.Select` + `Grid` + `ToggleButton`!
   * `TableControls` is gone! This pattern is no longer considered part of our best practices. You might want to replace it with a "Link solar system" instead (see the Layout guidance docs)
+  * `provinces` helper is no longer provided. Please check out the `provinces` NPM package yourself.
 * Some exports have changed:
   * `RadioButton` is no longer exported directly from the library. Reference `RadioGroup.Button` instead.
   * `DateTimeRangePicker` is no longer exported directly from the library. Reference `DateTimePicker.Range` instead.
