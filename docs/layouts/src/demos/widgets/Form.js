@@ -1,5 +1,5 @@
 import React from 'react';
-import { Fields, Input, Toggle } from '../../../../../src';
+import { Fields, Input, Toggle } from '@bandwidth/shared-components';
 
 export default ({ children, columns = 2 }) => (
   <form>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, P, Spacing, Code, Anchor } from '../../../src';
+import { H1, P, Spacing, Code, Anchor } from '@bandwidth/shared-components';
 
 export default () => (
   <Spacing>

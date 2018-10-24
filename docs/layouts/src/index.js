@@ -9,7 +9,7 @@ import Home from './Home';
 import Navigation from './Navigation';
 import * as demos from './demos';
 
-import { RootLayout, BandwidthProvider } from '../../../src';
+import { RootLayout, BandwidthProvider } from '@bandwidth/shared-components';
 
 ReactDom.render(
   <BandwidthProvider>

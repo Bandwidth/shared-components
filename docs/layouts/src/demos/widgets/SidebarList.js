@@ -1,5 +1,5 @@
 import React from 'react';
-import { SplitContentLayout } from '../../../../../src';
+import { SplitContentLayout } from '@bandwidth/shared-components';
 
 export default ({ count = 20, activeIndex = 5 }) => (
   <SplitContentLayout.SecondaryContent.SidebarList>

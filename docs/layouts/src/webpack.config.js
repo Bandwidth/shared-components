@@ -14,6 +14,12 @@ module.exports = {
     filename: 'bundle.js',
   },
 
+  resolve: {
+    alias: {
+      '@bandwidth/shared-components': path.resolve(__dirname, '../../../src'),
+    },
+  },
+
   module: {
     rules: [
       {

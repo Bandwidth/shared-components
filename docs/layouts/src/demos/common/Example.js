@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code } from '../../../../../src';
+import { Code } from '@bandwidth/shared-components';
 import SyntaxHighlighter, {
   registerLanguage,
 } from 'react-syntax-highlighter/prism-light';
