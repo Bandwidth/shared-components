@@ -18,7 +18,7 @@ storiesOf('DragBox', module)
                 .map(i => `item-${i}`)
                 .map(text => (
                   <ToggleButton.Colorful
-                    innerRef={ref}
+                    ref={ref}
                     data-drag-box-key={text}
                     key={text}
                     name={text}

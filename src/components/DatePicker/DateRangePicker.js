@@ -6,6 +6,7 @@ import {
   DateRangePickerShape,
 } from 'react-dates';
 import Icon from '../Icon';
+import generateId from 'extensions/generateId';
 import DateRangePickerWrapper from './styles/DateRangePickerWrapper';
 import DateRangePickerLineSeparator from './styles/DateRangePickerLineSeparator';
 import omit from 'lodash.omit';
@@ -27,7 +28,13 @@ import pick from 'lodash.pick';
 class DateRangePicker extends React.PureComponent {
   static propTypes = {
     ...omit(DateRangePickerShape, ['onFocusChange']),
+    /**
+     * An id for the start date part of the widget.
+     */
     startDateId: PropTypes.string,
+    /**
+     * An id for the end date part of the widget.
+     */
     endDateId: PropTypes.string,
     /**
      * A component to wrap and control styles of the underlying react-dates DatePicker
@@ -69,8 +76,17 @@ class DateRangePicker extends React.PureComponent {
     );
   }
 
+  genStartDateId = generateId('startDate');
+  getEndDateId = generateId('endDate');
+
   render() {
-    const { Wrapper, LineSeparator, ...rest } = this.props;
+    const {
+      Wrapper,
+      LineSeparator,
+      startDateId,
+      endDateId,
+      ...rest
+    } = this.props;
     return (
       <Wrapper
         className={this.focusedInput && 'focused-' + this.focusedInput}
@@ -92,6 +108,8 @@ class DateRangePicker extends React.PureComponent {
           focusedInput={this.focusedInput}
           anchorDirection={this.focusedInput === 'endDate' ? 'right' : 'left'}
           onFocusChange={this.handleFocusChange}
+          startDateId={startDateId || this.genStartDateId}
+          endDateId={endDateId || this.getEndDateId}
           {...pick(rest, Object.keys(DateRangePickerShape))}
         />
       </Wrapper>
