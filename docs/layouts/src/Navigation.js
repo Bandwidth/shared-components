@@ -1,27 +1,36 @@
 import React from 'react';
-import { Navigation, Anchor } from '@bandwidth/shared-components';
-import { Route, Switch } from 'react-router-dom';
+import { Navigation, Link } from '@bandwidth/shared-components';
+import { Route, Switch, NavLink } from 'react-router-dom';
+
+const CustomLink = ({ children, to, newTab, appearFocused, icon, ...rest }) => (
+  <NavLink to={to} activeClassName="active" {...rest}>
+    {children}
+  </NavLink>
+);
+
+// NOTE: use Link.Wrap, which doesn't apply any styles!
+export const NavWrapLink = props => <Link.Wrap as={CustomLink} {...props} />;
 
 const SubNav = () => (
   <Switch>
     <Route path="/splitContent">
       <Navigation.Sub>
         <Navigation.ItemList>
-          <Anchor exact to="/splitContent">
+          <NavWrapLink exact to="/splitContent">
             <Navigation.Item>Docs</Navigation.Item>
-          </Anchor>
-          <Anchor to="/splitContent/right">
+          </NavWrapLink>
+          <NavWrapLink to="/splitContent/right">
             <Navigation.Item>Right</Navigation.Item>
-          </Anchor>
-          <Anchor to="/splitContent/rightComplex">
+          </NavWrapLink>
+          <NavWrapLink to="/splitContent/rightComplex">
             <Navigation.Item>Right Complex</Navigation.Item>
-          </Anchor>
-          <Anchor to="/splitContent/left">
+          </NavWrapLink>
+          <NavWrapLink to="/splitContent/left">
             <Navigation.Item>Left</Navigation.Item>
-          </Anchor>
-          <Anchor to="/splitContent/leftComplex">
+          </NavWrapLink>
+          <NavWrapLink to="/splitContent/leftComplex">
             <Navigation.Item>Left Complex</Navigation.Item>
-          </Anchor>
+          </NavWrapLink>
         </Navigation.ItemList>
       </Navigation.Sub>
     </Route>
@@ -31,25 +40,25 @@ const SubNav = () => (
 export default () => (
   <div>
     <Navigation>
-      <Anchor to="/">
+      <NavWrapLink to="/">
         <Navigation.Title>Bandwidth Layouts</Navigation.Title>
-      </Anchor>
+      </NavWrapLink>
       <Navigation.ItemListStack>
         <Navigation.ItemList.Small>
-          <Anchor newTab to="https://github.com/bandwidth/layout">
+          <NavWrapLink newTab to="https://github.com/bandwidth/layout">
             <Navigation.Item>Github</Navigation.Item>
-          </Anchor>
-          <Anchor newTab to="http://dev.bandwidth.com/shared-components">
+          </NavWrapLink>
+          <NavWrapLink newTab to="http://dev.bandwidth.com/shared-components">
             <Navigation.Item>Shared Components Docs</Navigation.Item>
-          </Anchor>
+          </NavWrapLink>
         </Navigation.ItemList.Small>
         <Navigation.ItemList>
-          <Anchor exact to="/root">
+          <NavWrapLink exact to="/root">
             <Navigation.Item>Root</Navigation.Item>
-          </Anchor>
-          <Anchor to="/splitContent" exact>
+          </NavWrapLink>
+          <NavWrapLink to="/splitContent" exact>
             <Navigation.Item>Split-Content</Navigation.Item>
-          </Anchor>
+          </NavWrapLink>
         </Navigation.ItemList>
       </Navigation.ItemListStack>
     </Navigation>

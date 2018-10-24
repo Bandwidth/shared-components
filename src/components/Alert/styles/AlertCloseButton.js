@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import Anchor from 'components/Anchor';
+import Link from 'components/Link';
 import AlertContent from './AlertContent';
 
-const CloseButton = styled(Anchor)`
+const CloseButton = styled(Link)`
   color: inherit;
   ${AlertContent} > &, ${AlertContent.Small} > & {
     margin-top: 6px;
@@ -10,7 +10,7 @@ const CloseButton = styled(Anchor)`
   }
 `;
 
-CloseButton.Negative = styled(Anchor.Negative)`
+CloseButton.Negative = styled(Link.Negative)`
   color: inherit;
   ${AlertContent} > &, ${AlertContent.Small} > & {
     margin-top: 6px;
@@ -18,7 +18,7 @@ CloseButton.Negative = styled(Anchor.Negative)`
   }
 `;
 
-CloseButton.Positive = styled(Anchor.Positive)`
+CloseButton.Positive = styled(Link.Positive)`
   color: inherit;
   ${AlertContent} > &, ${AlertContent.Small} > & {
     margin-top: 6px;

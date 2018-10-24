@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { defaultProps } from 'recompose';
-import Anchor from '../Anchor';
+import Link from 'components/Link';
 import InputStyles from './styles/InputStyles';
 import InputRevealPasswordWrapper from './styles/InputRevealPasswordWrapper';
 
@@ -193,9 +193,9 @@ class Input extends React.PureComponent {
 
     const inlineNode = (
       <div>
-        <Anchor href="" onClick={handleClick}>
+        <Link href="" onClick={handleClick}>
           {this.state._type === 'password' ? 'Show' : 'Hide'}
-        </Anchor>
+        </Link>
       </div>
     );
 

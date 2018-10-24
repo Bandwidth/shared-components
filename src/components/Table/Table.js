@@ -10,7 +10,6 @@ import TableOverlay from './styles/TableOverlay';
 import Cell from './styles/TableCell';
 import Header from './TableHeader';
 import Row from './styles/TableRow';
-import Controls from './TableControls';
 import RowDetails from './TableRowDetails';
 import TableWrap from './TableWrap';
 import TableBody from './styles/TableBody';
@@ -97,7 +96,6 @@ class Table extends React.Component {
 Table.Row = Row;
 Table.Header = Header;
 Table.Cell = Cell;
-Table.Controls = Controls;
 Table.RowDetails = RowDetails;
 Table.Wrap = TableWrap;
 Table.Body = TableBody;

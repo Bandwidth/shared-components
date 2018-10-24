@@ -15,7 +15,7 @@ import { CSSTransition } from 'react-transition-group';
 /**
  * The Action Bar is a bar docked to the bottom right of the screen.
  * It aligns with the rightmost content area of the layout. It should
- * contain buttons, anchors, and other small controls. It also supports
+ * contain buttons, links, and other small controls. It also supports
  * an expanding full-screen popup area which can contain more complex
  * forms or controls.
  *

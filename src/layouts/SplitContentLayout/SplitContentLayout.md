@@ -30,8 +30,8 @@ The code below can help get you started, but you'll want to check out the [full 
         >
           {({ toggleExpanded }) => (
             <React.Fragment>
-              <Anchor onClick={toggleExpanded}>Toggle expanded</Anchor>
-              <Anchor onClick={this.showPopup}>Show popup</Anchor>
+              <Link onClick={toggleExpanded}>Toggle expanded</Link>
+              <Link onClick={this.showPopup}>Show popup</Link>
               <Button>Submit</Button>
             </React.Fragment>
           )}
