@@ -61,23 +61,23 @@ class RadioButton extends React.Component {
     /**
      * A component to render the container around the button
      */
-    Container: PropTypes.func,
+    Container: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the content inside the button (not the label)
      */
-    Content: PropTypes.func,
+    Content: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the input for the button (usually hidden)
      */
-    Input: PropTypes.func,
+    Input: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the label inside the button
      */
-    Label: PropTypes.func,
+    Label: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the text inside the label
      */
-    LabelText: PropTypes.func,
+    LabelText: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

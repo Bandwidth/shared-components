@@ -48,22 +48,22 @@ class TimeScrubber extends React.Component {
      * A component that can be provided to customize
      * the rendering behavior of the outer container
      */
-    Container: PropTypes.func,
+    Container: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component that can be provided to customize
      * the rendering behavior of the buttons
      */
-    NudgeButton: PropTypes.func,
+    NudgeButton: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component that can be provided to customize
      * the rendering behavior of the viewport window
      */
-    Viewport: PropTypes.func,
+    Viewport: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component that can be provided to customize
      * the rendering behavior of the timeline bar
      */
-    Timeline: PropTypes.func,
+    Timeline: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

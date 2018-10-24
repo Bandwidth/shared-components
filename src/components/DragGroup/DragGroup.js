@@ -32,29 +32,29 @@ class DragGroup extends React.Component {
      * Override the outer container visual component
      * Defaults DragGroupContainer
      */
-    Container: PropTypes.func,
+    Container: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Override the visual component which wraps the child items
      * Defaults DragGroupItemsContainer
      */
-    ItemsContainer: PropTypes.func,
+    ItemsContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Override the behavioral component which renders the drop area
      * Defaults DragGroupDropArea
      */
-    DropArea: PropTypes.func,
+    DropArea: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Overrides the behavioral component which renders a clickable separator
      * between items.
      * Defaults DragGroupSeparator
      */
-    Separator: PropTypes.func,
+    Separator: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Overrides the visual component which renders the toggle-enabled title
      * of a group.
      * Defaults DragGroupTitle
      */
-    Title: PropTypes.func,
+    Title: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 
     // The following are provided by DragGroups;
     // they cannot be required, but can be expected.

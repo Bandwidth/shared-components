@@ -13,10 +13,15 @@
     <Input />
   </Field>
   <Field label="options" alignContent="left">
-    <RadioGroup options={['one', 'two', 'three']} />
+    <RadioButton.Group>
+      <RadioButton name="example" value="one" label="one" />
+      <RadioButton name="example" value="two" label="two" />
+      <RadioButton name="example" value="three" label="three" />
+      <RadioButton name="example" value="four" label="four" />
+    </RadioButton.Group>
   </Field>
   <Field label="tall">
-    <TextArea />
+    <TextArea defaultValue="Some basic text" />
   </Field>
 </Field.Group>
 ```

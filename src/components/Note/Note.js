@@ -19,11 +19,11 @@ Note.propTypes = {
   /**
    * Override the component that renders the outer container
    */
-  Container: PropTypes.func,
+  Container: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   /**
    * Override the component that renders the corner
    */
-  Corner: PropTypes.func,
+  Corner: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
 Note.defaultProps = {

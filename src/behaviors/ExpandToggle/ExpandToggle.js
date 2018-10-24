@@ -25,7 +25,8 @@ class ExpandToggle extends React.Component {
      * Content to render within the toggle area. You may optionally pass a function,
      * which will be called with the current toggle on/off state.
      */
-    toggleContent: PropTypes.node.isRequired,
+    toggleContent: PropTypes.oneOfType([PropTypes.func, PropTypes.node])
+      .isRequired,
     /**
      * Override ('control') toggling behavior, disabling default internal toggle state
      */

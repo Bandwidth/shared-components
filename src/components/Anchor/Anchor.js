@@ -110,27 +110,33 @@ class Anchor extends React.Component {
     /**
      * Renders a text anchor linking to an external site
      */
-    ExternalTextAnchor: PropTypes.func,
+    ExternalTextAnchor: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Renders an icon anchor linking to an external site
      */
-    ExternalIconAnchor: PropTypes.func,
+    ExternalIconAnchor: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Renders a content (image, element) anchor linking to an external site
      */
-    ExternalContentAnchor: PropTypes.func,
+    ExternalContentAnchor: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+    ]),
     /**
      * Renders a text anchor linking to a page in-app
      */
-    InternalTextAnchor: PropTypes.func,
+    InternalTextAnchor: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Renders an icon anchor linking to a page in-app
      */
-    InternalIconAnchor: PropTypes.func,
+    InternalIconAnchor: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Renders a content (image, element) anchor linking to a page in-app
      */
-    InternalContentAnchor: PropTypes.func,
+    InternalContentAnchor: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+    ]),
     /**
      * Resolves whether a link is active. Specifying custom rules for whether
      * a link is active may be necessary when using custom onClick logic
@@ -247,13 +253,7 @@ class Anchor extends React.Component {
   };
 
   render() {
-    const {
-      to,
-      exact,
-      children,
-      active,
-      ...rest
-    } = this.props;
+    const { to, exact, children, active, ...rest } = this.props;
 
     const Component = this.getComponentType();
 

@@ -44,15 +44,15 @@ class Table extends React.Component {
     /**
      * A component to render the table element
      */
-    Styles: PropTypes.func,
+    Styles: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render any content that overlays the table itself
      */
-    Overlay: PropTypes.func,
+    Overlay: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component that wraps the whole table as a scroll context
      */
-    Wrap: PropTypes.func,
+    Wrap: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

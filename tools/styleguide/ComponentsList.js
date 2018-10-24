@@ -6,7 +6,7 @@ import Accordion, {
   AccordionGroup,
   AccordionBorder,
 } from 'components/Accordion';
-import RadioGroupButtonLabel from 'components/RadioGroup/styles/RadioGroupButtonLabel';
+import RadioGroupButtonLabel from 'components/RadioButton/styles/RadioGroupButtonLabel';
 import get from 'extensions/themeGet';
 import some from 'lodash.some';
 
@@ -90,20 +90,14 @@ export default class ComponentsListRenderer extends React.Component {
     );
 
   renderTopLevel = (section, topLevel = false) => {
-    const {
-      name,
-      visibleName,
-      content,
-      sections = [],
-      components = [],
-    } = section;
+    const { name, visibleName, sections = [], components = [] } = section;
     let listItems = [];
     if (sections.length > 0) listItems = sections;
     else if (components.length > 0) listItems = components;
     listItems = listItems.filter(s => s.name !== name);
     if (topLevel) {
       return (
-        <React.Fragment>
+        <React.Fragment key={name}>
           <SectionHeader>{name}</SectionHeader>
           {listItems &&
             listItems.length > 0 && (
@@ -113,7 +107,7 @@ export default class ComponentsListRenderer extends React.Component {
       );
     }
     return (
-      <React.Fragment>
+      <React.Fragment key={name}>
         <span>{visibleName || name}</span>
         {this.sectionChildrenActive(section) && (
           <List>{listItems.map(this.renderSection)}</List>
@@ -123,7 +117,7 @@ export default class ComponentsListRenderer extends React.Component {
   };
 
   render() {
-    let { classes, items } = this.props;
+    let { items } = this.props;
     items = items.filter(item => item.name);
 
     if (!items.length) {
@@ -132,7 +126,7 @@ export default class ComponentsListRenderer extends React.Component {
 
     return (
       <Container>
-        <List>{items.map(i => this.renderTopLevel(i, true))}</List>
+        <List>{items.map(section => this.renderTopLevel(section, true))}</List>
       </Container>
     );
   }

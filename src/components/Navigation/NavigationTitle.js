@@ -21,15 +21,15 @@ class LogoHeader extends React.Component {
     /**
      * A component to wrap the logo and heading text
      */
-    LogoPairWrapper: PropTypes.func,
+    LogoPairWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the logo
      */
-    Logo: PropTypes.func,
+    Logo: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the heading text
      */
-    Heading: PropTypes.func,
+    Heading: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

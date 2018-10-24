@@ -34,12 +34,12 @@ class DragLayer extends React.Component {
      * Override the presentational component which renders the full-screen
      * overlay
      */
-    Overlay: PropTypes.func,
+    Overlay: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Override the presentational component which positions and sizes
      * the preview element
      */
-    PreviewContainer: PropTypes.func,
+    PreviewContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

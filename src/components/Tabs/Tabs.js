@@ -23,7 +23,7 @@ class Tabs extends React.Component {
     /**
      * Override the component used to render the Tab list
      */
-    List: PropTypes.func,
+    List: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

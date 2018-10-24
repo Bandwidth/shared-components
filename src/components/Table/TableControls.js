@@ -52,19 +52,19 @@ class TableControls extends React.Component {
     /**
      * A component to render the containing element
      */
-    Container: PropTypes.func,
+    Container: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the controls row, including header and icons
      */
-    ControlsRow: PropTypes.func,
+    ControlsRow: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the container for icons. Mainly controls font size.
      */
-    ControlsIcons: PropTypes.func,
+    ControlsIcons: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render an Anchor, defaults to library Anchor
      */
-    Anchor: PropTypes.func,
+    Anchor: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

@@ -42,27 +42,27 @@ class Modal extends React.Component {
     /**
      * A component to render the action content area
      */
-    ActionContent: PropTypes.func,
+    ActionContent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the full-screen blocker behind the modal
      */
-    Blocker: PropTypes.func,
+    Blocker: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the content inside the modal window
      */
-    Content: PropTypes.func,
+    Content: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the title at the top of the modal
      */
-    Title: PropTypes.func,
+    Title: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the window container of the modal
      */
-    Window: PropTypes.func,
+    Window: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the close icon in the right-top corner of the modal
      */
-    CloseIcon: PropTypes.func,
+    CloseIcon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Align action buttons
      */

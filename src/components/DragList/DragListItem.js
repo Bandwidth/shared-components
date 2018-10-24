@@ -52,15 +52,7 @@ class DragListItem extends React.PureComponent {
 
   render() {
     const {
-      props: {
-        connectDragSource,
-        connectDragPreview,
-        connectDropTarget,
-        isDragging,
-        onMove,
-        index,
-        children,
-      },
+      props: { connectDropTarget, isDragging, children },
       wrapDragHandle,
     } = this;
 

@@ -24,7 +24,7 @@ class Money extends React.Component {
     /**
      * A component to render the text itself. Will be passed a `value` Number prop.
      */
-    Styles: PropTypes.func,
+    Styles: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {
@@ -45,8 +45,8 @@ class Money extends React.Component {
     return (
       <Styles value={value} id={id} className={className}>
         {showSign ? this.getSign(value) : null}
-        {/* sign is already present, so remove it from the formatted number */}
-        ${formatMoney(value).replace('-', '')}
+        {/* sign is already present, so remove it from the formatted number */}$
+        {formatMoney(value).replace('-', '')}
       </Styles>
     );
   }

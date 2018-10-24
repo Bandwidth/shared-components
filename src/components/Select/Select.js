@@ -158,7 +158,7 @@ class Select extends React.PureComponent {
      * A component that wraps the library select component, letting you
      * change styles.
      */
-    Wrapper: PropTypes.func,
+    Wrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

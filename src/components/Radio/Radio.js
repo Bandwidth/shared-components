@@ -46,15 +46,15 @@ class Radio extends React.PureComponent {
     /**
      * A component for rendering a container around the input and label
      */
-    Container: PropTypes.func,
+    Container: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component for rendering the input (usually hidden)
      */
-    Input: PropTypes.func,
+    Input: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component for rendering the label. By default this also renders the radio button itself.
      */
-    Label: PropTypes.func,
+    Label: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

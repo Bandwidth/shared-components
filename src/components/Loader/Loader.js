@@ -24,11 +24,11 @@ class Loader extends React.PureComponent {
     /**
      * A component for rendering a ring of the loader
      */
-    Ring: PropTypes.func,
+    Ring: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component for rendering the containing block of the loader
      */
-    Container: PropTypes.func,
+    Container: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

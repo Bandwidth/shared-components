@@ -62,23 +62,23 @@ export default class Alert extends React.PureComponent {
     /**
      * A component to render the border container
      */
-    Border: PropTypes.func,
+    Border: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the text inside
      */
-    Text: PropTypes.func,
+    Text: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the icon
      */
-    Icon: PropTypes.func,
+    Icon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A containing element around the alert, used for expanding style calc.
      */
-    Content: PropTypes.func,
+    Content: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * The anchor component to use when rendering a close button
      */
-    CloseButton: PropTypes.func,
+    CloseButton: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

@@ -31,11 +31,11 @@ export default class FileLoader extends React.Component {
     /**
      * A component to render the drop area
      */
-    DropArea: PropTypes.func,
+    DropArea: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the preview container
      */
-    Preview: PropTypes.func,
+    Preview: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {
@@ -60,7 +60,10 @@ export default class FileLoader extends React.Component {
       return (
         <DropArea>
           <Icon name="file" />
-          <Preview>DROP A FILE HERE, OR&nbsp;<Anchor>CLICK TO BROWSE</Anchor></Preview>
+          <Preview>
+            DROP A FILE HERE, OR&nbsp;
+            <Anchor>CLICK TO BROWSE</Anchor>
+          </Preview>
         </DropArea>
       );
     }

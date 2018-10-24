@@ -4,7 +4,7 @@ import { BandwidthProvider, BandwidthThemeProvider } from '../../src';
 import { Router } from 'react-router';
 import { createMemoryHistory } from 'history';
 import styled from 'styled-components';
-import get from '../../src/extensions/themeGet';
+import get from 'extensions/themeGet';
 
 const history = createMemoryHistory('/');
 
@@ -15,15 +15,17 @@ const Container = styled.div`
   color: ${get('colors.text.default')};
 `;
 
-const Content = styled.div`
-  margin-top: ${get('spacing.medium')};
-`;
-
 export default class Wrapper extends React.Component {
   render() {
     return (
       <Router history={history}>
-        <BandwidthProvider StyleRoot={React.Fragment} customTheme={null}>
+        <BandwidthProvider
+          skipGlobalStyle
+          StyleRoot={({ children }) => (
+            <div className="wrapperStyleRoot">{children}</div>
+          )}
+          customTheme={null}
+        >
           <Container>{this.props.children}</Container>
         </BandwidthProvider>
       </Router>

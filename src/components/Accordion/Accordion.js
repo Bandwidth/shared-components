@@ -25,7 +25,7 @@ class Accordion extends React.Component {
     /**
      * Content inside the collapsible part of the accordion.
      */
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     /**
      * Pass isExpanded to override the internal collapsing state (makes the expanded state a controlled value, please
      * use onToggle to manage the state yourself or startExpanded if you just want to set the initial state).
@@ -73,23 +73,23 @@ class Accordion extends React.Component {
     /**
      * A component to render the border
      */
-    Border: PropTypes.func,
+    Border: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the label
      */
-    Label: PropTypes.func,
+    Label: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the arrow
      */
-    Arrow: PropTypes.func,
+    Arrow: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the text inside the label
      */
-    LabelText: PropTypes.func,
+    LabelText: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component to render the content area
      */
-    Content: PropTypes.func,
+    Content: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {

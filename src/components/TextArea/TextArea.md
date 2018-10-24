@@ -1,5 +1,3 @@
 ```javascript
-  <TextArea>
-    Text area contents
-  </TextArea>
+<TextArea defaultValue="Text area contents" />
 ```

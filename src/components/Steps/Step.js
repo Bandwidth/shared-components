@@ -22,15 +22,15 @@ export default class Step extends React.Component {
     /**
      * Override the component that renders the step outer container
      */
-    Container: PropTypes.func,
+    Container: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Override the component that renders the step number. Will receive `complete` and `number` props.
      */
-    Number: PropTypes.func,
+    Number: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Override the component that renders the content of the step
      */
-    Content: PropTypes.func,
+    Content: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {
