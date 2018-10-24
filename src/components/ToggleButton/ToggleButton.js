@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
 import { defaultProps } from 'recompose';
-import get from 'extensions/themeGet';
 import StyledButton from './styles/StyledToggleButton';
 import ColorfulButton from './styles/ColorfulButton';
 import SmallButton from './styles/SmallButton';
@@ -14,7 +12,7 @@ import noop from 'lodash.noop';
  * into the [Selectable](/#!/Selectable) behavior. Set `name` to keep track of which button was pressed when a
  * click handler fires.
  */
-class ToggleButton extends React.PureComponent {
+export default class ToggleButton extends React.PureComponent {
   static propTypes = {
     /**
      * Callback when the toggle is clicked. Called with the signature `(name, selected)`.
@@ -79,12 +77,21 @@ class ToggleButton extends React.PureComponent {
 
   render() {
     const {
-      props: { Button, onClick, onDeselect, onSelect, hovered, ...rest },
+      props: {
+        Button,
+        onClick,
+        onDeselect,
+        onSelect,
+        hovered,
+        forwardRef,
+        ...rest
+      },
       state: { internalHovered },
       handleClick,
     } = this;
     return (
       <Button
+        ref={forwardRef}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         onMouseUp={this.handleMouseLeave}
@@ -97,5 +104,3 @@ class ToggleButton extends React.PureComponent {
     );
   }
 }
-
-export default ToggleButton;

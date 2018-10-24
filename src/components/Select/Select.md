@@ -1,11 +1,5 @@
 ```javascript
-const options = [
-  'One',
-  'Two',
-  'Three',
-  'Four',
-  'Five',
-];
+const options = ['One', 'Two', 'Three', 'Four', 'Five'];
 
 const complexOptions = [
   {
@@ -37,7 +31,7 @@ class Wrapper extends React.Component {
         <Select
           {...this.props}
           value={this.state.value}
-          onChange={(newValue) => this.setState({ value: newValue })}
+          onChange={newValue => this.setState({ value: newValue })}
         />
         <div>Raw Value: {JSON.stringify(this.state.value)}</div>
       </div>
@@ -51,25 +45,18 @@ class Wrapper extends React.Component {
   <div>An invalid select:</div>
   <Wrapper invalid options={options} />
   <div>A searchable select:</div>
-  <Wrapper searchable options={options}/>
+  <Wrapper searchable options={options} />
   <div>A required select:</div>
-  <Wrapper required options={options}/>
+  <Wrapper required options={options} />
   <div>A multi select:</div>
-  <Wrapper multi options={options}/>
+  <Wrapper multi options={options} />
   <div>A select with complex options:</div>
   <Wrapper
     options={complexOptions}
-    getOptionValue={(opt) => opt.id}
-    renderOption={(opt) => `${opt.name} (${opt.count})`}
+    getOptionValue={opt => opt.id}
+    renderOption={opt => `${opt.name} (${opt.count})`}
   />
   <div>Loading state:</div>
-  <Wrapper options={options} loading/>
-</div>
-```
-
-Visual test: inside a fixed size boundary
-```javascript
-<div style={{ overflowY: 'hidden' }}>
-  <Select value="a" options={['a', 'b', 'c', 'd', 'e', 'f']}/>
-</div>
+  <Wrapper options={options} loading />
+</div>;
 ```

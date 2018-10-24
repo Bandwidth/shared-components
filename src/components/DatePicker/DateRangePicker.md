@@ -12,7 +12,7 @@ class Wrapper extends React.Component {
         startDate={this.state.startDate}
         endDate={this.state.endDate}
         onDatesChange={({ startDate, endDate }) => {
-          this.setState({ startDate, endDate })
+          this.setState({ startDate, endDate });
           console.log(startDate);
           console.log(endDate);
         }}
@@ -30,5 +30,5 @@ class Wrapper extends React.Component {
   <Wrapper openDirection="up" />
   <Wrapper disabled="endDate" />
   <Wrapper disabled />
-</div>
+</div>;
 ```
