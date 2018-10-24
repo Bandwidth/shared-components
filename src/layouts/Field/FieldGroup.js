@@ -2,11 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FieldRowContainer from './styles/FieldRowContainer';
 import FieldRow from './styles/FieldRow';
-import Field from './Field';
 
 class Fields extends React.Component {
-  static Field = Field;
-
   static propTypes = {
     /**
      * The number of columns to divide the fieldset into when rendering. Fields can span multiple columns if provided

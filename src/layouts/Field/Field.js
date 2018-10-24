@@ -7,14 +7,20 @@ import FieldContent from './styles/FieldContent';
 import HelpIcon from './styles/HelpIcon';
 import LabelContainer from './styles/LabelContainer';
 import get from 'lodash.get';
+import FieldGroup from './FieldGroup';
 
 /**
- * A single Field element.
+ * Field and Field.Group handle form field layout automatically, dividing form items into a grid and aligning them automatically.
+ * Include a single Field.Group with any number of Field components as direct children. The number of `columns` can be specified on the
+ * Field.Group, and each Field can be assigned a number of columns to take up using the `columnSpan` prop. Each Field should include
+ * any contents as `children` (e.g., `<Field><Input /></Field>`). Each field can also have `label`, `helpCallout`, and `helpText` props
+ * to define additional information around the component. Field.Group uses a two-column layout by default.
  *
- * **Important:** Field cannot be used on its own. Please use Field
- * within the Fields component. See: [Fields](#!/Fields)
+ * If you are using Field with a library to manage form state, such as ReduxForm or Formik, it can be helpful to bind them within your code.
  */
 class Field extends React.Component {
+  static Group = FieldGroup;
+
   static propTypes = {
     /**
      * **Automatically supplied within <Fields>**
