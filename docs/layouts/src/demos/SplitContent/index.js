@@ -1,5 +1,5 @@
 import React from 'react';
-import { SplitContentLayout } from '../../../../../src';
+import { SplitContentLayout } from '@bandwidth/shared-components';
 import { Route, Switch } from 'react-router-dom';
 import { ActionBarExpandingContent, Form, SidebarList } from '../widgets';
 import Left from './Left';

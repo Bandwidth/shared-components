@@ -18,7 +18,8 @@
     "styleguide:run": "cross-env NODE_PATH=src styleguidist server",
     "styleguide": "run-s styleguide:*",
     "start": "npm run styleguide",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "layout": "webpack-serve docs/layouts/src/webpack.config.js"
   },
   "repository": {
     "type": "git",
