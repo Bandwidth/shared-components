@@ -19,7 +19,7 @@ const ShadowOverlay = styled.div`
     box-shadow: 0 -15px 10px -10px ${themeGet('colors.shadow.light')},
       0 15px 10px -10px transparent;
   }
-  &.outer.both {
+  &.outer.topBottom {
     box-shadow: 0 -15px 10px -10px ${themeGet('colors.shadow.light')},
       0 15px 10px -10px ${themeGet('colors.shadow.light')};
   }
@@ -32,9 +32,22 @@ const ShadowOverlay = styled.div`
     box-shadow: inset 0 -15px 10px -10px ${themeGet('colors.shadow.light')},
       inset 0 15px 10px -10px transparent;
   }
-  &.inner.both {
+  &.inner.topBottom {
     box-shadow: inset 0 -15px 10px -10px ${themeGet('colors.shadow.light')},
       inset 0 15px 10px -10px ${themeGet('colors.shadow.light')};
+  }
+
+  &.inner.left {
+    box-shadow: inset -15px 0 10px -10px transparent,
+      inset 15px 0 10px -10px ${themeGet('colors.shadow.light')};
+  }
+  &.inner.right {
+    box-shadow: inset -15px 0 10px -10px ${themeGet('colors.shadow.light')},
+      inset 15px 0 10px -10px transparent;
+  }
+  &.inner.leftRight {
+    box-shadow: inset -15px 0 10px -10px ${themeGet('colors.shadow.light')},
+      inset 15px 0 10px -10px ${themeGet('colors.shadow.light')};
   }
 `;
 

@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
 
-import Loader from '../Loader';
+import Loader from 'components/Loader';
+import ScrollShadow from 'behaviors/ScrollShadow';
 
 import TableStyles from './styles/TableStyles';
 import TableOverlay from './styles/TableOverlay';
@@ -11,8 +12,8 @@ import Cell from './styles/TableCell';
 import Header from './TableHeader';
 import Row from './styles/TableRow';
 import RowDetails from './TableRowDetails';
-import TableWrap from './TableWrap';
 import TableBody from './styles/TableBody';
+import TableScrollContainer from './styles/TableScrollContainer';
 
 class Table extends React.Component {
   static propTypes = {
@@ -51,7 +52,7 @@ class Table extends React.Component {
     /**
      * A component that wraps the whole table as a scroll context
      */
-    Wrap: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    ScrollContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {
@@ -62,7 +63,7 @@ class Table extends React.Component {
     wrapBody: true,
     Styles: TableStyles,
     Overlay: TableOverlay,
-    Wrap: TableWrap,
+    ScrollContainer: TableScrollContainer,
   };
 
   render() {
@@ -71,14 +72,13 @@ class Table extends React.Component {
       loading,
       headers,
       wrapBody,
-      Wrap,
       Styles,
       Overlay,
-      ...rest
+      ScrollContainer,
     } = this.props;
     return (
-      <Wrap>
-        <Styles cellPadding={0} cellSpacing={0} {...rest}>
+      <ScrollShadow horizontal ScrollContainer={ScrollContainer}>
+        <Styles cellPadding={0} cellSpacing={0} className={className} id={id}>
           <thead>{headers}</thead>
           {wrapBody ? <TableBody>{children}</TableBody> : children}
         </Styles>
@@ -87,7 +87,7 @@ class Table extends React.Component {
             <Loader />
           </Overlay>
         )}
-      </Wrap>
+      </ScrollShadow>
     );
   }
 }
@@ -96,7 +96,6 @@ Table.Row = Row;
 Table.Header = Header;
 Table.Cell = Cell;
 Table.RowDetails = RowDetails;
-Table.Wrap = TableWrap;
 Table.Body = TableBody;
 
 Table.Small = withProps({

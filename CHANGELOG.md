@@ -21,6 +21,7 @@
   * `CodeBlock` is no longer exported directly from the library. Reference `Code.Block` instead.
   * Table sub-components (`TableCell`, `TableHeader`, etc) are no longer exported directly from the library. Reference them as static fields of `Table` instead.
 * We now use Rollup to package the library.
+* `ScrollShadow` now has a `horizontal` prop.
 
 #### Anchor -> Link migration
 

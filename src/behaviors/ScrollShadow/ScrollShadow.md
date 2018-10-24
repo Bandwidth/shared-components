@@ -3,10 +3,19 @@
 Creates a scrolling wrapping container that has a shadow effect to indicate that there is content above or below.
 
 ```js
-<div style={{ height: '500px', overflow: 'hidden' }}>
-  <ScrollShadow>
-    <div style={{ height: '5000px', width: '100%' }}>Some scrolling child content</div>
-  </ScrollShadow>
+<div style={{ height: '500px', width: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'row', padding: '20px' }}>
+  <div style={{ width: '50%' }}>
+    <Label>Vertical</Label>
+    <ScrollShadow>
+      <div style={{ height: '5000px', width: '100%' }}>Some scrolling child content</div>
+    </ScrollShadow>
+  </div>
+  <div style={{ width: '50%', height: '100%' }}>
+    <Label>Horizontal</Label>
+    <ScrollShadow horizontal>
+      <div style={{ width: '5000px', height: '100%' }}>Some scrolling child content</div>
+    </ScrollShadow>
+  </div>
 </div>
 ```
 
