@@ -61,7 +61,6 @@
     "lodash.partition": "^4.6.0",
     "lodash.pick": "^4.4.0",
     "lodash.throttle": "^4.1.1",
-    "provinces": "^1.11.0",
     "react-addons-shallow-compare": "^15.6.2",
     "react-autosuggest": "^9.3.2",
     "react-collapse": "^4.0.3",
