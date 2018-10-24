@@ -79,7 +79,7 @@ class ToggleButton extends React.PureComponent {
 
   render() {
     const {
-      props: { Button, onClick, hovered, ...rest },
+      props: { Button, onClick, onDeselect, onSelect, hovered, ...rest },
       state: { internalHovered },
       handleClick,
     } = this;

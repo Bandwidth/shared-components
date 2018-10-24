@@ -16,7 +16,7 @@ const SubNav = () => (
     <Route path="/splitContent">
       <Navigation.Sub>
         <Navigation.ItemList>
-          <NavWrapLink exact to="/splitContent">
+          <NavWrapLink to="/splitContent">
             <Navigation.Item>Docs</Navigation.Item>
           </NavWrapLink>
           <NavWrapLink to="/splitContent/right">
@@ -53,7 +53,7 @@ export default () => (
           </NavWrapLink>
         </Navigation.ItemList.Small>
         <Navigation.ItemList>
-          <NavWrapLink exact to="/root">
+          <NavWrapLink to="/root">
             <Navigation.Item>Root</Navigation.Item>
           </NavWrapLink>
           <NavWrapLink to="/splitContent" exact>

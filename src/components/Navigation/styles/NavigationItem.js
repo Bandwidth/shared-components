@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import get from 'extensions/themeGet';
 import NavigationItemList from './NavigationItemList';
-import NavigationItemListStack from './NavigationItemListStack';
 import NavigationBar from './NavigationBar';
 import { calcTopOffset, calcBottomOffset } from 'extensions/userSpacing';
 

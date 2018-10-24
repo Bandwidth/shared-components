@@ -19,7 +19,7 @@ export default () => (
         </Anchor>
       </Navigation.ItemList.Small>
       <Navigation.ItemList>
-        <Anchor to="/services" exact>
+        <Anchor to="/services">
           <Navigation.Item>Services</Navigation.Item>
         </Anchor>
         <Anchor to="/useCases">

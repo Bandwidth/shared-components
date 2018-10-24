@@ -16,7 +16,7 @@ class DragGroupDropArea extends React.Component {
   static propTypes = {
     itemType: PropTypes.string.isRequired,
     groupId: PropTypes.number.isRequired,
-    Content: PropTypes.func,
+    Content: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {
