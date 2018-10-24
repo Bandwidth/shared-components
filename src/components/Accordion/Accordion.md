@@ -1,48 +1,38 @@
-Expands and collapses when the label is clicked. Or, you can provide the `isCollapsed` prop to force open/closed state. You can also provide a hook to `onToggle`. Your `onToggle` function will be called with one parameter, a boolean representing whether the component is currently collapsed at the time it was clicked.
-
-Accepts `label` to define what's rendered in the label.
-
-Also exports `ContentPadding`, which you can use on any content contained inside the accordion to achieve consistent padding.
-```javascript
-<Accordion label="Hello">
-  Some content
-</Accordion>
+```js
+<div>
+  <Accordion label="Hello">Some content</Accordion>
+  <Accordion label="Hello Again">More content</Accordion>
+</div>
 ```
 
-_Small_
+#### Small
 
-```javascript
-const Button = require('../Button').default;
+```js
 <Accordion.Small label="Small!">
-  Some content<br />
+  Some content
+  <br />
   <Button>A normal Button</Button>
 </Accordion.Small>
 ```
 
-_Start open_
-```javascript
-<Accordion label="Hello" startExpanded>
-  Some content
-</Accordion>
-```
+#### Exclusive
 
-_Disabled_
-```javascript
-<Accordion label="Disabled" disabled>
-  Content
-</Accordion>
-```
-
-_Disabled, start expanded_
-```javascript
-<Accordion label="Disabled" startExpanded disabled>
-  Visible content
-</Accordion>
-```
-
-_Small disabled_
-```javascript
-<Accordion.Small label="Small disabled" disabled>
-  Some content
-</Accordion.Small>
+```js
+<Selectable
+  exclusive
+  render={({ toggleItem, selected }) => (
+    <React.Fragment>
+      <Accordion
+        onToggle={ev => toggleItem('First')}
+        isExpanded={selected.has('First')}
+        label="First"
+      />
+      <Accordion
+        onToggle={ev => toggleItem('Second')}
+        isExpanded={selected.has('Second')}
+        label="Second"
+      />
+    </React.Fragment>
+  )}
+/>
 ```

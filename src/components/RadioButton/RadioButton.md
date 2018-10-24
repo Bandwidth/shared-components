@@ -1,11 +1,7 @@
 Used alone, RadioButton is functional but not especially useful:
 
 ```js
-<RadioButton
-  label="Super awesome radio button"
-  name="s"
-  value="a"
-/>
+<RadioButton label="Super awesome radio button" name="s" value="a" />
 ```
 
 To join RadioButtons together, use them like you would any `<input type="radio">` with a `name` prop, wrapped in `RadioButton.Group`:
@@ -15,24 +11,26 @@ To join RadioButtons together, use them like you would any `<input type="radio">
   <RadioButton name="example" value="one" label="one" />
   <RadioButton name="example" value="two" label="two" />
   <RadioButton name="example" value="three" label="three" />
-  <RadioButton name="example" value="four" label="four"/>
+  <RadioButton name="example" value="four" label="four" />
 </RadioButton.Group>
 ```
 
-_Description_
+#### Description
+
 ```js
 const lipsum = require('lorem-ipsum');
 <RadioButton.Group>
   <RadioButton name="example2" value="one2" label="description #1">
-    {lipsum({count: 3})}
+    {lipsum({ count: 3 })}
   </RadioButton>
   <RadioButton disabled name="example2" value="two2" label="description #2">
-    {lipsum({count: 3})}
+    {lipsum({ count: 3 })}
   </RadioButton>
-</RadioButton.Group>
+</RadioButton.Group>;
 ```
 
-_Small_
+#### Small
+
 ```js
 <RadioButton.Group>
   <RadioButton.Small name="example3" value="one3" label="one" />
@@ -41,7 +39,8 @@ _Small_
 </RadioButton.Group>
 ```
 
-_Disabled_
+#### Disabled
+
 ```js
 <RadioButton.Group>
   <RadioButton disabled checked name="example5" value="one5" label="one" />
