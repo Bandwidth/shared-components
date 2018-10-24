@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import tag from 'clean-tag';
 import get from 'extensions/themeGet';
 import userSpacing from 'extensions/userSpacing';
 
@@ -10,16 +9,12 @@ import H3 from './H3';
 import H4 from './H4';
 import H5 from './H5';
 
-const H1 = styled(tag.h1)
-  .withConfig({ displayName: 'H1' })
-  .attrs({
-    spacing: userSpacing.text,
-  })`
+const H1 = styled.h1.withConfig({ displayName: 'H1' })`
   color: ${get('colors.primary.default')};
   font-weight: 100;
   font-family: ${get('fonts.brand')};
   font-size: 2.5em;
-  margin: ${props => props.spacing};
+  margin: ${userSpacing.text};
   overflow: hidden;
   padding: 0;
 `;

@@ -9,18 +9,6 @@ import AlertIcon from './styles/AlertIcon';
 import AlertBorder from './styles/AlertBorder';
 import AlertText from './styles/AlertText';
 import AlertContent from './styles/AlertContent';
-import icons from 'components/Icon/icons';
-
-const getIcon = type => {
-  switch (type) {
-    case 'error':
-      return '!';
-    case 'success':
-      return icons('checkmark');
-    default:
-      return 'i';
-  }
-};
 
 /**
  * Alerts are used to present messages to the user. Every alert is an interruption, so
@@ -86,7 +74,7 @@ export default class Alert extends React.PureComponent {
     textOnly: false,
     className: null,
     id: null,
-    spacing: 0,
+    spacing: '0',
     Border: AlertBorder,
     Content: AlertContent,
     Text: AlertText,

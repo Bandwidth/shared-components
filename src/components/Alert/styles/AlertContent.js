@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
-import tag from 'clean-tag';
 
-const AlertContent = styled(tag.div)`
+const AlertContent = styled.div`
   padding: ${get('spacing.small')} ${get('spacing.medium')};
   position: relative;
   display: grid;

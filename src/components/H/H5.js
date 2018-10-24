@@ -1,20 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import tag from 'clean-tag';
 import get from 'extensions/themeGet';
 import userSpacing from 'extensions/userSpacing';
 
-const H5 = styled(tag.h5)
-  .withConfig({ displayName: 'H5' })
-  .attrs({
-    spacing: userSpacing.text,
-  })`
+const H5 = styled.h5.withConfig({ displayName: 'H5' })`
   color: ${get('colors.text.default')};
   font-weight: 800;
   font-family: ${get('fonts.brand')};
   font-size: 1.15em;
-  margin: ${props => props.spacing};
+  margin: ${userSpacing.text};
   padding: 0;
 `;
 

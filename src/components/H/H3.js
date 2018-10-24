@@ -1,24 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import tag from 'clean-tag';
 import get from 'extensions/themeGet';
 import userSpacing from 'extensions/userSpacing';
 
 const LINE_HEIGHT = 1.25;
 
-const H3 = styled(tag.h3)
-  .withConfig({ displayName: 'H3' })
-  .attrs({
-    spacing: userSpacing.withLineHeight(LINE_HEIGHT),
-  })`
+const H3 = styled.h3.withConfig({ displayName: 'H3' })`
   color: ${get('colors.text.default')};
   font-weight: 300;
   font-family: ${get('fonts.brand')};
   font-size: 1.75em;
   line-height: ${LINE_HEIGHT};
   letter-spacing: 0;
-  margin: ${props => props.spacing};
+  margin: ${userSpacing.withLineHeight(LINE_HEIGHT)};
   padding: 0;
 `;
 

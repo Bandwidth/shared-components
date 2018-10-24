@@ -4,15 +4,13 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 import userTextSpacing from 'extensions/userTextSpacing';
 
-const HelpText = styled.div.withConfig({ displayName: 'HelpText' }).attrs({
-  spacing: userTextSpacing,
-})`
+const HelpText = styled.div.withConfig({ displayName: 'HelpText' })`
   color: ${props =>
     props.error ? get('colors.negative.default') : get('colors.gray.medium')};
   font-style: italic;
   font-weight: 300;
   font-family: ${get('fonts.brand')};
-  margin: ${props => props.spacing};
+  margin: ${userTextSpacing};
 `;
 
 HelpText.propTypes = {

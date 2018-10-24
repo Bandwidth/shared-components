@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { SIZE } from './AlertIcon';
 import AlertContent from './AlertContent';
 
 export default styled.p`
