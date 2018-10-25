@@ -3,7 +3,6 @@ import { RootLayout } from './components';
 import { Provider } from './Context';
 
 import FixedLayer from './FixedLayer';
-import throttle from 'lodash.throttle';
 
 export default class SplitContentLayout extends React.PureComponent {
   render() {

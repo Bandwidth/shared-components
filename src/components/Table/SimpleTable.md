@@ -24,10 +24,12 @@ const columns = [
   { name: 'baz' },
 ];
 
-const renderRow = (item) => (
+const renderRow = item => (
   <Table.Row>
     <Table.Cell>{item.foo}</Table.Cell>
-    <Table.Cell><Money value={item.bar} /></Table.Cell>
+    <Table.Cell>
+      <Money value={item.bar} />
+    </Table.Cell>
     <Table.Cell>{JSON.stringify(item.baz)}</Table.Cell>
   </Table.Row>
 );
@@ -36,6 +38,6 @@ const renderRow = (item) => (
   items={data}
   columns={columns}
   renderRow={renderRow}
-  renderDetails={(item) => <Spacing>{JSON.stringify(item, null, '\t')}</Spacing>}
-/>
+  renderDetails={item => <Spacing>{JSON.stringify(item, null, '\t')}</Spacing>}
+/>;
 ```

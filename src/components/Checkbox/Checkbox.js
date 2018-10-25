@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import generateId from '../../extensions/generateId';
+import generateId from 'extensions/generateId';
 import CheckboxInput from './styles/CheckboxInput';
 import CheckboxLabel from './styles/CheckboxLabel';
 import CheckboxContainer from './styles/CheckboxContainer';
@@ -75,6 +75,8 @@ export default class Checkbox extends React.PureComponent {
     Label: CheckboxLabel.Small,
   })(Checkbox);
 
+  defaultId = generateId('checkbox');
+
   computeChecked = () => {
     const { value, checked } = this.props;
 
@@ -102,9 +104,9 @@ export default class Checkbox extends React.PureComponent {
 
   render() {
     const {
+      id,
       className,
       disabled,
-      value,
       name,
       required,
       description,
@@ -112,17 +114,16 @@ export default class Checkbox extends React.PureComponent {
       Container,
       Input,
       Label,
-      checked,
     } = this.props;
 
-    const id = this.props.id || generateId('checkbox');
+    const finalId = id || this.defaultId;
     const isChecked = this.computeChecked();
 
     return (
       <Container>
         <Input
           name={name}
-          id={id}
+          id={finalId}
           className={className}
           type="checkbox"
           disabled={disabled}
@@ -131,7 +132,7 @@ export default class Checkbox extends React.PureComponent {
           required={required}
           onChange={onChange}
         />
-        <Label htmlFor={id} active={isChecked}>
+        <Label htmlFor={finalId} active={isChecked}>
           {description}
         </Label>
       </Container>

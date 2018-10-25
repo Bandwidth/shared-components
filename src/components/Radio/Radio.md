@@ -1,7 +1,7 @@
 ```javascript
 <div>
-  <Radio name="a" value="a" description="Check me" />
-  <Radio name="b" value="b" checked description="I'm already checked" />
+  <Radio value="a" description="Check me" />
+  <Radio value="foo" checked description="I'm already checked" />
   <Radio
     name="bar"
     value="bar"
@@ -13,8 +13,8 @@
       </div>
     }
   />
-  <Radio name="c" disabled value="c" description="Can't check this" />
-  <Radio name="d" disabled checked value="d" description="Can't uncheck this" />
+  <Radio disabled value="hello" description="Can't check this" />
+  <Radio disabled checked value="hello" description="Can't uncheck this" />
 </div>
 ```
 

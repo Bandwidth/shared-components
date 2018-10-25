@@ -129,6 +129,7 @@ Button.Secondary = styled(Button)`
   color: ${get('colors.primary.dark')};
   border-color: ${get('colors.primary.dark')};
   background: transparent;
+  border-width: ${get('thicknesses.wide')};
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {

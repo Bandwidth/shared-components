@@ -75,7 +75,7 @@ class Pagination extends React.Component {
 
   renderPrevious = () =>
     this.props.currentPage > 0 ? (
-      <this.props.Item onClick={this.handlePreviousClick}>
+      <this.props.Item className='paginationBack' onClick={this.handlePreviousClick}>
         <Icon name="back" />
       </this.props.Item>
     ) : (
@@ -84,7 +84,7 @@ class Pagination extends React.Component {
 
   renderNext = () =>
     this.props.currentPage < this.props.pageCount - 1 ? (
-      <this.props.Item onClick={this.handleNextClick}>
+      <this.props.Item className='paginationNext' onClick={this.handleNextClick}>
         <Icon name="forward" />
       </this.props.Item>
     ) : (
@@ -114,9 +114,9 @@ class Pagination extends React.Component {
   };
 
   render() {
-    const { id, className, Container } = this.props;
+    const { Container, ...rest } = this.props;
     return (
-      <Container id={id} className={className}>
+      <Container {...rest}>
         {this.renderPrevious()}
         {this.renderItems()}
         {this.renderNext()}

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import generateId from '../../extensions/generateId';
+import generateId from 'extensions/generateId';
 import ToggleContainer from './styles/ToggleContainer';
 import ToggleInput from './styles/ToggleInput';
 import ToggleLabel from './styles/ToggleLabel';
