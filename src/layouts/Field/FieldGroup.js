@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import FieldRowContainer from './styles/FieldRowContainer';
 import FieldRow from './styles/FieldRow';
 
-class Fields extends React.Component {
+class FieldGroup extends React.Component {
   static propTypes = {
     /**
-     * The number of columns to divide the fieldset into when rendering. Fields can span multiple columns if provided
-     * with a columnSpan prop. Fields which overflow the column limit will be added to new rows. If a Field's
+     * The number of columns to divide the fieldset into when rendering. FieldGroup can span multiple columns if provided
+     * with a columnSpan prop. FieldGroup which overflow the column limit will be added to new rows. If a Field's
      * columnSpan is too large to fit in the current row, it will be wrapped to the next one.
      */
     columns: PropTypes.number,
@@ -15,12 +15,12 @@ class Fields extends React.Component {
      * A component prop to override the component used to render the outer container which renders field rows.
      * Defaults to FieldRowContainer.
      */
-    RowContainer: PropTypes.func,
+    RowContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component prop to override the component which is injected to wrap Field elements into discrete rows.
      * Row receives the same `columns` prop provided to this component. Defaults to FieldRow.
      */
-    Row: PropTypes.func,
+    Row: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {
@@ -39,7 +39,7 @@ class Fields extends React.Component {
 
         if (childColumnSpan > columns) {
           throw new Error(
-            `A Field has a columnSpan of ${childColumnSpan}, but the containing Fields only has ${columns} columns`,
+            `A Field has a columnSpan of ${childColumnSpan}, but the containing Field.Group only has ${columns} columns`,
           );
         }
 
@@ -89,4 +89,4 @@ class Fields extends React.Component {
   }
 }
 
-export default Fields;
+export default FieldGroup;

@@ -1,4 +1,5 @@
-_Uncontrolled (interactive) toggle_
+#### Uncontrolled (interactive) toggle
+
 ```javascript
 <div>
   <Toggle value="foo" description="Foo" />

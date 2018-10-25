@@ -4,6 +4,9 @@ import PaneSectionContent from './styles/PaneSectionContent';
 import PaneSectionTitle from './styles/PaneSectionTitle';
 import PaneSectionWrap from './styles/PaneSectionWrap';
 
+/**
+ * @deprecated Use SplitContentLayout
+ */
 class PaneSection extends React.Component {
   static propTypes = {
     /**

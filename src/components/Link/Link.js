@@ -28,7 +28,7 @@ Link.propTypes = {
   /**
    * Content (text) to render within the link.
    */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   /**
    * Forces the link to open in a new tab
    */
@@ -58,7 +58,7 @@ Link.Wrap.propTypes = {
   /**
    * Content of any type to render within the link
    */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   /**
    * Forces the link to open in a new tab
    */
