@@ -16,7 +16,7 @@
     "start": "npm run styleguide",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "layout": "webpack-serve docs/layouts/src/webpack.config.js",
-    "build-docs:layouts": "webpack --config docs/layouts/src/webpack.config.js --output-path docs/layouts",
+    "build-docs:layouts": "webpack --config docs/layoutsExample/webpack.config.js --output-path docsDist/layouts",
     "build-docs:core": "cross-env NODE_PATH=src styleguidist build",
     "build-docs": "run-p build-docs:*",
     "predeploy": "npm run build-docs",
