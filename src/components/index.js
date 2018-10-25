@@ -44,7 +44,6 @@ export { default as RadioButton } from './RadioButton';
 export { default as SearchBox } from './SearchBox';
 export { default as SectionTitle } from './SectionTitle';
 export { default as Select } from './Select';
-export { default as Spacing } from './Spacing';
 export { default as Step } from './Step';
 export { default as Table } from './Table';
 export { default as Tabs } from './Tabs';

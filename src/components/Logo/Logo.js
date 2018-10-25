@@ -1,15 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import themeGet from 'extensions/themeGet';
-import { defaultProps } from 'recompose';
-import irisTheme from 'themes/irisTheme';
 import LogoSvg from './logo.svg';
 import styled from 'styled-components';
 
-// const Logo = ({ width, height, color, style, ...rest }) => (
-//   <LogoSvg style={{ width, height, fill: color, ...style }} {...rest} />
-// );
-//
 const Logo = styled(LogoSvg)`
   width: ${({ width }) => width};
   fill: ${({ color }) => (color ? color : themeGet('colors.text.inverted'))};
@@ -67,4 +61,7 @@ Logo.Primary.Large = styled(Logo)`
   height: ${themeGet('spacing.extraLarge')};
 `;
 
+/**
+ * @component
+ */
 export default Logo;

@@ -15,6 +15,7 @@
 ## Deprecated / Removed
 
 - `Flow` is gone! Use `Field`!
+- `Pane` has been marked as deprecated. It is still available, but the docs have been removed, and it will be removed in the next major release (7.x).
 - `Fields` and `Fields.Field` have moved! Use `Field.Group` and `Field` respectively.
 - `Steps` and `Steps.Step` have moved! Use `Step.Group` and `Step` respectively.
 - `RadioGroup` is gone! Just create the correct `RadioButton` components.

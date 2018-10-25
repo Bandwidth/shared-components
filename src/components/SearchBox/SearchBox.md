@@ -1,5 +1,3 @@
-Styling wrapper around [react-autosuggest](https://github.com/moroshko/react-autosuggest). See documentation there for full options.
-
 ### Real-Life Usage
 
 For most applications, you'll probably be calling out to an API to get suggestions when the user types. So in reality, you'll start with no suggestions and need to rebuild the list when the user changes their input. This can be done using the provided `onSuggestionsFetchRequested` prop to do filtering, and `onSuggestionsClearRequested` to reset.
@@ -33,14 +31,14 @@ class Wrap extends React.Component {
       suggestions: [],
     };
 
-    ['onFetchRequested', 'onClearRequested'].forEach((name) => {
+    ['onFetchRequested', 'onClearRequested'].forEach(name => {
       this[name] = this[name].bind(this);
     });
   }
 
   onFetchRequested({ value }) {
     const filtered = suggestions.filter(
-      (s) => s.value.toLowerCase().indexOf(value.toLowerCase()) > -1
+      s => s.value.toLowerCase().indexOf(value.toLowerCase()) > -1,
     );
 
     this.setState({
@@ -48,25 +46,29 @@ class Wrap extends React.Component {
     });
   }
 
-  onClearRequested() { this.setState({ suggestions: [] }); }
+  onClearRequested() {
+    this.setState({ suggestions: [] });
+  }
 
   render() {
     return (
       <SearchBox
         suggestions={this.state.suggestions}
-        renderSuggestionContent={(sugg) => sugg.label}
-        getSuggestionValue={(sugg) => sugg.value}
+        renderSuggestionContent={sugg => sugg.label}
+        getSuggestionValue={sugg => sugg.value}
         value={this.state.val}
-        onChange={(_, { newValue }) => { this.setState({ val: newValue });}}
+        onChange={(_, { newValue }) => {
+          this.setState({ val: newValue });
+        }}
         onSuggestionsFetchRequested={this.onFetchRequested}
         onSuggestionsClearRequested={this.onClearRequested}
-        inputProps={{ placeholder: 'Start typing (try \'ca\')...' }}
+        inputProps={{ placeholder: "Start typing (try 'ca')..." }}
       />
     );
   }
 }
 
-<Wrap />
+<Wrap />;
 ```
 
 ### With a Button
@@ -76,12 +78,7 @@ Use the `showSubmitButton` prop to add a submit button to the field. Use `onSubm
 (Note, this demo doesn't include result filtering)
 
 ```javascript
-const suggestions = [
-  'Calico',
-  'Tabby',
-  'Tuxedo',
-  'Persian',
-];
+const suggestions = ['Calico', 'Tabby', 'Tuxedo', 'Persian'];
 
 class Wrap extends React.Component {
   constructor(props) {
@@ -93,23 +90,24 @@ class Wrap extends React.Component {
     return (
       <SearchBox
         suggestions={suggestions}
-        renderSuggestionContent={(sugg) => sugg}
-        getSuggestionValue={(sugg) => sugg}
+        renderSuggestionContent={sugg => sugg}
+        getSuggestionValue={sugg => sugg}
         value={this.state.val}
         onChange={(_, { newValue }) => this.setState({ val: newValue })}
         onSuggestionsFetchRequested={() => null}
         onSuggestionsClearRequested={() => null}
         inputProps={{ placeholder: 'Type at least 3 characters' }}
-
         showSubmitButton
-        onSubmit={() => { alert(this.state.val) }}
+        onSubmit={() => {
+          alert(this.state.val);
+        }}
         shouldShowSubmitButton={val => val.length > 2}
       />
     );
   }
 }
 
-<Wrap />
+<Wrap />;
 ```
 
 ### Sections
@@ -122,21 +120,11 @@ The component also supports sections.
 const suggestions = [
   {
     title: 'Cats',
-    suggestions: [
-      'Calico',
-      'Tabby',
-      'Tuxedo',
-      'Persian',
-    ],
+    suggestions: ['Calico', 'Tabby', 'Tuxedo', 'Persian'],
   },
   {
     title: 'Dogs',
-    suggestions: [
-      'Corgi',
-      'Husky',
-      'Boxer',
-      'Mastiff',
-    ],
+    suggestions: ['Corgi', 'Husky', 'Boxer', 'Mastiff'],
   },
 ];
 
@@ -151,10 +139,12 @@ class Wrap extends React.Component {
       <SearchBox
         multiSection
         suggestions={suggestions}
-        getSectionSuggestions={(sec) => sec.suggestions}
-        getSuggestionValue={(sugg) => sugg}
+        getSectionSuggestions={sec => sec.suggestions}
+        getSuggestionValue={sugg => sugg}
         value={this.state.val}
-        onChange={(_, { newValue }) => { this.setState({ val: newValue });}}
+        onChange={(_, { newValue }) => {
+          this.setState({ val: newValue });
+        }}
         onSuggestionsFetchRequested={() => null}
         onSuggestionsClearRequested={() => null}
       />
@@ -162,5 +152,5 @@ class Wrap extends React.Component {
   }
 }
 
-<Wrap />
+<Wrap />;
 ```
