@@ -46,9 +46,9 @@ class Money extends React.Component {
   }
 
   render() {
-    const { value, showSign, id, className, Styles } = this.props;
+    const { value, showSign, id, className, Styles, ...rest } = this.props;
     return (
-      <Styles value={value} id={id} className={className}>
+      <Styles value={value} id={id} className={className} {...rest}>
         {showSign ? this.sign : null}
         {/* sign is already present, so remove it from the formatted number */}$
         {formatMoney(value).replace('-', '')}

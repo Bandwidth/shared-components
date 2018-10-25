@@ -6,7 +6,7 @@ import Section from './PaneSection';
 import { PaneStyles } from './styles';
 
 /**
- * @deprecated Use SplitContentLayout
+ * @deprecated this layout pattern is no longer supported
  */
 class Pane extends React.Component {
   static propTypes = {

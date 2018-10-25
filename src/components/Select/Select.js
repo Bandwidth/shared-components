@@ -223,6 +223,7 @@ class Select extends React.PureComponent {
       invalid,
       value,
       Wrapper,
+      ...rest
     } = this.props;
     const combinedLoading = loading || isLoading;
     const combinedPlaceholder = noneText !== undefined ? noneText : placeholder;
@@ -230,7 +231,7 @@ class Select extends React.PureComponent {
     return (
       <Wrapper invalid={invalid} value={value}>
         <LibSelect
-          {...this.props}
+          {...rest}
           options={this.convertOptions()}
           onChange={this.handleChange}
           clearable={!required || allowNone}

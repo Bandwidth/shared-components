@@ -190,12 +190,31 @@ class Field extends React.Component {
   };
 
   render() {
-    const { children, Content, alignContent } = this.props;
+    const {
+      children,
+      Content,
+      alignContent,
+      helpText,
+      error,
+      HelpText,
+      helpCallout,
+      helpCalloutProps,
+      Label,
+      required,
+      disabled,
+      label,
+      column,
+      columnSpan,
+    } = this.props;
 
     return (
       <React.Fragment>
         {this.renderLabel()}
-        <Content style={this.stylesFor('content')} align={alignContent}>
+        <Content
+          style={this.stylesFor('content')}
+          align={alignContent}
+          {...rest}
+        >
           {children}
         </Content>
         {this.renderHelpText()}

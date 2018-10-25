@@ -82,9 +82,9 @@ class FieldGroup extends React.Component {
   };
 
   render() {
-    const { RowContainer } = this.props;
+    const { RowContainer, Row, columns, ...rest } = this.props;
 
-    return <RowContainer>{this.partitionFields()}</RowContainer>;
+    return <RowContainer {...rest}>{this.partitionFields()}</RowContainer>;
   }
 }
 

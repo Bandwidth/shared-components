@@ -51,7 +51,7 @@ class Grid extends React.PureComponent {
   };
   render() {
     const {
-      props: { columns, minSize, maxSize, gridGap, children },
+      props: { columns, minSize, maxSize, gridGap, children, ...rest },
     } = this;
     return (
       <GridDiv
@@ -59,6 +59,7 @@ class Grid extends React.PureComponent {
         minSize={minSize}
         maxSize={maxSize}
         gridGap={gridGap}
+        {...rest}
       >
         {children}
       </GridDiv>

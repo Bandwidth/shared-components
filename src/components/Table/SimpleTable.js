@@ -217,12 +217,17 @@ class SimpleTable extends React.Component {
   };
 
   render() {
+    const {
+      columns,
+      onSortChanged,
+      renderRow,
+      items,
+      renderDetails,
+      ...rest
+    } = this.props;
+
     return (
-      <Table
-        headers={this.renderColumnHeaders()}
-        loading={this.props.loading}
-        wrapBody={false}
-      >
+      <Table headers={this.renderColumnHeaders()} wrapBody={false} {...rest}>
         {this.renderRows()}
       </Table>
     );

@@ -62,12 +62,18 @@ class DragGroupItem extends React.Component {
 
   render() {
     const {
-      props: { connectDragSource, connectDragPreview, isDragging, children },
+      props: {
+        connectDragSource,
+        connectDragPreview,
+        isDragging,
+        children,
+        ...rest
+      },
       wrapDragHandle,
     } = this;
 
     return (
-      <DragItemContainer isDragging={isDragging}>
+      <DragItemContainer isDragging={isDragging} {...rest}>
         <DragContext.Provider value={{ isDragging, wrapDragHandle }}>
           {children}
         </DragContext.Provider>

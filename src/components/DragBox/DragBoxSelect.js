@@ -58,7 +58,7 @@ class DragBoxSelect extends React.Component {
 
   renderDragBox = selectableProps => {
     const {
-      props: { renderContents },
+      props: { renderContents, ...rest },
     } = this;
     return (
       <DragBox
@@ -71,6 +71,7 @@ class DragBoxSelect extends React.Component {
             ...selectableProps,
           })
         }
+        {...rest}
       />
     );
   };

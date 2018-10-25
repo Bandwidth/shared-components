@@ -70,10 +70,11 @@ class DragLayer extends React.Component {
       Overlay,
       PreviewContainer,
       Cutout,
+      ...rest
     } = this.props;
 
     if (!item || !clientOffset) {
-      return <Overlay />;
+      return <Overlay {...rest} />;
     }
 
     const previewPositionStyles = {
@@ -84,7 +85,7 @@ class DragLayer extends React.Component {
 
     return (
       <DragContext.Provider value={{ wrapDragHandle: identity }}>
-        <Overlay>
+        <Overlay {...rest}>
           <div style={previewPositionStyles}>
             <PreviewContainer>{this.renderPreviewContent()}</PreviewContainer>
           </div>

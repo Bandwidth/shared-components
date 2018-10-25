@@ -386,7 +386,7 @@ class DragBox extends React.Component {
       renderContents,
       calcRect,
       renderItem,
-      props: { disablePointerEventsWhileDragging, children },
+      props: { disablePointerEventsWhileDragging, children, ...rest },
     } = this;
     const rect = calcRect();
     return (
@@ -396,6 +396,7 @@ class DragBox extends React.Component {
         disablePointerEvents={
           disablePointerEventsWhileDragging && this.shouldDrawRect(rect)
         }
+        {...rest}
       >
         {renderRect(rect)}
         {renderContents()}

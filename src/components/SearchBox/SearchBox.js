@@ -175,12 +175,13 @@ class SearchBox extends React.Component {
       shouldShowSubmitButton,
       Wrapper,
       SearchButton,
+      ...rest
     } = this.props;
 
     return (
       <Wrapper>
         <Autosuggest
-          {...this.props}
+          {...rest}
           inputProps={{
             ...inputProps,
             onChange,
