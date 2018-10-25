@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Step from './Step';
 import StepList from './styles/StepList';
 
-export default class Steps extends React.Component {
+/**
+ * `Step.Group` automatically assigns numbers to its Step children.
+ *
+ * @visibleName Step.Group
+ */
+export default class StepGroup extends React.Component {
   static propTypes = {
     /**
      * Children must be an array of Step components
      */
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
     /**
      * Override the component that renders the list container
-     */,
+     */
     List: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
@@ -30,5 +34,3 @@ export default class Steps extends React.Component {
     return <List>{this.renderSteps()}</List>;
   }
 }
-
-Steps.Step = Step;
