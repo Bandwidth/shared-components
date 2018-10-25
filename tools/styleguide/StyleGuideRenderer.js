@@ -7,11 +7,6 @@ import get from 'extensions/themeGet';
 import BandwidthProvider from 'components/BandwidthProvider';
 import Topbar from './Topbar';
 import { iris, catapult } from 'themes';
-import '../../fonts/Bandwidth.ttf';
-import '../../fonts/Bandwidth.woff';
-import '../../fonts/Bandwidth.woff2';
-import '../../fonts/Bandwidth.eot';
-import '../../fonts/Bandwidth.svg';
 
 const Root = styled.div`
   display: grid;

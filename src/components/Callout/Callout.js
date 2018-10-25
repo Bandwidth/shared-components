@@ -87,6 +87,7 @@ class Callout extends React.Component {
       boundary,
       maxWidth,
       placement,
+      Container,
       ...extra
     } = this.props;
     return (
