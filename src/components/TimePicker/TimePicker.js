@@ -7,6 +7,9 @@ import TimeContainer from './styles/TimeContainer';
 import TimeRadioContainer from './styles/TimeRadioContainer';
 import InternalTimePicker from './InternalTimePicker';
 
+/**
+ * A widget that allows users to select a time.
+ */
 class TimePicker extends React.PureComponent {
   static propTypes = {
     /**

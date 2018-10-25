@@ -12,6 +12,4 @@ NavigationBar.Item = NavigationItem;
 /**
  * @component
  */
-export const Navigation = props => <NavigationBar {...props} />;
-
 export default NavigationBar;
