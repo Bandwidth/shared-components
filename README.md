@@ -33,6 +33,10 @@ To develop locally, run `npm run start`. The docs should then be available at `h
 
 Please refer to the [contributing guide](https://github.com/Bandwidth/shared-components/blob/master/.github/CONTRIBUTING.md) and read through the pull request template before submitting a PR!
 
+# Publishing the Docs
+
+Our docs live on the `gh-pages` branch. Publishing them is easy - just run the `npm run deploy` command. It will manage switching branches, copying files and pushing for you.
+
 # License
 
 The source of this library is licensed under the MIT license (see [LICENSE](./LICENSE))
