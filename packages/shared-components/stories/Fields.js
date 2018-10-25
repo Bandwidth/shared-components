@@ -15,7 +15,12 @@ storiesOf('Fields', module).add('standard', () => (
     <Field label="label" helpText="help">
       <Input placeholder="Content" />
     </Field>
-    <Field required label="Required:" helpText="A required field">
+    <Field
+      required
+      label="Required:"
+      helpText="A required field"
+      helpCallout="Even more help"
+    >
       <Input placeholder="Content" />
     </Field>
     <Field disabled label="Disabled" helpText="A disabled field">
