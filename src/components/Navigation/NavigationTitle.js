@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DefaultLogo from '../Logo';
-import NavigationLogoPairWrapper from './styles/NavigationLogoPairWrapper';
-import NavigationHeading from './styles/NavigationHeading';
+import DefaultLogo from 'components/Logo';
+import { NavigationLogoPairWrapper, NavigationHeading } from './styles';
 
 class LogoHeader extends React.Component {
   static propTypes = {

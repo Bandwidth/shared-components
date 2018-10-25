@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Column from './PaneColumn';
 import Row from './PaneRow';
 import Section from './PaneSection';
-import PaneStyles from './styles/PaneStyles';
+import { PaneStyles } from './styles';
 
 /**
  * @deprecated Use SplitContentLayout

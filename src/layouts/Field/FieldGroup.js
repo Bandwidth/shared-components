@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FieldRowContainer from './styles/FieldRowContainer';
-import FieldRow from './styles/FieldRow';
+import { FieldRowContainer, FieldRow } from './styles';
 
 class FieldGroup extends React.Component {
   static propTypes = {

@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ModalActionContent from './styles/ModalActionContent';
-import ModalBlocker from './styles/ModalBlocker';
-import ModalContent from './styles/ModalContent';
-import ModalTitle from './styles/ModalTitle';
-import ModalWindow from './styles/ModalWindow';
-import ModalCloseIcon from './styles/ModalCloseIcon';
-import ButtonContainer from './styles/ButtonContainer';
+import {
+  ModalActionContent,
+  ModalBlocker,
+  ModalContent,
+  ModalTitle,
+  ModalWindow,
+  ModalCloseIcon,
+  ButtonContainer,
+} from './styles';
 
 /**
  * Unlike traditional modal dialogs, Modal doesn't include functionality for closing or opening.

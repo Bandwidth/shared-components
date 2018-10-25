@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PaneSectionContent from './styles/PaneSectionContent';
-import PaneSectionTitle from './styles/PaneSectionTitle';
-import PaneSectionWrap from './styles/PaneSectionWrap';
+import {
+  PaneSectionContent,
+  PaneSectionTitle,
+  PaneSectionWrap,
+} from './styles';
 
 /**
  * @deprecated Use SplitContentLayout

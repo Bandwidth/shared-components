@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import DefaultLabel from 'components/Label';
 import DefaultHelpText from 'components/HelpText';
 import Callout from 'components/Callout';
-import FieldContent from './styles/FieldContent';
-import HelpIcon from './styles/HelpIcon';
-import LabelContainer from './styles/LabelContainer';
+import { FieldContent, HelpIcon, LabelContainer } from './styles';
 import get from 'lodash.get';
 import FieldGroup from './FieldGroup';
 

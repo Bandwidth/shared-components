@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CardWrapper from './styles/CardWrapper';
+import CardWrapper from './CardWrapper';
 import themeGet from 'extensions/themeGet';
 
 const CardGroupConnected = styled.div`

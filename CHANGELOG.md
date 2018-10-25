@@ -26,6 +26,7 @@
 - `BulkSelect` is gone! Use `DragBox.Select` + `Grid` + `ToggleButton`!
 - `TableControls` is gone! This pattern is no longer considered part of our best practices. You might want to replace it with a "Link solar system" instead (see the Layout guidance docs)
 - `provinces` helper is no longer provided. Please check out the `provinces` NPM package yourself.
+- * `Expand` is gone. This was not a documented component, and wasn't used anywhere.
 
 ## Changes by Component
 

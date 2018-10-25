@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DropTarget } from 'react-dnd';
-import DragGroupDropAreaContent from './styles/DragGroupDropAreaContent';
+import { DragGroupDropAreaContent } from './styles';
 
 /**
  * The droppable area of a DragGroup. Connected to react-dnd.

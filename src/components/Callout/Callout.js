@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Manager, Reference, Popper } from 'react-popper';
-import Container from './styles/CalloutContainer';
+import { CalloutContainer } from './styles';
 
 /**
  * Renders a flyout on hover which can display helpful contextual information to the user.
@@ -46,6 +46,12 @@ class Callout extends React.Component {
      * Maximum width of the callout
      */
     maxWidth: PropTypes.number,
+    /**
+     * Provide a component to render the outer visual container of the callout content.
+     * Must handle the `data-placement` attribute to determine its styling relative
+     * to the anchored component!
+     */
+    Container: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {
@@ -54,6 +60,7 @@ class Callout extends React.Component {
     content: '',
     boundary: null,
     maxWidth: 300,
+    Container: CalloutContainer,
   };
 
   state = { show: false };
@@ -95,16 +102,19 @@ class Callout extends React.Component {
     );
   };
 
-  renderPopperContent = ({ ref, style, placement }) => (
-    <Container
-      ref={ref}
-      style={style}
-      data-placement={placement}
-      maxWidth={this.props.maxWidth}
-    >
-      {this.props.content}
-    </Container>
-  );
+  renderPopperContent = ({ ref, style, placement }) => {
+    const { Container } = this.props;
+    return (
+      <Container
+        ref={ref}
+        style={style}
+        data-placement={placement}
+        maxWidth={this.props.maxWidth}
+      >
+        {this.props.content}
+      </Container>
+    );
+  };
 
   getBoundariesElement = () =>
     typeof this.props.boundary === 'string'

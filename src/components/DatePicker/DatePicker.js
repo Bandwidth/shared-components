@@ -6,7 +6,7 @@ import {
   SingleDatePickerShape,
 } from 'react-dates';
 import Icon from '../Icon';
-import DatePickerWrapper from './styles/DatePickerWrapper';
+import { DatePickerWrapper } from './styles';
 
 import DateRangePicker from './DateRangePicker';
 import moment from 'moment';

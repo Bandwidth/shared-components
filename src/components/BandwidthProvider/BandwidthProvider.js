@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DefaultStyleRoot from './styles/StyleRoot';
 import withDragDropContext from './withDragDropContext';
 import DefaultDragLayer from '../DragLayer';
 import ReactDOM from 'react-dom';
 import irisTheme from 'themes/irisTheme';
-import GlobalStyle from './styles/GlobalStyle';
+import { GlobalStyle, StyleRoot as DefaultStyleRoot } from './styles';
 
 /**
  * Including this provider at the root of your app will define some global styling,

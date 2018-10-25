@@ -6,8 +6,7 @@ import pick from 'lodash.pick';
 import noop from 'lodash.noop';
 
 import DragBoxSelect from './DragBoxSelect';
-import DragBoxRect from './styles/DragBoxRect';
-import DragBoxDiv from './styles/DragBoxDiv';
+import { DragBoxRect, DragBoxDiv } from './styles';
 
 // Minimum size for the dragbox to become active and prevent click through. This value is based on feel - it helps
 // avoid missed clicks on buttons when moving the mouse inaccurately.

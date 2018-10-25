@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { DragSource } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
-import DragItemContainer from './styles/DragItemContainer';
+import { DragItemContainer } from './styles';
 import { DragContext } from 'components/DragContainer';
 
 /**

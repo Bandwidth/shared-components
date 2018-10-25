@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
-import DefaultTabList from './styles/TabList';
-import TabContainer from './styles/TabContainer';
-import TabContent from './styles/TabContent';
-import Tab from './styles/Tab';
+import {
+  TabList as DefaultTabList,
+  TabContainer,
+  TabContent,
+  Tab,
+} from './styles';
 
 class Tabs extends React.Component {
   static propTypes = {

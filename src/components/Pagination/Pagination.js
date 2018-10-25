@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../Icon';
-import PaginationContainer from './styles/PaginationContainer';
-import PaginationItem from './styles/PaginationItem';
-import PaginationItemPlaceholder from './styles/PaginationItemPlaceholder';
+import Icon from 'components/Icon';
+import {
+  PaginationContainer,
+  PaginationItem,
+  PaginationItemPlaceholder,
+} from './styles';
 
 /**
  * A basic Pagination component that allows a user to move between pages. You need to provide the current page and other metadata.

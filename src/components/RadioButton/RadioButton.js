@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
-import RadioGroupButtonContainer from './styles/RadioGroupButtonContainer';
-import RadioGroupButtonContent from './styles/RadioGroupButtonContent';
-import RadioGroupButtonInput from './styles/RadioGroupButtonInput';
-import RadioGroupButtonLabel from './styles/RadioGroupButtonLabel';
-import RadioGroupButtonLabelText from './styles/RadioGroupButtonLabelText';
-import RadioGroupContainer from './styles/RadioGroupContainer';
+import {
+  RadioGroupButtonContainer,
+  RadioGroupButtonContent,
+  RadioGroupButtonInput,
+  RadioGroupButtonLabel,
+  RadioGroupButtonLabelText,
+  RadioGroupContainer,
+} from './styles';
 
 /**
  * A stylized `<input type="radio">` meant to be used in a group with others. You can either include individual `RadioButton`
