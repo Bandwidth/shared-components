@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import linkExtensions from './linkExtensions';
-import TextLink from './styles/TextLink';
-import TransparentLink from './styles/TransparentLink';
+import { TextLink, TransparentLink } from './styles';
 
 const Link = linkExtensions(TextLink);
 

@@ -1,7 +1,6 @@
 import React, { createRef } from 'react';
-import { RootLayout } from './components';
+import { RootLayout } from './styles';
 import { Provider } from './Context';
-
 import FixedLayer from './FixedLayer';
 
 export default class SplitContentLayout extends React.PureComponent {

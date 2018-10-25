@@ -4,10 +4,12 @@ import { withProps } from 'recompose';
 import styled, { css } from 'styled-components';
 import { sentence } from 'change-case';
 import DefaultLink from 'components/Link';
-import TableHeaderSortArrowIcon from './styles/TableHeaderSortArrowIcon';
-import TableHeaderStyles from './styles/TableHeaderStyles';
-import TableHeaderSortArrows from './styles/TableHeaderSortArrows';
-import TableHeaderColumnName from './styles/TableHeaderColumnName';
+import {
+  TableHeaderSortArrowIcon,
+  TableHeaderStyles,
+  TableHeaderSortArrows,
+  TableHeaderColumnName,
+} from './styles';
 import noop from 'lodash.noop';
 
 class TableHeader extends React.Component {

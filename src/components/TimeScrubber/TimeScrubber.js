@@ -1,6 +1,6 @@
 import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
-import * as components from './components';
+import * as components from './styles';
 import moment from 'moment';
 import noop from 'lodash.noop';
 
@@ -74,10 +74,10 @@ class TimeScrubber extends React.Component {
       .second(0),
     disabled: false,
     allowedRange: [0, 23.75],
-    Container: components.Container,
-    NudgeButton: components.NudgeButton,
-    Viewport: components.Viewport,
-    Timeline: components.Timeline,
+    Container: components.TimeScrubberContainer,
+    NudgeButton: components.TimeScrubberNudgeButton,
+    Viewport: components.TimeScrubberViewport,
+    Timeline: components.TimeScrubberTimeline,
   };
 
   state = {

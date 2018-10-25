@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NoteContainer from './styles/NoteContainer';
-import NoteCorner from './styles/NoteCorner';
+import { NoteContainer, NoteCorner } from './styles';
 import { defaultProps } from 'recompose';
 
 const Note = ({ children, Container, Corner }) => (

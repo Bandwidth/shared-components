@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import formatMoney from '../../extensions/formatMoney';
-import MoneyStyles from './styles/MoneyStyles';
+import formatMoney from 'extensions/formatMoney';
+import { MoneyStyles } from './styles';
 
 /**
  * The Money component renders a monetary value with a color and sign to indicate positive or negative.

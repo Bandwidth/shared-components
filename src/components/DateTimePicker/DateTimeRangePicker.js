@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'components/DatePicker';
 import TimePicker from 'components/TimePicker';
-import TimePickerContainer from './styles/DateTimeRangePickerContainer';
+import { DateTimeRangePickerContainer as TimePickerContainer } from './styles';
 import moment from 'moment';
 import noop from 'lodash.noop';
 

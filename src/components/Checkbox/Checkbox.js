@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import generateId from 'extensions/generateId';
-import CheckboxInput from './styles/CheckboxInput';
-import CheckboxLabel from './styles/CheckboxLabel';
-import CheckboxContainer from './styles/CheckboxContainer';
+import { CheckboxInput, CheckboxLabel, CheckboxContainer } from './styles';
 import { defaultProps } from 'recompose';
 
 /**

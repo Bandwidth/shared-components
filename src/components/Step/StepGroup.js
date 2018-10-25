@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StepList from './styles/StepList';
+import { StepList } from './styles';
 
 /**
  * `Step.Group` automatically assigns numbers to its Step children.

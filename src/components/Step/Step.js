@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import StepGroup from './StepGroup';
-import StepContainer from './styles/StepContainer';
-import StepNumber from './styles/StepNumber';
-import StepContent from './styles/StepContent';
+import { StepContainer, StepNumber, StepContent } from './styles';
 
 /**
  * Step represents a step of a process. Simply create `<Step>` components inside a container `<Step.Group>` and numbers will

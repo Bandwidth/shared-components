@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
-import Loader from '../Loader';
+import Loader from 'components/Loader';
 
 /**
  * `Button.Submit` is intended to be used within a form. `Button.Submit` should only be used to represent a button

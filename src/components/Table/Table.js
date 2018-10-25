@@ -5,15 +5,17 @@ import { withProps } from 'recompose';
 import Loader from 'components/Loader';
 import ScrollShadow from 'behaviors/ScrollShadow';
 
-import TableStyles from './styles/TableStyles';
-import TableOverlay from './styles/TableOverlay';
-
-import Cell from './styles/TableCell';
-import Header from './TableHeader';
-import Row from './styles/TableRow';
 import RowDetails from './TableRowDetails';
-import TableBody from './styles/TableBody';
-import TableScrollContainer from './styles/TableScrollContainer';
+import Header from './TableHeader';
+
+import {
+  TableStyles,
+  TableOverlay,
+  TableCell as Cell,
+  TableRow as Row,
+  TableBody,
+  TableScrollContainer,
+} from './styles';
 
 class Table extends React.Component {
   static propTypes = {

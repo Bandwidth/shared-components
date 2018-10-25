@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import generateId from '../../extensions/generateId';
-import RadioContainer from './styles/RadioContainer';
-import RadioInput from './styles/RadioInput';
-import RadioLabel from './styles/RadioLabel';
+import generateId from 'extensions/generateId';
+import { RadioContainer, RadioInput, RadioLabel } from './styles';
 
 /**
  * A basic `<input type="radio">` component. Group buttons together by setting the `name` prop for them to the same value.

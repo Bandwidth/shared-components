@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { defaultProps } from 'recompose';
-import StyledButton from './styles/StyledToggleButton';
-import ColorfulButton from './styles/ColorfulButton';
-import SmallButton from './styles/SmallButton';
+import {
+  StyledToggleButton as StyledButton,
+  ColorfulButton,
+  SmallButton,
+} from './styles';
 import noop from 'lodash.noop';
 
 /**

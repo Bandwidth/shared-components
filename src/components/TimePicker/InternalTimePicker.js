@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TimeInputContainer from './styles/TimeInputContainer';
+import { TimeInputContainer } from './styles';
 import TimeInput from 'time-input';
 
 export default class InternalTimePicker extends React.Component {

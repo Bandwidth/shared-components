@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from 'components/Icon';
-import DefaultContainer from './styles/Container';
-import DefaultChildContainer from './styles/ChildContainer';
-import DefaultIconGroup from './styles/IconGroup';
+import {
+  Container as DefaultContainer,
+  ChildContainer as DefaultChildContainer,
+  IconGroup as DefaultIconGroup,
+} from './styles';
 import DragContext from './DragContext';
 
 const DragHandle = styled(Icon)`
