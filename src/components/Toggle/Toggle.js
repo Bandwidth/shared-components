@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import generateId from '../../extensions/generateId';
-import ToggleContainer from './styles/ToggleContainer';
-import ToggleInput from './styles/ToggleInput';
-import ToggleLabel from './styles/ToggleLabel';
+import { ToggleContainer, ToggleInput, ToggleLabel } from './styles';
 
 class Toggle extends React.PureComponent {
   static propTypes = {

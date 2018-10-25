@@ -1,8 +1,8 @@
 import React, { createRef } from 'react';
-import { RootLayout } from './components';
+import { RootLayout } from './styles';
 import { Provider } from './Context';
 
-import FixedLayer from './FixedLayer';
+import FixedLayer from './FixedLayer/FixedLayer';
 import throttle from 'lodash.throttle';
 
 export default class SplitContentLayout extends React.PureComponent {

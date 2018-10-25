@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import formatMoney from '../../extensions/formatMoney';
-import MoneyStyles from './styles/MoneyStyles';
+import formatMoney from 'extensions/formatMoney';
+import { MoneyStyles } from './styles';
 
 class Money extends React.Component {
   static propTypes = {

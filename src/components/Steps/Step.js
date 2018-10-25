@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StepContainer from './styles/StepContainer';
-import StepNumber from './styles/StepNumber';
-import StepContent from './styles/StepContent';
+import { StepContainer, StepNumber, StepContent } from './styles';
 
 export default class Step extends React.Component {
   static propTypes = {

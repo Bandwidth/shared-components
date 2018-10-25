@@ -5,7 +5,7 @@ import { H1 } from 'components/H';
 import Column from './PaneColumn';
 import Row from './PaneRow';
 import Section from './PaneSection';
-import PaneStyles from './styles/PaneStyles';
+import { PaneStyles } from './styles';
 
 class Pane extends React.Component {
   static propTypes = {

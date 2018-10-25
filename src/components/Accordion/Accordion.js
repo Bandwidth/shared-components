@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { defaultProps } from 'recompose';
 
-import ExpandToggle from 'behaviors/ExpandToggle';
-import AccordionLabel from './styles/AccordionLabel';
-import AccordionArrow from './styles/AccordionArrow';
-import AccordionBorder from './styles/AccordionBorder';
-import AccordionLabelText from './styles/AccordionLabelText';
-import AccordionContent from './styles/AccordionContent';
+import { ExpandToggle } from 'behaviors';
+import {
+  AccordionLabel,
+  AccordionArrow,
+  AccordionBorder,
+  AccordionLabelText,
+  AccordionContent,
+} from './styles';
 
 /**
  * Accordion expands and collapses when the label is clicked. Alternatively, you can provide the `isExpanded` prop to force open/closed state.

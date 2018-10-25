@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DropTarget } from 'react-dnd';
-import GroupContainer from './styles/DragGroupContainer';
-import GroupItemsContainer from './styles/DragGroupItemsContainer';
+import {
+  DragGroupContainer as GroupContainer,
+  DragGroupItemsContainer as GroupItemsContainer,
+  DragGroupSeparator,
+  DragGroupTitle,
+} from './styles';
 import DragGroupDropArea from './DragGroupDropArea';
-import DragGroupSeparator from './styles/DragGroupSeparator';
-import DragGroupTitle from './styles/DragGroupTitle';
 import ExpandToggle from '../../behaviors/ExpandToggle';
 import DragItem from './DragGroupItem';
 import DragContainer from 'components/DragContainer';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DefaultHeaderWrapper from './styles/HeaderWrapper';
-import DefaultCardHeaderText from './styles/CardHeaderText';
+import DefaultHeaderWrapper from './HeaderWrapper';
+import DefaultCardHeaderText from './CardHeaderText';
 
 class CardHeader extends React.Component {
   static propTypes = {

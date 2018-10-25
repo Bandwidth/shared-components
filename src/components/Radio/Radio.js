@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import generateId from '../../extensions/generateId';
-import RadioContainer from './styles/RadioContainer';
-import RadioInput from './styles/RadioInput';
-import RadioLabel from './styles/RadioLabel';
+import generateId from 'extensions/generateId';
+import { RadioContainer, RadioInput, RadioLabel } from './styles';
 
 class Radio extends React.PureComponent {
   static propTypes = {

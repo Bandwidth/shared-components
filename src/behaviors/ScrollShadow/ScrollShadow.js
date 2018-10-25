@@ -1,10 +1,12 @@
 import React, { createContext, createRef } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-import Sentinel from './Sentinel';
-import ShadowOverlay from './ShadowOverlay';
-import DefaultContainer from './DefaultContainer';
-import DefaultScrollContainer from './DefaultScrollContainer';
+import {
+  Sentinel,
+  ShadowOverlay,
+  DefaultContainer,
+  DefaultScrollContainer,
+} from './styles';
 
 const { Provider, Consumer } = createContext(() => () => {});
 

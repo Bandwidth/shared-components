@@ -4,10 +4,12 @@ import styled from 'styled-components';
 import Autosuggest from 'react-autosuggest';
 import DefaultInput from '../Input';
 import SearchBoxSuggestion from './Suggestion';
-import SearchBoxSuggestionsList from './styles/SearchBoxSuggestionsList';
-import SearchBoxSuggestionsSectionTitle from './styles/SearchBoxSuggestionsSectionTitle';
-import SearchBoxSearchButton from './styles/SearchBoxSearchButton';
-import SearchBoxWrapper from './styles/SearchBoxWrapper';
+import {
+  SearchBoxSuggestionsList,
+  SearchBoxSuggestionsSectionTitle,
+  SearchBoxSearchButton,
+  SearchBoxWrapper,
+} from './styles';
 import identity from 'lodash.identity';
 
 class SearchBox extends React.Component {

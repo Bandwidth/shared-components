@@ -28,13 +28,13 @@ export default styled.div`
     border-style: solid;
     border-color: ${props =>
       props.complete
-        ? 'var(colors-positive-default)'
-        : 'var(colors-border-light)'};
+        ? 'var(--colors-positive-default)'
+        : 'var(--colors-border-light)'};
     text-align: center;
     color: ${props =>
       props.complete
-        ? 'var(colors-text-inverted)'
-        : 'var(colors-text-default)'};
+        ? 'var(--colors-text-inverted)'
+        : 'var(--colors-text-default)'};
   }
 
   ${StepContainer} > & {

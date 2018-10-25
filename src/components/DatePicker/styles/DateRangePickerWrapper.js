@@ -8,4 +8,10 @@ export default styled.div`
   ${baseCss} ${overridesCss} .DateRangePicker {
     width: ${WIDTH}px;
   }
+
+  .CalendarMonth,
+  .DayPicker_weekHeader {
+    padding-left: 0 !important;
+    padding-right: 26px !important;
+  }
 `;

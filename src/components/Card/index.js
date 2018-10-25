@@ -1,8 +1,7 @@
 import Card from './Card';
-import Group from './CardGroup';
-import Connected from './CardGroupConnected';
+import { CardGroup, CardGroupConnected } from './styles';
 
-Card.Group = Group;
-Card.Group.Connected = Connected;
+Card.Group = CardGroup;
+Card.Group.Connected = CardGroupConnected;
 
 export default Card;

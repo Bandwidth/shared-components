@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../Icon';
-import PaginationContainer from './styles/PaginationContainer';
-import PaginationItem from './styles/PaginationItem';
-import PaginationItemPlaceholder from './styles/PaginationItemPlaceholder';
+import Icon from 'components/Icon';
+import {
+  PaginationContainer,
+  PaginationItem,
+  PaginationItemPlaceholder,
+} from './styles';
 
 class Pagination extends React.Component {
   static propTypes = {

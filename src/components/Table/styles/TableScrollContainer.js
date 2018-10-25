@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
-import DefaultScrollContainer from 'behaviors/ScrollShadow/DefaultScrollContainer';
+import { DefaultScrollContainer } from 'behaviors/ScrollShadow/styles';
 
 export default styled(DefaultScrollContainer)`
   background: ${get('colors.background.default')};

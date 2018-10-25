@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
-import AlertGroup from './styles/AlertGroup';
 import { UnmountClosed } from 'react-collapse';
 
-import DefaultCloseButton from './styles/AlertCloseButton';
-import AlertIcon from './styles/AlertIcon';
-import AlertBorder from './styles/AlertBorder';
-import AlertText from './styles/AlertText';
-import AlertContent from './styles/AlertContent';
+import {
+  AlertGroup,
+  AlertCloseButton,
+  AlertIcon,
+  AlertBorder,
+  AlertText,
+  AlertContent,
+} from './styles';
 
 /**
  * Alerts are used to present messages to the user. Every alert is an interruption, so
@@ -79,7 +81,7 @@ export default class Alert extends React.PureComponent {
     Content: AlertContent,
     Text: AlertText,
     Icon: AlertIcon,
-    CloseButton: DefaultCloseButton,
+    CloseButton: AlertCloseButton,
   };
 
   static Small = withProps({

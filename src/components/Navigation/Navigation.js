@@ -1,8 +1,6 @@
 import NavigationItemListStack from './styles/NavigationItemListStack';
 import NavigationTitle from './NavigationTitle';
-import NavigationItemList from './styles/NavigationItemList';
-import NavigationItem from './styles/NavigationItem';
-import NavigationBar from './styles/NavigationBar';
+import { NavigationItemList, NavigationItem, NavigationBar } from './styles';
 
 NavigationBar.Title = NavigationTitle;
 NavigationBar.ItemListStack = NavigationItemListStack;

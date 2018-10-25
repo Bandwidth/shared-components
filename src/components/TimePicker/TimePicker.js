@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import RadioButton from 'components/RadioButton';
 import moment from 'moment';
-import TimeContainer from './styles/TimeContainer';
-import TimeRadioContainer from './styles/TimeRadioContainer';
+import { TimeContainer, TimeRadioContainer } from './styles';
 import InternalTimePicker from './InternalTimePicker';
 
 class TimePicker extends React.PureComponent {

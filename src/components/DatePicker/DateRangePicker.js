@@ -7,8 +7,7 @@ import {
 } from 'react-dates';
 import Icon from '../Icon';
 import generateId from 'extensions/generateId';
-import DateRangePickerWrapper from './styles/DateRangePickerWrapper';
-import DateRangePickerLineSeparator from './styles/DateRangePickerLineSeparator';
+import { DateRangePickerWrapper, DateRangePickerLineSeparator } from './styles';
 import omit from 'lodash.omit';
 import pick from 'lodash.pick';
 

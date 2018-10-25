@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LoaderRing from './styles/LoaderRing';
-import LoaderContainer from './styles/LoaderContainer';
+import { LoaderRing, LoaderContainer } from './styles';
 
 class Loader extends React.PureComponent {
   static propTypes = {

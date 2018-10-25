@@ -1,7 +1,9 @@
 import React from 'react';
-import DefaultCardWrapper from './styles/CardWrapper';
-import CardHeader from './CardHeader';
-import CardSection from './CardSection';
+import {
+  CardWrapper as DefaultCardWrapper,
+  CardHeader,
+  CardSection,
+} from './styles';
 import PropTypes from 'prop-types';
 
 class Card extends React.Component {

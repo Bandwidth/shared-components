@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { defaultProps } from 'recompose';
 import Link from 'components/Link';
-import InputStyles from './styles/InputStyles';
-import InputRevealPasswordWrapper from './styles/InputRevealPasswordWrapper';
+import { InputStyles, InputRevealPasswordWrapper } from './styles';
 
 class Input extends React.PureComponent {
   static propTypes = {
