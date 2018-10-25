@@ -3,6 +3,7 @@
     [
       "env",
       {
+        "modules": false,
         "targets": {
           "browsers": ["> 1%", "last 2 versions"]
         }
@@ -12,7 +13,6 @@
   ],
   "plugins": [
     "transform-object-rest-spread",
-    "transform-runtime",
     "babel-plugin-transform-class-properties",
     ["inline-react-svg", { "ignorePattern": "fonts/*" }],
     "styled-components",

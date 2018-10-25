@@ -1,1 +1,1 @@
-export { default } from './Gutter';
+export { default as Gutter } from './Gutter';

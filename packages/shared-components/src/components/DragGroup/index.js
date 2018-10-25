@@ -1,3 +1,13 @@
-export { default } from './DragGroup';
-export { default as DragGroupItem } from './DragGroupItem';
+export { default as DragGroup } from './DragGroup';
 export { default as DragGroupDropArea } from './DragGroupDropArea';
+export { default as DragGroupItem } from './DragGroupItem';
+export { default as DragGroupContainer } from './styles/DragGroupContainer';
+export { default as DragGroupDropAreaContent } from './styles/DragGroupDropAreaContent';
+export { default as DragGroupItemsContainer } from './styles/DragGroupItemsContainer';
+export { default as DragItemContainer } from './styles/DragItemContainer';
+export { default as DragGroupSeparator } from './styles/DragGroupSeparator';
+export { default as DragGroupSeparatorContainer } from './styles/DragGroupSeparator/DragGroupSeparatorContainer';
+export { default as DragGroupSeparatorContent } from './styles/DragGroupSeparator/DragGroupSeparatorContent';
+export { default as DragGroupTitle } from './styles/DragGroupTitle';
+export { default as DragGroupTitleContainer } from './styles/DragGroupTitle/DragGroupTitleContainer';
+export { default as DragGroupTitleContent } from './styles/DragGroupTitle/DragGroupTitleContent';
