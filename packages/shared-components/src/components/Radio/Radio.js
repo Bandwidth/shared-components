@@ -70,6 +70,8 @@ class Radio extends React.PureComponent {
     Label: RadioLabel,
   };
 
+  defaultId = generateId('radio');
+
   render() {
     const {
       id,
@@ -82,7 +84,9 @@ class Radio extends React.PureComponent {
       Label,
       ...rest
     } = this.props;
-    const finalId = id || generateId('toggle');
+
+    const finalId = id || this.defaultId;
+
     return (
       <Container>
         <Input
