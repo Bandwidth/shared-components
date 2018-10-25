@@ -37,5 +37,6 @@ PaneColumn.defaultProps = {
 
 /**
  * @component
+ * @deprecated
  */
 export default PaneColumn;

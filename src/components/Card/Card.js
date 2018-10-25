@@ -4,6 +4,9 @@ import CardHeader from './CardHeader';
 import CardSection from './CardSection';
 import PropTypes from 'prop-types';
 
+/**
+ * Card components may be used anywhere on the page as a stand-alone component.
+ */
 class Card extends React.Component {
   static propTypes = {
     /**

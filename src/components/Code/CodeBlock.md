@@ -1,8 +1,6 @@
-Applies styling to render multiline code.
-
 ```
-<CodeBlock>
+<Code.Block>
 Some complex
-CodeBlock here
-</CodeBlock>
+Code.Block here
+</Code.Block>
 ```

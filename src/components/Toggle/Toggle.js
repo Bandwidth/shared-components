@@ -5,6 +5,10 @@ import ToggleContainer from './styles/ToggleContainer';
 import ToggleInput from './styles/ToggleInput';
 import ToggleLabel from './styles/ToggleLabel';
 
+/**
+ * A simple `Toggle` component thta can be turned on and off. Use `checked` to set
+ * whether the `Toggle` is selected.
+ */
 class Toggle extends React.PureComponent {
   static propTypes = {
     /**

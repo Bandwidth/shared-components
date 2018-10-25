@@ -1,10 +1,8 @@
-Renders a flyout on hover which can display helpful contextual information to the user.
-
 ```js
 <Callout content="description">Simple callout</Callout>
 ```
 
-Uses Icon as callout
+#### Uses Icon as callout
 
 ```js
 <Callout content="description">
@@ -12,7 +10,7 @@ Uses Icon as callout
 </Callout>
 ```
 
-Uses button as callout and show callout on the right side
+#### Uses button as callout and show callout on the right side
 
 ```js
 <Callout content="hi there" placement="right">
@@ -20,7 +18,7 @@ Uses button as callout and show callout on the right side
 </Callout>
 ```
 
-Uses custom callout
+#### Uses custom callout
 
 ```js
 <Callout content={<i>Hi there</i>}>Hover me</Callout>

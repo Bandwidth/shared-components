@@ -1,13 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ExpandToggle } from '../../src';
 import styled from 'styled-components';
-import Accordion, {
-  AccordionGroup,
-  AccordionBorder,
-} from 'components/Accordion';
-import RadioGroupButtonLabel from 'components/RadioButton/styles/RadioGroupButtonLabel';
-import get from 'extensions/themeGet';
 import some from 'lodash.some';
 
 const Container = styled.div`
@@ -118,6 +111,7 @@ export default class ComponentsListRenderer extends React.Component {
 
   render() {
     let { items } = this.props;
+    console.log(items);
     items = items.filter(item => item.name);
 
     if (!items.length) {

@@ -6,6 +6,9 @@ import CheckboxLabel from './styles/CheckboxLabel';
 import CheckboxContainer from './styles/CheckboxContainer';
 import { defaultProps } from 'recompose';
 
+/**
+ * A simple checkbox input.
+ */
 export default class Checkbox extends React.PureComponent {
   static propTypes = {
     /**
