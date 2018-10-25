@@ -49,18 +49,16 @@ node {
 
         }
         container('node') {
-          dir("./packages/shared-components") {
-            stage('Install NPM dependencies') {
-              sh 'npm config set cache "/home/jenkins/.npm"'
-              sh 'npm install'
-            }
-            stage('Run Unit Tests') {
-              try {
-                //sh 'npm test'
-                reportGithubStatus('jenkins/1unit','SUCCESS',"Unit Tests Successful")
-              } catch (e) {
-                reportGithubStatus('jenkins/1unit','FAILURE','Unit Tests Failed')
-              }
+          stage('Install NPM dependencies') {
+            sh 'npm config set cache "/home/jenkins/.npm"'
+            sh 'npm install'
+          }
+          stage('Run Unit Tests') {
+            try {
+              //sh 'npm test'
+              reportGithubStatus('jenkins/1unit','SUCCESS',"Unit Tests Successful")
+            } catch (e) {
+              reportGithubStatus('jenkins/1unit','FAILURE','Unit Tests Failed')
             }
           }
         }
