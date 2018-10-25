@@ -1,5 +1,6 @@
 import { configure } from '@storybook/react';
 import './global.css';
+import '../fonts/fonts.css';
 import { addDecorator } from '@storybook/react';
 import React from 'react';
 import BandwidthProvider from 'components/BandwidthProvider';

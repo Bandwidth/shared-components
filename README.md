@@ -27,6 +27,20 @@ Now you can start including the components in your code. Require them by name fr
 import { Button } from '@bandwidth/shared-components'`;
 ```
 
+## Loading Fonts
+
+As of `v6.x`, this library no longer loads fonts for you. You must include them in your project yourself.
+
+For your convenience, we've provided a `fonts/fonts.css` file in the NPM package. You can use it to quickly bootstrap both our brand font (Overpass) and icon font. For instance, if you're using Webpack, you can do:
+
+```
+import '@bandwidth/shared-components/fonts/fonts.css`;
+```
+
+anywhere in your project to load the fonts automatically.
+
+Other project types will need to determine how to include the appropriate font files. We provide our icon font files in the `/fonts` directory, which you may copy as needed. You can [get Overpass from Google Fonts](https://fonts.google.com/specimen/Overpass).
+
 # Developing
 
 To develop locally, run `npm run start`. The docs should then be available at `http://localhost:6060`. Live reloading, etc should work as well. Alternatively, you can develop against Storybook by running `npm run storybook` and visiting `http://localhost:9001`.

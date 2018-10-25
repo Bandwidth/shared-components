@@ -85,7 +85,11 @@ module.exports = {
     },
   },
   ignore: ['src/components/**/index.js'],
-  require: ['styled-components', path.join(__dirname, 'src')],
+  require: [
+    'styled-components',
+    path.join(__dirname, 'src'),
+    path.join(__dirname, 'fonts/fonts.css'),
+  ],
   styleguideComponents: {
     Logo: path.join(__dirname, 'tools/styleguide/Logo'),
     Wrapper: path.join(__dirname, 'tools/styleguide/Wrapper'),

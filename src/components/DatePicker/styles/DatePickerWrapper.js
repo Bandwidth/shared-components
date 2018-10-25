@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import overridesCss from './overridesCss';
 
 const WIDTH = 260;
 
 export default styled.div`
-  ${overridesCss} .SingleDatePicker {
+  .SingleDatePicker {
     width: ${WIDTH}px;
   }
 
