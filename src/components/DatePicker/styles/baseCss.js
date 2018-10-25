@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import overridesCss from './overridesCss';
 
 // Pulled from within node_modules (importing it requires postCSS)
 
@@ -829,4 +830,6 @@ export default css`
     width: 15px;
     fill: #cacccd;
   }
+
+  ${overridesCss};
 `;

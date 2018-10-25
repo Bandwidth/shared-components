@@ -43,6 +43,7 @@ dist
 __coverage__
 .DS_Store
 docsDist/
+.cache/
 
 #IntelliJ files
 .idea
