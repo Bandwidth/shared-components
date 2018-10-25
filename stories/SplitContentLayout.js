@@ -7,10 +7,10 @@ import {
   Navigation,
   ActionBarExpandingContent,
 } from './widgets';
-import { H2, Button, Anchor } from '@bandwidth/shared-components';
+import { H2, Button, Link } from 'components';
 
-import SplitContentLayout from '../src/SplitContentLayout';
-import RootLayout from '../src/RootLayout';
+import SplitContentLayout from 'layouts/SplitContentLayout';
+import RootLayout from 'layouts/RootLayout';
 
 storiesOf('SplitContentLayout', module)
   .add('with component content', () => (
@@ -34,7 +34,7 @@ storiesOf('SplitContentLayout', module)
               >
                 {({ toggleExpanded }) => (
                   <React.Fragment>
-                    <Anchor onClick={toggleExpanded}>Show expanded</Anchor>
+                    <Link onClick={toggleExpanded}>Show expanded</Link>
                     <Button>Submit</Button>
                   </React.Fragment>
                 )}
@@ -78,7 +78,7 @@ storiesOf('SplitContentLayout', module)
               >
                 {({ toggleExpanded }) => (
                   <React.Fragment>
-                    <Anchor onClick={toggleExpanded}>Show expanded</Anchor>
+                    <Link onClick={toggleExpanded}>Show expanded</Link>
                     <Button>Submit</Button>
                   </React.Fragment>
                 )}
@@ -111,7 +111,7 @@ storiesOf('SplitContentLayout', module)
             >
               {({ toggleExpanded }) => (
                 <React.Fragment>
-                  <Anchor onClick={toggleExpanded}>Show expanded</Anchor>
+                  <Link onClick={toggleExpanded}>Show expanded</Link>
                   <Button>Submit</Button>
                 </React.Fragment>
               )}
@@ -155,7 +155,7 @@ storiesOf('SplitContentLayout', module)
             >
               {({ toggleExpanded }) => (
                 <React.Fragment>
-                  <Anchor onClick={toggleExpanded}>Show expanded</Anchor>
+                  <Link onClick={toggleExpanded}>Show expanded</Link>
                   <Button>Submit</Button>
                 </React.Fragment>
               )}
