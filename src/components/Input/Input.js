@@ -232,13 +232,13 @@ class Input extends React.PureComponent {
       maxLength,
       min,
       max,
+      ...rest
     } = this.props;
 
     const { visited, _type: type } = this.state;
 
     return (
       <Styles
-        onBlur={this.onBlur}
         onKeyDown={onKeyDown}
         onFocus={onFocus}
         visited={visited}
@@ -259,6 +259,8 @@ class Input extends React.PureComponent {
         maxLength={maxLength}
         min={min}
         max={max}
+        {...rest}
+        onBlur={this.onBlur}
         autoComplete={this.getAutoComplete()}
       />
     );

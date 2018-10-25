@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { NoteContainer, NoteCorner } from './styles';
 import { defaultProps } from 'recompose';
 
-const Note = ({ children, Container, Corner }) => (
-  <Container>
+const Note = ({ children, Container, Corner, ...rest }) => (
+  <Container {...rest}>
     {children}
     <Corner />
   </Container>

@@ -52,12 +52,12 @@ class DragListItem extends React.PureComponent {
 
   render() {
     const {
-      props: { connectDropTarget, isDragging, children },
+      props: { connectDropTarget, isDragging, children, ...rest },
       wrapDragHandle,
     } = this;
 
     return connectDropTarget(
-      <div>
+      <div {...rest}>
         <DragContext.Provider value={{ isDragging, wrapDragHandle }}>
           {children}
         </DragContext.Provider>

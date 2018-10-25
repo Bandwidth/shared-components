@@ -142,10 +142,11 @@ class Accordion extends React.Component {
       disabled,
       unmountClosed,
       springConfig,
+      ...rest
     } = this.props;
 
     return (
-      <Border disabled={disabled}>
+      <Border disabled={disabled} {...rest}>
         <ExpandToggle
           id={id}
           className={className}

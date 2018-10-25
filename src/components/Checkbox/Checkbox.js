@@ -112,6 +112,7 @@ export default class Checkbox extends React.PureComponent {
       Container,
       Input,
       Label,
+      ...rest
     } = this.props;
 
     const finalId = id || this.defaultId;
@@ -129,6 +130,7 @@ export default class Checkbox extends React.PureComponent {
           value={this.computeValue()}
           required={required}
           onChange={onChange}
+          {...rest}
         />
         <Label htmlFor={finalId} active={isChecked}>
           {description}

@@ -40,10 +40,10 @@ class Loader extends React.PureComponent {
   };
 
   render() {
-    const { size, color, id, className, Container, Ring } = this.props;
+    const { size, color, id, className, Container, Ring, ...rest } = this.props;
 
     return (
-      <Container id={id} className={className}>
+      <Container id={id} className={className} {...rest}>
         <Ring size={size} color={color} />
         <Ring size={size} color={color} />
         <Ring size={size} color={color} />

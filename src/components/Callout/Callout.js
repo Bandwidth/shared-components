@@ -47,6 +47,11 @@ class Callout extends React.Component {
      */
     maxWidth: PropTypes.number,
     /**
+     * Any additional props you want to supply to the containing element which
+     * wraps the callout content
+     */
+    contentProps: PropTypes.object,
+    /**
      * Provide a component to render the outer visual container of the callout content.
      * Must handle the `data-placement` attribute to determine its styling relative
      * to the anchored component!
@@ -104,9 +109,10 @@ class Callout extends React.Component {
   };
 
   renderPopperContent = ({ ref, style, placement }) => {
-    const { Container } = this.props;
+    const { Container, contentProps } = this.props;
     return (
       <Container
+        {...contentProps}
         ref={ref}
         style={style}
         data-placement={placement}
@@ -123,7 +129,7 @@ class Callout extends React.Component {
       : this.props.boundary;
 
   render() {
-    const { placement } = this.props;
+    const { placement, ...rest } = this.props;
     const { show } = this.state;
 
     return (
@@ -139,6 +145,7 @@ class Callout extends React.Component {
                   this.getBoundariesElement() || window.document,
               },
             }}
+            {...rest}
           >
             {this.renderPopperContent}
           </Popper>

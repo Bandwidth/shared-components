@@ -30,9 +30,10 @@ class DragGroupDropArea extends React.Component {
       canDrop,
       isOver,
       children,
+      ...rest
     } = this.props;
     return connectDropTarget(
-      <div>
+      <div {...rest}>
         <Content canDrop={canDrop} isOver={isOver}>
           {children}
         </Content>

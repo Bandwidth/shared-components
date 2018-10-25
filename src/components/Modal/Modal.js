@@ -161,11 +161,17 @@ class Modal extends React.Component {
       Blocker,
       Content,
       Window,
+      ...rest
     } = this.props;
 
     return (
       <Blocker onClick={onClose || onBlockerClicked}>
-        <Window onClick={this.handleModalClicked} id={id} className={className}>
+        <Window
+          onClick={this.handleModalClicked}
+          id={id}
+          className={className}
+          {...rest}
+        >
           {this.renderTitle()}
           {this.renderCloseIcon()}
           <Content>{children}</Content>

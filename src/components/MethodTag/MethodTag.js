@@ -14,7 +14,7 @@ const processMethod = method => {
 const methodColors = {
   post: get('colors.primary.default'),
   get: get('colors.positive.default'),
-  put: get('colors.accents[0].default'),
+  put: get('colors.accents.0.default'),
   del: get('colors.negative.default'),
 };
 

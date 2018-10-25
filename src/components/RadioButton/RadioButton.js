@@ -119,6 +119,7 @@ class RadioButton extends React.Component {
       Input,
       Label,
       LabelText,
+      ...rest
     } = this.props;
 
     const id = this.props.id || `radio-${name}>${value}`;
@@ -134,6 +135,7 @@ class RadioButton extends React.Component {
           onChange={onChange}
           className={className}
           disabled={disabled}
+          {...rest}
         />
         <Label htmlFor={id} active={checked} disabled={disabled}>
           <LabelText>{label}</LabelText>

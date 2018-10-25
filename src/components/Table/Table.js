@@ -77,9 +77,10 @@ class Table extends React.Component {
       Styles,
       Overlay,
       ScrollContainer,
+      ...rest
     } = this.props;
     return (
-      <ScrollShadow horizontal ScrollContainer={ScrollContainer}>
+      <ScrollShadow horizontal ScrollContainer={ScrollContainer} {...rest}>
         <Styles cellPadding={0} cellSpacing={0} className={className} id={id}>
           <thead>{headers}</thead>
           {wrapBody ? <TableBody>{children}</TableBody> : children}

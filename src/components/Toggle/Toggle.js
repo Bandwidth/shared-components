@@ -113,12 +113,16 @@ class Toggle extends React.PureComponent {
       Container,
       Input,
       Label,
+      id,
+      value,
+      checked,
+      ...rest
     } = this.props;
-    const id = this.props.id || this.defaultId;
+    const finalId = id || this.defaultId;
     return (
       <Container>
         <Input
-          id={id}
+          id={finalId}
           className={className}
           name={name}
           type="checkbox"
@@ -127,6 +131,7 @@ class Toggle extends React.PureComponent {
           value={this.computeValue()}
           required={required}
           onChange={onChange}
+          {...rest}
         />
         <Label htmlFor={id}>{description}</Label>
       </Container>

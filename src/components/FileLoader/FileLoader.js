@@ -69,7 +69,15 @@ export default class FileLoader extends React.Component {
   };
 
   render() {
-    const { onChange, value, required, disabled, className, id } = this.props;
+    const {
+      onChange,
+      value,
+      required,
+      disabled,
+      className,
+      id,
+      ...rest
+    } = this.props;
 
     return (
       <Dropzone
@@ -83,6 +91,7 @@ export default class FileLoader extends React.Component {
         disabled={disabled}
         className={className}
         id={id}
+        {...rest}
       >
         {this.renderFiles()}
       </Dropzone>

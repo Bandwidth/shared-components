@@ -48,10 +48,11 @@ class LogoHeader extends React.Component {
       LogoPairWrapper,
       Logo,
       Heading,
+      ...rest
     } = this.props;
 
     return (
-      <LogoPairWrapper id={id} className={className}>
+      <LogoPairWrapper id={id} className={className} {...rest}>
         <Logo />
         <Heading>{children}</Heading>
       </LogoPairWrapper>

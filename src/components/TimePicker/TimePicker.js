@@ -17,6 +17,10 @@ class TimePicker extends React.PureComponent {
      */
     value: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
     /**
+     * Called with the new time value when a change happens
+     */
+    onChange: PropTypes.func,
+    /**
      * Time format to pass to moment to format the string. Probably hh:mm or HH:mm for 24 hour time
      */
     timeFormat: PropTypes.string,
@@ -73,11 +77,11 @@ class TimePicker extends React.PureComponent {
   }
 
   render() {
-    const { name, disabled } = this.props;
+    const { name, value, timeFormat, onChange, ...rest } = this.props;
     return (
       <TimeContainer>
         <InternalTimePicker
-          disabled={disabled}
+          {...rest}
           onChange={this.handleTimeChange}
           value={this.momentValue.format(this.props.timeFormat)}
         />

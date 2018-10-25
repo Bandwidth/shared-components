@@ -22,8 +22,8 @@ class Card extends React.Component {
   };
 
   render() {
-    const { children, CardWrapper } = this.props;
-    return <CardWrapper>{children}</CardWrapper>;
+    const { children, CardWrapper, ...rest } = this.props;
+    return <CardWrapper {...rest}>{children}</CardWrapper>;
   }
 }
 

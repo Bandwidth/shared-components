@@ -29,8 +29,8 @@ export default class StepGroup extends React.Component {
     );
 
   render() {
-    const { List } = this.props;
+    const { List, ...rest } = this.props;
 
-    return <List>{this.renderSteps()}</List>;
+    return <List {...rest}>{this.renderSteps()}</List>;
   }
 }
