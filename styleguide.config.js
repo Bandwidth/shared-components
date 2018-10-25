@@ -31,7 +31,7 @@ const componentSections = p => {
 
 module.exports = {
   title: 'Bandwidth Shared React Components',
-  styleguideDir: 'docs',
+  styleguideDir: 'docsDist',
   pagePerSection: true,
   skipComponentsWithoutExample: true,
   sections: [
@@ -44,15 +44,15 @@ module.exports = {
         },
         {
           name: 'Color',
-          content: 'docs/design/color.md',
+          content: 'docs/color.md',
         },
         {
           name: 'Typography',
-          content: 'docs/design/typography.md',
+          content: 'docs/typography.md',
         },
         {
           name: 'Layout',
-          content: 'docs/design/layout.md',
+          content: 'docs/layout.md',
         },
       ],
     },
