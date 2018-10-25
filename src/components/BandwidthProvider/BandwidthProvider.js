@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withProps } from 'recompose';
 import DefaultStyleRoot from './styles/StyleRoot';
 import withDragDropContext from './withDragDropContext';
 import DefaultDragLayer from '../DragLayer';

@@ -5,12 +5,5 @@ module.exports = (baseConfig, env, defaultConfig) => {
 
   defaultConfig.resolve.modules.push(path.resolve(__dirname, 'src'));
 
-  console.log('DefaultConfig', defaultConfig);
   return defaultConfig;
 };
-
-// module.exports = {
-//   resolve: {
-//     modules: ['node_modules', path.resolve(__dirname, '../src')],
-//   },
-// };
