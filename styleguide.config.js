@@ -84,10 +84,7 @@ module.exports = {
       monospace: '"Source Code Pro", monospace',
     },
   },
-  ignore: [
-    'src/components/**/index.js',
-    'src/components/layout/Flow/fields/**/*.js',
-  ],
+  ignore: ['src/components/**/index.js'],
   require: ['styled-components', path.join(__dirname, 'src')],
   styleguideComponents: {
     Logo: path.join(__dirname, 'tools/styleguide/Logo'),

@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import Fields, { Field } from 'layouts/Fields';
+import Field from 'layouts/Field';
 import Input from 'components/Input';
 
-storiesOf('Fields', module).add('standard', () => (
-  <Fields>
+storiesOf('Field', module).add('standard', () => (
+  <Field.Group>
     <Field label="label">
       <Input placeholder="Content" />
     </Field>
@@ -29,5 +29,5 @@ storiesOf('Fields', module).add('standard', () => (
     <Field columnSpan={2} label="Wide" helpText="A wide field">
       <Input placeholder="Content" />
     </Field>
-  </Fields>
+  </Field.Group>
 ));

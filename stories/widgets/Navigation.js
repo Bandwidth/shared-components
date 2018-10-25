@@ -1,36 +1,36 @@
 import React from 'react';
-import { Navigation, Anchor } from '@bandwidth/shared-components';
+import { Navigation, Link } from 'components';
 
 export default () => (
   <Navigation>
-    <Anchor to="/">
+    <Link.Wrap to="/">
       <Navigation.Title>Bandwidth App</Navigation.Title>
-    </Anchor>
+    </Link.Wrap>
     <Navigation.ItemListStack>
       <Navigation.ItemList.Small>
-        <Anchor newTab to="https://bandwidth.com">
+        <Link.Wrap newTab to="https://bandwidth.com">
           <Navigation.Item>Why Bandwidth</Navigation.Item>
-        </Anchor>
-        <Anchor newTab to="https://dev.bandwidth.com">
+        </Link.Wrap>
+        <Link.Wrap newTab to="https://dev.bandwidth.com">
           <Navigation.Item>Docs for Developers</Navigation.Item>
-        </Anchor>
-        <Anchor to="/login">
+        </Link.Wrap>
+        <Link.Wrap to="/login">
           <Navigation.Item>Login</Navigation.Item>
-        </Anchor>
+        </Link.Wrap>
       </Navigation.ItemList.Small>
       <Navigation.ItemList>
-        <Anchor to="/services">
+        <Link.Wrap to="/services">
           <Navigation.Item>Services</Navigation.Item>
-        </Anchor>
-        <Anchor to="/useCases">
+        </Link.Wrap>
+        <Link.Wrap to="/useCases">
           <Navigation.Item>Use Cases</Navigation.Item>
-        </Anchor>
-        <Anchor to="/pricing">
+        </Link.Wrap>
+        <Link.Wrap to="/pricing">
           <Navigation.Item>Pricing</Navigation.Item>
-        </Anchor>
-        <Anchor to="/trial">
+        </Link.Wrap>
+        <Link.Wrap to="/trial">
           <Navigation.Item>Try for Free</Navigation.Item>
-        </Anchor>
+        </Link.Wrap>
       </Navigation.ItemList>
     </Navigation.ItemListStack>
   </Navigation>
