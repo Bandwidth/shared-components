@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import generateId from 'extensions/generateId';
 import { RadioContainer, RadioInput, RadioLabel } from './styles';
 
+/**
+ * A basic `<input type="radio">` component. Group buttons together by setting the `name` prop for them to the same value.
+ */
 class Radio extends React.PureComponent {
   static propTypes = {
     /**

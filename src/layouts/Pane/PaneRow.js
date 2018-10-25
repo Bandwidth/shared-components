@@ -45,5 +45,6 @@ PaneRow.defaultProps = {
 
 /**
  * @component
+ * @deprecated
  */
 export default PaneRow;

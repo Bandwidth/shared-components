@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { Manager, Reference, Popper } from 'react-popper';
 import { CalloutContainer } from './styles';
 
+/**
+ * Renders a flyout on hover which can display helpful contextual information to the user.
+ */
 class Callout extends React.Component {
   static propTypes = {
     /**

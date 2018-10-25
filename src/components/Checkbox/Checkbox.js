@@ -4,6 +4,9 @@ import generateId from '../../extensions/generateId';
 import { CheckboxInput, CheckboxLabel, CheckboxContainer } from './styles';
 import { defaultProps } from 'recompose';
 
+/**
+ * A simple checkbox input.
+ */
 export default class Checkbox extends React.PureComponent {
   static propTypes = {
     /**

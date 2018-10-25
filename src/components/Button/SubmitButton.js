@@ -4,6 +4,8 @@ import Button from './Button';
 import Loader from 'components/Loader';
 
 /**
+ * `Button.Submit` is intended to be used within a form. `Button.Submit` should only be used to represent a button
+ * that triggers the `onSubmit` actions (do not use for standard actions or cancellation).
  * @visibleName Button.Submit
  */
 class SubmitButton extends React.Component {

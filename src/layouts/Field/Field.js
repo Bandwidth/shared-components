@@ -60,15 +60,15 @@ class Field extends React.Component {
     /**
      * A component prop to override the component used to render labels. Defaults to library Label.
      */
-    Label: PropTypes.func,
+    Label: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component prop to override the component used to render help text. Defaults to library HelpText.
      */
-    HelpText: PropTypes.func,
+    HelpText: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component prop to override the component used to wrap field content. Defaults to library FieldContent.
      */
-    Content: PropTypes.func,
+    Content: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Content to render inside the callout.
      */

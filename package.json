@@ -82,6 +82,8 @@
     "@babel/preset-env": "7.1.0",
     "@babel/preset-react": "7.0.0",
     "@babel/runtime": "7.1.2",
+    "@storybook/addon-actions": "^3.4.11",
+    "@storybook/addon-links": "^3.4.11",
     "@storybook/react": "^4.0.0-alpha.16",
     "babel-loader": "8.0.4",
     "babel-plugin-inline-react-svg": "1.0.0",

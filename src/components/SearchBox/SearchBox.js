@@ -12,6 +12,9 @@ import {
 } from './styles';
 import identity from 'lodash.identity';
 
+/**
+ * Styling wrapper around [react-autosuggest](https://github.com/moroshko/react-autosuggest). See documentation there for full options.
+ */
 class SearchBox extends React.Component {
   static propTypes = {
     /**
@@ -136,7 +139,6 @@ class SearchBox extends React.Component {
   };
 
   renderInput = ({ ref, ...inputProps }) => {
-    const self = this;
     return <this.props.Input {...inputProps} inputRef={ref} />;
   };
 

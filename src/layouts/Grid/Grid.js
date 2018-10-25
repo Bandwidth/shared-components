@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import get from 'extensions/themeGet';
 import { defaultProps } from 'recompose';
 
 const GridDiv = styled.div`
@@ -15,6 +14,14 @@ const GridDiv = styled.div`
   }
 `;
 
+/**
+ * `Grid` utilizes CSS grid to provide some basic grid functionality without needing to delve into CSS.
+ * Typical usage will either provide `minSize` to set the minimum size of each column, which will then
+ * be auto fit into rows and wrap, or will provide `columns` and allow the size of each column to automatically
+ * be determined based on the available space.
+ *
+ * **NOTE:** If `columns` is unchanged or set to `'auto-fill'` or `'auto-fit'`, then `minSize` must be set.
+ */
 class Grid extends React.PureComponent {
   static propTypes = {
     /**

@@ -6,6 +6,9 @@ import {
 } from './styles';
 import PropTypes from 'prop-types';
 
+/**
+ * Card components may be used anywhere on the page as a stand-alone component.
+ */
 class Card extends React.Component {
   static propTypes = {
     /**

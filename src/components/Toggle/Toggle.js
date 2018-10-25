@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import generateId from '../../extensions/generateId';
 import { ToggleContainer, ToggleInput, ToggleLabel } from './styles';
 
+/**
+ * A simple `Toggle` component thta can be turned on and off. Use `checked` to set
+ * whether the `Toggle` is selected.
+ */
 class Toggle extends React.PureComponent {
   static propTypes = {
     /**

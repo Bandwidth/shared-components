@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StepContainer, StepNumber, StepContent } from './styles';
+import StepGroup from './StepGroup';
 
+/**
+ * Step represents a step of a process. Simply create `<Step>` components inside a container `<Step.Group>` and numbers will
+ * automatically be assigned. Assign `complete` state yourself as items are done.
+ */
 export default class Step extends React.Component {
+  static Group = StepGroup;
+
   static propTypes = {
     /**
      * Content of the step

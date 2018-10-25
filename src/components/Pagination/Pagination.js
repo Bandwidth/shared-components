@@ -7,6 +7,9 @@ import {
   PaginationItemPlaceholder,
 } from './styles';
 
+/**
+ * A basic Pagination component that allows a user to move between pages. You need to provide the current page and other metadata.
+ */
 class Pagination extends React.Component {
   static propTypes = {
     /**

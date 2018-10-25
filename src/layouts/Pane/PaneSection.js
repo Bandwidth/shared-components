@@ -6,6 +6,9 @@ import {
   PaneSectionWrap,
 } from './styles';
 
+/**
+ * @deprecated Use SplitContentLayout
+ */
 class PaneSection extends React.Component {
   static propTypes = {
     /**

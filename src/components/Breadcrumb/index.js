@@ -1,5 +1,5 @@
 import Breadcrumb from './Breadcrumb';
-import Group from './Breadcrumbs';
+import Group from './BreadcrumbGroup';
 
 Breadcrumb.Group = Group;
 

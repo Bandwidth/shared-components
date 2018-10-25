@@ -2,6 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash.noop';
 
+/**
+ * `Selectable` is a general purpose behavior that keeps track of items that have been selected. It uses a render prop and
+ * passes in the set of currently selected items as well as functions to select or deselect additional items. Items are
+ * tracked by a key value that is passed into the `selectItem` and `deselectItem` functions and tracked in the `selected` `Set`.
+ * Since `Selectable` uses a render prop, it can easily be used in conjunction with a wide range of components.
+ * It is primarily useful in cases where selection state is ephemeral and doesn't trigger application state changes.
+ */
 class Selectable extends React.Component {
   static propTypes = {
     /**

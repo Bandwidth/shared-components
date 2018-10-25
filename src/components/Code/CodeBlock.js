@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
 /**
+ * Applies styling to render multiline code.
  * @component
+ * @visibleName Code.Block
  */
 export default styled.pre`
   font-family: ${get('fonts.monospace')};

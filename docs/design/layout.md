@@ -16,13 +16,13 @@ This library contains a few layout components that can help create complex, inte
 ```jsx
 const NavBar = () => (
   <Navigation>
-    <Link to="/">
+    <Link.Wrap to="/">
       <Navigation.Title>Bandwidth App</Navigation.Title>
-    </Link>
+    </Link.Wrap>
     <Navigation.ItemList>
-      <Link to="/about" exact>
+      <Link.Wrap to="/about" exact>
         <Navigation.Item>About</Navigation.Item>
-      </Link>
+      </Link.Wrap>
     </Navigation.ItemList>
   </Navigation>
 );
