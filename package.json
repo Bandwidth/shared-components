@@ -70,6 +70,7 @@
     "react-motion": "^0.5.1",
     "react-popper": "^1.0.2",
     "react-select": "^1.0.0-rc.10",
+    "react-transition-group": "^2.5.0",
     "recompose": "^0.26.0",
     "time-input": "^1.6.0",
     "warning": "^3.0.0"
