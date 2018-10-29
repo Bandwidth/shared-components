@@ -137,8 +137,7 @@ module.exports = {
                 importLoaders: 1,
                 localIdentName: 'cat__[local]_[path]',
               },
-            },
-            'postcss-loader',
+            }
           ],
         },
         {
