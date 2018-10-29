@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Manager, Reference, Popper } from 'react-popper';
 import { CalloutContainer } from './styles';
+import { Foreground } from 'behaviors';
 
 /**
  * Renders a flyout on hover which can display helpful contextual information to the user.
@@ -111,15 +112,17 @@ class Callout extends React.Component {
   renderPopperContent = ({ ref, style, placement }) => {
     const { Container, contentProps } = this.props;
     return (
-      <Container
-        {...contentProps}
-        ref={ref}
-        style={style}
-        data-placement={placement}
-        maxWidth={this.props.maxWidth}
-      >
-        {this.props.content}
-      </Container>
+      <Foreground>
+        <Container
+          {...contentProps}
+          ref={ref}
+          style={style}
+          data-placement={placement}
+          maxWidth={this.props.maxWidth}
+        >
+          {this.props.content}
+        </Container>
+      </Foreground>
     );
   };
 
@@ -138,7 +141,6 @@ class Callout extends React.Component {
         {show && (
           <Popper
             placement={placement}
-            positionFixed
             modifiers={{
               preventOverflow: {
                 boundariesElement:
