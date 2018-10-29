@@ -32,6 +32,7 @@
 - `provinces` helper is no longer provided. Please check out the `provinces` NPM package yourself.
 - `Expand` is gone. This was not a documented component, and wasn't used anywhere.
 - `Select` no longer has a `multi` option. We are not aware of any current projects which use this feature. We may re-introduce it in a coming minor version, but for now we have removed it since it was not well-supported.
+- `MethodTag` is deprecated. Please re-implement it in your own app if you need it. We may introduce a `Tag` component to replace it in a future release.
 
 ## Changes by Component
 

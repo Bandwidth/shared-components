@@ -53,5 +53,6 @@ MethodTag.defaultProps = {
 
 /**
  * @component
+ * @deprecated
  */
 export default MethodTag;
