@@ -37,6 +37,10 @@ Link.propTypes = {
    * uses uppercase styling
    */
   icon: PropTypes.string,
+  /**
+   * If true, this link will be rendered differently and non-interactive
+   */
+  disabled: PropTypes.bool,
 };
 
 Link.Positive.propTypes = Link.Negative.propTypes = Link.Dark.propTypes = Link.Inverted.propTypes =
@@ -62,6 +66,10 @@ Link.Wrap.propTypes = {
    * Forces the link to open in a new tab
    */
   newTab: PropTypes.bool,
+  /**
+   * If true, this link will not be interactive
+   */
+  disabled: PropTypes.bool,
 };
 
 Link.Wrap.defaultProps = {
