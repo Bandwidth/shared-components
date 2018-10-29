@@ -12,6 +12,10 @@
 - Lots of components have moved. We don't export as many components from the root level anymore, and instead encourage you to reference static sub-components. See more detailed changes per-component below.
 - We removed a lot of deprecated or otherwise unsupported stuff which no longer represents the design and interaction goals at Bandwidth.
 
+## New Features
+
+- `Foreground`: We now render a top-level, absolute-positioned div within `<BandwidthProvider>`. This div is used to power the new `Foreground` behavior. Just wrap any component in `<Foreground>` and it will be instantly portaled into the foreground of your app, within an absolutely-positioned window space. Be sure to style your component to use absolute positioning and move it to wherever you want it to be.
+
 ## Deprecated / Removed
 
 - `Flow` is gone! Use `Field`!
@@ -27,6 +31,7 @@
 - `TableControls` is gone! This pattern is no longer considered part of our best practices. You might want to replace it with a "Link solar system" instead (see the Layout guidance docs)
 - `provinces` helper is no longer provided. Please check out the `provinces` NPM package yourself.
 - * `Expand` is gone. This was not a documented component, and wasn't used anywhere.
+- * `Select` no longer has a `multi` option. We are not aware of any current projects which use this feature. We may re-introduce it in a coming minor version, but for now we have removed it since it was not well-supported.
 
 ## Changes by Component
 
@@ -79,6 +84,10 @@ Table sub-components are no longer exported. Use their attached static versions 
 ### ScrollShadow
 
 Added `horizontal` prop, which creates a horizontally scrolling shadowed element.
+
+### Select
+
+Select has been rewritten to use Downshift and React Portals (it was using an old version of react-select, which was causing issues). The new version works even within overflow-hidden containers! However, we did end up removing the `multi` option for now to keep the rewrite simple. We may re-introduce it soon in a minor version.
 
 ## For contributors
 
