@@ -48,8 +48,6 @@ class Wrapper extends React.Component {
   <Wrapper searchable options={options} />
   <div>A required select:</div>
   <Wrapper required options={options} />
-  <div>A multi select:</div>
-  <Wrapper multi options={options} />
   <div>A select with complex options:</div>
   <Wrapper
     options={complexOptions}

@@ -122,6 +122,11 @@ class Input extends React.PureComponent {
      * A react node that is displayed inside input element
      */
     inlineContent: PropTypes.node,
+    /**
+     * Lets you make this input appear to be focused (does not actually
+     * change the focus state of the element)
+     */
+    appearFocused: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -147,6 +152,7 @@ class Input extends React.PureComponent {
     min: null,
     max: null,
     autoComplete: true,
+    appearFocused: false,
   };
 
   componentDidMount() {
@@ -206,7 +212,7 @@ class Input extends React.PureComponent {
     return (
       <RevealPasswordWrapper>
         {this.renderInputField()}
-        {node}
+        <div>{node}</div>
       </RevealPasswordWrapper>
     );
   };

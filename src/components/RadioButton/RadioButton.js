@@ -106,6 +106,7 @@ class RadioButton extends React.Component {
 
   render() {
     const {
+      id,
       checked,
       label,
       name,
@@ -122,13 +123,13 @@ class RadioButton extends React.Component {
       ...rest
     } = this.props;
 
-    const id = this.props.id || `radio-${name}>${value}`;
+    const finalId = id || `radio-${name}>${value}`;
 
     return (
       <Container className={disabled && 'disabled'}>
         <Input
           type="radio"
-          id={id}
+          id={finalId}
           value={value}
           name={name}
           checked={checked}
@@ -137,7 +138,7 @@ class RadioButton extends React.Component {
           disabled={disabled}
           {...rest}
         />
-        <Label htmlFor={id} active={checked} disabled={disabled}>
+        <Label htmlFor={finalId} active={checked} disabled={disabled}>
           <LabelText>{label}</LabelText>
           {children && <Content>{this.renderChildren()}</Content>}
         </Label>

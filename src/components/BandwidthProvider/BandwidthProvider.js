@@ -5,6 +5,7 @@ import DefaultDragLayer from '../DragLayer';
 import ReactDOM from 'react-dom';
 import irisTheme from 'themes/irisTheme';
 import { GlobalStyle, StyleRoot as DefaultStyleRoot } from './styles';
+import { Foreground } from 'behaviors';
 
 /**
  * Including this provider at the root of your app will define some global styling,
@@ -59,7 +60,7 @@ class BandwidthProvider extends React.PureComponent {
     return (
       <React.Fragment>
         <StyleRoot className="styleroot" {...styleRootProps}>
-          {children}
+          <Foreground.Provider>{children}</Foreground.Provider>
           {dragLayerPortal ? (
             ReactDOM.createPortal(<DragLayer />, dragLayerPortal)
           ) : (
