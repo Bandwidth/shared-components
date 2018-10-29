@@ -1,6 +1,6 @@
 Icons let you easily render some of our icons. Pass in the `name` prop to specify which one.
 
-The icon definition file is in `components/helpers/icons.js`
+The icon definition file is in `components/Icons/icons.js`
 
 ```
 <Icon name="checkmark" />
@@ -8,7 +8,7 @@ The icon definition file is in `components/helpers/icons.js`
 
 _Available Icons:_
 
-```javascript
+```javascript noeditor
 const icons = require('./icons').map;
 const IconList = () => (
   <Table.Small

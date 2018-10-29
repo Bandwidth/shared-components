@@ -76,6 +76,8 @@ export default class FileLoader extends React.Component {
       disabled,
       className,
       id,
+      DropArea,
+      Preview,
       ...rest
     } = this.props;
 

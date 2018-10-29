@@ -15,6 +15,7 @@ import DragContainer from 'components/DragContainer';
 /**
  * A group of items which can be dragged into other `DragGroups` depending
  * on `itemType`. The ordering of items within a group is arbitrary and non-editable.
+ * Dragging is not enabled until more than one group is present.
  *
  * > **Note:** You must include [BandwidthProvider](/#!/BandwidthProvider)
  * at or near the root of your application to use drag and drop functionality.

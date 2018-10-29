@@ -32,6 +32,7 @@ Radios assembled in a single field:
   <Radio name="radios" value="one" description="One" />
   <Radio name="radios" value="two" description="Two" />
   <Radio name="radios" value="three" checked description="Three" />
+  <Radio name="radios" value="four" disabled description="Four" />
   <Button.Submit>Show value</Button.Submit>
 </form>
 ```

@@ -66,7 +66,7 @@ class Tabs extends React.Component {
     });
 
   render() {
-    const { List, ...rest } = this.props;
+    const { List, onTabSelected, ...rest } = this.props;
 
     return <List {...rest}>{this.renderTabs()}</List>;
   }

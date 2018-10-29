@@ -2,7 +2,6 @@ import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import * as components from './styles';
 import moment from 'moment';
-import noop from 'lodash.noop';
 
 const disabledRange = [-1, -1];
 const roundMinutes = minutes => Math.round(minutes / 15.0) * 15;

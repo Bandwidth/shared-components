@@ -1,27 +1,20 @@
-
-A collection of items which can be split up into several named groups.
-
-The ordering of items within a group is arbitrary and non-editable.
-
-Dragging is not enabled until more than one group is present.
-
 ### Implementation notes
 
 This component requires you to implement state behavior to support the desired UX.
 
 Here is a brief summary of the rules:
 
-* Groups should not be collapsible unless multiple groups are present
-* Items should not be draggable unless multiple groups are present
-* When a group is removed, its items are shifted to the group above it; if no group is above it, they should be shifted to the group below it.
-* When a group is split, the items *up to* the separator index should be moved into the newly created group, which should be placed *before* the group which initiated the split. The remaining items *including and after* the separator index should remain in the group.
-* When an item is moved, it should be removed from the source group and appended to the end of the target group.
-* When a group has no remaining items, it should be removed.
+- Groups should not be collapsible unless multiple groups are present
+- Items should not be draggable unless multiple groups are present
+- When a group is removed, its items are shifted to the group above it; if no group is above it, they should be shifted to the group below it.
+- When a group is split, the items _up to_ the separator index should be moved into the newly created group, which should be placed _before_ the group which initiated the split. The remaining items _including and after_ the separator index should remain in the group.
+- When an item is moved, it should be removed from the source group and appended to the end of the target group.
+- When a group has no remaining items, it should be removed.
 
 ### Example
 
 ```javascript
-const React = require ('react');
+const React = require('react');
 
 // some utility functions
 
@@ -44,31 +37,34 @@ const insert = (array, idx, item) => [
   ...array.slice(idx),
 ];
 
-const removeAt = (groups, groupIndex, index) => replace(groups, groupIndex, {
-  ...groups[groupIndex],
-  items: remove(groups[groupIndex].items, index),
-});
+const removeAt = (groups, groupIndex, index) =>
+  replace(groups, groupIndex, {
+    ...groups[groupIndex],
+    items: remove(groups[groupIndex].items, index),
+  });
 
-const addTo = (groups, groupIndex, item) => replace(groups, groupIndex, {
-  ...groups[groupIndex],
-  items: groups[groupIndex].items.concat(item),
-});
+const addTo = (groups, groupIndex, item) =>
+  replace(groups, groupIndex, {
+    ...groups[groupIndex],
+    items: groups[groupIndex].items.concat(item),
+  });
 
-const split = (groups, groupIndex, itemIndex) => groups.reduce((newGroups, group, idx) => {
-  if (groupIndex === idx) {
-    const groupA = {
-      key: genKey(),
-      items: group.items.slice(0, itemIndex),
-    };
-    const groupB = {
-      key: group.key,
-      items: group.items.slice(itemIndex),
-    };
-    return newGroups.concat([groupA, groupB]);
-  }
+const split = (groups, groupIndex, itemIndex) =>
+  groups.reduce((newGroups, group, idx) => {
+    if (groupIndex === idx) {
+      const groupA = {
+        key: genKey(),
+        items: group.items.slice(0, itemIndex),
+      };
+      const groupB = {
+        key: group.key,
+        items: group.items.slice(itemIndex),
+      };
+      return newGroups.concat([groupA, groupB]);
+    }
 
-  return newGroups.concat(group);
-}, []);
+    return newGroups.concat(group);
+  }, []);
 
 // our demo app manages group state and modifications
 class DemoApp extends React.Component {
@@ -115,12 +111,12 @@ class DemoApp extends React.Component {
         // remove the item from the source group
         removeAt(state.groups, fromGroupIndex, itemIndex),
         toGroupIndex,
-        itemToMove
+        itemToMove,
       ).filter(group => group.items.length > 0), // remove any empty groups
     };
 
     this.setState(newState);
-  };
+  }
 
   handleGroupInserted(groupIndex, itemIndex) {
     const state = this.state;
@@ -147,8 +143,8 @@ class DemoApp extends React.Component {
         (groups, item) => addTo(groups, addToGroupIndex, item),
         // remove the current group from the list to create the source
         // array for the reduce operation
-        remove(state.groups, groupIndex)
-      )
+        remove(state.groups, groupIndex),
+      ),
     };
     this.setState(newState);
   }
@@ -177,18 +173,17 @@ class DemoApp extends React.Component {
             {group.items.map((item, itemIdx) => (
               <DragGroup.Item
                 key={item.key}
-                onMove={
-                  (fromGroupIdx, toGroupIdx) =>
-                    this.handleItemMoved(itemIdx, fromGroupIdx, toGroupIdx)
+                onMove={(fromGroupIdx, toGroupIdx) =>
+                  this.handleItemMoved(itemIdx, fromGroupIdx, toGroupIdx)
                 }
               >
                 <DragGroup.Container>{item.value}</DragGroup.Container>
-              </DragGroup.Item>)
-            )}
+              </DragGroup.Item>
+            ))}
           </DragGroup>
         ))}
       </div>
-    )
+    );
   }
 }
 
@@ -196,7 +191,7 @@ class DemoApp extends React.Component {
   <div style={{ margin: 'auto', width: '350px' }}>
     <DemoApp />
   </div>
-</div>
+</div>;
 ```
 
 Note that the code in this example implements the full logic of manipulating a hypothetical set of groups. It's up to you to determine how to use the events from `DragGroup` to manipulate your own state, and how to then render that state as `DragGroup` and `DragGroup.Item` elements within your JSX structure.
@@ -212,7 +207,7 @@ If you want to fully control field manipulation using nested redux-form FieldArr
 ### Another example: horizontal groups
 
 ```javascript
-const React = require ('react');
+const React = require('react');
 
 // some utility functions
 
@@ -235,31 +230,34 @@ const insert = (array, idx, item) => [
   ...array.slice(idx),
 ];
 
-const removeAt = (groups, groupIndex, index) => replace(groups, groupIndex, {
-  ...groups[groupIndex],
-  items: remove(groups[groupIndex].items, index),
-});
+const removeAt = (groups, groupIndex, index) =>
+  replace(groups, groupIndex, {
+    ...groups[groupIndex],
+    items: remove(groups[groupIndex].items, index),
+  });
 
-const addTo = (groups, groupIndex, item) => replace(groups, groupIndex, {
-  ...groups[groupIndex],
-  items: groups[groupIndex].items.concat(item),
-});
+const addTo = (groups, groupIndex, item) =>
+  replace(groups, groupIndex, {
+    ...groups[groupIndex],
+    items: groups[groupIndex].items.concat(item),
+  });
 
-const split = (groups, groupIndex, itemIndex) => groups.reduce((newGroups, group, idx) => {
-  if (groupIndex === idx) {
-    const groupA = {
-      key: genKey(),
-      items: group.items.slice(0, itemIndex),
-    };
-    const groupB = {
-      key: group.key,
-      items: group.items.slice(itemIndex),
-    };
-    return newGroups.concat([groupA, groupB]);
-  }
+const split = (groups, groupIndex, itemIndex) =>
+  groups.reduce((newGroups, group, idx) => {
+    if (groupIndex === idx) {
+      const groupA = {
+        key: genKey(),
+        items: group.items.slice(0, itemIndex),
+      };
+      const groupB = {
+        key: group.key,
+        items: group.items.slice(itemIndex),
+      };
+      return newGroups.concat([groupA, groupB]);
+    }
 
-  return newGroups.concat(group);
-}, []);
+    return newGroups.concat(group);
+  }, []);
 
 // our demo app manages group state and modifications
 class DemoApp extends React.Component {
@@ -306,12 +304,12 @@ class DemoApp extends React.Component {
         // remove the item from the source group
         removeAt(state.groups, fromGroupIndex, itemIndex),
         toGroupIndex,
-        itemToMove
+        itemToMove,
       ).filter(group => group.items.length > 0), // remove any empty groups
     };
 
     this.setState(newState);
-  };
+  }
 
   handleGroupInserted(groupIndex, itemIndex) {
     const state = this.state;
@@ -338,8 +336,8 @@ class DemoApp extends React.Component {
         (groups, item) => addTo(groups, addToGroupIndex, item),
         // remove the current group from the list to create the source
         // array for the reduce operation
-        remove(state.groups, groupIndex)
-      )
+        remove(state.groups, groupIndex),
+      ),
     };
     this.setState(newState);
   }
@@ -368,21 +366,20 @@ class DemoApp extends React.Component {
               {group.items.map((item, itemIdx) => (
                 <DragGroup.Item
                   key={item.key}
-                  onMove={
-                    (fromGroupIdx, toGroupIdx) =>
-                      this.handleItemMoved(itemIdx, fromGroupIdx, toGroupIdx)
+                  onMove={(fromGroupIdx, toGroupIdx) =>
+                    this.handleItemMoved(itemIdx, fromGroupIdx, toGroupIdx)
                   }
                 >
                   <DragGroup.Container>{item.value}</DragGroup.Container>
-                </DragGroup.Item>)
-              )}
+                </DragGroup.Item>
+              ))}
             </DragGroup>
           </div>
         ))}
       </div>
-    )
+    );
   }
 }
 
-<DemoApp />
+<DemoApp />;
 ```

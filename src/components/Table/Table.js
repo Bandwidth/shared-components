@@ -70,6 +70,8 @@ class Table extends React.Component {
 
   render() {
     const {
+      className,
+      id,
       children,
       loading,
       headers,

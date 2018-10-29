@@ -8,6 +8,7 @@ import { DragContext } from 'components/DragContainer';
 
 /**
  * Used to wrap an item used in DragGroup. See DragGroup documentation.
+ * @visibleName DragGroup.Item
  */
 class DragGroupItem extends React.Component {
   static propTypes = {
