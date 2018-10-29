@@ -1,9 +1,21 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-import LibSelect from 'react-select';
 import selectOptionPrimaryValue from 'extensions/selectItemPrimaryValue';
-import Loader from 'components/Loader';
-import { SelectWrapper } from './styles';
+import {
+  OptionsList,
+  Option,
+  Arrow,
+  ClearButton,
+  Controls,
+  Searchable,
+  Unsearchable,
+} from './styles';
+import Downshift from 'downshift';
+import { Input, Loader } from 'components';
+import { Manager, Reference, Popper } from 'react-popper';
+import { popperMatchWidthModifier } from 'extensions';
+import { Foreground } from 'behaviors';
 
 class Select extends React.PureComponent {
   static propTypes = {
@@ -51,10 +63,6 @@ class Select extends React.PureComponent {
      * controls whether the component renders in a loading state
      */
     isLoading: PropTypes.bool,
-    /**
-     * Enables multi-select mode
-     */
-    multi: PropTypes.bool,
     /**
      * The name to apply to the input field
      */
@@ -154,11 +162,6 @@ class Select extends React.PureComponent {
      * The text to use when no option is selected. If this value is not provided, the text will default to placeholder
      */
     noneText: PropTypes.string,
-    /**
-     * A component that wraps the library select component, letting you
-     * change styles.
-     */
-    Wrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {
@@ -172,7 +175,6 @@ class Select extends React.PureComponent {
     renderOption: selectOptionPrimaryValue,
     getOptionValue: selectOptionPrimaryValue,
     searchable: false,
-    Wrapper: SelectWrapper,
   };
 
   /**
@@ -196,22 +198,6 @@ class Select extends React.PureComponent {
     }));
   };
 
-  /**
-   * Intercepts the change event and calls the onChange prop
-   * with the value alone.
-   *
-   * @memberof Select
-   */
-  handleChange = newValue => {
-    if (!newValue) {
-      this.props.onChange(newValue);
-    } else if (this.props.multi) {
-      this.props.onChange(newValue.map(item => item.value));
-    } else {
-      this.props.onChange(newValue.value);
-    }
-  };
-
   render() {
     const {
       required,
@@ -222,25 +208,122 @@ class Select extends React.PureComponent {
       loading,
       invalid,
       value,
-      Wrapper,
+      renderOption,
+      options,
+      getOptionValue,
+      searchable,
+      disabled,
+      onChange,
       ...rest
     } = this.props;
     const combinedLoading = loading || isLoading;
     const combinedPlaceholder = noneText !== undefined ? noneText : placeholder;
+    const filterOptions = (options, inputValue) => {
+      if (!searchable) {
+        return options;
+      }
+      return options.filter(option =>
+        (renderOption(option) || '')
+          .toLowerCase()
+          .includes((inputValue || '').toLowerCase()),
+      );
+    };
 
     return (
-      <Wrapper invalid={invalid} value={value}>
-        <LibSelect
-          {...rest}
-          options={this.convertOptions()}
-          onChange={this.handleChange}
-          clearable={!required || allowNone}
-          placeholder={
-            combinedLoading ? <Loader size="14px" /> : combinedPlaceholder
-          }
-          isLoading={combinedLoading}
-        />
-      </Wrapper>
+      <Downshift onChange={onChange} itemToString={renderOption}>
+        {({
+          getInputProps,
+          getItemProps,
+          getLabelProps,
+          getMenuProps,
+          getToggleButtonProps,
+          isOpen,
+          inputValue,
+          highlightedIndex,
+          selectedItem,
+          clearSelection,
+        }) => (
+          <div>
+            <Manager>
+              <Reference>
+                {({ ref }) =>
+                  searchable ? (
+                    <Searchable
+                      getInputProps={getInputProps}
+                      getToggleButtonProps={getToggleButtonProps}
+                      inputValue={inputValue}
+                      clearSelection={clearSelection}
+                      isOpen={isOpen}
+                      ref={ref}
+                      placeholder={combinedPlaceholder}
+                      disabled={disabled}
+                      loading={combinedLoading}
+                      invalid={invalid}
+                      required={required}
+                    />
+                  ) : (
+                    <Unsearchable
+                      getInputProps={getInputProps}
+                      getToggleButtonProps={getToggleButtonProps}
+                      inputValue={inputValue}
+                      clearSelection={clearSelection}
+                      isOpen={isOpen}
+                      ref={ref}
+                      placeholder={combinedPlaceholder}
+                      disabled={disabled}
+                      loading={combinedLoading}
+                      invalid={invalid}
+                      required={required}
+                    />
+                  )
+                }
+              </Reference>
+              {isOpen && (
+                <Popper
+                  placement="bottom"
+                  modifiers={{
+                    matchWidth: popperMatchWidthModifier,
+                    flip: {
+                      behavior: 'flip',
+                      padding: 20,
+                    },
+                  }}
+                >
+                  {({ ref, style, placement }) => {
+                    const filteredOptions = filterOptions(options, inputValue);
+
+                    if (!filteredOptions.length) {
+                      return <div ref={ref} style={style} />; // TODO: empty state
+                    }
+
+                    return (
+                      <Foreground>
+                        <OptionsList
+                          data-placement={placement}
+                          {...getMenuProps({ ref, style })}
+                        >
+                          {filteredOptions.map((option, index) => (
+                            <Option
+                              {...getItemProps({
+                                key: getOptionValue(option),
+                                index,
+                                item: option,
+                                highlighted: highlightedIndex === index,
+                              })}
+                            >
+                              {renderOption(option)}
+                            </Option>
+                          ))}
+                        </OptionsList>
+                      </Foreground>
+                    );
+                  }}
+                </Popper>
+              )}
+            </Manager>
+          </div>
+        )}
+      </Downshift>
     );
   }
 }
