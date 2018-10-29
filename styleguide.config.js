@@ -58,13 +58,13 @@ module.exports = {
     },
     {
       name: 'Components',
-      components: 'src/components/**/[A-Z]*.js',
-      // sections: componentSections('./src/components'),
+      // components: 'src/components/**/[A-Z]*.js',
+      sections: componentSections('./src/components'),
     },
     {
       name: 'Layouts',
-      components: 'src/layouts/**/[A-Z]*.js',
-      // sections: componentSections('./src/layouts'),
+      // components: 'src/layouts/**/[A-Z]*.js',
+      sections: componentSections('./src/layouts'),
     },
     {
       name: 'Behaviors',
@@ -137,7 +137,7 @@ module.exports = {
                 importLoaders: 1,
                 localIdentName: 'cat__[local]_[path]',
               },
-            }
+            },
           ],
         },
         {
