@@ -11,6 +11,8 @@ import { DragContext } from 'components/DragContainer';
  *
  * [DragList.Container](/#!/DragContainer) can be used as an out of the box solution, but if a different component is required,
  * you can use `DragList.Item.Consumer`, which uses the React context API.
+ *
+ * @visibleName DragList.Item
  */
 class DragListItem extends React.PureComponent {
   static Consumer = DragContext.Consumer;
@@ -25,6 +27,11 @@ class DragListItem extends React.PureComponent {
      * Index of the item. Used for moving items around
      */
     index: PropTypes.number.isRequired,
+    /**
+     * Function provided by react-dnd library that previews the drag item
+     * @ignore
+     */
+    connectDragPreview: PropTypes.func.isRequired,
     /**
      * Called with (fromIndex, toIndex) when the item is moved to a new position
      */
@@ -52,7 +59,15 @@ class DragListItem extends React.PureComponent {
 
   render() {
     const {
-      props: { connectDropTarget, isDragging, children, ...rest },
+      props: {
+        connectDropTarget,
+        isDragging,
+        children,
+        onMove,
+        connectDragPreview,
+        connectDragSource,
+        ...rest
+      },
       wrapDragHandle,
     } = this;
 

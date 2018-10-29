@@ -1,26 +1,4 @@
 ```javascript
-<div>
-  <Radio value="a" description="Check me" />
-  <Radio value="foo" checked description="I'm already checked" />
-  <Radio
-    name="bar"
-    value="bar"
-    checked
-    description={
-      <div>
-        <div>A multi-line</div>
-        <div>description</div>
-      </div>
-    }
-  />
-  <Radio disabled value="hello" description="Can't check this" />
-  <Radio disabled checked value="hello" description="Can't uncheck this" />
-</div>
-```
-
-Radios assembled in a single field:
-
-```javascript
 <form
   onSubmit={ev => {
     ev.preventDefault();
@@ -32,6 +10,7 @@ Radios assembled in a single field:
   <Radio name="radios" value="one" description="One" />
   <Radio name="radios" value="two" description="Two" />
   <Radio name="radios" value="three" checked description="Three" />
+  <Radio name="radios" value="four" disabled description="Four" />
   <Button.Submit>Show value</Button.Submit>
 </form>
 ```

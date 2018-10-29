@@ -205,6 +205,7 @@ class Field extends React.Component {
       label,
       column,
       columnSpan,
+      ...rest
     } = this.props;
 
     return (

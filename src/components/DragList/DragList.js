@@ -14,7 +14,7 @@ const StyledDiv = styled.div`
 /**
  * A list of items that can be dragged and reordered.
  * Use a list of [DragList.Item](/#!/DragListItem) as children.
- * [DragList.Container](/#!/DragContainer) is provided
+ * DragList.Container is provided
  * as a convenient way to display items in the drag list.
  */
 class DragList extends React.PureComponent {
@@ -26,7 +26,7 @@ class DragList extends React.PureComponent {
   };
 
   render() {
-    const {children, ...rest} = this.props;
+    const { children, ...rest } = this.props;
     return <StyledDiv {...rest}>{children}</StyledDiv>;
   }
 }

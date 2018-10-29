@@ -175,10 +175,6 @@ class DragBox extends React.Component {
   });
 
   onMouseDown = ev => {
-    const {
-      props: { onMouseDown },
-      getMousePosition,
-    } = this;
     // Left click
     if (ev.button !== 0) return;
     this.attachScrollSelector();
@@ -318,7 +314,6 @@ class DragBox extends React.Component {
   renderRect = rect => {
     const {
       props: { renderRect },
-      state: { mouseDown },
       shouldDrawRect,
     } = this;
     if (!shouldDrawRect(rect)) return;
@@ -385,8 +380,14 @@ class DragBox extends React.Component {
       renderRect,
       renderContents,
       calcRect,
-      renderItem,
-      props: { disablePointerEventsWhileDragging, children, ...rest },
+      props: {
+        disablePointerEventsWhileDragging,
+        children,
+        onCollisionChange,
+        onCollisionBegin,
+        onCollisionEnd,
+        ...rest
+      },
     } = this;
     const rect = calcRect();
     return (
