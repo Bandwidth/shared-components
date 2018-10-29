@@ -2,11 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FieldRowContainer, FieldRow } from './styles';
 
+/**
+ * A component that renders a collection of Field components into a grid, making space for
+ * labels, help text, etc. Simply pass the number of columns into this component and render
+ * Field components as its children.
+ * @visibleName Field.Group
+ */
 class FieldGroup extends React.Component {
   static propTypes = {
     /**
-     * The number of columns to divide the fieldset into when rendering. FieldGroup can span multiple columns if provided
-     * with a columnSpan prop. FieldGroup which overflow the column limit will be added to new rows. If a Field's
+     * The number of columns to divide the fieldset into when rendering. Field.Group can span multiple columns if provided
+     * with a columnSpan prop. Field.Group which overflow the column limit will be added to new rows. If a Field's
      * columnSpan is too large to fit in the current row, it will be wrapped to the next one.
      */
     columns: PropTypes.number,
