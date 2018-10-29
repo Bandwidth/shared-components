@@ -122,15 +122,15 @@ class DragBox extends React.Component {
   attachScrollSelector = () => {
     const el = this.getScrollElement();
     el.addEventListener('scroll', this.throttledScroll);
-    window.document.addEventListener('mousemove', this.onMouseMove);
-    window.document.addEventListener('mouseup', this.onMouseUp);
+    window.document.addEventListener('mousemove', this.handleMouseMove);
+    window.document.addEventListener('mouseup', this.handleMouseUp);
   };
 
   detachScrollSelector = () => {
     const el = this.getScrollElement();
     el.removeEventListener('scroll', this.throttledScroll);
-    window.document.removeEventListener('mousemove', this.onMouseMove);
-    window.document.removeEventListener('mouseup', this.onMouseUp);
+    window.document.removeEventListener('mousemove', this.handleMouseMove);
+    window.document.removeEventListener('mouseup', this.handleMouseUp);
   };
 
   // Add scroll delta to our mouse position if the scroll context element
@@ -174,7 +174,7 @@ class DragBox extends React.Component {
     y: y + (customScroll || this.state).scrollTop,
   });
 
-  onMouseDown = ev => {
+  handleMouseDown = ev => {
     // Left click
     if (ev.button !== 0) return;
     this.attachScrollSelector();
@@ -192,7 +192,7 @@ class DragBox extends React.Component {
     this.props.onMouseDown();
   };
 
-  onMouseUp = ev => {
+  handleMouseUp = ev => {
     if (!this.state.mouseDown) {
       return;
     }
@@ -207,7 +207,7 @@ class DragBox extends React.Component {
     });
   };
 
-  onMouseMove = ev => {
+  handleMouseMove = ev => {
     if (!this.state.mouseDown) {
       return;
     }
@@ -221,7 +221,6 @@ class DragBox extends React.Component {
       state: { start, end, scrollLeft, scrollTop },
     } = this;
     if (!start || !end) return {};
-    const parent = this.dragElement;
     return {
       x: Math.min(start.x, end.x) - scrollLeft,
       y: Math.min(start.y, end.y) - scrollTop,
@@ -376,7 +375,7 @@ class DragBox extends React.Component {
   render() {
     const {
       refDragElement,
-      onMouseDown,
+      handleMouseDown,
       renderRect,
       renderContents,
       calcRect,
@@ -386,6 +385,7 @@ class DragBox extends React.Component {
         onCollisionChange,
         onCollisionBegin,
         onCollisionEnd,
+        onMouseDown,
         ...rest
       },
     } = this;
@@ -393,7 +393,7 @@ class DragBox extends React.Component {
     return (
       <DragBoxDiv
         ref={refDragElement}
-        onMouseDown={onMouseDown}
+        onMouseDown={handleMouseDown}
         disablePointerEvents={
           disablePointerEventsWhileDragging && this.shouldDrawRect(rect)
         }
