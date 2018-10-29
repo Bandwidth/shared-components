@@ -5,7 +5,7 @@ const InputRevealPasswordContainer = styled.div`
   position: relative;
   width: 100%;
 
-  div {
+  & > *:last-child {
     position: absolute;
     right: ${get('spacing.medium')};
     top: 30%;

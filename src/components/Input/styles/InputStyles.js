@@ -10,11 +10,19 @@ const InputStyles = styled.input`
   padding: calc(${get('spacing.medium')} - 1px) ${get('spacing.medium')};
   border-width: ${get('thicknesses.wide')};
   border-style: solid;
+  text-align: left;
 
   color: ${get('colors.text.default')};
   background: ${get('colors.background.default')};
   opacity: 1;
-  border-color: ${get('colors.border.light')};
+  border-color: ${props =>
+    props.appearFocused
+      ? get('colors.border.medium')(props)
+      : get('colors.border.light')(props)};
+  box-shadow: ${props =>
+    props.appearFocused
+      ? `inset 0 -5px 0 ${get('colors.primary.light')(props)}`
+      : 'none'};
 
   outline: none;
   width: 100%;
