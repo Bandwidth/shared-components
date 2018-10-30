@@ -5,7 +5,7 @@ import withDragDropContext from './withDragDropContext';
 import DefaultDragLayer from '../DragLayer';
 import ReactDOM from 'react-dom';
 import irisTheme from 'themes/irisTheme';
-import { GlobalStyle, StyleRoot as DefaultStyleRoot } from './styles';
+import * as styles from './styles';
 import { Foreground } from 'behaviors';
 
 /**
@@ -36,16 +36,21 @@ class BandwidthProvider extends React.PureComponent {
      * Custom drag layer component
      */
     DragLayer: PropTypes.func,
+    /**
+     * Any stuff you want to render in your app
+     */
     children: PropTypes.node.isRequired,
   };
 
   static defaultProps = {
     customTheme: irisTheme,
     dragLayerPortal: null,
-    StyleRoot: DefaultStyleRoot,
+    StyleRoot: styles.StyleRoot,
     DragLayer: DefaultDragLayer,
     skipGlobalStyle: false,
   };
+
+  static styles = styles;
 
   render() {
     const {
@@ -68,7 +73,7 @@ class BandwidthProvider extends React.PureComponent {
             <DragLayer />
           )}
         </StyleRoot>
-        {skipGlobalStyle || <GlobalStyle />}
+        {skipGlobalStyle || <styles.GlobalStyle />}
       </React.Fragment>
     );
   }

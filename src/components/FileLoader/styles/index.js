@@ -1,2 +1,2 @@
-export { default as FileLoaderDropArea } from './FileLoaderDropArea';
-export { default as FileLoaderPreview } from './FileLoaderPreview';
+export { default as DropArea } from './DropArea';
+export { default as Preview } from './Preview';

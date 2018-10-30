@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LoaderRing, LoaderContainer } from './styles';
+import * as styles from './styles';
 
 class Loader extends React.PureComponent {
   static propTypes = {
@@ -35,9 +35,11 @@ class Loader extends React.PureComponent {
     color: null,
     className: null,
     id: null,
-    Ring: LoaderRing,
-    Container: LoaderContainer,
+    Ring: styles.Ring,
+    Container: styles.Container,
   };
+
+  static styles = styles;
 
   render() {
     const { size, color, id, className, Container, Ring, ...rest } = this.props;

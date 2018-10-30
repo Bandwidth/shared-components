@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as styles from './styles';
 import StepGroup from './StepGroup';
-import { StepContainer, StepNumber, StepContent } from './styles';
 
 /**
  * Step represents a step of a process. Simply create `<Step>` components inside a container `<Step.Group>` and numbers will
@@ -40,10 +40,12 @@ export default class Step extends React.Component {
 
   static defaultProps = {
     complete: false,
-    Container: StepContainer,
-    Number: StepNumber,
-    Content: StepContent,
+    Container: styles.Container,
+    Number: styles.Number,
+    Content: styles.Content,
   };
+
+  static styles = styles;
 
   render() {
     const {

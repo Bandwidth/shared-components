@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Manager, Reference, Popper } from 'react-popper';
-import { CalloutContainer } from './styles';
+import * as styles from './styles';
 import { Foreground } from 'behaviors';
 
 /**
@@ -66,8 +66,10 @@ class Callout extends React.Component {
     content: '',
     boundary: null,
     maxWidth: 300,
-    Container: CalloutContainer,
+    Container: styles.Container,
   };
+
+  static styles = styles;
 
   state = { show: false };
 

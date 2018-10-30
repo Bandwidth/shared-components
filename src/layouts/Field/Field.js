@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DefaultLabel from 'components/Label';
 import DefaultHelpText from 'components/HelpText';
 import Callout from 'components/Callout';
-import { FieldContent, HelpIcon, LabelContainer } from './styles';
+import * as styles from './styles';
 import get from 'lodash.get';
 import FieldGroup from './FieldGroup';
 
@@ -66,9 +66,19 @@ class Field extends React.Component {
      */
     HelpText: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
-     * A component prop to override the component used to wrap field content. Defaults to library FieldContent.
+     * A component prop to override the component used to wrap field content. Defaults to Field.styles.FieldContent.
      */
     Content: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    /**
+     * A component prop to override the component used to wrap the Label. Defaults to
+     * Field.styles.LabelContainer
+     */
+    LabelContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    /**
+     * A component prop to override the component used to render the help icon. Defaults
+     * to Field.styles.HelpIcon
+     */
+    HelpIcon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Content to render inside the callout.
      */
@@ -101,7 +111,9 @@ class Field extends React.Component {
     columnSpan: 1,
     Label: DefaultLabel,
     HelpText: DefaultHelpText,
-    Content: FieldContent,
+    Content: styles.FieldContent,
+    LabelContainer: styles.LabelContainer,
+    HelpIcon: styles.HelpIcon,
     helpText: null,
     label: null,
     required: false,
@@ -109,6 +121,8 @@ class Field extends React.Component {
     helpCallout: null,
     helpCalloutProps: {},
   };
+
+  static styles = styles;
 
   stylesFor = gridName => {
     const { column, columnSpan } = this.props;
@@ -129,9 +143,11 @@ class Field extends React.Component {
       disabled,
       required,
       Label,
+      LabelContainer,
       children,
       helpCallout,
       helpCalloutProps,
+      HelpIcon,
     } = this.props;
 
     if (!label) {

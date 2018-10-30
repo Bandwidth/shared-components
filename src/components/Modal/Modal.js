@@ -1,14 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  ModalActionContent,
-  ModalBlocker,
-  ModalContent,
-  ModalTitle,
-  ModalWindow,
-  ModalCloseIcon,
-  ButtonContainer,
-} from './styles';
+import * as styles from './styles';
 
 /**
  * Unlike traditional modal dialogs, Modal doesn't include functionality for closing or opening.
@@ -79,6 +71,10 @@ class Modal extends React.Component {
      */
     CloseIcon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
+     * A component to render the alignment container around action buttons
+     */
+    ButtonContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    /**
      * Align action buttons
      */
     alignButtons: PropTypes.oneOf(['right', 'left', 'center']),
@@ -105,15 +101,18 @@ class Modal extends React.Component {
     className: null,
     id: null,
     actionContent: null,
-    ActionContent: ModalActionContent,
-    Blocker: ModalBlocker,
-    Content: ModalContent,
-    Title: ModalTitle,
-    Window: ModalWindow,
-    CloseIcon: ModalCloseIcon,
+    ActionContent: styles.ActionContent,
+    Blocker: styles.Blocker,
+    Content: styles.Content,
+    Title: styles.Title,
+    Window: styles.Window,
+    CloseIcon: styles.CloseIcon,
+    ButtonContainer: styles.ButtonContainer,
     alignButtons: 'right',
     spaceBetweenButtons: 'sm',
   };
+
+  static styles = styles;
 
   handleModalClicked = event => {
     // prevents click event bubbling to blocker and triggering blockerclicked callback
@@ -136,6 +135,7 @@ class Modal extends React.Component {
     const {
       actionContent,
       ActionContent,
+      ButtonContainer,
       alignButtons,
       spaceBetweenButtons,
     } = this.props;
@@ -161,6 +161,9 @@ class Modal extends React.Component {
       Blocker,
       Content,
       Window,
+      Title,
+      ButtonContainer,
+      ActionContent,
       ...rest
     } = this.props;
 

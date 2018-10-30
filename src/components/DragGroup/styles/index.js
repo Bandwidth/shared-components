@@ -1,6 +1,6 @@
-export { default as DragGroupContainer } from './DragGroupContainer';
-export { default as DragGroupDropAreaContent } from './DragGroupDropAreaContent';
-export { default as DragGroupItemsContainer } from './DragGroupItemsContainer';
-export { default as DragGroupSeparator } from './DragGroupSeparator';
-export { default as DragGroupTitle } from './DragGroupTitle';
+export { default as Container } from './Container';
 export { default as DragItemContainer } from './DragItemContainer';
+export { default as DropAreaContent } from './DropAreaContent';
+export { default as ItemsContainer } from './ItemsContainer';
+export { default as Separator } from './Separator';
+export { default as Title } from './Title';

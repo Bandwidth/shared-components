@@ -7,7 +7,7 @@ import {
 } from 'react-dates';
 import Icon from '../Icon';
 import generateId from 'extensions/generateId';
-import { DateRangePickerWrapper, DateRangePickerLineSeparator } from './styles';
+import * as styles from './styles';
 import omit from 'lodash.omit';
 import pick from 'lodash.pick';
 
@@ -55,11 +55,13 @@ class DateRangePicker extends React.PureComponent {
   };
 
   static defaultProps = {
-    Wrapper: DateRangePickerWrapper,
-    LineSeparator: DateRangePickerLineSeparator,
+    Wrapper: styles.RangeWrapper,
+    LineSeparator: styles.LineSeparator,
     invalid: false,
     disabled: false,
   };
+
+  static styles = styles;
 
   state = {
     internalFocusedInput: null,

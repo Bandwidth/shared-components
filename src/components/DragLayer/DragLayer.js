@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DragLayer as LibDragLayer } from 'react-dnd';
-import { DragItemPreviewContainer, DragLayerOverlay } from './styles';
+import * as styles from './styles';
 import { DragContext } from 'components/DragContainer';
 import identity from 'lodash.identity';
 
@@ -44,9 +44,11 @@ class DragLayer extends React.Component {
   static defaultProps = {
     item: null,
     clientOffset: null,
-    Overlay: DragLayerOverlay,
-    PreviewContainer: DragItemPreviewContainer,
+    Overlay: styles.Overlay,
+    PreviewContainer: styles.DragItemPreviewContainer,
   };
+
+  static styles = styles;
 
   renderPreviewContent = () => {
     const { item } = this.props;

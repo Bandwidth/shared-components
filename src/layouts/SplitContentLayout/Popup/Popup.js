@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Consumer } from '../Context';
-import { Container, CloseButton } from './styles';
+import * as styles from './styles';
 
 export default class Popup extends React.Component {
   static propTypes = {
@@ -19,10 +19,25 @@ export default class Popup extends React.Component {
      * be visible.
      */
     expanded: PropTypes.bool.isRequired,
+    /**
+     * A component to render the container around the popup
+     */
+    Container: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    /**
+     * A component to render the close button of the popup
+     */
+    CloseButton: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   };
 
+  static defaultProps = {
+    Container: styles.Container,
+    CloseButton: styles.CloseButton,
+  };
+
+  static styles = styles;
+
   render() {
-    const { expanded, onClose, children } = this.props;
+    const { expanded, onClose, children, Container, CloseButton } = this.props;
 
     return (
       <Consumer>

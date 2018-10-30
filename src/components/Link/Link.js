@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import linkExtensions from './linkExtensions';
-import { TextLink, TransparentLink } from './styles';
+import * as styles from './styles';
 
-const Link = linkExtensions(TextLink);
+const Link = linkExtensions(styles.TextLink);
 
-Link.Positive = linkExtensions(TextLink.Positive);
-Link.Negative = linkExtensions(TextLink.Negative);
-Link.Dark = linkExtensions(TextLink.Dark);
-Link.Inverted = linkExtensions(TextLink.Inverted);
-Link.Wrap = linkExtensions(TransparentLink);
+Link.Positive = linkExtensions(styles.TextLink.Positive);
+Link.Negative = linkExtensions(styles.TextLink.Negative);
+Link.Dark = linkExtensions(styles.TextLink.Dark);
+Link.Inverted = linkExtensions(styles.TextLink.Inverted);
+Link.Wrap = linkExtensions(styles.TransparentLink);
 
 Link.propTypes = {
   /**

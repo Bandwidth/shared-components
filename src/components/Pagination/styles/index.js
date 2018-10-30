@@ -1,3 +1,3 @@
-export { default as PaginationContainer } from './PaginationContainer';
-export { default as PaginationItem } from './PaginationItem';
-export { default as PaginationItemPlaceholder } from './PaginationItemPlaceholder';
+export { default as Container } from './Container';
+export { default as Item } from './Item';
+export { default as ItemPlaceholder } from './ItemPlaceholder';

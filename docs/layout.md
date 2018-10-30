@@ -20,7 +20,7 @@ const NavBar = () => (
       <Navigation.Title>Bandwidth App</Navigation.Title>
     </Link.Wrap>
     <Navigation.ItemList>
-      <Link.Wrap to="/about" exact>
+      <Link.Wrap to="/about">
         <Navigation.Item>About</Navigation.Item>
       </Link.Wrap>
     </Navigation.ItemList>

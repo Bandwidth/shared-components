@@ -1,2 +1,2 @@
 export { default as DragItemPreviewContainer } from './DragItemPreviewContainer';
-export { default as DragLayerOverlay } from './DragLayerOverlay';
+export { default as Overlay } from './Overlay';

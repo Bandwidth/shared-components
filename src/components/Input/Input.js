@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { defaultProps } from 'recompose';
 import Link from 'components/Link';
-import { InputStyles, InputRevealPasswordWrapper } from './styles';
+import * as styles from './styles';
 
 class Input extends React.PureComponent {
   static propTypes = {
@@ -114,7 +114,7 @@ class Input extends React.PureComponent {
      * A component that wraps the whole element and helps control spacing
      * when reveal password is enabled
      */
-    RevealPasswordWrapper: PropTypes.oneOfType([
+    InlineContentWrapper: PropTypes.oneOfType([
       PropTypes.func,
       PropTypes.object,
     ]),
@@ -145,8 +145,8 @@ class Input extends React.PureComponent {
     error: false,
     placeholder: '',
     disableShowPassword: false,
-    Styles: InputStyles,
-    RevealPasswordWrapper: InputRevealPasswordWrapper,
+    Styles: styles.InputStyles,
+    InlineContentWrapper: styles.InlineContentWrapper,
     inlineContent: null,
     maxLength: null,
     min: null,
@@ -154,6 +154,8 @@ class Input extends React.PureComponent {
     autoComplete: true,
     appearFocused: false,
   };
+
+  static styles = styles;
 
   componentDidMount() {
     this.setState({
@@ -208,12 +210,12 @@ class Input extends React.PureComponent {
   };
 
   renderInlineContent = node => {
-    const { RevealPasswordWrapper } = this.props;
+    const { InlineContentWrapper } = this.props;
     return (
-      <RevealPasswordWrapper>
+      <InlineContentWrapper>
         {this.renderInputField()}
         <div>{node}</div>
-      </RevealPasswordWrapper>
+      </InlineContentWrapper>
     );
   };
 
@@ -288,7 +290,7 @@ class Input extends React.PureComponent {
 }
 
 Input.Small = defaultProps({
-  Styles: InputStyles.Small,
+  Styles: styles.InputStyles.Small,
 })(Input);
 
 export default Input;

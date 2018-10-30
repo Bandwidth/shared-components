@@ -6,7 +6,7 @@ import pick from 'lodash.pick';
 import noop from 'lodash.noop';
 
 import DragBoxSelect from './DragBoxSelect';
-import { DragBoxRect, DragBoxDiv } from './styles';
+import * as styles from './styles';
 
 // Minimum size for the dragbox to become active and prevent click through. This value is based on feel - it helps
 // avoid missed clicks on buttons when moving the mouse inaccurately.
@@ -101,7 +101,7 @@ class DragBox extends React.Component {
     scrollSelector: null,
     disablePointerEventsWhileDragging: false,
     renderRect: ({ left, top, width, height }) => (
-      <DragBoxRect
+      <styles.Rect
         style={{
           left,
           top,
@@ -391,7 +391,7 @@ class DragBox extends React.Component {
     } = this;
     const rect = calcRect();
     return (
-      <DragBoxDiv
+      <styles.Div
         ref={refDragElement}
         onMouseDown={handleMouseDown}
         disablePointerEvents={
@@ -401,7 +401,7 @@ class DragBox extends React.Component {
       >
         {renderRect(rect)}
         {renderContents()}
-      </DragBoxDiv>
+      </styles.Div>
     );
   }
 }

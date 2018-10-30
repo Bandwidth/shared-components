@@ -1,14 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
-import {
-  RadioGroupButtonContainer,
-  RadioGroupButtonContent,
-  RadioGroupButtonInput,
-  RadioGroupButtonLabel,
-  RadioGroupButtonLabelText,
-  RadioGroupContainer,
-} from './styles';
+import * as styles from './styles';
 
 /**
  * A stylized `<input type="radio">` meant to be used in a group with others. You can either include individual `RadioButton`
@@ -87,12 +80,14 @@ class RadioButton extends React.Component {
     className: null,
     id: null,
     disabled: false,
-    Container: RadioGroupButtonContainer,
-    Content: RadioGroupButtonContent,
-    Input: RadioGroupButtonInput,
-    Label: RadioGroupButtonLabel,
-    LabelText: RadioGroupButtonLabelText,
+    Container: styles.Container,
+    Content: styles.Content,
+    Input: styles.Input,
+    Label: styles.Label,
+    LabelText: styles.LabelText,
   };
+
+  static styles = styles;
 
   renderChildren = () => {
     const { children, checked } = this.props;
@@ -148,12 +143,12 @@ class RadioButton extends React.Component {
 }
 
 RadioButton.Small = withProps({
-  Label: RadioGroupButtonLabel.Small,
+  Label: styles.Label.Small,
 })(RadioButton);
 RadioButton.Large = withProps({
-  Label: RadioGroupButtonLabel.Large,
+  Label: styles.Label.Large,
 })(RadioButton);
 
-RadioButton.Group = RadioGroupContainer;
+RadioButton.Group = styles.GroupContainer;
 
 export default RadioButton;

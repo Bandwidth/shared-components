@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { DragSource } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
-import { DragItemContainer } from './styles';
+import * as styles from './styles';
 import { DragContext } from 'components/DragContainer';
 
 /**
@@ -31,6 +31,8 @@ class DragGroupItem extends React.Component {
      */
     groupId: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
   };
+
+  static styles = styles;
 
   componentDidMount() {
     // Use empty image as a drag preview so browsers don't draw it
@@ -68,17 +70,18 @@ class DragGroupItem extends React.Component {
         connectDragPreview,
         isDragging,
         children,
+        onMove,
         ...rest
       },
       wrapDragHandle,
     } = this;
 
     return (
-      <DragItemContainer isDragging={isDragging} {...rest}>
+      <styles.DragItemContainer isDragging={isDragging} {...rest}>
         <DragContext.Provider value={{ isDragging, wrapDragHandle }}>
           {children}
         </DragContext.Provider>
-      </DragItemContainer>
+      </styles.DragItemContainer>
     );
   }
 }

@@ -1,9 +1,7 @@
-#### Uncontrolled (interactive) toggle
+#### Basic Toggle
 
 ```javascript
-<div>
-  <Toggle value="foo" description="Foo" />
-</div>
+<Toggle value="foo" description="Foo" />
 ```
 
 ```javascript

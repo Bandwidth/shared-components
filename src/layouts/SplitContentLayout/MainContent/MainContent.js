@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ScrollShadow } from 'behaviors';
-import { Container, ContentBox } from './styles';
+import * as styles from './styles';
 import { Consumer } from '../Context';
 
 /**
@@ -8,7 +9,7 @@ import { Consumer } from '../Context';
  * the 'details' view. Main content can contain an Action Bar at any level
  * of nesting and it will work properly.
  */
-const MainContent = ({ children, ...rest }) => (
+const MainContent = ({ children, Container, ...rest }) => (
   <Consumer>
     {layoutContext =>
       layoutContext.renderElement(
@@ -26,7 +27,24 @@ const MainContent = ({ children, ...rest }) => (
   </Consumer>
 );
 
-MainContent.Container = Container;
-MainContent.Box = ContentBox;
+MainContent.propTypes = {
+  /**
+   * Children to render in the main area
+   */
+  children: PropTypes.node,
+  /**
+   * A component to use to render the container around the content
+   */
+  Container: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+};
+
+MainContent.defaultProps = {
+  Container: styles.Container,
+};
+
+MainContent.styles = styles;
+
+MainContent.Container = styles.Container;
+MainContent.Box = styles.ContentBox;
 
 export default MainContent;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FieldRowContainer, FieldRow } from './styles';
+import * as styles from './styles';
 
 /**
  * A component that renders a collection of Field components into a grid, making space for
@@ -18,21 +18,23 @@ class FieldGroup extends React.Component {
     columns: PropTypes.number,
     /**
      * A component prop to override the component used to render the outer container which renders field rows.
-     * Defaults to FieldRowContainer.
+     * Defaults to Field.Group.styles.FieldRowContainer.
      */
     RowContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * A component prop to override the component which is injected to wrap Field elements into discrete rows.
-     * Row receives the same `columns` prop provided to this component. Defaults to FieldRow.
+     * Row receives the same `columns` prop provided to this component. Defaults to Field.Group.styles.FieldRow.
      */
     Row: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {
-    RowContainer: FieldRowContainer,
-    Row: FieldRow,
+    RowContainer: styles.FieldRowContainer,
+    Row: styles.FieldRow,
     columns: 2,
   };
+
+  static styles = styles;
 
   partitionFields = () => {
     const { columns, children, Row } = this.props;

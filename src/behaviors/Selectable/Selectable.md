@@ -7,7 +7,7 @@
       <Toggle
         key={text}
         onChange={ev => toggleItem(text)}
-        value={selected.has(text)}
+        checked={selected.has(text)}
         description={text}
       />
     ))
@@ -42,7 +42,7 @@
       <Toggle
         key={text}
         onChange={ev => toggleItem(text)}
-        value={selected.has(text)}
+        checked={selected.has(text)}
         description={text}
       />
     ))

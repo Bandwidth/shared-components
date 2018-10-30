@@ -1,3 +1,3 @@
-export { default as RadioContainer } from './RadioContainer';
-export { default as RadioInput } from './RadioInput';
-export { default as RadioLabel } from './RadioLabel';
+export { default as Container } from './Container';
+export { default as Input } from './Input';
+export { default as Label } from './Label';

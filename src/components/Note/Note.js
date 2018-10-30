@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NoteContainer, NoteCorner } from './styles';
+import * as styles from './styles';
 import { defaultProps } from 'recompose';
 
 const Note = ({ children, Container, Corner, ...rest }) => (
@@ -9,6 +9,8 @@ const Note = ({ children, Container, Corner, ...rest }) => (
     <Corner />
   </Container>
 );
+
+Note.styles = styles;
 
 Note.propTypes = {
   /**
@@ -26,12 +28,12 @@ Note.propTypes = {
 };
 
 Note.defaultProps = {
-  Container: NoteContainer,
-  Corner: NoteCorner,
+  Container: styles.Container,
+  Corner: styles.Corner,
 };
 
 Note.Alternate = defaultProps({
-  Container: NoteContainer.Alternate,
+  Container: styles.Container.Alternate,
 })(Note);
 
 export default Note;

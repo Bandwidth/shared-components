@@ -2,11 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from 'components/Icon';
-import {
-  Container as DefaultContainer,
-  ChildContainer as DefaultChildContainer,
-  IconGroup as DefaultIconGroup,
-} from './styles';
+import * as styles from './styles';
 import DragContext from './DragContext';
 
 const DragHandle = styled(Icon)`
@@ -40,16 +36,33 @@ class DragContainer extends React.PureComponent {
      * Pass in custom controls for the list item.
      */
     controls: PropTypes.node,
+    /**
+     * Content to render inside the container itself
+     */
     children: PropTypes.node.isRequired,
+    /**
+     * Replaces the component used to render the outer container
+     */
+    Container: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    /**
+     * Replaces the component used to render the child container
+     */
+    ChildContainer: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    /**
+     * Replaces the component which renders the controls icons
+     */
+    IconGroup: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   };
 
   static defaultProps = {
     canDrag: true,
     controls: DefaultControls,
-    Container: DefaultContainer,
-    ChildContainer: DefaultChildContainer,
-    IconGroup: DefaultIconGroup,
+    Container: styles.Container,
+    ChildContainer: styles.ChildContainer,
+    IconGroup: styles.IconGroup,
   };
+
+  static styles = styles;
 
   renderContents = ({ isDragging, wrapDragHandle }) => {
     const {

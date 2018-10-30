@@ -6,7 +6,9 @@ import get from 'extensions/themeGet';
  * @component
  * @visibleName Code.Block
  */
-export default styled.pre`
+export default styled.div`
+  white-space: pre;
+
   font-family: ${get('fonts.monospace')};
   font-size: 1em;
 

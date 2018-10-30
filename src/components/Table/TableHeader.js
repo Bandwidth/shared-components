@@ -4,12 +4,7 @@ import { withProps } from 'recompose';
 import styled, { css } from 'styled-components';
 import { sentence } from 'change-case';
 import DefaultLink from 'components/Link';
-import {
-  TableHeaderSortArrowIcon,
-  TableHeaderStyles,
-  TableHeaderSortArrows,
-  TableHeaderColumnName,
-} from './styles';
+import * as styles from './styles';
 import noop from 'lodash.noop';
 
 class TableHeader extends React.Component {
@@ -66,12 +61,14 @@ class TableHeader extends React.Component {
     onClick: noop,
     className: null,
     id: null,
-    Icon: TableHeaderSortArrowIcon,
+    Icon: styles.HeaderSortArrowIcon,
     Link: DefaultLink,
-    Styles: TableHeaderStyles,
-    SortArrows: TableHeaderSortArrows,
-    ColumnName: TableHeaderColumnName,
+    Styles: styles.Header,
+    SortArrows: styles.HeaderSortArrows,
+    ColumnName: styles.HeaderColumnName,
   };
+
+  static styles = styles;
 
   createClickHandler = naturalOrder => ev => {
     ev.preventDefault();
@@ -126,6 +123,6 @@ class TableHeader extends React.Component {
   }
 }
 
-TableHeader.Small = withProps({ Styles: TableHeaderStyles.Small })(TableHeader);
+TableHeader.Small = withProps({ Styles: styles.Header.Small })(TableHeader);
 
 export default TableHeader;

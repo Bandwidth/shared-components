@@ -19,7 +19,6 @@ const IconList = () => (
       </Table.Row>
     }
   >
-    {' '}
     {Object.keys(icons).map(icon => (
       <Table.Row key={icon}>
         <Table.Cell>

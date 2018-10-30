@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  CardWrapper as DefaultCardWrapper,
-  CardHeader,
-  CardSection,
-} from './styles';
+import * as styles from './styles';
 import PropTypes from 'prop-types';
 
 /**
@@ -18,8 +14,10 @@ class Card extends React.Component {
   };
 
   static defaultProps = {
-    CardWrapper: DefaultCardWrapper,
+    CardWrapper: styles.Wrapper,
   };
+
+  static styles = styles;
 
   render() {
     const { children, CardWrapper, ...rest } = this.props;
@@ -27,7 +25,7 @@ class Card extends React.Component {
   }
 }
 
-Card.Section = CardSection;
-Card.Header = CardHeader;
+Card.Section = styles.Section;
+Card.Header = styles.Header;
 
 export default Card;

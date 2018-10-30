@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-  TableBody as DefaultTableBody,
-  TableRowDetailsRow,
-  TableRowDetailsStyles,
-} from './styles';
+import * as styles from './styles';
 
 // Firefox has an artificial limit on colspan of 1000. This is obviously an arbitrary
 // number of columns, but there are no cleaner or easier solutions to spanning the entire
@@ -44,9 +40,9 @@ TableRowDetails.propTypes = {
 };
 
 TableRowDetails.defaultProps = {
-  Row: TableRowDetailsRow,
-  Styles: TableRowDetailsStyles,
-  TBody: DefaultTableBody,
+  Row: styles.RowDetailsRow,
+  Styles: styles.RowDetailsStyles,
+  TBody: styles.Body,
 };
 
 export default TableRowDetails;

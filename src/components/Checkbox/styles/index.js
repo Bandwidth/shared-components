@@ -1,3 +1,3 @@
-export { default as CheckboxContainer } from './CheckboxContainer';
-export { default as CheckboxInput } from './CheckboxInput';
-export { default as CheckboxLabel } from './CheckboxLabel';
+export { default as Container } from './Container';
+export { default as Input } from './Input';
+export { default as Label } from './Label';
