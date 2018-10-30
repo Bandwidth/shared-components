@@ -1,5 +1,5 @@
-export { default as AccordionArrow } from './AccordionArrow';
-export { default as AccordionBorder } from './AccordionBorder';
-export { default as AccordionContent } from './AccordionContent';
-export { default as AccordionLabel } from './AccordionLabel';
-export { default as AccordionLabelText } from './AccordionLabelText';
+export { default as Arrow } from './Arrow';
+export { default as Border } from './Border';
+export { default as Content } from './Content';
+export { default as Label } from './Label';
+export { default as LabelText } from './LabelText';

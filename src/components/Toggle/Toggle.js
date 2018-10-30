@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import generateId from 'extensions/generateId';
-import { ToggleContainer, ToggleInput, ToggleLabel } from './styles';
+import * as styles from './styles';
 
 /**
  * A simple `Toggle` component thta can be turned on and off. Use `checked` to set
@@ -19,11 +19,11 @@ class Toggle extends React.PureComponent {
      */
     id: PropTypes.string,
     /**
-     * The value of the toggle. DEPRECATION WARNING: this prop
-     * used to be used for the 'checked' boolean state. You should use
-     * `checked` for that instead.
+     * The literal value this toggle represents. For example, if this toggle
+     * represents whether the app is in "Dark Mode", you might provide "darkMode"
+     * to this prop to represent that value key.
      */
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    value: PropTypes.string,
     /**
      * Whether the toggle is 'on' or 'off'.
      */
@@ -65,43 +65,21 @@ class Toggle extends React.PureComponent {
   static defaultProps = {
     className: null,
     id: null,
-    value: false,
+    value: undefined,
+    checked: undefined,
     name: null,
     required: false,
     disabled: false,
     description: null,
     onChange: () => null,
-    Container: ToggleContainer,
-    Input: ToggleInput,
-    Label: ToggleLabel,
+    Container: styles.Container,
+    Input: styles.Input,
+    Label: styles.Label,
   };
+
+  static styles = styles;
 
   defaultId = generateId('toggle');
-
-  computeChecked = () => {
-    const { value, checked } = this.props;
-
-    if (typeof checked === 'boolean') {
-      return checked;
-    }
-
-    if (typeof value === 'boolean') {
-      return value;
-    }
-
-    return undefined;
-  };
-
-  computeValue = () => {
-    const { value, checked } = this.props;
-    // assume user is using value correctly if checked is defined
-    // or if value isn't boolean
-    if (checked !== undefined || typeof value !== 'boolean') {
-      return value;
-    }
-
-    return undefined;
-  };
 
   render() {
     const {
@@ -128,13 +106,13 @@ class Toggle extends React.PureComponent {
           name={name}
           type="checkbox"
           disabled={disabled}
-          checked={this.computeChecked()}
-          value={this.computeValue()}
+          checked={checked}
+          value={value}
           required={required}
           onChange={onChange}
           {...rest}
         />
-        <Label htmlFor={id}>{description}</Label>
+        <Label htmlFor={finalId}>{description}</Label>
       </Container>
     );
   }

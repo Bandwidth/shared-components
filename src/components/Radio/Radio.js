@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import generateId from 'extensions/generateId';
-import { RadioContainer, RadioInput, RadioLabel } from './styles';
+import * as styles from './styles';
 
 /**
  * A basic `<input type="radio">` component. Group buttons together by setting the `name` prop for them to the same value.
@@ -66,10 +66,12 @@ class Radio extends React.PureComponent {
     disabled: false,
     description: null,
     onChange: () => null,
-    Container: RadioContainer,
-    Input: RadioInput,
-    Label: RadioLabel,
+    Container: styles.Container,
+    Input: styles.Input,
+    Label: styles.Label,
   };
+
+  static styles = styles;
 
   defaultId = generateId('radio');
 
@@ -111,8 +113,8 @@ class Radio extends React.PureComponent {
   }
 }
 
-Radio.Input = RadioInput;
-Radio.Label = RadioLabel;
-Radio.Container = RadioContainer;
+Radio.Input = styles.Input;
+Radio.Label = styles.Label;
+Radio.Container = styles.Container;
 
 export default Radio;

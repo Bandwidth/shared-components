@@ -1,2 +1,2 @@
-export { default as NoteContainer } from './NoteContainer';
-export { default as NoteCorner } from './NoteCorner';
+export { default as Container } from './Container';
+export { default as Corner } from './Corner';

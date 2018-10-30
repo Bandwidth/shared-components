@@ -8,14 +8,7 @@ import ScrollShadow from 'behaviors/ScrollShadow';
 import RowDetails from './TableRowDetails';
 import Header from './TableHeader';
 
-import {
-  TableStyles,
-  TableOverlay,
-  TableCell as Cell,
-  TableRow as Row,
-  TableBody,
-  TableScrollContainer,
-} from './styles';
+import * as styles from './styles';
 
 class Table extends React.Component {
   static propTypes = {
@@ -55,6 +48,10 @@ class Table extends React.Component {
      * A component that wraps the whole table as a scroll context
      */
     ScrollContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    /**
+     * A component that renders a <tbody>
+     */
+    Body: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
   static defaultProps = {
@@ -63,10 +60,13 @@ class Table extends React.Component {
     id: null,
     headers: null,
     wrapBody: true,
-    Styles: TableStyles,
-    Overlay: TableOverlay,
-    ScrollContainer: TableScrollContainer,
+    Styles: styles.TableStyles,
+    Overlay: styles.Overlay,
+    ScrollContainer: styles.ScrollContainer,
+    Body: styles.Body,
   };
+
+  static styles = styles;
 
   render() {
     const {
@@ -78,6 +78,7 @@ class Table extends React.Component {
       wrapBody,
       Styles,
       Overlay,
+      Body,
       ScrollContainer,
       ...rest
     } = this.props;
@@ -85,7 +86,7 @@ class Table extends React.Component {
       <ScrollShadow horizontal ScrollContainer={ScrollContainer} {...rest}>
         <Styles cellPadding={0} cellSpacing={0} className={className} id={id}>
           <thead>{headers}</thead>
-          {wrapBody ? <TableBody>{children}</TableBody> : children}
+          {wrapBody ? <Body>{children}</Body> : children}
         </Styles>
         {loading && (
           <Overlay>
@@ -97,14 +98,14 @@ class Table extends React.Component {
   }
 }
 
-Table.Row = Row;
+Table.Row = styles.Row;
 Table.Header = Header;
-Table.Cell = Cell;
+Table.Cell = styles.Cell;
 Table.RowDetails = RowDetails;
-Table.Body = TableBody;
+Table.Body = styles.Body;
 
 Table.Small = withProps({
-  Styles: TableStyles.Small,
+  Styles: styles.TableStyles.Small,
 })(Table);
 
 export default Table;

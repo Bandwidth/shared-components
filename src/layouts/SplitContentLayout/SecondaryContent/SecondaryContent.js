@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ScrollShadow } from 'behaviors';
-import { Container, ShadowContainer, SidebarList } from './styles';
+import * as styles from './styles';
 import { Consumer } from '../Context';
 
 /**
@@ -8,7 +9,13 @@ import { Consumer } from '../Context';
  * it's either an item list or a small single-column form.
  * Secondary content can contain an Action Bar if you want it to.
  */
-const SecondaryContent = ({ children, overlapBorder, ...rest }) => (
+const SecondaryContent = ({
+  children,
+  overlapBorder,
+  Container,
+  ShadowContainer,
+  ...rest
+}) => (
   <Consumer>
     {layoutContext =>
       layoutContext.renderElement(
@@ -29,7 +36,30 @@ const SecondaryContent = ({ children, overlapBorder, ...rest }) => (
   </Consumer>
 );
 
-SecondaryContent.Container = Container;
-SecondaryContent.SidebarList = SidebarList;
+SecondaryContent.propTypes = {
+  /**
+   * Children you want to render in the sidebar
+   */
+  children: PropTypes.node,
+  /**
+   * A component to override the one that renders the outer container
+   */
+  Container: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+  /**
+   * A component to override the one that renders the shadow container for
+   * the inner ScrollShadow
+   */
+  ShadowContainer: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+};
+
+SecondaryContent.defaultProps = {
+  Container: styles.Container,
+  ShadowContainer: styles.ShadowContainer,
+};
+
+SecondaryContent.styles = styles;
+
+SecondaryContent.Container = styles.Container;
+SecondaryContent.SidebarList = styles.SidebarList;
 
 export default SecondaryContent;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Bar, BottomContent, ExpandingContainer, ControlArea } from './styles';
+import * as styles from './styles';
 import { ACTION_BAR_HEIGHT } from '../constants';
 import { Consumer } from '../Context';
 import { ScrollShadow } from 'behaviors';
@@ -26,12 +26,37 @@ export default class ActionBar extends React.Component {
      * Called with ({ expanded, toggleExpanded, barHeight })
      */
     renderExpandingContent: PropTypes.func,
+    /**
+     * Controls whether the action bar content area is expanded to fill the screen.
+     */
     expanded: PropTypes.bool,
+    /**
+     * A component to override the one that renders the bar section
+     */
+    Bar: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    /**
+     * A component to override the one that renders the bottom content section
+     */
+    BottomContent: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    /**
+     * A component to override the one that renders the control area section
+     */
+    ControlArea: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    /**
+     * A component to override the one that renders the expanding container section
+     */
+    ExpandingContainer: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   };
 
   static defaultProps = {
     renderExpandingContent: null,
+    Bar: styles.Bar,
+    BottomContent: styles.BottomContent,
+    ControlArea: styles.ControlArea,
+    ExpandingContainer: styles.ExpandingContainer,
   };
+
+  static styles = styles;
 
   state = {
     internalExpanded: !!this.props.expanded,
@@ -71,7 +96,14 @@ export default class ActionBar extends React.Component {
 
   render() {
     const {
-      props: { children, renderExpandingContent },
+      props: {
+        children,
+        renderExpandingContent,
+        Bar,
+        BottomContent,
+        ControlArea,
+        ExpandingContainer,
+      },
       toggleExpanded,
     } = this;
 

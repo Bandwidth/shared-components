@@ -1,7 +1,7 @@
+export { default as ActionContent } from './ActionContent';
+export { default as Blocker } from './Blocker';
 export { default as ButtonContainer } from './ButtonContainer';
-export { default as ModalActionContent } from './ModalActionContent';
-export { default as ModalBlocker } from './ModalBlocker';
-export { default as ModalCloseIcon } from './ModalCloseIcon';
-export { default as ModalContent } from './ModalContent';
-export { default as ModalTitle } from './ModalTitle';
-export { default as ModalWindow } from './ModalWindow';
+export { default as CloseIcon } from './CloseIcon';
+export { default as Content } from './Content';
+export { default as Title } from './Title';
+export { default as Window } from './Window';

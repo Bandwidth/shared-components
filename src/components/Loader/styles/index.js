@@ -1,2 +1,2 @@
-export { default as LoaderContainer } from './LoaderContainer';
-export { default as LoaderRing } from './LoaderRing';
+export { default as Container } from './Container';
+export { default as Ring } from './Ring';

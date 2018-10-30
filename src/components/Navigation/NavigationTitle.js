@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DefaultLogo from 'components/Logo';
-import { NavigationLogoPairWrapper, NavigationHeading } from './styles';
+import * as styles from './styles';
 
 class LogoHeader extends React.Component {
   static propTypes = {
@@ -35,10 +35,12 @@ class LogoHeader extends React.Component {
     children: 'Bandwidth',
     className: null,
     id: null,
-    LogoPairWrapper: NavigationLogoPairWrapper,
+    LogoPairWrapper: styles.LogoPairWrapper,
     Logo: DefaultLogo,
-    Heading: NavigationHeading,
+    Heading: styles.Heading,
   };
+
+  static styles = styles;
 
   render() {
     const {

@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DropTarget } from 'react-dnd';
-import {
-  DragGroupContainer as GroupContainer,
-  DragGroupItemsContainer as GroupItemsContainer,
-  DragGroupSeparator,
-  DragGroupTitle,
-} from './styles';
-import DragGroupDropArea from './DragGroupDropArea';
-import ExpandToggle from '../../behaviors/ExpandToggle';
+import * as styles from './styles';
+import DropArea from './DragGroupDropArea';
+import ExpandToggle from 'behaviors/ExpandToggle';
 import DragItem from './DragGroupItem';
 import DragContainer from 'components/DragContainer';
 
@@ -33,29 +28,29 @@ class DragGroup extends React.Component {
 
     /**
      * Override the outer container visual component
-     * Defaults DragGroupContainer
+     * Defaults DragGroup.styles.Container
      */
     Container: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Override the visual component which wraps the child items
-     * Defaults DragGroupItemsContainer
+     * Defaults DragGroup.styles.ItemsContainer
      */
     ItemsContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Override the behavioral component which renders the drop area
-     * Defaults DragGroupDropArea
+     * Defaults DragGroup.DropArea
      */
     DropArea: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Overrides the behavioral component which renders a clickable separator
      * between items.
-     * Defaults DragGroupSeparator
+     * Defaults DragGroup.styles.Separator
      */
     Separator: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
      * Overrides the visual component which renders the toggle-enabled title
      * of a group.
-     * Defaults DragGroupTitle
+     * Defaults DragGroup.styles.Title
      */
     Title: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 
@@ -110,11 +105,11 @@ class DragGroup extends React.Component {
     allowDrag: true,
     collapsible: true,
 
-    Container: GroupContainer,
-    ItemsContainer: GroupItemsContainer,
-    DropArea: DragGroupDropArea,
-    Separator: DragGroupSeparator,
-    Title: DragGroupTitle,
+    Container: styles.Container,
+    ItemsContainer: styles.ItemsContainer,
+    DropArea: DropArea,
+    Separator: styles.Separator,
+    Title: styles.Title,
 
     itemType: null,
     groupId: null,
@@ -123,6 +118,9 @@ class DragGroup extends React.Component {
     onItemDropped: () => null,
     onRemoved: () => null,
   };
+
+  static styles = styles;
+  static DropArea = DropArea;
 
   calcOverrideExpanded = () => {
     const { allowDrag, canDrop, collapsible } = this.props;

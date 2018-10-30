@@ -5,7 +5,7 @@
 - Merged `@bandwidth/shared-components` and `@bandwidth/layouts`.
 - Library will now be published to `@bandwidth/scale` in addition to `@bandwidth/shared-components`.
 - `@bandwidth/layouts` will NO LONGER BE PUBLISHED.
-- "configuration components" (i.e. all components which are not used directly, but are exported so they can be overriden and passed as props to "main" components) are no longer exported directly from the library. To use them, you must import them manually using the full path (ex: `import AccordionArrow from '@bandwidth/scale/dist/components/Accordion/styles/AccordionArrow';`)
+- "configuration components" (i.e. all components which are not used directly, but are exported so they can be overriden and passed as props to "main" components) are no longer exported directly from the library. To use them, reference the `styles` static object attached to the relevant main component (`Accordion.styles.Border`, etc).
 - _We now use styled-components v4!_ Please update your local styled-components dependency and run their [code mod](https://github.com/styled-components/styled-components-codemods) for migration if necessary.
 - `Anchor` is now `Link`! This is a high-profile rework of the unstable Anchor component. The new naming is meant to be more intuitive for those unfamiliar with the history of the `<a>` tag. See full migration docs below.
 - We now use Rollup to package the library.
@@ -29,8 +29,13 @@
 - `userTextSpacing` is gone! Use `userSpacing.text`!
 - `BulkSelect` is gone! Use `DragBox.Select` + `Grid` + `ToggleButton`!
 - `TableControls` is gone! This pattern is no longer considered part of our best practices. You might want to replace it with a "Link solar system" instead (see the Layout guidance docs)
+- `SimpleTable`/`Table.Simple` is gone! This component only worked for niche use cases which we don't see often in full-scale web applications, and should be easy enough to implement yourself.
+- `SearchBox` is gone! This was another unused and unmaintained component. You could recreate it using `Input` (see: `inlineContent` prop).
 - `provinces` helper is no longer provided. Please check out the `provinces` NPM package yourself.
 - `Expand` is gone. This was not a documented component, and wasn't used anywhere.
+- `Toast` is gone. This is another component which was not actively used and unmaintained.
+- `Page` is gone. This component was trying too hard to anticipate use cases which are probably specific to your app, and is redundant with similar concepts in the new layout system.
+- `Pane` is officially deprecated and unsupported. We'll leave it in the library for now, but please think about alternatives. We're not even sure it still works for all use cases, anyway.
 - `Select` no longer has a `multi` option. We are not aware of any current projects which use this feature. We may re-introduce it in a coming minor version, but for now we have removed it since it was not well-supported.
 - `MethodTag` is deprecated. Please re-implement it in your own app if you need it. We may introduce a `Tag` component to replace it in a future release.
 
@@ -57,6 +62,7 @@ Other usage migration details:
 ### Input
 
 - `readonly` prop is now `readOnly`.
+- `RevealPasswordWrapper` prop is now `InlineContentWrapper`
 
 ### RadioButtonGroup
 
@@ -65,6 +71,15 @@ No longer exported. Use `RadioButton.Group`.
 ### CardGroup
 
 No longer exported. Use `Card.Group`.
+
+### Checkbox
+
+- Using `value` to control checkbox on/off state is officially gone now. You should use `value` to control the actual value the checkbox represents and use `checked` to control checkbox state, just like a regular input.
+
+### Code
+
+- Code now uses a `span` element for better DOM nesting conventions.
+- Code.Block uses a `div` for the same reasons.
 
 ### CodeBlock
 
@@ -89,6 +104,16 @@ Added `horizontal` prop, which creates a horizontally scrolling shadowed element
 ### Select
 
 Select has been rewritten to use Downshift and React Portals (it was using an old version of react-select, which was causing issues). The new version works even within overflow-hidden containers! However, we did end up removing the `multi` option for now to keep the rewrite simple. We may re-introduce it soon in a minor version.
+
+- `allowNone` was deprecated and has now been removed. Use `required` to control this behavior
+- `isLoading` has been removed. Use `loading`.
+- Several more unused / unmaintained props were removed. If this affects you, please contribute them back into the rewritten component:
+  - `onChange`, `onBlur`, `onInputKeyDown`, `onFocus`, `onOpen`, `onValueClick`, `autoBlur`, `autoFocus`, `closeOnSelect`, `deleteRemoves`, `delimiter`, `filterOption`, `filterOptions`, `ignoreAccents`, `ignoreCase`, `inputProps`
+  - These were all from `react-select`, which we removed from the internal component.
+
+### Toggle
+
+- Using `value` to control toggle on/off state is officially gone now. You should use `value` to control the actual value the toggle represents and use `checked` to control toggle state, just like a regular input.
 
 ## For contributors
 

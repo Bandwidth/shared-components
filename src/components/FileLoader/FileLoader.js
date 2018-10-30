@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
 import Icon from 'components/Icon';
 import Link from 'components/Link';
-import { FileLoaderDropArea, FileLoaderPreview } from './styles';
+import * as styles from './styles';
 
 export default class FileLoader extends React.Component {
   static propTypes = {
@@ -42,9 +42,11 @@ export default class FileLoader extends React.Component {
     disabled: false,
     className: null,
     id: null,
-    DropArea: FileLoaderDropArea,
-    Preview: FileLoaderPreview,
+    DropArea: styles.DropArea,
+    Preview: styles.Preview,
   };
+
+  static styles = styles;
 
   renderFiles = () => {
     const { value, DropArea, Preview } = this.props;

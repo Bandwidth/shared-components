@@ -1,7 +1,7 @@
 export { default } from './Accordion';
 
-export { default as AccordionArrow } from './styles/AccordionArrow';
-export { default as AccordionBorder } from './styles/AccordionBorder';
-export { default as AccordionContent } from './styles/AccordionContent';
-export { default as AccordionLabel } from './styles/AccordionLabel';
-export { default as AccordionLabelText } from './styles/AccordionLabelText';
+export { default as AccordionArrow } from './styles/Arrow';
+export { default as AccordionBorder } from './styles/Border';
+export { default as AccordionContent } from './styles/Content';
+export { default as AccordionLabel } from './styles/Label';
+export { default as AccordionLabelText } from './styles/LabelText';

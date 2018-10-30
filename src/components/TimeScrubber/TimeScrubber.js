@@ -1,6 +1,6 @@
 import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
-import * as components from './styles';
+import * as styles from './styles';
 import moment from 'moment';
 
 const disabledRange = [-1, -1];
@@ -73,11 +73,13 @@ class TimeScrubber extends React.Component {
       .second(0),
     disabled: false,
     allowedRange: [0, 23.75],
-    Container: components.TimeScrubberContainer,
-    NudgeButton: components.TimeScrubberNudgeButton,
-    Viewport: components.TimeScrubberViewport,
-    Timeline: components.TimeScrubberTimeline,
+    Container: styles.Container,
+    NudgeButton: styles.NudgeButton,
+    Viewport: styles.Viewport,
+    Timeline: styles.Timeline,
   };
+
+  static styles = styles;
 
   state = {
     offset: 0,

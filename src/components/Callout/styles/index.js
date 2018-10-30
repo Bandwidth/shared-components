@@ -1,1 +1,1 @@
-export { default as CalloutContainer } from './CalloutContainer';
+export { default as Container } from './Container';

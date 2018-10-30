@@ -6,7 +6,7 @@ import {
   SingleDatePickerShape,
 } from 'react-dates';
 import Icon from '../Icon';
-import { DatePickerWrapper } from './styles';
+import * as styles from './styles';
 
 import DateRangePicker from './DateRangePicker';
 import moment from 'moment';
@@ -50,11 +50,13 @@ class DatePicker extends React.PureComponent {
   };
 
   static defaultProps = {
-    Wrapper: DatePickerWrapper,
+    Wrapper: styles.Wrapper,
     displayFormat: 'MMM DD YYYY',
     invalid: false,
     disabled: false,
   };
+
+  static styles = styles;
 
   state = {
     focused: false,

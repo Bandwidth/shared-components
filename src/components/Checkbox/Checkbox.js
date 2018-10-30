@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import generateId from 'extensions/generateId';
-import { CheckboxInput, CheckboxLabel, CheckboxContainer } from './styles';
+import * as styles from './styles';
 import { defaultProps } from 'recompose';
 
 /**
@@ -18,9 +18,11 @@ export default class Checkbox extends React.PureComponent {
      */
     id: PropTypes.string,
     /**
-     * The value of the checkbox.
+     * The literal value this checkbox represents. For example, if this checkbox
+     * represents whether the app is in "Dark Mode", you might provide "darkMode"
+     * to this prop to represent that value key.
      */
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    value: PropTypes.string,
     /**
      * Whether the checkbox is checked or not.
      */
@@ -64,41 +66,18 @@ export default class Checkbox extends React.PureComponent {
     disabled: false,
     description: null,
     onChange: () => null,
-    Input: CheckboxInput,
-    Label: CheckboxLabel,
-    Container: CheckboxContainer,
+    Input: styles.Input,
+    Label: styles.Label,
+    Container: styles.Container,
   };
 
+  static styles = styles;
+
   static Small = defaultProps({
-    Label: CheckboxLabel.Small,
+    Label: styles.Label.Small,
   })(Checkbox);
 
   defaultId = generateId('checkbox');
-
-  computeChecked = () => {
-    const { value, checked } = this.props;
-
-    if (typeof checked === 'boolean') {
-      return checked;
-    }
-
-    if (typeof value === 'boolean') {
-      return value;
-    }
-
-    return undefined;
-  };
-
-  computeValue = () => {
-    const { value, checked } = this.props;
-    // assume user is using value correctly if checked is defined
-    // or if value isn't boolean
-    if (checked !== undefined || typeof value !== 'boolean') {
-      return value;
-    }
-
-    return undefined;
-  };
 
   render() {
     const {
@@ -112,11 +91,12 @@ export default class Checkbox extends React.PureComponent {
       Container,
       Input,
       Label,
+      value,
+      checked,
       ...rest
     } = this.props;
 
     const finalId = id || this.defaultId;
-    const isChecked = this.computeChecked();
 
     return (
       <Container>
@@ -126,13 +106,13 @@ export default class Checkbox extends React.PureComponent {
           className={className}
           type="checkbox"
           disabled={disabled}
-          checked={isChecked}
-          value={this.computeValue()}
+          checked={checked}
+          value={value}
           required={required}
           onChange={onChange}
           {...rest}
         />
-        <Label htmlFor={finalId} active={isChecked}>
+        <Label htmlFor={finalId} active={!!checked}>
           {description}
         </Label>
       </Container>

@@ -2,15 +2,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import selectOptionPrimaryValue from 'extensions/selectItemPrimaryValue';
-import {
-  OptionsList,
-  Option,
-  Arrow,
-  ClearButton,
-  Controls,
-  Searchable,
-  Unsearchable,
-} from './styles';
+import * as styles from './styles';
 import Downshift from 'downshift';
 import { Input, Loader } from 'components';
 import { Manager, Reference, Popper } from 'react-popper';
@@ -20,81 +12,9 @@ import { Foreground } from 'behaviors';
 class Select extends React.PureComponent {
   static propTypes = {
     /**
-     * Whether to blur the component upon selection
-     */
-    autoBlur: PropTypes.bool,
-    /**
-     * Whether to focus the component on mount
-     */
-    autoFocus: PropTypes.bool,
-    /**
-     * Whether to close the menu when a value is selected
-     */
-    closeOnSelect: PropTypes.bool,
-    /**
-     * Whether pressing backspace will clear a value.
-     */
-    deleteRemoves: PropTypes.bool,
-    /**
-     * delimiter to use to join multiple values for the hidden field value
-     */
-    delimiter: PropTypes.string,
-    /**
-     * method to filter a single option (option, filterString)
-     */
-    filterOption: PropTypes.func,
-    /**
-     * boolean to enable default filtering or function to filter the options array ([options], filterString, [values])
-     */
-    filterOptions: PropTypes.func,
-    /**
-     * whether to strip diacritics when filtering
-     */
-    ignoreAccents: PropTypes.bool,
-    /**
-     * whether to perform case-insensitive filtering
-     */
-    ignoreCase: PropTypes.bool,
-    /**
-     * custom attributes for the Input
-     */
-    inputProps: PropTypes.object,
-    /**
-     * controls whether the component renders in a loading state
-     */
-    isLoading: PropTypes.bool,
-    /**
      * The name to apply to the input field
      */
     name: PropTypes.string,
-    /**
-     * Handler for blur events on the input
-     */
-    onBlur: PropTypes.func,
-    /**
-     * Handler for closing the options list
-     */
-    onClose: PropTypes.func,
-    /**
-     * Handler for focus events on the input
-     */
-    onFocus: PropTypes.func,
-    /**
-     * Handles raw input change events
-     */
-    onInputChange: PropTypes.func,
-    /**
-     * Handles raw input key down events
-     */
-    onInputKeyDown: PropTypes.func,
-    /**
-     * Handler for opening the options list
-     */
-    onOpen: PropTypes.func,
-    /**
-     * Handler for when an option is selected (value, event) => {}
-     */
-    onValueClick: PropTypes.func,
     /**
      * Text or node to show if none is selected
      */
@@ -151,17 +71,25 @@ class Select extends React.PureComponent {
      */
     loading: PropTypes.bool,
     /**
-     * DEPRECATED: use getOptionValue
-     */
-    selectOptionValue: PropTypes.func,
-    /**
-     * DEPRECATED: use required to prevent None, or omit it to allow None
-     */
-    allowNone: PropTypes.bool,
-    /**
      * The text to use when no option is selected. If this value is not provided, the text will default to placeholder
      */
     noneText: PropTypes.string,
+    /**
+     * Renders the select in "searchable" form. Use to override behavior.
+     */
+    Searchable: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    /**
+     * Renders the select in "unsearchable" form. Use to override behavior.
+     */
+    Unsearchable: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    /**
+     * Renders an option. Use to override behavior.
+     */
+    Option: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    /**
+     * Renders the list of options. Use to override behavior.
+     */
+    OptionsList: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   };
 
   static defaultProps = {
@@ -175,27 +103,10 @@ class Select extends React.PureComponent {
     renderOption: selectOptionPrimaryValue,
     getOptionValue: selectOptionPrimaryValue,
     searchable: false,
-  };
-
-  /**
-   * Takes the options provided and converts them into
-   * react-select options using user-provided conversion
-   * functions to generate a displayed label and a backing value
-   *
-   * @memberof Select
-   */
-  convertOptions = () => {
-    const {
-      options,
-      renderOption,
-      getOptionValue,
-      selectOptionValue,
-    } = this.props;
-
-    return options.map(opt => ({
-      label: renderOption(opt),
-      value: (getOptionValue || selectOptionValue)(opt),
-    }));
+    Searchable: styles.Searchable,
+    Unsearchable: styles.Unsearchable,
+    Option: styles.Option,
+    OptionsList: styles.OptionsList,
   };
 
   render() {
@@ -214,6 +125,10 @@ class Select extends React.PureComponent {
       searchable,
       disabled,
       onChange,
+      Searchable,
+      Unsearchable,
+      Option,
+      OptionsList,
       ...rest
     } = this.props;
     const combinedLoading = loading || isLoading;

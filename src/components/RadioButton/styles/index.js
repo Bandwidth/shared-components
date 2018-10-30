@@ -1,6 +1,6 @@
-export { default as RadioGroupButtonContainer } from './RadioGroupButtonContainer';
-export { default as RadioGroupButtonContent } from './RadioGroupButtonContent';
-export { default as RadioGroupButtonInput } from './RadioGroupButtonInput';
-export { default as RadioGroupButtonLabel } from './RadioGroupButtonLabel';
-export { default as RadioGroupButtonLabelText } from './RadioGroupButtonLabelText';
-export { default as RadioGroupContainer } from './RadioGroupContainer';
+export { default as Container } from './Container';
+export { default as Content } from './Content';
+export { default as GroupContainer } from './GroupContainer';
+export { default as Input } from './Input';
+export { default as Label } from './Label';
+export { default as LabelText } from './LabelText';

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import RadioButton from 'components/RadioButton';
 import moment from 'moment';
-import { TimeContainer, TimeRadioContainer } from './styles';
+import * as styles from './styles';
 import InternalTimePicker from './InternalTimePicker';
 
 /**
@@ -35,6 +35,8 @@ class TimePicker extends React.PureComponent {
     timeFormat: 'hh:mm',
     disabled: false,
   };
+
+  static styles = styles;
 
   state = {
     internalValue: undefined,
@@ -79,14 +81,14 @@ class TimePicker extends React.PureComponent {
   render() {
     const { name, value, timeFormat, onChange, ...rest } = this.props;
     return (
-      <TimeContainer>
+      <styles.TimeContainer>
         <InternalTimePicker
           {...rest}
           onChange={this.handleTimeChange}
           value={this.momentValue.format(this.props.timeFormat)}
         />
         {!this.twentyFourHour && (
-          <TimeRadioContainer>
+          <styles.RadioContainer>
             <RadioButton.Small
               onChange={this.handleAmPm(true)}
               checked={this.isAm}
@@ -101,9 +103,9 @@ class TimePicker extends React.PureComponent {
               value="pm"
               label="PM"
             />
-          </TimeRadioContainer>
+          </styles.RadioContainer>
         )}
-      </TimeContainer>
+      </styles.TimeContainer>
     );
   }
 }

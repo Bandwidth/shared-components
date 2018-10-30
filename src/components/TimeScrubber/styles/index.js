@@ -1,5 +1,5 @@
-export { default as TimeScrubberContainer } from './TimeScrubberContainer';
-export { default as TimeScrubberNudgeButton } from './TimeScrubberNudgeButton';
-export { default as TimeScrubberTimeDisplay } from './TimeScrubberTimeDisplay';
-export { default as TimeScrubberTimeline } from './TimeScrubberTimeline';
-export { default as TimeScrubberViewport } from './TimeScrubberViewport';
+export { default as Container } from './Container';
+export { default as NudgeButton } from './NudgeButton';
+export { default as TimeDisplay } from './TimeDisplay';
+export { default as Timeline } from './Timeline';
+export { default as Viewport } from './Viewport';

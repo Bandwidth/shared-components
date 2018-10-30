@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'components/DatePicker';
 import TimePicker from 'components/TimePicker';
-import { DateTimeRangePickerContainer as TimePickerContainer } from './styles';
+import * as styles from './styles';
 import moment from 'moment';
 import noop from 'lodash.noop';
 
@@ -53,6 +53,10 @@ class DateTimeRangePicker extends React.PureComponent {
      * to disable a particular part of the component.
      */
     disabled: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    /**
+     * Provides a different component to contain the picker
+     */
+    Container: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   };
 
   static defaultProps = {
@@ -65,7 +69,10 @@ class DateTimeRangePicker extends React.PureComponent {
     value: undefined,
     invalid: false,
     disabled: false,
+    Container: styles.RangeContainer,
   };
+
+  static styles = styles;
 
   state = {
     internalValue: { start: undefined, end: undefined },
@@ -149,6 +156,7 @@ class DateTimeRangePicker extends React.PureComponent {
       onChange,
       disabledStartText,
       disabledEndText,
+      Container,
       ...rest
     } = this.props;
 
@@ -163,7 +171,7 @@ class DateTimeRangePicker extends React.PureComponent {
         onDatesChange={this.handleDatesChange}
         calendarInfoPosition="top"
         renderCalendarInfo={() => (
-          <TimePickerContainer>
+          <Container>
             {this.startDateDisabled() || (
               <TimePicker
                 name="start-time-picker"
@@ -180,7 +188,7 @@ class DateTimeRangePicker extends React.PureComponent {
                 onChange={this.handleEndTimeChange}
               />
             )}
-          </TimePickerContainer>
+          </Container>
         )}
         {...rest}
       />

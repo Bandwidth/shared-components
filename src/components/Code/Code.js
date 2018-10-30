@@ -5,7 +5,9 @@ import get from 'extensions/themeGet';
 
 import Block from './CodeBlock';
 
-const Code = styled.pre.withConfig({ displayName: 'Code' })`
+const Code = styled.span.withConfig({ displayName: 'Code' })`
+  white-space: pre;
+
   font-family: ${get('fonts.monospace')};
   font-size: 0.85em;
 

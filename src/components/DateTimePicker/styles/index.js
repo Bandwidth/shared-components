@@ -1,2 +1,2 @@
-export { default as DateTimePickerContainer } from './DateTimePickerContainer';
-export { default as DateTimeRangePickerContainer } from './DateTimeRangePickerContainer';
+export { default as Container } from './Container';
+export { default as RangeContainer } from './RangeContainer';

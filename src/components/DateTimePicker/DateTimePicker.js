@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'components/DatePicker';
 import TimePicker from 'components/TimePicker';
-import { DateTimePickerContainer as TimePickerContainer } from './styles';
+import * as styles from './styles';
 import DateTimeRangePicker from './DateTimeRangePicker';
 import moment from 'moment';
 import noop from 'lodash.noop';
@@ -38,6 +38,10 @@ class DateTimePicker extends React.PureComponent {
      * Set to true if the component should be disabled.
      */
     disabled: PropTypes.bool,
+    /**
+     * Provides a different component to contain the picker
+     */
+    Container: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   };
 
   static defaultProps = {
@@ -47,7 +51,10 @@ class DateTimePicker extends React.PureComponent {
     value: undefined,
     invalid: false,
     disabled: false,
+    Container: styles.Container,
   };
+
+  static styles = styles;
 
   state = {
     internalValue: undefined,
@@ -84,20 +91,20 @@ class DateTimePicker extends React.PureComponent {
   };
 
   render() {
-    const { onChange, ...rest } = this.props;
+    const { onChange, Container, ...rest } = this.props;
     return (
       <DatePicker
         date={this.momentValue}
         onDateChange={this.handleDateChange}
         calendarInfoPosition="top"
         renderCalendarInfo={() => (
-          <TimePickerContainer>
+          <Container>
             <TimePicker
               name="time-picker"
               value={this.momentValue}
               onChange={this.handleTimeChange}
             />
-          </TimePickerContainer>
+          </Container>
         )}
         {...rest}
       />

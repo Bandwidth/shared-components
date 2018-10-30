@@ -1,11 +1,13 @@
-import NavigationItemListStack from './styles/NavigationItemListStack';
 import NavigationTitle from './NavigationTitle';
-import { NavigationItemList, NavigationItem, NavigationBar } from './styles';
+import * as styles from './styles';
+
+const NavigationBar = styles.Bar;
 
 NavigationBar.Title = NavigationTitle;
-NavigationBar.ItemListStack = NavigationItemListStack;
-NavigationBar.ItemList = NavigationItemList;
-NavigationBar.Item = NavigationItem;
+NavigationBar.ItemListStack = styles.ItemListStack;
+NavigationBar.ItemList = styles.ItemList;
+NavigationBar.Item = styles.Item;
+NavigationBar.styles = styles;
 
 /**
  * @component

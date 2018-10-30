@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StepList } from './styles';
+import * as styles from './styles';
 
 /**
  * `Step.Group` automatically assigns numbers to its Step children.
@@ -19,7 +19,9 @@ export default class StepGroup extends React.Component {
     List: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
-  static defaultProps = { List: StepList };
+  static defaultProps = { List: styles.List };
+
+  static styles = styles;
 
   renderSteps = () =>
     React.Children.map(this.props.children, (step, index) =>

@@ -3,14 +3,7 @@ import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
 import { UnmountClosed } from 'react-collapse';
 
-import {
-  AlertGroup,
-  AlertCloseButton,
-  AlertIcon,
-  AlertBorder,
-  AlertText,
-  AlertContent,
-} from './styles';
+import * as styles from './styles';
 
 /**
  * Alerts are used to present messages to the user. Every alert is an interruption, so
@@ -77,20 +70,22 @@ export default class Alert extends React.PureComponent {
     className: null,
     id: null,
     spacing: '0',
-    Border: AlertBorder,
-    Content: AlertContent,
-    Text: AlertText,
-    Icon: AlertIcon,
-    CloseButton: AlertCloseButton,
+    Border: styles.Border,
+    Content: styles.Content,
+    Text: styles.Text,
+    Icon: styles.Icon,
+    CloseButton: styles.CloseButton,
   };
 
+  static styles = styles;
+
   static Small = withProps({
-    Border: AlertBorder.Small,
-    Icon: AlertIcon.Small,
-    Content: AlertContent.Small,
+    Border: styles.Border.Small,
+    Icon: styles.Icon.Small,
+    Content: styles.Content.Small,
   })(Alert);
 
-  static Group = AlertGroup;
+  static Group = styles.Group;
 
   closeTimeoutRef = null;
   closingTimeoutRef = null;

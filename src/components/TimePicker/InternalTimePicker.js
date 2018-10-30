@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TimeInputContainer } from './styles';
+import { InputContainer } from './styles';
 import TimeInput from 'time-input';
 
 export default class InternalTimePicker extends React.Component {
@@ -14,9 +14,9 @@ export default class InternalTimePicker extends React.Component {
 
   render() {
     return (
-      <TimeInputContainer disabled={this.props.disabled}>
+      <InputContainer disabled={this.props.disabled}>
         <TimeInput {...this.props} />
-      </TimeInputContainer>
+      </InputContainer>
     );
   }
 }

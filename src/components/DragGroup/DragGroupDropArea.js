@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DropTarget } from 'react-dnd';
-import { DragGroupDropAreaContent } from './styles';
+import * as styles from './styles';
 
 /**
  * The droppable area of a DragGroup. Connected to react-dnd.
@@ -20,8 +20,10 @@ class DragGroupDropArea extends React.Component {
   };
 
   static defaultProps = {
-    Content: DragGroupDropAreaContent,
+    Content: styles.DropAreaContent,
   };
+
+  static styles = styles;
 
   render() {
     const {
@@ -30,6 +32,7 @@ class DragGroupDropArea extends React.Component {
       canDrop,
       isOver,
       children,
+      groupId,
       ...rest
     } = this.props;
     return connectDropTarget(

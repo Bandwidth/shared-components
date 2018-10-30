@@ -3,13 +3,7 @@ import PropTypes from 'prop-types';
 import { defaultProps } from 'recompose';
 
 import { ExpandToggle } from 'behaviors';
-import {
-  AccordionLabel,
-  AccordionArrow,
-  AccordionBorder,
-  AccordionLabelText,
-  AccordionContent,
-} from './styles';
+import * as styles from './styles';
 
 /**
  * Accordion expands and collapses when the label is clicked. Alternatively, you can provide the `isExpanded` prop to force open/closed state.
@@ -104,13 +98,15 @@ class Accordion extends React.Component {
     disabled: false,
     unmountClosed: false,
     springConfig: null,
-    Border: AccordionBorder,
-    Label: AccordionLabel,
-    Arrow: AccordionArrow,
-    LabelText: AccordionLabelText,
-    Content: AccordionContent,
+    Border: styles.Border,
+    Label: styles.Label,
+    Arrow: styles.Arrow,
+    LabelText: styles.LabelText,
+    Content: styles.Content,
     labelSpacing: 'lg',
   };
+
+  static styles = styles;
 
   coalesceIsExpandedProps = () => {
     const { isExpanded, isCollapsed } = this.props;
@@ -169,9 +165,9 @@ class Accordion extends React.Component {
 }
 
 Accordion.Small = defaultProps({
-  Border: AccordionBorder.Small,
-  Arrow: AccordionArrow.Small,
-  Label: AccordionLabel.Small,
+  Border: styles.Border.Small,
+  Arrow: styles.Arrow.Small,
+  Label: styles.Label.Small,
   labelSpacing: '20px',
 })(Accordion);
 

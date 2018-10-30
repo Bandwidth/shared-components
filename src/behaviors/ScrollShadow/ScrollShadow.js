@@ -1,12 +1,7 @@
 import React, { createContext, createRef } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-import {
-  Sentinel,
-  ShadowOverlay,
-  DefaultContainer,
-  DefaultScrollContainer,
-} from './styles';
+import * as styles from './styles';
 
 const { Provider, Consumer } = createContext(() => () => {});
 
@@ -38,6 +33,16 @@ export default class ScrollShadow extends React.Component {
      */
     ScrollContainer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     /**
+     * A component responsible for monitoring the position of the scroll using its own
+     * visibility. You probably don't want to override this.
+     */
+    Sentinel: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    /**
+     * A component responsible for rendering the shadow over the top of the scroll
+     * area. You probably don't want to override this.
+     */
+    ShadowOverlay: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    /**
      * Flip this to true to show a red line where the scroll sentinel elements are.
      * Can be useful for debugging if the shadows don't seem to work correctly.
      */
@@ -47,10 +52,14 @@ export default class ScrollShadow extends React.Component {
   static defaultProps = {
     global: false,
     horizontal: false,
-    Container: DefaultContainer,
-    ScrollContainer: DefaultScrollContainer,
+    Container: styles.DefaultContainer,
+    ScrollContainer: styles.DefaultScrollContainer,
+    Sentinel: styles.Sentinel,
+    ShadowOverlay: styles.ShadowOverlay,
     debugShowSentinels: false,
   };
+
+  static styles = styles;
 
   /**
    * A sentinel is an invisible element which is used to track the scroll boundaries.
@@ -171,7 +180,7 @@ export default class ScrollShadow extends React.Component {
   };
 
   renderGlobalSentinels = () => {
-    const { horizontal } = this.props;
+    const { horizontal, Sentinel } = this.props;
 
     return createPortal(
       <React.Fragment>
@@ -200,9 +209,11 @@ export default class ScrollShadow extends React.Component {
       global,
       Container,
       ScrollContainer,
+      Sentinel,
       disabled,
       outer,
       horizontal,
+      ShadowOverlay,
       ...extraProps
     } = this.props;
 

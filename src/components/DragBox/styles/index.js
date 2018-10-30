@@ -1,2 +1,2 @@
-export { default as DragBoxDiv } from './DragBoxDiv';
-export { default as DragBoxRect } from './DragBoxRect';
+export { default as Div } from './Div';
+export { default as Rect } from './Rect';

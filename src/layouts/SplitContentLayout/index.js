@@ -1,8 +1,8 @@
 import SplitContentLayout from './SplitContentLayout';
-import MainContent from './MainContent/MainContent';
-import SecondaryContent from './SecondaryContent/SecondaryContent';
-import ActionBar from './ActionBar/ActionBar';
-import Popup from './Popup/Popup';
+import MainContent from './MainContent';
+import SecondaryContent from './SecondaryContent';
+import ActionBar from './ActionBar';
+import Popup from './Popup';
 
 SplitContentLayout.MainContent = MainContent;
 SplitContentLayout.SecondaryContent = SecondaryContent;

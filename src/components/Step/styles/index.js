@@ -1,4 +1,4 @@
-export { default as StepContainer } from './StepContainer';
-export { default as StepContent } from './StepContent';
-export { default as StepList } from './StepList';
-export { default as StepNumber } from './StepNumber';
+export { default as Container } from './Container';
+export { default as Content } from './Content';
+export { default as List } from './List';
+export { default as Number } from './Number';
