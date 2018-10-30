@@ -84,6 +84,20 @@ module.exports = {
       monospace: '"Source Code Pro", monospace',
     },
   },
+  styles: {
+    Code: {
+      code: {
+        'font-size': '0.85em',
+        background: 'var(--colors-gray-light)',
+        color: 'var(--colors-text-default)',
+        'border-color': 'var(--colors-border-medium)',
+        'border-width': '1px',
+        'border-style': 'solid',
+        'border-radius': '3px',
+        padding: '0.3em',
+      },
+    },
+  },
   ignore: ['src/components/**/index.js'],
   require: [
     'styled-components',

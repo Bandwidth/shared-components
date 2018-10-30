@@ -78,8 +78,8 @@ No longer exported. Use `Card.Group`.
 
 ### Code
 
-- Code now uses a `span` element for better DOM nesting conventions.
-- Code.Block uses a `div` for the same reasons.
+- Code now uses a `code` element for better DOM nesting conventions.
+- Code.Block uses a `code` for the same reasons.
 
 ### CodeBlock
 
