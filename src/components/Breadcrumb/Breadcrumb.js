@@ -1,16 +1,14 @@
 import styled from 'styled-components';
+import { userSpacing } from 'extensions';
 
 const Breadcrumb = styled.div`
-  float: left;
-
-  & > * {
-    float: left;
-  }
-
-  &:after {
-    clear: both;
-  }
+  display: inline-block;
+  margin: ${userSpacing.text};
 `;
+
+Breadcrumb.defaultProps = {
+  spacing: { bottom: 'md' },
+};
 
 /**
  * @component
