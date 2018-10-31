@@ -1,10 +1,24 @@
 import styled from 'styled-components';
 import Breadcrumb from './Breadcrumb';
 import dedent from 'dedent';
+import { themeGet } from 'extensions';
 
 const Breadcrumbs = styled.div`
-  & > ${Breadcrumb}:not(:last-child)::after {
-    content: '\00a0 \00a0 ›\00a0 \00a0';
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+
+  & > ${Breadcrumb}:not(:last-child) {
+    margin-right: 18px;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      right: -12px;
+      bottom: 0;
+      content: '›';
+    }
   }
 `;
 

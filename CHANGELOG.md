@@ -59,6 +59,11 @@ Other usage migration details:
 - For icon "combo" links (or links which are just icons), be sure to provide an `icon="name"` prop if you don't already
 - External links should be detected automatically and opened in a new tab. If you want to force a link to open in a new tab, you can still use the `newTab` prop.
 
+### Breadcrumb
+
+- Breadcrumb was rewritten to use better layout tools for real-world scenarios.
+- `Breadcrumb` is now the primary export, use `Breadcrumb.Group` to create lists.
+
 ### Input
 
 - `readonly` prop is now `readOnly`.
