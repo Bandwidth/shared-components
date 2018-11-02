@@ -289,6 +289,14 @@ export default class ScrollShadow extends React.Component {
  * a scroll container.
  */
 export class ConnectedShadow extends React.PureComponent {
+  static propTypes = {
+    ShadowOverlay: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+  };
+
+  static defaultProps = {
+    ShadowOverlay: styles.ShadowOverlay,
+  };
+
   generatedName = `shadow${Math.floor(Math.random() * 100000)}`;
 
   render() {
@@ -296,6 +304,7 @@ export class ConnectedShadow extends React.PureComponent {
       outer,
       entireViewport,
       disabled,
+      ShadowOverlay,
       name = this.generatedName,
     } = this.props;
 

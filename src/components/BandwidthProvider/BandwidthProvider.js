@@ -25,6 +25,11 @@ class BandwidthProvider extends React.PureComponent {
      */
     dragLayerPortal: PropTypes.object,
     /**
+     * The DOM element to provide to all Foreground components to render into. Skip this
+     * prop and we will generate one for you inside BandwidthProvider
+     */
+    foregroundLayerPortal: PropTypes.any,
+    /**
      * Should the global style be skipped. Defaults to false.
      */
     skipGlobalStyle: PropTypes.bool,
@@ -60,20 +65,21 @@ class BandwidthProvider extends React.PureComponent {
       customTheme,
       skipGlobalStyle,
       children,
+      foregroundLayerPortal,
     } = this.props;
-    const styleRootProps = {};
-    if (customTheme) styleRootProps.customTheme = customTheme;
     return (
       <React.Fragment>
-        <StyleRoot className="styleroot" {...styleRootProps}>
-          <Foreground.Provider>{children}</Foreground.Provider>
+        <StyleRoot className="styleroot">
+          <Foreground.Provider element={foregroundLayerPortal}>
+            {children}
+          </Foreground.Provider>
           {dragLayerPortal ? (
             ReactDOM.createPortal(<DragLayer />, dragLayerPortal)
           ) : (
             <DragLayer />
           )}
         </StyleRoot>
-        {skipGlobalStyle || <styles.GlobalStyle />}
+        {skipGlobalStyle || <styles.GlobalStyle theme={customTheme} />}
       </React.Fragment>
     );
   }

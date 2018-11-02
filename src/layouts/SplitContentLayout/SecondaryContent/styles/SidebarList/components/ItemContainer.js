@@ -15,4 +15,9 @@ export default styled.li`
         : themeGet('colors.border.medium')(props)};
   position: relative;
   overflow-x: visible;
+
+  &.active {
+    background: ${themeGet('colors.gray.light')};
+    border-right-color: ${themeGet('colors.gray.light')};
+  }
 `;

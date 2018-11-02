@@ -9,7 +9,7 @@ import * as styles from './styles';
  * as the user scrolls the page). It houses the secondary content and action
  * bar, which are rendered in using portals.
  */
-const FixedLayer = ({ layerRef }) => (
+const FixedLayer = ({ layerRef, Overlay }) => (
   <Consumer>
     {({ clientTop, mainContentLocation }) => (
       <Overlay ref={layerRef} mainContentLocation={mainContentLocation} />

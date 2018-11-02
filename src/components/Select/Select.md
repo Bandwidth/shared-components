@@ -19,42 +19,22 @@ const complexOptions = [
   },
 ];
 
-class Wrapper extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: null };
-  }
-
-  render() {
-    return (
-      <div style={{ padding: '8px 0' }}>
-        <Select
-          {...this.props}
-          value={this.state.value}
-          onChange={newValue => this.setState({ value: newValue })}
-        />
-        <div>Raw Value: {JSON.stringify(this.state.value)}</div>
-      </div>
-    );
-  }
-}
-
 <div>
   <div>A basic select:</div>
-  <Wrapper options={options} />
+  <Select options={options} />
   <div>An invalid select:</div>
-  <Wrapper invalid options={options} />
+  <Select invalid options={options} />
   <div>A searchable select:</div>
-  <Wrapper searchable options={options} />
+  <Select.Searchable options={options} />
   <div>A required select:</div>
-  <Wrapper required options={options} />
+  <Select required options={options} />
   <div>A select with complex options:</div>
-  <Wrapper
+  <Select
     options={complexOptions}
     getOptionValue={opt => opt.id}
     renderOption={opt => `${opt.name} (${opt.count})`}
   />
   <div>Loading state:</div>
-  <Wrapper options={options} loading />
+  <Select options={options} loading />
 </div>;
 ```

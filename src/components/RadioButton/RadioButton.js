@@ -150,5 +150,7 @@ RadioButton.Large = withProps({
 })(RadioButton);
 
 RadioButton.Group = styles.GroupContainer;
+RadioButton.Small.Group = styles.GroupContainer;
+RadioButton.Large.Group = styles.GroupContainer;
 
 export default RadioButton;

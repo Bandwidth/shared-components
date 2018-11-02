@@ -12,10 +12,4 @@ export default styled.div`
 
   width: 100%;
   height: 100%;
-
-  ${({ customTheme }) =>
-    customTheme &&
-    css`
-      ${cssvars(customTheme)};
-    `};
 `;

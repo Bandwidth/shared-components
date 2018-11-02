@@ -19,7 +19,8 @@ export default styled.div`
   max-height: 200px;
   z-index: 1000000;
   -webkit-overflow-scrolling: touch;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   animation: ${expand} 200ms;
 
   &[data-placement='bottom'] {

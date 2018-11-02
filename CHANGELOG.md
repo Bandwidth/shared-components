@@ -113,8 +113,11 @@ Select has been rewritten to use Downshift and React Portals (it was using an ol
 - `allowNone` was deprecated and has now been removed. Use `required` to control this behavior
 - `isLoading` has been removed. Use `loading`.
 - Several more unused / unmaintained props were removed. If this affects you, please contribute them back into the rewritten component:
-  - `onChange`, `onBlur`, `onInputKeyDown`, `onFocus`, `onOpen`, `onValueClick`, `autoBlur`, `autoFocus`, `closeOnSelect`, `deleteRemoves`, `delimiter`, `filterOption`, `filterOptions`, `ignoreAccents`, `ignoreCase`, `inputProps`
+  - `onBlur`, `onInputKeyDown`, `onFocus`, `onOpen`, `onValueClick`, `autoBlur`, `autoFocus`, `closeOnSelect`, `deleteRemoves`, `delimiter`, `filterOption`, `filterOptions`, `ignoreAccents`, `ignoreCase`, `inputProps`
   - These were all from `react-select`, which we removed from the internal component.
+  - We now use [`Downshift`](https://github.com/paypal/downshift) internally and will pass any extra props you provide to `Select` down to the internal `Downshift`. Check the Downshift documentation to see if some of its provided props can satisfy your use case needs.
+- `searchable` behavior has been moved from a prop to a new component variant, `Select.Searchable`. `Searchable` is a stateful component that computes a new list of options on-the-fly using a function you can override.
+- `getOptionValue` is gone. You will receive the exact option you specified in the `options` prop when `onChange` is called. Please transform this option however you see fit in your usage of the component.
 
 ### Toggle
 

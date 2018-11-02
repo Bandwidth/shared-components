@@ -14,6 +14,13 @@ const context = createContext({
  */
 class ForegroundProvider extends React.Component {
   static propTypes = {
+    /**
+     * You can choose to provide your own custom element for the Foreground system to
+     * use instead of rendering one here. If you provide this prop an HTML element,
+     * this component will not render the default element and will make all Foreground
+     * components render into your provided element.
+     */
+    element: PropTypes.any,
     Layer: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   };
 
@@ -32,12 +39,15 @@ class ForegroundProvider extends React.Component {
   };
 
   render() {
-    const { children, Layer, ...rest } = this.props;
+    const { children, Layer, element: externalElement, ...rest } = this.props;
+    const { element: internalElement } = this.state;
+
+    const element = externalElement || internalElement;
 
     return (
-      <context.Provider value={this.state}>
+      <context.Provider value={{ element }}>
         {children}
-        <Layer ref={this.elementRef} {...rest} />
+        {!externalElement && <Layer ref={this.elementRef} {...rest} />}
       </context.Provider>
     );
   }
