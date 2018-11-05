@@ -64,15 +64,6 @@ Other usage migration details:
 - Breadcrumb was rewritten to use better layout tools for real-world scenarios.
 - `Breadcrumb` is now the primary export, use `Breadcrumb.Group` to create lists.
 
-### Input
-
-- `readonly` prop is now `readOnly`.
-- `RevealPasswordWrapper` prop is now `InlineContentWrapper`
-
-### RadioButtonGroup
-
-No longer exported. Use `RadioButton.Group`.
-
 ### CardGroup
 
 No longer exported. Use `Card.Group`.
@@ -94,13 +85,22 @@ No longer exported. Use `Code.Block`.
 
 No longer exported. Use `DateTimePicker.Range`.
 
-### SubmitButton
+### Input
 
-No longer exported. Use `Button.Submit`.
+- `readonly` prop is now `readOnly`.
+- `RevealPasswordWrapper` prop is now `InlineContentWrapper`
 
-### TableCell, TableHeader, TableBody, TableRow ...
+### Link
 
-Table sub-components are no longer exported. Use their attached static versions from Table instead, like `Table.Cell`, etc.
+`Link` is a new component which replaces `Anchor`. Its usage is mostly the same, but you must now use `Link.Wrap` to create 'wrapper' links which don't apply any styling to their children.
+
+### Navigation.Item
+
+- Navigation items now style as active when a parent has the `active` CSS class. This helps them work better in the new link system.
+
+### RadioButtonGroup
+
+No longer exported. Use `RadioButton.Group`.
 
 ### ScrollShadow
 
@@ -118,6 +118,19 @@ Select has been rewritten to use Downshift and React Portals (it was using an ol
   - We now use [`Downshift`](https://github.com/paypal/downshift) internally and will pass any extra props you provide to `Select` down to the internal `Downshift`. Check the Downshift documentation to see if some of its provided props can satisfy your use case needs.
 - `searchable` behavior has been moved from a prop to a new component variant, `Select.Searchable`. `Searchable` is a stateful component that computes a new list of options on-the-fly using a function you can override.
 - `getOptionValue` is gone. You will receive the exact option you specified in the `options` prop when `onChange` is called. Please transform this option however you see fit in your usage of the component.
+  - As part of the removal of `getOptionValue`, you can now expect the `options` of the Select to always be identical in shape and value to the final selected `value`. This is a breaking change in behavior. Users who previously relied on `getOptionValue` to make their `value` different from the `options` themselves will need to write extra logic to accomodate the simplification of the component. Specifically, you probably want to move the logic which computed the final value of the field into the `onChange` handler. The `value` you supply to the component should be literally one of the options you also provide, and any transformations of that data for your application's logic should happen outside this component.
+
+### SidebarList.Item
+
+- SidebarList items now respond when the parent has an `.active` CSS class applied and render as 'active'. This lets them function with the new Link system.
+
+### SubmitButton
+
+No longer exported. Use `Button.Submit`.
+
+### TableCell, TableHeader, TableBody, TableRow ...
+
+Table sub-components are no longer exported. Use their attached static versions from Table instead, like `Table.Cell`, etc.
 
 ### Toggle
 

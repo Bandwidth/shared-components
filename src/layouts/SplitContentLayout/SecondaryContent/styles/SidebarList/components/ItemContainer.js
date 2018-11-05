@@ -16,7 +16,8 @@ export default styled.li`
   position: relative;
   overflow-x: visible;
 
-  &.active {
+  &.active,
+  .active > & {
     background: ${themeGet('colors.gray.light')};
     border-right-color: ${themeGet('colors.gray.light')};
   }
