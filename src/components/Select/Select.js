@@ -167,11 +167,16 @@ class Select extends React.PureComponent {
               {downshiftProps.isOpen && (
                 <Popper
                   placement="bottom"
+                  boundariesPadding={0}
                   modifiers={{
                     matchWidth: popperMatchWidthModifier,
                     flip: {
                       behavior: 'flip',
                       padding: 20,
+                    },
+                    preventOverflow: {
+                      escapeWithReference: true,
+                      padding: 0,
                     },
                   }}
                   {...popperProps}
