@@ -7,7 +7,7 @@ const Breadcrumb = styled.div`
 `;
 
 Breadcrumb.defaultProps = {
-  spacing: { bottom: 'md' },
+  spacing: { bottom: 'md', top: 'md' },
 };
 
 /**

@@ -8,6 +8,8 @@ const Breadcrumbs = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-end;
+  padding-left: ${themeGet('spacing.large')};
+  padding-right: ${themeGet('spacing.large')};
 
   & > ${Breadcrumb}:not(:last-child) {
     margin-right: 18px;

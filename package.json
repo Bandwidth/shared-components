@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "animation-timer": "^1.0.12",
+    "change-case": "^3.0.2",
     "create-react-class": "^15.5.3",
     "dedent": "^0.7.0",
     "downshift": "^3.1.4",

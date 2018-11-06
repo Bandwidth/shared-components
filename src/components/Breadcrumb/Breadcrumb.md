@@ -5,7 +5,7 @@
 Although `Breadcrumb` normally contains a link to another layer in the navigation, `Breadcrumb` can contain any manner of content:
 
 ```jsx harmony
-<div style={{display: 'flex'}}>
+<div style={{ border: '1px solid var(--colors-border-light)' }}>
   <Breadcrumb.Group>
     <Breadcrumb>
       <Link to="/foo">Links are fine</Link>
@@ -17,9 +17,6 @@ Although `Breadcrumb` normally contains a link to another layer in the navigatio
       <span>Spans are OK</span>
     </Breadcrumb>
     <Breadcrumb>Plain text also works</Breadcrumb>
-    <Breadcrumb>
-      <div style={{ width: '80px' }}>Tall content will wrap and push upwards.</div>
-    </Breadcrumb>
   </Breadcrumb.Group>
 </div>
 ```
