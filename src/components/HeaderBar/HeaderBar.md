@@ -36,7 +36,7 @@ A horizontal 'header bar' for use between the navigation menu and the main conte
   </Navigation>
   <HeaderBar>
     <Label>Header bar content with some link</Label>
-    <Anchor>You messaging URI</Anchor>
+    <Link>You messaging URI</Link>
   </HeaderBar>
 </div>
 ```
