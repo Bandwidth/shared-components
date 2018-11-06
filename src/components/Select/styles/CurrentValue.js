@@ -4,6 +4,7 @@ import Loader from 'components/Loader';
 import DefaultControls from './Controls';
 import DefaultArrow from './Arrow';
 import DefaultClearButton from './ClearButton';
+import DefaultLoadingState from './LoadingState';
 import styled from 'styled-components';
 import { themeGet } from 'extensions';
 
@@ -25,12 +26,6 @@ const DefaultWrapper = styled.div`
     height: 100%;
   }
 `;
-const DefaultOverlayLoading = styled(Loader)`
-  position: absolute;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%);
-`;
 
 const Unsearchable = forwardRef(
   (
@@ -50,44 +45,51 @@ const Unsearchable = forwardRef(
       Controls,
       ClearButton,
       Arrow,
+      LoadingState,
     },
     ref,
-  ) => (
-    <Wrapper {...(disabled || loading ? {} : getToggleButtonProps({ ref }))}>
-      <FakeInput
-        appearFocused={isOpen}
-        disabled={disabled}
-        required={required}
-        invalid={invalid}
-      >
-        {loading ? <OverlayLoading /> : inputValue || placeholder}
-      </FakeInput>
-      <Controls>
-        {!!inputValue &&
-          !disabled &&
-          !required && <ClearButton onClick={clearSelection} />}
-        <Arrow expanded={isOpen} />
-      </Controls>
-    </Wrapper>
-  ),
+  ) => {
+    if (loading) {
+      return <LoadingState required={required} invalid={invalid} />;
+    }
+
+    return (
+      <Wrapper {...(disabled || loading ? {} : getToggleButtonProps({ ref }))}>
+        <FakeInput
+          appearFocused={isOpen}
+          disabled={disabled}
+          required={required}
+          invalid={invalid}
+        >
+          {inputValue || placeholder}
+        </FakeInput>
+        <Controls>
+          {!!inputValue &&
+            !disabled &&
+            !required && <ClearButton onClick={clearSelection} />}
+          <Arrow expanded={isOpen} />
+        </Controls>
+      </Wrapper>
+    );
+  },
 );
 
 Unsearchable.defaultProps = {
   Wrapper: DefaultWrapper,
   FakeInput: DefaultFakeInput,
   Controls: DefaultControls,
-  OverlayLoading: DefaultOverlayLoading,
   Arrow: DefaultArrow,
   ClearButton: DefaultClearButton,
+  LoadingState: DefaultLoadingState,
 };
 
 Unsearchable.styles = {
   Wrapper: DefaultWrapper,
   FakeInput: DefaultFakeInput,
   Controls: DefaultControls,
-  OverlayLoading: DefaultOverlayLoading,
   Arrow: DefaultArrow,
   ClearButton: DefaultClearButton,
+  LoadingState: DefaultLoadingState,
 };
 
 export default Unsearchable;

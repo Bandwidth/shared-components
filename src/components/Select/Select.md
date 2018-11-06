@@ -36,6 +36,8 @@ const complexOptions = [
   />
   <div>Loading state:</div>
   <Select options={options} loading />
+  <div>Searchable loading state:</div>
+  <Select.Searchable options={options} loading />
 </div>;
 ```
 

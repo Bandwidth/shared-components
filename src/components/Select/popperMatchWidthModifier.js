@@ -1,10 +1,8 @@
 export default {
   fn: data => {
-    data.styles.width = data.offsets.popper.width =
-      data.offsets.reference.width;
-    // this +1 seems important, maybe due to borders?
-    data.offsets.popper.left = data.offsets.reference.left;
-    data.offsets.popper.right = data.offsets.reference.right;
+    data.styles.width = data.offsets.popper.width = Math.round(
+      data.offsets.reference.width,
+    );
     return data;
   },
   enabled: true,

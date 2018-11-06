@@ -73,7 +73,7 @@ class Select extends React.PureComponent {
      * Handler for change events on the select. It will be called with the exact
      * option you passed in via options
      */
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     /**
      * Alias for isLoading
      */

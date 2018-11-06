@@ -7,3 +7,4 @@ export { default as SearchableCurrentValue } from './SearchableCurrentValue';
 export { default as SelectWrapper } from './SelectWrapper';
 export { default as CurrentValue } from './CurrentValue';
 export { default as Options } from './Options';
+export { default as LoadingState } from './LoadingState';
