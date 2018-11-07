@@ -1,0 +1,1 @@
+export { default as MoneyStyles } from './MoneyStyles';
