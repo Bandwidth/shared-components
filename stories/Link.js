@@ -21,19 +21,19 @@ storiesOf('Link', module)
     <React.Fragment>
       <h2>External</h2>
       <Horizontal>
-        <Link external onClick={action('clicked')}>
+        <Link newTab onClick={action('clicked')}>
           Text
         </Link>
-        <Link.Negative external onClick={action('clicked')}>
+        <Link.Negative newTab onClick={action('clicked')}>
           Negative
         </Link.Negative>
-        <Link.Positive external onClick={action('clicked')}>
+        <Link.Positive newTab onClick={action('clicked')}>
           Positive
         </Link.Positive>
-        <Link.Dark external onClick={action('clicked')}>
+        <Link.Dark newTab onClick={action('clicked')}>
           Dark
         </Link.Dark>
-        <Link.Inverted external onClick={action('clicked')}>
+        <Link.Inverted newTab onClick={action('clicked')}>
           Inverted
         </Link.Inverted>
       </Horizontal>

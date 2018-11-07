@@ -130,7 +130,12 @@ No longer exported. Use `Button.Submit`.
 
 ### TableCell, TableHeader, TableBody, TableRow ...
 
-Table sub-components are no longer exported. Use their attached static versions from Table instead, like `Table.Cell`, etc.
+- Table sub-components are no longer exported. Use their attached static versions from Table instead, like `Table.Cell`, etc.
+- `Small` variants of Table components (like `Table.Cell.Small`) have been removed. Using `Table.Small` will take care of this styling for you.
+
+### Table
+
+- `Table.Small` now controls the styling of all children to make them small. You no longer need to use `Table.Cell.Small` or `Table.Header.Small` (these variants have actually been removed now since they are no longer necessary).
 
 ### Toggle
 

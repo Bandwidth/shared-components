@@ -34,7 +34,7 @@ storiesOf('Select', module).add('types', () => (
     <Select onChange={action('change')} loading options={options} />
     <h2>Complex options</h2>
     <Select
-      onChange={option => action('change')(option.value)}
+      onChange={option => action('change')(option ? option.value : option)}
       options={complexOptions}
       renderOption={option => option.label}
     />

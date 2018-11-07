@@ -25,8 +25,4 @@ const TableHeaderStyles = styled.th`
   }
 `;
 
-TableHeaderStyles.Small = styled(TableHeaderStyles)`
-  padding: 3px 8px;
-`;
-
 export default TableHeaderStyles;

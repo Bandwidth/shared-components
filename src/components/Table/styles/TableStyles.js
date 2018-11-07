@@ -17,6 +17,11 @@ const TableStyles = styled.table`
 
 TableStyles.Small = styled(TableStyles)`
   font-size: 0.9em;
+
+  & th,
+  & td {
+    padding: 3px 8px;
+  }
 `;
 
 export default TableStyles;

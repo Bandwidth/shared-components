@@ -79,11 +79,12 @@ class TimePicker extends React.PureComponent {
   }
 
   render() {
-    const { name, value, timeFormat, onChange, ...rest } = this.props;
+    const { name, value, timeFormat, onChange, disabled, ...rest } = this.props;
     return (
       <styles.TimeContainer>
         <InternalTimePicker
           {...rest}
+          disabled={disabled}
           onChange={this.handleTimeChange}
           value={this.momentValue.format(this.props.timeFormat)}
         />
@@ -95,6 +96,7 @@ class TimePicker extends React.PureComponent {
               name={`${name}-ampm`}
               value="am"
               label="AM"
+              disabled={disabled}
             />
             <RadioButton.Small
               onChange={this.handleAmPm(false)}
@@ -102,6 +104,7 @@ class TimePicker extends React.PureComponent {
               name={`${name}-ampm`}
               value="pm"
               label="PM"
+              disabled={disabled}
             />
           </styles.RadioContainer>
         )}

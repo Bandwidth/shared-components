@@ -20,8 +20,4 @@ TableCell.defaultProps = {
   children: String.fromCharCode(160), // &nbsp;
 };
 
-TableCell.Small = styled(TableCell)`
-  padding: 3px 8px;
-`;
-
 export default TableCell;

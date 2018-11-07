@@ -29,29 +29,42 @@ storiesOf('Toggle', module)
   .add('standard', () => (
     <Grid columns={1}>
       <h2>Standard</h2>
-      <Toggle onChange={action('onChange')} description="Off" />
-      <Toggle onChange={action('onChange')} description="On" value={true} />
+      <Toggle description="Uncontrolled (interactive)" value="hi" />
+      <Toggle
+        onChange={action('onChange')}
+        description="Off"
+        checked={false}
+        value="bar"
+      />
+      <Toggle
+        onChange={action('onChange')}
+        description="On"
+        checked
+        value="foo"
+      />
       <h2>Disabled</h2>
       <Toggle
         onChange={action('onChange')}
         disabled
         description="Disabled Off"
+        value="bar"
       />
       <Toggle
         onChange={action('onChange')}
         disabled
         description="Disabled On"
-        value={true}
+        value="foo"
+        checked
       />
     </Grid>
   ))
   .add('rerender keeps id', () => (
     <React.Fragment>
       <RenderEverySecond>
-        <Toggle onChange={action('onChange')} description="Off" />
+        <Toggle onChange={action('onChange')} description="Hello" value="foo" />
       </RenderEverySecond>
       <RenderEverySecond>
-        <Toggle onChange={action('onChange')} description="Off" />
+        <Toggle onChange={action('onChange')} description="Hello" value="bar" />
       </RenderEverySecond>
     </React.Fragment>
   ));
