@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, P, Code, Spacing } from '../../../../../src';
+import { H1, P, Code, Spacing } from '@bandwidth/shared-components';
 import { Example } from '../common';
 
 const examples = [
@@ -24,8 +24,6 @@ export default () => (
       </P>
       <P>Looking for a demo? That's this entire docs site!</P>
     </Spacing>
-    {examples.map((code, idx) => (
-      <Example key={idx}>{code}</Example>
-    ))}
+    {examples.map((code, idx) => <Example key={idx}>{code}</Example>)}
   </React.Fragment>
 );

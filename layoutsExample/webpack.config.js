@@ -16,7 +16,7 @@ module.exports = {
 
   resolve: {
     alias: {
-      '@bandwidth/shared-components': path.resolve(__dirname, '../../../src'),
+      '@bandwidth/shared-components': path.resolve(__dirname, '../../src'),
     },
   },
 
