@@ -18,9 +18,11 @@
     "layout": "webpack-serve docs/layouts/src/webpack.config.js",
     "build-docs:layouts": "webpack --config docs/layoutsExample/webpack.config.js --output-path docsDist/layouts",
     "build-docs:core": "cross-env NODE_PATH=src styleguidist build",
+    "build-docs:v5": "cpy --parents --cwd=docs v5/**/* ../docsDist/",
+    "build-docs:nojekyll": "touch docsDist/.nojekyll",
     "build-docs": "run-p build-docs:*",
     "predeploy": "npm run build-docs",
-    "deploy": "gh-pages -d docs"
+    "deploy": "gh-pages -d docsDist --dotfiles"
   },
   "repository": {
     "type": "git",
@@ -94,6 +96,7 @@
     "babel-plugin-module-resolver": "3.1.1",
     "babel-plugin-styled-components": "1.8.0",
     "connect-history-api-fallback": "^1.5.0",
+    "cpy-cli": "^2.0.0",
     "cross-env": "^5.1.1",
     "css-loader": "^1.0.0",
     "enzyme": "^2.9.1",
