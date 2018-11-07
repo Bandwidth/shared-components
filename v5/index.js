@@ -1,7 +1,9 @@
-import React from 'react';
-import { SplitContentLayout } from '@bandwidth/shared-components';
-import { Route, Switch } from 'react-router-dom';
-import { ActionBarExpandingContent, Form, SidebarList } from '../widgets';
+export { default as Form } from './Form';
+export { default as SidebarList } from './SidebarList';
+export {
+  default as ActionBarExpandingContent,
+} from './ActionBarExpandingContent';
+} from '../widgets';
 import Left from './Left';
 import LeftComplex from './LeftComplex';
 import Right from './Right';
@@ -16,4 +18,7 @@ export default () => (
     <Route exact path="/splitContent/left" component={Left} />
     <Route exact path="/splitContent/leftComplex" component={LeftComplex} />
   </Switch>
+);
+dx}>{code}</Example>)}
+  </React.Fragment>
 );
