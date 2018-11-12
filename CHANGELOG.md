@@ -3,7 +3,6 @@
 ## Highlights
 
 - Merged `@bandwidth/shared-components` and `@bandwidth/layouts`.
-- Library will now be published to `@bandwidth/scale` in addition to `@bandwidth/shared-components`.
 - `@bandwidth/layouts` will NO LONGER BE PUBLISHED.
 - "configuration components" (i.e. all components which are not used directly, but are exported so they can be overriden and passed as props to "main" components) are no longer exported directly from the library. To use them, reference the `styles` static object attached to the relevant main component (`Accordion.styles.Border`, etc).
 - _We now use styled-components v4!_ Please update your local styled-components dependency and run their [code mod](https://github.com/styled-components/styled-components-codemods) for migration if necessary.
