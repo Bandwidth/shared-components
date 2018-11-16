@@ -1,5 +1,4 @@
 import React from 'react';
-import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import * as styles from './styles';
 import Downshift from 'downshift';
@@ -7,7 +6,6 @@ import { Manager, Reference, Popper } from 'react-popper';
 import popperMatchWidthModifier from './popperMatchWidthModifier';
 import { Foreground } from 'behaviors';
 import isString from 'lodash.isstring';
-import isFunction from 'lodash.isfunction';
 import isPlainObject from 'lodash.isplainobject';
 
 const defaultRenderOption = option => {
@@ -111,6 +109,13 @@ class Select extends React.PureComponent {
 
   static styles = styles;
 
+  componentDidUpdate = prevProps => {
+    // Force popper to update if the options were filtered, since it can change its positioning.
+    if (prevProps.options !== this.props.options && this.scheduleUpdate) {
+      this.scheduleUpdate();
+    }
+  };
+
   render() {
     const {
       required,
@@ -182,6 +187,7 @@ class Select extends React.PureComponent {
                   {...popperProps}
                 >
                   {popperStuff => {
+                    this.scheduleUpdate = popperStuff.scheduleUpdate;
                     return (
                       <Foreground>
                         <Options
