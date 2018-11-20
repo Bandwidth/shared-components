@@ -152,6 +152,7 @@ class Input extends React.PureComponent {
     min: null,
     max: null,
     autoComplete: true,
+    spellcheck: 'false',
     appearFocused: false,
   };
 

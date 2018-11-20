@@ -24,12 +24,12 @@ const expandUp = keyframes`
 `;
 
 export default styled.div`
-  &[data-placement='bottom'] > ${OptionsList} {
+  &[data-placement='bottom'] > * {
     border-top-width: 0;
     transform-origin: 50% 0%;
     animation: ${expandDown} 200ms;
   }
-  &[data-placement='top'] > ${OptionsList} {
+  &[data-placement='top'] > * {
     border-bottom-width: 0;
     transform-origin: 50% 100%;
     animation: ${expandUp} 200ms;
