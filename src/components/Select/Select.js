@@ -151,13 +151,21 @@ class Select extends React.PureComponent {
         selectedItem={value}
         {...rest}
       >
-        {downshiftProps => (
+        {({ inputValue, ...downshiftProps }) => (
           <div>
             <Manager>
               <Reference>
                 {({ ref }) => (
                   <CurrentValue
                     {...downshiftProps}
+                    inputValue={
+                      downshiftProps.isOpen
+                        ? inputValue
+                        : inputValue ||
+                          downshiftProps.itemToString(
+                            downshiftProps.selectedItem,
+                          )
+                    }
                     ref={ref}
                     placeholder={combinedPlaceholder}
                     disabled={disabled}
@@ -175,14 +183,8 @@ class Select extends React.PureComponent {
                   boundariesPadding={0}
                   modifiers={{
                     matchWidth: popperMatchWidthModifier,
-                    flip: {
-                      behavior: 'flip',
-                      padding: 20,
-                    },
-                    preventOverflow: {
-                      escapeWithReference: true,
-                      padding: 0,
-                    },
+                    flip: { behavior: 'flip', padding: 20 },
+                    preventOverflow: { escapeWithReference: true, padding: 0 },
                   }}
                   {...popperProps}
                 >

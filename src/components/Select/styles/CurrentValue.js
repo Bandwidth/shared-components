@@ -34,6 +34,8 @@ const Unsearchable = forwardRef(
       clearSelection,
       getToggleButtonProps,
       inputValue,
+      itemToString,
+      selectedItem,
       placeholder,
       disabled,
       loading,
@@ -54,9 +56,14 @@ const Unsearchable = forwardRef(
     }
 
     return (
-      <Wrapper {...(disabled || loading ? {} : getToggleButtonProps({ ref }))}>
+      <Wrapper
+        {...(disabled || loading
+          ? {}
+          : getToggleButtonProps({
+              ref,
+            }))}
+      >
         <FakeInput
-          spellcheck="false"
           appearFocused={isOpen}
           disabled={disabled}
           required={required}

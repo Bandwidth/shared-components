@@ -42,6 +42,7 @@ const Searchable = forwardRef(
           required,
           invalid,
           onFocus: openMenu,
+          value: inputValue,
         })}
         inlineContent={
           <Controls>

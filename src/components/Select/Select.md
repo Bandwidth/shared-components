@@ -32,7 +32,7 @@ const complexOptions = [
   <Select
     options={complexOptions}
     getOptionValue={opt => opt.id}
-    renderOption={opt => `${opt.name} (${opt.count})`}
+    renderOption={opt => opt && `${opt.name} (${opt.count})`}
   />
   <div>Loading state:</div>
   <Select options={options} loading />
@@ -53,14 +53,14 @@ Each of these core components has its own set of props which it receives, and is
 
 `CurrentValue` recieves these props:
 
-* `placeholder`: a string placeholder value for when the user has not selected a value
-* `disabled`: a boolean for whether the Select is disabled
-* `loading`: a boolean for whether the Select is loading options or the value itself
-* `invalid`: a boolean for whether the value of the Select is not valid (error state)
-* `required`: a boolean for whether the Select must be filled before proceeding
-* `id`: the primary `id` for the whole component, which should be attached to the most important element rendered (usually an `<input>`).
-* `className`: the primary `className` for the whole component, which should be attached to the most important element rendered (usually an `<input>`).
-* [**All Downshift props** for the component.](https://github.com/paypal/downshift#children-function) These are important and should be used according to the Downshift [documentation.](https://github.com/paypal/downshift#children-function)
+- `placeholder`: a string placeholder value for when the user has not selected a value
+- `disabled`: a boolean for whether the Select is disabled
+- `loading`: a boolean for whether the Select is loading options or the value itself
+- `invalid`: a boolean for whether the value of the Select is not valid (error state)
+- `required`: a boolean for whether the Select must be filled before proceeding
+- `id`: the primary `id` for the whole component, which should be attached to the most important element rendered (usually an `<input>`).
+- `className`: the primary `className` for the whole component, which should be attached to the most important element rendered (usually an `<input>`).
+- [**All Downshift props** for the component.](https://github.com/paypal/downshift#children-function) These are important and should be used according to the Downshift [documentation.](https://github.com/paypal/downshift#children-function)
 
 In addition to these props, `CurrentValue` also receives a `ref`. **Important:** you must forward this `ref` to the actual rendered element which constitutes the outer container for your `CurrentValue` component. If you do not forward the ref correctly, you will experience broken pop-out behavior. See the [official docs for ref forwarding](https://reactjs.org/docs/forwarding-refs.html).
 
@@ -89,18 +89,19 @@ const CustomizedCurrentValue = forwardRef((props, ref) => (
   />
 ));
 
-const CustomizedSelect = props => <Select CurrentValue={CustomizedCurrentValue} {...props} />;
-
+const CustomizedSelect = props => (
+  <Select CurrentValue={CustomizedCurrentValue} {...props} />
+);
 ```
 
 #### Options
 
 Options is simpler than `CurrentValue` to implement. It receives the following props:
 
-* `renderOption`: the function which the user provides to `Select` that takes an option and returns JSX for how it should be displayed. You should use this to display the contents of each of your options.
-* `options`: an array of the options themselves. Again, these are the same as the ones provided to the `Select` by the user.
-* [**All Downshift props** for the component.](https://github.com/paypal/downshift#children-function) These are important and should be used according to the Downshift [documentation.](https://github.com/paypal/downshift#children-function)
-* [**All React Popper props** from the Popper component.](https://github.com/FezVrasta/react-popper#children) These are imporant and should be used according to the React-Popper [documentation.](https://github.com/FezVrasta/react-popper#children)
+- `renderOption`: the function which the user provides to `Select` that takes an option and returns JSX for how it should be displayed. You should use this to display the contents of each of your options.
+- `options`: an array of the options themselves. Again, these are the same as the ones provided to the `Select` by the user.
+- [**All Downshift props** for the component.](https://github.com/paypal/downshift#children-function) These are important and should be used according to the Downshift [documentation.](https://github.com/paypal/downshift#children-function)
+- [**All React Popper props** from the Popper component.](https://github.com/FezVrasta/react-popper#children) These are imporant and should be used according to the React-Popper [documentation.](https://github.com/FezVrasta/react-popper#children)
 
 In addition to these props, `Options` also receives a `ref`. **Important:** you must forward this `ref` to the actual rendered element which constitutes the outer container for your `Options` component. If you do not forward the ref correctly, you will experience broken pop-out behavior. See the [official docs for ref forwarding](https://reactjs.org/docs/forwarding-refs.html).
 
@@ -164,5 +165,7 @@ const VirtualizedOptions = forwardRef((props, ref) => {
   );
 });
 
-const CustomizedSelect = props => <Select Options={VirtualizedOptions} {...props} />;
+const CustomizedSelect = props => (
+  <Select Options={VirtualizedOptions} {...props} />
+);
 ```
