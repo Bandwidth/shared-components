@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
-import NavigationBar from './Bar';
 
 const NavigationItemList = styled.div.withConfig({
   displayName: 'NavigationItemList',
@@ -14,7 +13,7 @@ const NavigationItemList = styled.div.withConfig({
 
   padding-top: 20px;
 
-  & + & {
+  * + & {
     padding-top: 10px;
   }
 
