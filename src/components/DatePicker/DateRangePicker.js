@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'react-dates/initialize';
-import {
-  DateRangePicker as LibDateRangePicker,
-  DateRangePickerShape,
-} from 'react-dates';
+import { DateRangePicker as LibDateRangePicker } from 'react-dates';
 import Icon from '../Icon';
 import generateId from 'extensions/generateId';
 import * as styles from './styles';
@@ -26,7 +23,6 @@ import pick from 'lodash.pick';
  */
 class DateRangePicker extends React.PureComponent {
   static propTypes = {
-    ...omit(DateRangePickerShape, ['onFocusChange']),
     /**
      * An id for the start date part of the widget.
      */
@@ -101,8 +97,9 @@ class DateRangePicker extends React.PureComponent {
           weekDayFormat="dd"
           displayFormat="MMM DD YYYY"
           customArrowIcon={<LineSeparator />}
-          daySize={37}
+          daySize={35}
           horizontalMargin={0}
+          horizontalMonthPadding={14}
           hideKeyboardShortcutsPanel
           numberOfMonths={this.props.disabled ? 1 : 2}
           minimumNights={0}
@@ -111,7 +108,7 @@ class DateRangePicker extends React.PureComponent {
           onFocusChange={this.handleFocusChange}
           startDateId={startDateId || this.genStartDateId}
           endDateId={endDateId || this.getEndDateId}
-          {...pick(rest, Object.keys(DateRangePickerShape))}
+          {...rest}
         />
       </Wrapper>
     );

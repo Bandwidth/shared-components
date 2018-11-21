@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'react-dates/initialize';
-import {
-  SingleDatePicker as LibDatePicker,
-  SingleDatePickerShape,
-} from 'react-dates';
+import { SingleDatePicker as LibDatePicker } from 'react-dates';
 import Icon from '../Icon';
 import * as styles from './styles';
 
@@ -29,7 +26,6 @@ class DatePicker extends React.PureComponent {
   static Range = DateRangePicker;
 
   static propTypes = {
-    ...omit(SingleDatePickerShape, ['onFocusChange']),
     id: PropTypes.string,
     /**
      * A component to wrap and control styles of the underlying react-dates DatePicker
@@ -78,13 +74,14 @@ class DatePicker extends React.PureComponent {
           navPrev={<Icon name="back" />}
           navNext={<Icon name="forward" />}
           weekDayFormat="dd"
-          daySize={37}
+          daySize={35}
+          horizontalMonthPadding={5}
           horizontalMargin={0}
           numberOfMonths={1}
           hideKeyboardShortcutsPanel
           focused={focused}
           onFocusChange={this.handleFocusChange}
-          {...pick(rest, Object.keys(SingleDatePickerShape))}
+          {...rest}
         />
       </Wrapper>
     );
