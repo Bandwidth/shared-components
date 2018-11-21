@@ -127,6 +127,7 @@ class Select extends React.PureComponent {
       invalid,
       value,
       renderOption,
+      optionToString,
       options,
       getOptionValue,
       searchable,
