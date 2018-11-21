@@ -96,6 +96,13 @@ const TextLink = styled(Link)`
   ${({ newTab, icon }) => (!icon && newTab ? newTabIconStyles : '')};
 
   ${({ icon }) => (icon ? iconStyles : '')};
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      color: ${get('colors.text.disabled')} !important;
+      pointer-events: none;
+    `};
 `;
 
 TextLink.Negative = styled(TextLink)`
