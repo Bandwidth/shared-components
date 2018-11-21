@@ -45,6 +45,7 @@ const Unsearchable = forwardRef(
       ClearButton,
       Arrow,
       LoadingState,
+      ...rest
     },
     ref,
   ) => {
@@ -65,6 +66,7 @@ const Unsearchable = forwardRef(
           disabled={disabled}
           required={required}
           invalid={invalid}
+          {...rest}
         >
           {inputValue || placeholder}
         </FakeInput>

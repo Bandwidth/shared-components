@@ -25,6 +25,7 @@ const Searchable = forwardRef(
       Arrow,
       ClearButton,
       LoadingState,
+      ...rest
     },
     ref,
   ) => {
@@ -44,6 +45,7 @@ const Searchable = forwardRef(
           onFocus: openMenu,
           value: inputValue,
         })}
+        {...rest}
         inlineContent={
           <Controls>
             {!!inputValue &&
