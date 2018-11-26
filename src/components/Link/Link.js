@@ -4,6 +4,7 @@ import linkExtensions from './linkExtensions';
 import * as styles from './styles';
 
 const Link = linkExtensions(styles.TextLink);
+Link.styles = styles;
 
 Link.Positive = linkExtensions(styles.TextLink.Positive);
 Link.Negative = linkExtensions(styles.TextLink.Negative);
