@@ -103,6 +103,7 @@ class Select extends React.PureComponent {
     invalid: false,
     placeholder: 'Select one',
     renderOption: defaultRenderOption,
+    defaultHighlightedIndex: 0,
     CurrentValue: styles.CurrentValue,
     Options: styles.Options,
   };

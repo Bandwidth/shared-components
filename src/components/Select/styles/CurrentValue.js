@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-import Input from 'components/Input';
-import Loader from 'components/Loader';
+import DefaultInput from 'components/Input';
 import DefaultControls from './Controls';
 import DefaultArrow from './Arrow';
 import DefaultClearButton from './ClearButton';
@@ -8,7 +7,6 @@ import DefaultLoadingState from './LoadingState';
 import styled from 'styled-components';
 import { themeGet } from 'extensions';
 
-const DefaultFakeInput = props => <Input as="button" {...props} />;
 const DefaultWrapper = styled.div`
   position: relative;
   cursor: pointer;
@@ -40,7 +38,7 @@ const Unsearchable = forwardRef(
       required,
       invalid,
       Wrapper,
-      FakeInput,
+      Input,
       Controls,
       ClearButton,
       Arrow,
@@ -61,15 +59,15 @@ const Unsearchable = forwardRef(
               ref,
             }))}
       >
-        <FakeInput
+        <Input
+          aria-role="select"
           appearFocused={isOpen}
           disabled={disabled}
           required={required}
           invalid={invalid}
+          value={inputValue || placeholder}
           {...rest}
-        >
-          {inputValue || placeholder}
-        </FakeInput>
+        />
         <Controls>
           {!!inputValue &&
             !disabled &&
@@ -83,7 +81,7 @@ const Unsearchable = forwardRef(
 
 Unsearchable.defaultProps = {
   Wrapper: DefaultWrapper,
-  FakeInput: DefaultFakeInput,
+  Input: DefaultInput,
   Controls: DefaultControls,
   Arrow: DefaultArrow,
   ClearButton: DefaultClearButton,
@@ -92,7 +90,7 @@ Unsearchable.defaultProps = {
 
 Unsearchable.styles = {
   Wrapper: DefaultWrapper,
-  FakeInput: DefaultFakeInput,
+  Input: DefaultInput,
   Controls: DefaultControls,
   Arrow: DefaultArrow,
   ClearButton: DefaultClearButton,

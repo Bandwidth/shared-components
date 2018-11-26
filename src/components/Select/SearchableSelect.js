@@ -65,7 +65,6 @@ export default class SearchableSelect extends React.Component {
         {...rest}
         CurrentValue={CurrentValue}
         onStateChange={this.handleSelectStateChange}
-        defaultHighlightedIndex={0}
         options={this.state.filteredOptions}
         inputValue={this.state.inputValue}
       />
