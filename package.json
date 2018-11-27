@@ -1,6 +1,6 @@
 {
   "name": "@bandwidth/shared-components",
-  "version": "6.0.0-canary8",
+  "version": "6.0.0-canary9",
   "description": "Shared Component Library for Bandwidth React Apps",
   "main": "./index.js",
   "scripts": {
