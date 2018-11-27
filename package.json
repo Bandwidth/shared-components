@@ -2,7 +2,7 @@
   "name": "@bandwidth/shared-components",
   "version": "6.0.0-canary7",
   "description": "Shared Component Library for Bandwidth React Apps",
-  "main": "dist/index.js",
+  "main": "./index.js",
   "scripts": {
     "test": "cross-env NODE_PATH=src jest --config jestConfig.json --coverage",
     "watch": "npm run rollup -- --watch",
