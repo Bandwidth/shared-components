@@ -140,6 +140,7 @@ class Select extends React.PureComponent {
       id,
       className,
       popperProps,
+      name,
       ...rest
     } = this.props;
     const combinedLoading = loading || isLoading;
@@ -176,6 +177,7 @@ class Select extends React.PureComponent {
                     required={required}
                     id={id}
                     className={className}
+                    name={name}
                   />
                 )}
               </Reference>
