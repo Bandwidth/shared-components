@@ -286,7 +286,7 @@ class TimeScrubber extends React.Component {
     this.offset = 0;
     this.syncTimelinePosition();
 
-    if (this.viewportRef.current) {
+    if (this.viewportRef.current && this.viewportRef.current.focus) {
       this.viewportRef.current.focus();
     }
   };

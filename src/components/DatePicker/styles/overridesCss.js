@@ -2,28 +2,6 @@ import { css, keyframes } from 'styled-components';
 import icons from 'components/Icon/icons';
 import get from 'extensions/themeGet';
 
-const expandDown = keyframes`
-  from {
-    transform: translateY(-50%) scaleY(0);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0) scaleY(1);
-    opacity: 1;
-  }
-`;
-
-const expandUp = keyframes`
-  from {
-    transform: translateY(50%) scaleY(0);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0) scaleY(1);
-    opacity: 1;
-  }
-`;
-
 export default css`
   font-family: ${get('fonts.brand')};
   color: ${get('colors.text.default')};
@@ -34,29 +12,13 @@ export default css`
     box-sizing: border-box;
   }
 
-  .DateRangePicker_picker,
-  .SingleDatePicker_picker {
-    top: ${({ openDirection }) =>
-      openDirection === 'up' ? 'inherit' : '51px !important'};
-    bottom: ${({ openDirection }) =>
-      openDirection === 'up' ? '51px !important' : 'inherit'};
-    width: ${({ disabled }) => (disabled ? '262px' : '100%')};
-    animation: ${({ openDirection }) =>
-      openDirection === 'up' ? expandUp : expandDown} 200ms;
-    overflow: hidden;
-  }
-
-  ${({ invalid }) =>
-    invalid &&
-    css`
-      .DateInput_input:not(.DateInput_input__focused) {
-        border-color: var(--colors-negative-border) !important;
-        box-shadow: inset 0 -5px 0 ${get('colors.negative.light')};
-      }
-    `}
-
   .DayPicker_transitionContainer {
     width: inherit !important;
+  }
+
+  .SingleDatePicker_picker,
+  .DateRangePicker_picker {
+    overflow: hidden;
   }
 
   .DateRangePickerInput,

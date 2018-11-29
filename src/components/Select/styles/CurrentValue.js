@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-import Input from 'components/Input';
-import Loader from 'components/Loader';
+import DefaultInput from 'components/Input';
 import DefaultControls from './Controls';
 import DefaultArrow from './Arrow';
 import DefaultClearButton from './ClearButton';
@@ -8,7 +7,6 @@ import DefaultLoadingState from './LoadingState';
 import styled from 'styled-components';
 import { themeGet } from 'extensions';
 
-const DefaultFakeInput = props => <Input as="button" {...props} />;
 const DefaultWrapper = styled.div`
   position: relative;
   cursor: pointer;
@@ -40,12 +38,12 @@ const Unsearchable = forwardRef(
       required,
       invalid,
       Wrapper,
-      FakeInput,
-      OverlayLoading,
+      Input,
       Controls,
       ClearButton,
       Arrow,
       LoadingState,
+      ...rest
     },
     ref,
   ) => {
@@ -54,15 +52,22 @@ const Unsearchable = forwardRef(
     }
 
     return (
-      <Wrapper {...(disabled || loading ? {} : getToggleButtonProps({ ref }))}>
-        <FakeInput
+      <Wrapper
+        {...(disabled || loading
+          ? {}
+          : getToggleButtonProps({
+              ref,
+            }))}
+      >
+        <Input
+          aria-role="select"
           appearFocused={isOpen}
           disabled={disabled}
           required={required}
           invalid={invalid}
-        >
-          {inputValue || placeholder}
-        </FakeInput>
+          value={inputValue || placeholder}
+          {...rest}
+        />
         <Controls>
           {!!inputValue &&
             !disabled &&
@@ -76,7 +81,7 @@ const Unsearchable = forwardRef(
 
 Unsearchable.defaultProps = {
   Wrapper: DefaultWrapper,
-  FakeInput: DefaultFakeInput,
+  Input: DefaultInput,
   Controls: DefaultControls,
   Arrow: DefaultArrow,
   ClearButton: DefaultClearButton,
@@ -85,7 +90,7 @@ Unsearchable.defaultProps = {
 
 Unsearchable.styles = {
   Wrapper: DefaultWrapper,
-  FakeInput: DefaultFakeInput,
+  Input: DefaultInput,
   Controls: DefaultControls,
   Arrow: DefaultArrow,
   ClearButton: DefaultClearButton,

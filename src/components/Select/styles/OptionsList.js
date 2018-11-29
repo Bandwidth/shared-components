@@ -1,14 +1,5 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { themeGet } from 'extensions';
-
-const expand = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
 
 export default styled.div`
   background-color: ${themeGet('colors.background.default')};
@@ -21,12 +12,5 @@ export default styled.div`
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
   overflow-x: hidden;
-  animation: ${expand} 200ms;
-
-  &[data-placement='bottom'] {
-    border-top-width: 0;
-  }
-  &[data-placement='top'] {
-    border-bottom-width: 0;
-  }
+  will-change: transform;
 `;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import * as styles from './styles';
 import Downshift from 'downshift';
@@ -7,7 +6,6 @@ import { Manager, Reference, Popper } from 'react-popper';
 import popperMatchWidthModifier from './popperMatchWidthModifier';
 import { Foreground } from 'behaviors';
 import isString from 'lodash.isstring';
-import isFunction from 'lodash.isfunction';
 import isPlainObject from 'lodash.isplainobject';
 
 const defaultRenderOption = option => {
@@ -105,11 +103,19 @@ class Select extends React.PureComponent {
     invalid: false,
     placeholder: 'Select one',
     renderOption: defaultRenderOption,
+    defaultHighlightedIndex: 0,
     CurrentValue: styles.CurrentValue,
     Options: styles.Options,
   };
 
   static styles = styles;
+
+  componentDidUpdate = prevProps => {
+    // Force popper to update if the options were filtered, since it can change its positioning.
+    if (prevProps.options !== this.props.options && this.scheduleUpdate) {
+      this.scheduleUpdate();
+    }
+  };
 
   render() {
     const {
@@ -122,6 +128,7 @@ class Select extends React.PureComponent {
       invalid,
       value,
       renderOption,
+      optionToString,
       options,
       getOptionValue,
       searchable,
@@ -133,6 +140,7 @@ class Select extends React.PureComponent {
       id,
       className,
       popperProps,
+      name,
       ...rest
     } = this.props;
     const combinedLoading = loading || isLoading;
@@ -146,13 +154,21 @@ class Select extends React.PureComponent {
         selectedItem={value}
         {...rest}
       >
-        {downshiftProps => (
+        {({ inputValue, ...downshiftProps }) => (
           <div>
             <Manager>
               <Reference>
                 {({ ref }) => (
                   <CurrentValue
                     {...downshiftProps}
+                    inputValue={
+                      downshiftProps.isOpen
+                        ? inputValue
+                        : inputValue ||
+                          downshiftProps.itemToString(
+                            downshiftProps.selectedItem,
+                          )
+                    }
                     ref={ref}
                     placeholder={combinedPlaceholder}
                     disabled={disabled}
@@ -161,6 +177,7 @@ class Select extends React.PureComponent {
                     required={required}
                     id={id}
                     className={className}
+                    name={name}
                   />
                 )}
               </Reference>
@@ -170,18 +187,13 @@ class Select extends React.PureComponent {
                   boundariesPadding={0}
                   modifiers={{
                     matchWidth: popperMatchWidthModifier,
-                    flip: {
-                      behavior: 'flip',
-                      padding: 20,
-                    },
-                    preventOverflow: {
-                      escapeWithReference: true,
-                      padding: 0,
-                    },
+                    flip: { behavior: 'flip', padding: 20 },
+                    preventOverflow: { escapeWithReference: true, padding: 0 },
                   }}
                   {...popperProps}
                 >
                   {popperStuff => {
+                    this.scheduleUpdate = popperStuff.scheduleUpdate;
                     return (
                       <Foreground>
                         <Options

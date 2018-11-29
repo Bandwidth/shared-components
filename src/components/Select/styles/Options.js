@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import DefaultOptionsListContainer from './OptionsListContainer';
 import DefaultOptionsList from './OptionsList';
 import DefaultOption from './Option';
 import HelpText from 'components/HelpText';
@@ -18,6 +19,7 @@ const Options = forwardRef(
       highlightedIndex,
       style,
       options,
+      OptionsListContainer,
       OptionsList,
       Option,
     },
@@ -25,42 +27,54 @@ const Options = forwardRef(
   ) => {
     if (!options.length) {
       return (
-        <OptionsList
+        <OptionsListContainer
           data-placement={placement}
           {...getMenuProps({ ref, style })}
         >
-          <Option>
-            <HelpText>No items</HelpText>
-          </Option>
-        </OptionsList>
+          <OptionsList>
+            <Option>
+              <HelpText>No items</HelpText>
+            </Option>
+          </OptionsList>
+        </OptionsListContainer>
       );
     }
 
     return (
-      <OptionsList data-placement={placement} {...getMenuProps({ ref, style })}>
-        {options.map((option, index) => (
-          <Option
-            {...getItemProps({
-              key: renderOption(option),
-              index,
-              item: option,
-              highlighted: highlightedIndex === index,
-            })}
-          >
-            {renderOption(option)}
-          </Option>
-        ))}
-      </OptionsList>
+      <OptionsListContainer
+        data-placement={placement}
+        {...getMenuProps({
+          ref,
+          style,
+        })}
+      >
+        <OptionsList>
+          {options.map((option, index) => (
+            <Option
+              {...getItemProps({
+                key: renderOption(option),
+                index,
+                item: option,
+                highlighted: highlightedIndex === index,
+              })}
+            >
+              {renderOption(option)}
+            </Option>
+          ))}
+        </OptionsList>
+      </OptionsListContainer>
     );
   },
 );
 
 Options.defaultProps = {
+  OptionsListContainer: DefaultOptionsListContainer,
   OptionsList: DefaultOptionsList,
   Option: DefaultOption,
 };
 
 Options.styles = {
+  OptionsListContainer: DefaultOptionsListContainer,
   OptionsList: DefaultOptionsList,
   Option: DefaultOption,
 };

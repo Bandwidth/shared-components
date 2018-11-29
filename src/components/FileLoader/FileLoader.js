@@ -48,6 +48,10 @@ export default class FileLoader extends React.Component {
 
   static styles = styles;
 
+  preventLinkClick = ev => {
+    ev.preventDefault();
+  };
+
   renderFiles = () => {
     const { value, DropArea, Preview } = this.props;
     if (value && value[0]) {
@@ -63,7 +67,7 @@ export default class FileLoader extends React.Component {
           <Icon name="file" />
           <Preview>
             DROP A FILE HERE, OR&nbsp;
-            <Link>CLICK TO BROWSE</Link>
+            <Link onClick={this.preventLinkClick}>CLICK TO BROWSE</Link>
           </Preview>
         </DropArea>
       );

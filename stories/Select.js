@@ -36,7 +36,7 @@ storiesOf('Select', module).add('types', () => (
     <Select
       onChange={option => action('change')(option ? option.value : option)}
       options={complexOptions}
-      renderOption={option => option.label}
+      renderOption={option => option && option.label}
     />
     <h2>Inside an overflow-hidden div</h2>
     <div style={{ overflow: 'hidden' }}>

@@ -152,6 +152,7 @@ class Input extends React.PureComponent {
     min: null,
     max: null,
     autoComplete: true,
+    spellCheck: 'false',
     appearFocused: false,
   };
 
@@ -257,7 +258,6 @@ class Input extends React.PureComponent {
         onChange={onChange}
         value={value}
         required={required}
-        type={type}
         error={error}
         disabled={disabled}
         readOnly={readOnly}
@@ -268,6 +268,7 @@ class Input extends React.PureComponent {
         min={min}
         max={max}
         {...rest}
+        type={type}
         onBlur={this.onBlur}
         autoComplete={this.getAutoComplete()}
       />

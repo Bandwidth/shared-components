@@ -8,6 +8,7 @@ import './DatePicker';
 import './DateTimePicker';
 import './DragBox';
 import './Fields';
+import './FileLoader';
 import './Header';
 import './Input';
 import './Link';

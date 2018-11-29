@@ -60,4 +60,26 @@ storiesOf('Link', module)
         </Link.Inverted>
       </Horizontal>
     </React.Fragment>
+  ))
+  .add('disabled', () => (
+    <React.Fragment>
+      <h2>Icons</h2>
+      <Horizontal>
+        <Link disabled icon="help" onClick={action('clicked')}>
+          Text
+        </Link>
+        <Link.Negative disabled icon="delete3" onClick={action('clicked')}>
+          Negative
+        </Link.Negative>
+        <Link.Positive disabled icon="unicorn" onClick={action('clicked')}>
+          Positive
+        </Link.Positive>
+        <Link.Dark disabled icon="file" onClick={action('clicked')}>
+          Dark
+        </Link.Dark>
+        <Link.Inverted disabled icon="cat" onClick={action('clicked')}>
+          Inverted
+        </Link.Inverted>
+      </Horizontal>
+    </React.Fragment>
   ));
