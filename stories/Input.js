@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import Input from 'components/Input';
 import Grid from 'layouts/Grid';
 
@@ -13,6 +12,10 @@ storiesOf('Input', module)
       <Input.Small type="text" placeholder="Placeholder" />
       <h2>Password</h2>
       <Input type="password" placeholder="Placeholder" />
+      <h2>Appear focused</h2>
+      <Input type="text" appearFocused placeholder="Placeholder" />
+      <h2>Without Cursor</h2>
+      <Input type="text" hideCursor placeholder="Placeholder" />
     </Grid>
   ))
   .add('invalid', () => (

@@ -71,6 +71,7 @@ const Unsearchable = forwardRef(
           invalid={invalid}
           placeholder={placeholder}
           value={inputValue}
+          hideCursor
           {...rest}
         />
         <Controls disabled={disabled}>
