@@ -25,6 +25,10 @@ const DefaultWrapper = styled.div`
   }
 `;
 
+const StyledInput = styled(DefaultInput)`
+  cursor: ${({ disabled }) => (disabled ? 'text' : 'pointer')};
+`;
+
 const Unsearchable = forwardRef(
   (
     {
@@ -82,7 +86,7 @@ const Unsearchable = forwardRef(
 
 Unsearchable.defaultProps = {
   Wrapper: DefaultWrapper,
-  Input: DefaultInput,
+  Input: StyledInput,
   Controls: DefaultControls,
   Arrow: DefaultArrow,
   ClearButton: DefaultClearButton,
@@ -91,7 +95,7 @@ Unsearchable.defaultProps = {
 
 Unsearchable.styles = {
   Wrapper: DefaultWrapper,
-  Input: DefaultInput,
+  Input: StyledInput,
   Controls: DefaultControls,
   Arrow: DefaultArrow,
   ClearButton: DefaultClearButton,

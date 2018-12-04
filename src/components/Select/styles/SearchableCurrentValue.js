@@ -44,6 +44,7 @@ const Searchable = forwardRef(
           required,
           invalid,
           onFocus: openMenu,
+          onClick: openMenu,
           value: inputValue,
         })}
         {...rest}
