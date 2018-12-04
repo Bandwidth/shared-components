@@ -16,16 +16,12 @@ const Overlay = styled(Loader)`
   transform: translate(-50%, -50%);
 `;
 
-const FadedArrow = styled(Arrow)`
-  opacity: 0.5;
-`;
-
 export default props => (
   <FakeInput
     {...props}
     inlineContent={
-      <Controls>
-        <FadedArrow />
+      <Controls disabled>
+        <Arrow />
       </Controls>
     }
   >

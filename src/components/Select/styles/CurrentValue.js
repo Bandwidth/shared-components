@@ -65,14 +65,15 @@ const Unsearchable = forwardRef(
           disabled={disabled}
           required={required}
           invalid={invalid}
-          value={inputValue || placeholder}
+          placeholder={placeholder}
+          value={inputValue}
           {...rest}
         />
-        <Controls>
+        <Controls disabled={disabled}>
           {!!inputValue &&
             !disabled &&
             !required && <ClearButton onClick={clearSelection} />}
-          <Arrow expanded={isOpen} />
+          <Arrow disabled={disabled} expanded={isOpen} />
         </Controls>
       </Wrapper>
     );

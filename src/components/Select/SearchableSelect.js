@@ -40,31 +40,65 @@ export default class SearchableSelect extends React.Component {
   handleSelectStateChange = (changes, downshiftState) => {
     const { filterOptions, options, onStateChange } = this.props;
 
-    if (changes.hasOwnProperty('isOpen') && changes.isOpen) {
+    console.log(
+      'downshiftState',
+      downshiftState,
+      downshiftState.getInputProps(),
+    );
+
+    // if (changes.hasOwnProperty('isOpen') && !changes.isOpen) {
+    //   const el = document.querySelector(
+    //     `[aria-labelledby=${
+    //       downshiftState.getInputProps()['aria-labelledby']
+    //     }] input`,``
+    //   );
+    //   console.log('EL: ', el);
+    //   el.blur();
+    // }
+
+    console.log('changes', changes);
+
+    if (
+      changes.hasOwnProperty('isOpen') &&
+      changes.isOpen &&
+      !changes.inputValue
+    ) {
       this.setState({
         inputValue: changes.selectedItem || '',
         filteredOptions: options,
       });
     }
 
-    if (changes.hasOwnProperty('inputValue')) {
-      this.setState({
-        inputValue: changes.inputValue,
-        filteredOptions: filterOptions(options, changes.inputValue, this.props),
-      });
-    }
+    // if (changes.hasOwnProperty('inputValue')) {
+    //   this.setState({
+    //     inputValue: changes.inputValue,
+    //     filteredOptions: filterOptions(options, changes.inputValue, this.props),
+    //   });
+    // }
 
     onStateChange && onStateChange(changes, downshiftState);
   };
 
+  handleInputValueChange = inputValue => {
+    const { filterOptions, options } = this.props;
+    console.log('INPUT VALUE: ', inputValue);
+    this.setState({
+      inputValue: inputValue,
+      filteredOptions: filterOptions(options, inputValue, this.props),
+    });
+  };
+
   render() {
     const { options, onStateChange, CurrentValue, ...rest } = this.props;
+
+    console.log('STATE: ', this.state);
 
     return (
       <Select
         {...rest}
         CurrentValue={CurrentValue}
         onStateChange={this.handleSelectStateChange}
+        onInputValueChange={this.handleInputValueChange}
         options={this.state.filteredOptions}
         inputValue={this.state.inputValue}
       />

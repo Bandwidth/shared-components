@@ -35,6 +35,7 @@ const Searchable = forwardRef(
 
     return (
       <Input
+        visited={false}
         {...getInputProps({
           inputRef: ref,
           appearFocused: isOpen,
@@ -47,11 +48,12 @@ const Searchable = forwardRef(
         })}
         {...rest}
         inlineContent={
-          <Controls>
+          <Controls disabled={disabled}>
             {!!inputValue &&
               !disabled &&
               !required && <ClearButton onClick={clearSelection} />}
             <Arrow
+              disabled={disabled}
               {...getToggleButtonProps({
                 expanded: isOpen,
                 onClick: () => setState({ inputValue: '' }),
