@@ -12,10 +12,6 @@ storiesOf('Input', module)
       <Input.Small type="text" placeholder="Placeholder" />
       <h2>Password</h2>
       <Input type="password" placeholder="Placeholder" />
-      <h2>Appear focused</h2>
-      <Input type="text" appearFocused placeholder="Placeholder" />
-      <h2>Without Cursor</h2>
-      <Input type="text" hideCursor placeholder="Placeholder" />
     </Grid>
   ))
   .add('invalid', () => (
@@ -37,4 +33,20 @@ storiesOf('Input', module)
       <h2>Password</h2>
       <Input disabled type="password" placeholder="Placeholder" />
     </Grid>
+  ))
+  .add('appear focused', () => (
+    <Input
+      type="text"
+      style={{ width: 400 }}
+      appearFocused
+      placeholder="Placeholder"
+    />
+  ))
+  .add('hide cursor', () => (
+    <Input
+      type="text"
+      style={{ width: 400 }}
+      hideCursor
+      placeholder="Placeholder"
+    />
   ));

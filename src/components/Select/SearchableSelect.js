@@ -38,25 +38,7 @@ export default class SearchableSelect extends React.Component {
   };
 
   handleSelectStateChange = (changes, downshiftState) => {
-    const { filterOptions, options, onStateChange } = this.props;
-
-    console.log(
-      'downshiftState',
-      downshiftState,
-      downshiftState.getInputProps(),
-    );
-
-    // if (changes.hasOwnProperty('isOpen') && !changes.isOpen) {
-    //   const el = document.querySelector(
-    //     `[aria-labelledby=${
-    //       downshiftState.getInputProps()['aria-labelledby']
-    //     }] input`,``
-    //   );
-    //   console.log('EL: ', el);
-    //   el.blur();
-    // }
-
-    console.log('changes', changes);
+    const { options, onStateChange } = this.props;
 
     if (
       changes.hasOwnProperty('isOpen') &&
@@ -69,19 +51,11 @@ export default class SearchableSelect extends React.Component {
       });
     }
 
-    // if (changes.hasOwnProperty('inputValue')) {
-    //   this.setState({
-    //     inputValue: changes.inputValue,
-    //     filteredOptions: filterOptions(options, changes.inputValue, this.props),
-    //   });
-    // }
-
     onStateChange && onStateChange(changes, downshiftState);
   };
 
-  handleInputValueChange = inputValue => {
+  handleInputValueChange = (inputValue, downshiftState) => {
     const { filterOptions, options } = this.props;
-    console.log('INPUT VALUE: ', inputValue);
     this.setState({
       inputValue: inputValue,
       filteredOptions: filterOptions(options, inputValue, this.props),
@@ -90,8 +64,6 @@ export default class SearchableSelect extends React.Component {
 
   render() {
     const { options, onStateChange, CurrentValue, ...rest } = this.props;
-
-    console.log('STATE: ', this.state);
 
     return (
       <Select

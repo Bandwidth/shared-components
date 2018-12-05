@@ -33,7 +33,7 @@ const Options = forwardRef(
         >
           <OptionsList>
             <Option>
-              <HelpText>No items</HelpText>
+              <HelpText style={{ margin: 0 }}>No items</HelpText>
             </Option>
           </OptionsList>
         </OptionsListContainer>
