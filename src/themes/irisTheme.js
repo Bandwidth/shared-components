@@ -82,6 +82,32 @@ export const fonts = {
   icon: 'Bandwidth',
 };
 
+/**
+ * Font metrics; detail the characteristics of the font as measured using font-measure library.
+ * https://github.com/dy/font-measure#readme
+ */
+export const fm = {
+  brand: {
+    alphabetic: 0.7291666666666666,
+    ascent: 0,
+    baseline: 0.7291666666666666,
+    bottom: 1,
+    capHeight: 0.7083333333333334,
+    descent: 0.9375,
+    hanging: -0.0625,
+    ideographic: 1.0208333333333333,
+    lineHeight: 1,
+    lower: 0.20833333333333334,
+    median: 0.4791666666666667,
+    middle: 0.4791666666666667,
+    overshoot: 0.020833333333333332,
+    tittle: 0.020833333333333332,
+    top: 0,
+    upper: 0.020833333333333332,
+    xHeight: 0.5208333333333334,
+  },
+};
+
 export const shadows = {
   short: '0 2px 4px rgba(0, 0, 0, 0.14)',
   long: `
@@ -117,6 +143,7 @@ export const fontSizes = {
 export default {
   name: 'iris',
   colors,
+  fm,
   fonts,
   shadows,
   spacing,

@@ -39,6 +39,33 @@ const FontSizes = ({ name }) =>
     </Section>
   ));
 
+const Line = ({style, label, color = 'var(--colors-negative-default)'}) => (
+  <div>
+    <div
+      className='line'
+      style={{
+        pointerEvents: 'none',
+        borderBottom: `1px dashed ${color}`,
+        height: '1px',
+        width: '100%',
+        position: 'absolute',
+        ...style,
+        top: style.top - 1 // Adjust for using border bottom for line
+      }}
+    />
+    {label && <div
+      className='text'
+      style={{
+        fontSize: '14px',
+        position: 'absolute',
+        color,
+        top: style.top
+      }}
+    >{label}</div>
+    }
+  </div>
+);
+
 const BlueLine = props => (
   <div
     style={{
@@ -55,10 +82,11 @@ const BlueLine = props => (
 
 const RedLine = props => (
   <div
+    className='red line'
     style={{
       pointerEvents: 'none',
       background: 'rgba(255, 0, 0, 0.25)',
-      height: '1px',
+      height: '0.00001px',
       width: '100%',
       ...props.style,
     }}
@@ -124,7 +152,37 @@ const Space = () => (
   </div>
 );
 
+const measure = require('font-measure');
+
+// Library seems to measure offset, so we need the modifier
+const FontSize = ({fontSize = 200, fontFamily = "Overpass", lineHeight = 1 , modifier = 0.125}) => {
+  const fm = measure(fontFamily, {fontWeight: 400});
+  console.log(fm);
+  const mainStyle = {
+    fontFamily,
+    fontSize,
+    lineHeight,
+    paddingLeft: 50,
+    paddingBottom: 50,
+  }
+  return (
+    <>
+    <Gutter>
+    <Line label="upper" style={{fontSize, lineHeight, top: (fm.upper + modifier) * fontSize}} />
+    <Line label="middle" style={{fontSize, lineHeight, top: (fm.middle + modifier) * fontSize}} />
+    <Line label="lower" style={{fontSize, lineHeight, top: (fm.lower + modifier) * fontSize}} />
+    <Line label="baseline" style={{fontSize, lineHeight, top: (fm.baseline + modifier) * fontSize}} />
+    <Line label="descent" style={{fontSize, lineHeight, top: (fm.descent + modifier) * fontSize}} />
+      <div style={mainStyle}>
+        Sphinx
+      </div>
+    </Gutter>
+    </>
+  );
+}
+
 <div>
+  <FontSize />
   <h2>Overpass Typeface</h2>
   <Font name="brand" />
   <h2>Font sizes</h2>

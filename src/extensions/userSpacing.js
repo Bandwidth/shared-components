@@ -46,12 +46,27 @@ const getSize = (value, props) => {
   }
 };
 
-export const calcTopOffset = lineHeight =>
-  `${(lineHeight / -5.25) * (lineHeight / 1.5)}em`;
-export const calcBottomOffset = lineHeight =>
-  `${(lineHeight / -3.5) * (lineHeight / 1.5)}em`;
+/**
+ * Percent of the spacing that goes above/below the text.
+ * Based on the calculated middle of the text.
+ */
 
-const userTextSpacingWithLineHeight = lineHeight => props => {
+const topPercent = 0.4792;
+const bottomPercent = 1 - topPercent;
+
+// Total height of the font (with spacing): (line height) * (font size)
+// minus height of the capline to baseline: (cap height) * (font size)
+// equals the total margin. 1em is effectively the current font size.
+export const calcTopOffset = (lineHeight, capHeight) =>
+  `${(capHeight - lineHeight) * topPercent}em`;
+export const calcBottomOffset = (lineHeight, capHeight) =>
+  `${(capHeight - lineHeight) * bottomPercent}em`;
+
+// Default capHeight is the capHeight of the Overpass font
+const userTextSpacingWithLineHeight = (
+  lineHeight,
+  capHeight = 0.7083333333333334,
+) => props => {
   const { spacing } = props;
 
   /* these offset values collapse the outer element boundaries so that
@@ -62,8 +77,8 @@ const userTextSpacingWithLineHeight = lineHeight => props => {
    * smaller or larger, so we further scale the value based on its difference
    * from 1.5. Experiments suggest this produces reasonably accurate results.
    */
-  const topOffset = calcTopOffset(lineHeight);
-  const bottomOffset = calcBottomOffset(lineHeight);
+  const topOffset = calcTopOffset(lineHeight, capHeight);
+  const bottomOffset = calcBottomOffset(lineHeight, capHeight);
 
   if (!spacing) {
     // this is default 'no spacing', will align adjacent elements
