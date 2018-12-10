@@ -12,7 +12,10 @@ const InputStyles = styled.input`
   border-style: solid;
   text-align: left;
 
-  color: ${get('colors.text.default')};
+  color: ${({ hideCursor }) =>
+    hideCursor ? 'transparent' : 'var(--colors-text-default)'};
+  text-shadow: ${({ hideCursor }) =>
+    hideCursor ? '0 0 0 var(--colors-text-default)' : 'none'};
   background: ${get('colors.background.default')};
   opacity: 1;
   border-color: ${props =>

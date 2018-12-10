@@ -127,6 +127,10 @@ class Input extends React.PureComponent {
      * change the focus state of the element)
      */
     appearFocused: PropTypes.bool,
+    /**
+     * Hides the cursor from view
+     */
+    hideCursor: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -154,6 +158,7 @@ class Input extends React.PureComponent {
     autoComplete: true,
     spellCheck: 'false',
     appearFocused: false,
+    hideCursor: false,
   };
 
   static styles = styles;

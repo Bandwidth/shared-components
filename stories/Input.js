@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import Input from 'components/Input';
 import Grid from 'layouts/Grid';
 
@@ -34,4 +33,20 @@ storiesOf('Input', module)
       <h2>Password</h2>
       <Input disabled type="password" placeholder="Placeholder" />
     </Grid>
+  ))
+  .add('appear focused', () => (
+    <Input
+      type="text"
+      style={{ width: 400 }}
+      appearFocused
+      placeholder="Placeholder"
+    />
+  ))
+  .add('hide cursor', () => (
+    <Input
+      type="text"
+      style={{ width: 400 }}
+      hideCursor
+      placeholder="Placeholder"
+    />
   ));

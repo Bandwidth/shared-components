@@ -38,23 +38,28 @@ export default class SearchableSelect extends React.Component {
   };
 
   handleSelectStateChange = (changes, downshiftState) => {
-    const { filterOptions, options, onStateChange } = this.props;
+    const { options, onStateChange } = this.props;
 
-    if (changes.hasOwnProperty('isOpen') && changes.isOpen) {
+    if (
+      changes.hasOwnProperty('isOpen') &&
+      changes.isOpen &&
+      !changes.inputValue
+    ) {
       this.setState({
         inputValue: changes.selectedItem || '',
         filteredOptions: options,
       });
     }
 
-    if (changes.hasOwnProperty('inputValue')) {
-      this.setState({
-        inputValue: changes.inputValue,
-        filteredOptions: filterOptions(options, changes.inputValue, this.props),
-      });
-    }
-
     onStateChange && onStateChange(changes, downshiftState);
+  };
+
+  handleInputValueChange = (inputValue, downshiftState) => {
+    const { filterOptions, options } = this.props;
+    this.setState({
+      inputValue: inputValue,
+      filteredOptions: filterOptions(options, inputValue, this.props),
+    });
   };
 
   render() {
@@ -65,6 +70,7 @@ export default class SearchableSelect extends React.Component {
         {...rest}
         CurrentValue={CurrentValue}
         onStateChange={this.handleSelectStateChange}
+        onInputValueChange={this.handleInputValueChange}
         options={this.state.filteredOptions}
         inputValue={this.state.inputValue}
       />
