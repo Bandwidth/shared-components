@@ -108,3 +108,38 @@ To make sure that forms are accessible, Fields supports associating labels with 
   </Field>
 </Field.Group>
 ```
+
+### Providing a horizon alignment
+
+```js
+<Field.Group>
+  <Field label="label" helpCallout="Some helpful description!">
+    <Input id="firstInput" />
+  </Field>
+  <Field alignContentHorizontally="bottom" helpText="text">
+    <Toggle description="Toggle me!" />
+  </Field>
+  <Field label="label">
+    <Input />
+  </Field>
+  <Field label="required:" required={true}>
+    <Input />
+  </Field>
+  <Field
+    label="options"
+    alignContent="left"
+    alignContentHorizontally="center"
+    helpText="text"
+  >
+    <RadioButton.Group>
+      <RadioButton name="example" value="one" label="one" />
+      <RadioButton name="example" value="two" label="two" />
+      <RadioButton name="example" value="three" label="three" />
+      <RadioButton name="example" value="four" label="four" />
+    </RadioButton.Group>
+  </Field>
+  <Field label="tall">
+    <TextArea defaultValue="Some basic text" />
+  </Field>
+</Field.Group>
+```
