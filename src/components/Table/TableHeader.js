@@ -101,16 +101,15 @@ class TableHeader extends React.Component {
       sortOrder,
       handleClick,
       onClick,
-      id,
-      className,
       Styles,
       SortArrows,
       Link,
       Icon,
+      ...rest
     } = this.props;
 
     return (
-      <Styles sortable={sortable} className={className} id={id}>
+      <Styles sortable={sortable} {...rest}>
         {this.renderColumnName()}
         {sortable && (
           <SortArrows sortOrder={sortOrder}>
