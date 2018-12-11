@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import Field from 'layouts/Field';
 import Input from 'components/Input';
+import Toggle from 'components/Toggle';
 
 storiesOf('Field', module).add('standard', () => (
   <Field.Group>
@@ -20,8 +20,9 @@ storiesOf('Field', module).add('standard', () => (
       label="Required:"
       helpText="A required field"
       helpCallout="Even more help"
+      alignContentVertically="center"
     >
-      <Input placeholder="Content" />
+      <Toggle description="Required with help" />
     </Field>
     <Field disabled label="Disabled" helpText="A disabled field">
       <Input disabled placeholder="Content" />

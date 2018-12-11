@@ -36,9 +36,9 @@ class Field extends React.Component {
      */
     alignContent: PropTypes.oneOf(['stretch', 'left', 'right']),
     /**
-     *  (top|center|bottom): the horizon alignment of content within the Field
+     *  (top|center|bottom): the vertical alignment of content within the Field
      */
-    alignContentHorizontally: PropTypes.oneOf(['top', 'center', 'bottom']),
+    alignContentVertically: PropTypes.oneOf(['top', 'center', 'bottom']),
     /**
      * A string or node to render in the label position. A string will be wrapped with the Label component prop.
      * If you provide a custom node, it will receive the htmlFor prop. Please assign this prop to a <label> element.
@@ -128,11 +128,11 @@ class Field extends React.Component {
   static styles = styles;
 
   stylesFor = gridName => {
-    const { column, columnSpan, alignContentHorizontally } = this.props;
+    const { column, columnSpan, alignContentVertically } = this.props;
 
     const endColumn = column + columnSpan - 1;
 
-    const horizontalAlignment = {
+    const verticalAlignment = {
       top: 'start',
       bottom: 'end',
       center: 'auto',
@@ -143,8 +143,8 @@ class Field extends React.Component {
       // align-self determines how the parts vertically align if an adjacent part is taller.
       // labels should stick to the bottom if an adjacent label has two or more lines.
       // content and helpText should stick to the top if an adjacent element is taller than them.
-      alignSelf: alignContentHorizontally
-        ? horizontalAlignment[alignContentHorizontally]
+      alignSelf: alignContentVertically
+        ? verticalAlignment[alignContentVertically]
         : gridName === 'label' ? 'end' : 'start',
     };
   };
