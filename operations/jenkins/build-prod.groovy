@@ -15,6 +15,7 @@ node('master') {
     reportGithubStatus('jenkins/1unit','PENDING','Unit Tests in Progress')
     reportGithubStatus('jenkins/2prepublish','PENDING','NPM Preparation in Progress')
     reportGithubStatus('jenkins/3deploy','PENDING','Preparing to Deploy to NPM')
+    reportGithubStatus('jenkins/4docs','PENDING','Preparing to Publish Docs')
 }
 
 node {
@@ -49,39 +50,44 @@ node {
               url: 'https://github.com/Bandwidth/shared-components.git'
             ]]
           ])
-
         }
         container('node') {
-          dir("./packages/shared-components") {
-            stage('Install NPM dependencies') {
-              sh 'npm config set cache "/home/jenkins/.npm"'
-              sh 'npm install'
+          stage('Install NPM dependencies') {
+            sh 'npm config set cache "/home/jenkins/.npm"'
+            sh 'npm install'
+          }
+          stage('Run Unit Tests') {
+            try {
+              //sh 'npm test'
+              reportGithubStatus('jenkins/1unit','SUCCESS',"Unit Tests Successful")
+            } catch (e) {
+              reportGithubStatus('jenkins/1unit','FAILURE','Unit Tests Failed')
             }
-            stage('Run Unit Tests') {
-              try {
-                //sh 'npm test'
-                reportGithubStatus('jenkins/1unit','SUCCESS',"Unit Tests Successful")
-              } catch (e) {
-                reportGithubStatus('jenkins/1unit','FAILURE','Unit Tests Failed')
-              }
+          }
+          stage('Prepublish') {
+            try {
+              //sh 'npm test'
+              sh 'npm run prepublish'
+              reportGithubStatus('jenkins/2prepublish','SUCCESS',"Prepared for NPM")
+            } catch (e) {
+              reportGithubStatus('jenkins/2prepublish','FAILURE','Prepare script failed')
             }
-            stage('Prepublish') {
-              try {
-                //sh 'npm test'
-                sh 'npm run prepublish'
-                reportGithubStatus('jenkins/2prepublish','SUCCESS',"Prepared for NPM")
-              } catch (e) {
-                reportGithubStatus('jenkins/2prepublish','FAILURE','Prepare script failed')
-              }
+          }
+          stage('Deploy to NPM!') {
+            try {
+              //sh 'npm test'
+              sh 'npm publish'
+              reportGithubStatus('jenkins/3deploy','SUCCESS',"Published on NPM")
+            } catch (e) {
+              reportGithubStatus('jenkins/3deploy','FAILURE','Failed to Publish')
             }
-            stage('Deploy to NPM!') {
-              try {
-                //sh 'npm test'
-                sh 'npm publish'
-                reportGithubStatus('jenkins/3deploy','SUCCESS',"Published on NPM")
-              } catch (e) {
-                reportGithubStatus('jenkins/3deploy','FAILURE','Failed to Publish')
-              }
+          }
+          stage('Publish docs') {
+            try {
+              sh 'npm run deploy'
+              reportGithubStatus('jenkins/4docs','SUCCESS','Docs published')
+            } catch (e) {
+              reportGithubStatus('jenkins/4docs','FAILURE','Doc publish failed')
             }
           }
         }
