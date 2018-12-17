@@ -51,7 +51,7 @@ storiesOf('Field', module)
         helpCallout="Even more help"
         alignContentVertically="center"
       >
-        <Toggle description="Required with help" />
+        <Toggle.Skeleton description="Required with help" />
       </Field.Skeleton>
       <Field.Skeleton disabled label="Disabled" helpText="A disabled field">
         <Input.Skeleton disabled placeholder="Content" />

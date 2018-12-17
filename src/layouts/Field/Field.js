@@ -118,7 +118,6 @@ class Field extends React.Component {
     column: 0,
     columnSpan: 1,
     Label: DefaultLabel,
-    LabelContainer: DefaultLabelContainer,
     HelpText: DefaultHelpText,
     Content: styles.FieldContent,
     LabelContainer: styles.LabelContainer,

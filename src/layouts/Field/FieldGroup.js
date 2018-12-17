@@ -97,7 +97,7 @@ class FieldGroup extends React.Component {
   }
 }
 
-const PulseFieldRow = PulseGroup(FieldRow);
+const PulseFieldRow = PulseGroup(styles.FieldRow);
 FieldGroup.Skeleton = ({ ...rest }) => (
   <FieldGroup Row={props => <PulseFieldRow {...props} />} {...rest} />
 );
