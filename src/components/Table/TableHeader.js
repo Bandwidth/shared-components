@@ -101,21 +101,20 @@ class TableHeader extends React.Component {
       sortOrder,
       handleClick,
       onClick,
-      id,
-      className,
       Styles,
       SortArrows,
       Link,
       Icon,
+      ...rest
     } = this.props;
 
     return (
-      <Styles sortable={sortable} className={className} id={id}>
+      <Styles sortable={sortable} {...rest}>
         {this.renderColumnName()}
         {sortable && (
-          <SortArrows sortOrder={sortOrder}>
-            <Link icon="up" onClick={this.sortUp} />
-            <Link icon="down" onClick={this.sortDown} />
+          <SortArrows className="toggleSort" sortOrder={sortOrder}>
+            <Link className="sortUp" icon="up" onClick={this.sortUp} />
+            <Link className="sortDown" icon="down" onClick={this.sortDown} />
           </SortArrows>
         )}
       </Styles>
