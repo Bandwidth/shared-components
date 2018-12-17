@@ -112,9 +112,9 @@ class TableHeader extends React.Component {
       <Styles sortable={sortable} {...rest}>
         {this.renderColumnName()}
         {sortable && (
-          <SortArrows sortOrder={sortOrder}>
-            <Link icon="up" onClick={this.sortUp} />
-            <Link icon="down" onClick={this.sortDown} />
+          <SortArrows className="toggleSort" sortOrder={sortOrder}>
+            <Link className="sortUp" icon="up" onClick={this.sortUp} />
+            <Link className="sortDown" icon="down" onClick={this.sortDown} />
           </SortArrows>
         )}
       </Styles>
