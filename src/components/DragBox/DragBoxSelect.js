@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- *  **DragBoxSelect** is a specialized usage of [DragBox](/#!/DragBox) that is also accessible via `DragBox.Select`. It is
+ *  **DragBoxSelect** is a specialized usage of [DragBox](#!/DragBox) that is also accessible via `DragBox.Select`. It is
  *  provided as a convenience as it is a commonly used group of components. All properties available in both
- *  [Selectable](/#!/Selectable) and [DragBox](/#!/DragBox) are passed into the `renderContents`
+ *  [Selectable](#!/Selectable) and [DragBox](#!/DragBox) are passed into the `renderContents`
  *  render prop for **DragBoxSelect**.
  * @visibleName DragBox.Select
  */

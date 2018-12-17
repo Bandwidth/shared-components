@@ -9,7 +9,7 @@ import { DragContext } from 'components/DragContainer';
  * Represents an item that can be dragged. Simply render a node inside of it that wraps the drag handle using
  * the `wrapDragHandle` prop automatically passed down by this component.
  *
- * [DragList.Container](/#!/DragContainer) can be used as an out of the box solution, but if a different component is required,
+ * [DragList.Container](#!/DragContainer) can be used as an out of the box solution, but if a different component is required,
  * you can use `DragList.Item.Consumer`, which uses the React context API.
  *
  * @visibleName DragList.Item

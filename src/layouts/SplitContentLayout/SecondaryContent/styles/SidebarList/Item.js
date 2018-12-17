@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { ItemContainer, ItemLabel, ItemDetails } from './components';
 
 /**
- * An element of a [SidebarList](/#!/SidebarList).
+ * An element of a [SidebarList](#!/SidebarList).
  */
 export default class SidebarListItem extends React.PureComponent {
   static propTypes = {
