@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import generateId from 'extensions/generateId';
-import Blob from 'skeletons/Blob';
+import Skeleton from 'skeletons/Skeleton';
 import * as styles from './styles';
 
 /**
@@ -120,9 +120,9 @@ class Toggle extends React.PureComponent {
 
 Toggle.Skeleton = props => (
   <Toggle
-    Input={() => <Blob width="58px" height="30px" />}
+    Input={() => <Skeleton width="58px" height="30px" />}
     Label={() => (
-      <Blob style={{ marginLeft: '15px' }} width="150px" height="30px" />
+      <Skeleton style={{ marginLeft: '15px' }} width="150px" height="30px" />
     )}
     {...props}
   />

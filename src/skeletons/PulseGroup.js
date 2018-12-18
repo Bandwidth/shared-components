@@ -2,7 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import pulse from 'skeletons/common/pulse';
 
-export default Component =>
+/**
+ * Modifies a component to include pulsing.
+ */
+export const withPulseGroup = Component =>
   styled(Component)`
     animation-name: ${pulse};
     animation-duration: var(--skeleton-pulse-normal);
@@ -27,3 +30,8 @@ export default Component =>
       animation-delay: calc(4 / 5 * var(--skeleton-pulse-normal));
     }
   `;
+
+export default withPulseGroup(styled.div`
+  width: ${({ width = '100%' }) => width};
+  height: ${({ height }) => height};
+`);

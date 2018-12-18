@@ -54,6 +54,10 @@ module.exports = {
           name: 'Layout',
           content: 'docs/layout.md',
         },
+        {
+          name: 'Loading',
+          content: 'docs/loading.md',
+        },
       ],
     },
     {
@@ -71,8 +75,8 @@ module.exports = {
       components: 'src/behaviors/*/[A-Z]*.js',
     },
     {
-      name: 'Animations',
-      components: 'src/animations/*/[A-Z]*.js',
+      name: 'Skeletons',
+      components: 'src/skeletons/[A-Z]*.js',
     },
   ],
   theme: {

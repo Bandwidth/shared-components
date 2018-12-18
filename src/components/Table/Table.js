@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
 
-import BlobTable from 'skeletons/BlobTable';
+import SkeletonTable from './SkeletonTable';
 import Loader from 'components/Loader';
 import ScrollShadow from 'behaviors/ScrollShadow';
 
@@ -103,12 +103,12 @@ Table.Row = styles.Row;
 Table.Header = Header;
 Table.Cell = styles.Cell;
 Table.RowDetails = RowDetails;
-Table.Skeleton = BlobTable;
+Table.Skeleton = SkeletonTable;
 Table.Body = styles.Body;
 
 Table.Small = withProps({
   Styles: styles.TableStyles.Small,
 })(Table);
-Table.Small.Skeleton = BlobTable.Small;
+Table.Small.Skeleton = SkeletonTable.Small;
 
 export default Table;

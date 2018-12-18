@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { defaultProps } from 'recompose';
-import Blob from 'skeletons/Blob';
+import Skeleton from 'skeletons/Skeleton';
 import Link from 'components/Link';
 import * as styles from './styles';
 
@@ -296,12 +296,12 @@ class Input extends React.PureComponent {
   }
 }
 
-Input.Skeleton = ({ height = '53px' }) => <Blob height={height} />;
+Input.Skeleton = ({ height = '53px' }) => <Skeleton height={height} />;
 
 Input.Small = defaultProps({
   Styles: styles.InputStyles.Small,
 })(Input);
 
-Input.Small.Skeleton = ({ height = '30px' }) => <Blob height={height} />;
+Input.Small.Skeleton = ({ height = '30px' }) => <Skeleton height={height} />;
 
 export default Input;

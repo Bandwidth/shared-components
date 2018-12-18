@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Table from 'components/Table';
-import BlobTable from 'skeletons/BlobTable';
 
 storiesOf('Table', module)
   .add('standard', () => (
@@ -37,7 +36,7 @@ storiesOf('Table', module)
       </Table.Row>
     </Table>
   ))
-  .add('skeleton', () => <BlobTable />)
+  .add('skeleton', () => <Table.Skeleton />)
   .add('small', () => (
     <Table.Small
       headers={
@@ -70,4 +69,4 @@ storiesOf('Table', module)
       </Table.Row>
     </Table.Small>
   ))
-  .add('small skeleton', () => <BlobTable.Small />);
+  .add('small skeleton', () => <Table.Small.Skeleton />);

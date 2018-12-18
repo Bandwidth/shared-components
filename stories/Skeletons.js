@@ -1,9 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Blob from 'skeletons/Blob';
-import BlobTable from 'skeletons/BlobTable';
-import BlobList from 'skeletons/BlobList';
+import Skeleton from 'skeletons/Skeleton';
 
 storiesOf('Skeletons', module)
-  .add('blob', () => <Blob width="200px" height="50px" />)
-  .add('list', () => <BlobList width="100%" />);
+  .add('blob', () => <Skeleton width="200px" height="50px" />)
+  .add('group', () => (
+    <Skeleton.Group count={6}>
+      <Skeleton />
+    </Skeleton.Group>
+  ));

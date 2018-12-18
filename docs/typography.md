@@ -89,13 +89,14 @@ const Section = props => (
 const Space = () => (
   <div>
     <P>
-      Text components, like <Code>P</Code>, <Code>H1</Code>, and <Code>H2</Code>
-      , support the <Code>spacing</Code> prop. <Code>spacing</Code> provides a
-      dynamic way to specify the margins around a text component in relationship
-      to the cap and base lines of the outer text. Unlike normal CSS margins,
-      which align to the logical top and bottom of the element, the margins
-      calculated by <Code>spacing</Code> will visually align with the text
-      content itself, leading to a more consistent experience for the user.
+      Text components, like <Code>P</Code>, <Code>H1</Code>, and <Code>H2</Code>,
+      support the <Code>spacing</Code> prop. <Code>spacing</Code> provides a dynamic
+      way to specify the margins around a text component in relationship to the cap
+      and base lines of the outer text. Unlike normal CSS margins, which align to
+      the logical top and bottom of the element, the margins calculated by <Code>
+        spacing
+      </Code> will visually align with the text content itself, leading to a more
+      consistent experience for the user.
     </P>
 
     <Section>

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import userSpacing from 'extensions/userSpacing';
-import Blob from 'skeletons/Blob';
+import Skeleton from 'skeletons/Skeleton';
 
-const BlobParagraphContainer = styled.div.attrs({
+const SkeletonParagraphContainer = styled.div.attrs({
   spacing: userSpacing,
 })`
   margin: ${props => props.spacing};
@@ -25,18 +25,18 @@ export default ({
   lines = 5,
   marginBetween = '8px',
 }) => (
-  <BlobParagraphContainer
+  <SkeletonParagraphContainer
     spacing={spacing}
     width={width}
     marginBetween={marginBetween}
   >
     {Array.from(Array(lines).keys()).map(rowIdx => (
-      <Blob
+      <Skeleton
         animated={!disableAnimation}
         key={rowIdx}
         height={rowHeight}
-        width="90%"
+        width="95%"
       />
     ))}
-  </BlobParagraphContainer>
+  </SkeletonParagraphContainer>
 );

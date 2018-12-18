@@ -1,16 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import themeGet from 'extensions/themeGet';
 import pulse from 'skeletons/common/pulse';
+import SkeletonGroup from './SkeletonGroup';
 
 /**
  * @component
  */
-const Blob = styled.div`
-  height: ${({ height }) => height};
-  width: ${({ width }) => width};
+const Skeleton = styled.div`
+  height: ${({ height = '30px' }) => height};
+  width: ${({ width = '100%' }) => width};
   background: ${props =>
-    themeGet(props.color || 'skeleton.colors.default')(props)};
+    props.color || themeGet('skeleton.colors.default')(props)};
   border-radius: ${({ borderRadius = '1em' }) => borderRadius};
   display: ${({ display = 'inline-block' }) => display};
 
@@ -43,6 +45,7 @@ const Blob = styled.div`
     `};
 `;
 
-Blob.Animated = props => <Blob {...props} animated />;
+Skeleton.Animated = props => <Skeleton {...props} animated />;
+Skeleton.Group = SkeletonGroup;
 
-export default Blob;
+export default Skeleton;

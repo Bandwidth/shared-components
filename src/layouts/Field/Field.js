@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DefaultLabel from 'components/Label';
 import DefaultHelpText from 'components/HelpText';
 import Callout from 'components/Callout';
-import Blob from 'skeletons/Blob';
+import Skeleton from 'skeletons/Skeleton';
 import * as styles from './styles';
 import get from 'lodash.get';
 import FieldGroup from './FieldGroup';
@@ -266,12 +266,12 @@ Field.Skeleton = ({ label, helpText, ...rest }) => (
     {...rest}
     LabelContainer={({ children, ...rest }) =>
       label ? (
-        <Blob {...rest} width={`${Math.random() * 20 + 80}%`} height="14px" />
+        <Skeleton {...rest} width={`${Math.random() * 20 + 80}%`} height="14px" />
       ) : null
     }
     HelpText={({ children, ...rest }) =>
       helpText ? (
-        <Blob {...rest} width={`${Math.random() * 20 + 80}%`} height="14px" />
+        <Skeleton {...rest} width={`${Math.random() * 20 + 80}%`} height="14px" />
       ) : null
     }
   />
