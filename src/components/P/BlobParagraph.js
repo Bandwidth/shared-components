@@ -35,7 +35,7 @@ export default ({
         animated={!disableAnimation}
         key={rowIdx}
         height={rowHeight}
-        width={`${(1 - Math.random() * Math.random()) * 70 + 30}%`}
+        width="90%"
       />
     ))}
   </BlobParagraphContainer>
