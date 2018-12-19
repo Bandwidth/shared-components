@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Skeleton from 'skeletons/Skeleton';
+import createArray from 'extensions/createArray';
 
 const SkeletonTableContainer = styled.div`
   display: flex;
@@ -48,9 +49,9 @@ const SkeletonTable = ({
       disableAnimation={disableAnimation}
       height={rowHeight}
     />
-    {Array.from(Array(rows).keys()).map(rowIdx => (
+    {createArray(rows).map(rowIdx => (
       <SkeletonTableRow marginBetween={marginBetween} key={rowIdx}>
-        {Array.from(Array(columns).keys()).map(colIdx => (
+        {createArray(columns).map(colIdx => (
           <SkeletonTableCell
             pctOffset={colIdx / columns}
             key={colIdx}
