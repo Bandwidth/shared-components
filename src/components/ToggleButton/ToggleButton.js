@@ -7,7 +7,7 @@ import noop from 'lodash.noop';
 /**
  * `ToggleButton` is a simple styled button with some extra functionality built-in for handling selection. Control
  * it by setting `selected`, then use its `onClick` or `onSelect/onDeselect` handlers to implement selection or hook
- * into the [Selectable](/#!/Selectable) behavior. Set `name` to keep track of which button was pressed when a
+ * into the [Selectable](#!/Selectable) behavior. Set `name` to keep track of which button was pressed when a
  * click handler fires.
  */
 export default class ToggleButton extends React.PureComponent {

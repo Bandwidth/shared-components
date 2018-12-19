@@ -13,7 +13,7 @@ const StyledDiv = styled.div`
 
 /**
  * A list of items that can be dragged and reordered.
- * Use a list of [DragList.Item](/#!/DragListItem) as children.
+ * Use a list of [DragList.Item](#!/DragListItem) as children.
  * DragList.Container is provided
  * as a convenient way to display items in the drag list.
  */

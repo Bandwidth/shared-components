@@ -6,7 +6,7 @@ import Item from './Item';
 
 /**
  * Lays out items vertically in a sidebar. Does not handle scrolling.
- * Use [SidebarList.Item](/#!/SidebarListItem) as the child elements.
+ * Use [SidebarList.Item](#!/SidebarListItem) as the child elements.
  *
  * You can show selected state by either passing an `active` prop to the correct item
  * or linking your list to your router so that each item is a unique route. If you go that direction,

@@ -1,4 +1,4 @@
-Our colors are available as part of themes. Use [BandwidthProvider](/#!/BandwidthProvider) to provide themes in your app,
+Our colors are available as part of themes. Use [BandwidthProvider](#!/BandwidthProvider) to provide themes in your app,
 then use CSS variables to reference the colors (e.g.,  `var(--colors-primary-light)`).
 
 ```javascript noeditor

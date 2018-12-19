@@ -16,8 +16,8 @@ const MIN_SIZE_DRAGBOX = 16;
 
 /**
  * **DragBox** creates an area where the user can drag a box that can then control other types of behavior. It is intended to
- * be used with the [Selectable](/#!/Selectable) behavior, though it can be used for general purposes. For a prebuilt implementation
- * of **DragBox** with [Selectable](/#!/Selectable), use [DragBox.Select](#!/DragBoxSelect).
+ * be used with the [Selectable](#!/Selectable) behavior, though it can be used for general purposes. For a prebuilt implementation
+ * of **DragBox** with [Selectable](#!/Selectable), use [DragBox.Select](#!/DragBoxSelect).
  *
  * **DragBox** uses render props, which means that it takes functions that it passes several arguments and uses the result
  * of that function to perform renders. This allows it to be easily composed with other types of components.

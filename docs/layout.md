@@ -192,7 +192,7 @@ Clicking a toolbar anchor should disable any other sibling anchors. This should 
 
 ## Data Presentation
 
-When displaying input fields, you should aim to present information in a way that users can identify what is currently editable, what was editable, and what was system generated. Use the [Field](#!/Field) and [Input](/#!/Input) components to create forms with input fields.
+When displaying input fields, you should aim to present information in a way that users can identify what is currently editable, what was editable, and what was system generated. Use the [Field](#!/Field) and [Input](#!/Input) components to create forms with input fields.
 
 ```jsx
 <form>

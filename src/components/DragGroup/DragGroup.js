@@ -12,7 +12,7 @@ import DragContainer from 'components/DragContainer';
  * on `itemType`. The ordering of items within a group is arbitrary and non-editable.
  * Dragging is not enabled until more than one group is present.
  *
- * > **Note:** You must include [BandwidthProvider](/#!/BandwidthProvider)
+ * > **Note:** You must include [BandwidthProvider](#!/BandwidthProvider)
  * at or near the root of your application to use drag and drop functionality.
  */
 class DragGroup extends React.Component {

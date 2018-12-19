@@ -19,8 +19,8 @@ const DefaultControls = (
 );
 
 /**
- * This is a prebuilt example container that can be used with [DragList](/#!/DragList)
- * or [DragGroup](/#!/DragGroup). It features a drag handle and a section that can have
+ * This is a prebuilt example container that can be used with [DragList](#!/DragList)
+ * or [DragGroup](#!/DragGroup). It features a drag handle and a section that can have
  * controls for the item - just set `controls` to a react node and attach handlers for
  * the click events as needed.
  */
