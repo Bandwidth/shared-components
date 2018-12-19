@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 import userSpacing from 'extensions/userSpacing';
+import Skeleton from 'skeletons/Skeleton';
 
 const H2 = styled.h2.withConfig({ displayName: 'H2' })`
   color: ${get('colors.text.default')};
@@ -34,6 +35,8 @@ H2.defaultProps = {
   className: null,
   id: null,
 };
+
+H2.Skeleton = () => <Skeleton width="200px" height="2em" />;
 
 /**
  * @component

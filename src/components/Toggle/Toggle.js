@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import generateId from 'extensions/generateId';
+import Skeleton from 'skeletons/Skeleton';
 import * as styles from './styles';
 
 /**
@@ -116,5 +117,15 @@ class Toggle extends React.PureComponent {
     );
   }
 }
+
+Toggle.Skeleton = props => (
+  <Toggle
+    Input={() => <Skeleton width="58px" height="30px" />}
+    Label={() => (
+      <Skeleton style={{ marginLeft: '15px' }} width="150px" height="30px" />
+    )}
+    {...props}
+  />
+);
 
 export default Toggle;

@@ -71,9 +71,10 @@ const FieldRowDiv = styled.div`
   display: flex;
 `;
 
-const FieldRow = ({ children, columns, theme }) => {
+const FieldRow = ({ children, columns, theme, ...rest }) => {
   return (
     <FieldRowDiv
+      {...rest}
       style={{
         // each row has 3 sub-rows: label, content, helpText.
         // there's a named area for each column.

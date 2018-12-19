@@ -14,6 +14,14 @@ storiesOf('Input', module)
       <Input type="password" placeholder="Placeholder" />
     </Grid>
   ))
+  .add('skeleton', () => (
+    <Grid columns={1} maxSize="400px">
+      <h2>Standard</h2>
+      <Input.Skeleton type="text" placeholder="Placeholder" />
+      <h2>Small</h2>
+      <Input.Small.Skeleton type="text" placeholder="Placeholder" />
+    </Grid>
+  ))
   .add('invalid', () => (
     <Grid columns={1} maxSize="400px">
       <h2>Standard</h2>

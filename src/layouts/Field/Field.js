@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import DefaultLabel from 'components/Label';
 import DefaultHelpText from 'components/HelpText';
 import Callout from 'components/Callout';
+import Skeleton from 'skeletons/Skeleton';
 import * as styles from './styles';
 import get from 'lodash.get';
 import FieldGroup from './FieldGroup';
@@ -64,6 +65,10 @@ class Field extends React.Component {
      * A component prop to override the component used to render labels. Defaults to library Label.
      */
     Label: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    /**
+     * A component prop to override the component used to render the label container. Defaults to library LabelContainer.
+     */
+    LabelContainer: PropTypes.func,
     /**
      * A component prop to override the component used to render help text. Defaults to library HelpText.
      */
@@ -145,7 +150,9 @@ class Field extends React.Component {
       // content and helpText should stick to the top if an adjacent element is taller than them.
       alignSelf: alignContentVertically
         ? verticalAlignment[alignContentVertically]
-        : gridName === 'label' ? 'end' : 'start',
+        : gridName === 'label'
+        ? 'end'
+        : 'start',
     };
   };
 
@@ -251,5 +258,23 @@ class Field extends React.Component {
     );
   }
 }
+
+Field.Skeleton = ({ label, helpText, ...rest }) => (
+  <Field
+    label={label}
+    helpText={helpText}
+    {...rest}
+    LabelContainer={({ children, ...rest }) =>
+      label ? (
+        <Skeleton {...rest} width={`${Math.random() * 20 + 80}%`} height="14px" />
+      ) : null
+    }
+    HelpText={({ children, ...rest }) =>
+      helpText ? (
+        <Skeleton {...rest} width={`${Math.random() * 20 + 80}%`} height="14px" />
+      ) : null
+    }
+  />
+);
 
 export default Field;

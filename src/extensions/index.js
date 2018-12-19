@@ -1,4 +1,5 @@
 export { default as childrenWithProps } from './childrenWithProps';
+export { default as createArray } from './createArray';
 export { default as formatMoney } from './formatMoney';
 export { default as generateId } from './generateId';
 export { default as parseFlex } from './parseFlex';

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 import userSpacing from 'extensions/userSpacing';
+import Skeleton from 'skeletons/Skeleton';
 
 const LINE_HEIGHT = 1.25;
 
@@ -39,9 +40,12 @@ H3.defaultProps = {
   id: null,
 };
 
+H3.Skeleton = () => <Skeleton width="200px" height="1.75em" />;
+
 H3.Primary = styled(H3)`
   color: ${get('colors.primary.default')};
 `;
+H3.Primary.Skeleton = () => <Skeleton width="200px" height="1.75em" />;
 
 /**
  * @component

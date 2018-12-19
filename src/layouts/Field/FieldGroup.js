@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withPulseGroup } from 'skeletons/PulseGroup';
 import * as styles from './styles';
 
 /**
@@ -96,4 +97,8 @@ class FieldGroup extends React.Component {
   }
 }
 
+const PulseFieldRow = withPulseGroup(styles.FieldRow);
+FieldGroup.Skeleton = ({ ...rest }) => (
+  <FieldGroup Row={props => <PulseFieldRow {...props} />} {...rest} />
+);
 export default FieldGroup;

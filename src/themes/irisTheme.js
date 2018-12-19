@@ -110,6 +110,18 @@ export const thicknesses = {
   extraLarge: '3px',
 };
 
+export const skeleton = {
+  colors: {
+    default: 'var(--colors-gray-light)',
+    dark: 'var(--colors-gray-medium-light)',
+  },
+  pulse: {
+    opacity: '0.5',
+    normal: '1.2s',
+    fast: '0.6s',
+  },
+};
+
 export const fontSizes = {
   default: '14px',
 };
@@ -121,5 +133,6 @@ export default {
   shadows,
   spacing,
   thicknesses,
+  skeleton,
   fontSizes,
 };

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 import userSpacing from 'extensions/userSpacing';
+import Skeleton from 'skeletons/Skeleton';
 
 import H2 from './H2';
 import H3 from './H3';
@@ -40,6 +41,8 @@ H1.defaultProps = {
   className: null,
   id: null,
 };
+
+H1.Skeleton = () => <Skeleton width="200px" height="2.5em" />;
 
 H1.H2 = H2;
 H1.H3 = H3;

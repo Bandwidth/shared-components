@@ -58,6 +58,13 @@ storiesOf('Toggle', module)
       />
     </Grid>
   ))
+  .add('skeleton', () => (
+    <Grid columns={1}>
+      <h2>Standard</h2>
+      <Toggle.Skeleton description />
+      <Toggle.Skeleton description />
+    </Grid>
+  ))
   .add('rerender keeps id', () => (
     <React.Fragment>
       <RenderEverySecond>

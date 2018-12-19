@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withProps } from 'recompose';
-import styled, { css } from 'styled-components';
-import { sentence } from 'change-case';
 import DefaultLink from 'components/Link';
 import * as styles from './styles';
 import noop from 'lodash.noop';

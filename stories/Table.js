@@ -36,68 +36,37 @@ storiesOf('Table', module)
       </Table.Row>
     </Table>
   ))
+  .add('skeleton', () => <Table.Skeleton />)
   .add('small', () => (
     <Table.Small
       headers={
         <Table.Row>
-          <Table.Header>One</Table.Header>
-          <Table.Header>Two</Table.Header>
-          <Table.Header sortable>Three</Table.Header>
+          <Table.Header.Small>One</Table.Header.Small>
+          <Table.Header.Small>Two</Table.Header.Small>
+          <Table.Header.Small sortable>Three</Table.Header.Small>
         </Table.Row>
       }
     >
       <Table.Row>
-        <Table.Cell>1</Table.Cell>
-        <Table.Cell>Foo</Table.Cell>
-        <Table.Cell>Bar</Table.Cell>
+        <Table.Cell.Small>1</Table.Cell.Small>
+        <Table.Cell.Small>Foo</Table.Cell.Small>
+        <Table.Cell.Small>Bar</Table.Cell.Small>
       </Table.Row>
       <Table.Row>
-        <Table.Cell>2</Table.Cell>
-        <Table.Cell>Foo</Table.Cell>
-        <Table.Cell>Bar</Table.Cell>
+        <Table.Cell.Small>2</Table.Cell.Small>
+        <Table.Cell.Small>Foo</Table.Cell.Small>
+        <Table.Cell.Small>Bar</Table.Cell.Small>
       </Table.Row>
       <Table.Row>
-        <Table.Cell>3</Table.Cell>
-        <Table.Cell>Foo</Table.Cell>
-        <Table.Cell>Bar</Table.Cell>
+        <Table.Cell.Small>3</Table.Cell.Small>
+        <Table.Cell.Small>Foo</Table.Cell.Small>
+        <Table.Cell.Small>Bar</Table.Cell.Small>
       </Table.Row>
       <Table.Row>
-        <Table.Cell>4</Table.Cell>
-        <Table.Cell>Foo</Table.Cell>
-        <Table.Cell>Bar</Table.Cell>
+        <Table.Cell.Small>4</Table.Cell.Small>
+        <Table.Cell.Small>Foo</Table.Cell.Small>
+        <Table.Cell.Small>Bar</Table.Cell.Small>
       </Table.Row>
     </Table.Small>
   ))
-  .add('loading', () => (
-    <Table
-      loading={true}
-      headers={
-        <Table.Row>
-          <Table.Header>One</Table.Header>
-          <Table.Header>Two</Table.Header>
-          <Table.Header sortable>Three</Table.Header>
-        </Table.Row>
-      }
-    >
-      <Table.Row>
-        <Table.Cell>1</Table.Cell>
-        <Table.Cell>Foo</Table.Cell>
-        <Table.Cell>Bar</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>2</Table.Cell>
-        <Table.Cell>Foo</Table.Cell>
-        <Table.Cell>Bar</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>3</Table.Cell>
-        <Table.Cell>Foo</Table.Cell>
-        <Table.Cell>Bar</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>4</Table.Cell>
-        <Table.Cell>Foo</Table.Cell>
-        <Table.Cell>Bar</Table.Cell>
-      </Table.Row>
-    </Table>
-  ));
+  .add('small skeleton', () => <Table.Small.Skeleton />);
