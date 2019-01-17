@@ -154,21 +154,13 @@ class Select extends React.PureComponent {
         selectedItem={value}
         {...rest}
       >
-        {({ inputValue, ...downshiftProps }) => (
+        {({...downshiftProps }) => (
           <div>
             <Manager>
               <Reference>
                 {({ ref }) => (
                   <CurrentValue
                     {...downshiftProps}
-                    inputValue={
-                      downshiftProps.isOpen
-                        ? inputValue
-                        : inputValue ||
-                          downshiftProps.itemToString(
-                            downshiftProps.selectedItem,
-                          )
-                    }
                     ref={ref}
                     placeholder={combinedPlaceholder}
                     disabled={disabled}
