@@ -154,7 +154,7 @@ class Select extends React.PureComponent {
         selectedItem={value}
         {...rest}
       >
-        {({...downshiftProps}) => (
+        {downshiftProps => (
           <div>
             <Manager>
               <Reference>
