@@ -65,6 +65,7 @@ export default css`
       font-family: var(--fonts-icon);
       font-size: 1.5em;
       transform: translateY(-50%);
+      pointer-events: none;
     }
     .DateInput_fang {
       display: none;
