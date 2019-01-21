@@ -8,7 +8,10 @@ const history = require('connect-history-api-fallback');
 module.exports = {
   mode: process.env.WEBPACK_SERVE ? 'development' : 'production',
 
-  entry: [require.resolve('./polyfills'), path.join(__dirname, './index.js')],
+  entry: [
+    require.resolve('../../tools/polyfills'),
+    path.join(__dirname, './index.js'),
+  ],
   output: {
     path: path.resolve(__dirname, '..'),
     filename: 'bundle.js',
