@@ -17,3 +17,28 @@ require('@babel/polyfill');
 // ResizeObserver is a polyfill for a tool that subscribes to resize
 // events on an element https://wicg.github.io/ResizeObserver/
 require('resize-observer');
+
+// IntersectionObserver is a polyfill for a tool that subscribes to
+// events when an element intersects a bounding area https://wicg.github.io/IntersectionObserver/
+require('intersection-observer');
+
+// performance.now() and performance.timing.navigationStart polyfill
+if (!window.performance) {
+  window.performance = {};
+}
+
+if (!performance.now) {
+  performance.now = function() {
+    return Date.now() - this.timing.navigationStart;
+  };
+}
+
+if (!performance.timing) {
+  performance.timing = {};
+}
+
+if (!performance.timing.navigationStart) {
+  performance.timing.navigationStart = Date.now();
+}
+
+console.debug('Polyfills loaded');

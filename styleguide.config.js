@@ -93,6 +93,7 @@ module.exports = {
     'styled-components',
     path.join(__dirname, 'src'),
     path.join(__dirname, 'fonts/fonts.css'),
+    path.join(__dirname, 'tools/polyfills.js'),
   ],
   styleguideComponents: {
     Logo: path.join(__dirname, 'tools/styleguide/Logo'),
