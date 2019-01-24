@@ -34,7 +34,7 @@ export default class SearchableSelect extends React.Component {
 
   state = {
     filteredOptions: this.props.options,
-    inputValue: '',
+    inputValue: undefined,
   };
 
   handleSelectStateChange = (changes, downshiftState) => {
