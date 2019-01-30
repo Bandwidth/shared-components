@@ -92,6 +92,10 @@ class Select extends React.PureComponent {
      * code for details about how to implement your own custom version
      */
     Options: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    /**
+     * Will be shown the provided value on clear select instead of clean it completely
+     */
+    keepProvidedValue: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -106,6 +110,7 @@ class Select extends React.PureComponent {
     defaultHighlightedIndex: 0,
     CurrentValue: styles.CurrentValue,
     Options: styles.Options,
+    keepProvidedValue: false,
   };
 
   static styles = styles;
@@ -141,6 +146,7 @@ class Select extends React.PureComponent {
       className,
       popperProps,
       name,
+      keepProvidedValue,
       ...rest
     } = this.props;
     const combinedLoading = loading || isLoading;
@@ -154,54 +160,69 @@ class Select extends React.PureComponent {
         selectedItem={value}
         {...rest}
       >
-        {downshiftProps => (
-          <div>
-            <Manager>
-              <Reference>
-                {({ ref }) => (
-                  <CurrentValue
-                    {...downshiftProps}
-                    ref={ref}
-                    placeholder={combinedPlaceholder}
-                    disabled={disabled}
-                    loading={combinedLoading}
-                    invalid={invalid}
-                    required={required}
-                    id={id}
-                    className={className}
-                    name={name}
-                  />
+        {downshiftProps => {
+          const { isOpen, inputValue, itemToString, selectedItem } = downshiftProps;
+          if (!isOpen) {
+            if (
+              inputValue
+              && inputValue !== itemToString(selectedItem)
+            ) {
+              downshiftProps.inputValue = itemToString(selectedItem);
+            }
+
+            if (keepProvidedValue && !inputValue && value) {
+              downshiftProps.inputValue = renderOption(value);
+            }
+          }
+          return ((
+            <div>
+              <Manager>
+                <Reference>
+                  {({ ref }) => (
+                    <CurrentValue
+                      {...downshiftProps}
+                      ref={ref}
+                      placeholder={combinedPlaceholder}
+                      disabled={disabled}
+                      loading={combinedLoading}
+                      invalid={invalid}
+                      required={required}
+                      id={id}
+                      className={className}
+                      name={name}
+                    />
+                  )}
+                </Reference>
+                {downshiftProps.isOpen && (
+                  <Popper
+                    placement="bottom"
+                    boundariesPadding={0}
+                    modifiers={{
+                      matchWidth: popperMatchWidthModifier,
+                      flip: { behavior: 'flip', padding: 20 },
+                      preventOverflow: { escapeWithReference: true, padding: 0 },
+                    }}
+                    {...popperProps}
+                  >
+                    {popperStuff => {
+                      this.scheduleUpdate = popperStuff.scheduleUpdate;
+                      return (
+                        <Foreground>
+                          <Options
+                            {...popperStuff}
+                            {...downshiftProps}
+                            renderOption={renderOption}
+                            options={options}
+                          />
+                        </Foreground>
+                      );
+                    }}
+                  </Popper>
                 )}
-              </Reference>
-              {downshiftProps.isOpen && (
-                <Popper
-                  placement="bottom"
-                  boundariesPadding={0}
-                  modifiers={{
-                    matchWidth: popperMatchWidthModifier,
-                    flip: { behavior: 'flip', padding: 20 },
-                    preventOverflow: { escapeWithReference: true, padding: 0 },
-                  }}
-                  {...popperProps}
-                >
-                  {popperStuff => {
-                    this.scheduleUpdate = popperStuff.scheduleUpdate;
-                    return (
-                      <Foreground>
-                        <Options
-                          {...popperStuff}
-                          {...downshiftProps}
-                          renderOption={renderOption}
-                          options={options}
-                        />
-                      </Foreground>
-                    );
-                  }}
-                </Popper>
-              )}
-            </Manager>
-          </div>
-        )}
+              </Manager>
+            </div>
+          ))
+        }}
       </Downshift>
     );
   }
