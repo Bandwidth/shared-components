@@ -92,10 +92,6 @@ class Select extends React.PureComponent {
      * code for details about how to implement your own custom version
      */
     Options: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
-    /**
-     * Will be shown the provided value on clear select instead of clean it completely
-     */
-    keepProvidedValue: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -110,7 +106,6 @@ class Select extends React.PureComponent {
     defaultHighlightedIndex: 0,
     CurrentValue: styles.CurrentValue,
     Options: styles.Options,
-    keepProvidedValue: false,
   };
 
   static styles = styles;
@@ -146,33 +141,37 @@ class Select extends React.PureComponent {
       className,
       popperProps,
       name,
-      keepProvidedValue,
       ...rest
     } = this.props;
     const combinedLoading = loading || isLoading;
-    const combinedPlaceholder = noneText !== undefined ? noneText : placeholder;
+    let combinedPlaceholder = noneText !== undefined ? noneText : placeholder;
+    let justOpened = false;
 
     return (
       <Downshift
         onChange={onChange}
         itemCount={options.length}
         itemToString={renderOption}
-        selectedItem={value}
+        initialSelectedItem={value}
         {...rest}
       >
         {downshiftProps => {
           const { isOpen, inputValue, itemToString, selectedItem } = downshiftProps;
           if (!isOpen) {
+            justOpened = isOpen;
             if (
               inputValue
               && inputValue !== itemToString(selectedItem)
             ) {
               downshiftProps.inputValue = itemToString(selectedItem);
             }
-
-            if (keepProvidedValue && !inputValue && value) {
-              downshiftProps.inputValue = renderOption(value);
+          } else {
+            if (!justOpened) {
+              justOpened = isOpen;
+              downshiftProps.setHighlightedIndex(options.indexOf(selectedItem));
             }
+
+            combinedPlaceholder = itemToString(selectedItem);
           }
           return ((
             <div>
