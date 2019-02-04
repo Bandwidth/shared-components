@@ -18,7 +18,7 @@ const NavigationItemList = styled.div.withConfig({
   }
 
   & > * + * {
-    margin-left: ${get('spacing.large')};
+    margin-left: 20px;
   }
 `;
 
