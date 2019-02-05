@@ -145,6 +145,10 @@ class Select extends React.PureComponent {
     } = this.props;
     const combinedLoading = loading || isLoading;
     let combinedPlaceholder = noneText !== undefined ? noneText : placeholder;
+    // This variable was presented, because of we don't have the `onOpen()` hook
+    // The only way to get information about select was just opened is to use `stateReducer`
+    // but the problem with this is that it mutates `options` to 1 element, currently selected,
+    // so you won't get the real item index in the `options`
     let justOpened = false;
 
     return (
@@ -157,20 +161,31 @@ class Select extends React.PureComponent {
       >
         {downshiftProps => {
           const { isOpen, inputValue, itemToString, selectedItem } = downshiftProps;
+          /* if select is closed */
           if (!isOpen) {
+            /* update justOpened to false, to know when exactly it will change to true first time */
             justOpened = isOpen;
+            /* downshift doesn't handle the changes inside of the `itemToString` function, so if your data
+             * inside of the renderOption(itemToString) will update async you won't know about this
+             * because the returned value won't change until you will change the select value */
             if (
               inputValue
               && inputValue !== itemToString(selectedItem)
             ) {
+              // we checked the variable, but because it is the value we need to assign value
+              // to the object variable, which is a link, not the value
               downshiftProps.inputValue = itemToString(selectedItem);
             }
           } else {
+            // Check that select was closed before and ignore if it was opened
             if (!justOpened) {
+              // Show that this is first time it was opened
               justOpened = isOpen;
+              // change the highlighted index to element which was selected before
               downshiftProps.setHighlightedIndex(options.indexOf(selectedItem));
             }
 
+            // Show previous value as a placeholder
             combinedPlaceholder = itemToString(selectedItem);
           }
           return ((
