@@ -160,22 +160,11 @@ class Select extends React.PureComponent {
         {...rest}
       >
         {downshiftProps => {
-          const { isOpen, inputValue, itemToString, selectedItem } = downshiftProps;
+          const { isOpen, itemToString, selectedItem } = downshiftProps;
           /* if select is closed */
           if (!isOpen) {
             /* update justOpened to false, to know when exactly it will change to true first time */
             justOpened = isOpen;
-            /* downshift doesn't handle the changes inside of the `itemToString` function, so if your data
-             * inside of the renderOption(itemToString) will update async you won't know about this
-             * because the returned value won't change until you will change the select value */
-            if (
-              inputValue
-              && inputValue !== itemToString(selectedItem)
-            ) {
-              // we checked the variable, but because it is the value we need to assign value
-              // to the object variable, which is a link, not the value
-              downshiftProps.inputValue = itemToString(selectedItem);
-            }
           } else {
             // Check that select was closed before and ignore if it was opened
             if (!justOpened) {
