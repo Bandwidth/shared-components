@@ -170,8 +170,9 @@ class Select extends React.PureComponent {
             if (!justOpened) {
               // Show that this is first time it was opened
               justOpened = isOpen;
+              const highlightIndex = options.indexOf(selectedItem);
               // change the highlighted index to element which was selected before
-              downshiftProps.setHighlightedIndex(options.indexOf(selectedItem));
+              downshiftProps.setHighlightedIndex(highlightIndex > 0 ? highlightIndex : 0);
             }
 
             // Show previous value as a placeholder
