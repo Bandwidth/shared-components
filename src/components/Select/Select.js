@@ -145,39 +145,16 @@ class Select extends React.PureComponent {
     } = this.props;
     const combinedLoading = loading || isLoading;
     let combinedPlaceholder = noneText !== undefined ? noneText : placeholder;
-    // This variable was presented, because of we don't have the `onOpen()` hook
-    // The only way to get information about select was just opened is to use `stateReducer`
-    // but the problem with this is that it mutates `options` to 1 element, currently selected,
-    // so you won't get the real item index in the `options`
-    let justOpened = false;
 
     return (
       <Downshift
         onChange={onChange}
         itemCount={options.length}
         itemToString={renderOption}
-        initialSelectedItem={value}
+        selectedItem={value}
         {...rest}
       >
-        {downshiftProps => {
-          const { isOpen, itemToString, selectedItem } = downshiftProps;
-          /* if select is closed */
-          if (!isOpen) {
-            /* update justOpened to false, to know when exactly it will change to true first time */
-            justOpened = isOpen;
-          } else {
-            // Check that select was closed before and ignore if it was opened
-            if (!justOpened) {
-              // Show that this is first time it was opened
-              justOpened = isOpen;
-              const highlightIndex = options.indexOf(selectedItem);
-              // change the highlighted index to element which was selected before
-              downshiftProps.setHighlightedIndex(highlightIndex > 0 ? highlightIndex : 0);
-            }
-
-            // Show previous value as a placeholder
-            combinedPlaceholder = itemToString(selectedItem);
-          }
+        {({ inputValue, ...downshiftProps }) => {
           return ((
             <div>
               <Manager>
@@ -185,6 +162,13 @@ class Select extends React.PureComponent {
                   {({ ref }) => (
                     <CurrentValue
                       {...downshiftProps}
+                      inputValue={
+                        downshiftProps.isOpen
+                          ? inputValue
+                          : inputValue
+                            || downshiftProps.itemToString(downshiftProps.selectedItem)
+                            || ''
+                      }
                       ref={ref}
                       placeholder={combinedPlaceholder}
                       disabled={disabled}
