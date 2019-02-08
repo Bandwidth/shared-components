@@ -58,7 +58,7 @@ export default styled.div`
     css`
       .DateInput_input:not(.DateInput_input__focused) {
         border-color: var(--colors-negative-border) !important;
-        box-shadow: inset 0 -5px 0 var(--colors.negative.light')};
+        box-shadow: inset 0 -5px 0 var(--colors-negative-light)};
       }
     `};
 `;
