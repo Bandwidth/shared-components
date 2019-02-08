@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import get from 'extensions/themeGet';
 
 const WIDTH = 260;
 
