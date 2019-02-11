@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import get from 'extensions/themeGet';
 
 const WIDTH = 554;
 
@@ -48,8 +49,8 @@ export default styled.div`
     invalid &&
     css`
       .DateInput_input:not(.DateInput_input__focused) {
-        border-color: var(--colors-negative-border) !important;
-        box-shadow: inset 0 -5px 0 var(--colors-negative-light)};
+        border-color: ${get('colors.negative.border')} !important;
+        box-shadow: inset 0 -5px 0 ${get('colors.negative.light')};
       }
     `};
 `;
