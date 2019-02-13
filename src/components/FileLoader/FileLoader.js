@@ -53,7 +53,7 @@ export default class FileLoader extends React.Component {
   };
 
   renderFiles = () => {
-    const { value, DropArea, Preview } = this.props;
+    const { value, error, DropArea, Preview } = this.props;
     if (value && value[0]) {
       return (
         <DropArea>
@@ -63,7 +63,7 @@ export default class FileLoader extends React.Component {
       );
     } else {
       return (
-        <DropArea>
+        <DropArea error={error}>
           <Icon name="file" />
           <Preview>
             DROP A FILE HERE, OR&nbsp;
