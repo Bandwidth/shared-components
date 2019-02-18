@@ -33,6 +33,7 @@ const Button = styled.button`
   position: relative;
   overflow: hidden;
   line-height: normal;
+  min-height: 40px;
   white-space: nowrap;
 
   vertical-align: middle;
