@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
 import Loader from 'components/Loader';
+import styled from 'styled-components';
 
 /**
  * `Button.Submit` is intended to be used within a form. `Button.Submit` should only be used to represent a button
@@ -91,4 +92,6 @@ class SubmitButton extends React.Component {
   }
 }
 
-export default SubmitButton;
+export default styled(SubmitButton)`
+  min-height: 40px;
+`;
