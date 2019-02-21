@@ -93,5 +93,5 @@ class SubmitButton extends React.Component {
 }
 
 export default styled(SubmitButton)`
-  min-height: 40px;
+  min-height: 41px;
 `;
