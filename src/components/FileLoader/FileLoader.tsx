@@ -12,31 +12,35 @@ interface FileLoaderProps {
   /**
    * File values
    */
-  value: File[];
+  value?: File[];
   /**
    * Marks that this input is required for form submission.
    */
-  required: boolean;
+  required?: boolean;
   /**
    * Marks that the user cannot change this input.
    */
-  disabled: boolean;
+  disabled?: boolean;
+  /**
+   * Should this component be in an error state?
+   */
+  error?: boolean;
   /**
    * Adds a class name to the input element.
    */
-  className: string;
+  className?: string;
   /**
    * Adds an id to the input element.
    */
-  id: string;
+  id?: string;
   /**
    * A component to render the drop area
    */
-  DropArea: any;
+  DropArea?: any;
   /**
    * A component to render the preview container
    */
-  Preview: any;
+  Preview?: any;
 }
 
 export default class FileLoader extends React.Component<FileLoaderProps> {

@@ -8,7 +8,6 @@ export { default as Card } from './Card';
 export { default as Checkbox } from './Checkbox';
 export { default as Code } from './Code';
 export { default as DatePicker } from './DatePicker';
-export { DateRangePicker } from './DatePicker';
 export { default as DateTimePicker } from './DateTimePicker';
 export { default as DragBox } from './DragBox';
 export { default as DragContainer } from './DragContainer';

@@ -1,21 +1,10 @@
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
 import Breadcrumb from './Breadcrumb';
-import dedent from 'dedent';
 import { themeGet } from 'extensions';
-
-type StyledDiv = StyledComponentClass<
-  React.ClassAttributes<HTMLDivElement> & React.HTMLAttributes<HTMLDivElement>,
-  any
->;
-
-interface BreadcrumbGroup extends StyledDiv {
-  Breadcrumb?: any;
-}
-
 /**
  * @visibleName Breadcrumb.Group
  */
-const BreadcrumbGroup: BreadcrumbGroup = styled.div`
+const BreadcrumbGroup = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -35,24 +24,5 @@ const BreadcrumbGroup: BreadcrumbGroup = styled.div`
     }
   }
 `;
-
-// BreadcrumbGroup.propTypes = {
-//   children: props => {
-//     if (!props.children) return;
-//     const invalidChildren = props.children.filter(
-//       child => child.type.displayName !== Breadcrumb.displayName,
-//     );
-//     if (invalidChildren.length > 0) {
-//       const child = invalidChildren[0];
-//       const childName = child.type.displayName || child.type.name || child.type;
-//       return new Error(dedent`Invalid child component for BreadcrumbGroup: ${childName}.  Only ${
-//         Breadcrumb.displayName
-//       } \
-//         components may be nested within BreadcrumbGroup.`);
-//     }
-//   },
-// };
-
-BreadcrumbGroup.Breadcrumb = Breadcrumb;
 
 export default BreadcrumbGroup;

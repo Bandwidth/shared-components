@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import DatePicker from 'components/DatePicker';
 import TimePicker from 'components/TimePicker';
 import * as styles from './styles';

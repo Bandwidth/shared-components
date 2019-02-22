@@ -22,6 +22,7 @@ interface SearchableSelectProps extends SelectProps {
 
 interface SearchableSelectState {
   filteredOptions: any[];
+  inputValue: string;
 }
 
 export default class SearchableSelect extends React.Component<
@@ -45,7 +46,7 @@ export default class SearchableSelect extends React.Component<
   };
 
   handleSelectStateChange = (changes, downshiftState: DownshiftState<any>) => {
-    const { filterOptions, options, onStateChange } = this.props;
+    const { options, onStateChange } = this.props;
 
     if (
       changes.hasOwnProperty('isOpen') &&

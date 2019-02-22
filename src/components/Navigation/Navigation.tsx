@@ -1,21 +1,13 @@
-import NavigationTitle, { NavigationTitleProps } from './NavigationTitle';
+import NavigationTitle from './NavigationTitle';
 import * as styles from './styles';
-import { NavigationBar } from './styles/Bar';
+import dotNotation from 'extensions/dotNotation';
 
-interface Navigation extends NavigationBar {
-  Title?: React.ComponentClass<NavigationTitleProps>;
-  ItemListStack?: any;
-  ItemList?: any;
-  Item?: any;
-  styles?: any;
-}
+const Navigation = styles.Bar;
 
-const Navigation: Navigation = styles.Bar;
-
-Navigation.Title = NavigationTitle;
-Navigation.ItemListStack = styles.ItemListStack;
-Navigation.ItemList = styles.ItemList;
-Navigation.Item = styles.Item;
-Navigation.styles = styles;
-
-export default Navigation;
+export default dotNotation(Navigation, {
+  Title: NavigationTitle,
+  ItemListStack: styles.ItemListStack,
+  ItemList: styles.ItemList,
+  Item: styles.Item,
+  styles: styles,
+});

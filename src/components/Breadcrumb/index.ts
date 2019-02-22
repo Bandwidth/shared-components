@@ -1,6 +1,7 @@
 import Breadcrumb from './Breadcrumb';
 import Group from './BreadcrumbGroup';
+import dotNotation from 'extensions/dotNotation';
 
-Breadcrumb.Group = Group;
-
-export default Breadcrumb;
+export default dotNotation(Breadcrumb, {
+  Group: Group,
+});

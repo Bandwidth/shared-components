@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Selectable from 'behaviors/Selectable';
 import DragBox from './DragBox';
 

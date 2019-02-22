@@ -73,9 +73,8 @@ class Table extends React.Component<TableProps> {
   static Skeleton: any = SkeletonTable;
 
   static Small = defaultProps<any>({
-    //@ts-ignore
-    Styles: styles.TableStyles.Small,
-  })(Table);
+    Styles: (styles.TableStyles as any).Small,
+  })(Table as any);
 
   render() {
     const {

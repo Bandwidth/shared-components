@@ -1,20 +1,9 @@
 import * as React from 'react';
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
-import Block from './CodeBlock';
-
-type CodeStyle = StyledComponentClass<
-  React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>,
-  any
->;
-
-interface Code extends CodeStyle {
-  Block?: StyledComponentClass<any, any>;
-}
-
 /** Applies styling to render code inside a larger paragraph.*/
-const Code: Code = styled.code`
+const Code = styled.code`
   white-space: pre;
 
   font-family: ${get('fonts.monospace')};
@@ -32,7 +21,5 @@ const Code: Code = styled.code`
 
   display: inline-block;
 `;
-
-Code.Block = Block;
 
 export default Code;

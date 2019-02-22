@@ -1,5 +1,5 @@
 import React from 'react';
-import { defaultProps } from 'recompose';
+import defaultProps from 'extensions/defaultProps';
 import * as styles from './styles';
 import noop from 'lodash.noop';
 
@@ -56,13 +56,11 @@ export default class ToggleButton extends React.PureComponent<
   static styles = styles;
 
   static Small = defaultProps({
-    //@ts-ignore
-    Button: styles.Button.Small,
+    Button: (styles.Button as any).Small,
   })(ToggleButton);
 
   static Colorful = defaultProps({
-    //@ts-ignore
-    Button: styles.Button.Colorful,
+    Button: (styles.Button as any).Colorful,
   })(ToggleButton);
 
   state = {

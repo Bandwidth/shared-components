@@ -1,2 +1,7 @@
-export { default } from './Code';
-export { default as CodeBlock } from './CodeBlock';
+import Code from './Code';
+import CodeBlock from './CodeBlock';
+import dotNotation from 'extensions/dotNotation';
+
+export default dotNotation(Code, {
+  Block: CodeBlock,
+});

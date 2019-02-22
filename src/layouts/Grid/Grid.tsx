@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { defaultProps } from 'recompose';
+import defaultProps from 'extensions/defaultProps';
 
 interface GridProps {
   /**
@@ -58,10 +58,5 @@ class Grid extends React.PureComponent<GridProps> {
     return <GridDiv {...rest}>{children}</GridDiv>;
   }
 }
-
-Grid.Small = defaultProps({
-  gridGap: 'var(--spacing-extra-small)',
-  minSize: '30px',
-})(Grid);
 
 export default Grid;

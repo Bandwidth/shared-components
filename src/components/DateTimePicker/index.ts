@@ -1,3 +1,8 @@
-export { default } from './DateTimePicker';
-export { default as DateTimePicker } from './DateTimePicker';
-export { default as DateTimeRangePicker } from './DateTimeRangePicker';
+import DateTimePicker from './DateTimePicker';
+import DateTimeRangePicker from './DateTimeRangePicker';
+
+import dotNotation from 'extensions/dotNotation';
+
+export default dotNotation(DateTimePicker, {
+  Range: DateTimeRangePicker,
+});

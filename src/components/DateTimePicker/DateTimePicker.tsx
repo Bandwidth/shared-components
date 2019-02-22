@@ -2,7 +2,6 @@ import React from 'react';
 import DatePicker from 'components/DatePicker';
 import TimePicker from 'components/TimePicker';
 import * as styles from './styles';
-import DateTimeRangePicker from './DateTimeRangePicker';
 import moment from 'moment';
 import noop from 'lodash.noop';
 import { SingleDatePickerShape } from 'react-dates';
@@ -57,7 +56,6 @@ class DateTimePicker extends React.PureComponent<
   };
 
   static styles = styles;
-  static Range = DateTimeRangePicker;
 
   state = {
     internalValue: undefined,

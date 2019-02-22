@@ -48,7 +48,7 @@ interface ExpandToggleProps {
   /**
    * react-motion config, see https://github.com/chenglou/react-motion#--spring-val-number-config-springhelperconfig--opaqueconfig
    */
-  springConfig: {
+  springConfig?: {
     [key: string]: number;
   };
 }
@@ -71,7 +71,6 @@ class ExpandToggle extends React.Component<
     onToggle: () => null,
     isExpanded: false,
     startExpanded: false,
-    springConfig: null,
     disabled: false,
     toggleContent: null,
     unmountClosed: false,

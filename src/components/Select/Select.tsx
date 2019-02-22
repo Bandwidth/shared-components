@@ -114,8 +114,6 @@ class Select extends React.PureComponent<DownshiftProps<any> & SelectProps> {
 
   static styles = styles;
 
-  static Searchable: any;
-
   scheduleUpdate: () => void;
 
   componentDidUpdate = prevProps => {

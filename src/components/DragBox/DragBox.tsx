@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import partition from 'lodash.partition';
 import throttle from 'lodash.throttle';
 import pick from 'lodash.pick';
@@ -140,8 +139,6 @@ class DragBox extends React.Component<DragBoxProps, DragBoxState> {
       />
     ),
   };
-
-  static Select;
 
   dragElement: HTMLDivElement;
 

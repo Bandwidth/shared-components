@@ -1,5 +1,5 @@
 import React from 'react';
-import { defaultProps } from 'recompose';
+import defaultProps from 'extensions/defaultProps';
 import * as styles from './styles';
 
 interface TabGroupProps {
@@ -33,8 +33,7 @@ class TabGroup extends React.Component<TabGroupProps> {
   };
 
   static Vertical = defaultProps({
-    //@ts-ignore
-    List: styles.List.Vertical,
+    List: (styles.List as any).Vertical,
   })(TabGroup);
 
   /**

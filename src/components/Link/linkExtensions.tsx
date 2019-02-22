@@ -38,7 +38,9 @@ interface WrappedLinkProps extends LinkProps {
  * A HOC that provides a bit more intelligence / intuitive
  * function to the basic styled link
  */
-export default (WrappedLink: StyledComponentClass<any, any>) => props => (
+export default (
+  WrappedLink: StyledComponentClass<any, any>,
+): React.SFC<any> => props => (
   <WrappedLink
     {...props}
     {...(isExternal(props)

@@ -9,7 +9,7 @@ export interface AccordionProps {
   /**
    * Content to render when the accordion is collapsed, and in the header of the expanded state.
    */
-  label: React.ReactNode;
+  label?: React.ReactNode;
   /**
    * The spacing prop to give to the label
    */
@@ -17,12 +17,12 @@ export interface AccordionProps {
   /**
    * Content inside the collapsible part of the accordion.
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /**
    * Pass isExpanded to override the internal collapsing state (makes the expanded state a controlled value, please
    * use onToggle to manage the state yourself or startExpanded if you just want to set the initial state).
    */
-  isExpanded: boolean;
+  isExpanded?: boolean | null;
   /**
    * Use this to set the default initial state of the internal expanded state without
    * turning it into a controlled value.
@@ -31,11 +31,11 @@ export interface AccordionProps {
   /**
    * DEPRECATED: the negation of isExpanded, overrides internal collapse state
    */
-  isCollapsed: boolean;
+  isCollapsed?: boolean | null;
   /**
    * Add a handler for when the accordion is collapsed or expanded.
    */
-  onToggle: () => void;
+  onToggle?: () => void;
   /**
    * If true, the user cannot change the expanded state of this
    * accordion.
@@ -49,15 +49,15 @@ export interface AccordionProps {
   /**
    * Set a classname for the accordion container element.
    */
-  className: string;
+  className?: string;
   /**
    * Set an id for the accordion container element.
    */
-  id: string;
+  id?: string;
   /**
    * react-motion config, see https://github.com/chenglou/react-motion#--spring-val-number-config-springhelperconfig--opaqueconfig
    */
-  springConfig: {
+  springConfig?: {
     stiffness: number;
     damping: number;
     precision: number;
@@ -92,16 +92,12 @@ export interface AccordionProps {
  * Accepts `label` to define what's rendered in the label.
  */
 class Accordion extends React.Component<AccordionProps> {
-  static defaultProps = {
+  static defaultProps: AccordionProps = {
     isExpanded: null,
     startExpanded: false,
     isCollapsed: null,
-    onToggle: null,
-    className: null,
-    id: null,
     disabled: false,
     unmountClosed: false,
-    springConfig: null,
     Border: styles.Border,
     Label: styles.Label,
     Arrow: styles.Arrow,
@@ -109,8 +105,6 @@ class Accordion extends React.Component<AccordionProps> {
     Content: styles.Content,
     labelSpacing: 'lg',
   };
-
-  static Small: any;
 
   static styles = styles;
 
@@ -169,12 +163,5 @@ class Accordion extends React.Component<AccordionProps> {
     );
   }
 }
-
-Accordion.Small = defaultProps({
-  Border: styles.Border,
-  Arrow: (styles.Arrow as any).Small,
-  Label: (styles.Label as any).Small,
-  labelSpacing: '20px',
-})(Accordion as any);
 
 export default Accordion;

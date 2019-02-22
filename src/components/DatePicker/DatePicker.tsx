@@ -7,7 +7,6 @@ import {
 import Icon from '../Icon';
 import * as styles from './styles';
 
-import DateRangePicker from './DateRangePicker';
 import moment from 'moment';
 moment.updateLocale('en', {
   weekdaysMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
@@ -49,8 +48,6 @@ interface DatePickerProps {
 class DatePicker extends React.PureComponent<
   DatePickerProps & SingleDatePickerShape
 > {
-  static Range = DateRangePicker;
-
   static defaultProps = {
     Wrapper: styles.Wrapper,
     displayFormat: 'MMM DD YYYY',

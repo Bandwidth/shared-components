@@ -3,13 +3,10 @@ import styled from 'styled-components';
 import get from 'extensions/themeGet';
 import userSpacing from 'extensions/userSpacing';
 import Skeleton from 'skeletons/Skeleton';
-import { HeaderProps, StyledHeader } from './types';
+import { HeaderProps } from './types';
+import dotNotation from 'extensions/dotNotation';
 
-interface H1 extends StyledHeader {
-  Skeleton?: React.SFC<{}>;
-}
-
-const H1: H1 = styled.h1<HeaderProps>`
+const H1 = styled.h1<HeaderProps>`
   color: ${get('colors.primary.default')};
   font-weight: 100;
   font-family: ${get('fonts.brand')};
@@ -23,6 +20,6 @@ H1.defaultProps = {
   spacing: { bottom: 'lg' },
 };
 
-H1.Skeleton = () => <Skeleton width="200px" height="2.5em" />;
-
-export default H1;
+export default dotNotation(H1, {
+  Skeleton: () => <Skeleton width="200px" height="2.5em" />,
+});

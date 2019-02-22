@@ -1,6 +1,8 @@
 import DragBox from './DragBox';
 import DragBoxSelect from './DragBoxSelect';
 
-DragBox.Select = DragBoxSelect;
+import dotNotation from 'extensions/dotNotation';
 
-export default DragBox;
+export default dotNotation(DragBox, {
+  Select: DragBoxSelect,
+});

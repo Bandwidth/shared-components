@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
 import icons from 'components/Icon/icons';
 import get from 'extensions/themeGet';
 
@@ -19,21 +19,6 @@ export interface ButtonProps {
   iconHelper?: (name: string) => string;
 }
 
-type StyledButton = StyledComponentClass<
-  React.ClassAttributes<HTMLButtonElement> &
-    React.ButtonHTMLAttributes<HTMLButtonElement> &
-    ButtonProps,
-  any
->;
-
-interface Button extends StyledButton {
-  Secondary?: StyledButton;
-  Small?: StyledButton;
-  Large?: StyledButton;
-  Danger?: StyledButton;
-  Submit?: any;
-}
-
 /**
  * NOTE: all paddings in button are adjusted to accomodate
  * border widths on both sides. If border widths are changed,
@@ -42,7 +27,7 @@ interface Button extends StyledButton {
  * Vertical paddings are also displaced to accomodate text cap and base lines.
  * Basically, 1px is added to the top, 1px subtracted from the bottom.
  */
-const Button: Button = styled.button<ButtonProps>`
+const Button = styled.button<ButtonProps>`
   font-size: 0.8rem;
   text-decoration: none;
   font-weight: 700;
@@ -129,40 +114,5 @@ Button.displayName = 'Button';
 Button.defaultProps = {
   iconHelper: icons,
 };
-
-Button.Secondary = styled(Button)`
-  color: ${get('colors.primary.dark')};
-  border-color: ${get('colors.primary.dark')};
-  background: transparent;
-  border-width: ${get('thicknesses.wide')};
-
-  &:hover:not(:disabled),
-  &:focus:not(:disabled) {
-    color: ${get('colors.text.inverted')};
-    background: ${get('colors.primary.dark')};
-    border-color: ${get('colors.primary.dark')};
-  }
-`;
-
-Button.Small = styled(Button)`
-  padding: 10px 28px 9px 28px;
-  font-size: 0.6rem;
-`;
-
-Button.Large = styled(Button)`
-  padding: 14px 38px 12px 38px;
-  font-size: 0.9rem;
-`;
-
-Button.Danger = styled(Button)`
-  border-color: ${get('colors.negative.default')};
-  background: ${get('colors.negative.default')};
-
-  &:hover:not(:disabled),
-  &:focus:not(:disabled) {
-    background: ${get('colors.negative.dark')};
-    border-color: ${get('colors.negative.dark')};
-  }
-`;
 
 export default Button;

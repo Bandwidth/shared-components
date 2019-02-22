@@ -1,9 +1,8 @@
 import Select from './Select';
 import Searchable from './SearchableSelect';
+import dotNotation from 'extensions/dotNotation';
 
-Select.Searchable = Searchable;
-
-export default Select;
+export default dotNotation(Select, { Searchable });
 
 export {
   default as popperMatchWidthModifier,

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import generateId from 'extensions/generateId';
 import * as styles from './styles';
-import { defaultProps } from 'recompose';
 
 interface CheckboxProps {
   /**
@@ -44,10 +43,6 @@ export default class Checkbox extends React.PureComponent<
   };
 
   static styles = styles;
-
-  static Small: any = defaultProps({
-    Label: (styles.Label as any).Small,
-  })(Checkbox as any);
 
   defaultId = generateId('checkbox');
 

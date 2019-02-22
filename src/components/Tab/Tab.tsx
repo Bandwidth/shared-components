@@ -1,8 +1,9 @@
 import styled, { css, StyledComponentClass } from 'styled-components';
 import get from 'extensions/themeGet';
 import * as styles from './styles';
+import dotNotation from 'extensions/dotNotation';
 
-const verticalStyles = css`
+export const verticalStyles = css`
   border-bottom-color: ${get('colors.border.medium')};
   border-right-color: ${props =>
     props.active
@@ -33,22 +34,7 @@ interface TabProps {
   disabled: boolean;
 }
 
-type StyledTab = StyledComponentClass<
-  React.ClassAttributes<HTMLLIElement> &
-    React.LiHTMLAttributes<HTMLLIElement> &
-    TabProps,
-  any
->;
-
-interface Tab extends StyledTab {
-  Vertical?: Tab;
-  Container?: StyledTab;
-  Content?: StyledTab;
-  Group?: any;
-  styles?: any;
-}
-
-const Tab: Tab = styled.li<TabProps>`
+const Tab = styled.li<TabProps>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -119,15 +105,8 @@ const Tab: Tab = styled.li<TabProps>`
   }
 `;
 
-Tab.Vertical = styled(Tab)`
-  ${verticalStyles};
-`;
-
-//@ts-ignore
-Tab.Container = Tab.Vertical.Container = styles.Container;
-//@ts-ignore
-Tab.Content = Tab.Vertical.Content = styles.Content;
-
-Tab.styles = styles;
-
-export default Tab;
+export default dotNotation(Tab, {
+  Container: styles.Container,
+  Content: styles.Content,
+  styles,
+});

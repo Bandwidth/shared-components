@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { defaultProps } from 'recompose';
 import Link from 'components/Link';
 import * as styles from './styles';
 import Skeleton from 'skeletons/Skeleton';
@@ -66,9 +65,6 @@ class Input extends React.PureComponent<
   };
 
   static styles = styles;
-  static Small: any = defaultProps({
-    Styles: (styles.InputStyles as any).Small,
-  })(Input);
 
   static Skeleton = ({ height = '53px' }) => <Skeleton height={height} />;
 
@@ -169,7 +165,5 @@ class Input extends React.PureComponent<
     return this.renderInputField();
   }
 }
-
-Input.Small.Skeleton = ({ height = '30px' }) => <Skeleton height={height} />;
 
 export default Input;

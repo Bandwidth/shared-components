@@ -60,7 +60,7 @@ export default class Alert extends React.PureComponent<
     React.HTMLAttributes<HTMLDivElement>,
   AlertState
 > {
-  static defaultProps = {
+  static defaultProps: AlertProps = {
     type: 'info',
     textOnly: false,
     spacing: '0',
@@ -72,12 +72,6 @@ export default class Alert extends React.PureComponent<
   };
 
   static styles = styles;
-
-  static Small = defaultProps({
-    Border: styles.Border.Small,
-    Icon: (styles.Icon as any).Small,
-    Content: (styles.Content as any).Small,
-  })(Alert as any);
 
   static Group = styles.Group;
 
