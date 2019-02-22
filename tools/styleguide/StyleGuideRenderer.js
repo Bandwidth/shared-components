@@ -10,7 +10,7 @@ import { iris, catapult } from 'themes';
 
 const Root = styled.div`
   display: grid;
-  grid-template-columns: 250px auto;
+  grid-template-columns: 200px auto;
   /* fix for chrome scroll-reset bug: use minmax(1px, 1fr) instead of auto / 1fr */
   grid-template-rows: 85px minmax(1px, 1fr);
   grid-template-areas: 'topbar topbar' 'sidebar main';

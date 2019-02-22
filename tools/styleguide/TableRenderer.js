@@ -8,7 +8,9 @@ const TableRenderer = ({ classes, columns, rows, getRowKey }) => (
     headers={
       <Table.Row>
         {columns.map(column => (
-          <Table.Header key={column.caption}>{column.caption}</Table.Header>
+          <Table.Header key={column.caption} style={{ maxWidth: '25vw' }}>
+            {column.caption}
+          </Table.Header>
         ))}
       </Table.Row>
     }
@@ -16,7 +18,9 @@ const TableRenderer = ({ classes, columns, rows, getRowKey }) => (
     {rows.map(row => (
       <Table.Row key={getRowKey(row)}>
         {columns.map(column => (
-          <Table.Cell key={column.caption}>{column.render(row)}</Table.Cell>
+          <Table.Cell key={column.caption} style={{ maxWidth: '25vw' }}>
+            {column.render(row)}
+          </Table.Cell>
         ))}
       </Table.Row>
     ))}

@@ -2,6 +2,7 @@ const path = require('path');
 const defaultResolver = require('react-docgen').resolver
   .findAllExportedComponentDefinitions;
 const annotationResolver = require('react-docgen-annotation-resolver').default;
+const propsParser = require('react-docgen-typescript');
 const { readdirSync, lstatSync, existsSync } = require('fs');
 
 const isDirectory = s => lstatSync(s).isDirectory();
@@ -20,7 +21,9 @@ const componentSections = p => {
     const section = {
       name: path.basename(name),
       components: getFiles(name).filter(
-        f => path.basename(f) !== 'index.js' && path.extname(f) === '.js',
+        f =>
+          path.basename(f) !== 'index.js' &&
+          (path.extname(f) === '.tsx' || path.extname(f) === '.js'),
       ),
     };
     if (existsSync(path.join(name, 'README.md')))
@@ -34,6 +37,21 @@ module.exports = {
   styleguideDir: 'docsDist',
   pagePerSection: true,
   skipComponentsWithoutExample: true,
+  propsParser: propsParser.withCustomConfig('./tsconfig.json', {
+    propFilter: (props, component) => {
+      // if (component && component.name === 'Link') {
+      //   console.log('PROPS: ', props);
+      //   console.log('COMPONENT: ', component);
+      // }
+      return props.parent && props.parent.name.indexOf('Attributes') === -1;
+    },
+    componentNameResolver: (exp, source) => {
+      return (
+        exp.getName() === 'StyledComponentClass' &&
+        propsParser.getDefaultExportForFile(source)
+      );
+    },
+  }).parse,
   sections: [
     {
       name: 'About',
@@ -62,21 +80,22 @@ module.exports = {
     },
     {
       name: 'Components',
-      // components: 'src/components/**/[A-Z]*.js',
-      sections: componentSections('./src/components'),
+      components: 'src/components/**/[A-Z]*.tsx',
+      // sections: componentSections('./src/components'),
     },
     {
       name: 'Layouts',
       // components: 'src/layouts/**/[A-Z]*.js',
-      sections: componentSections('./src/layouts'),
+      components: 'src/layouts/**/[A-Z]*.tsx',
+      // sections: componentSections('./src/layouts'),
     },
     {
       name: 'Behaviors',
-      components: 'src/behaviors/*/[A-Z]*.js',
+      components: 'src/behaviors/*/[A-Z]*.tsx',
     },
     {
       name: 'Skeletons',
-      components: 'src/skeletons/[A-Z]*.js',
+      components: 'src/skeletons/[A-Z]*.tsx',
     },
   ],
   theme: {
@@ -120,6 +139,7 @@ module.exports = {
       modules: ['node_modules'].concat(
         process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
       ),
+      extensions: ['.tsx', '.ts', '.js'],
     },
     module: {
       rules: [
@@ -144,6 +164,11 @@ module.exports = {
               },
             },
           ],
+        },
+        {
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          use: ['babel-loader', 'awesome-typescript-loader'],
         },
         {
           test: /\.(jpg|jpeg|png|webp|ico)$/,

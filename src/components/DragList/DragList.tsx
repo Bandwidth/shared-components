@@ -1,0 +1,29 @@
+import React from 'react';
+import get from 'extensions/themeGet';
+import styled from 'styled-components';
+import DragListItem from './DragListItem';
+import DragContainer from '../DragContainer';
+
+const StyledDiv = styled.div`
+  & > * + * {
+    margin-top: ${get('spacing.medium')};
+  }
+`;
+
+/**
+ * A list of items that can be dragged and reordered.
+ * Use a list of [DragList.Item](#!/DragListItem) as children.
+ * DragList.Container is provided
+ * as a convenient way to display items in the drag list.
+ */
+class DragList extends React.PureComponent {
+  static Item = DragListItem;
+  static Container = DragContainer;
+
+  render() {
+    const { children, ...rest } = this.props;
+    return <StyledDiv {...rest}>{children}</StyledDiv>;
+  }
+}
+
+export default DragList;

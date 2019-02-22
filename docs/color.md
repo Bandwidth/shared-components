@@ -1,5 +1,5 @@
 Our colors are available as part of themes. Use [BandwidthProvider](#!/BandwidthProvider) to provide themes in your app,
-then use CSS variables to reference the colors (e.g.,  `var(--colors-primary-light)`).
+then use CSS variables to reference the colors (e.g., `var(--colors-primary-light)`).
 
 ```javascript noeditor
 const hexToHSL = require('hex-to-hsl');
@@ -54,5 +54,4 @@ const ColorGroup = ({name}) => {
   <ColorGroup name="border"/>
   <ColorGroup name="background"/>
 </Grid>
-
 ```

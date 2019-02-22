@@ -21,5 +21,7 @@ Size comparisons
 ```
 
 ```javascript
-<Button.Danger rightIcon="error" leftIcon="error">Danger!</Button.Danger>
+<Button.Danger rightIcon="error" leftIcon="error">
+  Danger!
+</Button.Danger>
 ```
