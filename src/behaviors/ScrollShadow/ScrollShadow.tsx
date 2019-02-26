@@ -104,7 +104,9 @@ export class ConnectedShadow extends React.PureComponent<ConnectedShadowProps> {
  * content above or below. This element also creates a context which can inform
  * components below it in the tree of the scroll state of the scrolling container.
  */
-export default class ScrollShadow extends React.Component<ScrollShadowProps> {
+export default class ScrollShadow extends React.Component<
+  ScrollShadowProps & React.HTMLAttributes<HTMLDivElement>
+> {
   static defaultProps = {
     global: false,
     horizontal: false,

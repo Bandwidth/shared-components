@@ -1,15 +1,14 @@
 import * as React from 'react';
-import { defaultProps } from 'recompose';
 import { UnmountClosed } from 'react-collapse';
 
 import * as styles from './styles';
 import { SpacingProps } from '../../extensions/userSpacing';
 
-interface AlertProps extends SpacingProps {
+export interface AlertProps extends SpacingProps {
   /**
    * An alert type
    */
-  type: 'error' | 'success' | 'info';
+  type?: 'error' | 'success' | 'info';
   /**
    * Whether to render only text (true) or an icon alongside text (false).
    */

@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from 'react';
-import { defaultProps } from 'recompose';
+import defaultProps from 'extensions/defaultProps';
+import dotNotation from 'extensions/dotNotation';
 import * as styles from './styles';
 
 interface RadioButtonProps {
@@ -11,7 +12,7 @@ interface RadioButtonProps {
   /**
    * Called when the checked state of the button changes.
    */
-  onChange: (e: ChangeEvent) => void;
+  onChange?: (e: ChangeEvent) => void;
   /**
    * Text to render inside the button's label.
    */
@@ -25,7 +26,7 @@ interface RadioButtonProps {
   /**
    * A field name for the input.
    */
-  name: string;
+  name?: string;
   /**
    * The input value.
    */
@@ -81,12 +82,18 @@ class RadioButton extends React.Component<RadioButtonProps> {
   };
 
   static styles = styles;
-  static Small: any = defaultProps<any>({
-    Label: (styles.Label as any).Small,
-  })(RadioButton);
-  static Large: any = defaultProps<any>({
-    Label: (styles.Label as any).Large,
-  })(RadioButton);
+  static Small = dotNotation(
+    defaultProps({
+      Label: (styles.Label as any).Small,
+    })(RadioButton),
+    { Group: styles.GroupContainer },
+  );
+  static Large = dotNotation(
+    defaultProps({
+      Label: (styles.Label as any).Large,
+    })(RadioButton),
+    { Group: styles.GroupContainer },
+  );
   static Group = styles.GroupContainer;
 
   renderChildren = () => {
@@ -141,8 +148,5 @@ class RadioButton extends React.Component<RadioButtonProps> {
     );
   }
 }
-
-RadioButton.Small.Group = styles.GroupContainer;
-RadioButton.Large.Group = styles.GroupContainer;
 
 export default RadioButton;

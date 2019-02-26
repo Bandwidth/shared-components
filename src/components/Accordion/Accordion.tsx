@@ -13,7 +13,7 @@ export interface AccordionProps {
   /**
    * The spacing prop to give to the label
    */
-  labelSpacing: Spacing;
+  labelSpacing?: Spacing;
   /**
    * Content inside the collapsible part of the accordion.
    */
@@ -27,7 +27,7 @@ export interface AccordionProps {
    * Use this to set the default initial state of the internal expanded state without
    * turning it into a controlled value.
    */
-  startExpanded: boolean;
+  startExpanded?: boolean;
   /**
    * DEPRECATED: the negation of isExpanded, overrides internal collapse state
    */
@@ -40,12 +40,12 @@ export interface AccordionProps {
    * If true, the user cannot change the expanded state of this
    * accordion.
    */
-  disabled: boolean;
+  disabled?: boolean;
   /**
    * If true, contents are unmounted when the accordion is closed. Useful for improving performance when the Accordion
    * contains a large amount of complex contents.
    */
-  unmountClosed: boolean;
+  unmountClosed?: boolean;
   /**
    * Set a classname for the accordion container element.
    */

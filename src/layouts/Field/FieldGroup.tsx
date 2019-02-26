@@ -16,12 +16,12 @@ interface FieldGroupProps {
    * A component prop to override the component used to render the outer container which renders field rows.
    * Defaults to Field.Group.styles.FieldRowContainer.
    */
-  RowContainer: any;
+  RowContainer?: any;
   /**
    * A component prop to override the component which is injected to wrap Field elements into discrete rows.
    * Row receives the same `columns` prop provided to this component. Defaults to Field.Group.styles.FieldRow.
    */
-  Row: any;
+  Row?: any;
 }
 
 /**
@@ -56,11 +56,12 @@ class FieldGroup extends React.Component<FieldGroupProps> {
             `A Field has a columnSpan of ${childColumnSpan}, but the containing Field.Group only has ${columns} columns`,
           );
         }
-
+        //@ts-ignore
         const currentRow = rows[rows.length - 1];
         if (currentRow.columnWidth + childColumnSpan <= columns) {
           // add to current row
           return [
+            //@ts-ignore
             ...rows.slice(0, rows.length - 1),
             {
               children: [
@@ -76,6 +77,7 @@ class FieldGroup extends React.Component<FieldGroupProps> {
         } else {
           // create new row
           return [
+            //@ts-ignore
             ...rows,
             {
               children: [{ column: 0, element: child }],
@@ -87,6 +89,7 @@ class FieldGroup extends React.Component<FieldGroupProps> {
       [{ children: [], columnWidth: 0 }],
     );
 
+    //@ts-ignore
     return rows.map((row, rowIdx) => (
       <Row key={rowIdx} columns={columns}>
         {row.children.map(({ element, column }) =>

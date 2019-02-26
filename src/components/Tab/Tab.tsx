@@ -1,4 +1,4 @@
-import styled, { css, StyledComponentClass } from 'styled-components';
+import styled, { css } from 'styled-components';
 import get from 'extensions/themeGet';
 import * as styles from './styles';
 import dotNotation from 'extensions/dotNotation';
@@ -29,9 +29,9 @@ export const verticalStyles = css`
   }};
 `;
 
-interface TabProps {
-  active: boolean;
-  disabled: boolean;
+export interface TabProps {
+  active?: boolean;
+  disabled?: boolean;
 }
 
 const Tab = styled.li<TabProps>`

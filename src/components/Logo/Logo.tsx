@@ -1,25 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import themeGet from 'extensions/themeGet';
-// import LogoSvg from './logo.svg';
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
 import dotNotation from 'extensions/dotNotation';
 
-interface LogoProps {
+export interface LogoProps {
   /**
    * Manually control the width of the logo. If only width is set, height
    * will be based on the aspect ratio.
    */
-  width: string | number;
+  width?: string | number;
   /**
    * Manually control the width of the logo. If only height is set, width
    * will be based on the aspect ratio.
    */
-  height: string | number;
+  height?: string | number;
   /**
    * Sets the color of the logo.
    */
-  color: string;
+  color?: string;
 }
 
 const Logo = styled.div<LogoProps>`

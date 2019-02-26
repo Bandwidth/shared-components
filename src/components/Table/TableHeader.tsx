@@ -39,7 +39,9 @@ interface TableHeaderProps {
   ColumnName?: any;
 }
 
-class TableHeader extends React.Component<TableHeaderProps> {
+class TableHeader extends React.Component<
+  TableHeaderProps & React.HTMLAttributes<HTMLTableHeaderCellElement>
+> {
   static defaultProps = {
     sortable: false,
     sortOrder: 0,

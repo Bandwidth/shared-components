@@ -6,43 +6,43 @@ interface SubmitButtonProps extends ButtonProps {
   /**
    * Indicates that the form has not been touched yet. Will disable submission.
    */
-  pristine: boolean;
+  pristine?: boolean;
   /**
    * Indicates that the form is loading something. Will disable submission.
    */
-  loading: boolean;
+  loading?: boolean;
   /**
    * Indicates that the user cannot submit the form.
    */
-  disabled: boolean;
+  disabled?: boolean;
   /**
    * Glyph name for an icon to pop out of the right side of the button on hover.
    */
-  rightIcon: string;
+  rightIcon?: string;
   /**
-   * Glyph name for an icon to pop out of the left side of the butotn on hover.
+   * Glyph name for an icon to pop out of the left side of the button on hover.
    */
-  leftIcon: string;
+  leftIcon?: string;
   /**
    * Contents of the button.
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /**
    * Alternate optional contents of the button when 'pristine' is true.
    */
-  pristineContents: React.ReactNode;
+  pristineContents?: React.ReactNode;
   /**
    * Adds an id to the button.
    */
-  id: string;
+  id?: string;
   /**
    * Adds a class name to the button.
    */
-  className: string;
+  className?: string;
   /**
    * Adds a click handler to the button
    */
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 /**
@@ -50,7 +50,9 @@ interface SubmitButtonProps extends ButtonProps {
  * that triggers the `onSubmit` actions (do not use for standard actions or cancellation).
  * @visibleName Button.Submit
  */
-class SubmitButton extends React.Component<SubmitButtonProps> {
+class SubmitButton extends React.Component<
+  SubmitButtonProps & React.HTMLAttributes<HTMLButtonElement>
+> {
   static defaultProps = {
     pristine: false,
     loading: false,

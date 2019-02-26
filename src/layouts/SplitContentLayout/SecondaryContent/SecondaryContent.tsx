@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { ScrollShadow } from 'behaviors';
 import * as styles from './styles';
 import { Consumer } from '../Context';
+import dotNotation from 'extensions/dotNotation';
 
 export interface SecondaryContentProps {
   /**
@@ -27,11 +28,9 @@ export interface SecondaryContentProps {
  * it's either an item list or a small single-column form.
  * Secondary content can contain an Action Bar if you want it to.
  */
-const SecondaryContent: React.SFC<SecondaryContentProps> & {
-  styles: any;
-  Container: any;
-  SidebarList: any;
-} = ({ children, overlapBorder, Container, ShadowContainer, ...rest }) => (
+const SecondaryContent: React.SFC<
+  SecondaryContentProps & React.HTMLAttributes<HTMLDivElement>
+> = ({ children, overlapBorder, Container, ShadowContainer, ...rest }) => (
   <Consumer>
     {layoutContext =>
       layoutContext.renderElement(
@@ -40,7 +39,6 @@ const SecondaryContent: React.SFC<SecondaryContentProps> & {
         <ScrollShadow
           Container={ShadowContainer}
           ScrollContainer={Container}
-          //@ts-ignore
           actionBarPresent={layoutContext.actionBarPresent}
           actionBarLocation={layoutContext.actionBarLocation}
           mainContentLocation={layoutContext.mainContentLocation}
@@ -59,9 +57,8 @@ SecondaryContent.defaultProps = {
   ShadowContainer: styles.ShadowContainer,
 };
 
-SecondaryContent.styles = styles;
-
-SecondaryContent.Container = styles.Container;
-SecondaryContent.SidebarList = styles.SidebarList;
-
-export default SecondaryContent;
+export default dotNotation(SecondaryContent, {
+  styles,
+  Container: styles.Container,
+  SidebarList: styles.SidebarList,
+});

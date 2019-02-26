@@ -18,29 +18,29 @@ interface DragGroupProps {
    * Override the outer container visual component
    * Defaults DragGroup.styles.Container
    */
-  Container: any;
+  Container?: any;
   /**
    * Override the visual component which wraps the child items
    * Defaults DragGroup.styles.ItemsContainer
    */
-  ItemsContainer: any;
+  ItemsContainer?: any;
   /**
    * Override the behavioral component which renders the drop area
    * Defaults DragGroup.DropArea
    */
-  DropArea: any;
+  DropArea?: any;
   /**
    * Overrides the behavioral component which renders a clickable separator
    * between items.
    * Defaults DragGroup.styles.Separator
    */
-  Separator: any;
+  Separator?: any;
   /**
    * Overrides the visual component which renders the toggle-enabled title
    * of a group.
    * Defaults DragGroup.styles.Title
    */
-  Title: any;
+  Title?: any;
 
   // The following are provided by DragGroups;
   // they cannot be required, but can be expected.
@@ -145,22 +145,28 @@ class DragGroup extends React.Component<DragGroupProps> {
   renderInterspersedSeparators() {
     const { children, Separator, onSplit, separatorContent } = this.props;
     const childArray = React.Children.toArray(children);
-    return childArray
-      .reduce(
-        (withSeparators, child, idx) => [
-          ...withSeparators,
-          <Separator
-            className="dragGroupSeparator"
-            onClick={() => onSplit(idx)}
-            key={`separator${idx}`}
-          >
-            {separatorContent}
-          </Separator>,
-          this.shimChild(child, idx),
-        ],
-        [],
-      )
-      .slice(1); // removing first separator
+    return (
+      //@ts-ignore
+      childArray
+        .reduce(
+          (withSeparators, child, idx) => [
+            //@ts-ignore
+            ...withSeparators,
+            <Separator
+              className="dragGroupSeparator"
+              onClick={() => onSplit(idx)}
+              key={`separator${idx}`}
+            >
+              {separatorContent}
+            </Separator>,
+            this.shimChild(child, idx),
+          ],
+          [],
+        )
+        //@ts-ignore
+        // removing first separator
+        .slice(1)
+    );
   }
 
   renderTitle = expanded =>

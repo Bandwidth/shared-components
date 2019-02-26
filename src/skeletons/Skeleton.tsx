@@ -1,8 +1,9 @@
 import React from 'react';
-import styled, { css, StyledComponentClass } from 'styled-components';
+import styled, { css } from 'styled-components';
 import themeGet from 'extensions/themeGet';
+import dotNotation from 'extensions/dotNotation';
 import pulse from 'skeletons/common/pulse';
-import SkeletonGroup, { SkeletonGroupProps } from './SkeletonGroup';
+import SkeletonGroup from './SkeletonGroup';
 
 export interface SkeletonProps {
   /**
@@ -29,21 +30,13 @@ export interface SkeletonProps {
    * Disable the skeleton animation
    */
   disableAnimation?: boolean;
+  /**
+   * Color of the skeleton
+   */
+  color?: string;
 }
 
-type StyledSkeleton = StyledComponentClass<
-  React.ClassAttributes<HTMLDivElement> &
-    React.HTMLAttributes<HTMLDivElement> &
-    SkeletonProps,
-  any
->;
-
-interface Skeleton extends StyledSkeleton {
-  Animated?: React.SFC<SkeletonProps>;
-  Group?: React.SFC<SkeletonGroupProps>;
-}
-
-const Skeleton: Skeleton = styled.div<SkeletonProps>`
+const Skeleton = styled.div<SkeletonProps>`
   height: ${({ height = '30px' }) => height};
   width: ${({ width = '100%' }) => width};
   background: ${props =>
@@ -80,7 +73,8 @@ const Skeleton: Skeleton = styled.div<SkeletonProps>`
     `};
 `;
 
-Skeleton.Animated = props => <Skeleton {...props} animated />;
-Skeleton.Group = SkeletonGroup;
+const Animated: React.SFC<
+  SkeletonProps & React.HTMLAttributes<HTMLDivElement>
+> = props => <Skeleton {...props} animated />;
 
-export default Skeleton;
+export default dotNotation(Skeleton, { Animated, Group: SkeletonGroup });

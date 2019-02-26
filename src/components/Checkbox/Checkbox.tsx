@@ -2,7 +2,7 @@ import * as React from 'react';
 import generateId from 'extensions/generateId';
 import * as styles from './styles';
 
-interface CheckboxProps {
+export interface CheckboxProps {
   /**
    * Whether the checkbox is checked or not.
    */
