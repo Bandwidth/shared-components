@@ -14,7 +14,7 @@ import get from 'extensions/themeGet';
  */
 
 const Button = styled.button`
-  font-size: 0.8em;
+  font-size: 0.8rem;
   text-decoration: none;
   font-weight: 700;
   font-family: ${get('fonts.brand')};

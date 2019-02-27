@@ -92,8 +92,7 @@ class SubmitButton extends React.Component {
   }
 }
 
-// Height of the button varies across platforms and browsers and dynamic content can cause shrinking of the button
-// 41 is the biggest value so the button won't get smaller on loading
 export default styled(SubmitButton)`
-  min-height: 41px;
+  box-sizing: content-box;
+  min-height: 1rem;
 `;
