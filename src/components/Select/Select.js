@@ -144,7 +144,7 @@ class Select extends React.PureComponent {
       ...rest
     } = this.props;
     const combinedLoading = loading || isLoading;
-    const combinedPlaceholder = noneText !== undefined ? noneText : placeholder;
+    let combinedPlaceholder = noneText !== undefined ? noneText : placeholder;
 
     return (
       <Downshift
@@ -154,54 +154,63 @@ class Select extends React.PureComponent {
         selectedItem={value}
         {...rest}
       >
-        {downshiftProps => (
-          <div>
-            <Manager>
-              <Reference>
-                {({ ref }) => (
-                  <CurrentValue
-                    {...downshiftProps}
-                    ref={ref}
-                    placeholder={combinedPlaceholder}
-                    disabled={disabled}
-                    loading={combinedLoading}
-                    invalid={invalid}
-                    required={required}
-                    id={id}
-                    className={className}
-                    name={name}
-                  />
+        {({ inputValue, ...downshiftProps }) => {
+          return ((
+            <div>
+              <Manager>
+                <Reference>
+                  {({ ref }) => (
+                    <CurrentValue
+                      {...downshiftProps}
+                      inputValue={
+                        downshiftProps.isOpen
+                          ? inputValue
+                          : inputValue
+                            || downshiftProps.itemToString(downshiftProps.selectedItem)
+                            || ''
+                      }
+                      ref={ref}
+                      placeholder={combinedPlaceholder}
+                      disabled={disabled}
+                      loading={combinedLoading}
+                      invalid={invalid}
+                      required={required}
+                      id={id}
+                      className={className}
+                      name={name}
+                    />
+                  )}
+                </Reference>
+                {downshiftProps.isOpen && (
+                  <Popper
+                    placement="bottom"
+                    boundariesPadding={0}
+                    modifiers={{
+                      matchWidth: popperMatchWidthModifier,
+                      flip: { behavior: 'flip', padding: 20 },
+                      preventOverflow: { escapeWithReference: true, padding: 0 },
+                    }}
+                    {...popperProps}
+                  >
+                    {popperStuff => {
+                      this.scheduleUpdate = popperStuff.scheduleUpdate;
+                      return (
+                        <Foreground>
+                          <Options
+                            {...popperStuff}
+                            {...downshiftProps}
+                            renderOption={renderOption}
+                            options={options}
+                          />
+                        </Foreground>
+                      );
+                    }}
+                  </Popper>
                 )}
-              </Reference>
-              {downshiftProps.isOpen && (
-                <Popper
-                  placement="bottom"
-                  boundariesPadding={0}
-                  modifiers={{
-                    matchWidth: popperMatchWidthModifier,
-                    flip: { behavior: 'flip', padding: 20 },
-                    preventOverflow: { escapeWithReference: true, padding: 0 },
-                  }}
-                  {...popperProps}
-                >
-                  {popperStuff => {
-                    this.scheduleUpdate = popperStuff.scheduleUpdate;
-                    return (
-                      <Foreground>
-                        <Options
-                          {...popperStuff}
-                          {...downshiftProps}
-                          renderOption={renderOption}
-                          options={options}
-                        />
-                      </Foreground>
-                    );
-                  }}
-                </Popper>
-              )}
-            </Manager>
-          </div>
-        )}
+              </Manager>
+            </div>
+          ))
+        }}
       </Downshift>
     );
   }

@@ -43,4 +43,37 @@ storiesOf('Select', module).add('types', () => (
       <Select onChange={action('change')} options={options} />
     </div>
   </Grid>
-));
+)).add('Dynamically changed renderOption returned value', () => {
+  class Test extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        options: ['1', '2', '3'],
+        strings: { 1: 'One', 2 : 'Two', 3: 'Three'}
+      }
+    };
+
+    componentDidMount() {
+      const self = this;
+      setTimeout(() => {
+        self.setState(
+          {
+            strings: { 1: 'Four', 2: 'Five', 3: 'Six'}
+          })
+      }, 3000)
+    }
+
+    render() {
+      return (
+        <Select.Searchable options={this.state.options} renderOption={option => this.state.strings[option]} {...this.props} />
+      )
+    }
+  }
+
+  return (
+    <div>
+      <Test />
+      <Test value="3" />
+    </div>
+  );
+});
