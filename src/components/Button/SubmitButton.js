@@ -4,6 +4,11 @@ import Button from './Button';
 import Loader from 'components/Loader';
 import styled from 'styled-components';
 
+const ButtonWithMinHeight = styled(Button)`
+  box-sizing: content-box;
+  min-height: 1rem;
+`;
+
 /**
  * `Button.Submit` is intended to be used within a form. `Button.Submit` should only be used to represent a button
  * that triggers the `onSubmit` actions (do not use for standard actions or cancellation).
@@ -81,18 +86,15 @@ class SubmitButton extends React.Component {
   render() {
     const { pristine, loading, disabled, ...rest } = this.props;
     return (
-      <Button
+      <ButtonWithMinHeight
         disabled={pristine || loading || disabled}
         type="submit"
         {...rest}
       >
         {this.renderContents()}
-      </Button>
+      </ButtonWithMinHeight>
     );
   }
 }
 
-export default styled(SubmitButton)`
-  box-sizing: content-box;
-  min-height: 1rem;
-`;
+export default SubmitButton;
