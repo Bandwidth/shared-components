@@ -177,7 +177,8 @@ export default css`
     color: ${get('colors.text.inverted')};
   }
 
-  .CalendarDay__blocked_out_of_range {
+  .CalendarDay__blocked_out_of_range,
+  .CalendarDay__blocked_calendar {
     color: ${get('colors.text.disabled')} ;
     background: ${get('colors.background.disabled')};
     cursor: normal;
