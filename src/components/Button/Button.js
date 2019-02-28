@@ -142,13 +142,13 @@ Button.Secondary = styled(Button)`
 
 Button.Small = styled(Button)`
   padding: 10px 28px 9px 28px;
-  font-size: 0.6rem;
+  font-size: 0.6em;
   min-height: 33px;
 `;
 
 Button.Large = styled(Button)`
   padding: 14px 38px 12px 38px;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   min-height: 47px;
 `;
 
