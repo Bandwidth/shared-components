@@ -10,5 +10,5 @@ export default styled.div`
   bottom: 0;
   display: flex;
   flex-direction: column;
-  z-index: 100000;
+  z-index: 1000000;
 `;
