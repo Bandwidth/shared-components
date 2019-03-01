@@ -1,21 +1,14 @@
-import React from 'react';
+import React, { FunctionComponent, ComponentClass } from 'react';
 import styled from 'styled-components';
 import pulse from 'skeletons/common/pulse';
-
-interface WithPulseGroupProps {
-  /**
-   * Should animation be disabled?
-   */
-  disableAnimation?: boolean;
-}
 
 /**
  * Modifies a component to include pulsing.
  */
 export const withPulseGroup = <T extends {}>(
-  Component: React.ComponentClass<T>,
+  Component: FunctionComponent<T> | ComponentClass<T>,
 ) =>
-  styled<T & WithPulseGroupProps>(Component)`
+  styled<any>(Component)`
     animation-name: ${pulse};
     animation-duration: var(--skeleton-pulse-normal);
     animation-timing-function: ease-in-out;
@@ -51,7 +44,9 @@ export interface DefaultPulseProps {
   height?: number | string;
 }
 
-export default withPulseGroup(styled.div<DefaultPulseProps>`
+const DefaultPulse = styled.div<DefaultPulseProps>`
   width: ${({ width = '100%' }) => width};
   height: ${({ height }) => height};
-`);
+`;
+
+export default withPulseGroup(DefaultPulse);

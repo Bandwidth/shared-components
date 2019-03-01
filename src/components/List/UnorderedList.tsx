@@ -1,22 +1,10 @@
 import * as React from 'react';
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
 import Item from './ListItem';
 import Ordered from './OrderedList';
+import dotNotation from 'extensions/dotNotation';
 
-type StyledUnorderedList = StyledComponentClass<
-  React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLUListElement>,
-    HTMLUListElement
-  >,
-  any
->;
-
-interface UnorderedList extends StyledUnorderedList {
-  Item?: any;
-  Ordered?: any;
-}
-
-const UnorderedList: UnorderedList = styled.ul`
+const UnorderedList = styled.ul`
   margin: 0 0 1em;
   padding: 0;
   list-style: disc outside;
@@ -36,7 +24,4 @@ const UnorderedList: UnorderedList = styled.ul`
   }
 `;
 
-UnorderedList.Item = Item;
-UnorderedList.Ordered = Ordered;
-
-export default UnorderedList;
+export default dotNotation(UnorderedList, { Item, Ordered });

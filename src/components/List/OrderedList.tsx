@@ -1,21 +1,9 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
 import Item from './ListItem';
+import dotNotation from 'extensions/dotNotation';
 
-type StyledOrderedList = StyledComponentClass<
-  React.DetailedHTMLProps<
-    React.OlHTMLAttributes<HTMLOListElement>,
-    HTMLOListElement
-  >,
-  any
->;
-
-interface OrderedList extends StyledOrderedList {
-  Item?: any;
-}
-
-const OrderedList: OrderedList = styled.ol`
+const OrderedList = styled.ol`
   margin: 0 0 1em;
   padding: 0;
   list-style: decimal outside;
@@ -35,6 +23,4 @@ const OrderedList: OrderedList = styled.ol`
   }
 `;
 
-OrderedList.Item = Item;
-
-export default OrderedList;
+export default dotNotation(OrderedList, { Item });

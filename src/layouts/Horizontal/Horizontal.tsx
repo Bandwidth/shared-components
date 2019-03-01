@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import themeGet from 'extensions/themeGet';
 
-const normalize = size => {
+const normalize = (size?: string) => {
   if (!size) {
     return 'large';
   }
@@ -29,7 +28,12 @@ const normalize = size => {
   }
 };
 
-const Horizontal = styled.div<any>`
+interface HorizontalProps {
+  spacing?: string;
+  alignItems?: string;
+}
+
+const Horizontal = styled.div<HorizontalProps>`
   display: flex;
   align-items: ${({ alignItems }) => alignItems};
   & > * {
@@ -42,13 +46,6 @@ const Horizontal = styled.div<any>`
 
 Horizontal.defaultProps = {
   spacing: 'lg',
-};
-
-Horizontal.propTypes = {
-  /**
-   * The amount of space to put between items. Use xs, sm, md, lg, or xl.
-   */
-  spacing: PropTypes.string,
 };
 
 //@component

@@ -2,8 +2,12 @@ import * as React from 'react';
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
-/** Applies styling to render code inside a larger paragraph.*/
-const Code = styled.code`
+/**
+ * Applies styling to render code inside a larger paragraph.
+ *
+ * @component
+ */
+export default styled.code`
   white-space: pre;
 
   font-family: ${get('fonts.monospace')};
@@ -21,5 +25,3 @@ const Code = styled.code`
 
   display: inline-block;
 `;
-
-export default Code;

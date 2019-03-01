@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import get from 'extensions/themeGet';
 
-const normalize = size => {
+const normalize = (size?: string) => {
   if (!size) {
     return 'large';
   }
@@ -28,7 +28,7 @@ const normalize = size => {
   }
 };
 
-const getSpacing = (props, size) => {
+const getSpacing = (props: SpacingProps, size?: string) => {
   try {
     return get(`spacing.${normalize(size)}`)(props);
   } catch (err) {
@@ -36,7 +36,39 @@ const getSpacing = (props, size) => {
   }
 };
 
-const Spacing = styled.div<any>`
+interface SpacingProps {
+  /**
+   * The default size to be applied to all directions. [xs, sm, md, lg, xl] or a CSS dimension.
+   */
+  size?: string;
+  /**
+   * The top spacing size. [xs, sm, md, lg, xl] or a CSS dimension.
+   */
+  top?: string;
+  /**
+   * The bottom spacing size. [xs, sm, md, lg, xl] or a CSS dimension.
+   */
+  bottom?: string;
+  /**
+   * The left spacing size. [xs, sm, md, lg, xl] or a CSS dimension.
+   */
+  left?: string;
+  /**
+   * The right spacing size. [xs, sm, md, lg, xl] or a CSS dimension.
+   */
+  right?: string;
+  /**
+   * Adds a class name to the element.
+   */
+  className?: string;
+  /**
+   * Adds an id to the element.
+   */
+  id?: string;
+}
+
+/** Test */
+const Spacing = styled.div<SpacingProps>`
   ${props => `padding: ${getSpacing(props, props.size)};`} ${props =>
   props.top ? `padding-top: ${getSpacing(props, props.top)};` : ''} ${props =>
   props.bottom
@@ -48,48 +80,14 @@ const Spacing = styled.div<any>`
   props.right ? `padding-right: ${getSpacing(props, props.right)};` : ''};
 `;
 
-Spacing.propTypes = {
-  /**
-   * The default size to be applied to all directions. [xs, sm, md, lg, xl] or a CSS dimension.
-   */
-  size: PropTypes.string,
-  /**
-   * The top spacing size. [xs, sm, md, lg, xl] or a CSS dimension.
-   */
-  top: PropTypes.string,
-  /**
-   * The bottom spacing size. [xs, sm, md, lg, xl] or a CSS dimension.
-   */
-  bottom: PropTypes.string,
-  /**
-   * The left spacing size. [xs, sm, md, lg, xl] or a CSS dimension.
-   */
-  left: PropTypes.string,
-  /**
-   * The right spacing size. [xs, sm, md, lg, xl] or a CSS dimension.
-   */
-  right: PropTypes.string,
-  /**
-   * Adds a class name to the element.
-   */
-  className: PropTypes.string,
-  /**
-   * Adds an id to the element.
-   */
-  id: PropTypes.string,
-};
-
-Spacing.defaultProps = {
-  size: 'lg',
-  top: null,
-  bottom: null,
-  left: null,
-  right: null,
-  className: null,
-  id: null,
-};
-
-/**
- * @component
- */
+/** @component */
 export default Spacing;
+
+// Spacing.defaultProps = {
+//   size: 'lg',
+// };
+
+// /**
+//  * @component
+//  */
+// export default Spacing;

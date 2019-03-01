@@ -26,6 +26,8 @@ export interface ButtonProps {
  *
  * Vertical paddings are also displaced to accomodate text cap and base lines.
  * Basically, 1px is added to the top, 1px subtracted from the bottom.
+ *
+ * @component
  */
 const Button = styled.button<ButtonProps>`
   font-size: 0.8rem;
@@ -89,13 +91,13 @@ const Button = styled.button<ButtonProps>`
   }
 
   &::before {
-    content: '${({ leftIcon, iconHelper }: ButtonProps) =>
+    content: '${({ leftIcon, iconHelper }) =>
       leftIcon && iconHelper && iconHelper(leftIcon)}';
     left: -200px;
   }
 
   &::after {
-    content: '${({ rightIcon, iconHelper }: ButtonProps) =>
+    content: '${({ rightIcon, iconHelper }) =>
       rightIcon && iconHelper && iconHelper(rightIcon)}';
     right: -200px;
   }

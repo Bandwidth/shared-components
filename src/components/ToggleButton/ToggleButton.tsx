@@ -2,6 +2,7 @@ import React, { HTMLAttributes } from 'react';
 import defaultProps from 'extensions/defaultProps';
 import * as styles from './styles';
 import noop from 'lodash.noop';
+import { Diff } from 'utility-types';
 
 interface ToggleButtonProps {
   /**
@@ -43,7 +44,7 @@ interface ToggleButtonProps {
  * click handler fires.
  */
 export default class ToggleButton extends React.PureComponent<
-  ToggleButtonProps & HTMLAttributes<HTMLButtonElement>
+  ToggleButtonProps & Diff<HTMLAttributes<HTMLButtonElement>, ToggleButtonProps>
 > {
   static defaultProps = {
     onClick: noop,

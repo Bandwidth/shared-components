@@ -1,6 +1,7 @@
-import styled, { keyframes, StyledComponentClass } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import get from 'extensions/themeGet';
 import userSpacing from 'extensions/userSpacing';
+import dotNotation from 'extensions/dotNotation';
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -12,18 +13,7 @@ interface AlertBorderProps {
   closing: boolean;
 }
 
-type StyledAlertBorder = StyledComponentClass<
-  React.ClassAttributes<HTMLDivElement> &
-    React.HTMLAttributes<HTMLDivElement> &
-    AlertBorderProps,
-  any
->;
-
-interface AlertBorder extends StyledAlertBorder {
-  Small?: AlertBorder;
-}
-
-const AlertBorder: AlertBorder = styled.div<AlertBorderProps>`
+const AlertBorder = styled.div<AlertBorderProps>`
   font-weight: 200;
   border-width: ${get('thicknesses.normal')};
   border-style: solid;
@@ -71,9 +61,9 @@ const AlertBorder: AlertBorder = styled.div<AlertBorderProps>`
   opacity: ${props => (props.closing ? '0' : '1')};
 `;
 
-AlertBorder.Small = styled(AlertBorder)`
+const Small = styled(AlertBorder)`
   font-size: 0.8em;
   font-weight: 300;
 `;
 
-export default AlertBorder;
+export default dotNotation(AlertBorder, { Small });

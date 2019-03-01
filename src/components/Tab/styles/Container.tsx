@@ -1,21 +1,13 @@
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
+import dotNotation from 'extensions/dotNotation';
 
-type StyledTabContainer = StyledComponentClass<
-  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
-  any
->;
-
-interface TabContainer extends StyledTabContainer {
-  Vertical?: TabContainer;
-}
-
-const TabContainer: TabContainer = styled.div`
+const TabContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-TabContainer.Vertical = styled(TabContainer)`
+const TabContainerVertical = styled(TabContainer)`
   flex-direction: row;
 `;
 
-export default TabContainer;
+export default dotNotation(TabContainer, { Vertical: TabContainerVertical });

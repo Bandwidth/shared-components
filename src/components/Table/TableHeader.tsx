@@ -3,6 +3,7 @@ import { defaultProps } from 'recompose';
 import DefaultLink from 'components/Link';
 import * as styles from './styles';
 import noop from 'lodash.noop';
+import { Diff } from 'utility-types';
 
 interface TableHeaderProps {
   /**
@@ -40,7 +41,8 @@ interface TableHeaderProps {
 }
 
 class TableHeader extends React.Component<
-  TableHeaderProps & React.HTMLAttributes<HTMLTableHeaderCellElement>
+  TableHeaderProps &
+    Diff<React.HTMLAttributes<HTMLTableHeaderCellElement>, TableHeaderProps>
 > {
   static defaultProps = {
     sortable: false,

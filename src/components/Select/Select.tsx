@@ -7,6 +7,7 @@ import popperMatchWidthModifier from './popperMatchWidthModifier';
 import { Foreground } from 'behaviors';
 import isString from 'lodash.isstring';
 import isPlainObject from 'lodash.isplainobject';
+import { Omit } from 'recompose';
 
 const defaultRenderOption = option => {
   if (!option) {
@@ -24,39 +25,43 @@ const defaultRenderOption = option => {
   return JSON.stringify(option);
 };
 
-export interface SelectProps {
+export interface SelectProps
+  extends Omit<
+    DownshiftProps<any>,
+    'children' | 'selectedItem' | 'itemCount' | 'itemToString'
+  > {
   /**
    * The name to apply to the input field
    */
-  name: string;
+  name?: string;
   /**
    * Text or node to show if none is selected
    */
-  placeholder: React.ReactNode;
+  placeholder?: React.ReactNode;
   /**
    * Adds a class name to the element.
    */
-  className: string;
+  className?: string;
   /**
    * Adds an id to the element.
    */
-  id: string;
+  id?: string;
   /**
    * Text or node to show if none is selected
    */
-  noneText: React.ReactNode;
+  noneText?: React.ReactNode;
   /**
    * Indicates whether the user can interact with this field.
    */
-  disabled: boolean;
+  disabled?: boolean;
   /**
    * Indicates whether this field is required for form submission. Non-required fields allow none.
    */
-  required: boolean;
+  required?: boolean;
   /**
    * Styles this field as being invalid
    */
-  invalid: boolean;
+  invalid?: boolean;
   /**
    * A list of selection options. Can be complex objects.
    */
@@ -74,30 +79,30 @@ export interface SelectProps {
    * Handler for change events on the select. It will be called with the exact
    * option you passed in via options
    */
-  onChange: () => void;
+  onChange?: () => void;
   /**
    * Alias for isLoading
    */
-  loading: boolean;
+  loading?: boolean;
   /**
    * Any additional props you want to pass to the underlying Popper instance
    */
-  popperProps: PopperProps;
+  popperProps?: PopperProps;
   /**
    * Renders the visible input and controls which show
    * the currently selected value and allow interaction.
    * Use to override behavior. Reference the library's default implementation
    * code for details about how to implement your custom version.
    */
-  CurrentValue: any;
+  CurrentValue?: any;
   /**
    * Renders the options list. Reference the library's default implementation
    * code for details about how to implement your own custom version
    */
-  Options: any;
+  Options?: any;
 }
 
-class Select extends React.PureComponent<DownshiftProps<any> & SelectProps> {
+class Select extends React.PureComponent<SelectProps> {
   static defaultProps = {
     className: null,
     id: null,

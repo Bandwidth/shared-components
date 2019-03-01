@@ -3,7 +3,7 @@ import get from 'extensions/themeGet';
 import * as styles from './styles';
 import dotNotation from 'extensions/dotNotation';
 
-export const verticalStyles = css`
+export const verticalStyles = css<TabProps>`
   border-bottom-color: ${get('colors.border.medium')};
   border-right-color: ${props =>
     props.active
@@ -20,7 +20,7 @@ export const verticalStyles = css`
       return css`
         &:hover {
           border-bottom-color: ${props =>
-            props.active
+            active
               ? get('colors.border.medium')(props)
               : get('colors.primary.default')(props)};
         }
@@ -84,7 +84,7 @@ const Tab = styled.li<TabProps>`
       return css`
         &:hover {
           border-color: ${props =>
-            props.active
+            active
               ? get('colors.border.medium')(props)
               : get('colors.primary.default')(props)};
           opacity: 1;

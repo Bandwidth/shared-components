@@ -34,6 +34,10 @@ interface FileLoaderProps {
    */
   id?: string;
   /**
+   * Adds a name to the input element.
+   */
+  name?: string;
+  /**
    * A component to render the drop area
    */
   DropArea?: any;
@@ -43,7 +47,9 @@ interface FileLoaderProps {
   Preview?: any;
 }
 
-export default class FileLoader extends React.Component<FileLoaderProps> {
+export default class FileLoader extends React.Component<
+  FileLoaderProps & React.HTMLAttributes<HTMLDivElement>
+> {
   static defaultProps = {
     required: false,
     disabled: false,

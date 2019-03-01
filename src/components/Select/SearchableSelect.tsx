@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Select, { SelectProps } from './Select';
 import * as styles from './styles';
-import { DownshiftState, DownshiftProps } from 'downshift';
+import { DownshiftState } from 'downshift';
 
 const defaultFilterOptions = (options: any[], inputValue, props) =>
   options.filter(option =>
@@ -10,14 +10,14 @@ const defaultFilterOptions = (options: any[], inputValue, props) =>
       .includes((inputValue || '').toLowerCase()),
   );
 
-interface SearchableSelectProps extends SelectProps {
+export interface SearchableSelectProps extends SelectProps {
   /**
    * A filtering function which takes the options list, the
    * current input value, and all props.
    * Should return a reduced list of options.
    */
   filterOptions: (options: any[], inputValue, props) => any[];
-  onStateChange: (changes, downshiftState: DownshiftState<any>) => void;
+  onStateChange?: (changes, downshiftState: DownshiftState<any>) => void;
 }
 
 interface SearchableSelectState {
@@ -26,7 +26,7 @@ interface SearchableSelectState {
 }
 
 export default class SearchableSelect extends React.Component<
-  DownshiftProps<any> & SearchableSelectProps,
+  SearchableSelectProps,
   SearchableSelectState
 > {
   static defaultProps = {

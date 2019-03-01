@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Skeleton from 'skeletons/Skeleton';
 import createArray from 'extensions/createArray';
+import dotNotation from 'extensions/dotNotation';
 
 const SkeletonTableContainer = styled.div<{ marginBetween: string }>`
   display: flex;
@@ -29,12 +30,12 @@ const SkeletonTableRow = styled.div<{ marginBetween: string }>`
 `;
 
 // FIXME: Skeleton.Animated may not be defined
-const SkeletonTableCell = styled(Skeleton.Animated as any)`
+const SkeletonTableCell = styled(Skeleton.Animated)`
   border-radius: 0.5em;
   animation-duration: var(--skeleton-pulse-fast);
 `;
 
-interface SkeletonTableProps {
+export interface SkeletonTableProps {
   disableAnimation: boolean;
   rowHeight: string;
   columns: number;
@@ -42,9 +43,7 @@ interface SkeletonTableProps {
   marginBetween: string;
 }
 
-const SkeletonTable: React.SFC<SkeletonTableProps> & {
-  Small: React.SFC<SkeletonTableProps>;
-} = ({
+const SkeletonTable = ({
   disableAnimation,
   rowHeight = '40px',
   columns = 3,
@@ -60,7 +59,6 @@ const SkeletonTable: React.SFC<SkeletonTableProps> & {
       <SkeletonTableRow marginBetween={marginBetween} key={rowIdx}>
         {createArray(columns).map(colIdx => (
           <SkeletonTableCell
-            pctOffset={colIdx / columns}
             key={colIdx}
             disableAnimation={disableAnimation}
             height={rowHeight}
@@ -71,6 +69,8 @@ const SkeletonTable: React.SFC<SkeletonTableProps> & {
   </SkeletonTableContainer>
 );
 
-SkeletonTable.Small = props => <SkeletonTable rowHeight="23px" {...props} />;
+const Small: React.FC<SkeletonTableProps> = props => (
+  <SkeletonTable rowHeight="23px" {...props} />
+);
 
-export default SkeletonTable;
+export default dotNotation(SkeletonTable, { Small });

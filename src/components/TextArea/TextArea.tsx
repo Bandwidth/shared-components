@@ -6,23 +6,23 @@ interface TextAreaProps {
   /**
    * Controls if the textarea can be resized by the user.
    */
-  resize: 'vertical' | 'horizontal' | 'both' | 'none';
+  resize?: 'vertical' | 'horizontal' | 'both' | 'none';
   /**
    * Render as if the textarea has been visited
    */
-  visited: boolean;
+  visited?: boolean;
   /**
    * Render the textarea as invalid
    */
-  invalid: boolean;
+  invalid?: boolean;
   /**
    * Render the textarea with an error
    */
-  error: boolean;
+  error?: boolean;
   /**
    * Specifies the height of the element.
    */
-  height: string | number;
+  height?: string | number;
 }
 
 const TextArea = styled.textarea<TextAreaProps>`

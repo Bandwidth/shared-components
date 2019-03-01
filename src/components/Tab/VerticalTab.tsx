@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import Tab, { verticalStyles, TabProps } from './Tab';
+import Tab, { verticalStyles } from './Tab';
 import dotNotation from 'extensions/dotNotation';
 import * as styles from './styles';
 
-const VerticalTab = styled<TabProps>(Tab)`
+const VerticalTab = styled(Tab)`
   ${verticalStyles}
 `;
 

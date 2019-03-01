@@ -1,6 +1,7 @@
 import React from 'react';
 import * as styles from './styles';
 import { Consumer } from '../Context';
+import dotNotation from 'extensions/dotNotation';
 
 export interface MainContentProps {
   /**
@@ -18,11 +19,11 @@ export interface MainContentProps {
  * the 'details' view. Main content can contain an Action Bar at any level
  * of nesting and it will work properly.
  */
-const MainContent: React.SFC<MainContentProps> & {
-  Container: any;
-  Box: any;
-  styles: any;
-} = ({ children, Container, ...rest }) => (
+const MainContent: React.SFC<
+  MainContentProps &
+    React.ClassAttributes<HTMLDivElement> &
+    React.HTMLAttributes<HTMLDivElement>
+> = ({ children, Container, ...rest }) => (
   <Consumer>
     {layoutContext =>
       layoutContext.renderElement(
@@ -44,9 +45,8 @@ MainContent.defaultProps = {
   Container: styles.Container,
 };
 
-MainContent.styles = styles;
-
-MainContent.Container = styles.Container;
-MainContent.Box = styles.ContentBox;
-
-export default MainContent;
+export default dotNotation(MainContent, {
+  styles,
+  Container: styles.Container,
+  Box: styles.ContentBox,
+});

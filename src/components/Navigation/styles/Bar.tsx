@@ -1,18 +1,8 @@
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
 import get from 'extensions/themeGet';
+import dotNotation from 'extensions/dotNotation';
 
-type StyledHeader = StyledComponentClass<
-  React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>,
-  any
->;
-
-export interface NavigationBar extends StyledHeader {
-  Sub?: NavigationBar;
-  Dark?: StyledHeader;
-  Light?: StyledHeader;
-}
-
-const NavigationBar: NavigationBar = styled.header`
+const NavigationBar = styled.header`
   background: ${get('colors.primary.default')};
   color: ${get('colors.text.inverted')};
   border-bottom: ${get('thicknesses.normal')} solid
@@ -29,23 +19,25 @@ const NavigationBar: NavigationBar = styled.header`
     margin: auto 0;
   }
 `;
-
-NavigationBar.Sub = styled(NavigationBar)`
-  background: ${get('colors.gray.light')};
-  color: ${get('colors.text.default')};
-`;
-
-NavigationBar.Dark = styled(NavigationBar)`
-  background: ${get('colors.primary.dark')};ß
-`;
-
-NavigationBar.Sub.Dark = styled(NavigationBar)`
+const Dark = styled(NavigationBar)`
   background: ${get('colors.primary.dark')};
 `;
 
-NavigationBar.Light = styled(NavigationBar)`
+const Sub = dotNotation(
+  styled(NavigationBar)`
+    background: ${get('colors.gray.light')};
+    color: ${get('colors.text.default')};
+  `,
+  { Dark },
+);
+
+const Light = styled(NavigationBar)`
   background: ${get('colors.background.default')};
   color: ${get('colors.text.default')};
 `;
 
-export default NavigationBar;
+export default dotNotation(NavigationBar, {
+  Sub,
+  Dark,
+  Light,
+});

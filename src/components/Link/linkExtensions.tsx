@@ -1,6 +1,5 @@
 import * as React from 'react';
 import LinkProps from './LinkProps';
-import { StyledComponentClass } from 'styled-components';
 
 /**
  * How we calculate external:
@@ -38,9 +37,7 @@ interface WrappedLinkProps extends LinkProps {
  * A HOC that provides a bit more intelligence / intuitive
  * function to the basic styled link
  */
-export default (
-  WrappedLink: StyledComponentClass<any, any>,
-): React.SFC<any> => props => (
+export default (WrappedLink: any): React.SFC<any> => props => (
   <WrappedLink
     {...props}
     {...(isExternal(props)

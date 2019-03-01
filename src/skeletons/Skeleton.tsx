@@ -44,7 +44,7 @@ const Skeleton = styled.div<SkeletonProps>`
   border-radius: ${({ borderRadius = '1em' }) => borderRadius};
   display: ${({ display = 'inline-block' }) => display};
 
-  ${({ animated }) =>
+  ${({ animated, disableAnimation }) =>
     animated &&
     css`
       animation-name: ${pulse};
@@ -52,8 +52,7 @@ const Skeleton = styled.div<SkeletonProps>`
       animation-timing-function: ease-in-out;
       animation-iteration-count: infinite;
       animation-direction: alternate;
-      animation-play-state: ${({ disableAnimation }) =>
-        disableAnimation ? 'paused' : 'running'};
+      animation-play-state: ${disableAnimation ? 'paused' : 'running'};
 
       &:nth-of-type(5n + 1) {
         animation-delay: calc(0 * var(--skeleton-pulse-normal));

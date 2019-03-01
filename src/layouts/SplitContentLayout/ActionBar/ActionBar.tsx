@@ -19,7 +19,7 @@ interface ActionBarProps {
       barHeight,
     }: {
       expanded: boolean;
-      toggleExpanded: (expand: boolean) => void;
+      toggleExpanded: (expand?: boolean) => void;
       barHeight: number;
     },
   ) => void;

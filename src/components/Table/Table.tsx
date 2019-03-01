@@ -69,8 +69,7 @@ class Table extends React.Component<TableProps> {
   static Cell = styles.Cell;
   static RowDetails = RowDetails;
   static Body = styles.Body;
-  // FIXME: Any
-  static Skeleton: any = SkeletonTable;
+  static Skeleton = SkeletonTable;
 
   static Small = defaultProps<any>({
     Styles: (styles.TableStyles as any).Small,

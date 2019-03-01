@@ -3,6 +3,7 @@ import { UnmountClosed } from 'react-collapse';
 
 import * as styles from './styles';
 import { SpacingProps } from '../../extensions/userSpacing';
+import { Diff } from 'utility-types';
 
 export interface AlertProps extends SpacingProps {
   /**
@@ -55,8 +56,11 @@ interface AlertState {
  */
 export default class Alert extends React.PureComponent<
   AlertProps &
-    React.ClassAttributes<HTMLDivElement> &
-    React.HTMLAttributes<HTMLDivElement>,
+    Diff<
+      React.ClassAttributes<HTMLDivElement> &
+        React.HTMLAttributes<HTMLDivElement>,
+      AlertProps
+    >,
   AlertState
 > {
   static defaultProps: AlertProps = {

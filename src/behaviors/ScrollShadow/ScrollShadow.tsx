@@ -9,7 +9,7 @@ const { Provider, Consumer } = createContext<getShadowElementRef>(
   () => () => {},
 );
 
-interface ScrollShadowProps {
+export interface ScrollShadowProps {
   /**
    * This ScrollShadow should listen to the global window scroll value. Only one
    * such ScrollShadow should be present in your application.
