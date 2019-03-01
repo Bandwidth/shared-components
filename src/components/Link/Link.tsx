@@ -3,10 +3,7 @@ import linkExtensions from './linkExtensions';
 import * as styles from './styles';
 import dotNotation from 'extensions/dotNotation';
 
-/**
- * @component
- */
-const Link = dotNotation(linkExtensions(styles.TextLink), {
+export const Link = dotNotation(linkExtensions(styles.TextLink), {
   styles,
   Positive: linkExtensions((styles.TextLink as any).Positive),
   Negative: linkExtensions((styles.TextLink as any).Negative),
@@ -30,6 +27,5 @@ Link.Wrap.defaultProps = {
 /**
  * Creates a local or remote link.
  * External / internal is inferred by the URL provided to `to`
- * @component
  */
 export default Link;

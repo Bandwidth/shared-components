@@ -3,7 +3,6 @@ import get from 'extensions/themeGet';
 
 /**
  * Applies styling to render multiline code.
- * @component
  * @visibleName Code.Block
  */
 export default styled.code`

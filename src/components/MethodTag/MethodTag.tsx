@@ -17,7 +17,7 @@ const methodColors = {
   del: get('colors.negative.default'),
 };
 
-const MethodTag = styled.pre`
+export const MethodTag = styled.pre`
   color: ${get('colors.text.inverted')};
   font-size: 1em;
   line-height: 1em;
@@ -35,7 +35,6 @@ const MethodTag = styled.pre`
 `;
 
 /**
- * @component
  * @deprecated
  */
 export default MethodTag;

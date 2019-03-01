@@ -10,7 +10,7 @@ export interface HelpTextProps extends SpacingProps {
   error?: string | boolean;
 }
 
-const HelpText = styled.div<HelpTextProps>`
+export default styled.div<HelpTextProps>`
   color: ${({ error }) =>
     error ? get('colors.negative.default') : get('colors.gray.medium')};
   font-style: italic;
@@ -18,5 +18,3 @@ const HelpText = styled.div<HelpTextProps>`
   font-family: ${get('fonts.brand')};
   margin: ${userSpacing.text};
 `;
-
-export default HelpText;

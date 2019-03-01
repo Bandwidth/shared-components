@@ -4,8 +4,6 @@ import get from 'extensions/themeGet';
 
 /**
  * Applies styling to render code inside a larger paragraph.
- *
- * @component
  */
 export default styled.code`
   white-space: pre;

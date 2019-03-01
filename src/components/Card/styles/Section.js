@@ -14,7 +14,4 @@ const CardSection = styled.div`
   }
 `;
 
-/**
- * @component
- */
 export default CardSection;

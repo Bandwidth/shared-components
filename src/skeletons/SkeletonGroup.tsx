@@ -11,7 +11,6 @@ export interface SkeletonGroupProps extends DefaultPulseProps {
 
 /**
  * @visibleName Skeleton.Group
- * @component
  */
 const SkeletonGroup: React.SFC<SkeletonGroupProps> = ({
   count = 1,

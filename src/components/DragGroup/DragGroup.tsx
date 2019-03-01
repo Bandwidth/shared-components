@@ -223,9 +223,6 @@ const collect = (connect, monitor) => ({
   canDrop: monitor.canDrop(),
 });
 
-/**
- * @component
- */
 export default DropTarget(props => props.itemType, dropSource, collect)(
   DragGroup,
 );

@@ -18,7 +18,7 @@ export interface IconProps {
   color?: string;
 }
 
-const Icon = styled.i<IconProps>`
+export const Icon = styled.i<IconProps>`
   font-family: ${get('fonts.icon')};
   font-size: inherit;
   color: ${({ color }) => color || 'inherit'};

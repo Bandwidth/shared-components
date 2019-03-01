@@ -134,7 +134,6 @@ const collect = (connect, monitor) => ({
 });
 
 /**
- * @component
  * @visibleName DragGroup.Item
  */
 export default DragSource(props => props.itemType, itemSource, collect)(

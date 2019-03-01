@@ -67,8 +67,7 @@ interface SpacingProps {
   id?: string;
 }
 
-/** Test */
-const Spacing = styled.div<SpacingProps>`
+export const Spacing = styled.div<SpacingProps>`
   ${props => `padding: ${getSpacing(props, props.size)};`} ${props =>
   props.top ? `padding-top: ${getSpacing(props, props.top)};` : ''} ${props =>
   props.bottom
@@ -80,14 +79,8 @@ const Spacing = styled.div<SpacingProps>`
   props.right ? `padding-right: ${getSpacing(props, props.right)};` : ''};
 `;
 
-/** @component */
+Spacing.defaultProps = {
+  size: 'lg',
+};
+
 export default Spacing;
-
-// Spacing.defaultProps = {
-//   size: 'lg',
-// };
-
-// /**
-//  * @component
-//  */
-// export default Spacing;

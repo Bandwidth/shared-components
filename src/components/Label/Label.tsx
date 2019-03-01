@@ -14,7 +14,7 @@ export interface LabelProps extends SpacingProps {
   required?: boolean;
 }
 
-const Label = styled.label<LabelProps>`
+export const Label = styled.label<LabelProps>`
   font-size: 1em;
   letter-spacing: 0.02em;
   font-weight: 700;

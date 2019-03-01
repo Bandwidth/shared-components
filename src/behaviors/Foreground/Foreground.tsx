@@ -73,7 +73,6 @@ Foreground.Provider = ForegroundProvider;
 Foreground.styles = styles;
 
 /**
- * @component
  * Just wrap any component in Foreground, and it will be rendered into
  * an overlay div above your app.
  */

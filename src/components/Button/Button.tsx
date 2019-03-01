@@ -26,10 +26,8 @@ export interface ButtonProps {
  *
  * Vertical paddings are also displaced to accomodate text cap and base lines.
  * Basically, 1px is added to the top, 1px subtracted from the bottom.
- *
- * @component
  */
-const Button = styled.button<ButtonProps>`
+export const Button = styled.button<ButtonProps>`
   font-size: 0.8rem;
   text-decoration: none;
   font-weight: 700;

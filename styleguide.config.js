@@ -16,21 +16,21 @@ const getFiles = s =>
     .map(name => path.join(s, name))
     .filter(isFile);
 
-// const componentSections = p => {
-//   return getDirectories(p).map(name => {
-//     const section = {
-//       name: path.basename(name),
-//       components: getFiles(name).filter(
-//         f =>
-//           path.basename(f) !== 'index.js' &&
-//           (path.extname(f) === '.tsx' || path.extname(f) === '.js'),
-//       ),
-//     };
-//     if (existsSync(path.join(name, 'README.md')))
-//       section.content = path.join(name, 'README.md');
-//     return section;
-//   });
-// };
+const componentSections = p => {
+  return getDirectories(p).map(name => {
+    const section = {
+      name: path.basename(name),
+      components: getFiles(name).filter(
+        f =>
+          path.basename(f) !== 'index.js' &&
+          (path.extname(f) === '.tsx' || path.extname(f) === '.js'),
+      ),
+    };
+    if (existsSync(path.join(name, 'README.md')))
+      section.content = path.join(name, 'README.md');
+    return section;
+  });
+};
 
 module.exports = {
   title: 'Bandwidth Shared React Components',
@@ -38,7 +38,11 @@ module.exports = {
   pagePerSection: true,
   skipComponentsWithoutExample: true,
   propsParser: propsParser.withCustomConfig('./tsconfig.json', {
-    propFilter: props => {
+    propFilter: (props, component) => {
+      // if (component && component.name === 'Link') {
+      //   console.log('PROPS: ', props);
+      //   console.log('COMPONENT: ', component);
+      // }
       return props.parent && props.parent.name.indexOf('Attributes') === -1;
     },
     componentNameResolver: (exp, source) => {
@@ -77,10 +81,13 @@ module.exports = {
     {
       name: 'Components',
       components: 'src/components/**/[A-Z]*.tsx',
+      // sections: componentSections('./src/components'),
     },
     {
       name: 'Layouts',
+      // components: 'src/layouts/**/[A-Z]*.js',
       components: 'src/layouts/**/[A-Z]*.tsx',
+      // sections: componentSections('./src/layouts'),
     },
     {
       name: 'Behaviors',

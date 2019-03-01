@@ -33,7 +33,7 @@ interface HorizontalProps {
   alignItems?: string;
 }
 
-const Horizontal = styled.div<HorizontalProps>`
+export const Horizontal = styled.div<HorizontalProps>`
   display: flex;
   align-items: ${({ alignItems }) => alignItems};
   & > * {
@@ -48,5 +48,4 @@ Horizontal.defaultProps = {
   spacing: 'lg',
 };
 
-//@component
 export default Horizontal;

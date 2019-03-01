@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import userSpacing, { SpacingProps } from '../../extensions/userSpacing';
 
-const Breadcrumb = styled.div<SpacingProps>`
+export const Breadcrumb = styled.div<SpacingProps>`
   display: inline-block;
   margin: ${userSpacing.text};
 `;

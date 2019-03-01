@@ -153,7 +153,6 @@ const dropCollect = connect => ({
 });
 
 /**
- * @component
  * @visibleName DragList.Item
  */
 export default DragSource(props => props.itemType, dragSource, dragCollect)(

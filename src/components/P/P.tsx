@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import userSpacing, { SpacingProps } from '../../extensions/userSpacing';
 
-const P = styled.p<SpacingProps>`
+export const P = styled.p<SpacingProps>`
   margin: ${userSpacing.text};
   font-size: 1em;
 `;

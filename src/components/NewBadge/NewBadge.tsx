@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
-const NewBadge = styled.span`
+export default styled.span`
   display: inline-block;
 
   &::after {
@@ -14,5 +14,3 @@ const NewBadge = styled.span`
     text-transform: uppercase;
   }
 `;
-
-export default NewBadge;

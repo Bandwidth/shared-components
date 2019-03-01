@@ -4,7 +4,7 @@ import { themeGet } from 'extensions';
 /**
  * @visibleName Breadcrumb.Group
  */
-const BreadcrumbGroup = styled.div`
+export const BreadcrumbGroup = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
