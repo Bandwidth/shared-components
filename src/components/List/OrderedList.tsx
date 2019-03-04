@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import Item from './ListItem';
 import dotNotation from 'extensions/dotNotation';
 
+/**
+ * A basic numbered list. Fill with `OrderedList.Item` elements.
+ */
 const OrderedList = styled.ol`
   margin: 0 0 1em;
   padding: 0;

@@ -19,7 +19,7 @@ export interface MainContentProps {
  * the 'details' view. Main content can contain an Action Bar at any level
  * of nesting and it will work properly.
  */
-const MainContent: React.SFC<
+const MainContent: React.FC<
   MainContentProps &
     React.ClassAttributes<HTMLDivElement> &
     React.HTMLAttributes<HTMLDivElement>

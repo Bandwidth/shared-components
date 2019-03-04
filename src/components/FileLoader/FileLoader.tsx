@@ -47,6 +47,9 @@ interface FileLoaderProps {
   Preview?: any;
 }
 
+/**
+ * A file input component which accepts drag-and-drop.
+ */
 export default class FileLoader extends React.Component<
   FileLoaderProps & React.HTMLAttributes<HTMLDivElement>
 > {

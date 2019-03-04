@@ -33,6 +33,10 @@ interface HorizontalProps {
   alignItems?: string;
 }
 
+/**
+ * Horizontal is a simple layout tool that lays items out horizontally
+ * left-aligned with spacing. It uses `display: flexbox;` to lay items out.
+ */
 export const Horizontal = styled.div<HorizontalProps>`
   display: flex;
   align-items: ${({ alignItems }) => alignItems};

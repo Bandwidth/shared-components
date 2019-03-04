@@ -1,6 +1,7 @@
 import React from 'react';
+import LinkProps from '../LinkProps';
 
-export default ({
+const NativeALink: React.FC<LinkProps> = ({
   children,
   to,
   // below are just filtering out non-dom props
@@ -13,3 +14,5 @@ export default ({
     {children}
   </a>
 );
+
+export default NativeALink;

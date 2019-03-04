@@ -28,7 +28,7 @@ export interface SecondaryContentProps {
  * it's either an item list or a small single-column form.
  * Secondary content can contain an Action Bar if you want it to.
  */
-const SecondaryContent: React.SFC<
+const SecondaryContent: React.FC<
   SecondaryContentProps & React.HTMLAttributes<HTMLDivElement>
 > = ({ children, overlapBorder, Container, ShadowContainer, ...rest }) => (
   <Consumer>

@@ -18,7 +18,7 @@ interface NoteProps {
   Corner?: any;
 }
 
-const Note: React.SFC<NoteProps> = ({
+const Note: React.FC<NoteProps> = ({
   children,
   Container,
   Corner,

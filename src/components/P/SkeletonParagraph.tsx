@@ -23,7 +23,7 @@ const SkeletonParagraphContainer = styled.div<
   }
 `;
 
-const SkeletonParagraph: React.SFC<SkeletonParagraph> = ({
+const SkeletonParagraph: React.FC<SkeletonParagraph> = ({
   spacing,
   disableAnimation,
   rowHeight = '14px',

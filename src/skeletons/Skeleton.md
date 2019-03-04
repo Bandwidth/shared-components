@@ -1,5 +1,3 @@
-The basic building block of skeletons. It is intended to be used to build out skeleton versions of components.
-
 #### Basic
 
 ```js

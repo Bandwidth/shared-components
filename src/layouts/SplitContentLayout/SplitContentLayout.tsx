@@ -29,6 +29,10 @@ interface SplitContentLayoutProps {
   RootLayout: any;
 }
 
+/**
+ * This component can be used to create complex, interactive page-level layout
+ * for content which has "primary" and "secondary" views.
+ */
 export default class SplitContentLayout extends React.PureComponent<
   SplitContentLayoutProps
 > {

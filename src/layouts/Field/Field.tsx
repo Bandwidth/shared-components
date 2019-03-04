@@ -117,7 +117,7 @@ class Field extends React.Component<FieldProps> {
 
   static styles = styles;
 
-  static Skeleton: React.SFC<FieldProps> = ({ label, helpText, ...rest }) => (
+  static Skeleton: React.FC<FieldProps> = ({ label, helpText, ...rest }) => (
     <Field
       label={label}
       helpText={helpText}

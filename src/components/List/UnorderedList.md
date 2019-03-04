@@ -1,5 +1,3 @@
-A basic bulletted list. Fill with `Item` elements.
-
 ```javascript
 <UnorderedList>
   <UnorderedList.Item>Foo</UnorderedList.Item>

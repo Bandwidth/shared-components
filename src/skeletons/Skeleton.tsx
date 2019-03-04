@@ -72,8 +72,11 @@ const Skeleton = styled.div<SkeletonProps>`
     `};
 `;
 
-const Animated: React.SFC<
+const Animated: React.FC<
   SkeletonProps & React.HTMLAttributes<HTMLDivElement>
 > = props => <Skeleton {...props} animated />;
 
+/**
+ * The basic building block of skeletons. It is intended to be used to build out skeleton versions of components.
+ */
 export default dotNotation(Skeleton, { Animated, Group: SkeletonGroup });

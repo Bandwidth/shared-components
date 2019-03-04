@@ -56,6 +56,8 @@ class ForegroundProvider extends React.Component<ForegroundProviderProps> {
 /**
  * Just wrap any component in Foreground, and it will be rendered into
  * an overlay div above your app.
+ *
+ * The overlay itself is provided via `<BandwidthProvider>`, so be sure you have that at the top of your tree.
  */
 const Foreground = ({ children }) => (
   <context.Consumer>

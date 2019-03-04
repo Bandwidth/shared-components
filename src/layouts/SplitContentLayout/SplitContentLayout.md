@@ -1,8 +1,8 @@
-This component can be used to create complex, interactive page-level layout for content which has "primary" and "secondary" views. Common examples are:
+Common examples are:
 
-* A list of entitites, and a detailed view for the selected entity
-* A workspace with forms, and a short paragraph of documentation on what to do
-* An area to review information, and a small form which is used to submit it
+- A list of entitites, and a detailed view for the selected entity
+- A workspace with forms, and a short paragraph of documentation on what to do
+- An area to review information, and a small form which is used to submit it
 
 The code below can help get you started, but you'll want to check out the [full examples and docs](/shared-components/layouts) for more. We can't demonstrate page layouts in these docs since the styling is meant for top-level elements only.
 

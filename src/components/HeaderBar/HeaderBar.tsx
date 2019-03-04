@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import themeGet from 'extensions/themeGet';
 
+/**
+ * A horizontal 'header bar' for use between the navigation menu and the main content on any page.
+ */
 export default styled.div`
   height: 50px;
   display: flex;

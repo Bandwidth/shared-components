@@ -1,16 +1,18 @@
-Creates a local or remote link using a simple `<a>` tag. External / internal is inferred by the URL provided to the `to` prop.
-
-Other supported props:
-
-* `appearFocused`: Allows you to programmatically control whether the link is styled as focused. Useful for advanced keyboard navigation scenarios.
-* `Link.Icon` takes the `icon` property, which is the name of the icon to use.
-
 **Basic Links**
+
 ```js
-<div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '10px' }}>
+<div
+  style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridGap: '10px',
+  }}
+>
   <Link to="/local/route">Local route text link</Link>
   <Link to="https://google.com">Remote text link</Link>
-  <Link icon="unicorn" to="/foo">Iconic link</Link>
+  <Link icon="unicorn" to="/foo">
+    Iconic link
+  </Link>
   <Link icon="cat" to="/bar" />
   <Link.Wrap to="/foo">Invisible wrap link</Link.Wrap>
   <Link onClick={() => alert('clicked')}>Link with click handler</Link>
@@ -27,17 +29,20 @@ An implementation component will be passed all props provided to `<Link>` from t
 
 ```js static
 // note: something like this is of course not very useful.
-const CustomLinkImplementation = ({ children, to, newTab, appearFocused, icon, ...rest }) => (
-  <div onClick={() => window.location.href = to}>{children}</div>
-);
+const CustomLinkImplementation = ({
+  children,
+  to,
+  newTab,
+  appearFocused,
+  icon,
+  ...rest
+}) => <div onClick={() => (window.location.href = to)}>{children}</div>;
 ```
 
 #### 2. Pass your component as a prop to `Link`
 
 ```js static
-const CustomLink = withProps({ as: CustomLinkImplementation })(
-  Link
-);
+const CustomLink = withProps({ as: CustomLinkImplementation })(Link);
 ```
 
 ### Use with React Router
@@ -50,13 +55,15 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Link } from '@bandwidth/shared-components';
 import { withProps } from 'recompose';
 
-const RouterLinkImplementation = ({ children, external, appearFocused, icon, ...rest }) => (
-  <RouterLink {...rest}>{children}</RouterLink>
-);
+const RouterLinkImplementation = ({
+  children,
+  external,
+  appearFocused,
+  icon,
+  ...rest
+}) => <RouterLink {...rest}>{children}</RouterLink>;
 
-export default withProps({ as: RouterLinkImplementation })(
-  Link
-);
+export default withProps({ as: RouterLinkImplementation })(Link);
 ```
 
 You can use this React-Router-powered Link for both internal and external links. It will automatically apply the appropriate props to force the React Router Link component to route externally if it detects a URL with a protocol (`http(s)://`)
@@ -64,8 +71,15 @@ You can use this React-Router-powered Link for both internal and external links.
 ### More Link Styles
 
 **Text Link Styles**
+
 ```js
-<div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '10px' }}>
+<div
+  style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridGap: '10px',
+  }}
+>
   <Link.Negative to="/foo">Negative local route link</Link.Negative>
   <Link.Negative to="https://google.com">Negative remote link</Link.Negative>
   <Link.Positive to="/foo">Positive local route link</Link.Positive>
@@ -75,28 +89,61 @@ You can use this React-Router-powered Link for both internal and external links.
   <div style={{ background: '#004658', margin: 'auto', padding: '5px' }}>
     <Link.Inverted to="/foo">Inverted local route link</Link.Inverted>
   </div>
-  <div style={{ background: '#004658', margin: 'auto', padding: '5px 25px 5px 5px' }}>
+  <div
+    style={{
+      background: '#004658',
+      margin: 'auto',
+      padding: '5px 25px 5px 5px',
+    }}
+  >
     <Link.Inverted to="https://google.com">Inverted remote link</Link.Inverted>
   </div>
-  <Link appearFocused to="/foo">Controlled focus-styled link</Link>
+  <Link appearFocused to="/foo">
+    Controlled focus-styled link
+  </Link>
 </div>
 ```
 
 **Icon Link Styles**
+
 ```js
-<div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '10px' }}>
-  <Link.Negative icon="moderator" to="/foo">Negative local route link</Link.Negative>
-  <Link.Negative icon="delete" to="https://google.com">Negative remote link</Link.Negative>
-  <Link.Positive icon="api" to="/foo">Positive local route link</Link.Positive>
-  <Link.Positive icon="help" to="https://google.com">Positive remote link</Link.Positive>
-  <Link.Dark icon="expensive2" to="/foo">Dark local route link</Link.Dark>
-  <Link.Dark icon="courses" to="https://google.com">Dark remote link</Link.Dark>
+<div
+  style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridGap: '10px',
+  }}
+>
+  <Link.Negative icon="moderator" to="/foo">
+    Negative local route link
+  </Link.Negative>
+  <Link.Negative icon="delete" to="https://google.com">
+    Negative remote link
+  </Link.Negative>
+  <Link.Positive icon="api" to="/foo">
+    Positive local route link
+  </Link.Positive>
+  <Link.Positive icon="help" to="https://google.com">
+    Positive remote link
+  </Link.Positive>
+  <Link.Dark icon="expensive2" to="/foo">
+    Dark local route link
+  </Link.Dark>
+  <Link.Dark icon="courses" to="https://google.com">
+    Dark remote link
+  </Link.Dark>
   <div style={{ background: '#004658', margin: 'auto', padding: '5px' }}>
-    <Link.Inverted icon="loginRounded" to="/foo">Inverted local route link</Link.Inverted>
+    <Link.Inverted icon="loginRounded" to="/foo">
+      Inverted local route link
+    </Link.Inverted>
   </div>
   <div style={{ background: '#004658', margin: 'auto', padding: '5px' }}>
-    <Link.Inverted icon="file" to="https://google.com">Inverted remote link</Link.Inverted>
+    <Link.Inverted icon="file" to="https://google.com">
+      Inverted remote link
+    </Link.Inverted>
   </div>
-  <Link appearFocused icon="attention" to="/foo">Controlled focus-styled link</Link>
+  <Link appearFocused icon="attention" to="/foo">
+    Controlled focus-styled link
+  </Link>
 </div>
 ```

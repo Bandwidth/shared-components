@@ -18,6 +18,10 @@ export interface IconProps {
   color?: string;
 }
 
+/*
+ * Icons let you easily render some of our icons. Pass in the `name` prop to specify which one.
+ * The icon definition file is in `components/Icons/icons.js`
+ */
 export const Icon = styled.i<IconProps>`
   font-family: ${get('fonts.icon')};
   font-size: inherit;

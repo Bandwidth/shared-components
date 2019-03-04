@@ -20,7 +20,7 @@ interface FixedLayerProps {
  * as the user scrolls the page). It houses the secondary content and action
  * bar, which are rendered in using portals.
  */
-const FixedLayer: React.SFC<FixedLayerProps> & { styles: any } = ({
+const FixedLayer: React.FC<FixedLayerProps> & { styles: any } = ({
   layerRef,
   Overlay = styles.Overlay,
 }) => (

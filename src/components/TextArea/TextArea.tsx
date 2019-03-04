@@ -25,6 +25,9 @@ interface TextAreaProps {
   height?: string | number;
 }
 
+/**
+ * A basic text area component.
+ */
 export const TextArea = styled.textarea<TextAreaProps>`
   resize: ${props => props.resize};
   letter-spacing: 0.02em;

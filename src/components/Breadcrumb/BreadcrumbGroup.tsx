@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Breadcrumb from './Breadcrumb';
 import { themeGet } from 'extensions';
 /**
+ * Use in conjunction with `Breadcrumb`.
  * @visibleName Breadcrumb.Group
  */
 export const BreadcrumbGroup = styled.div`

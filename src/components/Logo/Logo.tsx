@@ -27,6 +27,11 @@ const Logo = styled.div<LogoProps>`
   height: ${({ height }) => (height ? height : themeGet('spacing.large'))};
 `;
 
+/**
+ * Renders the company logo! Small, regular and large set pixel sizes.
+ * Bandwidth and the BW logo are trademarks of Bandwidth.com, Inc.
+ * Bandwidth reserves all rights to these trademarks, as well as any others that may be included from time to time.
+ */
 export default dotNotation(Logo, {
   Small: styled(Logo)`
     height: ${themeGet('spacing.medium')};

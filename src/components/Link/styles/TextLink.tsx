@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import get from 'extensions/themeGet';
 import icons from 'components/Icon/icons';
 import Link from './NativeALinkImplementation';
+import dotNotation from 'extensions/dotNotation';
 
 const focusAfterStyles = css`
   height: calc(100% + 0.2em);
@@ -18,7 +19,7 @@ const focusBeforeStyles = css`
   transition: right 0.3s ease, opacity 0.2s ease 0.1s;
 `;
 
-const newTabIconStyles = css`
+const newTabIconStyles = css<{ appearFocused: boolean }>`
   &::before {
     content: "${icons('openInWindow')}";
     font-family: ${get('fonts.icon')};
@@ -38,7 +39,7 @@ const newTabIconStyles = css`
   }
 `;
 
-const iconStyles = css`
+const iconStyles = css<{ icon: string; children: React.ReactNode }>`
   &::before {
     font-family: ${get('fonts.icon')};
     content: ${({ icon }) => (!!icon ? `"${icons(icon)}"` : '')};
@@ -105,7 +106,7 @@ const TextLink = styled(Link)`
     `};
 `;
 
-TextLink.Negative = styled(TextLink)`
+const Negative = styled(TextLink)`
   color: ${get('colors.negative.default')};
 
   &:active {
@@ -117,7 +118,7 @@ TextLink.Negative = styled(TextLink)`
   }
 `;
 
-TextLink.Positive = styled(TextLink)`
+const Positive = styled(TextLink)`
   color: ${get('colors.positive.default')};
 
   &:active {
@@ -129,7 +130,7 @@ TextLink.Positive = styled(TextLink)`
   }
 `;
 
-TextLink.Dark = styled(TextLink)`
+const Dark = styled(TextLink)`
   color: ${get('colors.primary.dark')};
 
   &:active {
@@ -141,7 +142,7 @@ TextLink.Dark = styled(TextLink)`
   }
 `;
 
-TextLink.Inverted = styled(TextLink)`
+const Inverted = styled(TextLink)`
   color: ${get('colors.text.inverted')};
 
   &:active {
@@ -153,4 +154,4 @@ TextLink.Inverted = styled(TextLink)`
   }
 `;
 
-export default TextLink;
+export default dotNotation(TextLink, { Negative, Positive, Dark, Inverted });

@@ -20,6 +20,10 @@ interface LoaderProps {
   Container: any;
 }
 
+/**
+ * Drop a loader anywhere you want to display a loading animation. It should self-center in a flexbox.
+ * Use the `size` prop to pass a custom dot size, `color` to override the color.
+ */
 class Loader extends React.PureComponent<
   React.ClassAttributes<HTMLDivElement> &
     React.HTMLAttributes<HTMLDivElement> &

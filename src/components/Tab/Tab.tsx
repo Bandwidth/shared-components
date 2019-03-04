@@ -105,6 +105,19 @@ const Tab = styled.li<TabProps>`
   }
 `;
 
+/**
+ * Tab components provide visual rendering blocks of a tabbed layout. It's up to you to 
+ * implement the logic behind rendering tabbed content.
+
+ * To keep things visually consistent and connected, utilize the `Tab.Container` component 
+ * as a wrapper around a `Tab.Group` and `Tab.Content` component. This helps align the borders
+ * of the components so that they are rendered correctly.
+
+ * `Tab.List` itself provides a customized `onClick` handler to child `Tab` components and uses
+ * its own `onTabSelected` and `selectedTabIndex` props to give you a convenient and centralized 
+ * place to keep track of tab state. If you'd prefer to do your own logic, you can just wrap `Tab` 
+ * components with a `Tab.styles.List` component for rendering purposes.
+ */
 export default dotNotation(Tab, {
   Container: styles.Container,
   Content: styles.Content,

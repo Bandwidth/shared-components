@@ -1,7 +1,3 @@
-The header above a page which contains page title and navigation.
-
-Navigation provides several sub-components which can be used to construct complex nested controls.
-
 ```javascript
 <Navigation>
   <Link.Wrap to="/">

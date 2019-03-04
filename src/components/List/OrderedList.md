@@ -1,5 +1,3 @@
-A basic numbered list. Fill with `Item` elements.
-
 ```javascript
 <OrderedList>
   <OrderedList.Item>Foo</OrderedList.Item>

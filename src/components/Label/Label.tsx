@@ -14,6 +14,9 @@ export interface LabelProps extends SpacingProps {
   required?: boolean;
 }
 
+/**
+ * A simple label. Meant to be tied to an input component.
+ */
 export const Label = styled.label<LabelProps>`
   font-size: 1em;
   letter-spacing: 0.02em;

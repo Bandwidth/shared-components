@@ -10,9 +10,12 @@ export interface SkeletonGroupProps extends DefaultPulseProps {
 }
 
 /**
+ * `Skeleton.Group` defines a section that pulses together. Typically you can use it to
+ * define a block of Skeletons that are grouped together in some way. It also allows
+ * for easy repetition of Skeletons so that you don't have to manually create enough skeleton instances.
  * @visibleName Skeleton.Group
  */
-const SkeletonGroup: React.SFC<SkeletonGroupProps> = ({
+const SkeletonGroup: React.FC<SkeletonGroupProps> = ({
   count = 1,
   children,
   ...rest

@@ -3,12 +3,20 @@ import linkExtensions from './linkExtensions';
 import * as styles from './styles';
 import dotNotation from 'extensions/dotNotation';
 
+/**
+ * Creates a local or remote link using a simple `<a>` tag. External / internal is inferred by the URL provided to the `to` prop.
+
+ * Other supported props:
+
+ * `appearFocused`: Allows you to programmatically control whether the link is styled as focused. Useful for advanced keyboard navigation scenarios.
+ * `Link.Icon` takes the `icon` property, which is the name of the icon to use.
+ */
 export const Link = dotNotation(linkExtensions(styles.TextLink), {
   styles,
-  Positive: linkExtensions((styles.TextLink as any).Positive),
-  Negative: linkExtensions((styles.TextLink as any).Negative),
-  Dark: linkExtensions((styles.TextLink as any).Dark),
-  Inverted: linkExtensions((styles.TextLink as any).Inverted),
+  Positive: linkExtensions(styles.TextLink.Positive),
+  Negative: linkExtensions(styles.TextLink.Negative),
+  Dark: linkExtensions(styles.TextLink.Dark),
+  Inverted: linkExtensions(styles.TextLink.Inverted),
   Wrap: linkExtensions(styles.TransparentLink),
 });
 

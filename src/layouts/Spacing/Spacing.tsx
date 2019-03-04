@@ -67,6 +67,12 @@ interface SpacingProps {
   id?: string;
 }
 
+/**
+ * An component which just adds some padding around something else, based on some pre-defined sizes our designers like. 
+ * Since developers end up implementing their own padding a lot, it might be useful to include this generic utility. 
+
+ * You can also specify a custom padding for any side, i.e. `top="48px"`. This is probably a bad idea.
+ */
 export const Spacing = styled.div<SpacingProps>`
   ${props => `padding: ${getSpacing(props, props.size)};`} ${props =>
   props.top ? `padding-top: ${getSpacing(props, props.top)};` : ''} ${props =>

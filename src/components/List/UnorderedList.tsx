@@ -4,6 +4,9 @@ import Item from './ListItem';
 import Ordered from './OrderedList';
 import dotNotation from 'extensions/dotNotation';
 
+/**
+ * A basic bulletted list. Fill with `UnorderedList.Item` elements.
+ */
 const UnorderedList = styled.ul`
   margin: 0 0 1em;
   padding: 0;

@@ -1,5 +1,3 @@
-A horizontal 'header bar' for use between the navigation menu and the main content on any page.
-
 ```javascript
 <div style={{ padding: '30px' }}>
   <Navigation>
@@ -36,7 +34,7 @@ A horizontal 'header bar' for use between the navigation menu and the main conte
   </Navigation>
   <HeaderBar>
     <Label>Header bar content with some link</Label>
-    <Link>You messaging URI</Link>
+    <Link>Secondary Information</Link>
   </HeaderBar>
 </div>
 ```

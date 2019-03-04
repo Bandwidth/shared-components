@@ -1,5 +1,3 @@
-Skeleton.Group defines a section that pulses together. Typically you can use it to define a block of Skeletons that are grouped together in some way. It also allows for easy repetition of Skeletons so that you don't have to manually create enough skeletons instances.
-
 #### Basic
 
 ```js

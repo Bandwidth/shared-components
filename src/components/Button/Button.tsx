@@ -20,6 +20,10 @@ export interface ButtonProps {
 }
 
 /**
+ * The trusty button. Renders a `button` tag with styling. You can add fancy little icons with
+ * animations using the `leftIcon` and `rightIcon` props. These icons should be names from the
+ * icons list (see `components/helpers/icons`).
+ *
  * NOTE: all paddings in button are adjusted to accomodate
  * border widths on both sides. If border widths are changed,
  * also change padding to compensate!
