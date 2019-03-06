@@ -14,7 +14,7 @@ export default class Step extends React.Component {
     /**
      * Content of the step
      */
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     /**
      * Step number
      */

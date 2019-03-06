@@ -19,7 +19,7 @@ class Radio extends React.PureComponent {
     /**
      * The value of the radio; a string that describes what the value should be if checked=true
      */
-    value: PropTypes.string.isRequired,
+    value: PropTypes.any.isRequired,
     /**
      * Whether the radio is checked
      */

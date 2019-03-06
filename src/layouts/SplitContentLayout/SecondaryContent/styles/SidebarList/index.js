@@ -30,7 +30,7 @@ export default class SidebarList extends React.PureComponent {
     /**
      * A compoennt to render the container around the list
      */
-    Container: PropTypes.func,
+    Container: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   };
 
   static defaultProps = {
