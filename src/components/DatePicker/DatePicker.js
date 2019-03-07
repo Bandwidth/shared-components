@@ -59,7 +59,7 @@ class DatePicker extends React.PureComponent {
   handleFocusChange = ({ focused }) => this.setState({ focused });
 
   render() {
-    const { Wrapper, invalid, className, ...rest } = this.props;
+    const { Wrapper, invalid, ...rest } = this.props;
     const { focused } = this.state;
     return (
       <Wrapper

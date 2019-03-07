@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import DatePicker from 'components/DatePicker';
 
@@ -7,23 +7,12 @@ class ConnectedDatePicker extends React.Component {
     date: null,
   };
 
-  static propTypes = {
-    className: PropTypes.string,
-    invalid: PropTypes.bool
-  };
-
   render() {
-    const {
-      className,
-      invalid,
-      ...rest
-    } = this.props;
-
     return (
       <DatePicker
+        {...this.props}
         {...this.state}
         onDateChange={date => this.setState({ date })}
-        {...rest}
       />
     );
   }
@@ -34,25 +23,14 @@ class ConnectedDateRangePicker extends React.Component {
     endDate: null,
   };
 
-  static propTypes = {
-    className: PropTypes.string,
-    invalid: PropTypes.bool
-  };
-
   render() {
-    const {
-      className,
-      invalid,
-      ...rest
-    } = this.props;
-
     return (
       <DatePicker.Range
+        {...this.props}
         {...this.state}
         onDatesChange={({ startDate, endDate }) =>
           this.setState({ startDate, endDate })
         }
-        {...rest}
       />
     );
   }

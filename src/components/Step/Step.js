@@ -61,7 +61,9 @@ export default class Step extends React.Component {
     return (
       <Container {...rest}>
         <Number complete={complete} number={number} />
-        <Content>{children}</Content>
+        {children ?
+          <Content>{children}</Content> : null
+        }
       </Container>
     );
   }
