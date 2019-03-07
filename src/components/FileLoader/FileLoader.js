@@ -53,21 +53,23 @@ export default class FileLoader extends React.Component {
   };
 
   renderFiles = () => {
-    const { value, error, DropArea, Preview } = this.props;
+    const { value, error, disabled, DropArea, Preview } = this.props;
     if (value && value[0]) {
       return (
-        <DropArea>
+        <DropArea disabled={disabled}>
           <Icon name="fileFilled" />
           <Preview active={true}>{value[0].name}</Preview>
         </DropArea>
       );
     } else {
       return (
-        <DropArea error={error}>
+        <DropArea error={error} disabled={disabled}>
           <Icon name="file" />
           <Preview>
             DROP A FILE HERE, OR&nbsp;
-            <Link onClick={this.preventLinkClick}>CLICK TO BROWSE</Link>
+            <Link disabled={disabled} onClick={this.preventLinkClick}>
+              CLICK TO BROWSE
+            </Link>
           </Preview>
         </DropArea>
       );
