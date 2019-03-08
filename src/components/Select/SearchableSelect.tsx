@@ -16,7 +16,7 @@ export interface SearchableSelectProps extends SelectProps {
    * current input value, and all props.
    * Should return a reduced list of options.
    */
-  filterOptions: (options: any[], inputValue, props) => any[];
+  filterOptions?: (options: any[], inputValue, props) => any[];
   onStateChange?: (changes, downshiftState: DownshiftState<any>) => void;
 }
 
@@ -66,7 +66,9 @@ export default class SearchableSelect extends React.Component<
     const { filterOptions, options } = this.props;
     this.setState({
       inputValue: inputValue,
-      filteredOptions: filterOptions(options, inputValue, this.props),
+      filteredOptions: filterOptions
+        ? filterOptions(options, inputValue, this.props)
+        : options,
     });
   };
 

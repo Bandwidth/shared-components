@@ -1,8 +1,10 @@
 {
+  // This file is only responsible for generating types.
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./src/",
     "declaration": true,
+    "emitDeclarationOnly": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
