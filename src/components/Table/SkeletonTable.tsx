@@ -12,8 +12,7 @@ const SkeletonTableContainer = styled.div<{ marginBetween: string }>`
   }
 `;
 
-// FIXME: Skeleton.Animated may not be defined
-const SkeletonTableHeader = styled(Skeleton.Animated as any)`
+const SkeletonTableHeader = styled(Skeleton.Animated)`
   background: var(--skeleton-colors-dark);
   border-radius: 0.5em;
 `;
@@ -29,7 +28,6 @@ const SkeletonTableRow = styled.div<{ marginBetween: string }>`
   }
 `;
 
-// FIXME: Skeleton.Animated may not be defined
 const SkeletonTableCell = styled(Skeleton.Animated)`
   border-radius: 0.5em;
   animation-duration: var(--skeleton-pulse-fast);

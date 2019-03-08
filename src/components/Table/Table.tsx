@@ -53,6 +53,9 @@ interface TableProps {
   Body?: any;
 }
 
+/**
+ * A basic table component.
+ */
 class Table extends React.Component<TableProps> {
   static defaultProps: TableProps = {
     loading: false,

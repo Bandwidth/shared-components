@@ -154,9 +154,6 @@ export default class ActionBar extends React.Component<
                 >
                   <ControlArea>{this.renderChildren()}</ControlArea>
                 </BottomContent>
-                {
-                  //@ts-ignore
-                }
                 <ScrollShadow.ConnectedShadow outer disabled={expanded} />
               </Bar>
             </CSSTransition>,

@@ -7,7 +7,7 @@ import ExpandToggle from 'behaviors/ExpandToggle';
 import DragItem from './DragGroupItem';
 import DragContainer from 'components/DragContainer';
 
-interface DragGroupProps {
+export interface DragGroupProps {
   /**
    * Text to render inside the clickable separators which allow
    * new groups to be created.
@@ -94,7 +94,7 @@ interface DragGroupProps {
  * > **Note:** You must include [BandwidthProvider](#!/BandwidthProvider)
  * at or near the root of your application to use drag and drop functionality.
  */
-class DragGroup extends React.Component<DragGroupProps> {
+export class DragGroup extends React.Component<DragGroupProps> {
   static Item = DragItem;
   static Container = DragContainer;
 

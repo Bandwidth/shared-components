@@ -175,12 +175,12 @@ class DateTimeRangePicker extends React.PureComponent<
 
     return (
       <DatePicker.Range
-        //@ts-ignore
         startDatePlaceholderText={
-          this.startDateDisabled() ? disabledStartText : null
+          this.startDateDisabled() ? disabledStartText : undefined
         }
-        //@ts-ignore
-        endDatePlaceholderText={this.endDateDisabled() ? disabledEndText : null}
+        endDatePlaceholderText={
+          this.endDateDisabled() ? disabledEndText : undefined
+        }
         startDate={this.startDateDisabled() ? null : this.momentStartValue}
         endDate={this.endDateDisabled() ? null : this.momentEndValue}
         onDatesChange={this.handleDatesChange}

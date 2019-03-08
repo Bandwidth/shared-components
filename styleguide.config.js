@@ -39,10 +39,6 @@ module.exports = {
   skipComponentsWithoutExample: true,
   propsParser: propsParser.withCustomConfig('./tsconfig.json', {
     propFilter: (props, component) => {
-      // if (component && component.name === 'Link') {
-      //   console.log('PROPS: ', props);
-      //   console.log('COMPONENT: ', component);
-      // }
       return props.parent && props.parent.name.indexOf('Attributes') === -1;
     },
     componentNameResolver: (exp, source) => {
@@ -80,8 +76,8 @@ module.exports = {
     },
     {
       name: 'Components',
-      components: 'src/components/**/[A-Z]*.tsx',
-      // sections: componentSections('./src/components'),
+      // components: 'src/components/**/[A-Z]*.tsx',
+      sections: componentSections('./src/components'),
     },
     {
       name: 'Layouts',

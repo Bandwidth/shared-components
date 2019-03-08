@@ -2,7 +2,6 @@ import React from 'react';
 import { withPulseGroup } from 'skeletons/PulseGroup';
 import * as styles from './styles';
 
-//@ts-ignore
 const PulseFieldRow = withPulseGroup(styles.FieldRow);
 
 interface FieldGroupProps {
