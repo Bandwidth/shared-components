@@ -87,6 +87,12 @@ const TextLink = styled(Link)`
 
     ${({ appearFocused, icon }) =>
       appearFocused ? focusAfterStyles : icon ? 'opacity: 0;' : ''};
+
+    ${({ disabled }) =>
+      disabled &&
+      css`
+        background: ${get('colors.text.disabled')};
+      `}
   }
 
   &:hover::after,

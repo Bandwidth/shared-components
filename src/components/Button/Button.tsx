@@ -32,7 +32,8 @@ export interface ButtonProps {
  * Basically, 1px is added to the top, 1px subtracted from the bottom.
  */
 export const Button = styled.button<ButtonProps>`
-  font-size: 0.8rem;
+font-size: 0.8em;
+min-height: 41px;
   text-decoration: none;
   font-weight: 700;
   font-family: ${get('fonts.brand')};

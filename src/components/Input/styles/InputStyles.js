@@ -1,6 +1,13 @@
 import styled, { css } from 'styled-components';
 import get from 'extensions/themeGet';
 
+const disabledStyles = css`
+  background: ${get('colors.background.disabled')};
+  border-color: ${get('colors.border.disabled')};
+  opacity: 1;
+  color: ${get('colors.text.disabled')};
+`;
+
 const InputStyles = styled.input`
   letter-spacing: 0.02em;
   line-height: 1.5;
@@ -36,11 +43,10 @@ const InputStyles = styled.input`
   }
 
   &:disabled {
-    background: ${get('colors.background.disabled')};
-    border-color: ${get('colors.border.disabled')};
-    opacity: 1;
-    color: ${get('colors.text.disabled')};
+    ${disabledStyles}
   }
+
+  ${props => (props.disabled ? disabledStyles : '')}
 
   &::placeholder {
     opacity: 0.5;
