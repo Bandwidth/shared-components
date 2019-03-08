@@ -37,7 +37,7 @@ Note.defaultProps = {
 
 export default dotNotation(Note, {
   styles,
-  Alternate: defaultProps({
+  Alternate: defaultProps(Note, {
     Container: (styles.Container as any).Alternate,
-  })(Note),
+  }),
 });

@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components';
 import get from 'extensions/themeGet';
 
-export default styled.span`
+interface HeaderSortArrowsProps {
+  sortOrder: number;
+}
+
+export default styled.span<HeaderSortArrowsProps>`
   margin-left: 8px;
   white-space: nowrap;
 

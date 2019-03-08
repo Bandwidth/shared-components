@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
-const TableRow = styled.tr`
+export interface TableRowProps {
+  onClick: Function;
+}
+
+const TableRow = styled.tr<TableRowProps>`
   border-top: ${get('thicknesses.normal')} solid ${get('colors.shadow.light')};
 
   &:first-of-type {

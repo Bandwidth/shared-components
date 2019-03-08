@@ -56,13 +56,13 @@ export default class ToggleButton extends React.PureComponent<
 
   static styles = styles;
 
-  static Small = defaultProps({
+  static Small = defaultProps(ToggleButton, {
     Button: (styles.Button as any).Small,
-  })(ToggleButton);
+  });
 
-  static Colorful = defaultProps({
+  static Colorful = defaultProps(ToggleButton, {
     Button: (styles.Button as any).Colorful,
-  })(ToggleButton);
+  });
 
   state = {
     internalHovered: false,

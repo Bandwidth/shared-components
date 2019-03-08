@@ -83,15 +83,15 @@ class RadioButton extends React.Component<RadioButtonProps> {
 
   static styles = styles;
   static Small = dotNotation(
-    defaultProps({
+    defaultProps(RadioButton, {
       Label: (styles.Label as any).Small,
-    })(RadioButton),
+    }),
     { Group: styles.GroupContainer },
   );
   static Large = dotNotation(
-    defaultProps({
+    defaultProps(RadioButton, {
       Label: (styles.Label as any).Large,
-    })(RadioButton),
+    }),
     { Group: styles.GroupContainer },
   );
   static Group = styles.GroupContainer;

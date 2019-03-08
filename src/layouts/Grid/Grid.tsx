@@ -48,10 +48,10 @@ class Grid extends React.PureComponent<GridProps> {
     gridGap: 'var(--spacing-medium)',
     columns: 'auto-fit',
   };
-  static Small = defaultProps({
+  static Small = defaultProps(Grid, {
     gridGap: 'var(--spacing-extra-small)',
     minSize: '30px',
-  })(Grid);
+  });
 
   render() {
     const { children, ...rest } = this.props;

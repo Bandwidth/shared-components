@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { defaultProps } from 'recompose';
 
 import { ExpandToggle } from 'behaviors';
 import * as styles from './styles';

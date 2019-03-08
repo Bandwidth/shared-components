@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { defaultProps } from 'recompose';
+import defaultProps from 'extensions/defaultProps';
 
 import Loader from 'components/Loader';
 import ScrollShadow from 'behaviors/ScrollShadow';
@@ -14,7 +14,7 @@ interface TableProps {
   /**
    * Render the rows of the Table within its children.
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /**
    * Render headers for the columns with this property.
    */
@@ -54,7 +54,7 @@ interface TableProps {
 }
 
 class Table extends React.Component<TableProps> {
-  static defaultProps = {
+  static defaultProps: TableProps = {
     loading: false,
     wrapBody: true,
     Styles: styles.TableStyles,
@@ -71,9 +71,9 @@ class Table extends React.Component<TableProps> {
   static Body = styles.Body;
   static Skeleton = SkeletonTable;
 
-  static Small = defaultProps<any>({
-    Styles: (styles.TableStyles as any).Small,
-  })(Table as any);
+  static Small = defaultProps(Table, {
+    Styles: styles.TableStylesSmall,
+  });
 
   render() {
     const {
@@ -104,8 +104,5 @@ class Table extends React.Component<TableProps> {
     );
   }
 }
-
-// FIXME: Fix this
-// Table.Small.Skeleton = SkeletonTable.Small;
 
 export default Table;

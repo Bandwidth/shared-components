@@ -10,3 +10,4 @@ export { default as RowDetailsRow } from './RowDetailsRow';
 export { default as RowDetailsStyles } from './RowDetailsStyles';
 export { default as ScrollContainer } from './ScrollContainer';
 export { default as TableStyles } from './TableStyles';
+export { default as TableStylesSmall } from './TableStylesSmall';

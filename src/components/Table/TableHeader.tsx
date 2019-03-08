@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { defaultProps } from 'recompose';
 import DefaultLink from 'components/Link';
 import * as styles from './styles';
 import noop from 'lodash.noop';
@@ -44,7 +43,7 @@ class TableHeader extends React.Component<
   TableHeaderProps &
     Diff<React.HTMLAttributes<HTMLTableHeaderCellElement>, TableHeaderProps>
 > {
-  static defaultProps = {
+  static defaultProps: TableHeaderProps = {
     sortable: false,
     sortOrder: 0,
     onClick: noop,
@@ -56,9 +55,7 @@ class TableHeader extends React.Component<
   };
 
   static styles = styles;
-  static Small = defaultProps<any>({ Styles: (styles.Header as any).Small })(
-    TableHeader,
-  );
+  static Small = TableHeader;
 
   createClickHandler = (naturalOrder: number) => ev => {
     ev.preventDefault();
@@ -92,6 +89,7 @@ class TableHeader extends React.Component<
       Styles,
       SortArrows,
       Link,
+      onClick,
       ...rest
     } = this.props;
 
@@ -108,9 +106,5 @@ class TableHeader extends React.Component<
     );
   }
 }
-
-TableHeader.Small = defaultProps<any>({ Styles: (styles.Header as any).Small })(
-  TableHeader,
-);
 
 export default TableHeader;

@@ -32,9 +32,9 @@ class TabGroup extends React.Component<TabGroupProps> {
     List: styles.List,
   };
 
-  static Vertical = defaultProps({
+  static Vertical = defaultProps(TabGroup, {
     List: (styles.List as any).Vertical,
-  })(TabGroup);
+  });
 
   /**
    * Creates a click handler for a tab which preserves its own

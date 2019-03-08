@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
-const TableBody = styled.tbody`
+export interface TableBodyProps {
+  zebraStripe?: boolean;
+  startIndex?: number;
+}
+
+const TableBody = styled.tbody<TableBodyProps>`
   & > tr {
     &:nth-child(odd) {
       background: ${props =>
-        props.zebraStripe && props.startIndex % 2 === 1
+        props.zebraStripe && (props.startIndex || 0) % 2 === 1
           ? get('colors.shadow.extraLight')(props)
           : 'transparent'};
     }
@@ -13,7 +18,7 @@ const TableBody = styled.tbody`
     &:nth-child(even) {
       background: ${props =>
         props.zebraStripe
-          ? props.startIndex % 2 === 1
+          ? (props.startIndex || 0) % 2 === 1
             ? 'transparent'
             : get('colors.shadow.extraLight')(props)
           : 'transparent'};

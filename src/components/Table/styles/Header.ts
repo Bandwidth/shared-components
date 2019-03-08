@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
-const TableHeaderStyles = styled.th`
+interface TableHeaderStylesProps {
+  sortable?: boolean;
+}
+
+const TableHeaderStyles = styled.th<TableHeaderStylesProps>`
   background: ${get('colors.primary.dark')};
   color: ${get('colors.text.inverted')};
   text-transform: uppercase;

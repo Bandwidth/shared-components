@@ -10,7 +10,7 @@ const isExternal = (props: LinkProps) =>
   (props.newTab !== undefined && props.newTab) ||
   (props.to && /^(https?:)*\/\//.test(props.to));
 
-const processOnClick = (props: WrappedLinkProps) => {
+const processOnClick = (props: LinkProps) => {
   return event => {
     // if link is disabled, prevent any effects
     if (props.disabled) {
@@ -29,15 +29,11 @@ const processOnClick = (props: WrappedLinkProps) => {
   };
 };
 
-interface WrappedLinkProps extends LinkProps {
-  onClick: (WrappedLinkProps) => void;
-}
-
 /**
  * A HOC that provides a bit more intelligence / intuitive
  * function to the basic styled link
  */
-export default (WrappedLink: any): React.FC<WrappedLinkProps> => props => (
+export default (WrappedLink: any): React.FC<LinkProps> => props => (
   <WrappedLink
     {...props}
     {...(isExternal(props)
