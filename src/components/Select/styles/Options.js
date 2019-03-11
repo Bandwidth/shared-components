@@ -29,8 +29,7 @@ const Options = forwardRef(
       return (
         <OptionsListContainer
           data-placement={placement}
-          ref={ref}
-          style={style}
+          {...getMenuProps({ ref, style })}
         >
           <OptionsList>
             <Option>
@@ -44,8 +43,10 @@ const Options = forwardRef(
     return (
       <OptionsListContainer
         data-placement={placement}
-        ref={ref}
-        style={style}
+        {...getMenuProps({
+          ref,
+          style
+        })}
       >
         <OptionsList>
           {options.map((option, index) => (
