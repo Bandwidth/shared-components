@@ -10,8 +10,6 @@ import moment from 'moment';
 moment.updateLocale('en', {
   weekdaysMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
 });
-import omit from 'lodash.omit';
-import pick from 'lodash.pick';
 
 /**
  * This is a styling wrapper around [react-dates](https://github.com/airbnb/react-dates).
@@ -61,13 +59,13 @@ class DatePicker extends React.PureComponent {
   handleFocusChange = ({ focused }) => this.setState({ focused });
 
   render() {
-    const { Wrapper, ...rest } = this.props;
+    const { Wrapper, invalid, ...rest } = this.props;
     const { focused } = this.state;
     return (
       <Wrapper
         className={focused && 'focused'}
         openDirection={this.props.openDirection}
-        invalid={this.props.invalid}
+        invalid={invalid}
         disabled={this.props.disabled}
       >
         <LibDatePicker

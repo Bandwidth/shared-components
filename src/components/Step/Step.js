@@ -14,7 +14,7 @@ export default class Step extends React.Component {
     /**
      * Content of the step
      */
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     /**
      * Step number
      */
@@ -61,7 +61,9 @@ export default class Step extends React.Component {
     return (
       <Container {...rest}>
         <Number complete={complete} number={number} />
-        <Content>{children}</Content>
+        {children ?
+          <Content>{children}</Content> : null
+        }
       </Container>
     );
   }
