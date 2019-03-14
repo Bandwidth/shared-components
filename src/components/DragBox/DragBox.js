@@ -186,10 +186,12 @@ class DragBox extends React.Component {
     if (ev.button !== 0) return;
     document.addEventListener('mousemove', this.handleMouseMove);
     document.addEventListener('mouseup', this.handleMouseUp);
+    const x = ev.clientX;
+    const y = ev.clientY;
     this.setState({
       mouseDown: true,
-      start: { x: event.clientX, y: event.clientY },
-      end: { x: event.clientX, y: event.clientY },
+      start: { x, y },
+      end: { x, y },
     });
   };
 
@@ -211,7 +213,9 @@ class DragBox extends React.Component {
       return;
     }
     ev.preventDefault();
-    this.setState({ end: { x: ev.clientX, y: ev.clientY } });
+    this.setState({
+      end: { x: ev.clientX, y: ev.clientY },
+    });
     requestAnimationFrame(this.checkChildrenBoxCollisions);
   };
 
