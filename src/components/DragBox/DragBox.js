@@ -82,15 +82,6 @@ class DragBox extends React.Component {
     disablePointerEventsWhileDragging: PropTypes.bool,
   };
 
-  state = {
-    mouseDown: false,
-    start: null,
-    end: null,
-    collisions: new Set(),
-    scrollLeft: 0,
-    scrollTop: 0,
-  };
-
   static defaultProps = {
     onMouseDown: noop,
     onMouseUp: noop,
@@ -112,121 +103,11 @@ class DragBox extends React.Component {
     ),
   };
 
-  getScrollElement = () =>
-    (this.props.scrollSelector &&
-      window.document.querySelector(this.props.scrollSelector)) ||
-    window.document.documentElement;
-
-  getScroll = () => pick(this.getScrollElement(), ['scrollLeft', 'scrollTop']);
-
-  attachScrollSelector = () => {
-    const el = this.getScrollElement();
-    el.addEventListener('scroll', this.throttledScroll);
-    window.document.addEventListener('mousemove', this.handleMouseMove);
-    window.document.addEventListener('mouseup', this.handleMouseUp);
-  };
-
-  detachScrollSelector = () => {
-    const el = this.getScrollElement();
-    el.removeEventListener('scroll', this.throttledScroll);
-    window.document.removeEventListener('mousemove', this.handleMouseMove);
-    window.document.removeEventListener('mouseup', this.handleMouseUp);
-  };
-
-  // Add scroll delta to our mouse position if the scroll context element
-  // is not already the window.
-  getMousePosition = (ev, customScroll = null) => {
-    if (this.getScrollElement() === window.document.documentElement) {
-      return { x: ev.pageX, y: ev.pageY };
-    }
-    return this.addScroll({ x: ev.pageX, y: ev.pageY }, customScroll);
-  };
-
-  // We can't get the new mouse position on scroll, so we determine the scroll delta
-  // and recalculate the mouse position from that. Use throttledScroll instead of using this function directly.
-  __handleScroll = ev => {
-    const {
-      state: {
-        scrollLeft: lastScrollLeft,
-        scrollTop: lastScrollTop,
-        end: lastEnd,
-      },
-    } = this;
-    const { scrollLeft, scrollTop } = this.getScroll();
-    // If the mouse is being held down as we scroll, we need to adjust the rectangle
-    const end = lastEnd
-      ? {
-          x: lastEnd.x + (scrollLeft - lastScrollLeft),
-          y: lastEnd.y + (scrollTop - lastScrollTop),
-        }
-      : null;
-    this.setState({ end, scrollLeft, scrollTop });
-    this.checkChildrenBoxCollisions();
-  };
-
-  // Scrolling is throttled so that we avoid doing costly collision calculations
-  // and rerenders on every frame. Instead, we limit it to 20 times a second,
-  // which still gives high visual fidelity.
-  throttledScroll = throttle(this.__handleScroll, 50);
-
-  addScroll = ({ x, y }, customScroll = null) => ({
-    x: x + (customScroll || this.state).scrollLeft,
-    y: y + (customScroll || this.state).scrollTop,
-  });
-
-  handleMouseDown = ev => {
-    // Left click
-    if (ev.button !== 0) return;
-    this.attachScrollSelector();
-    // When we start dragging, it's possible that we dragged a bunch
-    // and now our scroll state is invalid. We update the scroll state
-    // while using the new scroll state to calculate the mouse positions
-    const { scrollLeft, scrollTop } = this.getScroll();
-    this.setState({
-      scrollLeft,
-      scrollTop,
-      mouseDown: true,
-      start: this.getMousePosition(ev, { scrollLeft, scrollTop }),
-      end: this.getMousePosition(ev, { scrollLeft, scrollTop }),
-    });
-    this.props.onMouseDown();
-  };
-
-  handleMouseUp = ev => {
-    if (!this.state.mouseDown) {
-      return;
-    }
-    if (ev.button !== 0) return;
-    this.detachScrollSelector();
-    this.props.onMouseUp(this.state.collisions);
-    this.setState({
-      mouseDown: false,
-      start: null,
-      end: null,
-      collisions: new Set(),
-    });
-  };
-
-  handleMouseMove = ev => {
-    if (!this.state.mouseDown) {
-      return;
-    }
-    ev.preventDefault();
-    this.setState({ end: this.getMousePosition(ev) });
-    this.checkChildrenBoxCollisions();
-  };
-
-  calcRect = () => {
-    const {
-      state: { start, end, scrollLeft, scrollTop },
-    } = this;
-    if (!start || !end) return {};
-    return {
-      x: Math.min(start.x, end.x) - scrollLeft,
-      y: Math.min(start.y, end.y) - scrollTop,
-      width: Math.abs(start.x - end.x),
-      height: Math.abs(start.y - end.y),
-    };
+  state = {
+    mouseDown: false,
+    start: null,
+    end: null,
+    collisions: new Set(),
   };
 
   // Checks the collisions with the draggable box against the children. The collision deltas are then used
@@ -300,6 +181,58 @@ class DragBox extends React.Component {
     (b2.y <= b1.y + b1.height) &&
     (b1.y <= b2.y + b2.height) &&
     (b2.y + b2.height <= b1.y + b1.height);
+
+  handleMouseDown = ev => {
+    if (ev.button !== 0) return;
+    document.addEventListener('mousemove', this.handleMouseMove);
+    document.addEventListener('mouseup', this.handleMouseUp);
+    this.setState({
+      mouseDown: true,
+      start: { x: event.clientX, y: event.clientY },
+      end: { x: event.clientX, y: event.clientY },
+    });
+  };
+
+  handleMouseUp = ev => {
+    document.removeEventListener('mousemove', this.handleMouseUp);
+    document.removeEventListener('mouseup', this.handleMouseUp);
+    if (!this.state.mouseDown || ev.button !== 0) return;
+    this.props.onMouseUp(this.state.collisions);
+    this.setState({
+      mouseDown: false,
+      start: null,
+      end: null,
+      collisions: new Set(),
+    });
+  };
+
+  handleMouseMove = ev => {
+    if (!this.state.mouseDown) {
+      return;
+    }
+    ev.preventDefault();
+    this.setState({ end: { x: ev.clientX, y: ev.clientY } });
+    requestAnimationFrame(this.checkChildrenBoxCollisions);
+  };
+
+  calcRect = () => {
+    const {
+      state: { start, end },
+    } = this;
+    if (!start || !end)
+      return {
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0,
+      };
+    return {
+      x: Math.min(start.x, end.x),
+      y: Math.min(start.y, end.y),
+      width: Math.abs(start.x - end.x),
+      height: Math.abs(start.y - end.y),
+    };
+  };
 
   shouldDrawRect = rect => {
     const {
