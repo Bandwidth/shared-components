@@ -8,7 +8,7 @@ export default styled.div`
   box-shadow: ${themeGet('shadows.short')};
   box-sizing: border-box;
   max-height: 200px;
-  z-index: 1000000;
+  z-index: 1000001;
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
   overflow-x: hidden;
