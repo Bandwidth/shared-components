@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
 import Icon from 'components/Icon';
-import Link from 'components/Link';
 import * as styles from './styles';
+import TextLink from 'components/Link/styles/TextLink';
 
 export default class FileLoader extends React.Component {
   static propTypes = {
@@ -48,10 +48,6 @@ export default class FileLoader extends React.Component {
 
   static styles = styles;
 
-  preventLinkClick = ev => {
-    ev.preventDefault();
-  };
-
   renderFiles = () => {
     const { value, error, disabled, DropArea, Preview } = this.props;
     if (value && value[0]) {
@@ -67,9 +63,13 @@ export default class FileLoader extends React.Component {
           <Icon name="file" />
           <Preview>
             DROP A FILE HERE, OR&nbsp;
-            <Link disabled={disabled} onClick={this.preventLinkClick}>
+            <TextLink
+              as="div"
+              style={{ display: 'inline-block' }}
+              disabled={disabled}
+            >
               CLICK TO BROWSE
-            </Link>
+            </TextLink>
           </Preview>
         </DropArea>
       );
