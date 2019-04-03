@@ -16,6 +16,7 @@ const MainContent = ({ children, Container, ...rest }) => (
         'mainContent',
         <Container
           actionBarPresent={layoutContext.actionBarPresent}
+          secondaryContentPresent={layoutContext.secondaryContentPresent}
           actionBarLocation={layoutContext.actionBarLocation}
           mainContentLocation={layoutContext.mainContentLocation}
           {...rest}

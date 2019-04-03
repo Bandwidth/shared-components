@@ -7,6 +7,7 @@ import LeftComplex from './LeftComplex';
 import Right from './Right';
 import RightComplex from './RightComplex';
 import Docs from './Docs';
+import Full from './Full';
 
 export default () => (
   <Switch>
@@ -15,5 +16,6 @@ export default () => (
     <Route exact path="/splitContent/rightComplex" component={RightComplex} />
     <Route exact path="/splitContent/left" component={Left} />
     <Route exact path="/splitContent/leftComplex" component={LeftComplex} />
+    <Route exact path="/splitContent/full" component={Full} />
   </Switch>
 );

@@ -117,6 +117,7 @@ export default class ActionBar extends React.Component {
             <CSSTransition in={expanded} classNames="expand" timeout={200}>
               <Bar
                 mainContentLocation={layoutState.mainContentLocation}
+                secondaryContentPresent={layoutState.secondaryContentPresent}
                 actionBarLocation={layoutState.actionBarLocation}
               >
                 <PresenceNotifier
