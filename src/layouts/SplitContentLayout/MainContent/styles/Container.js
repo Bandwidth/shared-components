@@ -14,10 +14,18 @@ const getBottomSpaceFromState = props => {
   return themeGet('spacing.large')(props);
 };
 
-const getLeftFromState = props =>
-  props.mainContentLocation === 'left' ? '0' : ONE_THIRD;
-const getRightFromState = props =>
-  props.mainContentLocation === 'left' ? ONE_THIRD : '0';
+const getLeftFromState = props => {
+  if (!props.secondaryContentPresent) {
+    return '0';
+  }
+  return props.mainContentLocation === 'left' ? '0' : ONE_THIRD;
+};
+const getRightFromState = props => {
+  if (!props.secondaryContentPresent) {
+    return '0';
+  }
+  return props.mainContentLocation === 'left' ? ONE_THIRD : '0';
+};
 
 export default styled.div`
   position: relative;

@@ -31,6 +31,9 @@ const SubNav = () => (
           <NavWrapLink to="/splitContent/leftComplex">
             <Navigation.Item>Left Complex</Navigation.Item>
           </NavWrapLink>
+          <NavWrapLink to="/splitContent/full">
+            <Navigation.Item>Full</Navigation.Item>
+          </NavWrapLink>
         </Navigation.ItemList>
       </Navigation.Sub>
     </Route>

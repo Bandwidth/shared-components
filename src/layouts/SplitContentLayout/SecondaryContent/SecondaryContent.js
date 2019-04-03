@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { ScrollShadow } from 'behaviors';
 import * as styles from './styles';
 import { Consumer } from '../Context';
+import PresenceNotifier from './PresenceNotifier';
 
 /**
  * Secondary content is the 'sidebar'. In common configurations,
@@ -29,6 +30,11 @@ const SecondaryContent = ({
           overlapBorder={overlapBorder}
           {...rest}
         >
+          <PresenceNotifier
+            updateSecondaryContentPresence={
+              layoutContext.updateSecondaryContentPresence
+            }
+          />
           {children}
         </ScrollShadow>,
       )

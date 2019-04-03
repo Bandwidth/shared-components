@@ -7,10 +7,18 @@ const getExternalSpace = props =>
     ? `calc(${ONE_THIRD} - 1px)`
     : `calc(${TWO_THIRDS})`;
 
-const getLeftFromState = props =>
-  props.actionBarLocation === 'right' ? getExternalSpace(props) : '0';
-const getRightFromState = props =>
-  props.actionBarLocation === 'right' ? '0' : getExternalSpace(props);
+const getLeftFromState = props => {
+  if (!props.secondaryContentPresent) {
+    return '0';
+  }
+  return props.actionBarLocation === 'right' ? getExternalSpace(props) : '0';
+};
+const getRightFromState = props => {
+  if (!props.secondaryContentPresent) {
+    return '0';
+  }
+  return props.actionBarLocation === 'right' ? '0' : getExternalSpace(props);
+};
 
 export default styled.div`
   position: absolute;
