@@ -8,8 +8,8 @@ New Badge
 Generic Badges
 ``` javascript
 <Badge.Primary>Bandwidth</Badge.Primary>
-<Badge.Accent_0>Voice</Badge.Accent_0>
-<Badge.Accent_1>Emergency</Badge.Accent_1>
+<Badge.Accent0>Voice</Badge.Accent0>
+<Badge.Accent1>Emergency</Badge.Accent1>
 <Badge.Positive>Messaging</Badge.Positive>
 <Badge.Disabled>Disabled</Badge.Disabled>
 <Badge.Generic>Generic</Badge.Generic>
