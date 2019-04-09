@@ -2,7 +2,7 @@ Badges are used to show which product verticals are applicable to any given sect
 
 New Badge
 ```javascript
-<Badge.New disabled />
+<Badge.New />
 ```
 
 Generic Badges
