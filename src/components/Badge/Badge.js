@@ -44,12 +44,12 @@ Badge.Primary = styled(Badge)`
   color: ${get('colors.text.inverted')};
 `;
 
-Badge.Accent_0 = styled(Badge)`
+Badge.Accent0 = styled(Badge)`
   background: ${get('colors.accents-0-default')};
   color: ${get('colors.text.inverted')};
 `;
 
-Badge.Accent_1 = styled(Badge)`
+Badge.Accent1 = styled(Badge)`
   background: ${get('colors.accents-1-default')};
   color: ${get('colors.text.inverted')};
 `;
