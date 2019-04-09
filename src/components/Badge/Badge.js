@@ -12,7 +12,7 @@ const Badge = styled.span`
   letter-spacing: .1em;
   line-height: 16px;
   padding: 2px 5px;
-
+  text-transform: uppercase;
 `;
 
 Badge.propTypes = {
@@ -32,7 +32,6 @@ Badge.defaultProps = {
 };
 
 Badge.New = styled(Badge)`
-  content: 'NEW:';
   color: ${get('colors.primary.default')};
   &::after {
     content: 'NEW:';
@@ -40,149 +39,36 @@ Badge.New = styled(Badge)`
 
 `;
 
-Badge.Voice = styled(Badge)`
-  background: ${get('colors.graphics-1')};
-  color: ${get('colors.text.inverted')};
-
-  &::after {
-    content: 'VOICE';
-  }
-`;
-
-Badge.Messaging = styled(Badge)`
-  background: ${get('colors.positive.border')};
-  color: ${get('colors.positive.dark')};
-
-  &::after {
-    content: 'MESSAGING';
-  }
-`;
-
-Badge.Mms = styled(Badge)`
-  background: ${get('colors.positive.border')};
-  color: ${get('colors.positive.dark')};
-
-  &::after {
-    content: 'MMS';
-  }
-`;
-
-Badge.Sms = styled(Badge)`
-  background: ${get('colors.positive.border')};
-  color: ${get('colors.positive.dark')};
-
-  &::after {
-    content: 'SMS';
-  }
-`;
-
-Badge.Emergency = styled(Badge)`
-  background: ${get('colors.accents-1-default')};
-  color: ${get('colors.text.inverted')};
-
-  &::after {
-    content: 'EMERGENCY';
-  }
-`;
-
-Badge.NineOneOne = styled(Badge)`
-  background: ${get('colors.accents-1-default')};
-  color: ${get('colors.text.inverted')};
-
-  &::after {
-    content: '911';
-  }
-`;
-
-Badge.Sos = styled(Badge)`
-  background: ${get('colors.accents-1-default')};
-  color: ${get('colors.text.inverted')};
-
-  &::after {
-    content: 'SOS';
-  }
-`;
-
-Badge.Lidb = styled(Badge)`
-  background: #651f45;
-  color: ${get('colors.text.inverted')};
-
-  &::after {
-    content: 'LIDB';
-  }
-`;
-
-Badge.Cnam = styled(Badge)`
-  background: #651f45;
-  color: ${get('colors.text.inverted')};
-
-  &::after {
-    content: 'CNAM';
-  }
-`;
-
-Badge.Dl = styled(Badge)`
-  background: #651f45;
-  color: ${get('colors.text.inverted')};
-
-  &::after {
-    content: 'DL';
-  }
-`;
-
-Badge.Da = styled(Badge)`
-  background: #651f45;
-  color: ${get('colors.text.inverted')};
-
-  &::after {
-    content: 'DA';
-  }
-`;
-
-Badge.Protected = styled(Badge)`
-  background: #651f45;
-  color: ${get('colors.text.inverted')};
-
-  &::after {
-    content: 'PROTECTED';
-  }
-`;
-
-Badge.CallFwd = styled(Badge)`
-  background: #651f45;
-  color: ${get('colors.text.inverted')};
-
-  &::after {
-    content: 'CALL FWD';
-  }
-`;
-
-Badge.Assigned = styled(Badge)`
+Badge.Primary = styled(Badge)`
   background: ${get('colors.primary.default')};
   color: ${get('colors.text.inverted')};
-
-  &::after {
-    content: 'ASSIGNED';
-  }
 `;
 
-Badge.Unassigned = styled(Badge)`
-  background: ${get('colors.gray.disabled')};
+Badge.Accent_0 = styled(Badge)`
+  background: ${get('colors.accents-0-default')};
+  color: ${get('colors.text.inverted')};
+`;
+
+Badge.Accent_1 = styled(Badge)`
+  background: ${get('colors.accents-1-default')};
+  color: ${get('colors.text.inverted')};
+`;
+
+Badge.Positive = styled(Badge)`
+  background: ${get('colors.positive.border')};
+  color: ${get('colors.positive.dark')};
+`;
+
+Badge.Disabled = styled(Badge)`
+  background: ${get('colors.background.disabled')};
   color: ${get('colors.text.disabled')};
-
-  &::after {
-    content: 'UNASSIGNED';
-  }
 `;
 
-Badge.Unassigned = styled(Badge)`
-  background: ${get('colors.gray.disabled')};
-  color: ${get('colors.text.disabled')};
-
-  &::after {
-    content: 'UNASSIGNED';
-  }
+Badge.Generic = styled(Badge)`
+  background: #651f45;
+  color: ${get('colors.text.inverted')};
 `;
+
 
 /**
  * @component

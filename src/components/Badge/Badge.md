@@ -2,32 +2,15 @@ Badges are used to show which product verticals are applicable to any given sect
 
 New Badge
 ```javascript
-<Badge.New />
+<Badge.New disabled />
 ```
 
-Service Badges
+Generic Badges
 ``` javascript
-<Badge.Voice />
-<Badge.Messaging />
-<Badge.Mms />
-<Badge.Sms />
-<Badge.Emergency />
-<Badge.NineOneOne />
-<Badge.Sos />
-```
-
-Feature Badges
-``` javascript
-<Badge.Lidb />
-<Badge.Cnam />
-<Badge.Dl />
-<Badge.Da />
-<Badge.Protected />
-<Badge.CallFwd />
-```
-
-Assignment Badges
-``` javascript
-<Badge.Assigned />
-<Badge.Unassigned />
+<Badge.Primary>Bandwidth</Badge.Primary>
+<Badge.Accent_0>Voice</Badge.Accent_0>
+<Badge.Accent_1>Emergency</Badge.Accent_1>
+<Badge.Positive>Messaging</Badge.Positive>
+<Badge.Disabled>Disabled</Badge.Disabled>
+<Badge.Generic>Generic</Badge.Generic>
 ```
