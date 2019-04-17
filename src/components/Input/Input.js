@@ -132,6 +132,11 @@ class Input extends React.PureComponent {
      * Hides the cursor from view
      */
     hideCursor: PropTypes.bool,
+    /**
+     * Actively blocks autofill/password managers by applying a `readonly`
+     * propery until the field is `focus`ed.
+     */
+    killAutofill: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   };
 
   static defaultProps = {
@@ -160,6 +165,7 @@ class Input extends React.PureComponent {
     spellCheck: 'false',
     appearFocused: false,
     hideCursor: false,
+    killAutofill: false,
   };
 
   static styles = styles;
@@ -180,6 +186,16 @@ class Input extends React.PureComponent {
     if (this.props.onBlur) {
       this.props.onBlur(event);
     }
+  };
+
+  onFocus = event => {
+    if (!!this.props.killAutofill) event.target.removeAttribute('readonly');
+    if (this.props.onFocus) this.props.onFocus(event);
+  };
+
+  getReadOnly = () => {
+    if (!!this.props.killAutofill) return true;
+    if (!!this.props.readOnly) return true;
   };
 
   getAutoComplete = () => {
@@ -247,6 +263,7 @@ class Input extends React.PureComponent {
       maxLength,
       min,
       max,
+      killAutofill,
       ...rest
     } = this.props;
 
@@ -255,7 +272,7 @@ class Input extends React.PureComponent {
     return (
       <Styles
         onKeyDown={onKeyDown}
-        onFocus={onFocus}
+        onFocus={this.onFocus}
         visited={visited}
         id={id}
         name={name}
@@ -266,7 +283,7 @@ class Input extends React.PureComponent {
         required={required}
         error={error}
         disabled={disabled}
-        readOnly={readOnly}
+        readOnly={this.getReadOnly()}
         placeholder={placeholder}
         ref={inputRef}
         inlineContent={inlineContent}
@@ -277,6 +294,7 @@ class Input extends React.PureComponent {
         type={type}
         onBlur={this.onBlur}
         autoComplete={this.getAutoComplete()}
+        killAutofill={killAutofill}
       />
     );
   };
