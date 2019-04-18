@@ -15,6 +15,11 @@ const focusAfterStyles = css`
 const focusBeforeStyles = css`
   right: -1.5em;
   opacity: 1;
+  border-radius: 50%;
+  bottom: -0.1em;
+  top: -0.1em;
+  padding-left: 2px;
+  padding-right: 3px;
   transition: right 0.3s ease, opacity 0.2s ease 0.1s;
 `;
 
