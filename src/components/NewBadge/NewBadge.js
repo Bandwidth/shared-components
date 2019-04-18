@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import get from 'extensions/themeGet';
 import Badge from '../../components/Badge';
 
