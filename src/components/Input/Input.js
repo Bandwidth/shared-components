@@ -100,7 +100,11 @@ class Input extends React.PureComponent {
      */
     disableShowPassword: PropTypes.bool,
     /**
-     * Suggests to most browsers whether they should autocomplete the field
+     * Suggests to most browsers whether they should autocomplete the field  
+     *  
+     * **Note** that setting this to `"off"` or `false` will result in the
+     * `readonly` property being applied to block autoComplete until the field
+     * is `focus`ed
      */
     autoComplete: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     /**
@@ -132,11 +136,6 @@ class Input extends React.PureComponent {
      * Hides the cursor from view
      */
     hideCursor: PropTypes.bool,
-    /**
-     * Actively blocks autofill/password managers by applying a `readonly`
-     * propery until the field is `focus`ed.
-     */
-    killAutofill: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   };
 
   static defaultProps = {
@@ -165,7 +164,6 @@ class Input extends React.PureComponent {
     spellCheck: 'false',
     appearFocused: false,
     hideCursor: false,
-    killAutofill: false,
   };
 
   static styles = styles;
@@ -189,13 +187,16 @@ class Input extends React.PureComponent {
   };
 
   onFocus = event => {
-    if (!!this.props.killAutofill) event.target.removeAttribute('readonly');
-    if (this.props.onFocus) this.props.onFocus(event);
+    const { autoComplete, onFocus } = this.props;
+    if (!autoComplete || autoComplete === 'off')
+      event.target.removeAttribute('readonly');
+    if (onFocus) onFocus(event);
   };
 
   getReadOnly = () => {
-    if (!!this.props.killAutofill) return true;
-    if (!!this.props.readOnly) return true;
+    const { autoComplete, readOnly } = this.props;
+    if (!autoComplete || autoComplete === 'off') return true;
+    if (!!readOnly) return true;
   };
 
   getAutoComplete = () => {
@@ -208,7 +209,11 @@ class Input extends React.PureComponent {
     )
       return 'on';
     // Prevent browsers from completing this field like a password.
-    if (this.state._type === 'password') return 'new-password';
+    if (
+      this.state._type === 'password' &&
+      (autoComplete === true || autoComplete === 'on')
+    )
+      return 'new-password';
     return 'off';
   };
 
@@ -263,7 +268,6 @@ class Input extends React.PureComponent {
       maxLength,
       min,
       max,
-      killAutofill,
       ...rest
     } = this.props;
 
@@ -294,7 +298,6 @@ class Input extends React.PureComponent {
         type={type}
         onBlur={this.onBlur}
         autoComplete={this.getAutoComplete()}
-        killAutofill={killAutofill}
       />
     );
   };
