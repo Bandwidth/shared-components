@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import get from 'extensions/themeGet';
 import userSpacing from 'extensions/userSpacing';
+import TextLink from 'components/Link/styles/TextLink';
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -32,7 +33,7 @@ const AlertBorder = styled.div`
 
   background: ${getBgColorForType};
   
-  & a::before { background-color: ${getBgColorForType} !important;}
+  & ${TextLink}::before { background-color: ${getBgColorForType};}
   
   border-color: ${({ theme, type }) => {
     switch (type) {
