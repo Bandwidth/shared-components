@@ -7,6 +7,17 @@ const fadeIn = keyframes`
   to { opacity: 1; }
 `;
 
+const getBgColorForType = ({ theme, type }) => {
+  switch (type) {
+    case 'success':
+      return get('colors.positive.light');
+    case 'error':
+      return get('colors.negative.light');
+    default:
+      return get('colors.primary.light');
+  }
+};
+
 const AlertBorder = styled.div`
   font-weight: 200;
   border-width: ${get('thicknesses.normal')};
@@ -19,17 +30,10 @@ const AlertBorder = styled.div`
   animation: ${fadeIn} 0.2s ease;
   transition: opacity 0.2s ease;
 
-  background: ${({ theme, type }) => {
-    switch (type) {
-      case 'success':
-        return get('colors.positive.light');
-      case 'error':
-        return get('colors.negative.light');
-      default:
-        return get('colors.primary.light');
-    }
-  }};
-
+  background: ${getBgColorForType};
+  
+  & a::before { background-color: ${getBgColorForType} !important;}
+  
   border-color: ${({ theme, type }) => {
     switch (type) {
       case 'success':
