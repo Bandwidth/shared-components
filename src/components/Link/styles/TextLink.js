@@ -13,8 +13,14 @@ const focusAfterStyles = css`
 `;
 
 const focusBeforeStyles = css`
-  right: -1.5em;
+  background-color: white;
+  right: -1.6em;
   opacity: 1;
+  border-radius: 50%;
+  bottom: -0.1em;
+  top: -0.1em;
+  padding-left: 3px;
+  padding-right: 3px;
   transition: right 0.3s ease, opacity 0.2s ease 0.1s;
 `;
 
