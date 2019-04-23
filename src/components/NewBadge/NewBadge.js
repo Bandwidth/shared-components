@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import get from 'extensions/themeGet';
 import Badge from '../../components/Badge';
 
