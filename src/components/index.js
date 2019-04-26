@@ -5,6 +5,7 @@ export { default as Breadcrumb } from './Breadcrumb';
 export { default as Button } from './Button';
 export { default as Callout } from './Callout';
 export { default as Card } from './Card';
+export { default as Chart } from './Chart';
 export { default as Checkbox } from './Checkbox';
 export { default as Code } from './Code';
 export { default as DatePicker } from './DatePicker';
