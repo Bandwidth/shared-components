@@ -4,6 +4,7 @@ The icon definition file is in `components/Icons/icons.js`
 
 ```
 <Icon name="checkmark" />
+<Icon name="journeyFilled" />
 ```
 
 _Available Icons:_
