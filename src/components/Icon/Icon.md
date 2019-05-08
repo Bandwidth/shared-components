@@ -3,7 +3,7 @@ Icons let you easily render some of our icons. Pass in the `name` prop to specif
 The icon definition file is in `components/Icons/icons.js`
 
 ```
-<Icon name="checkmark" />
+<Icon name="help" />
 <Icon name="journeyFilled" />
 ```
 
