@@ -1,24 +1,147 @@
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis } from 'recharts';
+import {
+  PieChart,
+  Pie as RechartPie,
+  LineChart,
+  Line as RechartLine,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  CartesianGrid,
+} from 'recharts';
+import _ from 'lodash';
 
-const Chart = props => {
-  let dummyData = [
-    { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
-    { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
-    { name: 'Page C', uv: 2000, pv: 9800, amt: 2290 },
-    { name: 'Page D', uv: 2780, pv: 3908, amt: 2000 },
-    { name: 'Page E', uv: 1890, pv: 4800, amt: 2181 },
-    { name: 'Page F', uv: 2390, pv: 3800, amt: 2500 },
-    { name: 'Page G', uv: 3490, pv: 4300, amt: 2100 },
-  ];
+let counter = -1;
+const defaultColors = ['#00bef0', '#00aa6c', '#e9562e', '#a95adf', '#666666'];
+const getColor = () => {
+  counter++;
+  if (counter === defaultColors.length) {
+    counter = 0;
+  }
+  return defaultColors[counter];
+};
+
+const Line = props => {
+  const { data } = props;
+
+  if (!data[0].name || data[0].name === '') {
+    console.error('Chart Error: please check the shape of your chart data.');
+  }
+
+  const arrayOfKeys = _.pull(Object.keys(data[0]), 'name');
 
   return (
-    <LineChart width={600} height={300} data={!!props.data || dummyData}>
-      <Line type="monotone" dataKey="uv" stroke="#00bef0" />
-      <XAxis />
-      <YAxis />
+    <LineChart
+      data={data}
+      width={props.width || 600}
+      height={props.height || 300}
+    >
+      {arrayOfKeys.map((key, i) => (
+        <RechartLine
+          type="monotone"
+          dataKey={key}
+          key={i}
+          stroke={getColor()}
+        />
+      ))}
+      {!props.hideGrid ? <CartesianGrid strokeDasharray="3 3" /> : undefined}
+      {!props.hideTooltip ? <Tooltip /> : undefined}
+      {!props.hideXAxis ? (
+        <XAxis dataKey={props.xAxisDataKey || 'name'} />
+      ) : (
+        undefined
+      )}
+      {!props.hideYAxis ? (
+        <YAxis dataKey={props.yAxisDataKey || undefined} />
+      ) : (
+        undefined
+      )}
+      {!props.hideLegend ? <Legend /> : undefined}
     </LineChart>
   );
 };
 
-export default Chart;
+const Pie = props => {
+  const data01 = [
+    {
+      name: 'Group A',
+      value: 400,
+    },
+    {
+      name: 'Group B',
+      value: 300,
+    },
+    {
+      name: 'Group C',
+      value: 300,
+    },
+    {
+      name: 'Group D',
+      value: 200,
+    },
+    {
+      name: 'Group E',
+      value: 278,
+    },
+    {
+      name: 'Group F',
+      value: 189,
+    },
+  ];
+  const data02 = [
+    {
+      name: 'Group A',
+      value: 2400,
+    },
+    {
+      name: 'Group B',
+      value: 4567,
+    },
+    {
+      name: 'Group C',
+      value: 1398,
+    },
+    {
+      name: 'Group D',
+      value: 9800,
+    },
+    {
+      name: 'Group E',
+      value: 3908,
+    },
+    {
+      name: 'Group F',
+      value: 4800,
+    },
+  ];
+
+  return (
+    <PieChart width={600} height={300}>
+      <RechartPie
+        data={data01}
+        dataKey="value"
+        nameKey="name"
+        cx="50%"
+        cy="50%"
+        outerRadius={50}
+        fill="#8884d8"
+      />
+      <RechartPie
+        data={data02}
+        dataKey="value"
+        nameKey="name"
+        cx="50%"
+        cy="50%"
+        innerRadius={60}
+        outerRadius={80}
+        fill="#82ca9d"
+        label
+      />
+      <Tooltip />,
+      <Legend />,
+    </PieChart>
+  );
+};
+
+export default { Line, Pie };
