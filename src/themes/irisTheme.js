@@ -5,7 +5,7 @@
 export const colors = {
   primary: {
     default: '#00bef0',
-    alternate: '#008db1',
+    alternate: '#0099e5',
     light: '#e0f7fd',
     border: '#00bef0',
     dark: '#004658',
@@ -16,11 +16,11 @@ export const colors = {
     light: '#e0fff7',
     border: '#00fbb9',
     dark: '#005c44',
-    medium: '#00aa6c',
+    medium: '#4d8d7c',
   },
   /* aka 'red' */
   negative: {
-    default: '#e9562e',
+    default: '#ff391a',
     light: '#ffede8',
     border: '#ffb39e',
     dark: '#a53f0c',
@@ -35,18 +35,22 @@ export const colors = {
     {
       default: '#ff673c',
     },
+    /* dark purple */
+    {
+      default: '#651f45'
+    },
   ],
   gray: {
     /* aka medium */
-    default: '#666',
-    light: '#f7f7f7',
-    border: '#c2c2c2',
-    borderLight: '#e1e1e1',
-    disabled: '#e1e1e1',
-    dark: '#272b2d',
+    default: '#60545b',
+    light: '#f3f4f6',
+    border: '#bfc4cf',
+    borderLight: '#dee0e6',
+    disabled: '#dee0e6',
+    dark: '#1c0a14',
     /* aka help-text */
-    medium: '#7f8897',
-    mediumLight: '#dedede',
+    medium: '#8e858a',
+    mediumLight: '#dee0e6',
   },
   shadow: {
     default: 'rgba(0, 0, 0, 0.3)',
@@ -54,24 +58,24 @@ export const colors = {
     extraLight: 'rgba(0, 0, 0, 0.05)',
     white: 'rgba(255, 255, 255, 0.3)',
   },
-  graphics: ['#41d3bd', '#a95adf'],
+  graphics: ['#4d8d7c', '#a95adf'],
   border: {
-    medium: '#c2c2c2',
+    medium: '#bfc4cf',
     dark: '#004658',
-    light: '#e1e1e1',
-    disabled: '#d2d2d2',
+    light: '#dee0e6',
+    disabled: '#ced2da',
   },
   background: {
     default: '#fff',
-    inverted: '#272b2d',
-    disabled: '#ececec',
-    disabledSelected: '#d2d2d2',
+    inverted: '#1c0a14',
+    disabled: '#ecedf1',
+    disabledSelected: '#ced2da',
     dark: '#004658',
   },
   text: {
-    default: '#666',
+    default: '#60545b',
     inverted: '#fff',
-    disabled: '#c2c2c2',
+    disabled: '#bfc4cf',
   },
 };
 
