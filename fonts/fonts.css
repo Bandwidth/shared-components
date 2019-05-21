@@ -4,10 +4,10 @@
 /* font - icons */
 @font-face {
   font-family: 'Bandwidth';
-  src: url(./Bandwidth.eot);
-  src: url(./Bandwidth.woff2) format('woff2'),
-    url(./Bandwidth.woff) format('woff'),
-    url(./Bandwidth.ttf) format('truetype'), url(./Bandwidth.svg) format('svg');
+  src: url(./Bandwidth-2019.eot);
+  src: url(./Bandwidth-2019.woff2) format('woff2'),
+    url(./Bandwidth-2019.woff) format('woff'),
+    url(./Bandwidth-2019.ttf) format('truetype'), url(./Bandwidth-2019.svg) format('svg');
   font-weight: normal;
   font-style: normal;
 }
