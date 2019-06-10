@@ -25,6 +25,7 @@ const Searchable = forwardRef(
       Arrow,
       ClearButton,
       LoadingState,
+      inputProps,
       ...rest
     },
     ref,
@@ -37,12 +38,13 @@ const Searchable = forwardRef(
       <Input
         visited={false}
         {...getInputProps({
-          inputRef: ref,
-          appearFocused: isOpen,
           placeholder,
-          disabled: disabled || loading,
           required,
           invalid,
+          ...inputProps,
+          appearFocused: isOpen,
+          inputRef: ref,
+          disabled: disabled || loading,
           onFocus: openMenu,
           onClick: openMenu,
           value: inputValue,
@@ -50,9 +52,9 @@ const Searchable = forwardRef(
         {...rest}
         inlineContent={
           <Controls disabled={disabled}>
-            {!!inputValue &&
-              !disabled &&
-              !required && <ClearButton onClick={clearSelection} />}
+            {!!inputValue && !disabled && !required && (
+              <ClearButton onClick={clearSelection} />
+            )}
             <Arrow
               disabled={disabled}
               {...getToggleButtonProps({

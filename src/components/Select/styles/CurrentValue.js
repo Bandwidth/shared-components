@@ -47,6 +47,7 @@ const Unsearchable = forwardRef(
       ClearButton,
       Arrow,
       LoadingState,
+      inputProps,
       ...rest
     },
     ref,
@@ -65,19 +66,20 @@ const Unsearchable = forwardRef(
       >
         <Input
           role="select"
-          appearFocused={isOpen}
-          disabled={disabled}
           required={required}
-          invalid={invalid}
           placeholder={placeholder}
-          value={inputValue}
           hideCursor
+          invalid={invalid}
+          {...inputProps}
+          disabled={disabled}
+          appearFocused={isOpen}
+          value={inputValue}
           {...rest}
         />
         <Controls disabled={disabled}>
-          {!!inputValue &&
-            !disabled &&
-            !required && <ClearButton onClick={clearSelection} />}
+          {!!inputValue && !disabled && !required && (
+            <ClearButton onClick={clearSelection} />
+          )}
           <Arrow disabled={disabled} expanded={isOpen} />
         </Controls>
       </Wrapper>

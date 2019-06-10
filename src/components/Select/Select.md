@@ -169,3 +169,9 @@ const CustomizedSelect = props => (
   <Select Options={VirtualizedOptions} {...props} />
 );
 ```
+
+##### Example: Passing props to Input
+
+```js
+<Select inputProps={{ style: { background: 'red' }}} value="Food" options={['Foo', 'Bar']} />
+```
