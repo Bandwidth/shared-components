@@ -5,4 +5,5 @@ export default styled.div`
   overflow: hidden;
   height: ${props => (props.horizontal ? 'auto' : '100%')};
   width: ${props => (props.horizontal ? '100%' : 'auto')};
+  border-radius: 5px;
 `;
