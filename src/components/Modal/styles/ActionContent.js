@@ -4,8 +4,6 @@ import get from 'extensions/themeGet';
 export default styled.div`
   position: relative;
   padding: ${get('spacing.medium')} 0;
-  margin: 0 ${get('spacing.large')};
-
   &::before {
     position: absolute;
     content: '';
@@ -14,6 +12,6 @@ export default styled.div`
     top: 0;
     border-top-width: ${get('thicknesses.normal')};
     border-top-style: solid;
-    border-top-color: ${get('colors.border.light')};
+    border-top-color: ${get('colors.border.medium')};
   }
 `;
