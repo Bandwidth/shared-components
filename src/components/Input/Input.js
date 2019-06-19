@@ -218,7 +218,10 @@ class Input extends React.PureComponent {
     }
 
     // Prevent browsers from completing this field like a password.
-    if (this.state._type === 'password' && (autoComplete === true || autoComplete === 'on')) {
+    if (
+      this.state._type === 'password' &&
+      (autoComplete === true || autoComplete === 'on')
+    ) {
       return 'new-password';
     }
 
@@ -325,12 +328,12 @@ class Input extends React.PureComponent {
   }
 }
 
-Input.Skeleton = ({ height = '53px' }) => <Skeleton height={height}/>;
+Input.Skeleton = ({ height = '53px' }) => <Skeleton height={height} />;
 
 Input.Small = defaultProps({
   Styles: styles.InputStyles.Small,
 })(Input);
 
-Input.Small.Skeleton = ({ height = '30px' }) => <Skeleton height={height}/>;
+Input.Small.Skeleton = ({ height = '30px' }) => <Skeleton height={height} />;
 
 export default Input;
