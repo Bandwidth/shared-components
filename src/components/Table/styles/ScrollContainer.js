@@ -7,7 +7,7 @@ export default styled(DefaultScrollContainer)`
   border-width: ${get('thicknesses.normal')};
   border-style: solid;
   border-color: ${get('colors.border.medium')};
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px;
   font-size: 1em;
   width: 100%;
   overflow-x: auto;

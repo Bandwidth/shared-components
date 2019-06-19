@@ -1,11 +1,23 @@
 import styled, { keyframes } from 'styled-components';
 import get from 'extensions/themeGet';
 import userSpacing from 'extensions/userSpacing';
+import TextLink from 'components/Link/styles/TextLink';
 
 const fadeIn = keyframes`
   from { opacity: 0; }
   to { opacity: 1; }
 `;
+
+const getBgColorForType = ({ theme, type }) => {
+  switch (type) {
+    case 'success':
+      return get('colors.positive.light');
+    case 'error':
+      return get('colors.negative.light');
+    default:
+      return get('colors.primary.light');
+  }
+};
 
 const AlertBorder = styled.div`
   font-weight: 200;
@@ -19,17 +31,10 @@ const AlertBorder = styled.div`
   animation: ${fadeIn} 0.2s ease;
   transition: opacity 0.2s ease;
 
-  background: ${({ theme, type }) => {
-    switch (type) {
-      case 'success':
-        return get('colors.positive.light');
-      case 'error':
-        return get('colors.negative.light');
-      default:
-        return get('colors.primary.light');
-    }
-  }};
-
+  background: ${getBgColorForType};
+  
+  & ${TextLink}::before { background-color: ${getBgColorForType};}
+  
   border-color: ${({ theme, type }) => {
     switch (type) {
       case 'success':

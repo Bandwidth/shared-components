@@ -21,6 +21,12 @@ export class Provider extends React.PureComponent {
      */
     actionBarPresent: false,
     /**
+     * whether there is a SecondaryContent child mounted within the layout.
+     * this controls the size of the MainContent, which will expand to fill
+     * the whole area if SecondaryContent is not present.
+     */
+    secondaryContentPresent: false,
+    /**
      * A reference to the DOM element for the fixed layer which overlays
      * the main content area.
      */
@@ -129,6 +135,9 @@ export class Provider extends React.PureComponent {
   updateActionBarPresence = isPresent =>
     this.setState({ actionBarPresent: isPresent });
 
+  updateSecondaryContentPresence = isPresent =>
+    this.setState({ secondaryContentPresent: isPresent });
+
   /**
    * A master function for rendering components within the layout. This will
    * separate out sections which must be rendered in a 'fixed' layer and
@@ -155,6 +164,7 @@ export class Provider extends React.PureComponent {
         value={{
           ...this.state,
           updateActionBarPresence: this.updateActionBarPresence,
+          updateSecondaryContentPresence: this.updateSecondaryContentPresence,
           renderElement: this.renderElement,
         }}
       >

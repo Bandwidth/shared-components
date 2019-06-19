@@ -14,7 +14,9 @@ export default styled.div`
     justify-content: flex-start;
   }
 
-  & > * {
+  & > a,
+  & > div,
+  & > button {
     margin-top: auto;
     margin-bottom: auto;
     margin-right: ${themeGet('spacing.medium')};

@@ -1,3 +1,49 @@
+## Comprehensive Modal
+```javascript
+const React = require('react');
+
+class ModalShow extends React.Component {
+  constructor(props) {
+    this.state = {
+      show: false,
+    };
+  }
+
+  render() {
+    const toggle = () => this.setState({ show: !this.state.show });
+    return (
+      <div>
+        <Button onClick={toggle}>toggle</Button>
+        {this.state.show && (
+          <Modal
+            title="Comprehensive Modal"
+            actionContent={
+              <Horizontal spacing="md" style={{ alignItems: 'center'}}>
+              <Link icon="delete" onClick={toggle}>Cancel</Link>
+              <Button.Secondary onClick={toggle}>Back</Button.Secondary>
+              <Button onClick={toggle}>Continue</Button>
+              </Horizontal>
+            }
+          >
+            <div style={{ fontSize: '14px' }}>
+              <H2>Modal Description</H2>
+              This modal displays the intended use case.
+              <br />
+              H2 should be the largest header used in a Modal.
+              <br />
+              There should be a maximum of 1 primary button, 1 secondary button
+              and one anchor link (for destructive items like cancel)
+            </div>
+          </Modal>
+        )}
+      </div>
+    );
+  }
+}
+
+<ModalShow />;
+```
+## Modal with large text
 ```javascript
 const React = require('react');
 

@@ -153,6 +153,7 @@ class Modal extends React.Component {
 
   render() {
     const {
+      title,
       id,
       className,
       onClose,

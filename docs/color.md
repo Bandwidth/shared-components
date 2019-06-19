@@ -19,7 +19,7 @@ const Color = ({color, hexColor}) => {
       color: bright ? 'black' : 'white',
       background: `var(${color})`
     }}>
-      <span style={{float: 'left'}}>{color}</span>
+      <span style={{float: 'left'}}>{color} <small style={{ opacity: 0.5 }}>({hexColor})</small></span>
     </div>
   );
 }

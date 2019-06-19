@@ -27,7 +27,7 @@ export default class SidebarListItem extends React.PureComponent {
     /**
      * A component for rendering a container of an item
      */
-    Container: PropTypes.func,
+    Container: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   };
 
   static defaultProps = {

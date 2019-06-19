@@ -64,7 +64,7 @@ const Unsearchable = forwardRef(
             }))}
       >
         <Input
-          aria-role="select"
+          role="select"
           appearFocused={isOpen}
           disabled={disabled}
           required={required}

@@ -13,7 +13,7 @@ export default styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 100000;
+  z-index: 1000001;
 
   /* the div itself is not interactive */
 

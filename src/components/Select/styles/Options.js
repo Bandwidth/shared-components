@@ -45,7 +45,7 @@ const Options = forwardRef(
         data-placement={placement}
         {...getMenuProps({
           ref,
-          style,
+          style
         })}
       >
         <OptionsList>

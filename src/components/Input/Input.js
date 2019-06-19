@@ -101,6 +101,10 @@ class Input extends React.PureComponent {
     disableShowPassword: PropTypes.bool,
     /**
      * Suggests to most browsers whether they should autocomplete the field
+     *
+     * **Note** that setting this to `"off"` or `false` will result in the
+     * `readonly` property being applied to block autoComplete until the field
+     * is `focus`ed
      */
     autoComplete: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     /**
@@ -182,6 +186,19 @@ class Input extends React.PureComponent {
     }
   };
 
+  onFocus = event => {
+    const { autoComplete, onFocus } = this.props;
+    if (!autoComplete || autoComplete === 'off')
+      event.target.removeAttribute('readonly');
+    if (onFocus) onFocus(event);
+  };
+
+  getReadOnly = () => {
+    const { autoComplete, readOnly } = this.props;
+    if (!autoComplete || autoComplete === 'off') return true;
+    if (!!readOnly) return true;
+  };
+
   getAutoComplete = () => {
     const { autocomplete, autoComplete } = this.props;
     if (
@@ -199,8 +216,11 @@ class Input extends React.PureComponent {
     ) {
       return 'off';
     }
+
     // Prevent browsers from completing this field like a password.
-    if (this.state._type === 'password') return 'new-password';
+    if (this.state._type === 'password' && (autoComplete === true || autoComplete === 'on')) {
+      return 'new-password';
+    }
 
     return autoComplete || autocomplete || 'off';
   };
@@ -264,7 +284,7 @@ class Input extends React.PureComponent {
     return (
       <Styles
         onKeyDown={onKeyDown}
-        onFocus={onFocus}
+        onFocus={this.onFocus}
         visited={visited}
         id={id}
         name={name}
@@ -275,7 +295,7 @@ class Input extends React.PureComponent {
         required={required}
         error={error}
         disabled={disabled}
-        readOnly={readOnly}
+        readOnly={this.getReadOnly()}
         placeholder={placeholder}
         ref={inputRef}
         inlineContent={inlineContent}
@@ -305,12 +325,12 @@ class Input extends React.PureComponent {
   }
 }
 
-Input.Skeleton = ({ height = '53px' }) => <Skeleton height={height} />;
+Input.Skeleton = ({ height = '53px' }) => <Skeleton height={height}/>;
 
 Input.Small = defaultProps({
   Styles: styles.InputStyles.Small,
 })(Input);
 
-Input.Small.Skeleton = ({ height = '30px' }) => <Skeleton height={height} />;
+Input.Small.Skeleton = ({ height = '30px' }) => <Skeleton height={height}/>;
 
 export default Input;
