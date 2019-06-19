@@ -100,8 +100,8 @@ class Input extends React.PureComponent {
      */
     disableShowPassword: PropTypes.bool,
     /**
-     * Suggests to most browsers whether they should autocomplete the field  
-     *  
+     * Suggests to most browsers whether they should autocomplete the field
+     *
      * **Note** that setting this to `"off"` or `false` will result in the
      * `readonly` property being applied to block autoComplete until the field
      * is `focus`ed
@@ -206,15 +206,26 @@ class Input extends React.PureComponent {
       autocomplete === 'on' ||
       autoComplete === true ||
       autoComplete === 'on'
-    )
+    ) {
       return 'on';
+    } else if (
+      autocomplete === false ||
+      autocomplete === 'off' ||
+      autoComplete === false ||
+      autoComplete === 'off'
+    ) {
+      return 'off';
+    }
+
     // Prevent browsers from completing this field like a password.
     if (
       this.state._type === 'password' &&
       (autoComplete === true || autoComplete === 'on')
-    )
+    ) {
       return 'new-password';
-    return 'off';
+    }
+
+    return autoComplete || autocomplete || 'off';
   };
 
   renderPasswordField = () => {
