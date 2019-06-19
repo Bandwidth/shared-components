@@ -189,11 +189,20 @@ class Input extends React.PureComponent {
       autocomplete === 'on' ||
       autoComplete === true ||
       autoComplete === 'on'
-    )
+    ) {
       return 'on';
+    } else if (
+      autocomplete === false ||
+      autocomplete === 'off' ||
+      autoComplete === false ||
+      autoComplete === 'off'
+    ) {
+      return 'off';
+    }
     // Prevent browsers from completing this field like a password.
     if (this.state._type === 'password') return 'new-password';
-    return 'off';
+
+    return autoComplete || autocomplete || 'off';
   };
 
   renderPasswordField = () => {
