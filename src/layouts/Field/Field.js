@@ -266,12 +266,20 @@ Field.Skeleton = ({ label, helpText, ...rest }) => (
     {...rest}
     LabelContainer={({ children, ...rest }) =>
       label ? (
-        <Skeleton {...rest} width={`${Math.random() * 20 + 80}%`} height="14px" />
+        <Skeleton
+          {...rest}
+          width={`${Math.random() * 20 + 80}%`}
+          height="14px"
+        />
       ) : null
     }
     HelpText={({ children, ...rest }) =>
       helpText ? (
-        <Skeleton {...rest} width={`${Math.random() * 20 + 80}%`} height="14px" />
+        <Skeleton
+          {...rest}
+          width={`${Math.random() * 20 + 80}%`}
+          height="14px"
+        />
       ) : null
     }
   />

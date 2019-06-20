@@ -19,6 +19,10 @@ const HelpCalloutContainer = styled.div`
   max-width: ${({ maxWidth }) =>
     typeof maxWidth === 'number' ? maxWidth + 'px' : maxWidth};
 
+  ${Button} {
+    pointer-events: none;
+  }
+
   &[data-placement*='top'] {
     margin-bottom: 6px;
   }

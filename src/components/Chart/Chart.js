@@ -4,6 +4,8 @@ import {
   Pie as RechartPie,
   LineChart,
   Line as RechartLine,
+  AreaChart,
+  Area as RechartArea,
   XAxis,
   YAxis,
   Tooltip,
@@ -11,31 +13,43 @@ import {
   CartesianGrid,
 } from 'recharts';
 import _ from 'lodash';
+import styled from 'styled-components';
+import Card from '../Card';
+import PropTypes from 'prop-types';
 
-let counter = -1;
-const defaultColors = ['#00bef0', '#00aa6c', '#e9562e', '#a95adf', '#666666'];
-const getColor = () => {
-  counter++;
-  if (counter === defaultColors.length) {
-    counter = 0;
+const ChartCard = styled(Card)`
+  width: auto;
+  display: inline-block;
+
+  .line-chart {
+    margin: 15px 30px 15px 0px;
   }
-  return defaultColors[counter];
+  .pie-chart {
+    margin: 15px 30px;
+  }
+`;
+
+let colorCounter;
+const getColor = () => {
+  const defaultColors = ['#00bef0', '#00aa6c', '#e9562e', '#a95adf', '#666666'];
+
+  if (colorCounter === undefined || colorCounter == defaultColors.length)
+    colorCounter = 0;
+  else colorCounter++;
+  return defaultColors[colorCounter];
 };
 
 const Line = props => {
   const { data } = props;
-
-  if (!data[0].name || data[0].name === '') {
-    console.error('Chart Error: please check the shape of your chart data.');
-  }
 
   const arrayOfKeys = _.pull(Object.keys(data[0]), 'name');
 
   return (
     <LineChart
       data={data}
-      width={props.width || 600}
+      width={props.width || 500}
       height={props.height || 300}
+      className="line-chart"
     >
       {arrayOfKeys.map((key, i) => (
         <RechartLine
@@ -57,7 +71,11 @@ const Line = props => {
       ) : (
         undefined
       )}
-      {!props.hideLegend ? <Legend /> : undefined}
+      {!props.hideLegend ? (
+        <Legend verticalAlign="top" height={36} />
+      ) : (
+        undefined
+      )}
     </LineChart>
   );
 };
@@ -117,7 +135,11 @@ const Pie = props => {
   ];
 
   return (
-    <PieChart width={600} height={300}>
+    <PieChart
+      width={props.width || 500}
+      height={props.height || 300}
+      className="pie-chart"
+    >
       <RechartPie
         data={data01}
         dataKey="value"
@@ -144,4 +166,76 @@ const Pie = props => {
   );
 };
 
-export default { Line, Pie };
+const Area = props => {
+  const { data } = props;
+
+  const arrayOfKeys = _.pull(Object.keys(data[0]), 'name');
+
+  return (
+    <AreaChart
+      data={data}
+      width={props.width || 500}
+      height={props.height || 300}
+      className="line-chart"
+    >
+      <defs>
+        {arrayOfKeys.map((key, i) => {
+          const thisColor = getColor();
+
+          return (
+            <linearGradient
+              id={`color-${key}`}
+              x="0"
+              y1="0"
+              x2="0"
+              y2="1"
+              key={i}
+            >
+              <stop offset="5%" stopColor={thisColor} stopOpacity={0.8} />
+              <stop offset="95%" stopColor={thisColor} stopOpacity={0} />
+            </linearGradient>
+          );
+        })}
+      </defs>
+      {!props.hideXAxis ? (
+        <XAxis dataKey={props.xAxisDataKey || 'name'} />
+      ) : (
+        undefined
+      )}
+      {!props.hideYAxis ? (
+        <YAxis dataKey={props.yAxisDataKey || undefined} />
+      ) : (
+        undefined
+      )}
+      {!props.hideGrid ? <CartesianGrid strokeDasharray="3 3" /> : undefined}
+      {!props.hideTooltip ? <Tooltip /> : undefined}
+      {!props.hideLegend ? (
+        <Legend verticalAlign="top" height={36} />
+      ) : (
+        undefined
+      )}
+      {arrayOfKeys.map((key, i) => {
+        let color = getColor();
+        if (color === undefined) color = '#ff0000';
+        console.log(key, i, color);
+
+        return (
+          <RechartArea
+            type="monotone"
+            dataKey={key}
+            stroke={color}
+            fillOpacity={1}
+            key={i}
+          />
+        );
+      })}
+    </AreaChart>
+  );
+};
+
+const Chart = { ChartCard, Line, Pie, Area };
+
+/**
+ * @component
+ */
+export default Chart;
