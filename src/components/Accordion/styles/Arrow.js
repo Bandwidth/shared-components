@@ -6,7 +6,7 @@ const AccordionArrow = styled(Icon)`
   color: ${get('colors.gray.default')};
   margin: auto 1em auto auto;
   transform: ${({ isExpanded }) =>
-    isExpanded ? 'rotate(0deg)' : 'rotate(-90deg)'};
+    isExpanded ? 'rotate(90deg)' : 'rotate(0)'};
   transition: 0.2s all ease;
   font-weight: 100;
 

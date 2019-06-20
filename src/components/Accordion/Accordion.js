@@ -121,7 +121,7 @@ class Accordion extends React.Component {
 
   renderLabel = (isExpanded, disabled) => (
     <this.props.Label spacing={this.props.labelSpacing} disabled={disabled}>
-      <this.props.Arrow isExpanded={isExpanded} name="expandArrow" size={21} />
+      <this.props.Arrow isExpanded={isExpanded} name="forward" size={21} />
       <this.props.LabelText>{this.props.label}</this.props.LabelText>
     </this.props.Label>
   );
