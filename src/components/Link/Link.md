@@ -10,8 +10,8 @@ Other supported props:
 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '10px' }}>
   <Link to="/local/route">Local route text link</Link>
   <Link to="https://google.com">Remote text link</Link>
-  <Link icon="file" to="/foo">Iconic link</Link>
-  <Link icon="checkmark" to="/bar" />
+  <Link icon="unicorn" to="/foo">Iconic link</Link>
+  <Link icon="cat" to="/bar" />
   <Link.Wrap to="/foo">Invisible wrap link</Link.Wrap>
   <Link onClick={() => alert('clicked')}>Link with click handler</Link>
 </div>
@@ -85,18 +85,18 @@ You can use this React-Router-powered Link for both internal and external links.
 **Icon Link Styles**
 ```js
 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '10px' }}>
-  <Link.Negative icon="cartEmpty" to="/foo">Negative local route link</Link.Negative>
+  <Link.Negative icon="moderator" to="/foo">Negative local route link</Link.Negative>
   <Link.Negative icon="delete" to="https://google.com">Negative remote link</Link.Negative>
-  <Link.Positive icon="newWindow" to="/foo">Positive local route link</Link.Positive>
+  <Link.Positive icon="api" to="/foo">Positive local route link</Link.Positive>
   <Link.Positive icon="help" to="https://google.com">Positive remote link</Link.Positive>
-  <Link.Dark icon="lock" to="/foo">Dark local route link</Link.Dark>
-  <Link.Dark icon="more" to="https://google.com">Dark remote link</Link.Dark>
+  <Link.Dark icon="expensive2" to="/foo">Dark local route link</Link.Dark>
+  <Link.Dark icon="courses" to="https://google.com">Dark remote link</Link.Dark>
   <div style={{ background: '#004658', margin: 'auto', padding: '5px' }}>
-    <Link.Inverted icon="plus" to="/foo">Inverted local route link</Link.Inverted>
+    <Link.Inverted icon="loginRounded" to="/foo">Inverted local route link</Link.Inverted>
   </div>
   <div style={{ background: '#004658', margin: 'auto', padding: '5px' }}>
     <Link.Inverted icon="file" to="https://google.com">Inverted remote link</Link.Inverted>
   </div>
-  <Link appearFocused icon="sliders" to="/foo">Controlled focus-styled link</Link>
+  <Link appearFocused icon="attention" to="/foo">Controlled focus-styled link</Link>
 </div>
 ```
