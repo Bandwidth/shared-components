@@ -40,14 +40,24 @@ const RadioGroupButtonLabel = styled.label`
       right: -2px;
       top: -2px;
       z-index: 2;
-      border-radius: 3px;
+      border-radius: 5px;
     }
   }
 
   ${Input}:checked + & {
+    &::after {
+      content: "";
+      background: ${get('colors.primary.default')};
+      border-radius: 0 0 3px 3px;
+      height: 5px;
+      width: 100%;
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
     background: ${get('colors.primary.dark')};
     color: ${get('colors.text.inverted')};
-    box-shadow: inset 0 -5px 0 ${get('colors.primary.default')};
     z-index: 1;
   }
 
@@ -59,6 +69,17 @@ const RadioGroupButtonLabel = styled.label`
     border-color: ${get('colors.border.disabled')};
   }
   ${Input}:checked:disabled + & {
+    &::after {
+      content: "";
+      background: ${get('colors.background.disabled')};
+      border-radius: 0 0 3px 3px;
+      height: 5px;
+      width: 100%;
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+  }
     color: ${get('colors.text.inverted')};
     background-color: ${get('colors.background.disabledSelected')};
     box-shadow: inset 0 -5px 0 ${get('colors.background.disabled')};

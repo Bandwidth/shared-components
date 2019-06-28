@@ -31,11 +31,7 @@ export default styled.div`
   }
 
   &.right {
-    /*
-     * this is just a browser quirk we haven't figured out yet...
-     * a 0-width element doesn't get rendered within the scrollable area.
-     */
-    width: 1px;
+    width: 0;
   }
 
   &.left {

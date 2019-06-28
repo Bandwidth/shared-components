@@ -46,7 +46,7 @@ const CheckboxLabel = styled.label`
     border-color: ${get('colors.primary.dark')};
     border-width: ${get('thicknesses.wide')};
     border-style: solid;
-    border-radius: 3px;
+    border-radius: 5px;
 
     width: ${SIZE};
     height: ${SIZE};
@@ -103,6 +103,7 @@ CheckboxLabel.Small = styled(CheckboxLabel)`
   &::after {
     width: ${SMALL_SIZE};
     height: ${SMALL_SIZE};
+    border-radius: 3px;
   }
 `;
 

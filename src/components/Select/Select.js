@@ -141,6 +141,7 @@ class Select extends React.PureComponent {
       className,
       popperProps,
       name,
+      autoComplete,
       ...rest
     } = this.props;
     const combinedLoading = loading || isLoading;
@@ -178,6 +179,7 @@ class Select extends React.PureComponent {
                       id={id}
                       className={className}
                       name={name}
+                      autoComplete={autoComplete}
                     />
                   )}
                 </Reference>

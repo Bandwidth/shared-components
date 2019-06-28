@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
 const TableStyles = styled.table`
-  /**
-   * Due to a browser quirk, we have to account for a 1px difference,
-   * see ScrollShadow > Sentinel.
-   */
-  min-width: calc(100% - 1px);
+  min-width: calc(100%);
   border-collapse: collapse;
   font-size: 1em;
 

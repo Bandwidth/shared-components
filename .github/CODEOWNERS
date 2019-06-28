@@ -1,0 +1,4 @@
+# Reference: https://help.github.com/articles/about-codeowners/
+
+# Assign all members of team to pull requests by default
+* @a-type @denysYefremov @mike-zarandona @SmithPR @tbowenbw @zelitzsi
