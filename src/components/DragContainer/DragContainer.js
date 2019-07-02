@@ -83,7 +83,7 @@ class DragContainer extends React.PureComponent {
           {/* Using wrapDragHandle to indicate which element is the handle */}
           {canDrag &&
             wrapDragHandle &&
-            wrapDragHandle(<DragHandle name="moveGrabber" />)}
+            wrapDragHandle(<DragHandle name="move" />)}
         </IconGroup>
       </Container>
     );

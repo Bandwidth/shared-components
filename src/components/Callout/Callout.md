@@ -6,7 +6,7 @@
 
 ```js
 <Callout content="description">
-  <Icon name="exclamationMarkFilled" />
+  <Icon name="attention" />
 </Callout>
 ```
 

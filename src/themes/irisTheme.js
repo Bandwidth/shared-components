@@ -83,7 +83,7 @@ export const fonts = {
   brand: '"Overpass", Raleway, "Open Sans", arial, sans-serif',
   default: '"Overpass", Raleway, "Open Sans", arial, sans-serif',
   monospace: '"Source Code Pro", monospace',
-  icon: 'Bandwidth',
+  icon: 'Bandwidth-v2',
 };
 
 export const shadows = {
