@@ -50,7 +50,7 @@
     "functional-easing": "1.0.10",
     "hex-to-hsl": "1.0.2",
     "lodash.debounce": "4.0.8",
-    "lodash.defaultsdeep": "4.6.0",
+    "lodash.defaultsdeep": "4.6.1",
     "lodash.filter": "4.6.0",
     "lodash.get": "4.4.2",
     "lodash.identity": "3.0.0",
