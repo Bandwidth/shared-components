@@ -1,8 +1,18 @@
 import styled from 'styled-components';
+import { themeGet } from 'extensions';
 
 const FieldContent = styled.div`
   display: flex;
   flex-direction: column;
+
+  /* the height of a standard Input; this is an aesthetic requirement */
+  min-height: 53px;
+
+  justify-self: ${props => props.verticalAlign || 'flex-start'};
+
+  & + .field-help-text {
+    margin-top: ${themeGet('spacing.extraSmall')};
+  }
 
   & > * {
     margin: ${props => {

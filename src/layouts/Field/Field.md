@@ -6,10 +6,10 @@
   <Field alignContentVertically="center">
     <Toggle description="Toggle me!" />
   </Field>
-  <Field label="label">
+  <Field label="long field is long" columnSpan={2} helpText="Vintage memes only">
     <Input />
   </Field>
-  <Field label="required:" required={true}>
+  <Field label="required:" required={true} helpText="You need this one">
     <Input />
   </Field>
   <Field label="options" alignContent="left"  alignContentVertically="bottom">
