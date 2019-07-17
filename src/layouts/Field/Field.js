@@ -66,7 +66,7 @@ const Field = ({
             style={{ position: 'relative', top: '-15px' }}
             {...helpCalloutProps}
           >
-            <HelpIcon />
+            <HelpIcon name="help" />
           </Callout>
         )}
       </LabelContainer>
