@@ -6,7 +6,7 @@
   <Field alignContentVertically="center">
     <Toggle description="Toggle me!" />
   </Field>
-  <Field label="long field is long" columnSpan={2} helpText="Vintage memes only">
+  <Field label="another label">
     <Input />
   </Field>
   <Field label="required:" required={true} helpText="You need this one">
@@ -22,6 +22,9 @@
   </Field>
   <Field label="tall">
     <TextArea defaultValue="Some basic text" />
+  </Field>
+  <Field label="long field" columnSpan={2}>
+    <Input placeholder="Fields can span columns" />
   </Field>
 </Field.Group>
 ```
