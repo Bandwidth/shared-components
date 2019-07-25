@@ -19,6 +19,11 @@ export default class SearchableSelect extends React.Component {
      * Should return a reduced list of options.
      */
     filterOptions: PropTypes.func,
+    /**
+     * Function which will be called when the user types in the
+     * search box, after the state has settled
+     */
+    onInputValueChange: PropTypes.optionalFunc
   };
 
   static defaultProps = {
@@ -54,13 +59,24 @@ export default class SearchableSelect extends React.Component {
     onStateChange && onStateChange(changes, downshiftState);
   };
 
-  handleInputValueChange = (inputValue, downshiftState) => {
-    const { filterOptions, options } = this.props;
+  handleInputValueChange = (inputValue) => {
+    const { filterOptions, options, onInputValueChange } = this.props;
     this.setState({
       inputValue: inputValue,
       filteredOptions: filterOptions(options, inputValue, this.props),
+    }, ()=>{
+      onInputValueChange && onInputValueChange(inputValue);
     });
   };
+
+  componentDidUpdate(prevProps) {
+    if(this.props.options !== prevProps.options){
+      // Update filtered options when options change
+      this.setState({
+        filteredOptions: this.props.filterOptions(this.props.options, this.state.inputValue, this.props)
+      });
+    }
+  }
 
   render() {
     const { options, onStateChange, CurrentValue, ...rest } = this.props;
