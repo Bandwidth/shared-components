@@ -97,6 +97,10 @@ class Select extends React.PureComponent {
      * underlying input element
      */
     inputProps: PropTypes.object,
+    /**
+     * Add a ref to the input element
+     */
+    inputRef: PropTypes.func,
   };
 
   static defaultProps = {
@@ -149,6 +153,7 @@ class Select extends React.PureComponent {
       name,
       autoComplete,
       inputProps,
+      inputRef,
       ...rest
     } = this.props;
     const combinedLoading = loading || isLoading;
@@ -181,6 +186,7 @@ class Select extends React.PureComponent {
                             ''
                       }
                       ref={ref}
+                      inputRef={inputRef}
                       placeholder={combinedPlaceholder}
                       disabled={disabled}
                       loading={combinedLoading}

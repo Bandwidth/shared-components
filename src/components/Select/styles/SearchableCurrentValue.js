@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useCallback } from 'react';
 import DefaultInput from 'components/Input';
 import DefaultLoadingState from './LoadingState';
 import DefaultControls from './Controls';
@@ -26,6 +26,7 @@ const Searchable = forwardRef(
       ClearButton,
       LoadingState,
       inputProps,
+      inputRef,
       ...rest
     },
     ref,
@@ -33,6 +34,18 @@ const Searchable = forwardRef(
     if (loading) {
       return <LoadingState required={required} invalid={invalid} />;
     }
+
+    // in the generally confusing landscape of our various implementations of Select,
+    // we somehow have ended up with two refs that need to point to the same element.
+    // The main ref for this component is for the Popper, but inputRef is for the
+    // user to utilize how they see fit.
+    const composedRefs = useCallback(
+      el => {
+        ref && ref(el);
+        inputRef && inputRef(el);
+      },
+      [ref, inputRef],
+    );
 
     return (
       <Input
@@ -43,7 +56,7 @@ const Searchable = forwardRef(
           invalid,
           ...inputProps,
           appearFocused: isOpen,
-          inputRef: ref,
+          inputRef: composedRefs,
           disabled: disabled || loading,
           onFocus: openMenu,
           onClick: openMenu,

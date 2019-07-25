@@ -48,6 +48,7 @@ const Unsearchable = forwardRef(
       Arrow,
       LoadingState,
       inputProps,
+      inputRef,
       ...rest
     },
     ref,
@@ -74,6 +75,7 @@ const Unsearchable = forwardRef(
           disabled={disabled}
           appearFocused={isOpen}
           value={inputValue}
+          ref={inputRef}
           {...rest}
         />
         <Controls disabled={disabled}>
