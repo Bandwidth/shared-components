@@ -42,7 +42,7 @@ As of `v6.x`, this library no longer loads fonts for you. You must include them 
 For your convenience, we've provided a `fonts/fonts.css` file in the NPM package. You can use it to quickly bootstrap both our brand font (Overpass) and icon font. For instance, if you're using Webpack, you can do:
 
 ```
-import '@bandwidth/shared-components/fonts/fonts.css`;
+import '@bandwidth/shared-components/fonts/fonts.css';
 ```
 
 anywhere in your project to load the fonts automatically.
