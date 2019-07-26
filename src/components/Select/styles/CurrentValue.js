@@ -76,6 +76,7 @@ const Unsearchable = forwardRef(
           appearFocused={isOpen}
           value={inputValue}
           ref={inputRef}
+          autoComplete="off"
           {...rest}
         />
         <Controls disabled={disabled}>

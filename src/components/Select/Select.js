@@ -151,7 +151,6 @@ class Select extends React.PureComponent {
       className,
       popperProps,
       name,
-      autoComplete,
       inputProps,
       inputRef,
       ...rest
@@ -195,7 +194,6 @@ class Select extends React.PureComponent {
                       id={id}
                       className={className}
                       name={name}
-                      autoComplete={autoComplete}
                     />
                   )}
                 </Reference>
