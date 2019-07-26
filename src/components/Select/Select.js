@@ -92,6 +92,15 @@ class Select extends React.PureComponent {
      * code for details about how to implement your own custom version
      */
     Options: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    /**
+     * Any additional props you want to pass through CurrentValue to the
+     * underlying input element
+     */
+    inputProps: PropTypes.object,
+    /**
+     * Add a ref to the input element
+     */
+    inputRef: PropTypes.func,
   };
 
   static defaultProps = {
@@ -106,6 +115,7 @@ class Select extends React.PureComponent {
     defaultHighlightedIndex: 0,
     CurrentValue: styles.CurrentValue,
     Options: styles.Options,
+    inputProps: {},
   };
 
   static styles = styles;
@@ -141,7 +151,8 @@ class Select extends React.PureComponent {
       className,
       popperProps,
       name,
-      autoComplete,
+      inputProps,
+      inputRef,
       ...rest
     } = this.props;
     const combinedLoading = loading || isLoading;
@@ -156,21 +167,25 @@ class Select extends React.PureComponent {
         {...rest}
       >
         {({ inputValue, ...downshiftProps }) => {
-          return ((
+          return (
             <div>
               <Manager>
                 <Reference>
                   {({ ref }) => (
                     <CurrentValue
                       {...downshiftProps}
+                      inputProps={inputProps}
                       inputValue={
                         downshiftProps.isOpen
                           ? inputValue
-                          : inputValue
-                            || downshiftProps.itemToString(downshiftProps.selectedItem)
-                            || ''
+                          : inputValue ||
+                            downshiftProps.itemToString(
+                              downshiftProps.selectedItem,
+                            ) ||
+                            ''
                       }
                       ref={ref}
+                      inputRef={inputRef}
                       placeholder={combinedPlaceholder}
                       disabled={disabled}
                       loading={combinedLoading}
@@ -179,7 +194,6 @@ class Select extends React.PureComponent {
                       id={id}
                       className={className}
                       name={name}
-                      autoComplete={autoComplete}
                     />
                   )}
                 </Reference>
@@ -190,7 +204,10 @@ class Select extends React.PureComponent {
                     modifiers={{
                       matchWidth: popperMatchWidthModifier,
                       flip: { behavior: 'flip', padding: 20 },
-                      preventOverflow: { escapeWithReference: true, padding: 0 },
+                      preventOverflow: {
+                        escapeWithReference: true,
+                        padding: 0,
+                      },
                     }}
                     {...popperProps}
                   >
@@ -211,7 +228,7 @@ class Select extends React.PureComponent {
                 )}
               </Manager>
             </div>
-          ))
+          );
         }}
       </Downshift>
     );
