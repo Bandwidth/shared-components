@@ -62,8 +62,8 @@ const Searchable = forwardRef(
           onClick: openMenu,
           value: inputValue,
         })}
-        {...rest}
         autoComplete="off"
+        {...rest}
         inlineContent={
           <Controls disabled={disabled}>
             {!!inputValue && !disabled && !required && (
