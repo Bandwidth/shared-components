@@ -1,3 +1,15 @@
+## Rules of Field
+
+Rules and conventions for using Field:
+
+1. Multiple fields must be wrapped in Field.Group
+2. Only Fields go in Field.Group. Submit buttons, paragraph descriptions, headings, and other non-field components should be placed outside of Field.Group.
+3. All field rows have a minimum height of 53px for content, plus space for a label. There are only two exceptions:
+   1. If a row of Fields doesn't contain any labels, the empty space above it may be larger than normal. In such cases, you may use the `noLabel` prop on the affected Fields to collapse the label space.
+   2. If a row of Fields is composed of field components which are less than 53px tall, the row may be spaced incorrectly in relation to rows above or below it. In such cases, you may use the `short` prop on the affected Fields to fix the vertical spacing.
+
+## Fields Example
+
 ```js
 <Field.Group>
   <Field label="label" helpCallout="Some helpful description!">
@@ -29,38 +41,7 @@
 </Field.Group>
 ```
 
-### HTML output & accessibility
-
-Fields produces output which is semantically different from the component structure. In the rendered HTML, React code like this:
-
-```js static
-<Field.Group>
-  <Field label="foo" helpText="bar">
-    <Input />
-  </Field>
-  <Field label="thud" helpText="baz">
-    <Input />
-  </Field>
-</Field.Group>
-```
-
-Actually produces HTML like this:
-
-```html
-<div>
-  <!-- an auto-generated row element -->
-  <div>
-    <!-- start of the first field -->
-    <label>foo</label>
-    <input />
-    <div>bar</div>
-    <!-- start of the second field -->
-    <label>thud</label>
-    <input />
-    <div>baz</div>
-  </div>
-</div>
-```
+## Labels and Accessibility
 
 To make sure that forms are accessible, Fields supports associating labels with inputs by id. Simply provide an id prop to the content you provide to Field, and an associated `for` attribute will be added to the produced label.
 
@@ -92,7 +73,7 @@ To make sure that forms are accessible, Fields supports associating labels with 
 </Field.Group>
 ```
 
-### Providing customized label and helpText
+## Providing customized label and helpText
 
 ```js
 <Field.Group columns={1}>
