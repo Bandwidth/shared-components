@@ -167,6 +167,7 @@ class Select extends React.PureComponent {
         {...rest}
       >
         {({ inputValue, ...downshiftProps }) => {
+          console.log(downshiftProps);
           return (
             <div>
               <Manager>

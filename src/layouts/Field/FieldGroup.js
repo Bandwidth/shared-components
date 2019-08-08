@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './styles';
+import { withPulseGroup } from 'skeletons/PulseGroup';
 
 const FieldGroup = ({ columns, children, Grid }) => {
   return <Grid columns={columns}>{children}</Grid>;
@@ -26,5 +27,7 @@ FieldGroup.defaultProps = {
 };
 
 FieldGroup.styles = styles;
+
+FieldGroup.Skeleton = withPulseGroup(FieldGroup);
 
 export default FieldGroup;

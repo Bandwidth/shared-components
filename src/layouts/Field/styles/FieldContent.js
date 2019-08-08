@@ -6,7 +6,7 @@ const FieldContent = styled.div`
   flex-direction: column;
 
   /* the height of a standard Input; this is an aesthetic requirement */
-  min-height: 53px;
+  min-height: ${props => (props.short ? 'auto' : '53px')};
 
   justify-self: ${props => props.verticalAlign || 'flex-start'};
 

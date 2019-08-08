@@ -6,6 +6,7 @@ import DefaultHelpText from 'components/HelpText';
 import * as styles from './styles';
 import FieldGroup from './FieldGroup';
 import get from 'lodash.get';
+import Skeleton from 'skeletons/Skeleton';
 
 const Field = ({
   columnSpan,
@@ -26,6 +27,8 @@ const Field = ({
   error,
   Container,
   fieldId,
+  short,
+  noLabel,
   ...rest
 }) => {
   const labelFor = fieldId || get(children, 'props.id');
@@ -58,22 +61,25 @@ const Field = ({
 
   return (
     <Container columnSpan={columnSpan} className="field" {...rest}>
-      <LabelContainer className="field-label-container">
-        {labelElement}
-        {helpCallout && (
-          <Callout
-            content={helpCallout}
-            style={{ position: 'relative', top: '-15px' }}
-            {...helpCalloutProps}
-          >
-            <HelpIcon name="help" />
-          </Callout>
-        )}
-      </LabelContainer>
+      {!noLabel && (
+        <LabelContainer className="field-label-container">
+          {labelElement}
+          {helpCallout && (
+            <Callout
+              content={helpCallout}
+              style={{ position: 'relative', top: '-15px' }}
+              {...helpCalloutProps}
+            >
+              <HelpIcon name="help" />
+            </Callout>
+          )}
+        </LabelContainer>
+      )}
       <Content
         align={alignContent}
         verticalAlign={alignContentVertically}
         className="field-content"
+        short={short}
       >
         {children}
       </Content>
@@ -182,6 +188,16 @@ Field.propTypes = {
    * if an `id` prop is present on the `children` of this component.
    */
   fieldId: PropTypes.string,
+  /**
+   * Drops the 53px minimum height requirement. Only use this if you have
+   * shorter content which is sitting on a row by itself!
+   */
+  short: PropTypes.boolean,
+  /**
+   * Force the label space to be omitted. Only use this if you have no label
+   * and this is the only field on this row.
+   */
+  noLabel: PropTypes.boolean,
 };
 
 Field.defaultProps = {
@@ -205,5 +221,31 @@ Field.defaultProps = {
 Field.Group = FieldGroup;
 
 Field.styles = styles;
+
+Field.Skeleton = ({ label, helpText, ...rest }) => (
+  <Field
+    label={label}
+    helpText={helpText}
+    {...rest}
+    LabelContainer={({ children, ...rest }) =>
+      label ? (
+        <Skeleton
+          {...rest}
+          width={`${Math.random() * 20 + 80}%`}
+          height="14px"
+        />
+      ) : null
+    }
+    HelpText={({ children, ...rest }) =>
+      helpText ? (
+        <Skeleton
+          {...rest}
+          width={`${Math.random() * 20 + 80}%`}
+          height="14px"
+        />
+      ) : null
+    }
+  />
+);
 
 export default Field;
