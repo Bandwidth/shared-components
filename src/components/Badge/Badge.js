@@ -27,7 +27,7 @@ Badge.propTypes = {
 };
 
 Badge.defaultProps = {
-  className: null,
+  className: "scl-badge",
   id: null,
 };
 

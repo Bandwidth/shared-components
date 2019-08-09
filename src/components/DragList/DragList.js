@@ -22,6 +22,7 @@ class DragList extends React.PureComponent {
   static Container = DragContainer;
 
   static propTypes = {
+    className: "scl-drag-list",
     children: PropTypes.node.isRequired,
   };
 

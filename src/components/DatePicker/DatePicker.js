@@ -44,6 +44,7 @@ class DatePicker extends React.PureComponent {
   };
 
   static defaultProps = {
+    className: "scl-date-picker",
     Wrapper: styles.Wrapper,
     displayFormat: 'MMM DD YYYY',
     invalid: false,

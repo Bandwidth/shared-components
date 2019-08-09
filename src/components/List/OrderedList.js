@@ -35,7 +35,7 @@ OrderedList.propTypes = {
 };
 
 OrderedList.defaultProps = {
-  className: null,
+  className: "scl-ordered-list",
   id: null,
 };
 

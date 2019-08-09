@@ -44,6 +44,7 @@ class Grid extends React.PureComponent {
   };
 
   static defaultProps = {
+    className: "scl-grid",
     minSize: 'min-content',
     maxSize: '1fr',
     gridGap: 'var(--spacing-medium)',

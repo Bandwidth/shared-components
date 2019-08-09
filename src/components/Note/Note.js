@@ -28,6 +28,7 @@ Note.propTypes = {
 };
 
 Note.defaultProps = {
+  className: 'scl-note',
   Container: styles.Container,
   Corner: styles.Corner,
 };

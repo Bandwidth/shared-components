@@ -60,7 +60,7 @@ class SubmitButton extends React.Component {
     leftIcon: null,
     pristineContents: 'Up to Date',
     id: null,
-    className: null,
+    className: "scl-button-submit",
     onClick: () => null,
   };
 

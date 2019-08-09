@@ -13,7 +13,7 @@ const Icon = styled.i.withConfig({ displayName: 'Icon' })`
   cursor: ${({ onClick }) => (onClick ? 'pointer' : 'inherit')};
   &::before {
     content: "${({ name, iconsHelper }) =>
-      iconsHelper(name) || iconsHelper('help_2')}";
+    iconsHelper(name) || iconsHelper('help_2')}";
     display: block;
     color: inherit;
   }
@@ -43,7 +43,7 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  className: null,
+  className: "scl-icon",
   id: null,
   iconsHelper: icons,
   color: null,

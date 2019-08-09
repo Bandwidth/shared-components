@@ -67,7 +67,7 @@ export default class Alert extends React.PureComponent {
   static defaultProps = {
     type: 'info',
     textOnly: false,
-    className: null,
+    className: "scl-alert",
     id: null,
     spacing: '0',
     Border: styles.Border,

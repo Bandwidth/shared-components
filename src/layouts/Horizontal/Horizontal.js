@@ -42,6 +42,7 @@ const Horizontal = styled.div`
 
 Horizontal.defaultProps = {
   spacing: 'lg',
+  className: "scl-horizontal",
 };
 
 Horizontal.propTypes = {

@@ -26,7 +26,7 @@ P.propTypes = {
 
 P.defaultProps = {
   spacing: { bottom: 'lg' },
-  className: null,
+  className: "scl-paragraph",
   id: null,
 };
 

@@ -59,7 +59,7 @@ class Radio extends React.PureComponent {
   };
 
   static defaultProps = {
-    className: null,
+    className: "scl-radio",
     id: null,
     checked: false,
     required: false,

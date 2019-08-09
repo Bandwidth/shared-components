@@ -34,7 +34,7 @@ class Money extends React.Component {
 
   static defaultProps = {
     showSign: true,
-    className: null,
+    className: "scl-money",
     id: null,
     value: 0,
     Styles: styles.MoneyStyles,

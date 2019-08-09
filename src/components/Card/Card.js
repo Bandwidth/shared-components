@@ -15,6 +15,7 @@ class Card extends React.Component {
 
   static defaultProps = {
     CardWrapper: styles.Wrapper,
+    className: "scl-card"
   };
 
   static styles = styles;

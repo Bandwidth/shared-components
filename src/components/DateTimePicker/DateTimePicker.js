@@ -45,6 +45,7 @@ class DateTimePicker extends React.PureComponent {
   };
 
   static defaultProps = {
+    className: "scl-date-time-picker",
     onChange: noop,
     displayFormat: 'MMM DD YYYY [at] hh:mm A',
     utc: false,

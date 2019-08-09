@@ -32,7 +32,7 @@ H5.propTypes = {
 
 H5.defaultProps = {
   spacing: { bottom: 'lg' },
-  className: null,
+  className: "scl-header-5",
   id: null,
 };
 H5.Skeleton = () => <Skeleton width="200px" height="1.15em" />;

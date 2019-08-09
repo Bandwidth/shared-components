@@ -78,7 +78,7 @@ TextArea.propTypes = {
 };
 
 TextArea.defaultProps = {
-  className: null,
+  className: 'scl-text-area',
   id: null,
   height: '100px',
   resize: 'vertical',

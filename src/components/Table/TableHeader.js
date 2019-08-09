@@ -57,7 +57,7 @@ class TableHeader extends React.Component {
     sortable: false,
     sortOrder: 0,
     onClick: noop,
-    className: null,
+    className: "scl-table-header",
     id: null,
     Icon: styles.HeaderSortArrowIcon,
     Link: DefaultLink,

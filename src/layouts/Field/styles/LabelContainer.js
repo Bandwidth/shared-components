@@ -6,4 +6,8 @@ const LabelContainer = styled.div`
   align-items: baseline;
 `;
 
+LabelContainer.defaultProps = {
+  className: "scl-field-label"
+}
+
 export default LabelContainer;

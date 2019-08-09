@@ -48,6 +48,7 @@ export default class ToggleButton extends React.PureComponent {
   })(ToggleButton);
 
   static defaultProps = {
+    className: "scl-toggle-button",
     onClick: noop,
     onDeselect: noop,
     onSelect: noop,

@@ -24,6 +24,7 @@ class TabGroup extends React.Component {
   };
 
   static defaultProps = {
+    className: "scl-tab-group",
     onTabSelected: null,
     List: styles.List,
   };
@@ -37,11 +38,11 @@ class TabGroup extends React.Component {
   createTabClickHandler = (tab, index) =>
     this.props.onTabSelected
       ? ev => {
-          if (tab.props.onClick) {
-            tab.props.onClick(ev);
-          }
-          this.props.onTabSelected(index);
+        if (tab.props.onClick) {
+          tab.props.onClick(ev);
         }
+        this.props.onTabSelected(index);
+      }
       : tab.props.onClick;
 
   renderTabs = () =>

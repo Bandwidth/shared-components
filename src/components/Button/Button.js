@@ -122,7 +122,7 @@ Button.defaultProps = {
   leftIcon: null,
   rightIcon: null,
   iconHelper: icons,
-  className: null,
+  className: "scl-button",
   id: null,
 };
 

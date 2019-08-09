@@ -47,7 +47,7 @@ MethodTag.propTypes = {
 };
 
 MethodTag.defaultProps = {
-  className: null,
+  className: "scl-method-tag",
   id: null,
 };
 

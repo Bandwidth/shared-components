@@ -33,7 +33,7 @@ class LogoHeader extends React.Component {
 
   static defaultProps = {
     children: 'Bandwidth',
-    className: null,
+    className: "scl-navigation-title",
     id: null,
     LogoPairWrapper: styles.LogoPairWrapper,
     Logo: DefaultLogo,

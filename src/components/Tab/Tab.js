@@ -19,9 +19,9 @@ const verticalStyles = css`
       return css`
         &:hover {
           border-bottom-color: ${props =>
-            props.active
-              ? get('colors.border.medium')(props)
-              : get('colors.primary.default')(props)};
+          props.active
+            ? get('colors.border.medium')(props)
+            : get('colors.primary.default')(props)};
         }
       `;
     }
@@ -78,9 +78,9 @@ const Tab = styled.li`
       return css`
         &:hover {
           border-color: ${props =>
-            props.active
-              ? get('colors.border.medium')(props)
-              : get('colors.primary.default')(props)};
+          props.active
+            ? get('colors.border.medium')(props)
+            : get('colors.primary.default')(props)};
           opacity: 1;
           z-index: 1;
         }
@@ -90,10 +90,14 @@ const Tab = styled.li`
 
   ${styles.List.Vertical} > &, ${styles.Container.Vertical} > ${
   styles.List
-} > & {
+  } > & {
     ${verticalStyles};
   }
 `;
+
+Tab.defaultProps = {
+  className: "scl-tab"
+}
 
 Tab.Vertical = styled(Tab)`
   ${verticalStyles};

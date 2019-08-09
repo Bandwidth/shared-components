@@ -57,7 +57,7 @@ class Table extends React.Component {
 
   static defaultProps = {
     loading: false,
-    className: null,
+    className: "scl-table",
     id: null,
     headers: null,
     wrapBody: true,

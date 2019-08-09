@@ -63,7 +63,7 @@ class Toggle extends React.PureComponent {
   };
 
   static defaultProps = {
-    className: null,
+    className: "scl-toggle",
     id: null,
     value: undefined,
     checked: undefined,

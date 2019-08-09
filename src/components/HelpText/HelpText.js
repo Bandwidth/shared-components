@@ -34,7 +34,7 @@ HelpText.propTypes = {
 };
 
 HelpText.defaultProps = {
-  className: null,
+  className: "scl-helptext",
   id: null,
 };
 

@@ -19,7 +19,7 @@ Gutter.propTypes = {
 };
 
 Gutter.defaultProps = {
-  className: null,
+  className: "scl-gutter",
   id: null,
 };
 

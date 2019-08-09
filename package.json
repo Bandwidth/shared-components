@@ -35,10 +35,10 @@
   },
   "homepage": "https://github.com/Bandwidth/shared-components#readme",
   "peerDependencies": {
-    "prop-types": "15.5.8",
-    "react": "16.0.0",
-    "react-dom": "16.0.0",
-    "styled-components": "4.0.2"
+    "prop-types": "^15.5.8",
+    "react": "^16.8.0",
+    "react-dom": "^16.0.0",
+    "styled-components": "^4.0.2"
   },
   "dependencies": {
     "animation-timer": "1.0.12",

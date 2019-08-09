@@ -19,7 +19,7 @@ export default class StepGroup extends React.Component {
     List: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   };
 
-  static defaultProps = { List: styles.List };
+  static defaultProps = { List: styles.List, className: 'scl-step-group' };
 
   static styles = styles;
 

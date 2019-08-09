@@ -105,7 +105,7 @@ NavigationItem.propTypes = {
 };
 
 NavigationItem.defaultProps = {
-  className: null,
+  className: "scl-nav-item",
   id: null,
   active: false,
   disabled: false,

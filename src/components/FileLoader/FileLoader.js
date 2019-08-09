@@ -40,7 +40,7 @@ export default class FileLoader extends React.Component {
   static defaultProps = {
     required: false,
     disabled: false,
-    className: null,
+    className: "scl-file-loader",
     id: null,
     DropArea: styles.DropArea,
     Preview: styles.Preview,

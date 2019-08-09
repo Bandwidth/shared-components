@@ -36,7 +36,7 @@ H3.propTypes = {
 
 H3.defaultProps = {
   spacing: { bottom: 'lg' },
-  className: null,
+  className: "scl-header-3",
   id: null,
 };
 

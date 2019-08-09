@@ -77,7 +77,7 @@ class RadioButton extends React.Component {
 
   static defaultProps = {
     content: null,
-    className: null,
+    className: "scl-radio-button",
     id: null,
     disabled: false,
     Container: styles.Container,

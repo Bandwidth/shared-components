@@ -33,7 +33,7 @@ class Loader extends React.PureComponent {
   static defaultProps = {
     size: '20px',
     color: null,
-    className: null,
+    className: "scl-loader",
     id: null,
     Ring: styles.Ring,
     Container: styles.Container,

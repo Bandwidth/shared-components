@@ -21,6 +21,10 @@ const NavigationBar = styled.header.withConfig({
   }
 `;
 
+NavigationBar.defaultProps = {
+  className: 'scl-navigation-bar'
+}
+
 NavigationBar.Sub = styled(NavigationBar)`
   background: ${get('colors.gray.light')};
   color: ${get('colors.text.default')};

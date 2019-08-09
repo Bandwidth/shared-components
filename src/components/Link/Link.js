@@ -52,6 +52,7 @@ Link.defaultProps = Link.Positive.defaultProps = Link.Negative.defaultProps = Li
   appearFocused: false,
   newTab: undefined,
   icon: null,
+  className: "scl-link"
 };
 
 Link.Wrap.propTypes = {

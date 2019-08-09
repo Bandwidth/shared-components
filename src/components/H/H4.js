@@ -34,7 +34,7 @@ H4.propTypes = {
 
 H4.defaultProps = {
   spacing: { bottom: 'lg' },
-  className: null,
+  className: "scl-header-4",
   id: null,
 };
 

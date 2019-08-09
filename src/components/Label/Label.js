@@ -58,7 +58,7 @@ Label.propTypes = {
 
 Label.defaultProps = {
   disabled: false,
-  className: null,
+  className: "scl-label",
   id: null,
   required: false,
 };

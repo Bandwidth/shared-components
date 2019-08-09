@@ -58,7 +58,7 @@ export default class Checkbox extends React.PureComponent {
   };
 
   static defaultProps = {
-    className: null,
+    className: "scl-checkbox",
     id: null,
     value: undefined,
     checked: undefined,

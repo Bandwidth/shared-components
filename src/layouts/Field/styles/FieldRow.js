@@ -94,6 +94,7 @@ const FieldRow = ({ children, columns, theme, ...rest }) => {
 };
 
 FieldRow.defaultProps = {
+  className: 'scl-field-row',
   columnCount: 2,
 };
 

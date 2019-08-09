@@ -36,7 +36,7 @@ Logo.propTypes = {
 };
 
 Logo.defaultProps = {
-  className: null,
+  className: "scl-logo",
   id: null,
   color: null,
   height: null,

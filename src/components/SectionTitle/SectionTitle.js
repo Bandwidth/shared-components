@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
 
-export default styled.h3`
+const SectionTitle =  styled.h3`
   background: ${get('colors.gray.mediumLight')};
   color: ${get('colors.text.default')};
   display: block;
@@ -13,3 +13,9 @@ export default styled.h3`
   text-transform: uppercase;
   width: 100%;
 `;
+
+SectionTitle.defaultProps = {
+  className: "scl-section-title"
+}
+
+export default SectionTitle;

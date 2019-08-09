@@ -104,7 +104,7 @@ class Select extends React.PureComponent {
   };
 
   static defaultProps = {
-    className: null,
+    className: "scl-select",
     id: null,
     disabled: false,
     required: false,
@@ -179,10 +179,10 @@ class Select extends React.PureComponent {
                         downshiftProps.isOpen
                           ? inputValue
                           : inputValue ||
-                            downshiftProps.itemToString(
-                              downshiftProps.selectedItem,
-                            ) ||
-                            ''
+                          downshiftProps.itemToString(
+                            downshiftProps.selectedItem,
+                          ) ||
+                          ''
                       }
                       ref={ref}
                       inputRef={inputRef}

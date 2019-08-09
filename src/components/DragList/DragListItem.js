@@ -38,6 +38,10 @@ class DragListItem extends React.PureComponent {
     onMove: PropTypes.func.isRequired,
   };
 
+  static defaultProps = {
+    className: "scl-drag-list-item"
+  }
+
   componentDidMount() {
     // Use empty image as a drag preview so browsers don't draw it
     // and we can draw whatever we want on the custom drag layer instead.

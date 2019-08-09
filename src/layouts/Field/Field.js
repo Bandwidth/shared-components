@@ -115,6 +115,7 @@ class Field extends React.Component {
   };
 
   static defaultProps = {
+    className: "scl-field",
     column: 0,
     columnSpan: 1,
     Label: DefaultLabel,

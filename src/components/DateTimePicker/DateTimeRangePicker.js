@@ -60,6 +60,7 @@ class DateTimeRangePicker extends React.PureComponent {
   };
 
   static defaultProps = {
+    className: "scl-date-time-range-picker",
     onChange: noop,
     displayFormat: 'MMM DD YYYY [at] hh:mm A',
     timeDisplayFormat: 'hh:mm',

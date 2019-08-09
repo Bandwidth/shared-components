@@ -51,6 +51,7 @@ class DateRangePicker extends React.PureComponent {
   };
 
   static defaultProps = {
+    className: "scl-date-range-picker",
     Wrapper: styles.RangeWrapper,
     LineSeparator: styles.LineSeparator,
     invalid: false,

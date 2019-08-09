@@ -149,7 +149,7 @@ class Input extends React.PureComponent {
     onBlur: () => null,
     onFocus: () => null,
     onKeyDown: () => null,
-    className: null,
+    className: "scl-input",
     invalid: false,
     error: false,
     placeholder: '',

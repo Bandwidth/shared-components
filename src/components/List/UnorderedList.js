@@ -36,7 +36,7 @@ UnorderedList.propTypes = {
 };
 
 UnorderedList.defaultProps = {
-  className: null,
+  className: "scl-unordered-list",
   id: null,
 };
 

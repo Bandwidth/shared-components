@@ -93,7 +93,7 @@ class Accordion extends React.Component {
     startExpanded: false,
     isCollapsed: null,
     onToggle: null,
-    className: null,
+    className: "scl-accordion",
     id: null,
     disabled: false,
     unmountClosed: false,
@@ -145,7 +145,7 @@ class Accordion extends React.Component {
     } = this.props;
 
     return (
-      <Border disabled={disabled} {...rest}>
+      <Border className="scl-accordion-border" disabled={disabled} {...rest}>
         <ExpandToggle
           id={id}
           className={className}

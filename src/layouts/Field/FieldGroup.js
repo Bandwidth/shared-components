@@ -30,6 +30,7 @@ class FieldGroup extends React.Component {
   };
 
   static defaultProps = {
+    className: "scl-field-group",
     RowContainer: styles.FieldRowContainer,
     Row: styles.FieldRow,
     columns: 2,

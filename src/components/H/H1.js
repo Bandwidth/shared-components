@@ -38,7 +38,7 @@ H1.propTypes = {
 
 H1.defaultProps = {
   spacing: { bottom: 'lg' },
-  className: null,
+  className: "scl-header-1",
   id: null,
 };
 

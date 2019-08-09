@@ -66,6 +66,7 @@ class TimeScrubber extends React.Component {
   };
 
   static defaultProps = {
+    className: "scl-time-scrubber",
     tickSpacing: 11,
     value: moment()
       .hour(12)

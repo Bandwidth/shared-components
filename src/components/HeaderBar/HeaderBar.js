@@ -10,6 +10,10 @@ const HeaderBar = styled.div.withConfig({ displayName: 'HeaderBar' })`
   padding-left: ${themeGet('spacing.medium')};
 `;
 
+HeaderBar.defaultProps = {
+  className: "scl-header-bar"
+}
+
 /**
  * @component
  */

@@ -32,7 +32,7 @@ H2.propTypes = {
 
 H2.defaultProps = {
   spacing: { bottom: 'lg' },
-  className: null,
+  className: "scl-header-2",
   id: null,
 };
 

@@ -24,6 +24,10 @@ const Breadcrumbs = styled.div`
   }
 `;
 
+Breadcrumbs.defaultProps = {
+  className: "scl-breadcrumb-group"
+}
+
 Breadcrumbs.propTypes = {
   children: props => {
     if (!props.children) return;
@@ -35,7 +39,7 @@ Breadcrumbs.propTypes = {
       const childName = child.type.displayName || child.type.name || child.type;
       return new Error(dedent`Invalid child component for Breadcrumbs: ${childName}.  Only ${
         Breadcrumb.displayName
-      } \
+        } \
         components may be nested within Breadcrumbs.`);
     }
   },

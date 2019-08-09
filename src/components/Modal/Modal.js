@@ -98,7 +98,7 @@ class Modal extends React.Component {
   static defaultProps = {
     title: null,
     onBlockerClicked: () => null,
-    className: null,
+    className: "scl-modal",
     id: null,
     actionContent: null,
     ActionContent: styles.ActionContent,

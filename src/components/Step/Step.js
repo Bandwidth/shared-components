@@ -39,6 +39,7 @@ export default class Step extends React.Component {
   };
 
   static defaultProps = {
+    className: "scl-step",
     complete: false,
     Container: styles.Container,
     Number: styles.Number,

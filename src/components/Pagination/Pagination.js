@@ -45,7 +45,7 @@ class Pagination extends React.Component {
   static defaultProps = {
     pageCount: 1,
     currentPage: 0,
-    className: null,
+    className: "scl-pagination",
     id: null,
     Container: styles.Container,
     Item: styles.Item,
@@ -82,8 +82,8 @@ class Pagination extends React.Component {
         <Icon name="back" />
       </this.props.Item>
     ) : (
-      <this.props.ItemPlaceholder />
-    );
+        <this.props.ItemPlaceholder />
+      );
 
   renderNext = () =>
     this.props.currentPage < this.props.pageCount - 1 ? (
@@ -94,8 +94,8 @@ class Pagination extends React.Component {
         <Icon name="forward" />
       </this.props.Item>
     ) : (
-      <this.props.ItemPlaceholder />
-    );
+        <this.props.ItemPlaceholder />
+      );
 
   renderItems = () => {
     const { pageCount, currentPage, Item } = this.props;

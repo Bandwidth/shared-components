@@ -23,7 +23,7 @@ ListItem.propTypes = {
 };
 
 ListItem.defaultProps = {
-  className: null,
+  className: "scl-list-item",
   id: null,
 };
 
