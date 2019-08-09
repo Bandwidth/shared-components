@@ -115,6 +115,7 @@ class Select extends React.PureComponent {
     defaultHighlightedIndex: 0,
     CurrentValue: styles.CurrentValue,
     Options: styles.Options,
+    autoComplete: false,
     inputProps: {},
   };
 

@@ -62,8 +62,8 @@ const Unsearchable = forwardRef(
         {...(disabled || loading
           ? {}
           : getToggleButtonProps({
-              ref,
-            }))}
+            ref,
+          }))}
       >
         <Input
           role="select"
