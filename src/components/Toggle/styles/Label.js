@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
-import icons from '../../Icon/icons';
+import {icons} from 'components/Icon';
 import Icon from '../../Icon';
 import Input from './Input';
 
