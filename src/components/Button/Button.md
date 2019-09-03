@@ -15,6 +15,10 @@ Size comparisons
   <Button.Small>Primary Small</Button.Small>
 </div>
 ```
+Disabled
+```javascript
+<Button disabled>Submit</Button>
+```
 
 ```javascript
 <Button.Secondary leftIcon="back">Secondary</Button.Secondary>

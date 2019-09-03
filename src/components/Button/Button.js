@@ -63,7 +63,7 @@ const Button = styled.button`
     color: ${get('colors.text.disabled')};
     border-color: ${get('colors.background.disabled')};
     cursor: default;
-    opacity: 0.5;
+    opacity: 1;
   }
 
   &::before, &::after {
