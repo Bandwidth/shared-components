@@ -3,6 +3,8 @@
   "version": "6.1.20",
   "description": "Shared Component Library for Bandwidth React Apps",
   "main": "./index.js",
+  "module": "dist/prod.esm.js",
+  "sideEffects": false,
   "scripts": {
     "test": "cross-env NODE_PATH=src jest --config jestConfig.json --coverage",
     "watch": "npm run rollup -- --watch",
