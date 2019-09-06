@@ -1,6 +1,6 @@
 {
   "name": "@bandwidth/shared-components",
-  "version": "6.1.20",
+  "version": "6.1.21",
   "description": "Shared Component Library for Bandwidth React Apps",
   "main": "./index.js",
   "module": "dist/prod.esm.js",
