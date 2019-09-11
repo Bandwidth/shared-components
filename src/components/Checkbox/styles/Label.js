@@ -9,7 +9,7 @@ const SMALL_SIZE = '20px';
 const SMALL_CHECK_SIZE = '1em';
 
 const CheckboxLabel = styled.label`
-  display: block;
+  display: inline-block;
   padding: 4px 0 5px calc(${SIZE} + 10px);
   min-height: ${SIZE};
   min-width: ${SIZE};

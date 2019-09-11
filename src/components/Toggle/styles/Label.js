@@ -6,7 +6,7 @@ export const SIZE = '30px';
 const TOGGLE_WIDTH = '58px';
 
 export default styled.label`
-  display: block;
+  display: inline-block;
   cursor: pointer;
   position: relative;
   user-select: none;
