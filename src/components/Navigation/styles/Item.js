@@ -57,7 +57,6 @@ const NavigationItem = styled.div.withConfig({ displayName: 'NavigationItem' })`
     &:before {background: ${get('colors.primary.default')}; }
   }
 
-  ${NavigationItemList}:not(:last-child) &,
   ${NavigationItemList.Small}:not(:last-child) & {
     padding-bottom: calc(${calcBottomOffset(1.5)} + 10px);
   }
