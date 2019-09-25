@@ -50,6 +50,7 @@ const Searchable = forwardRef(
     return (
       <Input
         visited={false}
+        autoComplete="off"
         {...getInputProps({
           placeholder,
           required,
@@ -62,7 +63,6 @@ const Searchable = forwardRef(
           onClick: openMenu,
           value: inputValue,
         })}
-        autoComplete="off"
         {...rest}
         inlineContent={
           <Controls disabled={disabled}>
