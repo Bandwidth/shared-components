@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import partition from 'lodash.partition';
 import throttle from 'lodash.throttle';
+import debounce from 'lodash.debounce';
 import pick from 'lodash.pick';
 import noop from 'lodash.noop';
 
@@ -112,42 +113,45 @@ class DragBox extends React.Component {
 
   // Checks the collisions with the draggable box against the children. The collision deltas are then used
   // to invoke callbacks that consumers can bind to.
-  checkChildrenBoxCollisions = () => {
+  checkChildrenBoxCollisions = debounce(() => {
     const {
       props: { onCollisionBegin, onCollisionEnd, onCollisionChange },
       state: { collisions },
     } = this;
     const collisionBox = this.calcRect();
+    if (!this.shouldDrawRect(collisionBox)) {
+      return;
+    }
     // Divide all clickable refs into two arrays based on whether they are colliding or not.
     const itemElements = this.dragElement.querySelectorAll(
       '[data-drag-box-key]',
     );
-    const [collidingNodes, notCollidingNodes] = partition(
-      itemElements,
+
+    const added = [];
+    const removed = [];
+    itemElements.forEach(
       node => {
         const childRect = node.getBoundingClientRect();
         // We are looking for intersections of the edges of the rectangle.
-        return (
+        const colliding = (
           this.checkBoxCollision(childRect, collisionBox) &&
           !this.checkBoxContains(childRect, collisionBox)
         );
+        const key = node.getAttribute('data-drag-box-key')
+        if (colliding !== collisions.has(key)) {
+          if (colliding) {
+            added.push(key);
+          } else {
+            removed.push(key);
+          }
+        }
       },
     );
 
-    const colliding = collidingNodes.map(node =>
-      node.getAttribute('data-drag-box-key'),
-    );
-    const notColliding = notCollidingNodes.map(node =>
-      node.getAttribute('data-drag-box-key'),
-    );
-
-    // Pull out elements that haven't changed their collision state.
-    const added = colliding.filter(key => !collisions.has(key));
-    const removed = notColliding.filter(key => collisions.has(key));
-
     //Update collisions set
-    added.forEach(i => collisions.add(i));
-    removed.forEach(i => collisions.delete(i));
+    const newCollisions = new Set(collisions);
+    added.forEach(i => newCollisions.add(i));
+    removed.forEach(i => newCollisions.delete(i));
 
     //Invoke callbacks if necessary
     if (added.length > 0) {
@@ -159,16 +163,18 @@ class DragBox extends React.Component {
     if (added.length > 0 || removed.length > 0) {
       onCollisionChange({ added, removed });
     }
-    this.setState({ collisions });
-  };
+
+    if (added.length > 0 || removed.length > 0)
+      this.setState(({ collisions: newCollisions }));
+  }, 16, { trailing: true });
 
   // Checks if b1 collides with b2
   // prettier-ignore
   checkBoxCollision = (b1, b2) =>
-    (b1.x < b2.x + b2.width) &&
-    (b1.x + b1.width > b2.x) &&
     (b1.y < b2.y + b2.height) &&
-    (b1.height + b1.y > b2.y);
+    (b1.height + b1.y > b2.y) &&
+    (b1.x < b2.x + b2.width) &&
+    (b1.x + b1.width > b2.x);
 
   // Checks if b1 contains b2
   // prettier-ignore
@@ -323,6 +329,7 @@ class DragBox extends React.Component {
         onCollisionBegin,
         onCollisionEnd,
         onMouseDown,
+        onMouseUp,
         ...rest
       },
     } = this;

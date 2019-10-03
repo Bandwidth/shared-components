@@ -87,7 +87,7 @@ class Selectable extends React.Component {
     });
   };
 
-  toggleItem = key => {
+  toggleItem = (key) => {
     const {
       state: { selected },
       selectItem,
