@@ -12,7 +12,7 @@ export class Provider extends React.PureComponent {
   state = {
     // whether the main content is on the left or right
     mainContentLocation: this.props.mainContentLocation || 'right',
-    // position of the action bar. Currently not configurable by the user.
+    // position of the action bar.
     actionBarLocation: this.props.actionBarLocation || 'right',
     /**
      *  whether an action bar is rendered anywhere in the layout.

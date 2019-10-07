@@ -9,23 +9,26 @@ import { Consumer } from '../Context';
  * the 'details' view. Main content can contain an Action Bar at any level
  * of nesting and it will work properly.
  */
-const MainContent = ({ children, Container, ...rest }) => (
-  <Consumer>
-    {layoutContext =>
-      layoutContext.renderElement(
-        'mainContent',
-        <Container
-          actionBarPresent={layoutContext.actionBarPresent}
-          secondaryContentPresent={layoutContext.secondaryContentPresent}
-          actionBarLocation={layoutContext.actionBarLocation}
-          mainContentLocation={layoutContext.mainContentLocation}
-          {...rest}
-        >
-          {children}
-        </Container>,
-      )
-    }
-  </Consumer>
+const MainContent = React.forwardRef(
+  ({ children, Container, ...rest }, ref) => (
+    <Consumer>
+      {layoutContext =>
+        layoutContext.renderElement(
+          'mainContent',
+          <Container
+            actionBarPresent={layoutContext.actionBarPresent}
+            secondaryContentPresent={layoutContext.secondaryContentPresent}
+            actionBarLocation={layoutContext.actionBarLocation}
+            mainContentLocation={layoutContext.mainContentLocation}
+            ref={ref}
+            {...rest}
+          >
+            {children}
+          </Container>,
+        )
+      }
+    </Consumer>
+  ),
 );
 
 MainContent.propTypes = {

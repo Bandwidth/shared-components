@@ -16,6 +16,11 @@ export default class SplitContentLayout extends React.PureComponent {
      */
     mainContentLocation: PropTypes.oneOf(['left', 'right']),
     /**
+     * Manually specify which side the action bar should attach to. By default,
+     * it will be on the right, regardless of main content location.
+     */
+    actionBarLocation: PropTypes.oneOf(['left', 'right']),
+    /**
      * Controls the color of the content background
      */
     gutter: PropTypes.bool,
@@ -28,6 +33,7 @@ export default class SplitContentLayout extends React.PureComponent {
 
   static defaultProps = {
     mainContentLocation: 'right',
+    actionBarLocation: null,
     gutter: false,
     RootLayout: styles.RootLayout,
   };
@@ -38,13 +44,17 @@ export default class SplitContentLayout extends React.PureComponent {
     const {
       children,
       mainContentLocation,
+      actionBarLocation,
       gutter,
       RootLayout,
       ...rest
     } = this.props;
 
     return (
-      <Provider mainContentLocation={mainContentLocation}>
+      <Provider
+        mainContentLocation={mainContentLocation}
+        actionBarLocation={actionBarLocation}
+      >
         {(rootElementRef, layerElementRef) => (
           <RootLayout
             ref={rootElementRef}

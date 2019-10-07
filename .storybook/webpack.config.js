@@ -1,9 +1,9 @@
 const path = require('path');
 
-module.exports = (baseConfig, env, defaultConfig) => {
+module.exports = ({ config }) => {
   // Extend defaultConfig as you need.
 
-  defaultConfig.resolve.modules.push(path.resolve(__dirname, '..', 'src'));
+  config.resolve.modules.push(path.resolve(__dirname, '..', 'src'));
 
-  return defaultConfig;
+  return config;
 };

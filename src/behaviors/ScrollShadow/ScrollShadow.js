@@ -47,6 +47,10 @@ export default class ScrollShadow extends React.Component {
      * Can be useful for debugging if the shadows don't seem to work correctly.
      */
     debugShowSentinels: PropTypes.bool,
+    /**
+     * Attach a ref to the outer element
+     */
+    innerRef: PropTypes.any,
   };
 
   static defaultProps = {
@@ -214,6 +218,7 @@ export default class ScrollShadow extends React.Component {
       outer,
       horizontal,
       ShadowOverlay,
+      innerRef,
       ...extraProps
     } = this.props;
 
@@ -240,6 +245,7 @@ export default class ScrollShadow extends React.Component {
       <Container
         horizontal={horizontal}
         className="scroll-shadow-container"
+        ref={innerRef}
         {...extraProps}
       >
         <ScrollContainer

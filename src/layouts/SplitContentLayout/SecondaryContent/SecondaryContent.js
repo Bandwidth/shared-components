@@ -10,36 +10,33 @@ import PresenceNotifier from './PresenceNotifier';
  * it's either an item list or a small single-column form.
  * Secondary content can contain an Action Bar if you want it to.
  */
-const SecondaryContent = ({
-  children,
-  overlapBorder,
-  Container,
-  ShadowContainer,
-  ...rest
-}) => (
-  <Consumer>
-    {layoutContext =>
-      layoutContext.renderElement(
-        'secondaryContent',
-        <ScrollShadow
-          Container={ShadowContainer}
-          ScrollContainer={Container}
-          actionBarPresent={layoutContext.actionBarPresent}
-          actionBarLocation={layoutContext.actionBarLocation}
-          mainContentLocation={layoutContext.mainContentLocation}
-          overlapBorder={overlapBorder}
-          {...rest}
-        >
-          <PresenceNotifier
-            updateSecondaryContentPresence={
-              layoutContext.updateSecondaryContentPresence
-            }
-          />
-          {children}
-        </ScrollShadow>,
-      )
-    }
-  </Consumer>
+const SecondaryContent = React.forwardRef(
+  ({ children, overlapBorder, Container, ShadowContainer, ...rest }, ref) => (
+    <Consumer>
+      {layoutContext =>
+        layoutContext.renderElement(
+          'secondaryContent',
+          <ScrollShadow
+            Container={ShadowContainer}
+            ScrollContainer={Container}
+            actionBarPresent={layoutContext.actionBarPresent}
+            actionBarLocation={layoutContext.actionBarLocation}
+            mainContentLocation={layoutContext.mainContentLocation}
+            overlapBorder={overlapBorder}
+            ref={ref}
+            {...rest}
+          >
+            <PresenceNotifier
+              updateSecondaryContentPresence={
+                layoutContext.updateSecondaryContentPresence
+              }
+            />
+            {children}
+          </ScrollShadow>,
+        )
+      }
+    </Consumer>
+  ),
 );
 
 SecondaryContent.propTypes = {

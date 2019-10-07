@@ -46,6 +46,10 @@ export default class ActionBar extends React.Component {
      * A component to override the one that renders the expanding container section
      */
     ExpandingContainer: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    /**
+     * Provide a ref to the root element
+     */
+    innerRef: PropTypes.any,
   };
 
   static defaultProps = {
@@ -103,6 +107,7 @@ export default class ActionBar extends React.Component {
         BottomContent,
         ControlArea,
         ExpandingContainer,
+        innerRef,
       },
       toggleExpanded,
     } = this;
@@ -119,6 +124,7 @@ export default class ActionBar extends React.Component {
                 mainContentLocation={layoutState.mainContentLocation}
                 secondaryContentPresent={layoutState.secondaryContentPresent}
                 actionBarLocation={layoutState.actionBarLocation}
+                ref={innerRef}
               >
                 <PresenceNotifier
                   updateActionBarPresence={layoutState.updateActionBarPresence}

@@ -9,11 +9,12 @@ import { createMemoryHistory } from 'history';
 
 const history = createMemoryHistory('/');
 
+// pull in provider, see https://github.com/storybooks/storybook/issues/1844
+addDecorator(getStory => <BandwidthProvider>{getStory()}</BandwidthProvider>);
+addDecorator(getStory => <Router history={history}>{getStory()}</Router>);
+
 function loadStories() {
-  // pull in provider, see https://github.com/storybooks/storybook/issues/1844
-  addDecorator(getStory => <BandwidthProvider>{getStory()}</BandwidthProvider>);
-  addDecorator(getStory => <Router history={history}>{getStory()}</Router>);
   require('../stories/index.js');
 }
 
-configure(loadStories, module);
+configure(require.context('../stories', false, /index\.js/), module);
