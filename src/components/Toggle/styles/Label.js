@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import get from 'extensions/themeGet';
+import {icons} from 'components/Icon';
 import Input from './Input';
 
 export const SIZE = '30px';
@@ -21,7 +22,6 @@ export default styled.label`
   font-weight: 300;
 
   &::before {
-    content: '';
     box-sizing: border-box;
     border-width: ${get('thicknesses.wide')};
     border-style: solid;
@@ -34,6 +34,11 @@ export default styled.label`
     top: 50%;
     transform: translateY(-50%);
     transition: all 0.2s ease;
+    content: '${icons('delete')}';
+    font-family: ${get('fonts.icon')};
+    color: ${get('colors.primary.dark')};
+    padding-left: 2.25em;
+    padding-top: .25em;
   }
 
 
@@ -79,6 +84,11 @@ export default styled.label`
     &::before {
       background: ${get('colors.primary.dark')};
       border-color: ${get('colors.primary.dark')};
+    content: '${icons('checkmark')}';
+    font-family: ${get('fonts.icon')};
+    color: ${get('colors.background.default')};
+    padding-left: .65em;
+    padding-top: .25em;
     }
 
     &::after {
@@ -96,10 +106,12 @@ export default styled.label`
     &::after {
       border-color: ${get('colors.border.disabled')};
       background: ${get('colors.background.disabled')};
+      color: ${get('colors.border.disabled')};
     }
   }
 
   ${Input}:checked:disabled + &::before {
     background: ${get('colors.background.disabledSelected')};
+    color: ${get('colors.background.disabled')};
   }
 `;
