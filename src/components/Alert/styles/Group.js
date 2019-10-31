@@ -29,7 +29,7 @@ AlertGroup.Global = styled(AlertGroup)`
   padding-top: ${get('spacing.large')};
   align-content: center;
   pointer-events: none;
-  z-index: 5000;
+  z-index: 9999999;
 
   & > ${AlertBorder}, & > ${AlertBorder.Small} {
     pointer-events: initial;
