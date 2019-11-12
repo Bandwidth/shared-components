@@ -1,6 +1,7 @@
 export { default as Accordion } from './Accordion';
 export { default as Alert } from './Alert';
 export { default as BandwidthProvider } from './BandwidthProvider';
+export { default as Badge } from './Badge';
 export { default as Breadcrumb } from './Breadcrumb';
 export { default as Button } from './Button';
 export { default as Callout } from './Callout';
