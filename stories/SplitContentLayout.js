@@ -11,6 +11,7 @@ import { H2, Button, Link } from 'components';
 
 import SplitContentLayout from 'layouts/SplitContentLayout';
 import RootLayout from 'layouts/RootLayout';
+import { useState } from '@storybook/addons';
 
 storiesOf('SplitContentLayout', module)
   .add('with component content', () => (
@@ -226,4 +227,34 @@ storiesOf('SplitContentLayout', module)
         </SplitContentLayout.MainContent>
       </SplitContentLayout>
     </RootLayout>
-  ));
+  ))
+  .add('with popup', () => {
+    const [show, setShow] = useState();
+
+    return (
+      <RootLayout>
+        <Navigation />
+        <SplitContentLayout gutter>
+          <SplitContentLayout.SecondaryContent overlapBorder>
+            <H2 spacing={{ horizontal: 'lg', vertical: 'lg' }}>List</H2>
+            <SidebarList count={3} activeIndex={1} />
+          </SplitContentLayout.SecondaryContent>
+          <SplitContentLayout.MainContent>
+            <H2>Content</H2>
+            <SplitContentLayout.MainContent.Box>
+              <Button onClick={() => setShow(!show)}>Show popup</Button>
+            </SplitContentLayout.MainContent.Box>
+            <SplitContentLayout.Popup
+              expanded={show}
+              onClose={() => setShow(false)}
+            >
+              <Form />
+              <Form />
+              <Form />
+              <Form />
+            </SplitContentLayout.Popup>
+          </SplitContentLayout.MainContent>
+        </SplitContentLayout>
+      </RootLayout>
+    );
+  });

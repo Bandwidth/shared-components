@@ -27,17 +27,29 @@ export default class Popup extends React.Component {
      * A component to render the close button of the popup
      */
     CloseButton: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    /**
+     * A component to render the scrolling content
+     */
+    Content: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   };
 
   static defaultProps = {
     Container: styles.Container,
     CloseButton: styles.CloseButton,
+    Content: styles.Content,
   };
 
   static styles = styles;
 
   render() {
-    const { expanded, onClose, children, Container, CloseButton } = this.props;
+    const {
+      expanded,
+      onClose,
+      children,
+      Container,
+      Content,
+      CloseButton,
+    } = this.props;
 
     return (
       <Consumer>
@@ -45,8 +57,8 @@ export default class Popup extends React.Component {
           layoutState.renderElement(
             'popup',
             <Container expanded={expanded}>
-              <CloseButton onClick={onClose} />
-              {children}
+              <CloseButton onClick={onClose} visible={expanded} />
+              <Content>{children}</Content>
             </Container>,
           )
         }

@@ -19,19 +19,18 @@ export default styled.div`
   left: 0;
   right: 0;
   transition: ${TRANSITION_MS / 1000}s ease all;
-  top: ${props => (props.expanded ? '0%' : '100%')};
+  top: ${props => (props.expanded ? '5%' : '100%')};
   height: 100%;
   background: ${themeGet('colors.background.default')};
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  overflow-y: auto;
-  overflow-y: overlay;
-  animation: ${show} 0.2s;
-  padding: ${themeGet('spacing.large')};
   box-shadow: 0 0 0 5000px
     ${props =>
       props.expanded
         ? themeGet('colors.shadow.default')(props)
         : 'transparent'};
   z-index: 30;
+  display: flex;
+  flex-direction: column;
+  padding: ${themeGet('spacing.large')} 0;
 `;
