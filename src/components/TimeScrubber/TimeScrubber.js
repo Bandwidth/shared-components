@@ -39,6 +39,10 @@ class TimeScrubber extends React.Component {
      */
     disabled: PropTypes.bool,
     /**
+     * Determines whether the component should enforce rounding
+     */
+    shouldEnforceRounding: PropTypes.bool,
+    /**
      * Adjusts the spacing between tickmarks. Include the width
      * of the mark itself (1px) in the provided spacing total.
      */
@@ -73,6 +77,7 @@ class TimeScrubber extends React.Component {
       .minute(0)
       .second(0),
     disabled: false,
+    shouldEnforceRounding: true,
     allowedRange: [0, 23.75],
     Container: styles.Container,
     NudgeButton: styles.NudgeButton,
@@ -136,8 +141,8 @@ class TimeScrubber extends React.Component {
    * to ensure it is always rounded.
    */
   enforceTimeRounding = () => {
-    const { value, onChange } = this.props;
-    if (onChange && value.minutes() % 15 !== 0) {
+    const { value, onChange, shouldEnforceRounding } = this.props;
+    if (shouldEnforceRounding && onChange && value.minutes() % 15 !== 0) {
       const rounded = value
         .clone()
         .minutes(roundMinutes(value.minutes()))
@@ -182,6 +187,7 @@ class TimeScrubber extends React.Component {
         .clone()
         .hours(hours)
         .minutes(roundedMinutes)
+        .seconds(0)
     );
   };
 
