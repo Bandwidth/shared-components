@@ -9,7 +9,7 @@ We hope the new changes lead to a more seamless development experience and make 
 
 We will still be supporting V5 for a little while as we make the migration for projects at Bandwidth. You can still find the V5 docs [here](http://dev.bandwidth.com/shared-components/v5).
 
-## [Documentation](http://dev.bandwidth.com/shared-components)
+## [Documentation](https://bandwidth.github.io/shared-components/)
 
 # How to use this library
 
