@@ -1,13 +1,8 @@
-# bandwidth-shared-components
+# Bandwidth Shared Component Library
 Shared Component Library for Bandwidth React Apps
 
-## V6 Is Out!
 
-SCL V6 improves greatly on overall user experience, providing more consistency across components and more reliability for some complex experiences like pop-overs and Select.
-
-We hope the new changes lead to a more seamless development experience and make the migration worth it! [Read the full changelog](https://github.com/Bandwidth/shared-components/blob/master/CHANGELOG.md)
-
-We will still be supporting V5 for a little while as we make the migration for projects at Bandwidth. You can still find the V5 docs [here](http://dev.bandwidth.com/shared-components/v5).
+# SCL is now deprecated in favor of [Foundry](https://github.com/Bandwidth/foundry).
 
 ## [Documentation](https://bandwidth.github.io/shared-components/)
 
